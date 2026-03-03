@@ -4,7 +4,7 @@
     let index;
 
     function initFlexSearch() {
-        fetch('/index.json')
+        fetch(new URL('index.json', document.baseURI).toString())
             .then(response => response.json())
             .then(data => {
                 index = new FlexSearch.Document({

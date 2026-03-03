@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="mb-16 flex flex-col sm:flex-row items-center gap-10 max-w-4xl mx-auto px-6">
     <div class="flex-shrink-0">
-        <img src="/jaynes_sketch.png" alt="Sketch of E.T. Jaynes" class="w-40 h-40 rounded-full object-cover shadow-lg border-2 border-gray-100">
+        <img src="{{ "jaynes_sketch.png" | relURL }}" alt="Sketch of E.T. Jaynes" class="w-40 h-40 rounded-full object-cover shadow-lg border-2 border-gray-100">
     </div>
     <div class="text-center sm:text-left">
         <p class="text-2xl leading-snug font-medium text-gray-800">
@@ -57,11 +57,11 @@
 
 <!-- Download All Links (Moved to bottom and made smaller) -->
 <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-center gap-4 text-gray-500">
-    <a href="/pdfs/raw.zip" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+    <a href="{{ "pdfs/raw.zip" | relURL }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
         <i data-lucide="package" class="w-4 h-4"></i>
         Download All Raw PDFs
     </a>
-    <a href="/pdfs/ocr.zip" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+    <a href="{{ "pdfs/ocr.zip" | relURL }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
         <i data-lucide="file-text" class="w-4 h-4"></i>
         Download All Re-Typeset PDFs
     </a>

@@ -4,7 +4,7 @@
 {{ $MOCK_REPO_URL := "https://github.com/your-username/jaynes-archive" }}
 
 <!-- Back to Home Link -->
-<a href="{{ .Site.BaseURL }}" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6 group">
+<a href="{{ "/" | relURL }}" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6 group">
     <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
     Back to Archive Home
 </a>
@@ -48,11 +48,11 @@
 <div class="buttons-container mb-10">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Downloads -->
-        <a href="{{ .Site.BaseURL }}pdfs/raw/{{ .File.BaseFileName }}.pdf" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
+        <a href="{{ printf "pdfs/raw/%s.pdf" .File.BaseFileName | relURL }}" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
             <i data-lucide="file-text" class="w-4 h-4"></i>
             Open Raw PDF
         </a>
-        <a href="{{ .Site.BaseURL }}pdfs/ocr/{{ .File.BaseFileName }}.pdf" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
+        <a href="{{ printf "pdfs/ocr/%s.pdf" .File.BaseFileName | relURL }}" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
             <i data-lucide="file-text" class="w-4 h-4"></i>
             Open OCR'd PDF
         </a>
