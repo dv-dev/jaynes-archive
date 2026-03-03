@@ -1,0 +1,127 @@
+{
+  "clusters": [
+    {
+      "title": "Predictive Statistical Mechanics",
+      "description": "Jaynes' inference-based view of statistical physics and its generalizations.",
+      "papers": [
+        "predictive.md",
+        "foundations.of.prob.st.md",
+        "ccarnot.md",
+        "entropy.concentration.md",
+        "gibbs.paradox.md",
+        "gibbs.vs.boltzmann.md",
+        "irreversible.stat.mac.md",
+        "min.ent.prod.md",
+        "second.law.md",
+        "stand.on.entropy.md",
+        "macroscopic.prediction.md",
+        "brandeis.md",
+        "theory.1.md",
+        "theory.2.md",
+        "cinfscat.md"
+      ]
+    },
+    {
+      "title": "Foundations of Inference",
+      "description": "Core works on Bayesian methods, invariance group priors, and the logic of scientific inference.",
+      "papers": [
+        "ambiguity.md",
+        "applications.md",
+        "bayes.again.md",
+        "bayesian.methods.md",
+        "confidence.md",
+        "general.background.md",
+        "highly.informative.priors.md",
+        "inadequacy.md",
+        "margin.md",
+        "prior.information.md",
+        "prior.md",
+        "prob.as.logic.md",
+        "random.md",
+        "commentary.on.los.md",
+        "reply.to.dawid.md",
+        "review.extended.prob.md",
+        "unique.dicipherability.md",
+        "relationship.md",
+        "groups.md",
+        "well.md",
+        "what.question.md",
+        "cmystery.md",
+        "cmonkeys.md"
+      ]
+    },
+    {
+      "title": "Practical Applications",
+      "description": "Practical applications of Jaynes' methods in various fields like spectral analysis, economics, and resource management.",
+      "papers": [
+        "rational.md",
+        "mine.detection.md",
+        "cchirp.md",
+        "entropy.in.economics.md",
+        "new.eng.app.md",
+        "parallel.batteries.md",
+        "cplanets.md",
+        "craddis.md",
+        "leapz.md",
+        "muscle.md",
+        "search.md"
+      ]
+    },
+    {
+      "title": "Topics in Physics",
+      "description": "Papers covering diverse topics in physics, including electrodynamics, quantum mechanics, and solid-state physics.",
+      "papers": [
+        "AJP00180.md",
+        "violation.md",
+        "einstein.md",
+        "poincare.recursion.md",
+        "stat.mech.1.md",
+        "stat.mech.2.md",
+        "stat.mech.5.md",
+        "comparison.qm.scr.md",
+        "concept.and.measurement.md",
+        "is.qed.necessary.md",
+        "prob.in.qm.md",
+        "quantum.beats.md",
+        "radiative.effects.md",
+        "scattering.by.free.md",
+        "realativistic.clock.md",
+        "ghost.modes.md",
+        "electrodynamics.today.md",
+        "gyromagnetic.effects.md",
+        "kramers-kronig.md",
+        "maser.theory.md",
+        "matrix.treatment.md",
+        "matrix.treatment.varian.md",
+        "microwaves.md",
+        "nonlinear.dielectric.md",
+        "observation.paramagnetic.res.md",
+        "parametric.amplifier.md",
+        "propagation.in.waveguides.md",
+        "resonant.modes.md",
+        "survey.nct.md",
+        "reply.leiter.md",
+        "optical.amplifier.md",
+        "displacement.md",
+        "long.term.sol.md",
+        "general.relationship.md",
+        "circuit.analysis.md"
+      ]
+    },
+    {
+      "title": "Commentary and Reflections",
+      "description": "Personal reminiscences, book reviews, and general commentary on science and society.",
+      "papers": [
+        "natural.resources.md",
+        "brain.md",
+        "comment.on.neisser.md",
+        "cgap.md",
+        "review.by.atkins.md",
+        "disturbing.memory.md",
+        "history.md",
+        "present.status.md",
+        "backward.look.md"
+      ]
+    }
+  ]
+}

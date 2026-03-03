@@ -1,0 +1,80 @@
+
+{{ define "main" }}
+
+{{ $MOCK_REPO_URL := "https://github.com/your-username/jaynes-archive" }}
+
+<!-- Back to Home Link -->
+<a href="{{ .Site.BaseURL }}" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6 group">
+    <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
+    Back to Archive Home
+</a>
+
+<div class="content-container">
+    <!-- Paper Header -->
+    <div class="mb-8 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-3">{{ .Title }}</h1>
+        {{ with .Params.author }}
+        <p class="text-xl text-gray-700 mb-2">
+            {{ if reflect.IsSlice . }}
+                {{ delimit . ", " }}
+            {{ else }}
+                {{ . }}
+            {{ end }}
+        </p>
+        {{ end }}
+        {{ if .Params.year }}
+        <p class="text-xl text-gray-600">{{ .Params.year }}</p>
+        {{ else if not (in (.Date.Format "2006") "0001") }}
+        <p class="text-xl text-gray-600">{{ .Date.Format "2006" }}</p>
+        {{ end }}
+        {{ with .Params.keywords }}
+        <div class="flex flex-wrap gap-2 mt-4 justify-center">
+            {{ range . }}
+            <span class="text-xs font-medium bg-gray-200 text-gray-800 px-2.5 py-0.5 rounded-full">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<!-- Abstract (Outside main container for independent width control) -->
+{{ with .Params.abstract }}
+<div class="mb-8 abstract-container">
+    <p class="indented-abstract">{{ . | markdownify }}</p>
+</div>
+{{ end }}
+
+<!-- Action Buttons Grid (Matches abstract width) -->
+<div class="buttons-container mb-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Downloads -->
+        <a href="{{ .Site.BaseURL }}pdfs/raw/{{ .File.BaseFileName }}.pdf" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            Open Raw PDF
+        </a>
+        <a href="{{ .Site.BaseURL }}pdfs/ocr/{{ .File.BaseFileName }}.pdf" target="_blank" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors text-xs">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            Open OCR'd PDF
+        </a>
+        
+        <!-- GitHub Links -->
+        <a href="{{ $MOCK_REPO_URL }}/issues/new?title=Issue with paper: {{ .Title | urlize }}" target="_blank" rel="noopener noreferrer" class="relative group flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium transition-colors text-xs">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            Raise GitHub Issue
+            <span class="absolute -top-2 -right-2 p-1 bg-gray-300 rounded-full group-hover:bg-gray-400" title="Report a typesetting error or OCR problem. This will open a new issue on GitHub.">
+                <i data-lucide="help-circle" class="w-4 h-4 text-gray-600"></i>
+            </span>
+        </a>
+        <a href="{{ $MOCK_REPO_URL }}/discussions" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 px-3 py-1 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium transition-colors text-xs">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            View Discussion
+        </a>
+    </div>
+</div>
+
+<!-- Paper Content -->
+<article class="paper-content">
+    {{ .Content | safeHTML }}
+</article>
+
+{{ end }}

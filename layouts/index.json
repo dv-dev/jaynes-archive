@@ -1,0 +1,9 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Section" "papers" -}}
+{{- $year := .Params.year -}}
+{{- if not $year -}}
+  {{- $year = .Date.Format "2006" -}}
+{{- end -}}
+{{- $.Scratch.Add "index" (dict "title" .Title "permalink" .RelPermalink "content" .Plain "year" $year) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

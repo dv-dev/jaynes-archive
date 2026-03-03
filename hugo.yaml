@@ -1,0 +1,23 @@
+
+baseURL: 'http://localhost:1313/'
+languageCode: 'en-us'
+title: 'The E.T. Jaynes Archive'
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['$$', '$$']
+          inline:
+            - ['$', '$']
+  katex:
+    enable: true
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON

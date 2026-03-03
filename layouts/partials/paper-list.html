@@ -1,0 +1,24 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {{ range . }}
+  {{ $summary := index site.Data.summaries .File.BaseFileName }}
+  <a href="{{ .RelPermalink }}" class="relative block p-5 rounded-xl bg-white border border-gray-100 hover:border-blue-500 hover:shadow-md transition-all duration-200 group">
+    {{ if or (eq .File.BaseFileName "irreversible.stat.mac") (hasPrefix .File.BaseFileName "stat.mech.") }}
+    <span class="absolute top-2 right-2 px-2 py-1 text-[10px] font-bold text-white bg-red-800/70 rounded uppercase tracking-wider">
+      UNFINISHED TEXTBOOK
+    </span>
+    {{ end }}
+
+    <h4 class="font-medium text-gray-900 group-hover:text-blue-700 transition-colors {{ if or (eq .File.BaseFileName "irreversible.stat.mac") (hasPrefix .File.BaseFileName "stat.mech.") }}pr-16{{ end }}">{{ .Title }}</h4>
+    
+    {{ if $summary }}
+      <p class="text-xs text-gray-500 mt-2 leading-relaxed line-clamp-3">{{ $summary }}</p>
+    {{ end }}
+
+    {{ if .Params.year }}
+      <p class="text-xs text-gray-400 mt-2 font-mono">{{ .Params.year }}</p>
+    {{ else if .Date }}
+      <p class="text-xs text-gray-400 mt-2 font-mono">{{ .Date.Format "2006" }}</p>
+    {{ end }}
+  </a>
+  {{ end }}
+</div>

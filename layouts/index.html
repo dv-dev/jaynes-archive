@@ -1,0 +1,70 @@
+{{ define "main" }}
+<div class="mb-16 flex flex-col sm:flex-row items-center gap-10 max-w-4xl mx-auto px-6">
+    <div class="flex-shrink-0">
+        <img src="/jaynes_sketch.png" alt="Sketch of E.T. Jaynes" class="w-40 h-40 rounded-full object-cover shadow-lg border-2 border-gray-100">
+    </div>
+    <div class="text-center sm:text-left">
+        <p class="text-2xl leading-snug font-medium text-gray-800">
+            An organized collection of papers by Edwin Thompson Jaynes, re-typeset for modern readability and search.
+        </p>
+    </div>
+</div>
+
+<!-- Paper Clusters -->
+<div id="cluster-container" class="space-y-6">
+    {{ range .Site.Data.clusters.clusters }}
+        {{ $icon := "folder" }}
+        {{ if eq .title "Predictive Statistical Mechanics" }}{{ $icon = "share-2" }}{{ end }}
+        {{ if eq .title "Foundations of Inference" }}{{ $icon = "brain" }}{{ end }}
+        {{ if eq .title "Practical Applications" }}{{ $icon = "wrench" }}{{ end }}
+        {{ if eq .title "Topics in Physics" }}{{ $icon = "zap" }}{{ end }}
+        {{ if eq .title "Commentary and Reflections" }}{{ $icon = "message-circle" }}{{ end }}
+
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden accordion-item">
+            <!-- Accordion Header -->
+            <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left focus:outline-none hover:bg-gray-50 transition-colors">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 text-gray-700 mt-1">
+                        <i data-lucide="{{ $icon }}" class="w-6 h-6 stroke-2"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900 transition-colors">{{ .title }}</h2>
+                        <p class="text-gray-500 mt-1 text-sm leading-relaxed">{{ .description }}</p>
+                    </div>
+                </div>
+                <div class="ml-4 flex-shrink-0">
+                     <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 accordion-icon transition-colors"></i>
+                </div>
+            </button>
+            <!-- Accordion Content -->
+            <div class="accordion-content bg-gray-50/50">
+                <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                    {{ $pages := slice }}
+                    {{ range .papers }}
+                        {{ $path := printf "papers/%s" (replace . ".md" "") }}
+                        {{ with $.Site.GetPage $path }}
+                            {{ $pages = $pages | append . }}
+                        {{ end }}
+                    {{ end }}
+                    {{ $pages_by_name := sort $pages "File.ContentBaseName" "asc" }}
+                    {{ $sorted_pages := sort $pages_by_name "Params.year" "asc" }}
+                    {{ partial "paper-list.html" $sorted_pages }}
+                </div>
+            </div>
+        </div>
+    {{ end }}
+</div>
+
+<!-- Download All Links (Moved to bottom and made smaller) -->
+<div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-center gap-4 text-gray-500">
+    <a href="/pdfs/raw.zip" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+        <i data-lucide="package" class="w-4 h-4"></i>
+        Download All Raw PDFs
+    </a>
+    <a href="/pdfs/ocr.zip" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+        <i data-lucide="file-text" class="w-4 h-4"></i>
+        Download All Re-Typeset PDFs
+    </a>
+</div>
+
+{{ end }}
