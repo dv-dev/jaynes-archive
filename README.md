@@ -29,3 +29,14 @@ Workbench Python deps:
 Recommended:
 - Use repo name `<new-username>.github.io` for root hosting.
 - If you use another repo name, the workflow already sets Hugo `baseURL` correctly for project-path hosting.
+
+## Deploy on Netlify
+- This repo includes [netlify.toml](/home/dave/Projects/jaynes-archive/netlify.toml).
+- Netlify should auto-detect:
+  - Build command: `hugo --gc --minify`
+  - Publish directory: `public`
+
+If you still see Netlify "Page not found", check:
+1. Site settings -> Build & deploy -> Publish directory is exactly `public`.
+2. Deploy log shows Hugo build succeeded (not skipped/failed).
+3. The deployed branch is the one containing this repo content (`master` or `main`).
