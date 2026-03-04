@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/cplanets/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/cplanets.html
+source_url: http://127.0.0.1:49459/papers/cplanets/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/cplanets.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cplanets.pdf
-duration_sec: 0.686
+duration_sec: 0.688
 
 === STDOUT ===
 

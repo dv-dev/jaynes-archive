@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/poincare.recursion/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/poincare.recursion.html
+source_url: http://127.0.0.1:49459/papers/poincare.recursion/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/poincare.recursion.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/poincare.recursion.pdf
-duration_sec: 0.622
+duration_sec: 0.71
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/new.eng.app/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/new.eng.app.html
+source_url: http://127.0.0.1:49459/papers/new.eng.app/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/new.eng.app.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/new.eng.app.pdf
-duration_sec: 0.979
+duration_sec: 1.143
 
 === STDOUT ===
 

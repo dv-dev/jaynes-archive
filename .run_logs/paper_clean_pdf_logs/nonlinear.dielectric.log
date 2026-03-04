@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/nonlinear.dielectric/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/nonlinear.dielectric.html
+source_url: http://127.0.0.1:49459/papers/nonlinear.dielectric/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/nonlinear.dielectric.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/nonlinear.dielectric.pdf
-duration_sec: 0.596
+duration_sec: 0.706
 
 === STDOUT ===
 

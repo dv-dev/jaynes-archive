@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/cgap/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/cgap.html
+source_url: http://127.0.0.1:49459/papers/cgap/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/cgap.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cgap.pdf
-duration_sec: 0.479
+duration_sec: 0.455
 
 === STDOUT ===
 

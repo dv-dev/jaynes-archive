@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/comparison.qm.scr/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/comparison.qm.scr.html
+source_url: http://127.0.0.1:49459/papers/comparison.qm.scr/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/comparison.qm.scr.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/comparison.qm.scr.pdf
-duration_sec: 1.643
+duration_sec: 1.565
 
 === STDOUT ===
 

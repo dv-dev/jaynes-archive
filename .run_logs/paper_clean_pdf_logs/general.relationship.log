@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/general.relationship/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/general.relationship.html
+source_url: http://127.0.0.1:49459/papers/general.relationship/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/general.relationship.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.relationship.pdf
-duration_sec: 0.573
+duration_sec: 0.596
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/review.extended.prob/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/review.extended.prob.html
+source_url: http://127.0.0.1:49459/papers/review.extended.prob/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/review.extended.prob.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/review.extended.prob.pdf
-duration_sec: 1.645
+duration_sec: 1.793
 
 === STDOUT ===
 

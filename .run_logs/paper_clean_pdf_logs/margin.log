@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/margin/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/margin.html
+source_url: http://127.0.0.1:49459/papers/margin/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/margin.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/margin.pdf
-duration_sec: 1.482
+duration_sec: 1.563
 
 === STDOUT ===
 

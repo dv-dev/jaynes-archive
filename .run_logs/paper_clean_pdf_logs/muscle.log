@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:47399/papers/muscle/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/muscle.html
+source_url: http://127.0.0.1:49459/papers/muscle/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/muscle.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/muscle.pdf
-duration_sec: 0.556
+duration_sec: 0.497
 
 === STDOUT ===
 
 
 === STDERR ===
-167074 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/muscle.pdf
+153051 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/muscle.pdf
 

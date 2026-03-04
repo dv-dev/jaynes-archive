@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/propagation.in.waveguides/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/propagation.in.waveguides.html
+source_url: http://127.0.0.1:49459/papers/propagation.in.waveguides/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/propagation.in.waveguides.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/propagation.in.waveguides.pdf
-duration_sec: 0.655
+duration_sec: 0.753
 
 === STDOUT ===
 

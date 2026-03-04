@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/comment.on.neisser/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/comment.on.neisser.html
+source_url: http://127.0.0.1:49459/papers/comment.on.neisser/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/comment.on.neisser.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/comment.on.neisser.pdf
-duration_sec: 0.44
+duration_sec: 0.458
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/bayes.again/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/bayes.again.html
+source_url: http://127.0.0.1:49459/papers/bayes.again/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/bayes.again.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayes.again.pdf
-duration_sec: 0.581
+duration_sec: 0.598
 
 === STDOUT ===
 

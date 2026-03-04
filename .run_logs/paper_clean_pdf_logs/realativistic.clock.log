@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/realativistic.clock/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/realativistic.clock.html
+source_url: http://127.0.0.1:49459/papers/realativistic.clock/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/realativistic.clock.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/realativistic.clock.pdf
-duration_sec: 0.488
+duration_sec: 0.593
 
 === STDOUT ===
 

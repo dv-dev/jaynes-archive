@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/mine.detection/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/mine.detection.html
+source_url: http://127.0.0.1:49459/papers/mine.detection/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/mine.detection.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/mine.detection.pdf
-duration_sec: 1.261
+duration_sec: 1.45
 
 === STDOUT ===
 

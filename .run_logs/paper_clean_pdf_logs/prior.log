@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/prior/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/prior.html
+source_url: http://127.0.0.1:49459/papers/prior/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/prior.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/prior.pdf
-duration_sec: 0.905
+duration_sec: 0.985
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/long.term.sol/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/long.term.sol.html
+source_url: http://127.0.0.1:49459/papers/long.term.sol/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/long.term.sol.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/long.term.sol.pdf
-duration_sec: 1.028
+duration_sec: 1.189
 
 === STDOUT ===
 

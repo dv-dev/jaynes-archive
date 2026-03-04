@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/stat.mech.2/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/stat.mech.2.html
+source_url: http://127.0.0.1:49459/papers/stat.mech.2/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/stat.mech.2.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/stat.mech.2.pdf
-duration_sec: 0.755
+duration_sec: 0.89
 
 === STDOUT ===
 

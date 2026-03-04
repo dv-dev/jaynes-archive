@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:47399/papers/thermal.effency/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/thermal.effency.html
+source_url: http://127.0.0.1:49459/papers/thermal.effency/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/thermal.effency.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/thermal.effency.pdf
-duration_sec: 0.464
+duration_sec: 0.686
 
 === STDOUT ===
 
 
 === STDERR ===
-185819 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/thermal.effency.pdf
+209790 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/thermal.effency.pdf
 

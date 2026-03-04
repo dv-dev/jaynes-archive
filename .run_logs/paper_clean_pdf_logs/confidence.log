@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/confidence/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/confidence.html
+source_url: http://127.0.0.1:49459/papers/confidence/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/confidence.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/confidence.pdf
-duration_sec: 1.316
+duration_sec: 1.407
 
 === STDOUT ===
 

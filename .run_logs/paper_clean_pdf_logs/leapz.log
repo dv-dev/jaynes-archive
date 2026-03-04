@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/leapz/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/leapz.html
+source_url: http://127.0.0.1:49459/papers/leapz/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/leapz.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/leapz.pdf
-duration_sec: 0.884
+duration_sec: 1.01
 
 === STDOUT ===
 

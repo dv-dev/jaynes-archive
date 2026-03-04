@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/prob.in.qm/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/prob.in.qm.html
+source_url: http://127.0.0.1:49459/papers/prob.in.qm/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/prob.in.qm.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/prob.in.qm.pdf
-duration_sec: 0.859
+duration_sec: 0.959
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/reply.leiter/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/reply.leiter.html
+source_url: http://127.0.0.1:49459/papers/reply.leiter/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/reply.leiter.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.leiter.pdf
-duration_sec: 0.561
+duration_sec: 0.677
 
 === STDOUT ===
 

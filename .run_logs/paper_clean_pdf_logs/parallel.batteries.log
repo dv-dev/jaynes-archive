@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/parallel.batteries/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/parallel.batteries.html
+source_url: http://127.0.0.1:49459/papers/parallel.batteries/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/parallel.batteries.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/parallel.batteries.pdf
-duration_sec: 0.441
+duration_sec: 0.436
 
 === STDOUT ===
 

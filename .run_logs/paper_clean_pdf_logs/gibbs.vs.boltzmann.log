@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/gibbs.vs.boltzmann/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/gibbs.vs.boltzmann.html
+source_url: http://127.0.0.1:49459/papers/gibbs.vs.boltzmann/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/gibbs.vs.boltzmann.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.vs.boltzmann.pdf
-duration_sec: 0.728
+duration_sec: 0.829
 
 === STDOUT ===
 

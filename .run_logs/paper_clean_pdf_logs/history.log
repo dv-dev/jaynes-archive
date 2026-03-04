@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/history/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/history.html
+source_url: http://127.0.0.1:49459/papers/history/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/history.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/history.pdf
-duration_sec: 1.254
+duration_sec: 1.03
 
 === STDOUT ===
 

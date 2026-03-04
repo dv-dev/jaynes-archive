@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/theory.1/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/theory.1.html
+source_url: http://127.0.0.1:49459/papers/theory.1/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/theory.1.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/theory.1.pdf
-duration_sec: 0.894
+duration_sec: 1.014
 
 === STDOUT ===
 

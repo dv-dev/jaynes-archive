@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/scattering.by.free/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/scattering.by.free.html
+source_url: http://127.0.0.1:49459/papers/scattering.by.free/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/scattering.by.free.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/scattering.by.free.pdf
-duration_sec: 0.88
+duration_sec: 0.884
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/violation/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/violation.html
+source_url: http://127.0.0.1:49459/papers/violation/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/violation.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/violation.pdf
-duration_sec: 0.565
+duration_sec: 0.663
 
 === STDOUT ===
 

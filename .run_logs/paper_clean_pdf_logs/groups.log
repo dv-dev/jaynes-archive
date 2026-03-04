@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/groups/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/groups.html
+source_url: http://127.0.0.1:49459/papers/groups/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/groups.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/groups.pdf
-duration_sec: 0.623
+duration_sec: 0.647
 
 === STDOUT ===
 

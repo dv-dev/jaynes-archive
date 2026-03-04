@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/entropy.in.economics/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/entropy.in.economics.html
+source_url: http://127.0.0.1:49459/papers/entropy.in.economics/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/entropy.in.economics.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/entropy.in.economics.pdf
-duration_sec: 0.522
+duration_sec: 0.528
 
 === STDOUT ===
 

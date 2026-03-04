@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/foundations.of.prob.st/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/foundations.of.prob.st.html
+source_url: http://127.0.0.1:49459/papers/foundations.of.prob.st/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/foundations.of.prob.st.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/foundations.of.prob.st.pdf
-duration_sec: 0.639
+duration_sec: 0.726
 
 === STDOUT ===
 

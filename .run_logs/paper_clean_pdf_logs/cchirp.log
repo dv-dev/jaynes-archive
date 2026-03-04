@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/cchirp/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/cchirp.html
+source_url: http://127.0.0.1:49459/papers/cchirp/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/cchirp.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cchirp.pdf
-duration_sec: 1.085
+duration_sec: 1.282
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/rational/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/rational.html
+source_url: http://127.0.0.1:49459/papers/rational/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/rational.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/rational.pdf
-duration_sec: 1.069
+duration_sec: 1.237
 
 === STDOUT ===
 

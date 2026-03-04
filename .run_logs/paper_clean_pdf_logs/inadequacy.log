@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/inadequacy/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/inadequacy.html
+source_url: http://127.0.0.1:49459/papers/inadequacy/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/inadequacy.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/inadequacy.pdf
-duration_sec: 0.618
+duration_sec: 0.76
 
 === STDOUT ===
 

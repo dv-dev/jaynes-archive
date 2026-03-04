@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/present.status/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/present.status.html
+source_url: http://127.0.0.1:49459/papers/present.status/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/present.status.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/present.status.pdf
-duration_sec: 0.564
+duration_sec: 0.679
 
 === STDOUT ===
 

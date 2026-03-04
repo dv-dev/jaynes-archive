@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/is.qed.necessary/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/is.qed.necessary.html
+source_url: http://127.0.0.1:49459/papers/is.qed.necessary/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/is.qed.necessary.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/is.qed.necessary.pdf
-duration_sec: 0.454
+duration_sec: 0.531
 
 === STDOUT ===
 

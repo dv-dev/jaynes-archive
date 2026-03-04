@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/einstein/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/einstein.html
+source_url: http://127.0.0.1:49459/papers/einstein/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/einstein.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/einstein.pdf
-duration_sec: 0.722
+duration_sec: 0.752
 
 === STDOUT ===
 

@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/commentary.on.los/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/commentary.on.los.html
+source_url: http://127.0.0.1:49459/papers/commentary.on.los/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/commentary.on.los.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/commentary.on.los.pdf
-duration_sec: 0.636
+duration_sec: 0.723
 
 === STDOUT ===
 

@@ -347,13 +347,19 @@ def build_clean_html(source_html: str, slug: str) -> str:
         }}
       }});
 
-      if (window.renderMathInElement) {{
-        renderMathInElement(document.body, {{
+      function runMathRender() {{
+        if (!window.renderMathInElement) return false;
+        window.renderMathInElement(document.body, {{
           delimiters: [
             {{left: "$$", right: "$$", display: true}},
-            {{left: "$", right: "$", display: false}}
+            {{left: "\\\\[", right: "\\\\]", display: true}},
+            {{left: "$", right: "$", display: false}},
+            {{left: "\\\\(", right: "\\\\)", display: false}}
           ],
-          output: "html"
+          output: "html",
+          throwOnError: false,
+          strict: "ignore",
+          trust: true
         }});
 
         // Pass 2: detect KaTeX display output wrappers and mark next paragraph.
@@ -362,7 +368,19 @@ def build_clean_html(source_html: str, slug: str) -> str:
           if (!block) block = disp.parentElement;
           markNextParagraphNoIndent(block);
         }});
+        return true;
       }}
+
+      // KaTeX assets are loaded via external deferred scripts.
+      // Retry briefly in case network/script execution is delayed for long papers.
+      let attempts = 0;
+      const maxAttempts = 80; // ~8s at 100ms interval
+      const timer = setInterval(() => {{
+        attempts += 1;
+        if (runMathRender() || attempts >= maxAttempts) {{
+          clearInterval(timer);
+        }}
+      }}, 100);
     }});
   </script>
 </head>
@@ -477,7 +495,7 @@ def main() -> int:
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR, help=f"Output PDF directory (default: {DEFAULT_OUTPUT_DIR})")
     parser.add_argument("--state-file", default=DEFAULT_STATE_FILE, help=f"State JSON path (default: {DEFAULT_STATE_FILE})")
     parser.add_argument("--log-dir", default=DEFAULT_LOG_DIR, help=f"Per-file log directory (default: {DEFAULT_LOG_DIR})")
-    parser.add_argument("--wait-ms", type=int, default=18000, help="Chrome virtual time budget per file (ms)")
+    parser.add_argument("--wait-ms", type=int, default=60000, help="Chrome virtual time budget per file (ms)")
     parser.add_argument("--timeout-sec", type=int, default=120, help="Per-file Chrome timeout (seconds)")
     parser.add_argument("--retry-failed", action="store_true", help="Retry files with status=failed")
     parser.add_argument("--force", action="store_true", help="Render all files regardless of current status")

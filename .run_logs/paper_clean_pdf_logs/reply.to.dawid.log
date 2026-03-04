@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/reply.to.dawid/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/reply.to.dawid.html
+source_url: http://127.0.0.1:49459/papers/reply.to.dawid/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/reply.to.dawid.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.to.dawid.pdf
-duration_sec: 0.544
+duration_sec: 0.656
 
 === STDOUT ===
 

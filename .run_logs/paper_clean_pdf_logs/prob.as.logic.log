@@ -1,7 +1,7 @@
-source_url: http://127.0.0.1:47399/papers/prob.as.logic/
-clean_html: /tmp/paper-clean-pdf-12qeikeg/prob.as.logic.html
+source_url: http://127.0.0.1:49459/papers/prob.as.logic/
+clean_html: /tmp/paper-clean-pdf-a2niy_w8/prob.as.logic.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/prob.as.logic.pdf
-duration_sec: 0.749
+duration_sec: 0.894
 
 === STDOUT ===
 
