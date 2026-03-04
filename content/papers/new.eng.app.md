@@ -27,11 +27,7 @@ tags:
   - "prior probabilities"
   - "Bayes' theorem"
 ---
-163
-Offprints From
-Proceedings Of The First Symposium On Engineering, etc.,
-Edited By Bogdanoff and Kozin
-Published By John Wiley & Sons, Inc., 1963
+
 ## INFORMATION THEORY
 The title of this talk is quite ambiguous. In the first place, there is
 no common agreement as to the meaning of "Information Theory." What
@@ -50,9 +46,9 @@ defined, is a rapidly growing field.
 
 Entropy is, in a sense, inherent in probability theory, independently of
 the work of Boltzmann, Gibbs, Szilard, von Neumann, and Shannon. For
-example, if we write Bayes' theorem in the logarithm-of-odds form [1]
+example, if we write Bayes' theorem in the logarithm-of-odds form [^1]
 which has become popular in recent years (due to Wald's introduction
-[2] of the probability-ratio test in sequential analysis), we find
+[^2] of the probability-ratio test in sequential analysis), we find
 that the expressions resulting are really conditional entropies. What is
 new in the past decade is merely the recognition of a situation that has
 always existed.
@@ -61,7 +57,7 @@ The notion of entropy is assuming an ever-increasing importance in
 statistics generally. Although new results obtained by its use are to
 date rather modest, it has turned out to have great value as a unifying
 principle by which we can see old results in a new light. This has been
-shown particularly by S. Kullback [3], who demonstrates that many of
+shown particularly by S. Kullback [^3], who demonstrates that many of
 the procedures which had been developed by statisticians in a more or less
 *ad hoc* way for treatment of special problems, have a simple
 interpretation in terms of Information Theory. This new insight enables him
@@ -92,6 +88,7 @@ the past in just that way; each of them is a mathematical model chosen
 so that it reproduces a small part of what we call common sense. So, we
 have to understand "new" in the weak sense; the criterion is not
 whether information theory is necessary, but only whether it is helpful.
+
 The engineer is continually faced with the problem of making decisions
 in the face of uncertainty. Let us define his job broadly, and perhaps
 facetiously, as the planning of gadgets or procedures which are to work
@@ -122,6 +119,7 @@ intermediate degree of complexity, which we can describe loosely by
 saying that the problem is sufficiently complicated so that our unaided
 common sense fails us, but at the same time is sufficiently simple so that
 the situation can be described by a manageable amount of mathematics.
+
 To fix ideas more clearly, let us look for a moment at a specific, and
 not too unrealistic, decision problem which might arise. Mr. A is in
 charge of a Widget factory, which proudly advertises that it can make
@@ -133,6 +131,7 @@ or green. (For complex technological reasons, not relevant to the
 present problem, only one color can be produced per day). We follow his
 problem of decision making through several stages of increasing
 knowledge.
+
 **Stage 1** When he arrives at work, Mr. A's positive knowledge is that
 he has in stock 100 red Widgets, 150 yellow, and 50 green. His ignorance
 lies in the fact that he does not know how many orders for each type
@@ -142,10 +141,12 @@ about orders likely to come in today; and if no such scraps are to be
 had, we do not envy Mr. A his job. Still, if a decision has to be made
 on no more information than this, his common sense will probably tell
 him that he had better build up that stock of green widgets.
+
 **Stage 2** Mr. A learns that, averaged over the past year, average
 daily orders have been for 50 red Widgets, 100 yellow, and 10 green. He
 will, I think, immediately decide to make yellow ones today, and
 probably red ones tomorrow.
+
 **Stage 3** But now Mr. A (who is evidently new on this job) learns that
 the average individual order is for 75 Widgets if the customer wants red
 ones, while users of yellow widgets order on the average only 10 at a
@@ -153,18 +154,21 @@ time, and the average order for green is 20. This new information does
 not change the expected daily demand; but if Mr. A is very shrewd, I
 think he may change his mind again, and decide to make red Widgets today
 and almost certainly yellow ones tomorrow.
+
 **Stage 4** Finally, Mr. A gets a phone call, telling him that an
 emergency order for 40 green widgets is on its way by special messenger.
 Up to this point, Mr. A's decision problem has been so simple that he
 needed no mathematics, only ordinary common sense, to solve it. But now,
 I think he is in a position where some mathematics might be welcome. Let
 us summarize the various stages of this problem in a table:
+
 | Information | R | Y | G | Decision |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 In stock | 100 | 150 | 50 | G |
 | 2 Av. Daily Order Total | 50 | 100 | 10 | Y |
 | 3 Av. Individual Order | 75 | 10 | 20 | R |
 | 4 Specific Order | | | 40 | ? |
+
 Mr. A has a fair chance of getting through today without trouble. But,
 no matter what decision he makes today, he is likely to be in trouble
 tomorrow. Suddenly, he realizes that this job is not as simple as it
@@ -176,7 +180,7 @@ future.
 Now it is not obvious how, or even whether, probability theory can be
 applied to this kind of problem. It is, in fact, so far from obvious
 that in the late 1940's a general theory of decision making in the face
-of uncertainty was developed, largely by Wald [4], which in its
+of uncertainty was developed, largely by Wald [^4], which in its
 initial stages had no apparent connection with probability theory. I
 would like to give you a very brief account of some of the ideas it
 involved.
@@ -245,8 +249,8 @@ Quite a bit can be done with just the $\theta_j, D_i, L_{ij}$, and there
 is a rather extensive literature dealing with criteria for making
 decisions with no more than this. The material we need for our purposes
 has been summarized in a very readable and entertaining form by Luce and
-Raiffa [5] and more recently in the elementary textbook of Chernoff
-and Moses [6]. The minimax criterion is this: for each $D_i$ find the
+Raiffa [^5] and more recently in the elementary textbook of Chernoff
+and Moses [^6]. The minimax criterion is this: for each $D_i$ find the
 maximum possible loss $M_i = \max_j (L_{ij})$: then choose that $D_i$
 for which $M_i$ is a minimum. The minimax criterion would be a
 reasonable one if we regard nature as an intelligent adversary who
@@ -254,7 +258,7 @@ foresees our decision and deliberately chooses the state of nature so as
 to cause us the maximum frustration. In the theory of some games, this
 is not a completely unrealistic way of describing the situation, and
 consequently minimax strategies are of fundamental importance in game
-theory [5]. But in the decision problems of the scientist or engineer
+theory [^5]. But in the decision problems of the scientist or engineer
 the minimax criterion is that of the long-faced pessimist who
 concentrates all his attention on the worst possible thing that could
 happen, and thereby fails to take advantage of the favorable
@@ -270,7 +274,7 @@ engineer is, in some sense, intermediate between minimax and minimin.
 Many other criteria have been suggested which go by the names of maximin
 utility (Wald), $\alpha$-optimism-pessimism (Hurwicz), minimax regret
 (Savage), insufficient reason (Laplace), etc. The usual procedure, as
-described in detail by Luce and Raiffa [5], has been to analyze any
+described in detail by Luce and Raiffa [^5], has been to analyze any
 proposed criterion to see whether it satisfies about a dozen qualitative
 common-sense conditions such as (1) Transitivity: if $D_1$ is preferred
 to $D_2$, and $D_2$ preferred to $D_3$, then $D_1$ must be preferred to
@@ -280,6 +284,7 @@ $D_j$. This analysis, although straightforward, can become tedious. I
 will not follow it any further, because the final result is that there
 is only one class of decision criteria which passes all the tests, and
 this class is obtained more easily by a different line of reasoning.
+
 What is it that makes a decision process difficult? Well, if we knew
 which state of nature was the correct one, there would be no problem at
 all; if $\theta_3$ is the true state of nature, then the best decision
@@ -294,13 +299,14 @@ To a physicist or engineer it seems like a very small step -- really
 only a rephrasing of the question -- to ask next, "What is the
 probability $P_3$ that $\theta_3$ is the true state of nature?" Not so
 to the statistician of the dominant school of thought, which Savage
-[7] has labeled "objectivist." To the objectivist, the word
+[^7] has labeled "objectivist." To the objectivist, the word
 "probability" is synomous with, "long-run relative frequency in some
 random experiment." But then, it is meaningless to speak of the
 probability of $\theta_3$, because the state of nature is not a "random
 variable." Thus, if we adhere consistently to the frequency definition
 of probability, we will have to conclude that probability theory cannot
 be applied to the decision problem, at least not in this direct way.
+
 It was just this kind of reasoning which led statisticians, in the early
 part of this century, to relegate problems of parameter estimation and
 hypothesis testing (which are really decision problems and as such are
@@ -327,14 +333,14 @@ $$
 (A|B) + (\bar{A}|B) = 1 \tag{2}
 $$
 
- All
+All
 relations of probability theory can be derived by repeated
 application of these two fundamental rules. In particular, from the fact
 that the left-hand side of (1) is symmetric in A and B, we obtain Bayes' theorem:
 $$
 (A|BC) = (A|C) \frac{(B|AC)}{(B|C)} \tag{3}
 $$
- which represents the
+This represents the
 learning process, since it shows how the prior probability (A|C) is
 changed to the posterior probability (A|BC) as a result of acquiring new
 information B.
@@ -342,7 +348,7 @@ information B.
 According to Laplace, it is legitimate to assign probabilities to any
 clearly stated proposition, and the above rules generate an idealized
 mathematical model of the process of plausible reasoning carried out by
-human brains. Recently, Polya [8] has demonstrated the complete
+human brains. Recently, Polya [^8] has demonstrated the complete
 qualitative correspondence between these rules and human common sense.
 It is easily seen that they include deductive logic as a special case.
 In addition to the above rules, Laplace needed for applications (1) a
@@ -350,19 +356,21 @@ principle by which initial probabilities are set up in starting a
 problem, and (2) a principle for converting final probabilities into a
 definite decision. Both of these were supplied in the early 18th century
 by James and Daniel Bernoulli respectively, and used by Laplace:
+
 (1) Imagine an initial state of knowledge X where we have enumerated a
 set of mutually exclusive and exhaustive possible propositions
 $(A_1 \dots A_n)$ about which a decision has to be made, but have not
 yet incorporated any other evidence. At this stage we assign equal
 probabilities $(A_i|X) = n^{-1}$ to the $A_i$. This is the "principle of
 insufficient reason."
+
 (2) Assign the "utility," $U_{ij}$ of making decision $A_i$ if $A_j$
 should turn out to be true, and make that decision $A_i$ which maximizes
 the expected utility 
 $$
 \langle U \rangle_i = \sum_{j=1}^{n} U_{ij} (A_j|EX) \tag{4}
 $$
- over the
+over the
 posterior probabilities $(A_j|EX)$, where E is any additional
 evidence about the $A_j$. This is Daniel Bernoulli's principle of "moral
 expectation."
@@ -398,11 +406,11 @@ shooting).
 
 One of the major advances in statistical practice in recent years has
 been the introduction of Wald's sequential method for quality-control
-testing. In the original 1947 exposition [2], there is no mention of
-Bayes' theorem, and in 1950 Feller [9] issued a stern warning against the
+testing. In the original 1947 exposition [^2], there is no mention of
+Bayes' theorem, and in 1950 Feller [^9] issued a stern warning against the
 use of Bayes' theorem in quality-control testing, on just the grounds
 noted above; the state of nature (here the condition of a particular
-machine) is not "random." But in that same year, I. J. Good [1] showed
+machine) is not "random." But in that same year, I. J. Good [^1] showed
 that Wald's sequential procedure is also mathematically identical with the
 application of Bayes' theorem with uniform prior probabilities, then
 deciding that an hypothesis is true if its posterior probability reaches a
@@ -500,11 +508,11 @@ theory and statistical inference would collapse.
 Evidently, it becomes important to understand in just what sense
 probability theory may be said to be a "calculus" of plausible
 reasoning." The following result will be developed more fully elsewhere
-[10]. If there exists a satisfactory mathematical model of the process of
-plausible reasoning described by Polya [8], it seems reasonable to
+[^10]. If there exists a satisfactory mathematical model of the process of
+plausible reasoning described by Polya [^8], it seems reasonable to
 require of it three conditions: (A) representation of plausibilities by real
 numbers, (B) qualitative correspondence with common sense, (C)
-consistency. In an important contribution, Cox [11] has shown how the
+consistency. In an important contribution, Cox [^11] has shown how the
 conditions of consistency of such a model may be stated in the form of
 functional equations, whose general solutions can be found. By a slight
 extension of this analysis, it can be shown that the three conditions
@@ -562,7 +570,7 @@ alternatives, if A should be false. In other words, we must define our
 "sample space," or "hypothesis space"
 
 $\{A_1 \dots A_n\}$. This is as necessary in Laplace's theory as in the
-objectivist approach. As has been shown elsewhere [10], one large
+objectivist approach. As has been shown elsewhere [^10], one large
 class of objections to Laplace's viewpoint which one finds in the recent
 statistical literature can be traced to the author's failure to realize
 this.
@@ -607,7 +615,7 @@ decades the statistical literature has been filled with objections to
 Laplace's use of insufficient reason, which arise from the author's
 failure to realize that for Laplace a probability assignment was not an
 assertion about frequencies. Connections between probability and frequency
-exist in many forms, analyzed in detail elsewhere [10]. In Laplace's
+exist in many forms, analyzed in detail elsewhere [^10]. In Laplace's
 theory, they have nothing to do with the definition of probability. On the
 contrary, all such connections are deducible as mathematical consequences
 of probability theory, interpreted as a "calculus of inductive
@@ -632,7 +640,7 @@ insist that the probability is the frequency, we leave ourselves no way
 of describing the fine details of our state of knowledge, which determine
 the reliability of the prediction. This remark has an important bearing
 on the problems of phase transitions and turbulence in statistical
-mechanics [10].
+mechanics [^10].
 
 Much of what I have said about the principle of insufficient reason
 applies also to the notion of entropy. However useful the mathematical
@@ -855,7 +863,7 @@ You will recognize that Stage 2 of Mr. A's decision problem is
 mathematically the same as the theory of the harmonic oscillator in
 quantum statistical mechanics. There is still another engineering
 application of the harmonic oscillator equations, in some problems of
-message encoding [12]. I am trying to emphasize the generality of this
+message encoding [^12]. I am trying to emphasize the generality of this
 theory, which is mathematically quite old and well known, but which has
 been applied in the past only in some specialized problems in physics.
 This general applicability can be seen only after we are emancipated
@@ -863,7 +871,7 @@ from the objectivist view that all probability distributions must be
 justified in the frequency sense. Historically, this made it appear to
 most workers in statistical mechanics that the methods of Gibbs could be
 justified only via unproved "ergodic hypotheses" (in spite of the fact
-that Gibbs himself never mentioned them). I have suggested [13] that we
+that Gibbs himself never mentioned them). I have suggested [^13] that we
 interpret Gibbs' equations not as assertions about frequencies but as
 examples of inductive reasoning. It is clear that the laws of inductive
 reasoning do not depend on ergodic theorems or any other aspect of the
@@ -1133,31 +1141,16 @@ restriction on the kinds of problem where probability theory can be
 applied. The scientist or engineer today is faced with many problems
 which require the broader Laplace interpretation.
 ## BIBLIOGRAPHY
-1.  Good, I. J., "Probability and the Weighing of Evidence," C.
-
-    Griffin and Sons, London (1950).
-2.  Wald, A., "Sequential Analysis," J. Wiley and Sons, Inc., N. Y.
-    (1947).
-3.  Kullback, S., "Information Theory and Statistics," J. Wiley and
-    Sons, Inc., N. Y. (1959).
-4.  Wald, A., "Statistical Decision Functions," J. Wiley and Sons,
-    Inc., N. Y. 1950).
-5.  Luce, R. D. and Raiffa, H., "Games and Decisions," J. Wiley and
-    Sons, Inc., N. Y. (1957); Chap. 13.
-6.  Chernoff, H., and Moses, L., "Elementary Decision Theory," J.
-    Wiley and Sons, Inc., N. Y. (1959).
-7.  Savage, L. J., "Foundations of Statistics," J. Wiley and Sons,
-    Inc., N. Y. (1954).
-8.  Polya, G., "Mathematics and Plausible Reasoning," Princeton Univ.
-    Press, (1945); Vol. II.
-9.  Feller, W., "An Introduction to Probability Theory and Its
-    Applications," J. Wiley and Sons, Inc., N. Y. (1950); p. 85 (2nd
-    edition)(1957); p. 114.
-10. Jaynes, E. T., "Probability Theory in Science and Engineering,"
-    McGraw-Hill Book Co., N. Y. (in press).
-11. Cox, R. T., "Probability, Frequency, and Reasonable Expectation,"
-    American Jour. Phys., Vol. 17, p. 1, (1946).
-12. Jaynes, E. T., "Note on Unique Decipherability," I. R. E. Trans.
-    on Information Theory, Vol. IT-5, p. 98 (September, 1959).
-13. Jaynes, E. T., "Information Theory and Statistical Mechanics,"
-    Phys. Rev. Vol. 106, p. 620; Vol. 108, p. 171 (1957).
+[^1]: Good, I. J., "Probability and the Weighing of Evidence," C. Griffin and Sons, London (1950).
+[^2]: Wald, A., "Sequential Analysis," J. Wiley and Sons, Inc., N. Y. (1947).
+[^3]: Kullback, S., "Information Theory and Statistics," J. Wiley and Sons, Inc., N. Y. (1959).
+[^4]: Wald, A., "Statistical Decision Functions," J. Wiley and Sons, Inc., N. Y. 1950).
+[^5]: Luce, R. D. and Raiffa, H., "Games and Decisions," J. Wiley and Sons, Inc., N. Y. (1957); Chap. 13.
+[^6]: Chernoff, H., and Moses, L., "Elementary Decision Theory," J. Wiley and Sons, Inc., N. Y. (1959).
+[^7]: Savage, L. J., "Foundations of Statistics," J. Wiley and Sons, Inc., N. Y. (1954).
+[^8]: Polya, G., "Mathematics and Plausible Reasoning," Princeton Univ. Press, (1945); Vol. II.
+[^9]: Feller, W., "An Introduction to Probability Theory and Its Applications," J. Wiley and Sons, Inc., N. Y. (1950); p. 85 (2nd edition)(1957); p. 114.
+[^10]: Jaynes, E. T., "Probability Theory in Science and Engineering," McGraw-Hill Book Co., N. Y. (in press).
+[^11]: Cox, R. T., "Probability, Frequency, and Reasonable Expectation," American Jour. Phys., Vol. 17, p. 1, (1946).
+[^12]: Jaynes, E. T., "Note on Unique Decipherability," I. R. E. Trans. on Information Theory, Vol. IT-5, p. 98 (September, 1959).
+[^13]: Jaynes, E. T., "Information Theory and Statistical Mechanics," Phys. Rev. Vol. 106, p. 620; Vol. 108, p. 171 (1957).

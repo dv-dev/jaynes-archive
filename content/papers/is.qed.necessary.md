@@ -34,6 +34,7 @@ strongly that they paralyze our thinking in certain areas.
 In the interest of seeing clearly where we stand at present, we consider
 it useful to adopt the posture of the Devil's Advocate and reason from
 two rather heretical premises:
+
 1.  The test of any proposed semiclassical treatment of radiation
     phenomena is not whether it agrees with QED, but whether it agrees
     with experiment.
@@ -42,6 +43,7 @@ two rather heretical premises:
     both QED and semiclassical theory to new fundamental tests in areas
     where they have not heretofore been confronted with experiment;
     i.e., QED is itself on trial here just as much as any other theory.
+
 From this standpoint we survey the present theoretical and experimental
 situation with a particular view toward finding feasible optical
 experiments in which the differences between QED and semiclassical

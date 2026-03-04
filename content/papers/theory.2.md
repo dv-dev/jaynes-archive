@@ -217,6 +217,7 @@ $O\psi = (\phi,\psi)\phi$, where $\phi$ is the corresponding normalized
 eigenfunction of $F$: $F\phi=f\phi$. Then
 $$
 p(f) = \langle O \rangle = \text{Tr}(\rho O).
+\tag{7.6}
 $$
 
  From (7.5) it is seen
@@ -326,6 +327,7 @@ It might be thought that for an array $\{\psi_i, w_i\}$ we could define
 an entropy by 
 $$
 S = -\sum_i w_i \ln w_i.
+\tag{7.14}
 $$
 
  This, however, would not be
@@ -365,7 +367,7 @@ Equation (7.16) assigns zero entropy to any pure state, whether
 stationary or not. It has been criticized on the grounds that according
 to the Schrödinger equation of motion it would be constant in time, and
 thus one could not account for the second law of thermodynamics; this
-has led some authors[^4]^,^[^5] to propose instead the expression
+has led some authors[^4][^5] to propose instead the expression
 $$
 S = -\sum_k \rho_{kk} \ln \rho_{kk},
 $$
@@ -530,7 +532,7 @@ in a very fundamental sense no experiment can ever be repeated, and the
 most comprehensive probability assignments are necessarily incapable of
 verification.
 
-If an operational viewpoint^8-10^ is to be upheld consistently, it
+If an operational viewpoint[^8][^9][^10] is to be upheld consistently, it
 appears that the probabilities computed from a complete density matrix
 must be interpreted in the subjective sense. Since this complete density
 matrix might be a projection operator corresponding to a pure state, one
@@ -875,7 +877,7 @@ resulting concept of \"occupation numbers" $N_k$, proportional to the
 diagonal elements $\rho_{kk}$ in this representation. One then
 introduces a transition probability per unit time $\Lambda_{kn}$, which
 usually,
-but not always,^14,15^ conforms to the assumption of \"microscopic
+but not always,[^14][^15] conforms to the assumption of \"microscopic
 reversibility" $\Lambda_{kn}=\Lambda_{nk}$, and equations of the form
 $$
 dN_k/dt = \sum_m (\Lambda_{km} N_m - \Lambda_{mk} N_k)
@@ -1063,7 +1065,9 @@ associated only with the perturbation $V^{(1)}$, $S_2(t_2)$ only with
 $V^{(2)}$. Therefore, he can only assume that either perturbation may be
 associated with either subspace, and the array representing the state of
 knowledge of $O_2$ for general times consists of four subspaces.
+
 **[FIGURE: The information game. The array of observer 1 at times $t_1, t_2, t_3$ is represented by solid circles. The array of observer 2 includes also the portion in dashed lines.]**
+
 The game continues; $O_2$ tells $O_3$ what the density matrix
 $\rho_2(t_3)$ is, and $O_3$ calculates his density matrix $\rho_3(t)$
 (which, at general times other than $t_3$, must be represented by eight
@@ -1131,6 +1135,7 @@ $$
  or,
 $$
 \rho(t) = G(t,t^\prime)\rho(t^\prime),
+\tag{13.10}
 $$
  where
 $$
@@ -1198,9 +1203,10 @@ $$
 \rho_2(t) &= G(t,t_2)G(t_2,t_1)\rho_1(t_1), \\\\
 \rho_3(t) &= G(t,t_3)G(t_3,t_2)G(t_2,t_1)\rho_1(t_1),
 \end{aligned}
+\tag{13.14}
 $$
  in which the information game is exhibited as a Markov
-chain,^18,19^ the ordering index giving the sequence of information
+chain,[^18][^19] the ordering index giving the sequence of information
 transfer rather than a time sequence.
 ## Step-Relaxation Process {#step-relaxation-process .unnumbered}
 In the preceding section, the information game was interpreted in the
@@ -1334,7 +1340,7 @@ from the eigenvalue $\lambda_i$. If $\lambda_i$ is nondegenerate, $A_i$
 is simply the number $\lambda_i$. If $\lambda_i$ is an $m$-fold multiple
 root of $|G-\lambda\mathbf{1}|=0$, then $A_i$ may be the ($m \times m$)
 diagonal matrix $\lambda_i\mathbf{1}$, or it may have one or more
-\"superdiagonal\" terms^20^ 
+\"superdiagonal\" terms[^20] 
 $$
 A_i = \begin{pmatrix}
 \lambda_i & 1 & 0 & \dots \\\\
@@ -1381,7 +1387,7 @@ and columns of $\rho$. In this case, traces of the initial information
 are never lost, and the limiting entropy is less than $\ln N$.
 
 These results correspond closely to those of the theory of long-range
-order in crystals,^21,22^ in which one introduces a stochastic matrix
+order in crystals,[^21][^22] in which one introduces a stochastic matrix
 which relates the probability distribution of one crystal layer to that
 of an adjacent one. The existence or nonexistence of probability
 influences over arbitrarily long distances depends on the degeneracy (in
@@ -1463,6 +1469,7 @@ $V^{(\alpha)}$ and $P_\alpha$ are determined.
 The problem is thus reduced to a calculation of $G(t,t^\prime)=G(t-t^\prime)$, where
 $$
 G(t) = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^T [U(t+\tau,\tau) \times U^*(t+\tau, \tau)] d\tau.
+\tag{15.5}
 $$
 
 The exact evaluation of $G(t)$ would require a rigorous solution of the
@@ -1499,6 +1506,7 @@ $G(t-t^\prime)$. Divide the time interval $(t^\prime \to t)$ into $n$ equal
 intervals: $(t-t^\prime)=n\tau$, and set 
 $$
 G(t-t^\prime) \approx [G(\tau)]^n.
+\tag{15.7}
 $$
 
  If
@@ -1552,7 +1560,7 @@ This case is a very special one, since the perturbation causes no
 transitions but only a loss of coherences; nevertheless it has found
 some
 applications in the theory of pressure-broadening of spectral
-lines^23,24^ and exchange narrowing[^13] in paramagnetic resonance.
+lines [23,24] and exchange narrowing[^13] in paramagnetic resonance.
 The perturbing forces represented by $V(t)$ often arise as a
 superposition of many small independent effects, and in this case the
 central limit theorem of probability theory shows that the distribution
@@ -1593,6 +1601,7 @@ brevity. The probability distribution of $g(t)$ is determined by its
 second moment
 $$
 \sigma^2(t) = \langle g^2(t) \rangle = \int_0^t dt^\prime \int_0^t dt^{\prime\prime} \langle f(t^\prime)f(t^{\prime\prime}) \rangle = \int_0^t dt^\prime \int_0^t dt^{\prime\prime} \phi(t^\prime-t^{\prime\prime}),
+\tag{16.5}
 $$
 where
 $$
@@ -1706,7 +1715,7 @@ $$
 slightly more accurate long-term solution than will (15.9). The
 evaluation of $G(\tau)$ using perturbation theory is in essence
 identical with the treatments of nuclear spin relaxation given by
-Wangsness and Bloch,[^15] Fano,[^16] Ayant,[^17] and Bloch.^30,31^ Only
+Wangsness and Bloch,[^15] Fano,[^16] Ayant,[^17] and Bloch [30,31]. Only
 a brief sketch of the calculations is given here, although we wish to
 point out certain limitations on the applicability of previous
 treatments.
@@ -1758,6 +1767,7 @@ $q(\omega_{kn})=\tau$ for all transition frequencies $\omega_{kn}$, and
 (17.7) leads to the differential equation
 $$
 \dot{\rho}_{kk^\prime} + i\omega_{kk^\prime}\rho_{kk^\prime} = \sum_{n,n^\prime} \{[(kk^\prime|nn^\prime)+(n^\prime n|k^\prime k)]\rho_{nn^\prime} - (nn|k^\prime n^\prime)\rho_{kn^\prime} - (kn|n^\prime n^\prime)\rho_{nk^\prime}\}.
+\tag{17.8}
 $$
 
 This case of perturbation by extremely wide-band \"white noise\" applies
@@ -1794,7 +1804,7 @@ If the correlation time $\tau_c$ is not short compared to the periods
 $(\omega_{kn})^{-1}$, then the time of integration $\tau$ must[^18] be
 chosen so long that the formulation (17.8) in terms of a differential
 equation breaks down. In this case a different approach, used by
-Wangsness and Bloch,^27^ may be attempted. Here one removes the rapid
+Wangsness and Bloch [27] may be attempted. Here one removes the rapid
 time variations of $\rho$ due to $H_0$ by transforming to the
 interaction representation, in which the density matrix is
 $$
@@ -1840,6 +1850,7 @@ will be much larger than the oscillating ones and we obtain the
 approximate differential equation
 $$
 \frac{d\tilde{\rho}_{kk^\prime}}{dt} = \sum_{n,n^\prime} \{\delta(\omega_{kn}-\omega_{k^\prime n^\prime})[(kk^\prime|nn^\prime)+(n^\prime n|k^\prime k)]\tilde{\rho}_{nn^\prime} - \delta(\omega_{k^\prime n^\prime})(nn|k^\prime n^\prime)\tilde{\rho}_{kn^\prime} - \delta(\omega_{kn})(kn|n^\prime n^\prime)\tilde{\rho}_{nk^\prime}\}.
+\tag{17.17}
 $$
 
 If there is no degeneracy and the density matrix is initially diagonal,
@@ -1865,7 +1876,7 @@ $$
 $$
 so that in general the transition probabilities $\lambda_{kn}(t)$ are
 neither time proportional nor symmetric.[^19] On the other hand, the
-so-called H-hypothesis,^14^ if stated in the form
+so-called H-hypothesis,[^14] if stated in the form
 $$
 \sum_k \lambda_{kn}(t) = \sum_n \lambda_{nk}(t) = 1,
 $$
@@ -1944,14 +1955,14 @@ in those special cases where it can be justified, because of the easy
 interpretation in terms of relaxation times and level shifts. However,
 the quantities necessary for comparison with experiment can always be
 inferred directly from (17.7), the validity of which does not depend on
-the magnitudes of the quantities $\omega_{kn}\tau_c$.^34^
+the magnitudes of the quantities $\omega_{kn}\tau_c$.[34]
 The symmetry of the transition probabilities given by (17.18) arises
 only because the $V_{kn}(t)$ are here considered numbers. If in better
 approximation one
 takes into account the quantum nature of the surroundings, they must be
 considered as operators which operate on the state vector of the
 perturbing system $\sigma_2$ (the \"heat bath\"). Then, as shown by
-Ayant,^29^ the definition of correlation functions (17.5) remains valid,
+Ayant,[29] the definition of correlation functions (17.5) remains valid,
 provided the brackets are now interpreted as standing for the
 expectation value taken over the system $\sigma_2$, and the differential
 Eq. (17.8) or (17.17) then represents an approximation in which mutual
@@ -1971,7 +1982,7 @@ $(-\omega)$, and this is always the case if $V$ is Hermitian.
 If one assumes a Boltzmann distribution for the heat bath and neglects
 the effect of the system of interest $\sigma_1$ in modifying this
 distribution, the solution of (17.17) tends to another Boltzmann
-distribution corresponding to the same temperature.^27,30^ Treatment of
+distribution corresponding to the same temperature [27,30]. Treatment of
 this case and that of \"secular equilibrium\" from the subjective point
 of view will be considered in a later paper.
 ## Conclusion {#conclusion .unnumbered}
@@ -1986,7 +1997,7 @@ complicated enough to require most of the techniques of a general
 theory, but at the same time it is simple enough so that in many cases
 the calculations can be carried out explicitly. Nuclear induction
 experiments, in which the predictions of the Bloch-Wangsness
-theory^27,30,31^ are verified down to fine details,[^22] provide a good
+theory [27,30,31] are verified down to fine details,[^22] provide a good
 illustration of many of the above remarks. Here the experiments are
 performed on samples containing of the order of $10^{20}$ nuclei, and
 one measures the time dependence of their total magnetic moment when
@@ -2017,7 +2028,7 @@ The thing which rescues us from this situation is, of course, the fact
 that the experiments refer not to a single spin unit, but to a very
 large number of them. We must not, however, jump to the obvious
 conclusion that the \"law of large numbers,\" or the central limit
-theorem,^19^ automatically restores reliability to our predictions. To
+theorem,[^19] automatically restores reliability to our predictions. To
 do so would be to make the logical error of the experimenter who thought
 that he could add three significant figures to his measurements merely
 by repeating them a million times. The correctness of the usual

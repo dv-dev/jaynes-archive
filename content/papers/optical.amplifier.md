@@ -14,6 +14,7 @@ categories: ["Quantum Mechanics & Advanced Physics"]
 tags: ["optical amplifier", "super-regenerative principle", "laser amplifier", "He-Ne laser", "phase sensitivity", "Heisenberg uncertainty principle", "quantum noise"]
 ---
 ## INTRODUCTION
+
 A high-gain linear (i.e., phase-sensitive) amplifier at optical
 frequencies would have many applications in communications and as a
 research tool. Previous efforts[^1] to use a laser amplifier as a
@@ -57,7 +58,9 @@ $\Delta n \Delta\phi \ge 1/2$? (It should be pointed out here that this
 formulation of the Heisenberg principle for a fully quantized theory has
 been rejected,[^9][^10] but in a semiclassical treatment it follows
 easily from the usual $\Delta p \Delta q$ form.)
+
 ## EXPERIMENTAL PROCEDURE
+
 The physical setup used to obtain answers to these questions consisted
 of two He-Ne lasers operating in Gaussian mode at 633 nm arranged around
 a Mach-Zehnder interferometer as shown in Fig. 1. The cw laser was a
@@ -93,9 +96,13 @@ entering from the glass side, so the two outputs are not the same but
 have a phase difference of 180° between them, i.e., they have the form
 $I = I_0 (1 \pm \cos \phi)$, where $\phi$ is the phase difference at
 each point of the interferograms.
+
 **[FIGURE 1: Experimental arrangement of the two lasers and the interferometer. BS are beamsplitters; M are mirrors; M’ is special edge mirror cutting halfway into the beam; D1, D2, D3, D4 are photomultiplier tubes.]**
+
 **[FIGURE 2: (A) Detail of interferometer output showing detectors D1, D2, D3. (B) Plot of intensity variation across the output beam seen by D3. (C) Plot of intensity variation across output as seen by D1 and D2.]**
+
 ## METHOD OF ANALYSIS
+
 Since the output of each laser is restricted to the lowest-order
 Gaussian mode, the form of the electromagnetic field in the cw beam and
 in the output beam of the pulsed laser can be expressed in the forms
@@ -177,6 +184,7 @@ $$
 I_{D1} - I_{D2} &= [-2A_1A_2\alpha\sqrt{\pi} \\\\
 &\qquad \times \int_0^\infty \exp(-x^2/\alpha^2)\sin(\pi x/b) dx] \sin\phi_0.
 \end{split}
+\tag{9}
 $$
 On the other hand, subtracting the signal at D3 from the combined
 signals from D1 and D2 leads to
@@ -185,6 +193,7 @@ $$
 I_{D1} + I_{D2} - I_{D3} = [-4A_1A_2\alpha\sqrt{\pi} \int_0^\infty \exp(-x^2/\alpha^2)\cos(\pi x/b)dx] \\\\
 \times \cos\phi_0.
 \end{split}
+\tag{10}
 $$
 These equations for $I_{D1} - I_{D2}$ and $I_{D1} + I_{D2} - I_{D3}$
 contain the desired amplitude and intensity and phase difference in a
@@ -208,7 +217,10 @@ signal for each turn-on of the pulsed laser. This is obtained by
 monitoring the turn-on time of the laser amplifier. A slightly modified
 form of the equation of Sargent et al.[^11] for the buildup of laser
 amplification is given by
-$$d\langle n \rangle / dt = (\alpha - \beta\langle n \rangle)\langle n \rangle + \beta s$$ 
+$$
+d\langle n \rangle / dt = (\alpha - \beta\langle n \rangle)\langle n \rangle + \beta s
+\tag{11}
+$$
 where $\alpha$ is the gain of the lasing medium, $\beta$ represents the
 scattering and diffraction losses, s is a phenomenological term added
 to account for saturation effects, and $\langle n \rangle$ is the photon
@@ -224,7 +236,9 @@ linear portion of the buildup curve well below saturation effects, and
 if the gain of the laser is known, then a knowledge of how much the
 turn-on time was shortened allows a calculation of the injected energy
 present in the cavity when the laser began to turn on.
+
 ## EXPERIMENTAL RESULTS
+
 Figure 3 shows typical data obtained from pulsing the laser amplifier
 while an external signal was fed into it. The dotted line indicates the
 effect of removing the incoming signal.
@@ -281,9 +295,13 @@ those samples that turned on well before the peak of the timing
 distribution curve, a small subset of several dozen samples still
 remained which allowed an estimate of the level of injected signal
 required to establish phase control of the second laser.
+
 **[FIGURE 3: Plot of time distribution curve for laser turn-on. Dotted curve shows results obtained when no signal is injected.]**
+
 **[FIGURE 4: Typical interference patterns. (A) No interference and no coupling. (B) Interference but no coupling. (C) Interference with coupling.]**
+
 ## DETERMINATION OF $\Delta\phi$ AND $\Delta n$
+
 The uncertainty $\Delta\phi$ in measuring the relative phase between the
 interfering beams was caused by the statistical noise in the signals
 (cf. Fig. 5). Although the end point of the interference patterns for
@@ -334,9 +352,13 @@ or 5 photons were sufficient to control the laser amplifier. The
 corresponding uncertainty in measuring the phase difference for these
 same samples was about 0.3 rad. The range of $\Delta n \Delta\phi$
 products obtained was from 0.4 to 0.7.
+
 **[FIGURE 5: Polar plot of intensity versus phase showing how the value of $\Delta\phi$ is determined.]**
+
 **[FIGURE 6: Plot of pulsed cavity energy versus time after turn-on for a particular sample.]**
+
 ## SUMMARY AND CONCLUSIONS
+
 Even with the limited accuracy of these preliminary results, two
 conclusions are supported by this experiment. First, the extreme
 sensitivity of the super-regenerative amplifier system obviates the need
@@ -351,9 +373,13 @@ source of the resultant uncertainty) need not be regarded as purely
 theoretical or philosophical. Physical experiments within the bounds of
 present technology are capable of testing at least some of the many
 proposed interpretations.[^16]
+
 ## ACKNOWLEDGMENT
+
 This work was supported in part by the AFOSR.
+
 ## FOOTNOTES
+
 [^1]: H. Gerhardt, H. Welling, and D. Frölich, "Ideal laser amplifier as a phase measuring system of a microscopic radiation field," Appl. Phys. **2**, 91--93 (1973).
 [^2]: E. Armstrong, "Some Recent Developments of Regenerative Circuits," Proc. IRE **10**, 244--260 (1922).
 [^3]: F. E. Terman, *Radio Engineer's Handbook* (McGraw-Hill, New York, 1943), pp. 662--664.

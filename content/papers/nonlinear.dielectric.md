@@ -36,16 +36,17 @@ D(t) &= \int_{-\infty}^{\infty} D(\omega) e^{i\omega t} d\omega
 \end{aligned} \tag{1}
 $$
 
- By linearity we mean that the material is characterized
+By linearity we mean that the material is characterized
 by some unique function $\epsilon(\omega)$ such that
 $$
 D(\omega) = \epsilon(\omega) E(\omega). \tag{2}
 $$
 
- This corresponds in general
+This corresponds in general
 to no simple relation between D(t) and E(t). Thus, a linear
 dielectric material is characterized intuitively by the following
 conditions:
+
 1.  No frequencies are present in D(t) which not are present in
     E(t).
 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
@@ -130,7 +131,9 @@ rectifiers, particularly the germanium welded-contact variety,[^7] in
 which the barrier capacitance varies strongly with bias voltage. By far
 the most important nonlinear dielectrics, however, are the ferroelectric
 crystals or ceramics.
+
 ## FERROELECTRICS
+
 From a phenomenological point of view, ferroelectricity may be defined
 as the electric analog of ferromagnetism, and the fundamental criterion
 of ferroelectricity is the existence, at certain temperatures, of
@@ -193,7 +196,7 @@ error by the free-energy function
 $$
 F(P, T) = F_0(T) + A(T) P^2 + B(T)P^4, \tag{3}
 $$
- where P is the
+where P is the
 dielectric polarization, $F_0$ the free energy at zero polarization
 (which is irrelevant for dielectric properties, although it largely
 determines the specific heat of the material), and A, B are linear
@@ -204,13 +207,13 @@ A &= 3.8 \times 10^{-5} (T - 105) \\\\
 B &= 4.5 \times 10^{-15} (T - 175),
 \end{aligned} \tag{4}
 $$
- which are in cgs units, with the temperature in degrees
+which are in cgs units, with the temperature in degrees
 centigrade. The electric field is, from thermodynamics,
 $$
 E = \partial F/\partial P = 2AP + 4BP^3. \tag{5}
 $$
 
- Therefore, the incremental
+Therefore, the incremental
 (small signal) dielectric constant is
 $$
 \epsilon = 1 + 4\pi(\partial P/\partial E) = 1 + 4\pi/(2A + 12BP^2) \approx 4\pi A^2/(2A^3 + 3BE^2), \tag{6}
@@ -257,7 +260,9 @@ which are essential to an understanding of the properties of single
 crystals below the Curie point. These have been described by
 Forsbergh,[^24] Merz,[^25] and Little.[^26] A recent discussion of the
 theory of ferroelectrics has been given by Devonshire.[^27]
+
 ## THEORY OF DIELECTRICS
+
 It might be supposed that with modern knowledge of the properties of
 atoms and molecules, it would be a straightforward matter to calculate
 the dielectric constant of any material of known composition from first
@@ -291,7 +296,7 @@ $$
 M = \alpha F. \tag{7}
 $$
 
- The field F is not, however, the same
+The field F is not, however, the same
 as the macroscopic applied field E; because of the interaction of the
 polarizable objects with each other, there is an additional term
 commonly taken as proportional to the net polarization, with a
@@ -300,7 +305,7 @@ $$
 F = E + \beta P. \tag{8}
 $$
 
- Lorentz showed that if the polarizable objects are
+Lorentz showed that if the polarizable objects are
 arranged in a cubic or random array, and each maintains the same
 constant dipole moment (no thermal agitation effects), $\beta$ would
 have the value $4\pi/3$. If there are N of these polarizable objects
@@ -308,13 +313,13 @@ per unit volume, the polarization is
 $$
 P = N \alpha F = N \alpha (E + \beta P), \tag{9}
 $$
- so that the dielectric
+so that the dielectric
 susceptibility becomes 
 $$
 \chi = P/E = N\alpha / (1 - N\alpha\beta). \tag{10}
 $$
 
- Introducing the dielectric constant
+Introducing the dielectric constant
 $$
 \epsilon = 1 + 4\pi\chi, \tag{11}
 $$
@@ -340,7 +345,7 @@ $$
 \epsilon - 1 = 4\pi N\alpha \ll 1. \tag{13}
 $$
 
- From statistical mechanics, one
+From statistical mechanics, one
 can calculate the polarizability of a rotating dipole of moment M,
 with the result $\alpha = M^2/3kT$, with k Boltzmann's constant and
 T the temperature in degrees Kelvin. Eq. (12) predicts an infinite
@@ -391,6 +396,7 @@ or the Lorentz factor be field-dependent. We consider separately the
 three cases that the polarization is due to: (a) rotating permanent
 dipoles; (b) translational motion of ions; or (c) electronic distortion
 of atoms or ions.
+
 (a) *Rotating Dipoles*. The polarizability $\alpha = M^2/3kT$ given
 above is an approximation valid only at field strengths F such that
 $MF \ll kT$. The exact expression, first calculated by Langevin in 1905,
@@ -410,6 +416,7 @@ we must remember to use the Onsager field for F, the applied field E
 would have to be of the same order of magnitude; thus a measurable
 nonlinearity due to saturation of rotating dipoles could be expected
 only at very low temperatures and intense field strengths.
+
 (b) *Translational Motion of Ions*. Here the prospects are
 considerably brighter. In many types of crystals the size of the lattice
 is determined by the larger ions that have to fit into it, and if small
@@ -426,6 +433,7 @@ constants should provide the most favorable possibilities, since
 according to the above equations we then obtain an internal field F
 which is considerably "amplified" above the applied field E. If
 appreciable motion occurs, the Lorentz factors might also vary.
+
 (c) *Electronic Distortion*. As a simple example, consider an atom
 which has a ground state $\psi_0$ with energy $E_0$, and an excited
 state $\psi_1$ with energy $E_1$, such that the matrix element of the
@@ -433,19 +441,19 @@ dipole moment operator between them,
 $$
 M_{01} = e \int \psi_0^* z \psi_1 dV \tag{15}
 $$
- does not vanish.[^31]
+does not vanish.[^31]
 
 Using quantum mechanics and statistical mechanics,[^32] the following
 formula for polarizability may be obtained:
 $$
 \alpha = \frac{|M_{01}|^2 \tanh a}{k T a} \tag{16}
 $$
- where
+where
 $$
 a = \frac{[4(E_1-E_0)^2 + |M_{01}|^2 F^2]^{1/2}}{kT} \tag{17}
 $$
 
- It is seen
+It is seen
 that appreciable nonlinearity requires that a be of order unity or
 greater and that the term in $F^2$ must contribute substantially to a.
 Therefore, since $M_{01}$ will typically be of the order of magnitude
@@ -454,10 +462,7 @@ the situation is about the same as in the case of rotating dipoles. If a
 high dielectric constant leads to great internal field strengths, these
 conditions might be met, although it appears that the case of movable
 ions remains the most favorable to development of strong nonlinearity.
-Reprinted from the PROCEEDINGS OF THE I.R.E.
 
-VOL. 43, NO. 12, DECEMBER, 1955
-PRINTED IN THE U.S.A.
 ## FOOTNOTES
 [^1]: Microwave Laboratory, Stanford University, Stanford, Calif.
 [^2]: Original manuscript received by the IRE, October 14, 1955.

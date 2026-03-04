@@ -169,6 +169,7 @@ Consider a nonrelativistic, spinless atom which is described by the
 Hamiltonian 
 $$
 \mathcal{H} = \mathcal{H}_0 - V,
+\tag{1}
 $$
  where $\mathcal{H}_0$
 is the Hamiltonian of the atomic system in the absence of
@@ -179,6 +180,7 @@ $$
 \mathcal{H}_0 &= p^2/2m - e^2/r,  \\\\
 V &= (e/mc)\mathbf{A}(\mathbf{x}, t) \cdot \mathbf{p}. 
 \end{aligned}
+\tag{2b}
 $$
 
  The diamagnetic term
@@ -189,6 +191,7 @@ the order of $ea^2(mc/\hbar)$.\] Any state of the atomic system may be
 expressed as 
 $$
 \Psi(\mathbf{x}, t) = \sum_j a_j(t) \psi_j(\mathbf{x}),
+\tag{3}
 $$
 where $\psi_j(\mathbf{x})$ are eigenfunctions of $\mathcal{H}_0$, i.e.,
 $$
@@ -204,6 +207,7 @@ It is assumed that an atom in the state $\Psi(\mathbf{x}, t)$ contains
 charge currents which are given by
 $$
 \mathbf{J}(\mathbf{x}, t) = (e/m)\text{Re}[\Psi^*(\mathbf{x}, t)\mathbf{p}\Psi(\mathbf{x}, t)].
+\tag{4}
 $$
 
 Again a higher-order term,
@@ -212,22 +216,26 @@ neglected because of the smallness of $\mathbf{A}(\mathbf{x}, t)$.
 Substituting Eq. (3) in Eq. (4), one obtains
 $$
 \mathbf{J}(\mathbf{x}, t) = \sum_{\alpha,\beta} \frac{e\hbar}{2mi}[\sigma_{\beta\alpha}\psi_\alpha^*\nabla\psi_\beta - \sigma_{\alpha\beta}\psi_\alpha\nabla\psi_\beta^*],
+\tag{5}
 $$
 where the density matrix elements in the Schrödinger picture,
 $\sigma_{\beta\alpha}(t)$, are defined by
 $$
 \sigma_{\beta\alpha}(t) = a_\beta(t)a_\alpha^*(t),
+\tag{6}
 $$
  and evolve
 according to
 $$
 i\hbar\dot{\sigma}_{lm} = \sum_j [\mathcal{H}_{lj}\sigma_{jm} - \sigma_{lj}\mathcal{H}_{jm}].
+\tag{7}
 $$
 
 The atomic currents create a transverse[^12] vector potential which may
 be written in the Coulomb gauge as
 $$
 \mathbf{A}(\mathbf{x}, t) = \frac{1}{c}\int \frac{\mathbf{J}_t(\mathbf{x}^\prime, t-|\mathbf{x}-\mathbf{x}^\prime|/c)}{|\mathbf{x}-\mathbf{x}^\prime|} d^3x^\prime + \mathbf{A}_0(\mathbf{x}, t),
+\tag{8}
 $$
 where $\mathbf{J}_t(\mathbf{x},t)$ is the transverse component of the
 current density, and the vector potential $\mathbf{A}_0(\mathbf{x},t)$
@@ -242,6 +250,7 @@ $$
 \mathbf{A}(\mathbf{x}, t) &= \frac{1}{c}\int \frac{\mathbf{J}_t(\mathbf{x}^\prime,t)}{|\mathbf{x}-\mathbf{x}^\prime|}d^3x^\prime \\
 &\quad - \frac{1}{c^2}\frac{d}{dt}\int \mathbf{J}_t(\mathbf{x}^\prime,t)d^3x^\prime + \mathbf{A}_0(\mathbf{x},t)
 \end{aligned}
+\tag{9}
 $$
 in the vicinity of the atom. The expression of Eq. (5) may be used in
 Eq. (9) with the aid of the following identities: 
@@ -251,6 +260,7 @@ $$
 \int \mathbf{J}_t(\mathbf{x}^\prime,t) e^{-i\mathbf{k}\cdot\mathbf{x}^\prime}d^3x^\prime &= -\frac{\mathbf{k}}{|\mathbf{k}|} \times \left[ \frac{\mathbf{k}}{|\mathbf{k}|} \times \int \mathbf{J}(\mathbf{x}^\prime,t) e^{-i\mathbf{k}\cdot\mathbf{x}^\prime} d^3x^\prime \right],  \\\\
 \int \mathbf{J}_t(\mathbf{x}^\prime,t)d^3x^\prime &= \frac{2}{3} \int \mathbf{J}(\mathbf{x}^\prime,t)d^3x^\prime, 
 \end{aligned}
+\tag{10}
 $$
  where the integral $\int d\Omega$ is over solid angle in
 $\mathbf{k}$ space. One obtains 
@@ -259,6 +269,7 @@ $$
 \mathbf{A}(\mathbf{x}, t) &= \sum_{\alpha,\beta} \sigma_{\beta\alpha}(t) \left\{ \frac{-i e\hbar}{2\pi^2 mc} \int_0^\infty dk \int d\Omega \langle\alpha|e^{i\mathbf{k}\cdot\mathbf{x}}\nabla|\beta\rangle_\perp \right. \\\\
 &\left. \qquad\qquad + \frac{2}{3} \frac{\Omega_{\alpha\beta}^2}{c^2} \boldsymbol{\mu}_{\alpha\beta} \right\} + \mathbf{A}_0(\mathbf{x},t)
 \end{aligned}
+\tag{11}
 $$
  for the field which acts upon the atomic currents. The
 definition
@@ -271,6 +282,7 @@ The applied field will be assumed to be that of a monochromatic plane
 wave of the form
 $$
 \mathbf{A}_0(\mathbf{x},t) = \frac{c\mathbf{E}_0}{\omega} \cos(\omega t - \mathbf{k}\cdot\mathbf{x}),
+\tag{12}
 $$
 where $\omega$ is an optical frequency. Since at optical frequencies the
 phase of $\mathbf{A}_0(\mathbf{x},t)$ does not vary significantly over
@@ -278,6 +290,7 @@ the volume of the atom, the dipole approximation is valid and the vector
 potential may be evaluated at the center of the atom, i.e.,
 $$
 \mathbf{A}_0(0,t) = \frac{c\mathbf{E}_0}{\omega} \cos\omega t
+\tag{13}
 $$
  may be
 used in Eq. (11).
@@ -291,6 +304,7 @@ $$
 &\quad - [\sum_j(A_{lj}+A_{mj})\sigma_{jj}(t)]\sigma_{lm}  \\\\
 &\quad - \frac{\mathbf{A}_0(0,t)}{\hbar c} \cdot \sum_j [\boldsymbol{\mu}_{lj}\sigma_{jm} - \sigma_{lj}\boldsymbol{\mu}_{jm}]. 
 \end{aligned}
+\tag{14}
 $$
 The frequency-shift coefficient is
 $$
@@ -303,10 +317,12 @@ $$
 \left\langle j\middle|e^{-i\mathbf{k}\cdot\mathbf{x}}\nabla\middle|l\right\rangle_\perp \\
 &\quad \times \frac{1}{|\mathbf{k}|c-\Omega_{lj}} .
 \end{aligned}
+\tag{15}
 $$
 The Einstein $A$ coefficients $A_{lj}$ are defined according to
 $$
 A_{lj} = \frac{4}{3}\frac{\Omega_{lj}^3}{\hbar c^3}\,\boldsymbol{\mu}_{lj}\cdot\boldsymbol{\mu}_{jl} = -A_{jl}.
+\tag{16}
 $$
 The electric dipole moment matrix element $\boldsymbol{\mu}_{lj}$ and the transition frequencies $\Omega_{lj}$ are defined, respectively, as
 $$
@@ -314,10 +330,12 @@ $$
 \boldsymbol{\mu}_{lj} &= \int \psi_l^*(\mathbf{x})\,e\mathbf{x}\,\psi_j(\mathbf{x})\,d^3x, \\
 \hbar\Omega_{lj} &= E_l - E_j.
 \end{aligned}
+\tag{17a,b}
 $$
 It is seen from Eq. (14) that the off-diagonal density matrix elements oscillate at frequencies $\Omega_{lm}+\delta\Omega_{lm}(t)$, where the time-dependent frequency shifts $\delta\Omega_{lm}(t)$ are given by
 $$
 \delta\Omega_{lm}(t) = -\sum_j(\Gamma_{lj}-\Gamma_{jm})\sigma_{jj}(t).
+\tag{18}
 $$
 Now the expectation of the dipole moment of the atom is defined by
 $$
@@ -334,7 +352,8 @@ $$
 \omega = \Omega_{2p1s} - \Gamma_{1s2p}.
 $$
 This 1s-2p frequency shift $\Gamma_{1s2p}$ is calculated in Appendix B to be $0.285\ \mathrm{cm}^{-1}$.
-Herzberg$^{11}$ has determined the 1s-2p Lamb shift in deuterium by measuring the 1s-2p absorption line. The reported value is $0.262 \pm 0.038\ \mathrm{cm}^{-1}$. The comparison of other semiclassical frequency shifts with the corresponding Lamb-shift values is given in Table I. The values of $\Gamma_{lm}$ reported in the table have been corrected for the effect of vacuum polarization. The vacuum-polarization calculation, as first done by Uehling,$^{7}$ uses an unquantized electromagnetic field and therefore can be fitted into the framework of this paper.
+
+Herzberg[^11] has determined the 1s-2p Lamb shift in deuterium by measuring the 1s-2p absorption line. The reported value is $0.262 \pm 0.038\ \mathrm{cm}^{-1}$. The comparison of other semiclassical frequency shifts with the corresponding Lamb-shift values is given in Table I. The values of $\Gamma_{lm}$ reported in the table have been corrected for the effect of vacuum polarization. The vacuum-polarization calculation, as first done by Uehling,[^7] uses an unquantized electromagnetic field and therefore can be fitted into the framework of this paper.
 
 The agreement between the 1s-2p quantum-electrodynamic Lamb shift and the corresponding semiclassical frequency shift is surprisingly good when it is recalled that the semiclassical calculation corresponds to a two-level, spinless, nonrelativistic hydrogen atom. The other semiclassical frequency shifts agree in sign and order of magnitude with their quantum-electrodynamic counterparts.
 
@@ -355,6 +374,7 @@ Equation (14) predicts that,[^14] in the absence of an applied field,
 the diagonal matrix elements will decay according to
 $$
 \dot{\sigma}_{ll} = -\sum_j A_{lj} \sigma_{ll} \sigma_{jj}.
+\tag{19}
 $$
 
 In the
@@ -364,12 +384,14 @@ $$
 \dot{\sigma}_{22} &= -A_{21}\sigma_{22}\sigma_{11}, \\\\
 \dot{\sigma}_{11} &= A_{21}\sigma_{22}\sigma_{11}.
 \end{aligned}
+\tag{20a}
 $$
 
 Adding these equations, one sees that probability is
 conserved, i.e., 
 $$
 \sigma_{11} + \sigma_{22} = 1.
+\tag{21}
 $$
 
 This constant of
@@ -404,6 +426,7 @@ $$
 \langle\boldsymbol{\mu}\rangle &= \boldsymbol{\mu}_{12}(\sigma_{12}+\sigma_{21}) \\
 &= \boldsymbol{\mu}_{12} \text{sech}[\tfrac{1}{2}A_{21}(t-t_0)] \times \cos[\Omega_{21}t+\theta(t)],
 \end{aligned}
+\tag{22}
 $$
 where $\theta(t)$ is defined by
 $$
@@ -432,17 +455,25 @@ as $t-t_0$ becomes large.
 In the case of a three-level system with transitions allowed between
 adjacent levels (see Fig. 3), Eq. (19) becomes 
 $$
-\begin{aligned}
-\dot{\sigma}_{33} &= -A_{32}\sigma_{33}\sigma_{22},  \\\\
-\dot{\sigma}_{22} &= A_{32}\sigma_{33}\sigma_{22} - A_{21}\sigma_{22}\sigma_{11},  \\\\
-\dot{\sigma}_{11} &= A_{21}\sigma_{22}\sigma_{11}. 
-\end{aligned}
+\dot{\sigma}_{33} = -A_{32}\sigma_{33}\sigma_{22},
+\tag{24a}
+$$
+
+$$
+\dot{\sigma}_{22} = A_{32}\sigma_{33}\sigma_{22} - A_{21}\sigma_{22}\sigma_{11},
+\tag{24b}
+$$
+
+$$
+\dot{\sigma}_{11} = A_{21}\sigma_{22}\sigma_{11}.
+\tag{24c}
 $$
 
 Addition of these equations shows that they are
 consistent with conservation of probability, i.e.,
 $$
 \sigma_{11} + \sigma_{22} + \sigma_{33} = 1.
+\tag{25}
 $$
 ![Figure 3. Energy-level diagram for a three-level system. Transitions are allowed between adjacent levels.](/images/papers/radiative.effects_fig_3.png)
 
@@ -453,6 +484,7 @@ $$
 or 
 $$
 [\sigma_{33}(t)]^{A_{21}/A_{32}} \sigma_{11}(t) = \alpha_0,
+\tag{26}
 $$
 where
 $\alpha_0$ is a constant of integration. The constant of motion of Eq.
@@ -467,11 +499,18 @@ resume.
 The constants of motion given in Eqs. (25) and (26) are sufficient to
 allow integration of the equations, and one obtains 
 $$
-\begin{aligned}
-\int \frac{d\sigma_{33}}{\sigma_{33}(1-\alpha_0 \sigma_{33}^{-r}-\sigma_{33})} &= -A_{32}t + \text{const},  \\\\
-\int \frac{d\sigma_{11}}{\sigma_{11}(1-\alpha_0^{1/r}\sigma_{11}^{1-1/r}-\sigma_{11})} &= A_{21}t + \text{const},  \\\\
-\sigma_{22} &= 1 - \sigma_{11} - \sigma_{33}, 
-\end{aligned}
+\int \frac{d\sigma_{33}}{\sigma_{33}(1-\alpha_0 \sigma_{33}^{-r}-\sigma_{33})} = -A_{32}t + \text{const},
+\tag{27a}
+$$
+
+$$
+\int \frac{d\sigma_{11}}{\sigma_{11}(1-\alpha_0^{1/r}\sigma_{11}^{1-1/r}-\sigma_{11})} = A_{21}t + \text{const},
+\tag{27b}
+$$
+
+$$
+\sigma_{22} = 1 - \sigma_{11} - \sigma_{33},
+\tag{27c}
 $$
  where the parameter $r$ is defined according to
 $$
@@ -504,7 +543,7 @@ by hyperbolic secant envelopes. Graphs of the energy and the two
 components of the dipole moment are shown in Fig. 4.
 ![Figure 4. (a) Decay of the expectation of the energy of a three-level system. The Einstein A coefficients $A_{21}$ and $A_{32}$ are chosen to be equal. Time is in units of $A^{-1}$, where $A = A_{21} = A_{32}$. (b) Component of the envelope of the expectation of the dipole moment which oscillates at $\Omega_{32}$. (c) Component of the envelope of the expectation of the dipole moment which oscillates at $\Omega_{21}$.](/images/papers/radiative.effects_fig_4.png)
 
-The solutions of Eqs. (24) have been studied on an analog computer[^15]
+The solutions of Eqs. (24a)-(24c) have been studied on an analog computer[^15]
 in the case where $A_{21} \neq A_{32}$. Typical solutions are
 illustrated in Figs. 5 and 6. Figure 5 shows the cascading of the atom's
 energy down to the ground state, each transition of the atom being
@@ -535,6 +574,7 @@ $$
 &\quad - \tfrac{1}{2}\epsilon_{ab}\sigma_{bm}e^{-i\omega t}\delta_{l,a} - \tfrac{1}{2}\epsilon_{ba}\sigma_{lb}e^{i\omega t}\delta_{m,a} \\\\
 &\quad + \tfrac{1}{2}\epsilon_{ab}\sigma_{la}e^{-i\omega t}\delta_{m,b},
 \end{aligned}
+\tag{28}
 $$
 when only resonant terms are retained. Define
 $$
@@ -565,6 +605,7 @@ $$
 &\quad -\sum_j (\tfrac{1}{2}A_{aj}+\tfrac{1}{2}A_{bj})\sigma_{jj}y,  \\\\
 \dot{z} &= \epsilon_1 y - \epsilon_2 x - \sum_j (A_{aj}\sigma_{aa}-A_{bj}\sigma_{bb})\sigma_{jj}, 
 \end{aligned}
+\tag{30}
 $$
 and when $l$ is not equal to $a$ or $b$,
 $$
@@ -602,6 +643,7 @@ $$
 \dot{y} &= [\Delta+\Gamma_{12}z]x+\tfrac{1}{2}A_{21}yz, \\\\
 \dot{z} &= -\epsilon x - \tfrac{1}{2}A_{21}(1-z^2).
 \end{aligned}
+\tag{31}
 $$
 
 As indicated above, the wave functions have been chosen
@@ -640,6 +682,7 @@ $$
 &\quad + \tfrac{1}{2}A_{21}\sigma_{11}(1-\sigma_{11}-z),  \\\\
 \dot{\sigma}_{11} &= \tfrac{1}{2}A_{21}\sigma_{11}(1-\sigma_{11}-z).
 \end{aligned}
+\tag{32}
 $$
 
 An analytic solution of these equations has been found
@@ -649,11 +692,18 @@ assumption that $\Omega \gg \epsilon$, where $\Omega$ represents the
 smallest optical frequency of the atom. Therefore, the solution below
 is valid within the range $A_{21}, A_{32} \ll \epsilon \ll \Omega_{32}, \Omega_{21}$. In this range the variables $y$, $\sigma_{11}$, and $X \equiv (x+iz)e^{i\epsilon t}$ are slowly varying when compared with $e^{i\epsilon t}$, and the result of neglecting the rapidly oscillating terms is the solution
 $$
-\begin{aligned}
-x(t) &= \frac{2B \cos(\epsilon t + \theta_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1},  \\\\
-y(t) &= \frac{2y(t_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1},  \\\\
-z(t) &= \frac{-2B \sin(\epsilon t + \theta_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1}, 
-\end{aligned}
+x(t) = \frac{2B \cos(\epsilon t + \theta_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1},
+\tag{33a}
+$$
+
+$$
+y(t) = \frac{2y(t_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1},
+\tag{33b}
+$$
+
+$$
+z(t) = \frac{-2B \sin(\epsilon t + \theta_0)}{e^{\frac{1}{2}A_{21}(t-t_0)}+1},
+\tag{33c}
 $$
  where $B, \theta_0$, and $t_0$ are constants determined
 by the initial conditions. Geometrically, this solution corresponds to a
@@ -695,6 +745,7 @@ The density matrix elements in the interaction picture are defined
 according to 
 $$
 \rho_{lm}(t) = \sigma_{lm}(t) e^{i\Omega_{lm}t},
+\tag{A1}
 $$
  and
 will be used to identify the rapidly oscillating terms. Substituting Eq.
@@ -705,10 +756,12 @@ $$
 &\quad - \rho_{lj}\rho_{\beta\alpha}(\tfrac{1}{2}A_{jm}^{\beta\alpha} - i\Gamma_{jm}^{\beta\alpha}) e^{i(\Omega_{lm}+\Omega_{\alpha\beta})t}]  \\\\
 &\quad - \frac{\mathbf{A}_0(0,t)}{\hbar c} \cdot \sum_j [\boldsymbol{\mu}_{lj}\rho_{jm}e^{i\Omega_{lj}t} - \rho_{lj}\boldsymbol{\mu}_{jm}e^{i\Omega_{jm}t}],
 \end{aligned}
+\tag{A2}
 $$
 where the definitions
 $$
 A_{lj}^{\beta\alpha} = \frac{4}{3} \frac{\boldsymbol{\mu}_{\alpha\beta}\cdot\boldsymbol{\mu}_{lj}}{\hbar c^3} \Omega_{\alpha\beta}^2\Omega_{lj}
+\tag{A3}
 $$
 and
 $$
@@ -716,6 +769,7 @@ $$
 \Gamma_{lj}^{\beta\alpha} &= \frac{1}{2\pi^2}\frac{e^2\hbar}{m^2c^2} \int_0^\infty dk \int d\Omega_k \\
 &\quad \times \frac{\langle\alpha|e^{-i\mathbf{k}\cdot\mathbf{x}}|\beta\rangle_1 \cdot \langle l |e^{i\mathbf{k}\cdot\mathbf{x}}|j\rangle_1}{|k|}
 \end{aligned}
+\tag{A4}
 $$
 has been made.
 
@@ -739,6 +793,7 @@ $$
 -&\frac{E_0}{\hbar\omega} \sum_j [\Omega_{lj}\boldsymbol{\mu}_{lj}\rho_{jm}e^{i\Omega_{lj}t}(\tfrac{1}{2}(e^{i\omega t}+e^{-i\omega t}))  \\\\
 &- \rho_{lj}\Omega_{jm}\boldsymbol{\mu}_{jm}e^{i\Omega_{lm}t}(\tfrac{1}{2}(e^{i\omega t}+e^{-i\omega t}))]
 \end{aligned}
+\tag{A5}
 $$
  when Eq. (13) is used for $\mathbf{A}_0(0,t)$. Under the
 assumption that $\omega\approx\Omega_{as}$, it is easy to pick out the
@@ -759,6 +814,7 @@ $$
 \cdot
 \langle 1s|e^{-i\mathbf{k}\cdot\mathbf{x}}\nabla|2p_0\rangle_\perp .
 \end{aligned}
+\tag{B1}
 $$
 
 Using 
@@ -794,6 +850,7 @@ $$
 \right)
 \right]^2 d\Omega .
 \end{aligned}
+\tag{B2}
 $$
 where the vector $\hat{e}_3$ is a unit vector along the $k_3$ axis.
 Integrating Eq. (B2) gives

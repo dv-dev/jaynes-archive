@@ -181,10 +181,10 @@ The Wigner function exhibits remarkable similarities to a probability
 distribution in that it leads to the correct probabilities for the
 coordinates when integrated with respect to the momenta (the
 ration range is always understood to be $(-\infty, \infty)$ unless
-indicated otherwise), $$\int P(x, p) \, dp = |\psi(x)|^2,$$ and, vice
+indicated otherwise), $$\int P(x, p) \, dp = |\psi(x)|^2. \tag{3.2}$$ and, vice
 versa, it gives the proper probabilities for the momenta when integrated
 over the coordinates,
-$$\int P(x, p) \, dx = (2\pi\hbar)^{-1} \left| \int dx \, \psi(x) \exp(-ipx/\hbar) \right|^2.$$
+$$\int P(x, p) \, dx = (2\pi\hbar)^{-1} \left| \int dx \, \psi(x) \exp(-ipx/\hbar) \right|^2. \tag{3.3}$$
 
 Although Wigner calls it the probability function of the simultaneous
 values for the coordinates and momenta (in more recent papers the
@@ -198,7 +198,7 @@ probability\" \[12\].
 The indefiniteness of $P$ is already suggested by the following
 consideration \[13\]. If two state vectors $\psi$ and $\phi$ are chosen
 so that they are orthogonal, the equality
-$$\int dx \int dp \, P_\psi(x, p) P_\phi(x, p) = 0$$ must hold. Thus it
+$$\int dx \int dp \, P_\psi(x, p) P_\phi(x, p) = 0 \tag{3.4}$$ must hold. Thus it
 is clear that $P$ cannot be everywhere positive, and it must exhibit a
 very pathological shape in order to avoid going negative in spite of
 (3.4).
@@ -209,11 +209,11 @@ others given in \[13\], can be said to define this type of probability
 distributions, namely \[14\]:
 \(i\) $P(x, p)$ should be a Hermitian form of the state vector
 $\psi(x)$, i.e., with $\hat{M}(x, p)$ a self-adjoint operator,
-$$P(x, p) = (\psi(x), \hat{M}(x, p)\psi(x)).$$ This condition makes
+$$P(x, p) = (\psi(x), \hat{M}(x, p)\psi(x)). \tag{3.5}$$ This condition makes
 $P(x, p)$ a real number.
 \(ii\) $P(x, p)$ should give the proper expectation values for all
 operators which are sums of a function of $p$ and a function of $x$,
-$$\int \int P(x, p)[f(p) + g(x)] \, dp \, dx = \left(\psi, \left[f\left(\frac{\hbar}{i} \frac{\partial}{\partial x}\right) + g(x)\right]\psi\right).$$
+$$\int \int P(x, p)[f(p) + g(x)] \, dp \, dx = \left(\psi, \left[f\left(\frac{\hbar}{i} \frac{\partial}{\partial x}\right) + g(x)\right]\psi\right). \tag{3.6}$$
 
 This condition is a somewhat milder form of (3.2) and (3.3) which
 properly have to be understood as axioms of the Wigner function and, in
@@ -222,7 +222,7 @@ any case, must be satisfied.
 Further, it suffices to consider such $\psi$ which are linear
 combinations $a\psi_1 + b\psi_2$ of any two fixed functions, vanishing
 in certain intervals of $x$. Now, by requiring
-$$P(x, p) \geq 0 \quad \text{for all } x \text{ and } p$$ for every such
+$$P(x, p) \geq 0 \quad \text{for all } x \text{ and } p \tag{3.7}$$ for every such
 $\psi$, Wigner obtains a contradiction \[14\] which in short runs as
 follows:
 Consider an interval $I$, inside of which $\psi(x)=0$ and $g(x) \geq 0$,
@@ -238,7 +238,7 @@ Now, consider two functions $\psi_1(x)$ and $\psi_2(x)$ which vanish
 outside of two non-overlapping intervals $I_1$ and $I_2$, respectively.
 Because of (3.5) $P(x, p)$ corresponding to $\psi = a\psi_1 + b\psi_2$
 will have the form
-$$P = |a|^2 P_1 + a^*b P_{12} + ab^* P_{21} + |b|^2 P_2.$$ By setting
+$$P = |a|^2 P_1 + a^*b P_{12} + ab^* P_{21} + |b|^2 P_2. \tag{3.10}$$ By setting
 $b=0$ it is obvious that $P_1$ is the Wigner function belonging to
 $\psi_1$ (and $P_2$ that belonging to $\psi_2$). The meaning of $P_{12}$
 and $P_{21}$ is less obvious, but we need not bother, because both must
@@ -262,18 +262,18 @@ arguments and cannot vanish over any finite interval\" \[14\].
 
 In order to illustrate this result, the Wigner function formalism may be
 applied to the paradigm of quantum theory, the linear harmonic
-oscillator. From its Hamiltonian $$H(x, p) = p^2/2m + m\omega^2x^2/2$$
+oscillator. From its Hamiltonian $$H(x, p) = p^2/2m + m\omega^2x^2/2 \tag{3.14}$$
 and the time-independent Schrödinger equation
 $$\hat{H}\left(x, \frac{\hbar}{i}\frac{\partial}{\partial x}\right)\psi(x) = E\psi(x)$$
 it is easy to find the wave function of the ground state
-$$\psi_0(x) = (m\omega/\pi\hbar)^{1/4} \exp(-x^2m\omega/2\hbar)$$
+$$\psi_0(x) = (m\omega/\pi\hbar)^{1/4} \exp(-x^2m\omega/2\hbar) \tag{3.16}$$
 corresponding to the energy $E_0 = \hbar\omega/2$. Inserting (3.16) in
 (3.1) and integrating out in $y$ leads to
-$$P_0(x, p) = (\pi\hbar)^{-1} \exp(-x^2m\omega/\hbar - p^2/m\omega\hbar),$$
+$$P_0(x, p) = (\pi\hbar)^{-1} \exp(-x^2m\omega/\hbar - p^2/m\omega\hbar), \tag{3.17}$$
 which does not exhibit any anomaly in that it is non-negative and, when
 integrated with respect to $x$, supplies the proper distribution of the
 momentum
-$$\int P_0(x, p) \, dx = (m\omega\pi\hbar)^{-1/2} \exp(-p^2/m\omega\hbar),$$
+$$\int P_0(x, p) \, dx = (m\omega\pi\hbar)^{-1/2} \exp(-p^2/m\omega\hbar), \tag{3.18}$$
 which is a Gaussian distribution with expectation zero and standard
 deviation $(\Delta p)^2 = m\omega\hbar/2$. Integrating with respect to
 $p$ yields, as expected, the square of (3.16),
@@ -299,12 +299,12 @@ however, the calculation is somewhat lengthy, we adopt the elegant
 formula given in \[13\]. With $H$ the Hamiltonian of eq. (3.14) and
 $L_n$ the $n$th Laguerre polynomial, the Wigner function corresponding
 to the $n$th excited state can be expressed by
-$$P_n(x, p) = (\pi\hbar)^{-1}(-1)^n \exp(-2H/\hbar\omega) L_n(4H/\hbar\omega)$$
+$$P_n(x, p) = (\pi\hbar)^{-1}(-1)^n \exp(-2H/\hbar\omega) L_n(4H/\hbar\omega) \tag{3.19}$$
 or, using (3.17),
 $$P_n(x, p) = (-1)^n P_0(x, p) L_n(4H/\hbar\omega). \tag{3.19'}$$
 
 As, $P_0$ was found to be non-negative everywhere, we have to examine
-the remaining expression $$P_n/P_0 = (-1)^n L_n(4H/\hbar\omega).$$ The
+the remaining expression $$P_n/P_0 = (-1)^n L_n(4H/\hbar\omega). \tag{3.20}$$ The
 first-order Laguerre polynomial is \[17\] $$L_1(u) = 1 - u.$$ Hence,
 $P_1(x, p)$ goes negative for
 $$H = p^2/2m + m\omega^2x^2/2 > \hbar\omega/4.$$ Since the energy of the
@@ -315,6 +315,7 @@ corresponding to the uncertainty principle. Therefore, in this special
 case, negative probabilities will only occur in connexion with rather
 drastic violations of the conservation law. The inversion of this
 proposition, however, is not true.
+
 This is demonstrated by the Wigner function of the second excited state.
 The second-order Laguerre polynomial is \[17\]
 $$L_2(u) = 2 - 4u + u^2.$$ (As we referred the reader extensively to
@@ -336,8 +337,9 @@ negative at $H=0$. Most interesting in the present context is, however,
 that all these Wigner functions of non-zero order unavoidably will take
 positive as well as negative values. This can easily be seen from the
 orthogonality relation \[17\]
-$$\frac{1}{n!m!} \int_0^\infty e^{-u} L_n(u) L_m(u) \, du = \delta_{nm}$$
+$$\frac{1}{n!m!} \int_0^\infty e^{-u} L_n(u) L_m(u) \, du = \delta_{nm} \tag{3.27}$$
 by inserting $L_m(u) = L_0(u) = 1$.
+
 The Wigner function in a more general form was also derived and
 thoroughly analyzed by Moyal \[18\], who shows in few steps, how it can
 be obtained from the characteristic function of a basic set of dynamical
@@ -365,15 +367,17 @@ on orthonormal sets $u$ and $v$, which are, respectively, eigenstates of
 operators $\hat{X}$ and $\hat{Y}$. Whence, given $\psi$, the joint
 probability of the corresponding variables taking values $x_i$ and $y_j$
 is expressed by
-$$P_M(x_i, y_j) = \text{Re}\left[a_i^* b_j \int u_i^* v_j \, d\tau\right].$$
+$$P_M(x_i, y_j) = \text{Re}\left[a_i^* b_j \int u_i^* v_j \, d\tau\right]. \tag{3.29}$$
 \"Most unfortunately\", they observe however, \"the defining relation
 (3.29) does not prevent the joint probabilities from being negative\"
 \[19\], demonstrating this by means of some examples.
+
 Treating a system with angular momentum $J=1(=\hbar)$, represented by a
 state vector $$\psi = \begin{pmatrix} a \\\\ b \\\\ c \end{pmatrix}$$ they
 obtain a negative joint probability for, e.g., two eigenstates belonging
 to eigenvalues $J_x = -1$ and $J_z = -1$, provided $a$, $b$, and $c$ are
 suitably chosen.
+
 The probability for simultaneous measurement of position $x$ and linear
 momentum $p$ of a particle, as derived from (3.29) by using a Gaussian
 wave packet with mean momentum $p_0$, results in a distribution
@@ -396,7 +400,7 @@ however, H. Margenau in chapter 5.)
 
 Cohen \[20\] could show that a wide class of probability distribution
 functions is supplied by the rather general expression
-$$P(x, p) = (2\pi)^{-2} \int \int \int f(\theta, \tau) \exp(-i\theta x - i\tau p + i\theta u) \psi^*(u - \tau\hbar/2)\psi(u + \tau\hbar/2) \, d\theta \, d\tau \, du.$$
+$$P(x, p) = (2\pi)^{-2} \int \int \int f(\theta, \tau) \exp(-i\theta x - i\tau p + i\theta u) \psi^*(u - \tau\hbar/2)\psi(u + \tau\hbar/2) \, d\theta \, d\tau \, du. \tag{3.30}$$
 
 Herein $f$ is simply a smearing function. By setting $f=1$, substituting
 $\tau$ by $-2y/\hbar$ and integrating over $\theta$ and $u$, we obtain
@@ -407,7 +411,7 @@ reformulation of (3.29) in terms of $x$ and $p$.
 $$P_M(x, p) = (2\pi)^{-1} \text{Re} \left[ \psi(x) \int \exp(-i\tau p) \psi^*(x - \tau\hbar) \, d\tau \right]. \tag{3.29'}$$
 
 Other distribution functions may be built with different functions $f$,
-if only $f$ satisfies the condition $$f(\theta, 0) = f(0, \tau) = 1$$ in
+if only $f$ satisfies the condition $$f(\theta, 0) = f(0, \tau) = 1 \tag{3.31}$$ in
 order to yield the correct quantum mechanical marginal distributions.
 Cohen imposed the following conditions on a general distribution
 function $P(x, p)$ \[21\]: (i) those given by (3.2) and (3.3); (ii) if
@@ -427,8 +431,7 @@ mechanical energy eigenstate. He concludes: \"Of course, it can be
 argued that the classical formalism does go through as long as we do not
 insist that the function which must be used to obtain the mean value of
 a function, $K$, of $g$ is not identical to $K(g)$. But this would carry
-us even.
-further from the conceptual basis of classical probability theory than
+us even further from the conceptual basis of classical probability theory than
 does quantum mechanics itself!\" \[21\].
 
 In spite of this concern the Wigner function (\"the rather trivial
@@ -560,7 +563,7 @@ interpretation now refer to the emissions and absorptions of photons.
 understandable, but one can use them mathematically in accordance with
 the rules for working with a Gibbs ensemble. One can suppose a
 hypothetical mathematical world with the initial probability
-distribution\" for $n$ photons $$P_n = 2(\epsilon - 1)^n,$$ where
+distribution\" for $n$ photons $$P_n = 2(\epsilon - 1)^n, \tag{3.41}$$ where
 $\epsilon$ is a small positive quantity tending to zero, in order that
 we may have $\sum P_n = 1$. \"One can work out the probabilities of
 radiative transition processes occurring in this world. One can deduce
@@ -568,10 +571,10 @@ the corresponding probability coefficients, i.e., the probabilities per
 unit intensity of each beam of incident radiation concerned, by using
 Einstein's laws of radiation. For example, for a process involving the
 absorption of a photon, if the probability coefficient is $B$, the
-probability of the process is $$\sum_{n=0}^\infty n P_n B = -B/2,$$ and
+probability of the process is $$\sum_{n=0}^\infty n P_n B = -B/2, \tag{3.42}$$ and
 for a process involving the emission of a photon, if the probability
 coefficient is $A$, the probability of the process is
-$$\sum_{n=0}^\infty (n+1) P_n A = A/2.$$ Now the probability of an
+$$\sum_{n=0}^\infty (n+1) P_n A = A/2. \tag{3.43}$$ Now the probability of an
 absorption process, as calculated from the theory, is negative, and that
 for an emission process is positive, so that, equating these calculated
 probabilities to (3.42) and (3.43) respectively, one obtains positive
@@ -600,7 +603,7 @@ of quantum theoretical description of radiation is given by extending
 the work of Weisskopf and Wigner \[48\] who calculated the natural
 linewidth of radiative decay of an excited atom. The corresponding
 transition amplitude (equation 15b of \[48\]) may be rewritten
-$$A(E, t) \propto \frac{e^{-t/2} - e^{iEt}}{i/2 - E}$$ with $E$ denoting
+$$A(E, t) \propto \frac{e^{-t/2} - e^{iEt}}{i/2 - E} \tag{3.44}$$ with $E$ denoting
 the difference between actual photon energy and mean state energy $E_0$
 in units of the natural width of the excited state, and $t$ denoting the
 time interval between excitation and decay in units of the mean lifetime
@@ -614,10 +617,10 @@ Breit-Wigner lineshape in the limit $t \to \infty$.
 It is now very interesting to consider the spectral distribution of
 photons emitted in finite time intervals. For the time interval $(0, t)$
 we have
-$$|A(E, t)|^2 = \frac{1}{2\pi} \frac{1 - 2e^{-t/2} \cos(Et) + e^{-t}}{E^2 + \frac{1}{4}},$$
+$$|A(E, t)|^2 = \frac{1}{2\pi} \frac{1 - 2e^{-t/2} \cos(Et) + e^{-t}}{E^2 + \frac{1}{4}}, \tag{3.45}$$
 which undoubtedly is non-negative for every $E$ and $t$. The spectral
 distribution emitted at time $t$, however,
-$$I(E, t) = d|A(E, t)|^2/dt,$$ entails negative values, as easily can be
+$$I(E, t) = d|A(E, t)|^2/dt, \tag{3.46}$$ entails negative values, as easily can be
 seen from
 $$I(E, t) = \frac{1}{2\pi} \frac{(2E \sin(Et) + \cos(Et)) e^{-t/2} - e^{-t}}{E^2 + \frac{1}{4}}. \tag{3.46'}$$
 
@@ -632,15 +635,17 @@ over suited domains $\Delta E \cdot \Delta t$, small compared to unity
 ($=\hbar$), the normalized probability $\rho(E, t) \Delta E \Delta t$,
 which is an observable quantity, may violate both the lower and the
 upper limit of Kolmogorov's axiom.
+
 These results have been verified by experiments \[49-51\]. A Mössbauer
 absorber, covering mainly a negative part of $I(E, t)$ in the 14.4 keV
 decay of $^{57}$Fe, exhibits a significantly enhanced transmission,
 compared to the non-Mössbauer case which is expected (and usually
 proved) to absorb least photons at all.
+
 One reason for the difficulties with quantum electrodynamics is the
 general Lorentz condition, according to which the four-divergence of the
 electromagnetic potential $A$ must vanish
-$$\frac{\partial A^0}{\partial x_0} + \frac{\partial A^1}{\partial x_1} + \frac{\partial A^2}{\partial x_2} + \frac{\partial A^3}{\partial x_3} \equiv \partial_\mu A^\mu = 0.$$
+$$\frac{\partial A^0}{\partial x_0} + \frac{\partial A^1}{\partial x_1} + \frac{\partial A^2}{\partial x_2} + \frac{\partial A^3}{\partial x_3} \equiv \partial_\mu A^\mu = 0. \tag{3.49}$$
 
 A photon density obtained from this continuity equation suffers from the
 same problems as the Gordon-Klein conserved density (3.36) in that it is
@@ -708,10 +713,11 @@ In order to account for the experimental fact that only transverse
 photons are observable, the usual supplementary condition (3.49) which,
 as we have seen above, is too restrictive to allow any state of the
 radiation field to satisfy it is replaced by
-$$[\partial_\mu A^\mu]^{(+)}\Psi=0 \quad \text{and} \quad \Psi^*[\partial_\mu A^\mu]^{(-)} = 0,$$
+$$[\partial_\mu A^\mu]^{(+)}\Psi=0 \quad \text{and} \quad \Psi^*[\partial_\mu A^\mu]^{(-)} = 0, \tag{3.50}$$
 where $[\partial_\mu A^\mu]^{(+)}$ and $[\partial_\mu A^\mu]^{(-)}$ are,
 respectively, the positive and the negative frequency parts of
 $\partial_\mu A^\mu$.
+
 In most cases of practical interest, the initial and the final states
 may be taken to be interaction-free. In such cases longitudinal or
 scalar photons do not exist in the initial state, and though they may
@@ -724,6 +730,7 @@ contribution of the longitudinal and the scalar photons alone is shown
 to be precisely the Coulomb interaction. A calculation of the electron's
 self-energy, however, leads to the old difficulties in that the result
 is divergent.
+
 Bleuler \[60\] could show that Gupta's symmetrical theory was equivalent
 with the reduced theory where the longitudinal field is replaced by the
 static Coulomb interaction. In the course of his paper, he remarks that
@@ -733,6 +740,7 @@ probabilities here are prevented by the new Lorentz condition (3.50).
 As the theory is operating in a Hilbert space with indefinite metric,
 entailing negative probabilities, the characteristics of indefinite
 metric will be outlined briefly in chapter 4.
+
 Although in particular Heisenberg is known to be a vehement proponent of
 the opinion that a physical explanation is not absolutely necessary if a
 sufficient mathematical formalism is available, he took the opposite
@@ -865,7 +873,7 @@ a spatially separated pair of electrons in the singlet state. That
 means, if the spin $s$ of one electron (labelled by 1) is measured in
 direction $a$ and yields the result $s_1(a)$, the same measurement
 performed on the other electron (2) will yield the result
-$$s_2(a) = -s_1(a).$$ As (3.53) is valid for any direction $a$
+$$s_2(a) = -s_1(a). \tag{3.53}$$ As (3.53) is valid for any direction $a$
 whatsoever, it must be concluded that the result in every direction is
 determined, or, to put it in other words, that the total spin
 $S = \sqrt{s(s+1)}$ has a uniquely defined direction, unless one
@@ -909,7 +917,7 @@ $b$, of the measurement of the second electron. If now the expectation
 value of the product of the correlated measurements is denoted by
 $E(a, b)$, and corresponding expressions involving a third direction $c$
 are formed, Bell's inequality reads, setting $\hbar=1$ \[81\],
-$$|E(a, b) - E(a, c)| \leq \tfrac{1}{2} + E(b, c),$$ which obviously is
+$$|E(a, b) - E(a, c)| \leq \tfrac{1}{2} + E(b, c), \tag{3.54}$$ which obviously is
 violated by the quantum theoretical expectation value
 $\langle s(a)s(b)\rangle = -\frac{1}{4}\cos(a,b)$, if e.g., $b$ bisects
 the angle $2\pi/3$, formed by $a$ and $c$.
@@ -924,7 +932,7 @@ The most elegant derivation was given by Wigner \[84\] who, like Bell,
 considers pairs of correlated electrons in the singlet state, and
 subdivides the whole set into subsets, the members of which would yield
 identical results $s^i$,
-$$s^i = \{s_1^i(a), s_1^i(b), s_1^i(c), s_2^i(a), s_2^i(b), s_2^i(c)\},$$
+$$s^i = \{s_1^i(a), s_1^i(b), s_1^i(c), s_2^i(a), s_2^i(b), s_2^i(c)\}, \tag{3.55}$$
 if all six individual results $s_k^i$ could be determined. If the
 results in all three directions are determined, then each of the sets
 $s^i$ must be considered an entity of reality. Wigner, however, shows
@@ -1081,12 +1089,14 @@ phrase 'spinning about the direction $n$', and the interpretation as
 conditional probabilities suffers from the appearance of negative
 'probabilities'. The functions are thus reminiscent of Wigner's
 phase-space 'distribution functions'.
+
 The generalized Bell's theorem establishes that no matter how large $S$,
 the representation of the quantum theoretic spin $S$ distribution
 \[\...\] lacks the essential non-negativity of the analogous
 representation \[\...\] of the classical distribution, that makes
 possible a simple interpretation in terms of conditional distributions\"
 \[89\].
+
 Of course, there are many physicists, who prefer to sacrifice locality
 if reality can be kept and negative probabilities are avoided, but it
 has been proved explicitly \[111\] that the concept of the total spin
@@ -1106,6 +1116,7 @@ overlooked. We need not ambiguously intermingle negative processes with
 negative probabilities for these processes by, for example, identifying
 an absorption with an emission appearing with negative probability, in
 order to demonstrate this.
+
 One interesting example (among others) is cited by Feynman \[112\], who
 considers the process of diffusion (like many physicists have been doing
 before him, but without noticing the following).
@@ -1136,7 +1147,7 @@ one additional example.
 The simplest solution describing the behaviour of the classical damped
 oscillator $$d^2x/dt^2 + dx/dt + \omega_0^2 x = 0$$ (the damping
 constant is set equal to unity) is given by
-$$x(t) = x_0 \exp(-t/2) \cos \bar{\omega}t, \quad \bar{\omega} = \sqrt{\omega_0^2 - \tfrac{1}{4}}.$$
+$$x(t) = x_0 \exp(-t/2) \cos \bar{\omega}t, \quad \bar{\omega} = \sqrt{\omega_0^2 - \tfrac{1}{4}}. \tag{3.65}$$
 
 In case of an electromagnetic oscillator, (3.65) may also be interpreted
 as the time-dependent amplitude of the field, observed (with the
@@ -1148,12 +1159,12 @@ which opens at time $t=0$, when the radiation starts, and closes at time
 $t$, we obtain for the observable part of the amplitude
 $$A(\omega, t) \propto \int_0^t \exp(-\tau/2) \cos(\bar{\omega}\tau) \exp(i\omega\tau) \, d\tau,$$
 or
-$$A(\omega, t) \propto \frac{\exp[(i(\omega - \bar{\omega}) - \frac{1}{2})t] - 1}{i(\omega - \bar{\omega}) - \frac{1}{2}} + \frac{\exp[(i(\omega + \bar{\omega}) - \frac{1}{2})t] - 1}{i(\omega + \bar{\omega}) - \frac{1}{2}}.$$
+$$A(\omega, t) \propto \frac{\exp[(i(\omega - \bar{\omega}) - \frac{1}{2})t] - 1}{i(\omega - \bar{\omega}) - \frac{1}{2}} + \frac{\exp[(i(\omega + \bar{\omega}) - \frac{1}{2})t] - 1}{i(\omega + \bar{\omega}) - \frac{1}{2}}. \tag{3.67}$$
 
 If the damping is very low, i.e., $\bar{\omega} \gg 1$, the second term
 of (3.67) can be omitted for $\omega \gg 1$. The energy observed in the
 time interval $(0, t)$ then is given by
-$$|A(\omega, t)|^2 \propto \frac{1 - 2e^{-t/2} \cos((\omega - \bar{\omega})t) + e^{-t}}{(\omega - \bar{\omega})^2 + \frac{1}{4}}.$$
+$$|A(\omega, t)|^2 \propto \frac{1 - 2e^{-t/2} \cos((\omega - \bar{\omega})t) + e^{-t}}{(\omega - \bar{\omega})^2 + \frac{1}{4}}. \tag{3.68}$$
 
 Formula (3.68) is the classical analogon of (3.45) and, hence, according
 to (3.46) and (3.46') its time derivate will yield extended
@@ -1291,7 +1302,7 @@ exhibits $N(A)$ particles in the state A and $N(-A)$ particles in other
 states ($-A$). Conservation of particle number requires
 $N(A)+N(-A) = N_0$. The combined transition probability for state A
 follows from the experiment in case $N_0 \to \infty$ by
-$$p(A) = \frac{1}{n} \sum_i \sum_{j(A)} p_{ij} = \lim_{N_0 \to \infty} N(A)/N_0.$$
+$$p(A) = \frac{1}{n} \sum_i \sum_{j(A)} p_{ij} = \lim_{N_0 \to \infty} N(A)/N_0. \tag{4.3}$$
 
 If the single transitions are admitted to interfere with each other, it
 is easy to extend the defining equation of probabilities to that end
@@ -1459,7 +1470,7 @@ the z direction is supposed to have only two directions of polarization
 transverse to its motion $x$, $y$. When this field is quantized, an
 additional interaction, the instantaneous Coulomb interaction, must be
 added to the virtual transverse photon exchange to produce the usual
-simple $$(j_x j^\prime_x + j_y j^\prime_y - j_z j^\prime_z) e^2/q^2$$ virtual interaction
+simple $$(j_x j^\prime_x + j_y j^\prime_y - j_z j^\prime_z) e^2/q^2 \tag{4.14}$$ virtual interaction
 between two currents, $j$ and $j^\prime$. It is obviously relativistically
 invariant with the usual symmetry of the space $j_x, j_y, j_z$ and time
 $j_t$ components of the current (in units where the velocity of light,
@@ -1476,7 +1487,7 @@ between initial and final states, just as the probability to emit an $x$
 photon is $+|\langle f|j_x|i\rangle|^2$. The total probability of
 emitting any sort of photon is the algebraic sum of the four
 possibilities,
-$$|\langle f|j_x|i\rangle|^2 + |\langle f|j_y|i\rangle|^2 - |\langle f|j_z|i\rangle|^2.$$
+$$|\langle f|j_x|i\rangle|^2 + |\langle f|j_y|i\rangle|^2 - |\langle f|j_z|i\rangle|^2. \tag{4.15}$$
 
 It is always positive, for by the conservation of current there is a
 relation of $j_t$ and the space components of $j$. $k_\mu j_\mu = 0$ if
@@ -1513,12 +1524,14 @@ emission processes comes very close to that one based on quenching
 events described in the first part of chapter 4, sharing with it the
 problem of how to explain that probabilities always interfere precisely
 enough to prevent negative events from being identified directly.
+
 While this crucial question must be left to further study, we shall now
 describe the formalism of indefinite metric, which is a useful tool to
 handle extended probabilities appearing in quantum electrodynamics. This
 account was invented by Gupta \[122\] and has been repeated in his
 recent textbook \[47\] from which the following paragraphs are
 excerpted.
+
 After stating that the usual formalism of quantum mechanics is not
 adequate to deal with all the fields in nature, Gupta develops his more
 general formalism, considering a space of infinite dimensions in which

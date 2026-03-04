@@ -149,9 +149,14 @@ the reasoning formats of orthodox and Bayesian methods fit into
 probability theory.
 ## RELATION TO PROBABILITY THEORY
 As mathematical system, probability theory consists simply of the basic
-product and sum rules $$\begin{aligned}
- p(AB | C) &= p(A | BC) p (B | C) \\\\ p(A | B) + p(\sim A | B) &= 1
-\end{aligned}$$ and their consequences. All schools of thought accept
+product and sum rules
+$$
+p(AB | C) = p(A | BC) p (B | C) \tag{1}
+$$
+$$
+p(A | B) + p(\sim A | B) = 1 \tag{2}
+$$
+and their consequences. All schools of thought accept
 these as correct -- at least on finite sets and their well-behaved
 limits, which are all we need consider here. In probability theory, as
 in any other area of applied mathematics, some paradoxes await those who
@@ -197,7 +202,10 @@ The technique for doing this is well known. Given some data $D_1$, we
 imbed it in a "sample space" $(D_1, D_2, \dots, D_N)$ containing other
 data that one postulates might have been observed, but were not. Then
 one introduces a "sampling distribution" consisting of the probabilities
-$$p(D_i | H), \quad 1 \le i \le N$$ that the data set $D_i$ would be
+$$
+p(D_i | H), \quad 1 \le i \le N
+$$
+that the data set $D_i$ would be
 observed if some hypothesis H were true. The frequency connection is
 then made by asserting that, for example, $p(D_2 | H)$ is the frequency
 with which the unobserved data set $D_2$ would have been obtained in the
@@ -207,6 +215,7 @@ probabilities one is allowed to use for inference, because a probability
 is not considered respectable until a frequency interpretation is
 bestowed upon it; and this special blessing is reserved for sampling
 distributions.
+
 But where does the orthodox statistician obtain all this knowledge? What
 determines the "true" sample space and the "true" sampling distribution?
 How can one know what the actual frequencies would be? Surely, when one
@@ -217,20 +226,24 @@ How is it possible that for decades claims of great "scientific
 objectivity" for this approach have not been effectively challenged? It
 cannot have been only physicists and Bayesians who perceive the lack of
 substance in such pretensions.
+
 The answer must be that for decades workers have been cowed by the
 oppressive weight of authority in this field. Indeed, Jimmie Savage
 [1962a] used just this term in recalling his own early experiences.
+
 The path of least resistance -- also the one safest for one's worldly
 career -- is to put up a public front, giving lip service to things
 which we believe to be false, remaining silent on what we see as the
 truth, out of fear of the "clamor of the Boeotians". We know that
 Newton, Gauss, and von Neumann delayed publication of some of their most
 original ideas for this reason.
+
 It is not only in science that this false public front is expedient. At
 the turn of the century, Jules Massenet enjoyed enormous public success
 with his religious and operatic music; but he said privately to Vincent
 d'Indy, "I don't believe in all that creeping Jesus stuff, but the
 public likes it, and we must always agree with the public."
+
 Illusions of objectivity are preserved, not so much by authority imposed
 from above, but by the ring of authority in an official language that
 encourages them. "It is a gaussian random process" sounds very much like
@@ -240,12 +253,14 @@ space, population from which we draw, and sampling frequencies, are
 almost always represented as if they were physical facts. Like religion,
 this gives a certain feeling of security that the statistical "public"
 likes.
+
 Yet almost everyone has lucid moments in which he recognizes that these
 representations cannot be really true. Fisher [1956] observes:
 > [...] the only populations that can be referred to in a test of
 > significance have no objective reality, being exclusively the product
 > of the statistician's imagination through the hypotheses he has
 > decided to test [...]
+
 Lindley [1971] notes:
 > A statistician faced with some data often imbeds it in a family of
 > possible data that is just as much a product of his fantasy as is a
@@ -253,6 +268,7 @@ Lindley [1971] notes:
 > Edwards [1970]. The data here are the distribution of human
 > blood-groups in the world at the present day. What repetitions of this
 > experiment are envisaged to provide a sample space?
+
 But these lucid moments are rare, and the illusions of authority
 artificially created by our language continue to dominate the way we
 formulate, and think about, problems of inference. In the case of a time
@@ -262,6 +278,7 @@ spectrum, etc. which we are to estimate by various means. In occasional
 lucid moments we must recognize that these things are only figments of
 our imagination. What does it mean to "estimate" a figment? Our real
 goal, almost always, is to obtain a predictive distribution.
+
 This supposed frequency connection encounters some problems even for
 estimating a quantity, such as the velocity of light, which everyone
 believes is something real; and not a figment. Suppose we are trying to
@@ -283,12 +300,14 @@ other measurements to determine those frequencies, but also that we have
 *no* information about the actual error in the present measurement,
 beyond those frequencies. I know of no experiment in which these
 conditions were met.
+
 This reminds us of Fisher's admonition that the validity of some
 orthodox reasoning depends on the absence of recognizable subsets. In
 his last book (Fisher [1956]) he recognizes also that fiducial
 inference is valid only when we have no prior information. This work
 gives considerable support to a conjecture sometimes heard -- that if
 Fisher were alive today he would now be a Bayesian.
+
 If one examines the actual procedures -- as distinguished from the
 precepts -- used in setting up orthodox statistical problems, it is seen
 that sampling distributions are not, in practice, determined by any
@@ -298,6 +317,7 @@ adopted by convention (iid normal errors, Weibull failure law, etc.). It
 would not be easy to cite an orthodox work which presented empirical
 evidence that the sampling distribution used was indeed a real
 frequency.
+
 The Bayesian reasoning format seeks to relate the mathematics to the
 real world in a totally different way. We do not proceed indirectly
 through supposed connections with frequencies of imagined data sets that
@@ -310,6 +330,7 @@ with "reality" and I submit that it is vastly more objective
 and scientific than one that has to conjure up frequencies in an
 imaginary universe, while ignoring cogent prior information in this
 universe.
+
 There is a famous expression of the opposite view. Norman Campbell
 asserted that anyone who tried to claim that probability in a physics
 experiment meant anything different from frequency, "[...] would
@@ -321,11 +342,13 @@ in the fact that physicists are trained to direct their attention to the
 cause-effect relations controlling real physical phenomena -- an
 attention that is conspicuously missing in frequentist descriptions of
 those phenomena.
+
 Indeed, it appears to me that maintaince of a frequency view requires
 one to ignore virtually all the professional knowledge that physicists
 have -- because that constitutes "prior information" that would
 invalidate a naive frequency interpretation. This corresponds closely to
 what we noted five paragraphs before.
+
 Of course, if the only information we have about a phenomenon is its
 observed frequency, then the probability we shall assign to it will be
 equal to that frequency. But this, far from standing in conflict with
@@ -335,6 +358,7 @@ adequately in every Bayesian work since Laplace's memoir of 1774 on the
 *Probability of Causes*. Laplace, Maxwell, Gibbs, Poincaré, Jeffreys,
 and Cox have not succeeded in persuading anyone of their ignorance of
 physics.
+
 However, after all these criticisms we must admit that orthodox practice
 is often far more defensible than orthodox precepts, because common
 sense is powerful enough to make one lay the latter aside when they
@@ -476,12 +500,18 @@ The reasoning format here is in a sense that opposite of that supposed
 by orthodox statistics. Let us state it in very general, symbolic terms.
 There are a number of conceivable "diseases" or states of nature
 $[x_1, x_2, \dots]$ and we obtain data y that we write as
-$$y = Ax$$ determined by the unknown true state x, where A is a
+$$
+y = Ax
+$$
+determined by the unknown true state x, where A is a
 deterministic operator, assumed known. However, A is singular (i.e., the
 same y could result from more than one x), and so we cannot invert this
 relations to determine x form y. We must be content with making some
-guess, or "estimate" $$
-\hat{x} = By$$ where B is a "resolvent" operator
+guess, or "estimate"
+$$
+\hat{x} = By
+$$
+where B is a "resolvent" operator
 to be chosen.
 
 We have here no "noise", and therefore no sampling distribution except
@@ -502,23 +532,36 @@ For example, in spectral analysis we have accurate measurements of a
 function f(t), but only on a finite set of times {$t_1, \dots, t_n$}.
 Given this noiseless but incomplete information, make the best estimate
 of its power spectrum
-$$p(\omega) = \left| \int f(t) e^{i \omega t} dt \right|^2.$$ Or in
+$$
+p(\omega) = \left| \int f(t) e^{i \omega t} dt \right|^2.
+$$
+Or in
 image reconstruction, let {$x_1, \dots, x_n$} be the luminances of the
 elements of a true scene, while our data consist of noiseless but
 incomplete values for the elements of our image
-$$y_i = \sum_j A_{ij} x_j \quad , \quad 1 \le i \le m < n$$ and $A_{ij}$ is
+$$
+y_i = \sum_j A_{ij} x_j \quad , \quad 1 \le i \le m < n
+$$
+and $A_{ij}$ is
 the digitized point-spread function of our imperfect telescope.
 
 In each of these cases, the data can tell us only that the true spectrum
 or the true scene must lie in a certain class C of possibilities, but
 orthodox statistical principles, finding a constant likelihood for all
 of them, are helpless to make a definite decision within that class.
+
 Returning to our general format, $y = Ax, \hat{x} = By$, it would appear
 that any rational method for choosing the resolvent operator B must
 have, at the very minimum, the property that the estimate $\hat{x}$ lies
 in the class C of possible causes: for all x,
-$$y = Ax = A\hat{x} = ABy = ABAx$$ The resolvent operator must therefore
-be a generalized inverse: $$ABA = A$$
+$$
+y = Ax = A\hat{x} = ABy = ABAx
+$$
+The resolvent operator must therefore be a generalized inverse:
+$$
+ABA = A \tag{8}
+$$
+
 By a "pure generalized inverse" problem we mean one in which there is no
 noise, and the likelihood is strictly rectangular, so Eq. (8) contains
 all that orthodox statistics can tell us.
@@ -532,6 +575,7 @@ definition non-negative, can nevertheless be estimated to be negative; and
 every data point where the window function $W \neq 1$. Yet, as we
 deplored in our opening remarks, such methods are still being put into
 new textbooks and taught.
+
 By contrast, the Bayesian method deals with generalized inverse problems
 without any difficulty, leading automatically to estimates that satisfy
 condition (8). The posterior probability $p(x | yI)$, where I stands for
@@ -548,12 +592,14 @@ multiplicity ratio $W_2/W_1 = 10^{10}$, our decision problem is not
 really very difficult. With sufficient knowledge of the laws of
 physics, these multiplicity factors can be calculated, often by quite
 nontrivial combinatorial methods.
+
 If our prior information consists entirely of multiplicity factors (as
 it does in most of the current problems), then the Bayesian's optimal
 estimate $\hat{x} = By$ will be that one which, in class C, has the
 greatest multiplicity W(x). At this point, perhaps our story will start
 to sound familiar again; for the quantity $H(x) = \log W(x)$ is just
 what we call the "entropy" of x.
+
 The original pure generalized inverse problem, therefore, was just the
 statistical mechanics of Boltzmann and Gibbs. Their algorithm: the
 macroscopic state which is overwhelmingly more likely than any other is
@@ -562,6 +608,7 @@ and the laws of physics. As we hope to show elsewhere, all of presently
 known statistical mechanics -- equilibrium and nonequilibrium -- is
 contained in this algorithm, suitably generalized to allow for
 space-time variations. A preliminary survey is given in Jaynes [1980].
+
 What is new and exciting in statistics today is, however, the quite
 recent realization that this maximum entropy principle applies in a
 beautiful way to the aforementioned spectral analysis and image
@@ -573,6 +620,7 @@ was surprising to all of us -- although mathematically elementary -- to
 realize that in such problems multiplicity ratios of $10^{10}$ or more
 are not unusual. Further details may be found in Burg [1975], Childers
 [1978], Gull and Daniell [1978], Bekenstein [1981].
+
 Today, generalized inverse problems have become so important in
 engineering (for example, control systems) that mathematicians have
 devoted a great deal of attention to them. However most, being still
@@ -586,12 +634,14 @@ over another lies in our prior information. From a Bayesian standpoint,
 these problems are often very well posed, with unique and useful
 solutions. The services of a few Bayesians are much needed in this
 field.
+
 Generalized inverse problems are also, or very soon will be, important
 in economics. Here, many struggle with the seemingly ill-posed problem
 of seasonal adjustment of economic time series. The U. S. Census Bureau's
 XII program for this has been in use since the middle 1960's; but in
 1979 three different Government-sponsored committees of Statisticians
 were searching for improved methods.
+
 The Bell Laboratories SABL program was announced recently (Cleveland et
 al. [1980]) as a major advance over XII. However, from the writer's
 discussions with Cleveland in December 1980, it appears that SABL is
@@ -603,10 +653,12 @@ it. In this field also, the services of a few Bayesians are clearly
 needed; although W. S. Cleveland is a former student of Jimmie Savage,
 the personalistic approach has never taken seriously the explicit
 conversion of prior information into prior probabilities.
+
 It is hardly surprising that it is geophysics, the field in which Sir
 Harold Jeffreys works, that has developed the most highly sophisticated
 methods of time series analysis. But we have no more time and must refer
 the reader to the extensive review of Smylie, Clarke, and Ulrych [1973].
+
 In conclusion, it appears to the writer that in generalized inverse
 problems we have the ultimate "intuitive inadequacy" that will be the
 fatal Achilles heel of orthodox statistical principles. Orthodox

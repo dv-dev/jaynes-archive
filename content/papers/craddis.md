@@ -49,16 +49,17 @@ the problem. Most important, we use full Bayesian probability theory,
 which overcomes the limitations of sampling theory.
 
 A transmitted pulse $f(t)$ gives rise to an echo from a target, of the
-form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime$$ where $r(t)$ is the "impulse
+form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime \tag{1-1}$$ where $r(t)$ is the "impulse
 response function", or as we shall call it, the *reflection function*,
 of the target, which we consider defined for all time. Presumably,
-$$r(t) = 0 \quad \text{when} \quad t < 2d/c$$ where $d$ is the distance
+$$r(t) = 0 \quad \text{when} \quad t < 2d/c \tag{1-2}$$ where $d$ is the distance
 to the nearest part of the target, $c$ the velocity of light. In the
 theory, however, we do not assume this; the final formulas turn out to
 have the same general form whether or not (2) is satisfied. Thus our
 results would hold also in discrimination problems where the variable
 $t$ is not a time, and the physical causality condition (1-2) need not
 hold.
+
 More important are the meanings of $f(t)$ and $y(t)$. One could take
 these to be the forms of the actual electromagnetic fields in space; if
 so, practically all of the following theory would remain valid but for
@@ -67,6 +68,7 @@ However, these results would then need to be convolved with the
 properties of antennas and matching circuits before they would be
 expressed in terms of the easily measurable quantities, the voltages and
 currents at the actual transmitter and receiver terminals.
+
 It is much more convenient to take $f(t)$ to be the transmitted pulse as
 measured at the transmitter terminals (presumably a certain reference
 plane in a coaxial line or waveguide); and $y(t)$ to be the echo part of
@@ -74,6 +76,7 @@ the received signal as measured similarly at the receiver terminals.
 With this interpretation the following theory is exact as given, and all
 the functions needed to apply it are directly measurable with standard
 laboratory equipment.
+
 Our reflection functions are then convolutions:
 $$r(t) = (\text{transmitter function}) \ast (\text{echo in space}) \ast (\text{receiver function}).$$ 
 
@@ -91,6 +94,7 @@ measured experimentally, makes no difference. What is relevant to the
 problem before us (decide between a set of possible targets) is simply
 the numerical values of the $r(t)$ functions themselves, because they
 carry all the information about the target that is in the echoes.
+
 We stress this point because of a widespread belief that determining the
 poles of the singularity expansion is essential to target
 identification, because they are aspect independent. Indeed, if a few
@@ -127,6 +131,7 @@ analysis will tell us so automatically; and it will tell us also the
 quantitative way in which they enter into the problem. Until the results
 of this analysis are at hand, we are not in a position to judge what
 role the poles may play in the problem, beyond intuitive guesswork.
+
 The total data set $D \equiv \{d(t)\}$ available for processing is not
 just the target echo $y(t)$. It has in general two other unavoidable
 components: $$d(t) = y(t) + h(t) + n(t)$$
@@ -169,14 +174,14 @@ real world, which are matters of technical detail rather than basic
 understanding.
 # DISCRIMINATION BETWEEN TWO TARGETS
 If target A is present, the echo function is
-$$y_A(t) = \int r_A(t-t^\prime)f(t^\prime)dt^\prime,$$ while if target B is present it is
+$$y_A(t) = \int r_A(t-t^\prime)f(t^\prime)dt^\prime, \tag{2-1}$$ while if target B is present it is
 $$y_B(t) = \int r_B(t-t^\prime)f(t^\prime)dt^\prime.$$ Then our data from a single pulse
 will be $$d(t) = y_A(t) + n(t), \text{ if the target is A},$$
 $$d(t) = y_B(t) + n(t), \text{ if the target is B}.$$ We shall take
 $n(t)$ to be white Gaussian noise, with expected square $\sigma^2$;
 i.e., we take the probability of a given noise function $n(t)$ to be
 proportional to
-$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int n^2(t)dt\right\}$$
+$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int n^2(t)dt\right\} \tag{2-3}$$
 
 We indicate this as a conditional probability, conditional on knowledge
 of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
@@ -190,7 +195,7 @@ calculation.
 Now if we knew that A is in fact the true target present, then the
 probability of getting a given data function $d(t)$ would be just the
 probability that the noise would make up the difference in (2-3):
-$$p(D|A\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_A(t)]^2 dt\right\}$$
+$$p(D|A\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_A(t)]^2 dt\right\} \tag{2-4}$$
 while if B is true, this probability is
 $$p(D|B\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_B(t)]^2 dt\right\}$$
 where we are using D as an abbreviation for the entire run of data
@@ -204,7 +209,7 @@ the probability that both A and D are true is
 $$p(AD|\sigma) = p(A|\sigma) p(D|A\sigma) = p(D|\sigma)p(A|D\sigma)$$
 since the proposition 'AD' on the left-hand side is the same as 'DA'
 (i.e., Boolean logic is commutative). Therefore,
-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)}$$ The
+$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ The
 first factor on the right is the "prior probability" $p(A|\sigma)$,
 which is clearly necessary in all inference from data. That is, to ask
 "What do you know about A after getting the data D?" does not make
@@ -213,10 +218,10 @@ account, "What did you know about A before getting D?". The second
 factor is the "likelihood", which shows how the prior probability is
 updated as a result of getting the evidence of the data D. Likewise, the
 probability that B is the true target, is
-$$p(B|D\sigma) = p(B|\sigma) \frac{p(D|B\sigma)}{p(D|\sigma)}$$ Now in
+$$p(B|D\sigma) = p(B|\sigma) \frac{p(D|B\sigma)}{p(D|\sigma)} \tag{2-9}$$ Now in
 the simple problem being considered, we are given at the outset that
 there are only two possible targets, A and B. Therefore
-$$p(A|\sigma) + p(B|\sigma) = 1,$$ and this is still true after getting
+$$p(A|\sigma) + p(B|\sigma) = 1, \tag{2-8}$$ and this is still true after getting
 the data, so $$p(A|D\sigma) + p(B|D\sigma) = 1.$$
 Then (2-7) and (2-9) give us
 $$p(D|\sigma) = p(D|A\sigma) p(A|\sigma) + p(D|B\sigma)p(B|\sigma),$$
@@ -229,7 +234,7 @@ For many purposes we can eliminate $p(D|\sigma)$ by considering
 probability ratios, or odds, instead of probabilities. In the present
 binary problem these are the same thing; the ratio of probabilities of A
 and B is
-$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{p(D|A\sigma)}{p(D|B\sigma)},$$ 
+$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{p(D|A\sigma)}{p(D|B\sigma)} \tag{2-12},$$ 
 while the odds on any proposition X with probability $p(X)$ are
 $o(X) = p/(1-p)$. But because of (2-8), (2-9)
 $$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|D\sigma)}{1 - p(A|D\sigma)} = o(A|D\sigma)$$
@@ -237,7 +242,7 @@ so it does not matter which terminology we use. With multiple targets,
 odds and probability ratios are no longer the same.
 Using (2-7), the normalization constants that we left out of (2-3)
 cancel out anyway and the odds on target A reduce to
-$$o(A|D\sigma) = o(A|\sigma) \exp\left\{\frac{1}{\sigma^2}[d\cdot(y_A - y_B) + \frac{1}{2}(y_B\cdot y_B - y_A\cdot y_A)]\right\}$$
+$$o(A|D\sigma) = o(A|\sigma) \exp\left\{\frac{1}{\sigma^2}[d\cdot(y_A - y_B) + \frac{1}{2}(y_B\cdot y_B - y_A\cdot y_A)]\right\} \tag{2-14}$$
 where we have used the abbreviations
 $$d\cdot y_A = \int d(t) y_A(t) dt, $$
 $$y_A \cdot y_A = \int y_A(t) y_A(t) dt, $$ etc. A term $(d\cdot d)$ has
@@ -268,7 +273,7 @@ Now if A is in fact the true target present, then $d(t) = y_A(t)+n(t)$,
 and the result of this data processing will be
 $$\sigma^2 \log o(A|D\sigma) = n \cdot (y_A - y_B) + y_A \cdot (y_A - y_B) + \frac{1}{2}(y_B \cdot y_B - y_A \cdot y_A)$$
 or,
-$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) + \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B)$$
+$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) + \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B) \tag{2-17}$$
 a "random noise" part and a systematic part. If B is the true target,
 our computer will find instead the log-odds in favor of A of
 $$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) - \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B)$$
@@ -282,16 +287,16 @@ it resembles $(y_B - y_A)$, it will make us tend to favor B. We shall
 estimate the magnitude of this term presently [Eq. (2-57)]; but from
 symmetry it is as likely to be positive as negative, so the expected
 log-odds in favor of A comes from the systematic term alone:
-$$\sigma^2 \langle\log o(A|D\sigma)\rangle = \pm \frac{1}{2} (y_A - y_B)\cdot(y_A - y_B)$$
+$$\sigma^2 \langle\log o(A|D\sigma)\rangle = \pm \frac{1}{2} (y_A - y_B)\cdot(y_A - y_B) \tag{2-18}$$
 with the plus sign if A is true.
 
 Evidently, for best discrimination between A and B we want to make the
 magnitude of (2-18) as large as possible. To see how this depends on the
 reflection functions and the transmitted pulse, write the difference in
-reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime).$$ 
+reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
 We have from (2-1), 
-$$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned}$$ 
-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
+$$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
 Abbreviating the integral in (2-20) by '$\iint fgf$', this is
 $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
 problem first in the time domain, then in the frequency domain.
@@ -301,14 +306,14 @@ energy radiated, '$\int [f(t)]^2 dt$', is found by Lagrange multipliers:
 in our shorthand notation,
 $$0 = \delta\left[\iint fgf - \lambda \int f^2\right] = 2\delta f \cdot \left[\int gf - \lambda f\right]$$
 or, the condition for stationarity of $\iint fgf$ is the integral
-equation $$\int g(t-t^\prime) f(t^\prime) dt^\prime = \lambda f(t).$$ To understand the
+equation $$\int g(t-t^\prime) f(t^\prime) dt^\prime = \lambda f(t). \tag{2-23}$$ To understand the
 condition for a maximum, note that if this integral equation had a
 discrete set of eigenvalues and normalized eigenfunctions:
 $$\int g(t - t^\prime) \phi_i(t^\prime) dt^\prime = \lambda_i \phi_i(t), \quad i = 1,2,\dots$$ 
 then we could view it in a very simple way. Given any function $f(t)$,
 expand it in the eigenfunctions: $$f(t) = \sum a_i \phi_i(t)$$
 Then we find that
-$$\frac{\iint fgf}{\int f^2} = \frac{\sum_i |a_i|^2 \lambda_i}{\sum_i |a_i|^2}$$
+$$\frac{\iint fgf}{\int f^2} = \frac{\sum_i |a_i|^2 \lambda_i}{\sum_i |a_i|^2} \tag{2-26}$$
 is a weighted average of the eigenvalues. This makes it obvious that the
 absolute maximum is achieved when $f(t)$ is proportional to that
 eigenfunction belonging to the greatest eigenvalue, and (2-26) shows how
@@ -316,7 +321,7 @@ much the performance will deteriorate when $f(t)$ is not optimal. This
 would give us essentially complete understanding of the problem.
 However, our $g(t,t^\prime)$ is not of this type; it has continuous
 eigenvalues and non-normalizable eigenfunctions. To see this, note from
-(2-21) that it is translationally invariant: $$g(t^\prime,t^{\prime\prime}) = g(t^\prime - t^{\prime\prime})$$
+(2-21) that it is translationally invariant: $$g(t^\prime,t^{\prime\prime}) = g(t^\prime - t^{\prime\prime}) \tag{2-27}$$
 and so, if $f(t)$ was an eigenfunction of (2-23), then $f(t-s)$ would be
 one also for all real $s$. There are two possibilities: (1) there is an
 infinite degeneracy; (2) $f(t)$ is an exponential function. This is
@@ -330,11 +335,11 @@ Then we need some
 Parseval-type formulas:
 $$\int g(t^\prime - t^{\prime\prime}) f(t^{\prime\prime})dt^{\prime\prime} = \int dt^{\prime\prime} f(t^{\prime\prime}) \int \frac{d\omega}{2\pi} G(\omega)e^{-i\omega(t^{\prime\prime}-t^{\prime\prime})} = \int \frac{d\omega}{2\pi} G(\omega)F(\omega)e^{-i\omega t^\prime}$$ 
 and
-$$\iint fgf = \int dt^\prime f(t^\prime) \int \frac{d\omega}{2\pi} G(\omega)F(\omega)e^{-i\omega t^\prime} = \int \frac{d\omega}{2\pi} G(\omega)|F(\omega)|^2$$
+$$\iint fgf = \int dt^\prime f(t^\prime) \int \frac{d\omega}{2\pi} G(\omega)F(\omega)e^{-i\omega t^\prime} = \int \frac{d\omega}{2\pi} G(\omega)|F(\omega)|^2 \tag{2-31}$$
 and the conventional Parseval theorem:
 $$\int f^2(t) dt = \int \frac{d\omega}{2\pi} |F(\omega)|^2.$$ The ratio
 to be maximized is now
-$$\frac{\iint fgf}{\int f^2} = \frac{\int d\omega |F(\omega)|^2 G(\omega)}{\int d\omega |F(\omega)|^2}$$
+$$\frac{\iint fgf}{\int f^2} = \frac{\int d\omega |F(\omega)|^2 G(\omega)}{\int d\omega |F(\omega)|^2} \tag{2-33}$$
 which is, analogous to (2-26), a weighted average of the values of
 $G(\omega)$, weighted according to the power density of the transmitted
 pulse at frequency $\omega$. This makes it, again, obvious how the
@@ -348,7 +353,7 @@ Parseval-type relation:
 $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
 
 In other words, we have simply
-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
+$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
 very cogent and sensible. This is the usual outcome of a Bayesian
 probability analysis; a final result that intuition would never have
 found for us, but which seems intuitively right after a little
@@ -362,7 +367,7 @@ frequency $\omega_0$ which was not chosen with this problem in mind at
 all. Then the combined result of the above equations is that, if A is
 the true target, a single pulse will give us an expected log-odds in
 favor of A of approximately
-$$\langle \log o(A|D\sigma) \rangle \approx \frac{\int f^2(t)dt}{2\sigma^2} |R_A(\omega_0) - R_B(\omega_0)|^2,$$ 
+$$\langle \log o(A|D\sigma) \rangle \approx \frac{\int f^2(t)dt}{2\sigma^2} |R_A(\omega_0) - R_B(\omega_0)|^2 \tag{2-36},$$ 
 provided that $G(\omega)$ is not rapidly varying in the neighborhood of
 $\omega_0$. The first factor on the right is a kind of signal/noise
 ratio; i.e., it is something vaguely like
@@ -387,7 +392,7 @@ the wave impedance of a waveguide mode), there is a voltage and current
 $v(t)$, $i(t)$ at this reference plane (which in a waveguide represent
 the amplitudes of the transverse electric and magnetic fields of the
 mode being used). The forward and backward traveling wave amplitudes are
-$$f_\pm(t) = \frac{1}{2}\left[\frac{v(t)}{\sqrt{Z}} \pm i(t)\sqrt{Z}\right],$$ 
+$$f_\pm(t) = \frac{1}{2}\left[\frac{v(t)}{\sqrt{Z}} \pm i(t)\sqrt{Z}\right] \tag{2-38},$$ 
 with the meaning that $f_+^2$ and $f_-^2$ are the instantaneous powers
 in watts, carried by the forward and backward waves. We verify that, 
 indeed, the difference $$f_+^2(t) - f_-^2(t) = v(t)i(t)$$
@@ -516,23 +521,23 @@ Furthermore, this is an expansion in orthogonal functions, for
 $$\int_{-\infty}^{\infty} s_j(t)s_k(t)dt = \frac{\pi}{\Omega} s_j(t_k) = \frac{\pi}{\Omega}\delta_{jk}.$$ 
 
 Then the integral of a product of band-limited functions is
-$$\int n(t)g(t)dt = \int dt \sum_{j,k} n_j g_k s_j(t)s_k(t) = \frac{\pi}{\Omega} \sum_j n_j g_j$$
+$$\int n(t)g(t)dt = \int dt \sum_{j,k} n_j g_k s_j(t)s_k(t) = \frac{\pi}{\Omega} \sum_j n_j g_j \tag{2-48}$$
 and, in the special case $g(t) = n(t)$,
-$$\int n^2(t) dt = \frac{\pi}{\Omega} \sum_j n_j^2.$$ Note that (2-48)
+$$\int n^2(t) dt = \frac{\pi}{\Omega} \sum_j n_j^2. \tag{2-49}$$ Note that (2-48)
 and (2-49) are not merely discrete sum approximations to the integrals; 
 for band-limited functions they are exact.
 
 Now we defined the quantity $\sigma$ in (2-3) by saying that the noise
 is supposed white, and the probability of a noise function $n(t)$ shall
 be
-$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2} \int n^2(t) dt \right\}$$
+$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2} \int n^2(t) dt \right\} \tag{2-50}$$
 
 This is now, from (2-49),
 $$\exp\left\{-\frac{\pi}{2\sigma^2 \Omega} \sum_j n_j^2 \right\}.$$ But
 this states that the variables $n_j \equiv n(t_j)$ are assigned
 independent Gaussian distributions with means $\langle n_j \rangle = 0$
 and second moments
-$$\langle n_j n_k \rangle = \frac{\sigma^2 \Omega}{\pi} \delta_{jk}.$$ 
+$$\langle n_j n_k \rangle = \frac{\sigma^2 \Omega}{\pi} \delta_{jk}. \tag{2-52}$$ 
 
 In other words, our definition (2-50) plus the band-limited condition
 implies white noise in the sense that the values of $n(t)$ separated by
@@ -544,12 +549,12 @@ and the noise temperature $T_N$. From our definition of $n(t)$ as the
 amplitude of a travelling wave, the expectation of energy carried by it
 in the frequency bandwidth $\Delta f = \Omega/2\pi$ in some long time
 interval $\tau$ is from (2-49), (2-52),
-$$\frac{\pi}{\Omega} \sum_j \langle n_j^2 \rangle = k T_N \cdot \frac{\Omega\tau}{2\pi}.$$ 
+$$\frac{\pi}{\Omega} \sum_j \langle n_j^2 \rangle = k T_N \cdot \frac{\Omega\tau}{2\pi}. \tag{2-53}$$ 
 
 The number of terms in the sum is $\tau/\delta t = \Omega\tau/\pi$,
 where $\delta t = \pi/\Omega$ is the Nyquist sampling interval. By
 (2-52) these terms are all equal. Therefore $\Omega$ and $\tau$ cancel
-out, and (2-53) becomes simply $$\sigma^2 = \frac{1}{2} k T_N$$
+out, and (2-53) becomes simply $$\sigma^2 = \frac{1}{2} k T_N \tag{2-54}$$
 just the average thermal energy per degree of freedom according to the
 Rayleigh-Jeans law, at temperature $T_N$. Although the argument leading
 to this result has been long, we are rewarded in the end with a pleasant
@@ -559,7 +564,7 @@ Another equally nice result is the estimated value of the integral
 (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
 trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
 expected square. Using (2-48) we have
-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
+$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
 or, in view of (2-49),
 $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
 turns out so simple and neat is another pleasant surprise. Now we can
@@ -568,7 +573,7 @@ known.
 ### Final Results:
 The approximate expected log-odds (2-36) in favor of target A is now
 simply
-$$\langle \log o(A|D\sigma) \rangle \approx \frac{\text{(Energy radiated per pulse)}}{k T_N} |R_A(\omega_0) - R_B(\omega_0)|^2,$$ 
+$$\langle \log o(A|D\sigma) \rangle \approx \frac{\text{(Energy radiated per pulse)}}{k T_N} |R_A(\omega_0) - R_B(\omega_0)|^2 \tag{2-56},$$ 
 the product of two dimensionless factors, one enormously large and one
 enormously small; we estimate them separately below. But how much can
 the calculated log-odds (2-17) vary due to noise? For reliable
@@ -577,7 +582,7 @@ compared to its random variability. In (2-17) we saw that the noise
 contributes a random confusion term to the log-odds of
 $\sigma^{-2} n \cdot (y_A - y_B)$, and from (2-55) we can estimate this
 as
-$$\pm \left[ \frac{\int [y_A(t) - y_B(t)]^2 dt}{\sigma^2} \right]^{1/2}$$
+$$\pm \left[ \frac{\int [y_A(t) - y_B(t)]^2 dt}{\sigma^2} \right]^{1/2} \tag{2-57}$$
 
 But this integral is just the '$\iint fgf$' that we have evaluated in
 (2-31) and (2-35):
@@ -588,11 +593,11 @@ Therefore our final conclusion for this "baby" version of the problem
 can be stated very simply: given the echo functions $y_A(t)$ and
 $y_B(t)$ for the two possible targets and the data $d(t)$ obtained by
 the receiver from a pulse echo, calculate the dimensionless number
-$$L_A = \frac{[d\cdot (y_A - y_B) + \frac{1}{2}(y_B\cdot y_B - y_A\cdot y_A)]}{k T_N}$$
+$$L_A = \frac{[d\cdot (y_A - y_B) + \frac{1}{2}(y_B\cdot y_B - y_A\cdot y_A)]}{k T_N} \tag{2-59}$$
 
 This is the log odds in favor of target A given by a single pulse. The
 mean value, or "expected value" of $L_A$ is given by (2-18), (2-54) as
-$$M = \langle L_A \rangle = \frac{(y_A - y_B)\cdot (y_A - y_B)}{k T_N}.$$ 
+$$M = \langle L_A \rangle = \frac{(y_A - y_B)\cdot (y_A - y_B)}{k T_N}. \tag{2-60}$$ 
 
 Different pulses, with randomly varying samples of noise, will yield
 varying conclusions given approximately by
@@ -618,7 +623,7 @@ for our antenna gains and the scattering cross-section of a target.
 Suppose our transmitter radiates the total power $P_{rad}$ watts. The
 antenna concentrates the energy as much as possible in the direction of
 the target, so the power density incident on the target at distance $d$
-is $$P_{inc} = G \frac{P_{rad}}{4\pi d^2} \quad \text{watts/m}^2.$$ 
+is $$P_{inc} = G \frac{P_{rad}}{4\pi d^2} \quad \text{watts/m}^2. \tag{2-63}$$ 
 where G is the antenna gain, relative to an isotropic radiator. It can
 be estimated two ways, from the beam width or, using the reciprocity
 theorem, from its absorption cross-section. We illustrate both methods.
@@ -627,7 +632,7 @@ wavelength $\lambda$. Its beam width is, crudely,
 $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
 solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
 estimate its gain as
-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
+$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
 
 On the other hand, consider its absorption properties. An infinitesimal
 dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
@@ -640,7 +645,7 @@ $\lambda^2/4\pi$. Now the absorption cross-section of our dish antenna
 is about equal to its area, $\pi a^2$ (actually, slightly less because
 the dish is not uniformly illuminated by the feeder), and so we estimate
 the gain as
-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
+$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
 in approximate agreement with (2-64). For example, for an 18 inch dish
 at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
 To get crude estimates of scattering cross-sections, suppose that our
@@ -668,7 +673,7 @@ target will come from that part of its surface which presents a
 perpendicular aspect to the radar system, and has the greatest radius of
 curvature. If that flattest perpendicular surface has principal radii of
 curvature $r_1, r_2$, then we estimate the back scattering cross-section
-from it to be $$\Sigma \approx \pi r_1 r_2.$$ If there is more than one
+from it to be $$\Sigma \approx \pi r_1 r_2. \tag{2-67}$$ If there is more than one
 such surface, their echoes will interfere, varying the net backward
 cross-section in a way critically dependent on aspect angle.
 
@@ -698,7 +703,7 @@ $$\frac{\text{(Energy received)}}{\text{(Energy transmitted)}} = \frac{\int d\om
 
 Therefore, if the transmitted energy spectrum is concentrated near
 $\omega_0$, we have the estimate
-$$|R(\omega_0)|^2 \approx \frac{\Sigma}{4\pi\lambda^2} \frac{A_t A_r}{d^4}$$
+$$|R(\omega_0)|^2 \approx \frac{\Sigma}{4\pi\lambda^2} \frac{A_t A_r}{d^4} \tag{2-71}$$
 in which $\lambda = 2\pi c/\omega_0$.
 
 For example, if $\Sigma = 3 \text{ m}^2$, $\lambda = 10 \text{ cm}$,
@@ -770,18 +775,18 @@ But how do we deal with the fact that $\alpha$ and $\beta$ are unknown?
 There are two different ways of organizing the probability calculation
 to answer this. First, note that the basic rule (2-7) is still valid
 without change:
-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)}$$ But now
+$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
 the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
 $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
 not; and similarly for target B. To get from one to the other, apply the
 sum rule and then the product rule:
-$$p(D|A\sigma) = \int p(D\alpha|A\sigma) d\alpha = \int p(D|A\alpha\sigma)p(\alpha|A\sigma) d\alpha$$
+$$p(D|A\sigma) = \int p(D\alpha|A\sigma) d\alpha = \int p(D|A\alpha\sigma)p(\alpha|A\sigma) d\alpha \tag{3-4}$$
 
 This is a weighted average of all possible values of
 $p(D|A\alpha\sigma)$, weighted according to the prior probability
 $p(\alpha|A\sigma)$. Therefore the odds ratio for comparing target A
 with target B still takes the form (2-12):
-$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{\int p(D|A\alpha\sigma)p(\alpha|A\sigma)d\alpha}{\int p(D|B\beta\sigma)p(\beta|B\sigma)d\beta}$$
+$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{\int p(D|A\alpha\sigma)p(\alpha|A\sigma)d\alpha}{\int p(D|B\beta\sigma)p(\beta|B\sigma)d\beta} \tag{3-5}$$
 
 Thus probability theory tells us, very sensibly, that if $\alpha$ is
 unknown, then the best we can do is to "hedge our bets" by making
@@ -789,18 +794,18 @@ allowance for all possible values that it might have, taking into
 account any information about how likely the different possible values
 are. The calculation could be organized differently by applying the sum
 rule and product rule directly to the final probability $f(A|D\sigma)$:
-$$p(A|D\sigma) = \int p(A\alpha|D\sigma) d\alpha = \int p(A|D\alpha\sigma)p(\alpha|D\sigma)$$
+$$p(A|D\sigma) = \int p(A\alpha|D\sigma) d\alpha = \int p(A|D\alpha\sigma)p(\alpha|D\sigma) \tag{3-6}$$
 which is a weighted average, now using probabilities of $\alpha$
 conditional on the data. Then we apply the rule (3-3) with a different
 choice of propositions:
-$$p(A|D\alpha\sigma) = p(A|\alpha\sigma) \frac{p(D|A\alpha\sigma)}{p(D|\alpha\sigma)}$$
+$$p(A|D\alpha\sigma) = p(A|\alpha\sigma) \frac{p(D|A\alpha\sigma)}{p(D|\alpha\sigma)} \tag{3-7}$$
 
 Of course, the calculation via (3-3) -- (3-5) is entirely equivalent to
 the one using (3-6), (3-7), and we are free to choose whichever one is
 more convenient computationally. But let us view this another way. Suppose 
 our aim were to estimate $\alpha$ from returns known to originate from 
 target A. Then probability theory would tell us to do the calculation
-$$p(\alpha|DA\sigma) = p(\alpha|A\sigma) \frac{p(D|A\alpha\sigma)}{p(D|A\sigma)}$$
+$$p(\alpha|DA\sigma) = p(\alpha|A\sigma) \frac{p(D|A\alpha\sigma)}{p(D|A\sigma)} \tag{3-8}$$
 
 Now in the right-hand side of (3-8) we recognize the integrand of (3-4).
 That integrand is just proportional to the probability density for

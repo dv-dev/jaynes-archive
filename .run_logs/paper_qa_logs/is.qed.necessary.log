@@ -1,0 +1,266 @@
+=== STDOUT ===
+Edited `content/papers/is.qed.necessary.md` with minimal structural QA only.
+
+Summary of changes:
+- Added required blank-line paragraph boundaries around the numbered list (“two rather heretical premises”) so it renders cleanly in Markdown/Hugo.
+
+Self-check:
+- Paragraph breaks are blank-line separated where intended.
+- No in-text equation references (`Eq.`, `Eqs.`, numbered equation mentions) were found, so no equation-numbering markup changes were needed.
+- No duplicate abstract text in body, no citation normalization needed, and no extraneous metadata lines present.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba0f-3b4b-7810-a9ca-3bd491bf677d
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/is.qed.necessary.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/is.qed.necessary.md` for paragraph structure, duplicate abstract/body metadata noise, citation formatting, and Eq. reference/numbering consistency, then apply only minimal structural edits.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/is.qed.necessary.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Is QED Necessary?"
+year: 1966
+abstract: >
+  Jaynes examines the assumption that Quantum Electrodynamics (QED) holds
+  absolute validity in optical coherence and quantum electronics. Adopting the
+  posture of the Devil's Advocate, he proposes that semiclassical theories
+  should be judged by experiment rather than agreement with QED. He surveys the
+  theoretical and experimental landscape, suggesting new optical tests using
+  modern technology to resolve issues concerning spontaneous emission, the
+  photoelectric effect, and uncertainty relations.
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["Quantum Electrodynamics", "QED", "semiclassical theory", "optical coherence", "quantum electronics", "spontaneous emission", "photoelectric effect"]
+---
+The recent literature of optical coherence theory and quantum
+electronics all appears to be based on one underlying
+assumption--sometimes stated explicitly and forcefully, sometimes
+requiring a little reading between the lines to see--but never absent.
+This assumption is: present Quantum Electrodynamics has, at least for
+codex
+I found the file is short and mostly clean; the only structural issue is list/paragraph separation around the two numbered premises. I’ll make a minimal markdown-only fix by adding blank-line paragraph boundaries there.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/is.qed.necessary.md
+@@ -36,2 +36,3 @@
+ two rather heretical premises:
++
+ 1.  The test of any proposed semiclassical treatment of radiation
+@@ -44,2 +45,3 @@
+     i.e., QED is itself on trial here just as much as any other theory.
++
+ From this standpoint we survey the present theoretical and experimental
+@@ -59,2 +61,2 @@
+ emission and the photoelectric effect, and of testing the uncertainty
+-relations for electromagnetic field components, will be described.
+\ No newline at end of file
++relations for electromagnetic field components, will be described.
+apply_patch(auto_approved=true) exited 0 in 12ms:
+Success. Updated the following files:
+M content/papers/is.qed.necessary.md
+file update:
+diff --git a/content/papers/is.qed.necessary.md b/content/papers/is.qed.necessary.md
+index fc2658b5aedd8f3702fd2578df2e1489cd61f137..8f108ec158702fb82dae6694f339aef2e27463fe
+--- a/content/papers/is.qed.necessary.md
++++ b/content/papers/is.qed.necessary.md
+@@ -34,6 +34,7 @@
+ In the interest of seeing clearly where we stand at present, we consider
+ it useful to adopt the posture of the Devil's Advocate and reason from
+ two rather heretical premises:
++
+ 1.  The test of any proposed semiclassical treatment of radiation
+     phenomena is not whether it agrees with QED, but whether it agrees
+     with experiment.
+@@ -42,6 +43,7 @@
+     both QED and semiclassical theory to new fundamental tests in areas
+     where they have not heretofore been confronted with experiment;
+     i.e., QED is itself on trial here just as much as any other theory.
++
+ From this standpoint we survey the present theoretical and experimental
+ situation with a particular view toward finding feasible optical
+ experiments in which the differences between QED and semiclassical
+@@ -57,4 +59,4 @@
+ be handled routinely. A few specific experiments which appear capable of
+ resolving theoretical questions concerning details of spontaneous
+ emission and the photoelectric effect, and of testing the uncertainty
+-relations for electromagnetic field components, will be described.
+\ No newline at end of file
++relations for electromagnetic field components, will be described.
+
+file update:
+diff --git a/content/papers/is.qed.necessary.md b/content/papers/is.qed.necessary.md
+index fc2658b5aedd8f3702fd2578df2e1489cd61f137..8f108ec158702fb82dae6694f339aef2e27463fe
+--- a/content/papers/is.qed.necessary.md
++++ b/content/papers/is.qed.necessary.md
+@@ -34,6 +34,7 @@
+ In the interest of seeing clearly where we stand at present, we consider
+ it useful to adopt the posture of the Devil's Advocate and reason from
+ two rather heretical premises:
++
+ 1.  The test of any proposed semiclassical treatment of radiation
+     phenomena is not whether it agrees with QED, but whether it agrees
+     with experiment.
+@@ -42,6 +43,7 @@
+     both QED and semiclassical theory to new fundamental tests in areas
+     where they have not heretofore been confronted with experiment;
+     i.e., QED is itself on trial here just as much as any other theory.
++
+ From this standpoint we survey the present theoretical and experimental
+ situation with a particular view toward finding feasible optical
+ experiments in which the differences between QED and semiclassical
+@@ -57,4 +59,4 @@
+ be handled routinely. A few specific experiments which appear capable of
+ resolving theoretical questions concerning details of spontaneous
+ emission and the photoelectric effect, and of testing the uncertainty
+-relations for electromagnetic field components, will be described.
+\ No newline at end of file
++relations for electromagnetic field components, will be described.
+
+codex
+I’ve applied the minimal structure edit. I’m now doing a quick self-check for paragraph-boundary compliance and any in-text equation references that would require numbering tags.
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|\\(\\d+\\)\" content/papers/is.qed.necessary.md" in /home/dave/Projects/jaynes-archive exited 1 in 50ms:
+
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/is.qed.necessary.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Is QED Necessary?"
+year: 1966
+abstract: >
+  Jaynes examines the assumption that Quantum Electrodynamics (QED) holds
+  absolute validity in optical coherence and quantum electronics. Adopting the
+  posture of the Devil's Advocate, he proposes that semiclassical theories
+  should be judged by experiment rather than agreement with QED. He surveys the
+  theoretical and experimental landscape, suggesting new optical tests using
+  modern technology to resolve issues concerning spontaneous emission, the
+  photoelectric effect, and uncertainty relations.
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["Quantum Electrodynamics", "QED", "semiclassical theory", "optical coherence", "quantum electronics", "spontaneous emission", "photoelectric effect"]
+---
+The recent literature of optical coherence theory and quantum
+electronics all appears to be based on one underlying
+assumption--sometimes stated explicitly and forcefully, sometimes
+requiring a little reading between the lines to see--but never absent.
+This assumption is: present Quantum Electrodynamics has, at least for
+file update:
+diff --git a/content/papers/is.qed.necessary.md b/content/papers/is.qed.necessary.md
+index fc2658b5aedd8f3702fd2578df2e1489cd61f137..8f108ec158702fb82dae6694f339aef2e27463fe
+--- a/content/papers/is.qed.necessary.md
++++ b/content/papers/is.qed.necessary.md
+@@ -34,6 +34,7 @@
+ In the interest of seeing clearly where we stand at present, we consider
+ it useful to adopt the posture of the Devil's Advocate and reason from
+ two rather heretical premises:
++
+ 1.  The test of any proposed semiclassical treatment of radiation
+     phenomena is not whether it agrees with QED, but whether it agrees
+     with experiment.
+@@ -42,6 +43,7 @@
+     both QED and semiclassical theory to new fundamental tests in areas
+     where they have not heretofore been confronted with experiment;
+     i.e., QED is itself on trial here just as much as any other theory.
++
+ From this standpoint we survey the present theoretical and experimental
+ situation with a particular view toward finding feasible optical
+ experiments in which the differences between QED and semiclassical
+@@ -57,4 +59,4 @@
+ be handled routinely. A few specific experiments which appear capable of
+ resolving theoretical questions concerning details of spontaneous
+ emission and the photoelectric effect, and of testing the uncertainty
+-relations for electromagnetic field components, will be described.
+\ No newline at end of file
++relations for electromagnetic field components, will be described.
+
+codex
+Edited `content/papers/is.qed.necessary.md` with minimal structural QA only.
+
+Summary of changes:
+- Added required blank-line paragraph boundaries around the numbered list (“two rather heretical premises”) so it renders cleanly in Markdown/Hugo.
+
+Self-check:
+- Paragraph breaks are blank-line separated where intended.
+- No in-text equation references (`Eq.`, `Eqs.`, numbered equation mentions) were found, so no equation-numbering markup changes were needed.
+- No duplicate abstract text in body, no citation normalization needed, and no extraneous metadata lines present.
+file update:
+diff --git a/content/papers/is.qed.necessary.md b/content/papers/is.qed.necessary.md
+index fc2658b5aedd8f3702fd2578df2e1489cd61f137..8f108ec158702fb82dae6694f339aef2e27463fe
+--- a/content/papers/is.qed.necessary.md
++++ b/content/papers/is.qed.necessary.md
+@@ -34,6 +34,7 @@
+ In the interest of seeing clearly where we stand at present, we consider
+ it useful to adopt the posture of the Devil's Advocate and reason from
+ two rather heretical premises:
++
+ 1.  The test of any proposed semiclassical treatment of radiation
+     phenomena is not whether it agrees with QED, but whether it agrees
+     with experiment.
+@@ -42,6 +43,7 @@
+     both QED and semiclassical theory to new fundamental tests in areas
+     where they have not heretofore been confronted with experiment;
+     i.e., QED is itself on trial here just as much as any other theory.
++
+ From this standpoint we survey the present theoretical and experimental
+ situation with a particular view toward finding feasible optical
+ experiments in which the differences between QED and semiclassical
+@@ -57,4 +59,4 @@
+ be handled routinely. A few specific experiments which appear capable of
+ resolving theoretical questions concerning details of spontaneous
+ emission and the photoelectric effect, and of testing the uncertainty
+-relations for electromagnetic field components, will be described.
+\ No newline at end of file
++relations for electromagnetic field components, will be described.
+
+tokens used
+6,112
+

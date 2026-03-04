@@ -17,7 +17,10 @@ tags: ["muscle efficiency", "Carnot engine", "second law of thermodynamics", "en
 ---
 ## INTRODUCTION
 We sometimes encounter statements of the genre: "Kelvin's formula for
-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
+the efficiency of a reversible Carnot engine
+
+$$e = 1 - T/T^\prime \tag{1}$$
+
 shows that the efficiency of every type of energy converter has a
 theoretical upper limit that cannot be exceeded." We wish to point out
 that Kelvin's result applies, not to every type of energy converter, but
@@ -52,6 +55,7 @@ achieve higher efficiency than one would suppose from (1) in a man-made
 engine. Of course, this would not be a violation of the second law;
 rather, to achieve it will require a very clear understanding of what
 the second law really is.
+
 ## THE ANTI-CARNOT EFFICIENCY
 What efficiency might one hope for in such an anti-Carnot engine? There
 is no reason to doubt that, with proper understanding, the performance
@@ -80,7 +84,11 @@ of a large class of energy convertors.
 
 If in the Kelvin formula (1) we replace temperature by what it amounts
 to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
+explanation and generalization of (1):
+
+$$e = 1 - W/W^\prime \tag{3}$$
+
+which does not
 look very different at first; but now we have removed the limitation of
 thermal equilibrium on our energy source and sink. For "temperature" 
 is defined only for a system in thermal equilibrium, while "energy per
@@ -166,6 +174,7 @@ surroundings, extract that, and repeat -- and we would have the
 perpetual motion machine that the Second Law holds to be impossible.
 The simple generalization (3) of Kelvin's formula thus appears to have a
 rather wide range of application.
+
 ## TENTATIVE CONCLUSIONS
 What do the known facts of biology tell us about these questions? The
 currently popular myosin bridge mechanism for striated muscle
@@ -196,12 +205,14 @@ molecular size, because of the uncertainty principle. In some similar
 remarks (C), Elsasser (1966) invokes the uncertainty principle to place
 fundamental limits on mechanistic analysis in biology. Our thinking has
 led us to just the opposite conclusions:
+
 (A) The Carnot principle and low "second law" efficiency of present
 engines are only consequences of the thermalization process (the primary
 chemical energy is allowed to degrade into heat before being used). If
 we can avoid the thermalization, Carnot engine lore must be modified as
 noted above. It is satisfying that the same formula holds, only
 reinterpreted.
+
 (B) For efficient conversion of chemical energy into mechanical energy
 the conversion must proceed directly and quickly. Far from being
 impossible in systems of molecular size, this almost requires that the
@@ -209,6 +220,7 @@ moving parts receiving the primary energy be of molecular size, because
 the useful output energy must be delivered to a single degree of
 freedom. We speculate that this is just the reason why biological
 systems have accomplished it, and human engineers have not.
+
 (C) Instead of present quantum theory placing limits on the
 possibilities of mechanistic analysis in biology, the continued success
 of mechanistic analysis in biology may some day show us the limits of
@@ -219,6 +231,7 @@ place virtually no limitations on what can be done in conversion of
 chemical energy to mechanical work; the field is wide open for clever
 inventors, who may at any time do what we have all been taught is
 impossible.
+
 ## REFERENCES
 B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
 Publishing Co., New York; pp. 550-609.
@@ -239,6 +252,3 @@ A. L. Lehninger (1965), *Bioenergetics*, W. A. Benjamin, N. Y. See also
 A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
 Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
 New York.
-
-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.

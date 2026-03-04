@@ -9,7 +9,7 @@ abstract: >
   pertaining to individual cases. We note several examples of the
   difference this makes in real applications.
 author: ["E.T. Jaynes"]
-title: PROBABILITY THEORY AS LOGIC[^1]
+title: PROBABILITY THEORY AS LOGIC
 year: 1990
 ---
 # INTRODUCTION {#introduction .unnumbered}
@@ -57,6 +57,7 @@ scientist clearly recognizes the creations of his imagination as
 tentative working hypotheses to be tested by observation; and he is
 prepared to test and reject a hundred different hypotheses in order to
 find the right one.
+
 ## The Mind Projection Fallacy {#the-mind-projection-fallacy .unnumbered}
 The writer became fully aware of this fallacy only recently, after many
 years of being vaguely troubled by the kind of logic that is used in a
@@ -119,7 +120,9 @@ sequitur*. The error occurs in two complementary forms, which we might
 indicate thus: $$\begin{aligned}
 \text{(A) (My own imagination)} &\rightarrow \text{(Real property of Nature)} \\\\
 \text{(B) (My own ignorance)} &\rightarrow \text{(Nature is indeterminate)}
-\end{aligned}$$ Form (B) arose out of quantum theory; instead of
+\end{aligned}$$
+
+Form (B) arose out of quantum theory; instead of
 covering up our ignorance with fanciful assumptions about reality, one
 accepts that ignorance but attributes it to Nature. Thus in the
 Copenhagen interpretation of quantum theory, whatever is left
@@ -150,6 +153,7 @@ no such thing as a statistical test for \"absence of cause\" or
 \"randomness\" or \"disorder\" for the same reason that there is no test
 for ugliness or foolishness; those qualities exist only in the eye of
 the observer. Now let us see one aspect of this in a specific example.
+
 ## Example: The Poisson Distribution {#example-the-poisson-distribution .unnumbered}
 At our Cambridge meeting in 1988, the fallacy of supposing that
 conditional probabilities must express a real physical causation in
@@ -177,6 +181,8 @@ information:
 > interval irrelevant to this probability:
 > $p(A|\lambda QI) = p(A|\lambda I)$.\"
 
+$$p(A|\lambda I) = \lambda dt \tag{1}$$
+
 In orthodox statistics one would not want to say it this way, but
 instead would claim that $\lambda$ is the sole causative agent present;
 the occurrence of the event in any other time interval exerts no
@@ -185,13 +191,20 @@ is very different.
 
 Denote by $h(t)$ the probability there is no count in the time interval
 $(0,t)$. Now the proposition:
-$$R \equiv \text{"No count in } (0, t+dt)\text{"}$$ is the conjunction
+$$R \equiv \text{"No count in } (0, t+dt)\text{"}$$
+
+is the conjunction
 of the two propositions:
 $$R = \text{["No count in } (0,t)\text{"]} \cdot \text{["No count in } (t, t+dt)\text{"]}$$
 and so, by the independence of different time intervals, the product
-rule gives: $$h(t+dt) = h(t) \cdot [1 - \lambda dt]$$ or
-$\partial h/\partial t + \lambda h(t) = 0$. The solution, with the
-evident initial condition $h(0)=1$, is $$h(t) = e^{-\lambda t}.$$ Now
+rule gives:
+$$h(t+dt) = h(t) \cdot [1 - \lambda dt]$$
+
+or $\partial h/\partial t + \lambda h(t) = 0$. The solution, with the
+evident initial condition $h(0)=1$, is
+$$h(t) = e^{-\lambda t}$$
+
+Now
 consider the probability, given $\lambda$ and $I$, of the proposition
 > $B \equiv$ \"In the interval $(0,t)$ there are exactly $n$ counts,
 > which happen at the times $(t_1, \dots, t_n)$ within tolerances
@@ -202,20 +215,26 @@ This is the conjunction of $(2n+1)$ propositions:
 so by the product rule and the independence of different time intervals,
 the probability of this is the product of all their separate
 probabilities:
-$$p(B|\lambda I) = [e^{-\lambda t_1}] \cdot [\lambda dt_1] \cdot [e^{-\lambda (t_2 - t_1)}] \cdot [\lambda dt_2] \dots [e^{-\lambda(t_n - t_{n-1})}] \cdot [\lambda dt_n] \cdot [e^{-\lambda(t-t_n)}]$$
+$$p(B|\lambda I) = [e^{-\lambda t_1}] \cdot [\lambda dt_1] \cdot [e^{-\lambda (t_2 - t_1)}] \cdot [\lambda dt_2] \dots [e^{-\lambda(t_n - t_{n-1})}] \cdot [\lambda dt_n] \cdot [e^{-\lambda(t-t_n)}] \tag{2}$$
+
 or, writing the proposition $B$ now more explicitly as
 $B = `dt_1 \dots dt_n`$,
-$$p(dt_1 \dots dt_n | \lambda t I) = e^{-\lambda t} \lambda^n dt_1 \dots dt_n, \quad (0 < t_1, \dots, < t_n < t)$$
+$$p(dt_1 \dots dt_n | \lambda t I) = e^{-\lambda t} \lambda^n dt_1 \dots dt_n, \quad (0 < t_1, \dots, < t_n < t) \tag{3}$$
 
 Then what is the probability, given $\lambda$, that in the interval
 $(0,t)$ there are exactly $n$ counts, whatever the times? Since
 different choices of the count times represent mutually exclusive
 propositions, the continuous form of the sum rule applies:
-$$p(n|\lambda t I) = \int_0^t dt_n \dots \int_0^{t_3} dt_2 \int_0^{t_2} dt_1 \: e^{-\lambda t} \lambda^n$$
-or, $$p(n|\lambda t I) = e^{-\lambda t} \frac{(\lambda t)^n}{n!}$$ the
+$$p(n|\lambda t I) = \int_0^t dt_n \dots \int_0^{t_3} dt_2 \int_0^{t_2} dt_1 \: e^{-\lambda t} \lambda^n \tag{5}$$
+
+or,
+$$p(n|\lambda t I) = e^{-\lambda t} \frac{(\lambda t)^n}{n!} \tag{6}$$
+
+the
 usual Poisson distribution. Without the time ordering in our definition
 of B, different choices of count times would not all be mutually
 exclusive events, so the sum rule would not apply in the above way.
+
 As noted, conventional theory obtains this same formula from the premise
 that events in disjoint time intervals exert no physical influences on
 each other; the only causative agent operating is $\lambda$. Some
@@ -234,26 +253,27 @@ almost no chance that he could discover it merely by accumulation of
 more data. Then the Mind Projection Fallacy might lead him to claim that
 no rule exists; and we seem to be back to quantum theory. This is why
 \"randomness\" is a slippery, undefined, and unverifiable notion.
+
 Now consider the next problem: let $0 < t_1 < t_2$ and let $n_1$ and
 $n_2$ be the numbers of counts in the time intervals $(0, t_1)$ and
 $(0, t_2)$. What is the forward conditional probability
 $p(n_2|n_1, \lambda, t_1, t_2, I)$? By the aforementioned logical
 independence, the probability that there are $(n_2-n_1)$ counts in
 $(t_1, t_2)$ still has the form (1) independent of $n_1$, so
-$$p(n_2|n_1, \lambda, t_1, t_2, I) = e^{-\lambda(t_2-t_1)} \frac{[\lambda(t_2-t_1)]^{n_2-n_1}}{(n_2-n_1)!}, \quad t_1 < t_2, \: n_1 \le n_2$$
+$$p(n_2|n_1, \lambda, t_1, t_2, I) = e^{-\lambda(t_2-t_1)} \frac{[\lambda(t_2-t_1)]^{n_2-n_1}}{(n_2-n_1)!}, \quad t_1 < t_2, \: n_1 \le n_2 \tag{7}$$
 
 Then what is the joint probability for $n_1$ and $n_2$? By the product
 rule,
-$$p(n_1 n_2 | \lambda t_1 t_2 I) = p(n_1|\lambda t_1 I) p(n_2|n_1 \lambda t_1 t_2 I)$$
+$$p(n_1 n_2 | \lambda t_1 t_2 I) = p(n_1|\lambda t_1 I) p(n_2|n_1 \lambda t_1 t_2 I) \tag{8}$$
 $$= \left[ e^{-\lambda t_1} \frac{(\lambda t_1)^{n_1}}{n_1!} \right] \cdot \left[ e^{-\lambda (t_2 - t_1)} \frac{[\lambda(t_2-t_1)]^{n_2-n_1}}{(n_2-n_1)!} \right]$$
 
 Now this can be rearranged into
-$$\left[ e^{-\lambda t_2} \frac{(\lambda t_2)^{n_2}}{n_2!} \right] \cdot \left[ \binom{n_2}{n_1} \left(\frac{t_1}{t_2}\right)^{n_1} \left(1-\frac{t_1}{t_2}\right)^{n_2-n_1} \right]$$
+$$\left[ e^{-\lambda t_2} \frac{(\lambda t_2)^{n_2}}{n_2!} \right] \cdot \left[ \binom{n_2}{n_1} \left(\frac{t_1}{t_2}\right)^{n_1} \left(1-\frac{t_1}{t_2}\right)^{n_2-n_1} \right] \tag{9}$$
 and we recognize the first factor as the unconditional probability
 $p(n_2|\lambda t_2 I)$, so by the other way of writing the product rule,
-$$p(n_1 n_2|\lambda t_1 t_2 I) = p(n_2|\lambda t_2 I) p(n_1|n_2 \lambda t_1 t_2 I)$$
+$$p(n_1 n_2|\lambda t_1 t_2 I) = p(n_2|\lambda t_2 I) p(n_1|n_2 \lambda t_1 t_2 I) \tag{10}$$
 the backward conditional distribution must be given by the binomial:
-$$p(n_1|n_2 \lambda t_1 t_2 I) = \binom{n_2}{n_1} \left(\frac{t_1}{t_2}\right)^{n_1} \left(1-\frac{t_1}{t_2}\right)^{n_2-n_1}, \quad (0 \le n_1 \le n_2)$$
+$$p(n_1|n_2 \lambda t_1 t_2 I) = \binom{n_2}{n_1} \left(\frac{t_1}{t_2}\right)^{n_1} \left(1-\frac{t_1}{t_2}\right)^{n_2-n_1}, \quad (0 \le n_1 \le n_2) \tag{11}$$
 
 But this is totally different from $p(n_2|n_1 \lambda t_1 t_2)$; it does
 not even contain $\lambda$!
@@ -273,6 +293,7 @@ correctness of (11). If you find yourself with such feelings, please
 consider: If you already knew the actual number $n_2$ of events in the
 long interval, how would you then use knowledge of $\lambda$ to improve
 your estimate of $n_1$ beyond what is given by (11)?
+
 The point is that knowledge of $\lambda$ does not determine $n_2$; it
 gives us only probabilities for different values of $n_2$. But if we
 know the *actual value* of $n_2$ over an interval that includes
@@ -280,12 +301,14 @@ $(0, t_1)$, common sense surely tells us that this takes precedence over
 anything that we could infer from $\lambda$. That is, possession of the
 datum $n_2$ makes the original sampling probabilities (those conditional
 only on $\lambda$) irrelevant to the question we are asking.
+
 In the above we considered $\lambda$ known in advance (i.e. specified in
 the statement of the problem). More realistically, we will not know
 $\lambda$ exactly, and therefore information about either $n_1$ or $n_2$
 will enable us to improve our knowledge of $\lambda$ and take this into
 account to improve our estimates of other things. How will this change
 our results?
+
 Consider the case that $\lambda$ is unknown, but suppose for simplicity
 that it is known not to be varying with time. Then we are to replace (6)
 -- (10) by extra integrations over $\lambda$. Thus in place of (6) we
@@ -310,6 +333,7 @@ in agreement with (11); this result is the same whether $\lambda$ is
 known or unknown. Since this derivation allowed full opportunity for
 updated knowledge of $\lambda$ to be taken into account, (11a) is a
 Bayesian predictive distribution.
+
 In reasoning from $n_1$ to $n_2$, the difference between (7) and (7a)
 represents the penalty we pay for not knowing $\lambda$ exactly; but in
 reasoning from $n_2$ to $n_1$ there is no penalty. Indeed, if the
@@ -318,6 +342,7 @@ is hard to see how it could matter if $\lambda$ was unknown; and
 probability theory so indicates. Possession of the datum $n_2$ makes the
 original sampling probabilities -- whether $\lambda$ is known or unknown
 -- irrelevant to the question we are asking.
+
 ## Discussion {#discussion .unnumbered}
 The phenomena we have just demonstrated are true much more generally.
 Conventional sampling probabilities like $p(n|\lambda t)$ are relevant
@@ -458,6 +483,7 @@ in our problem. The first reaction of some will be: \"What difference
 can this make? You are still using the same old equations!\" To see why
 it makes a difference, consider some case histories from Statistical
 Mechanics and Artificial Intelligence.
+
 ## Statistical Mechanics {#statistical-mechanics .unnumbered}
 Mark Kac (1956) considered it a major unsolved problem to clarify how
 probability considerations can be introduced into physics. He confessed
@@ -568,6 +594,7 @@ never ask, \"Which quantities are random?\" The relevant question is:
 appears to us that whenever we get down to a specific calculation, all
 of us are obliged to use the term \"random\" merely as a synonym for
 \"unknown\".
+
 ## Artificial Intelligence {#artificial-intelligence .unnumbered}
 This field provides examples differing in detail, but not in the basic
 situation. Recently, its stagnation has been noted by many, leading to
@@ -624,6 +651,7 @@ In his words \[italics mine\]:
 > attribute--does not enter into the issue.\"*
 Again, the mental hangup which cannot comprehend the notion of
 probability applied to an individual case.
+
 ## Optional Stopping {#optional-stopping .unnumbered}
 Next he considers two propositions: A $\equiv$ \"The patient's
 temperature is \> 101.\" and B $\equiv$ \"The patient has been resting
@@ -671,6 +699,7 @@ qualitatively wrong, until it recogizes that to dissociate itself from
 Bayesian probability theory was a disastrous error. Almost everything we
 have noted here applies as well to the field of fuzzy sets; but it would
 be repetitious.
+
 ## Optional Stopping {#optional-stopping-1 .unnumbered}
 A different kind of comparison appears in the issue of optional
 stopping, which has been a point of controversy between Bayesians and
@@ -754,6 +783,7 @@ inference easily solve technical problems on which orthodox methods
 break down, and they protect us automatically against the absurd errors
 in orthodox methods. Thus they achieve scientific \"objectivity\" in the
 true sense of that word.
+
 ## Recapitulation {#recapitulation .unnumbered}
 In our simplest everyday inferences, in or out of science, it has always
 been clear that two events may be physically independent without being
@@ -838,6 +868,7 @@ part of the information in the data. It is as if the best chefs in Paris
 had spared no effort or expense to prepare the finest food a restaurant
 can offer -- and then spilled half of it down the drain and served the
 rest on paper plates.
+
 ## Appendix: A Basic Blunder {#appendix-a-basic-blunder .unnumbered}
 Finally, we must comment on a curious article entitled \"The Basic
 Bayesian Blunder\", by the philosopher H. E. Kyburg (1987), which amused
@@ -864,6 +895,7 @@ $(\alpha, \beta, \gamma) \ge 0$, we see by inspection that $r$ is
 confined by $(-43 \le 3r \le 48)$. There is a continuum of prior
 probability assignments which meet all the specified conditions, and
 which therefore enable a Bayesian to incorporate additional information.
+
 ## References {#references .unnumbered}
 P. Armitage (1975), *Sequential Medical Trials*, Thomas, Springfield,
 Illinois. Second edition: Blackwell, Oxford.
@@ -888,10 +920,5 @@ R. Pool (1989), "Chaos Theory: How Big an Advance?\", Science, **245**,
 
 L. J. Savage (1962) *The Foundations of Statistical Inference*, G. A.
 Barnard & D. R. Cox, Editors, Methuen & Co., Ltd., London
+
 Dan Shafer (1989), "Ask the Expert\", PC AI Magazine, May/June; p. 70.
-[^1]: Presented at the Ninth Annual Workshop on Maximum Entropy and
-    Bayesian Methods, Dartmouth College, New Hampshire, August 14, 1989.
-    In the Proceedings Volume, *Maximum Entropy and Bayesian Methods*,
-    Paul F. Fougere, Editor, Kluwer Academic Publishers, Dordrecht,
-    Holland (1990). The present version was substantially revised,
-    corrected, and extended 5/1/94.

@@ -243,14 +243,15 @@ proposition "both A and B are true", $\bar{A} = \text{"A is false"}$,
 and let the symbol $p(A|B)$ stand for "the probability that A is true,
 given that B is true". Then the basic product and sum rules of
 probability theory, dating back in essence to before Bernoulli, are
-$$p(AB|C) = p(A|BC) p(B|C)$$
-$$p(A|B) + p(\bar{A}|B) = 1$$
+$$p(AB|C) = p(A|BC) p(B|C) \tag{1}$$
+
+$$p(A|B) + p(\bar{A}|B) = 1 \tag{2}$$
 
 But $AB$ and $BA$ are the same proposition, so consistency requires that we may
 interchange A and B in the right-hand side of (1). If $p(B|C) > 0$, we
 thus have what is always called "Bayes' Theorem" today, although Bayes
 never wrote it:
-$$p(A|BC) = p(A|C) \frac{p(B|AC)}{p(B|C)}$$
+$$p(A|BC) = p(A|C) \frac{p(B|AC)}{p(B|C)} \tag{3}$$
 
 But this is nothing more than the statement that the product rule is consistent; why
 is such a seeming triviality important?
@@ -405,6 +406,7 @@ consequences, he failed to explain that it is not arbitrary, but
 required by logical consistency to represent a state of knowledge.
 Today, 170 years later, this is still a logical pitfall that causes
 conceptual hangups and inhibits applications of probability theory.
+
 Let us emphasize that we are using the word "probability" in its
 original -- therefore by the usual scholarly standards correct --
 meaning, as referring to incomplete human information. It has,
@@ -420,6 +422,7 @@ in a discussion of fluctuations in time series (Jaynes, 1978), those
 connections are often of a very different nature than is supposed in
 conventional pedagogy; the predicted mean-square fluctuation is not the
 same as the variance of the first-order probability distribution.
+
 So to assign equal probabilities to two events is not in any way an
 assertion that they must occur equally often in any "random
 experiment"; as Jeffreys emphasized, it is only a formal way of saying
@@ -1108,12 +1111,14 @@ deal, sometimes just trying out everything one can think of and seeing
 what works. We agree with Tukey that the theoretical justification of a
 procedure is often a mere tidying-up that takes place after the
 successful procedure has been found by intuitive trial and error.
+
 But too much of that basically healthy Tukey pragmatism can lead one to
 take a negative view of theoretical efforts in general. The excessive
 disparagement of all theory, characteristic of that school, has been
 very costly to the field of data analysis; for Bayesian theory has a
 demonstrated ability to discover -- in a few lines -- powerful and
 useful procedures that decades of intuitive *adhockery* did not find.
+
 We have already noted the writer's "Bayesian Spectrum and Chirp
 Analysis" given at the 1983 Laramie meeting on Maximum Entropy, where
 the Schuster periodogram acquires a new significance, leading to a very
@@ -1129,6 +1134,7 @@ previously neglected prior information.
 G. E. P. Box (1982) also observes: "...history has shown that it is the
 omission in sampling theory, rather than the inclusion in Bayesian
 analysis, of an appropriate prior distribution, that leads to trouble."
+
 In our next talk, "MONKEYS, KANGAROOS, AND N", we want to continue
 this line of thought, with more specific details about hypothesis spaces
 and rationales, for the particular case of image reconstruction. We want
@@ -1147,6 +1153,7 @@ R. T. Cox (1946), "Probability, Frequency, and Reasonable
 Expectation", Am. Jour. Phys. **17**, 1--13. Expanded in *The Algebra
 of Probable Inference*, Johns Hopkins University Press, Baltimore
 (1961). Reviewed by E. T. Jaynes, Am. Jour. Phys. **31**, 66 (1963).
+
 H. Cramér (1946), *Mathematical Methods of Statistics*, Princeton
 University Press.
 
@@ -1154,6 +1161,7 @@ J. Willard Gibbs (1875), "On the Equilibrium of Heterogeneous
 Substances" Reprinted in *The Scientific Papers of J. Willard Gibbs*,
 Vol. I, Longmans, Green & Co., 1906 and by Dover Publications, Inc.,
 1961.
+
 J. Willard Gibbs (1902), *Elementary Principles in Statistical
 Mechanics*, Yale University Press, New Haven, Connecticut. Reprinted in
 *The Collected Works of J. Willard Gibbs*, Vol. 2, by Longmans, Green &
@@ -1198,6 +1206,7 @@ Publishing Co., New York.
 
 L. J. Savage (1954), *Foundations of Statistics*, J. Wiley & Sons.
 Second Revised Edition (1972) by Dover Publications, Inc., New York.
+
 C. E. Shannon (1948), "A Mathematical Theory of Communication", Bell
 Systems Tech. Jour. **27**, 379, 623. Reprinted in C. E. Shannon & W.
 Weaver, *The Mathematical theory of Communication*, Univ. of Illinois
@@ -1205,4 +1214,3 @@ Press, Urbana, 1949.
 
 J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
 Associates, Princeton, N. J.
-

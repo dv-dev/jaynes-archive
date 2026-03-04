@@ -182,7 +182,11 @@ particles, but rather our knowledge of this behavior."
 The difficulty in finding a rational interpretation of quantum theory
 can be illustrated a little more specifically as follows. If one wishes
 to do so, the amplitudes $a_n(t)$ of stationary states in a wave
-function $$\psi(x,t) = \sum_n a_n(t) u_n(x) \tag{1}$$ can be interpreted, with
+function
+
+$$\psi(x,t) = \sum_n a_n(t) u_n(x) \tag{1}$$
+
+can be interpreted, with
 at least some success, as "subjective" probability amplitudes
 expressing human information; but they are combined with phases which
 seem to have no such interpretation. Yet the relative phases strongly
@@ -218,6 +222,7 @@ Yet we are optimistic, think that it will surely be solved eventually,
 and the answer will be simple and obvious (although it may require us to
 renounce our linear Hilbert space). As Seneca wrote long ago,
 "Posterity will be astonished that truths so clear had escaped us."
+
 But for the present, to paraphrase Gibbs: difficulties of this kind have
 deterred the writer from trying to explain the mysteries of quantum
 theory, and forced him to be content with a more modest goal.
@@ -432,15 +437,24 @@ all probabilities are of necessity conditional on some information; there
 is no such thing as an "absolute" probability.
 
 The rules for plausible reasoning are simply the familiar product and
-sum rules: $$p(AB|I) = p(A|I)p(B|AI) = p(B|I)p(A|BI) \tag{2}$$ $$p(A|B) + p(\bar{A}|B) = 1 \tag{3}$$ All other relations can be deduced from
-these. In particular, if $p(B|I) \ne 0$, we have from (2)
-$$p(A|BI) = p(A|I)p(B|AI)/p(B|I) \tag{4}$$ where, since "I" occurs as a
+sum rules:
+
+$$p(AB|I) = p(A|I)p(B|AI) = p(B|I)p(A|BI) \tag{2}$$
+
+$$p(A|B) + p(\bar{A}|B) = 1 \tag{3}$$
+
+All other relations can be deduced from these. In particular, if $p(B|I) \ne 0$, we have from (2)
+
+$$p(A|BI) = p(A|I)p(B|AI)/p(B|I) \tag{4}$$
+
+where, since "I" occurs as a
 condition in all terms, we shall call it the "prior information".
 Equation (4), usually called Bayes' theorem, represents the process of
 learning from experience. We start with the prior probability of A,
 p(A|I) when we know only the prior information, and (4) shows how this
 is converted into the posterior probability p(A|BI) as a result of
 acquiring new information B.
+
 Bayes' theorem is undoubtedly the most fundamental principle of
 scientific inference; by its repeated use we can incorporate long chains
 of evidence into our reasoning, the posterior probability for one
@@ -450,6 +464,7 @@ order in which different pieces of information were taken into account.
 But there has been long controversy about it also, so it is important to
 dwell a moment on the status of these rules and others derived from
 them.
+
 Historically, they were given by Laplace in the 18'th Century, on
 intuitive grounds, and applied by him in many problems of data analysis
 in astronomy, geodesy, meteorology, population statistics, etc. He had
@@ -462,6 +477,7 @@ some unknown systematic cause not included in the calculations? If so,
 Laplace would undertake to find that cause. This process (what would be
 called today a "significance test" by statisticians) led him to some
 of the most important discoveries in celestial mechanics.
+
 In spite of this success, a reaction set in after Laplace's death as
 others questioned the validity and uniqueness of the above rules.
 However, they would be true trivially if we interpret p as an
@@ -473,6 +489,7 @@ succeeded rather well for many years because there were actually many
 scientific problems where it was adequate; the information available and
 the questions of interest could be expressed solely in terms of
 frequencies, and there was no other cogent information.
+
 But as scientific problems became more sophisticated, it became
 increasingly difficult to adapt frequentist interpretations to them.
 Eventually one had to resort to inventing imaginary universes of
@@ -482,6 +499,7 @@ serious, anomalous results began to appear, which could be traced to the
 failure to take into account cogent information that common sense could
 see was relevant to the inference, but which the frequency theory could
 not use because it did not consist of frequency data.
+
 In 1946, R. T. Cox cut through the confusion by a marvelous argument. He
 had the good sense to ask a constructive question; whether or not
 Laplace's methods were sound, would it be possible today to make a
@@ -504,7 +522,10 @@ Saturn is in M, M+dM", and denote by D a set of observational data to
 be taken into account, while I stands for whatever prior information
 Laplace had about M before the data D were known. Then we may define
 prior and posterior probability density functions:
-$$p(A|I) = f(M)dM; \quad p(A|DI) = F(M)dM \tag{5}$$ Before the data, one did
+
+$$p(A|I) = f(M)dM; \quad p(A|DI) = F(M)dM \tag{5}$$
+
+Before the data, one did
 not know much about M, so f(M) was a very broadly spread out function.
 But Laplace knew at least that M was not zero, else Saturn would not
 hold its rings and moons or perturb Jupiter; and there would be no data
@@ -603,7 +624,10 @@ prior probability assignment?
 
 A typical kind of problem where this occurs is that where we are trying
 to invert a singular matrix; our data are
-$$d_k = \sum_{i=1}^{n} A_{ki} x_i, \quad 1 \le k \le m < n \tag{6}$$ where the
+
+$$d_k = \sum_{i=1}^{n} A_{ki} x_i, \quad 1 \le k \le m < n \tag{6}$$
+
+where the
 {x_i} represent the "state of Nature" that we are trying to
 estimate, and A is a known matrix with rank less than n, so there is no
 inversion of the form $x = A^{-1}d$. Then the likelihood function L(x) =
@@ -612,10 +636,12 @@ subsets of possible and impossible values, with nothing to choose within
 the possible subset. L(x) is only the indicator function of the set of
 possible states of Nature. So we shall call any problem with a
 flat-topped likelihood a "generalized inverse problem".
+
 Such problems have proved to be very common in recent applications;
 after a talk in 1983 the writer was approached by a statistician in
 Government who said "I suddenly realized that every problem my agency
 is trying to solve is a generalized inverse problem."
+
 On further reflection it is seen that, from the standpoint of principle,
 this technical problem is present in every application of probability
 theory. For, as Cox's derivation showed clearly, the rules (2), (3)
@@ -624,6 +650,7 @@ probabilities of different propositions are related to each other. That
 is, given some probabilities, they tell us how to calculate others
 consistent with them. They do not tell us what initial probabilities
 should be assigned so the calculation can get started.
+
 But for decades probability theory has concerned itself only with
 building upward from (2), (3), deducing their consequences in the large
 body of mathematics that fills our libraries. The problem of assigning
@@ -645,6 +672,7 @@ symmetry there was no known cause tending to produce one outcome more
 than any other; so we had no reason to consider one more likely than
 another. The only honest way to express this state of knowledge is to
 assign equal probabilities to all of them.
+
 We hasten to add that this is not to assert that all outcomes must occur
 equally often, as frequentists invariably accuse us of doing; for of
 course there may be unknown symmetry-breaking causes (very skillful
@@ -652,15 +680,18 @@ tossing, shuffling, spinning, etc.). It does, however, mean according to
 the rules (2), (3) that if we are obliged to predict the frequencies
 from the incomplete information we have, our "best" estimates, by
 almost any criterion of "best", will be uniform.
+
 If we have no information about the specific kind of symmetry-breaking
 influence at work, neither we nor the frequentist can make use of it to
 alter our predictions. Even if we know that some symmetry breaking is
 present but do not know which outcome it favors, this information cannot
 change our estimates, but only increases their probable error.
+
 This again shows the two basically different attitudes noted above; we
 are not asking how Nature must behave, but only what are the best
 predictions we can make on our incomplete information. But this is
 always the real problem before the scientist, as Niels Bohr saw.
+
 The idea of symmetry became more abstract, and more general, in the work
 of Jacob Bernoulli (1713). He envisaged an underlying population of N
 inherent possibilities from which we draw (the famous "urn" of
@@ -670,6 +701,7 @@ the urn blindfolded, the probability that we shall draw an "A" is p(A)
 = M/N, the basic definition of probability used by Laplace. Note that
 Bernoulli's definition is just the frequency with which we would find
 "A" if we sampled the entire population without replacement.
+
 But it was recognized already by Bernoulli that in many real problems we
 do not see how to analyze the situation into ultimate "equally likely"
 cases. As he put it, "What mortal will ever determine the number of
@@ -677,23 +709,37 @@ diseases?" A principle was still needed for dealing with cases where we
 have prior information that makes the known possibilities not equally
 likely. It is surprising that Laplace did not find this principle, since
 he saw the problem so clearly.
+
 Now the scene shifts to Boltzmann (1877). To determine how gas molecules
 distribute themselves in a conservative force field such as gravitation,
 he divided the accessible 6-dimensional phase space of a single molecule
 into equal cells, with $N_i$ molecules in the i'th cell. Noting that the
 number of ways this distribution can be realized is the multinomial
-coefficient $$W = N!/N_1!N_2! \dots N_n! \tag{7}$$ he concluded that the
+coefficient
+
+$$W = N!/N_1!N_2! \dots N_n! \tag{7}$$
+
+he concluded that the
 "most probable" distribution is the one that maximizes W subject to
 the known constraints of his prior knowledge; in this case the total
 number of particles and total energy:
-$$N = \sum N_i = \text{const.}, \quad E = \sum N_i E_i = \text{const.} \tag{8}$$ where $E_i$ is the energy of a molecule in the i'th cell. If the numbers
+
+$$N = \sum N_i = \text{const.}, \quad E = \sum N_i E_i = \text{const.} \tag{8}$$
+
+where $E_i$ is the energy of a molecule in the i'th cell. If the numbers
 are large, Stirling's approximation gives asymptotically
-$$N^{-1} \log W \to -\sum (N_i/N) \log(N_i/N) \tag{9}$$ today usually called
+
+$$N^{-1} \log W \to -\sum (N_i/N) \log(N_i/N) \tag{9}$$
+
+today usually called
 the "Shannon entropy", although it was in use by von Neumann before
 Shannon entered the field and by Boltzmann and Gibbs before Shannon was
 born. This argument, repeated in every statistical mechanics textbook,
 led to the famous Boltzmann distribution law: our best estimate of $N_i$ is
-$$\hat{N}_i = N Z^{-1} \exp(-\beta E_i) \tag{10}$$ where Z is a
+
+$$\hat{N}_i = N Z^{-1} \exp(-\beta E_i) \tag{10}$$
+
+where Z is a
 normalizing factor, and the Lagrange multiplier is found to have the
 meaning $\beta = (kT)^{-1}$. This is the distribution that can be
 realized in more ways than can any other that agrees with the
@@ -876,9 +922,16 @@ power spectrum estimates from incomplete geophysical data, by maximizing
 the entropy of the underlying time series {y_1, y_2, ..., y_n}
 defined at discrete times t=1,2,..., subject to the constraints of the
 data. More specifically, one has measured values of the
-autocovariance $$R_k = n^{-1} \sum_t y_t y_{t+k} \tag{11}$$ for m+1 lags,
+autocovariance
+
+$$R_k = n^{-1} \sum_t y_t y_{t+k} \tag{11}$$
+
+for m+1 lags,
 $0 \le k \le m < n$. The true power spectrum is
-$$P(f) = \sum_{k=-n}^{n} R_k \cos(2\pi kf) \tag{12}$$ but there is nothing
+
+$$P(f) = \sum_{k=-n}^{n} R_k \cos(2\pi kf) \tag{12}$$
+
+but there is nothing
 "random" about this. The problem is that m<n; our data are
 incomplete. On frequentist views, one would not see how probability
 theory is applicable to such a problem; but from our viewpoint we see
@@ -891,9 +944,15 @@ thus amounts to finding the "best" extrapolation of {R_k} beyond
 the data.
 Previous to this, power spectra had been estimated by the Blackman-Tukey
 (1958) method, which led to an estimate, for this problem, of:
-$$[P(f)]_{BT} = \sum_{k=-m}^{m} R_k W_k \cos(2\pi kf) \tag{13}$$ where $W_k$ is a
+
+$$[P(f)]_{BT} = \sum_{k=-m}^{m} R_k W_k \cos(2\pi kf) \tag{13}$$
+
+where $W_k$ is a
 "taper" or "window" function, typically chosen as
-$$W_k = \frac{1}{2}(1 + \cos(\pi k/m)) \tag{14}$$ which avoids spurious
+
+$$W_k = \frac{1}{2}(1 + \cos(\pi k/m)) \tag{14}$$
+
+which avoids spurious
 "side-lobes" in P(f) by tapering the data smoothly to zero at k=m,
 which would otherwise be an abrupt discontinuity. But it is at once
 evident that (13) does not lie in the class C of possible solutions; for
@@ -907,18 +966,30 @@ resolution that we would have had without it.
 Burg pointed out these shortcomings of (13) and proceeded to find a
 spectrum estimate by a totally different argument. Find the probability
 distribution $p(y_1, \dots, y_n) = p(y)$ that has maximum entropy
-$$S = -\int p(y) \log p(y) d^n y \tag{15}$$ subject to the constraints that the
+
+$$S = -\int p(y) \log p(y) d^n y \tag{15}$$
+
+subject to the constraints that the
 expectations of the $R_k$ agree with the data (11). The resulting
 generalized canonical distribution
-$$p(y) \propto \exp[-\sum_k \lambda_k R_k] \tag{16}$$ is, in view of of (11), a
+
+$$p(y) \propto \exp[-\sum_k \lambda_k R_k] \tag{16}$$
+
+is, in view of of (11), a
 multivariate gaussian for which one can show that the entropy is also, to
 within an additive constant,
-$$S = \int df \log P(f) \tag{17}$$ which is coming to be called the "Burg
+
+$$S = \int df \log P(f) \tag{17}$$
+
+which is coming to be called the "Burg
 entropy" although they are substantially the same thing, only expressed in
 different variables. One could say equally well that he is maximizing
 (17). By a curious algebraic twist, the power spectrum estimate obtained
 as an expectation over (16) turns to have the form
-$$P(f) = (\sum_k \lambda_k \cos 2\pi kf)^{-1} \tag{18}$$ Burg used a
+
+$$P(f) = (\sum_k \lambda_k \cos 2\pi kf)^{-1} \tag{18}$$
+
+Burg used a
 computation algorithm given in the 1940's by N. Levinson to find the
 Lagrange multipliers $\lambda_k$ in (16), (18) that agree with the data.
 The resulting computer printouts were a revelation. The maximum-entropy
@@ -926,6 +997,7 @@ spectra were clean and sharp; spurious artifacts like sidelobes were
 eliminated, but at the same time the resolution was greatly increased
 rather than sacrificed. No linear processing of the data could have
 produced such results.
+
 The field then grew rapidly; to cite a few of the key references, the
 thorough mathematical analysis in the review article of Smylie, Clarke,
 and Ulrych (1973) and in the thesis of John Parker Burg (1975) are still
@@ -944,6 +1016,7 @@ image reconstruction occurred. Early discussions by Frieden et al.
 (1972) and Ables (1974) gave some theory and computer simulations.
 Perhaps the major landmark is the article of Gull and Daniell (1978),
 which has real results supported by a very clear, simple rationale.
+
 Image reconstruction was seen as another generalized inverse problem
 based on (6) as follows. Since anything we can actually compute is
 digitized, we break the true scene into n picture elements, or
@@ -952,6 +1025,7 @@ digitized, we break the true scene into n picture elements, or
 $x_i = N_i/N$ be the fraction in the i'th pixel, and denote the
 resulting scene by $X = \{x_1, x_2, \dots, x_n\}$. It has an entropy
 S(X) given by (9).
+
 But we do not know these numbers; we have available only a blurred scene
 consisting of m < n pixels, with intensities $d_k$ given by (6) in which
 the matrix A is the digitized point-spread function that describes the
@@ -963,12 +1037,14 @@ greatest number of ways is the one that maximizes the entropy S(X)
 subject to the constraints (6). This is a pure generalized inverse
 problem; the likelihood L(X) is constant on the set of possible scenes
 consistent with (6), zero elsewhere.
+
 Gull and Daniell gave the resulting computer printouts for some real
 problems in radio and x-ray astronomy. They were just as impressive as
 were those of Burg's spectrum analysis. Again, the spurious artifacts of
 previous linear data analysis methods disappeared, while the resolution
 and dynamic range improved. This beautifully concise article is also
 required reading; it can be read and comprehended fully in an hour.
+
 Frieden (1980) gave an equally impressive reconstruction of a galaxy so
 distant that the original optical photograph appears to the eye as a
 featureless blob; yet the maximum entropy reconstruction reveals five
@@ -978,6 +1054,7 @@ indeed, evidence for those arms in the data. The variational principle
 that generates it ensures that the maximum entropy reconstruction cannot
 show any detail for which there is no evidence in the data that were
 used as constraints.
+
 In image reconstruction, maximum entropy is doing something much like
 what a skilled x-ray diagnostician learns to do. Knowing just what to
 look for, he can perceive details in a blurred picture that are quite
@@ -989,6 +1066,7 @@ which our entropy is defined, maximum entropy reconstructions will
 become still better. Two examples, for astronomical scenes about which
 we already know some features in advance, are given by Horne (1982) and
 Skilling (1983); we do not yet know how to do this in general.
+
 Again the method spread rapidly to other applications. Gull and Skilling
 (1984) give many more examples, including reconstruction of a blurred
 image of an auto license plate for the London Police (whom we understand
@@ -1007,11 +1085,18 @@ Laplace did; by using the full Bayes' theorem (4) for inference, in
 which we take the prior probability proportional to the multiplicity
 factor W in (7). The prior probability of a scene X becomes proportional
 to exp[NS(X)]. Then the scene with the highest posterior probability is
-the one that maximizes not S(X) but $$NS(X) + \log L(X) \tag{19}$$ where L(X)
+the one that maximizes not S(X) but
+
+$$NS(X) + \log L(X) \tag{19}$$
+
+where L(X)
 is its likelihood, no longer rectangular, in the light of the probable
 errors in the data. If the blurred image data (6) have independent
 gaussian errors of RMS value h, then
-$$L(X) = \exp \left\{ -\sum_k (d_k - m_k)^2 / 2h^2 \right\} \tag{20}$$ where
+
+$$L(X) = \exp \left\{ -\sum_k (d_k - m_k)^2 / 2h^2 \right\} \tag{20}$$
+
+where
 {m_k} are the "mock data", RHS of (6), that we would have obtained
 if X were the true scene but the noise were absent.
 
@@ -1117,6 +1202,7 @@ the new applications outside thermodynamics off to a good start, we can
 now return to the original goal, with strenuous efforts to correct this.
 ## REFERENCES
 J. G. Abels (1974) "Maximum Entropy Spectral Analysis", *Astron. Astrophys. Suppl.* 15, 383.
+
 G. Bricogne (1982), in *Computational Crystallography*, D. Dayre,
 Editor, pp. 258-264; Oxford University Press, New York.
 
@@ -1132,6 +1218,7 @@ R. K. Bryan, M. Bansal, W. Folkhard, C. Nave, and D. A. Marvin, (1983),
 "Maximum-Entropy calculation of the electron density at 4Å resolution
 of Pfl filamentous bacteriophage", *Proc. Nat. Acad. Sci. U.S.A.* 80,
 4728.
+
 S. F. Burch, S. F. Gull & J. Skilling (1983), "Image Restoration by a
 Powerful Maximum Entropy Method", *Comp. Vision, Graphics & Image
 Processing*, 23, 118-123.
@@ -1217,6 +1304,7 @@ E. T. Jaynes (1976), "Confidence Intervals vs. Bayesian Intervals", in
 *Foundations of Probability Theory, Statistical Inference, and
 Statistical Theories of Science*, W. L. Harper and C. A. Hooker, Eds.
 Reidel Publishing Co., Dordrecht-Holland. Reprinted in Jaynes (1983).
+
 E. T. Jaynes (1978), "Where do we Stand on Maximum Entropy?", in *The
 Maximum Entropy Formalism*, R. D. Levine and M. Tribus, Eds., M.I.T.
 Press, Cambridge Mass. Reprinted in Jaynes, (1983).
@@ -1237,12 +1325,14 @@ E. T. Jaynes, (1985), "The Evolution of Carnot's Principle", in
 Bricogne (1985).
 
 H. Jeffreys (1961), *Theory of Probability*, Oxford University Press.
+
 R. W. Johnson & J. E. Shore (1983), "Minimum-Cross-Entropy Spectral
 Analysis of Multiple Signals", *IEEE Trans. Acoust. Speech & Signal
 Processing ASSP-31*, 574-582.
 
 J. H. Justice, Ed., (1985), *Proceedings of the Workshop on Bayesian/
 Maximum Entropy Methods*, University of Calgary, August 1984. In Press.
+
 M. C. Kemp (1980), "Maximum Entropy reconstructions in emission
 tomography", *Medical Radionuclide Imaging*, 1, 313-323.
 
@@ -1312,6 +1402,7 @@ press).
 D. E. Smylie, G. K. C. Clarke, and T. J. Ulrych, (1973), "Analysis of
 Irregularities in the Earth's Rotation", in *Computational Physics*,
 B. A. Bolt, B. Alder, & S. Feinbach, Eds., Academic Press, New York.
+
 S. Steenstrup & S. W. Wilkins (1984), "On Information and
 Complementarity in Crystal Structure Determination", *Acta Cryst.* (in
 press).
@@ -1331,6 +1422,3 @@ Sydney, Australia, Aug. 1983 (in press).
 
 R. Willingale, "Use of the Maximum Entropy Method in X-Ray Astronomy",
 *Mon. Not. R. Astr. Soc.* 194, 359-364.
-
-[^1]: Visiting Fellow, 1983-84. Permanent address: Department of
-    Physics, Washington University, St. Louis, Missouri 63130, U.S.A.

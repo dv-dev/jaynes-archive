@@ -11,7 +11,8 @@ author: ["E.T. Jaynes"]
 
 ## FIRST LECTURE: Classical and Heaviside Methods
 
-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
+
 **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
 
 **Aim of course:** to provide a technique for solving practical transient problems.
@@ -119,10 +120,14 @@ The transient part of the solution contains a sufficient number of arbitrary con
 
 $$f(t) = e^{-at} - e^{-bt}$$
 
-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
+The two modes for a simple LRC circuit vary with increasing losses as shown below.
+
 *(Diagram of complex s-plane showing poles)*
+
 With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
+
 As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
+
 Critical damping occurs when the modes coincide at:
 $$
 Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
@@ -289,7 +294,7 @@ $$
 E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
 $$
 
-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
 $$
 E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
 $$
@@ -488,6 +493,7 @@ This suggests the definition of an integral, which becomes, in the limit of $\om
 
 The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
 $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
+
 As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
 
 *("Snake in Complex Plane" diagram)*
@@ -507,7 +513,7 @@ Similarly, $f(t)e^{\pm j\omega_0 t}$ and $F(\omega \mp \omega_0)$ are transforms
 The following table:
 
 | If $f(t)$ is: | Then $F(\omega)$ is: |
-| :--- | :--- |
+| --- | --- |
 | Real | Real part Even, Imaginary part Odd |
 | Even | Real, Even |
 | Odd | Imaginary, Odd |
@@ -515,6 +521,7 @@ The following table:
 Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
 
 The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
+
 The transform of the bracket is:
 $$
 F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
@@ -619,7 +626,7 @@ The way the frequency function falls off may be found by inspection of the funct
 The following table:
 
 | If $f(t)$ has a: | $F(\omega)$ goes down as: |
-| :--- | :--- |
+| --- | --- |
 | finite discontinuity | $1/\omega = 6$ db/octave |
 | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
 | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
@@ -716,7 +723,7 @@ $$
 V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
 $$
 
-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+Pair 863.1 of Campbell & Foster is: [^campbell-foster]
 $$
 e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
 $$

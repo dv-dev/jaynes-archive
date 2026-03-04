@@ -205,7 +205,9 @@ Rectangular charts of admittance, the reciprocal of impedance are in
 general use for discussions involving elements connected in parallel.
 The coordinates are G, conductance, and susceptance B, which for an
 element of impedance Z = R + jX are given by:
-$$G = \frac{R}{R^2 + X^2}, \quad B = \frac{-X}{R^2 + X^2}$$ In this
+$$G = \frac{R}{R^2 + X^2}, \quad B = \frac{-X}{R^2 + X^2} \tag{1}$$
+
+In this
 chart the roles of voltage and current are interchanged and the
 operation of vector addition corresponds to connecting elements in
 parallel.
@@ -237,9 +239,13 @@ $(\infty)$, then Zp = Ro. If Z is a pure reactance, Zp must lie somewhere
 on the largest circle in the rectangular impedance plot of Figure 2b. In
 general, as R varies keeping X constant, Zp moves along the circle given
 by:
-$$(R_p - R_o)^2 + \left(X_p - \frac{R_o^2}{2X}\right)^2 = \frac{R_o^4}{4 X^2}$$ while if X is varied
+$$(R_p - R_o)^2 + \left(X_p - \frac{R_o^2}{2X}\right)^2 = \frac{R_o^4}{4 X^2} \tag{2}$$
+
+while if X is varied
 for constant R, the locus of Zp is the orthogonal set given by:
-$$\left[R_p - R_o \frac{2R + R_o}{2(R+R_o)}\right]^2 + X_p^2 = \frac{R_o^4}{4(R+R_o)^2}$$ A few of these circles are shown in Figure 2b. Note that they are
+$$\left[R_p - R_o \frac{2R + R_o}{2(R+R_o)}\right]^2 + X_p^2 = \frac{R_o^4}{4(R+R_o)^2} \tag{3}$$
+
+A few of these circles are shown in Figure 2b. Note that they are
 identical in form and labeling with the coordinate circles of the Smith
 Chart in Figure 1. If any physically attainable impedance is connected
 in parallel with a resistance Ro, the impedance of the combination will
@@ -257,7 +263,9 @@ considered in Chapter III of this report, but it will be expedient to
 discuss here the application to transmission lines, which is the basis
 of its present widespread use. To establish the connection with
 transmission lines, we note that:
-$$Z_p = \frac{Z R_o}{Z+R_o}, \quad \frac{2 Z_p}{R_o} - 1 = \frac{Z - R_o}{Z + R_o} = \Gamma$$ the quantity
+$$Z_p = \frac{Z R_o}{Z+R_o}, \quad \frac{2 Z_p}{R_o} - 1 = \frac{Z - R_o}{Z + R_o} = \Gamma \tag{4}$$
+
+the quantity
 $(Z-R_o)/(Z+R_o)$ is recognized as the reflection
 coefficient $\Gamma$ at the end of a transmission line of characteristic
 impedance Ro, when terminated in a load impedance Z.
@@ -273,10 +281,16 @@ looking at a Smith Chart is to regard it as a plot of the reflection
 coefficient of a transmission line in the circular region
 $|\Gamma| \le 1$. The convenience of the chart in transmission line
 problems then follows from the fact that if $\Gamma$ is expressed in
-polar coordinates: $$ \Gamma = |\Gamma| e^{j 2\theta} $$ then $|\Gamma|$
+polar coordinates:
+
+$$ \Gamma = |\Gamma| e^{j 2\theta} $$
+
+then $|\Gamma|$
 depends only on the standing wave ratio S = Emax/Emin in the line,
 through the relations
-$$|\Gamma| = \frac{S-1}{S+1}, \quad S = \frac{1 + |\Gamma|}{1 - |\Gamma|}$$ and $\theta$ is the distance in electrical degrees from the load to the
+$$|\Gamma| = \frac{S-1}{S+1}, \quad S = \frac{1 + |\Gamma|}{1 - |\Gamma|} \tag{5}$$
+
+and $\theta$ is the distance in electrical degrees from the load to the
 nearest voltage maximum. Thus the measured values of SWR and position of
 the standing waves are simply the polar coordinates locating the load
 impedance on a Smith Chart. In a transmission line with no losses, the
@@ -420,7 +434,9 @@ zero, or the coupling exceeds the amount corresponding to K = 1.
 It follows from equations (6) that if a load impedance $Z_2$ is
 connected to terminals 2, the corresponding input impedance seen at
 terminals 1 is:
-$$Z_1 = Z_{11} - \frac{Z_{12}^2}{Z_{22} + Z_2} \tag{7}$$ This
+$$Z_1 = Z_{11} - \frac{Z_{12}^2}{Z_{22} + Z_2} \tag{7}$$
+
+This
 is the most general way in which one impedance can depend on another
 impedance, and it is well to study this relation in some detail.
 
@@ -429,7 +445,9 @@ two complex quantities $Z_1$ and $Z_2$, involving three arbitrary
 parameters. $Z_1$ is an analytic function of $Z_2$, which means that if
 the real and imaginary parts are given by $Z_1 = R_1 + jX_1$,
 $Z_2 = R_2 + jX_2$ then the following useful relations must hold:
-$$\frac{\partial R_1}{\partial R_2} = \frac{\partial X_1}{\partial X_2}, \quad \frac{\partial R_1}{\partial X_2} = - \frac{\partial X_1}{\partial R_2} \tag{8}$$ In the theory of functions of a complex variable, equations (8) are
+$$\frac{\partial R_1}{\partial R_2} = \frac{\partial X_1}{\partial X_2}, \quad \frac{\partial R_1}{\partial X_2} = - \frac{\partial X_1}{\partial R_2} \tag{8}$$
+
+In the theory of functions of a complex variable, equations (8) are
 known as the Cauchy-Riemann differential equations, and they constitute
 a necessary and sufficient condition that a unique complex derivative
 $dZ_1/dZ_2$ exists. Geometrically, the operations performed on $Z_2$ in
@@ -456,7 +474,9 @@ The mathematically simplest normalization scheme is to normalize the
 input and load impedances with respect to the corresponding open-circuit
 driving-point impedances $Z_{11}$ and $Z_{22}$. Rearranging equation (7)
 in this way, we have:
-$$\frac{Z_1}{Z_{11}} = 1 - \frac{K^2}{1 + (Z_2/Z_{22})} \tag{9}$$ where
+$$\frac{Z_1}{Z_{11}} = 1 - \frac{K^2}{1 + (Z_2/Z_{22})} \tag{9}$$
+
+where
 $K^2 = \frac{Z_{12}^2}{Z_{11} Z_{22}}$ is the complex coefficient of
 coupling.[^5]
 
@@ -628,7 +648,9 @@ plotted in Fig 10.
 
 The behavior of a network of type (3) may be found by introducing the
 quantities
-$$\Gamma_1 = \frac{Z_1 - Z_{I_1}}{Z_1 + Z_{I_1}}, \quad \Gamma_2 = \frac{Z_2 - Z_{I_2}}{Z_2 + Z_{I_2}} \tag{19}$$ In the case of a transmission line, these quantities are called
+$$\Gamma_1 = \frac{Z_1 - Z_{I_1}}{Z_1 + Z_{I_1}}, \quad \Gamma_2 = \frac{Z_2 - Z_{I_2}}{Z_2 + Z_{I_2}} \tag{19}$$
+
+In the case of a transmission line, these quantities are called
 reflection coefficients and, although the name is not quite so
 applicable here where the two image impedances are unequal, these
 quantities still satisfy the same formal relations as the reflection
@@ -638,7 +660,9 @@ Chart, measured from its center as an origin. If then we put
 $$\tanh a = \sqrt{1-K^2} \tag{20}$$
 where a is the attenuation of the network
 in nepers, we find equation (14) may be written in the form:
-$$\Gamma_1 = \Gamma_2 e^{-2a} \tag{21}$$ so that the input "reflection
+$$\Gamma_1 = \Gamma_2 e^{-2a} \tag{21}$$
+
+so that the input "reflection
 coefficient" is equal to the output "reflection coefficient" reduced
 in scale by a factor $e^{-2a}$. This is a factor of two for each 3 db.
 attenuation of the network, as illustrated in Fig. 9 b.
@@ -685,7 +709,9 @@ I_2 &= Y_{12} E_1 - Y_{22} E_2
 $$
 The admittances Ymn are related to the impedances Zmn
 by the relations:
-$$Y_{11} = \frac{Z_{22}}{Z_{11}Z_{22}-Z_{12}^2}, \quad Y_{12} = \frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}^2}, \quad Y_{22} = \frac{Z_{11}}{Z_{11}Z_{22}-Z_{12}^2} \tag{23}$$ The inverse relations giving the Zmn in terms of the Ymn are identical
+$$Y_{11} = \frac{Z_{22}}{Z_{11}Z_{22}-Z_{12}^2}, \quad Y_{12} = \frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}^2}, \quad Y_{22} = \frac{Z_{11}}{Z_{11}Z_{22}-Z_{12}^2} \tag{23}$$
+
+The inverse relations giving the Zmn in terms of the Ymn are identical
 in form. The most straightforward way of visualizing a general network
 on admittance basis is the Pi-section of Fig.11. It is seen that
 $Y_{11}$ is the admittance seen looking into terminals 1 when terminals
@@ -693,13 +719,17 @@ $Y_{11}$ is the admittance seen looking into terminals 1 when terminals
 driving-point admittance, just as $Z_{11}$ is called an open-circuit
 driving-point impedance. If a load admittance $Y_2$ is connected to
 terminals 2, the input admittance to terminals 1 is given by:
-$$Y_1 = Y_{11} - \frac{Y_{12}^2}{Y_{22} + Y_2} \tag{24}$$ which is of the
+$$Y_1 = Y_{11} - \frac{Y_{12}^2}{Y_{22} + Y_2} \tag{24}$$
+
+which is of the
 same form as the corresponding impedance equation (7).
 
 From equations (23) it follows that the coefficient of coupling is given
 by equations of identical form in terms of either admittances or
 impedances:
-$$K^2 = \frac{Y_{12}^2}{Y_{11}Y_{22}} = \frac{Z_{12}^2}{Z_{11}Z_{22}} \tag{25}$$ Therefore if we merely substitute Y for Z in equations (9) and (14), we
+$$K^2 = \frac{Y_{12}^2}{Y_{11}Y_{22}} = \frac{Z_{12}^2}{Z_{11}Z_{22}} \tag{25}$$
+
+Therefore if we merely substitute Y for Z in equations (9) and (14), we
 have the corresponding equations for the input admittances relative to
 the driving-point or image admittances. Since all the network equations
 are of exactly the same form on an admittance or an impedance basis, all
@@ -737,7 +767,9 @@ frequencies and adjustments, we can make no meaningful distinction
 between two coupling arrangements which have identical input impedance
 functions. With this in mind, let us examine once more equation (7)
 which gives the input impedance to a general network:
-$$Z_1 = Z_{11} - \frac{Z_{12}^2}{Z_{22} + Z_2}$$ We see that, as far as
+$$Z_1 = Z_{11} - \frac{Z_{12}^2}{Z_{22} + Z_2}$$
+
+We see that, as far as
 the input impedance is concerned, $Z_{22}$ and $Z_2$ have no separate
 existence, since it is only their sum which affects the input impedance.
 Since $Z_{22}$ has been considered a property of the coupling network,
@@ -774,22 +806,38 @@ equivalence works; let us compare the actual equations for the series
 and shunt circuits and verify directly that their behavior is the same.
 In the series case, the load impedance connected to the network due to
 the cavity is given by
-$$Z_2 = R^\prime + j\omega L + \frac{1}{j\omega C} = R^\prime\left[1 + jQ\left(\frac{\omega}{\omega_o} - \frac{\omega_o}{\omega}\right)\right] \tag{26}$$ where
-$$\omega_o = \frac{1}{\sqrt{LC}}, \quad Q = \frac{\omega_o L}{R^\prime} = \frac{1}{R^\prime}\sqrt{\frac{L}{C}}$$ If we assume Q $\gg$ 1, then the frequency range in which significant
+$$Z_2 = R^\prime + j\omega L + \frac{1}{j\omega C} = R^\prime\left[1 + jQ\left(\frac{\omega}{\omega_o} - \frac{\omega_o}{\omega}\right)\right] \tag{26}$$
+
+where
+$$\omega_o = \frac{1}{\sqrt{LC}}, \quad Q = \frac{\omega_o L}{R^\prime} = \frac{1}{R^\prime}\sqrt{\frac{L}{C}}$$
+
+If we assume Q $\gg$ 1, then the frequency range in which significant
 impedance variations will occur is small, and we may use an approximate
 formula:[^7]
-$$\frac{\omega}{\omega_o} - \frac{\omega_o}{\omega} \cong 2 \frac{\omega - \omega_o}{\omega_o} = 2\delta \tag{27}$$ where $\delta$ is the fractional frequency deviation from $\omega_o$.
+$$\frac{\omega}{\omega_o} - \frac{\omega_o}{\omega} \cong 2 \frac{\omega - \omega_o}{\omega_o} = 2\delta \tag{27}$$
 
-The load impedance may then be written as: $$Z_2 = R^\prime(1+j2Q\delta) \tag{28}$$ Assuming that the coupling network is composed of pure reactances, we
+where $\delta$ is the fractional frequency deviation from $\omega_o$.
+
+The load impedance may then be written as:
+
+$$Z_2 = R^\prime(1+j2Q\delta) \tag{28}$$
+
+Assuming that the coupling network is composed of pure reactances, we
 have:
-$$Z_{11} = jX_{11}, \quad Z_{12} = jX_{12}, \quad Z_{22} = jX_{22}$$ so
+$$Z_{11} = jX_{11}, \quad Z_{12} = jX_{12}, \quad Z_{22} = jX_{22}$$
+
+so
 that the input impedance to the network is then:
-$$Z_1 = jX_{11} + \frac{X_{12}^2}{jX_{22} + R^\prime(1+j2Q\delta)} \tag{29}$$ the
+$$Z_1 = jX_{11} + \frac{X_{12}^2}{jX_{22} + R^\prime(1+j2Q\delta)} \tag{29}$$
+
+the
 measurements which we can make on the system are to detune the cavity
 and note the input impedance, then follow its variation as we pass through
 resonance. When the cavity is detuned, the term $2Q\delta$ becomes
 extremely large compared to all other quantities in the expression
-$$\frac{X_{12}^2}{jX_{22} + R^\prime(1+j2Q\delta)}$$ so that this term
+$$\frac{X_{12}^2}{jX_{22} + R^\prime(1+j2Q\delta)}$$
+
+so that this term
 vanishes in the limit of complete detuning. The input impedance is then
 simply $Z_1 = jX_{11}$. As the cavity is tuned through resonance, which
 varies $\delta$ in equation (29), the input impedance varies along a
@@ -797,20 +845,28 @@ circle as shown in Fig. 14.
 
 In the shunt connected circuit, the load impedance of the network due to
 the cavity is given by:
-$$Z_2 = \frac{R^{\prime\prime}}{1+j2Q\delta} \tag{30}$$ where
+$$Z_2 = \frac{R^{\prime\prime}}{1+j2Q\delta} \tag{30}$$
+
+where
 
 R" is the cavity shunt impedance, and the other symbols have their
 usual meanings. The input impedance to the network is then:
-$$Z_1 = jX_{11} + \frac{X_{12}^2}{jX_{22} + \frac{R^{\prime\prime}}{1+j2Q\delta}} \tag{31}$$ this expression appears to differ considerably from equation (29) but
+$$Z_1 = jX_{11} + \frac{X_{12}^2}{jX_{22} + \frac{R^{\prime\prime}}{1+j2Q\delta}} \tag{31}$$
+
+this expression appears to differ considerably from equation (29) but
 let us study it more closely. In this case the input impedance when the
 cavity is detuned ($2Q\delta \rightarrow \infty$) is not $jX_{11}$, but
 instead has the value
-$$j \left( X_{11} - \frac{X_{12}^2}{X_{22}} \right) \tag{32}$$ In order to
+$$j \left( X_{11} - \frac{X_{12}^2}{X_{22}} \right) \tag{32}$$
+
+In order to
 bring out similarities between equations (29) and (31) we should first
 rearrange (31) into a form where the expression (32) corresponds to
 $X_{11}$ in equation (29). We find that the following equation results
 from this rearrangement:
-$$Z_1 = j\left(X_{11} - \frac{X_{12}^2}{X_{22}}\right) + \frac{\frac{X_{12}^2}{X_{22}^2}}{-j\frac{1}{X_{22}} + \frac{X_{22}^2}{R^{\prime\prime}}(1+j2Q\delta)} \tag{33}$$ Comparing this with equation (29), we see that they are identical in
+$$Z_1 = j\left(X_{11} - \frac{X_{12}^2}{X_{22}}\right) + \frac{\frac{X_{12}^2}{X_{22}^2}}{-j\frac{1}{X_{22}} + \frac{X_{22}^2}{R^{\prime\prime}}(1+j2Q\delta)} \tag{33}$$
+
+Comparing this with equation (29), we see that they are identical in
 their variations with respect to $\delta$, the tuning of the cavity. The
 impedance locus accordingly is exactly like that of the series connected
 circuit of Fig. 14. There is a certain reactance present when the cavity
@@ -915,13 +971,19 @@ corrections may be applied to the data, in ways to be considered later.
 If we use the series circuit of Fig. 15a for the connection between
 coupling network and cavity, as explained in the preceding section, the
 input impedance to the coupling system reduces to:
-$$Z_1 = jX_{11} + \frac{X_{12}^2}{R(1+j2Q\delta)} \tag{34}$$ At a point where
+$$Z_1 = jX_{11} + \frac{X_{12}^2}{R(1+j2Q\delta)} \tag{34}$$
+
+At a point where
 the impedance looking toward the detuned cavity is a short circuit, we
 evidently have $X_{11} = 0$, so that the input impedance is simply:
-$$Z_1 = \frac{X_{12}^2}{R(1+j2Q\delta)} \tag{35}$$ this is exactly the
+$$Z_1 = \frac{X_{12}^2}{R(1+j2Q\delta)} \tag{35}$$
+
+this is exactly the
 impedance of the parallel resonant circuit of Fig 16a, with resonant
 shunt impedance equal to $X_{12}^2/R$, at a "frequency"
-$$\delta = \frac{\omega - \omega_o}{\omega_o}$$ Therefore all impedance
+$$\delta = \frac{\omega - \omega_o}{\omega_o}$$
+
+Therefore all impedance
 measurements made on the transmission line are the same as if a lumped
 constant parallel resonant circuit were connected as a termination on
 the line at a point where a short circuit occurs looking toward the
@@ -1033,7 +1095,9 @@ transforms an impedance Z into a new impedance $(Z_o^2/Z)$, so that the
 parallel resonant circuit with an impedance $$
 \frac{\beta Z_o}{1 + j2Q\delta} \tag{36}$$ where $\beta$ is the ratio of shunt impedance of the parallel resonant circuit
 to $z_o$, is transformed into an impedance
-$$\frac{Z_o}{\beta}(1 + j2Q\delta) \tag{37}$$ which is recognized as the
+$$\frac{Z_o}{\beta}(1 + j2Q\delta) \tag{37}$$
+
+which is recognized as the
 impedance of a series resonant circuit. These relationships are
 illustrated in Fig. 18. The resonant frequencies of these virtual
 circuits are the same and equal to the resonant frequency of the system
@@ -1165,11 +1229,15 @@ $$
 \tag{39}
 $$
 In terms of admittances at the detuned short, we have, when the line is matched:
-$$Q_U = \frac{\omega C}{G}, \quad Q_c = \frac{\omega C}{Y_o}, \quad Q_L = \frac{\omega C}{G+Y_o} \tag{40}$$ where C and G = 1/$\beta Z_o$ are the capacitance and conductance of the
+$$Q_U = \frac{\omega C}{G}, \quad Q_c = \frac{\omega C}{Y_o}, \quad Q_L = \frac{\omega C}{G+Y_o} \tag{40}$$
+
+where C and G = 1/$\beta Z_o$ are the capacitance and conductance of the
 virtual resonant circuit and $Y_o = 1/Z_o$ is the characteristic
 admittance of the line. The following relations are then seen to exist
 between the different Q's:
-$$\frac{Q_u}{Q_L} = 1 + \beta, \quad \frac{Q_u}{Q_c} = \beta, \quad \frac{Q_c}{Q_L} = 1 + 1/\beta \tag{41}$$ These relations are extremely useful, as the quantity $\beta$ is
+$$\frac{Q_u}{Q_L} = 1 + \beta, \quad \frac{Q_u}{Q_c} = \beta, \quad \frac{Q_c}{Q_L} = 1 + 1/\beta \tag{41}$$
+
+These relations are extremely useful, as the quantity $\beta$ is
 directly measurable with a standing-wave detector.
 
 If the transmission line is not matched as seen looking back from the
@@ -1178,7 +1246,9 @@ the system as seen from the cavity will in general be altered. If the
 transmission line places an admittance $G_T + jB_L$ at the detuned
 short, this admittance is in parallel with the virtual resonant circuit
 at that point, and we have for the values of Qc and cavity detuning:
-$$Q_c = \frac{\omega_o C}{G_L}, \quad \frac{\Delta F}{F_o} = -1/2 \frac{B_L}{\omega_o C} \tag{42}$$ Where $\Delta F$ is the detuning in megacycles and $F_o$ is the resonant
+$$Q_c = \frac{\omega_o C}{G_L}, \quad \frac{\Delta F}{F_o} = -1/2 \frac{B_L}{\omega_o C} \tag{42}$$
+
+Where $\Delta F$ is the detuning in megacycles and $F_o$ is the resonant
 frequency when the line is matched. Note the particularly simple form of
 equations (42). It is only at the position of this virtual resonant
 circuit that the loading and detuning are so separated that one depends
@@ -1201,9 +1271,13 @@ resulting frequency pulling. Since according to equation (42) the
 detuning depends only on the susceptance placed across the virtual
 resonant circuit, we need to know the maximum value of susceptance that
 is reached on the constant SWR circle. This is readily found to be:
-$$B_L = \pm \frac{Y_o}{2}(S - 1/S) \tag{43}$$ so that the maximum detuning is
+$$B_L = \pm \frac{Y_o}{2}(S - 1/S) \tag{43}$$
+
+so that the maximum detuning is
 given by:
-$$\frac{\Delta f}{F_o} = \pm \frac{Y_o}{4\pi C} (S - 1/S) = \pm \frac{(S - 1/S)}{4 Q_c} \tag{44}$$ where
+$$\frac{\Delta f}{F_o} = \pm \frac{Y_o}{4\pi C} (S - 1/S) = \pm \frac{(S - 1/S)}{4 Q_c} \tag{44}$$
+
+where
 $Q_c = \omega C/Y_o$ is the coupled Q when the line is matched. This
 is a well-known formula for the frequency pulling in an oscillator
 which conforms to certain conditions which make the frequency of
@@ -1223,9 +1297,13 @@ arrangement of Fig. 15a, the impedance seen looking back into the
 coupling network may be found from equation (11) by reversing the
 subscripts, since our notation is symmetrical with respect to the two
 sets of terminals. The resistive component of this impedance is given by:
-$$\frac{R}{X_{22}} = \frac{K^2 R_L/X_{11}}{(R_L/X_{11})^2 + (1 + X_L/X_{11})^2} \tag{45}$$ the coupled Q is then equal to $X_{22}/R$, so that we have the following
+$$\frac{R}{X_{22}} = \frac{K^2 R_L/X_{11}}{(R_L/X_{11})^2 + (1 + X_L/X_{11})^2} \tag{45}$$
+
+the coupled Q is then equal to $X_{22}/R$, so that we have the following
 relation:
-$$K^2 Q_c = \frac{R_L/X_{11}}{(R_L/X_{11})^2 + (1 + X_L/X_{11})^2} \tag{46}$$ This formula neglects the reactance coupled into the cavity by the load
+$$K^2 Q_c = \frac{R_L/X_{11}}{(R_L/X_{11})^2 + (1 + X_L/X_{11})^2} \tag{46}$$
+
+This formula neglects the reactance coupled into the cavity by the load
 in comparison to $X_{22}$, an approximation which is justified if this
 coupled reactance is such that the detuning relative to the resonant
 frequency when $Z_L = \infty$ is small. If the coupled reactance is such
@@ -1235,7 +1313,9 @@ ordinarily encountered in practice, then the error in equation (46) is
 
 To find the amount of detuning, we use equation (11) to find the
 reactance seen looking into the network:
-$$X = X_{22} - \frac{K^2(1+\frac{X_L}{X_{11}})X_{22}}{(\frac{R_L}{X_{11}})^2 + (1+\frac{X_L}{X_{11}})^2} \tag{47}$$ The second term represents the coupled reactance $X_c$, while $X_{22}$ is
+$$X = X_{22} - \frac{K^2(1+\frac{X_L}{X_{11}})X_{22}}{(\frac{R_L}{X_{11}})^2 + (1+\frac{X_L}{X_{11}})^2} \tag{47}$$
+
+The second term represents the coupled reactance $X_c$, while $X_{22}$ is
 the "normal" reactance when terminals 1 of the network are
 open-circuited. Now detuning is evidently a relative quantity; it is
 meaningless to ask how far the resonant frequency of the system is
@@ -1253,7 +1333,9 @@ mathematically simplest standard is obtained by setting this impedance
 equal to infinity, in which case the impedance seen looking into
 terminals 2 of the coupling network is simply $jX_{22}$. The detuning
 relative to this standard is then:
-$$\frac{\Delta f}{f_o} = -1/2 \frac{X_c}{X_{22}} = \frac{K^2}{2} \frac{(1 + X_L/X_{11})}{(R_L/X_{11})^2 + (1+X_L/X_{11})^2} \tag{48}$$ This equation bears a certain symmetrical relation to equation (46), and
+$$\frac{\Delta f}{f_o} = -1/2 \frac{X_c}{X_{22}} = \frac{K^2}{2} \frac{(1 + X_L/X_{11})}{(R_L/X_{11})^2 + (1+X_L/X_{11})^2} \tag{48}$$
+
+This equation bears a certain symmetrical relation to equation (46), and
 is capable of a simple interpretation on a rectangular impedance chart, but
 from a practical standpoint it is not the most useful way of setting
 up a detuning standard. The practical use of any theory consists of
@@ -1273,7 +1355,9 @@ the same impedances normalized with respect to $Z_o$, which is the way
 the experimental data is taken. In this case, it is found from equation
 (47) that the detuning relative to the standard resonant frequency
 defined by $Z_o$ is given by:
-$$\frac{\Delta f}{f_1} = \frac{K^2}{2} \left[ \frac{(1+X_L/Z_o)}{(R_L/Z_o)^2 + (1+X_L/Z_o)^2} - \frac{1}{2} \right] \tag{49}$$ The graphical interpretation of equations (46) and (49) can be made most
+$$\frac{\Delta f}{f_1} = \frac{K^2}{2} \left[ \frac{(1+X_L/Z_o)}{(R_L/Z_o)^2 + (1+X_L/Z_o)^2} - \frac{1}{2} \right] \tag{49}$$
+
+The graphical interpretation of equations (46) and (49) can be made most
 simply in terms of a Smith Chart normalized with respect to $Z_o$. If
 values of load impedance are plotted on this chart, lines of constant Qc
 and constant detuning can be drawn, from which these quantities can be
@@ -1333,19 +1417,29 @@ the rotation is still Ko, however, so we need to know the relation
 between Ko and the coefficient of coupling K of the network whose
 boundary is point B. This may be found from equation (46) by setting
 $Z_L = Z_o$. The equation then reduces to:
-$$K^2 Q_c = \frac{X_{11}+Z_o}{Z_o} \frac{Z_o}{X_{11}} \tag{50}$$ at the point A
-where $X_{11}^\prime = Z_o$, we have $$K_o^2 Q_c = 2 \tag{51}$$ and as we move along
+$$K^2 Q_c = \frac{X_{11}+Z_o}{Z_o} \frac{Z_o}{X_{11}} \tag{50}$$
+
+at the point A
+where $X_{11}^\prime = Z_o$, we have
+
+$$K_o^2 Q_c = 2 \tag{51}$$
+
+and as we move along
 the line Qc remains constant, since it is a physical property of the
 system that does not depend on our choice of a boundary. We therefore
 find that:
-$$K^2 = \frac{K_o^2}{2} \left(\frac{X_{11}}{Z_o} + \frac{Z_o}{X_{11}}\right) \tag{52}$$ which is the desired law of transformation. A method of measuring $K^2$
+$$K^2 = \frac{K_o^2}{2} \left(\frac{X_{11}}{Z_o} + \frac{Z_o}{X_{11}}\right) \tag{52}$$
+
+which is the desired law of transformation. A method of measuring $K^2$
 for a network coupled to a cavity may be found from equation (48) which
 gives the detuning relative to the standard resonant frequency defined
 by $Z_L = \infty$. If we observe the resonant frequency of the cavity
 through a second coupling system when the one to be measured is
 alternately open and short-circuited at terminals 1 ($X_L$ is $\infty$
 and then zero) the coefficient of coupling is seen to be:
-$$K^2 = 2 \frac{\Delta F}{F_o} \tag{53}$$ where $\Delta F$ is the difference of
+$$K^2 = 2 \frac{\Delta F}{F_o} \tag{53}$$
+
+where $\Delta F$ is the difference of
 the two resonant frequencies.
 
 The rules for predicting cavity loading and detuning relative to $Z_o$
@@ -1419,7 +1513,9 @@ the same as if the unloaded Q of the cavity were decreased to
 $Q_{L2}$.[^10] Since the SWR at resonance looking into a coupling system
 is proportional to the Q of the cavity as seen from the input circuit, we
 have for $\gamma_1$:
-$$\gamma_1 = \frac{Q_{L2}}{Q_{c1}} = \frac{1}{Q_{c1}}\left(\frac{Q_u Q_{c2}}{Q_u + Q_{c2}}\right) = \frac{\beta_1}{1+\beta_2} \tag{54}$$ The quantity $\beta_2$ has been defined simply as the ratio
+$$\gamma_1 = \frac{Q_{L2}}{Q_{c1}} = \frac{1}{Q_{c1}}\left(\frac{Q_u Q_{c2}}{Q_u + Q_{c2}}\right) = \frac{\beta_1}{1+\beta_2} \tag{54}$$
+
+The quantity $\beta_2$ has been defined simply as the ratio
 $Q_u/Q_{c2}$. If the output coupling system feeds another matched
 transmission line, then $\beta_2$ is the SWR at resonance seen looking
 back from this transmission line into the output coupling system when
@@ -1437,9 +1533,15 @@ The total loaded Q may be found by combining $Q_u$, $Q_{c1}$, and
 $Q_{c2}$. Since the Q for any part of the system is inversely
 proportional to the losses in that part and the various losses add
 directly to give the total loss, the law of combination is found to be:
-$$\frac{1}{Q_{L12}} = \frac{1}{Q_{c1}} + \frac{1}{Q_u} + \frac{1}{Q_{c2}} \tag{56}$$ or,
-$$\frac{Q_u}{Q_{L12}} = 1 + \beta_1 + \beta_2 = \beta_1 \left(1 + \frac{1}{\gamma_1}\right) \tag{57}$$ The bandwidth is then equal to:
-$$\Delta F = \frac{F_o}{Q_{L12}} \tag{58}$$ If we compare this with equation (56) we see that the overall bandwidth is
+$$\frac{1}{Q_{L12}} = \frac{1}{Q_{c1}} + \frac{1}{Q_u} + \frac{1}{Q_{c2}} \tag{56}$$
+
+or,
+$$\frac{Q_u}{Q_{L12}} = 1 + \beta_1 + \beta_2 = \beta_1 \left(1 + \frac{1}{\gamma_1}\right) \tag{57}$$
+
+The bandwidth is then equal to:
+$$\Delta F = \frac{F_o}{Q_{L12}} \tag{58}$$
+
+If we compare this with equation (56) we see that the overall bandwidth is
 simply the sum of the separate "partial bandwidths" due to the
 individual sources of loss.
 
@@ -1451,11 +1553,17 @@ the power that enters the cavity is delivered to the load since there is
 some loss in the cavity walls. From standard transmission line theory we
 find that the fraction of the incident power that enters the cavity at
 resonance is:
-$$\frac{P_1}{P_o} = \frac{4\gamma_1}{(1+\gamma_1)^2} \tag{59}$$ The cavity efficiency, defined as the ratio of power delivered to the load
+$$\frac{P_1}{P_o} = \frac{4\gamma_1}{(1+\gamma_1)^2} \tag{59}$$
+
+The cavity efficiency, defined as the ratio of power delivered to the load
 to total power entering the cavity is, since the Q of an element is
 inversely proportional to the corresponding power loss:
-$$\frac{P_L}{P_1} = \frac{1/Q_{c2}}{1/Q_u + 1/Q_{c2}} = \frac{Q_{L2}}{Q_{c2}} = \frac{\beta_2}{1+\beta_2} = \frac{\beta_1 - \gamma_1}{\beta_1} \tag{60}$$ The overall efficiency is the product of (59) and (60).
-$$E_{ff} = \frac{P_L}{P_o} = \frac{4\gamma_1}{(1+\gamma_1)^2} \cdot \left(\frac{\beta_1 - \gamma_1}{\beta_1}\right) \tag{61}$$ Since all of the quantities in equation (61) are easily measurable this
+$$\frac{P_L}{P_1} = \frac{1/Q_{c2}}{1/Q_u + 1/Q_{c2}} = \frac{Q_{L2}}{Q_{c2}} = \frac{\beta_2}{1+\beta_2} = \frac{\beta_1 - \gamma_1}{\beta_1} \tag{60}$$
+
+The overall efficiency is the product of (59) and (60).
+$$E_{ff} = \frac{P_L}{P_o} = \frac{4\gamma_1}{(1+\gamma_1)^2} \cdot \left(\frac{\beta_1 - \gamma_1}{\beta_1}\right) \tag{61}$$
+
+Since all of the quantities in equation (61) are easily measurable this
 affords us a convenient way of determining insertion loss of a cavity
 filter. Equations (59) and (60) are plotted separately in Figs. 20 and
 21. It should be noted that although the quantities $\beta$ and $\gamma$
@@ -1474,27 +1582,41 @@ We must now study the equations for insertion loss and bandwidth to find
 the relation between input and output loading which gives the minimum
 insertion loss for a given bandwidth. It is seen from equation (57) that
 the condition for constant bandwidth is
-$$\beta_1\left(1+\frac{1}{\gamma_1}\right) = \text{Const.} = \frac{Q_u}{Q_{L12}} \tag{62}$$ Solving this relation for $\gamma_1$ and substituting the value obtained
+$$\beta_1\left(1+\frac{1}{\gamma_1}\right) = \text{Const.} = \frac{Q_u}{Q_{L12}} \tag{62}$$
+
+Solving this relation for $\gamma_1$ and substituting the value obtained
 into equation (61), we have:
-$$E_{ff} = 4\beta_1\left[1-(1+\beta_1)\frac{Q_{L12}}{Q_u}\right]\frac{Q_{L12}}{Q_u} \tag{63}$$ It is found by differentiation that the value of $\beta_1$ leading to the
+$$E_{ff} = 4\beta_1\left[1-(1+\beta_1)\frac{Q_{L12}}{Q_u}\right]\frac{Q_{L12}}{Q_u} \tag{63}$$
+
+It is found by differentiation that the value of $\beta_1$ leading to the
 greatest efficiency for a given bandwidth is:
-$$\beta_1 = \frac{1}{2}(Q_u/Q_{L12} - 1) \tag{64}$$ This is the value to
+$$\beta_1 = \frac{1}{2}(Q_u/Q_{L12} - 1) \tag{64}$$
+
+This is the value to
 which $\beta_1$ should be experimentally adjusted. The corresponding
 value of $\gamma_1$ is:
-$$\gamma_1 = \frac{Q_u - Q_{L12}}{Q_u + Q_{L12}} = \frac{\beta_1}{1+\beta_1} \tag{65}$$ It is seen that this is always less than unity, corresponding to a
+$$\gamma_1 = \frac{Q_u - Q_{L12}}{Q_u + Q_{L12}} = \frac{\beta_1}{1+\beta_1} \tag{65}$$
+
+It is seen that this is always less than unity, corresponding to a
 negative value when expressed in db. When the output coupling system has
 been adjusted to this value of $\gamma_1$, it is found from equation
 (54) that the value of $\beta_2$ is:
-$$\beta_2 = \frac{\beta_1}{\gamma_1} - 1 = \beta_1 \tag{66}$$ The coupling
+$$\beta_2 = \frac{\beta_1}{\gamma_1} - 1 = \beta_1 \tag{66}$$
+
+The coupling
 is therefore symmetrical between input and output when this optimum
 adjustment has been reached.
 
 The efficiency at the optimum adjustment may be found from equations
 (63) and (64) to be:
-$$E_{ff} = \frac{Q_{L12}}{Q_u}\left[\frac{Q_u}{Q_{L12}} + \frac{Q_{L12}}{Q_u} - 2\right] \tag{67}$$ This is the maximum possible efficiency for a cavity filter with
+$$E_{ff} = \frac{Q_{L12}}{Q_u}\left[\frac{Q_u}{Q_{L12}} + \frac{Q_{L12}}{Q_u} - 2\right] \tag{67}$$
+
+This is the maximum possible efficiency for a cavity filter with
 unloaded Q = $Q_u$ and a bandwidth $\Delta f = f_o/Q_{L12}$. In terms of
 $\beta_1$, this maximum efficiency is:
-$$E_{ff} = \left(\frac{2\beta_1}{1+2\beta_1}\right)^2 \tag{68}$$ The following problem often arises in practice: Given a cavity with one of
+$$E_{ff} = \left(\frac{2\beta_1}{1+2\beta_1}\right)^2 \tag{68}$$
+
+The following problem often arises in practice: Given a cavity with one of
 the coupling systems fixed, how should the second coupling system be
 adjusted in order to minimize the insertion loss, regardless of
 bandwidth? In case the output coupling is fixed, the distribution of
@@ -1515,7 +1637,9 @@ When the input coupling is fixed, we may find the
 output coupling adjustment which leads to maximum efficiency by
 differentiating equation (61) with respect to $\gamma_1$, keeping
 $\beta_1$ constant. The optimum value of $\gamma_1$ is thus found to be:
-$$\gamma_1' = \frac{\beta_1}{2+\beta_1} \tag{70}$$ When this adjustment
+$$\gamma_1' = \frac{\beta_1}{2+\beta_1} \tag{70}$$
+
+When this adjustment
 has been reached we find the following relations to hold:
 $$
 \begin{aligned}
@@ -1635,13 +1759,21 @@ ratio in the slotted line is measured, noting whether the voltage
 minimum is at the position of the detuned short, or a quarter wavelength
 away from this position. In the former case, the impedance locus does not
 encircle the center of the Smith Chart, and we have
-$$\beta = \frac{E_{\min}}{E_{\max}}$$ while in the latter case the coupling
+$$\beta = \frac{E_{\min}}{E_{\max}}$$
+
+while in the latter case the coupling
 is tighter so that the impedance locus encircles the center of the chart,
-and we have: $$\beta = \frac{E_{\max}}{E_{\min}}$$ In any case, $\beta$ is
+and we have:
+
+$$\beta = \frac{E_{\max}}{E_{\min}}$$
+
+In any case, $\beta$ is
 given by the ratio of probe voltage at the detuned short to the voltage a
 quarter wavelength away. The relative values of Qu, Qc, and QL are then
 determined by equations (41), which are repeated here:
-$$\frac{Q_u}{Q_L} = 1 + \beta, \quad \frac{Q_u}{Q_c} = \beta, \quad \frac{Q_c}{Q_L} = 1 + 1/\beta$$ It is to be emphasized that the signal generator must be matched to the
+$$\frac{Q_u}{Q_L} = 1 + \beta, \quad \frac{Q_u}{Q_c} = \beta, \quad \frac{Q_c}{Q_L} = 1 + 1/\beta$$
+
+It is to be emphasized that the signal generator must be matched to the
 standing wave detector in order that this procedure should be valid. The
 reason for this is that the lines on the Smith Chart from the probe
 position to the impedance plot represent the probe voltage relative to the
@@ -1675,32 +1807,46 @@ this locus may be found very simply from the basic property of the Smith
 Chart with which it was introduced in Section II. As illustrated there in
 Figs. 2 and 3 it was shown that a plot of an impedance Z on a Smith Chart
 normalized with respect to a resistance $R_o$ is identical with a
-rectangular plot of the impedance $$Z_p = \frac{Z R_o}{Z+R_o} \tag{72}$$ obtained by
+rectangular plot of the impedance
+
+$$Z_p = \frac{Z R_o}{Z+R_o} \tag{72}$$
+
+obtained by
 connecting $R_o$ in parallel with Z, the origin of the rectangular
 coordinate system being the zero impedance point at the extreme left of
 the Smith Chart. In the present case we have $R_o = Z_c$, the
 characteristic impedance of the transmission line. We may express the
 impedance Z of the virtual parallel resonant circuit as in equation (35)
 by:
-$$Z = \frac{\beta Z_o}{1 + j2Q_u \delta} \tag{73}$$ the impedance Zp
+$$Z = \frac{\beta Z_o}{1 + j2Q_u \delta} \tag{73}$$
+
+the impedance Zp
 of the loaded circuit formed by connecting $Z_o$ in parallel with this
 virtual circuit is then found to be, using equation (72):
-$$Z_p = \frac{Z Z_o}{Z + Z_o} = \frac{Z_o \beta/(1+\beta)}{1 + j2Q_L \delta} \tag{74}$$ This is, of course, simply the impedance function of a parallel resonant
+$$Z_p = \frac{Z Z_o}{Z + Z_o} = \frac{Z_o \beta/(1+\beta)}{1 + j2Q_L \delta} \tag{74}$$
+
+This is, of course, simply the impedance function of a parallel resonant
 circuit with a Q equal to $Q_L$. Therefore a plot on the Smith Chart of
 the load impedance of the virtual resonant circuit involving $Q_u$, is
 identical with a rectangular plot of the impedance of a resonant circuit
 having the loaded Q, and the law of spacing of the points on this locus is
 given by:
-$$\tan \phi = -2Q_L \delta \tag{75}$$ where $\phi$ is the phase
+$$\tan \phi = -2Q_L \delta \tag{75}$$
+
+where $\phi$ is the phase
 angle of the impedance $Z_p$, as shown in Fig. 24. In particular, the half
 power points of the loaded circuit are given by $\phi = \pm 45^{\circ}$, or:
-$$2Q_L \delta = \pm 1 \tag{76}$$ these points are shown in Fig. 24, and are
+$$2Q_L \delta = \pm 1 \tag{76}$$
+
+these points are shown in Fig. 24, and are
 directly above and below the center of the impedance locus circle. Now
 that we have located the half-power points of $Q_L$ on the Smith Chart, we
 see that if we can find experimentally the difference $\Delta F$ between the
 signal frequencies which bring the impedance to these positions, we have
 very simply:
-$$Q_L = f_o/\Delta f \tag{77}$$ and the values of Qu and Qc may then be
+$$Q_L = f_o/\Delta f \tag{77}$$
+
+and the values of Qu and Qc may then be
 found from equation (74) and the measured value of $\beta$.
 **[FIGURE 24: SUPERPOSITION OF RECTANGULAR COORDINATES AND THE SMITH CHART.]**
 **[FIGURE 25: Illustrating the Q measurement technique of Lawson and Wheeler.]**
@@ -1745,15 +1891,23 @@ locus. The procedures are considered separately below.
     follows. If the reflection coefficient at resonance (point B) is
     called $\Gamma_o$, we have from the geometry of the system, since the
     radius of the Smith Chart is unity:
-    $$\cos 2\theta = \frac{\Gamma_o-1}{2} \tag{78}$$ From equation (5) we
+ 
+
+$$\cos 2\theta = \frac{\Gamma_o-1}{2} \tag{78}$$
+
+From equation (5) we
 have the relation: $$
 \Gamma_o = \frac{\beta-1}{\beta+1} \tag{79}$$ substituting this value of $\Gamma_o$ into equation (78) and reducing
 by means of various trigonometric identities, the result is:
-$$\tan \theta = \sqrt{1+2/\beta} \tag{80}$$ This is the exact formula
+$$\tan \theta = \sqrt{1+2/\beta} \tag{80}$$
+
+This is the exact formula
 given by Wheeler. Values of $\theta$ vs $\beta$ are plotted in Fig.
 26. The angle $\theta$ is related to the physical distance
 $\Delta\lambda$ through which the probe is moved by the equation
-$$\Delta\lambda = \frac{\lambda\theta}{2\pi} \tag{81}$$ Note that
+$$\Delta\lambda = \frac{\lambda\theta}{2\pi} \tag{81}$$
+
+Note that
 equation (80) gives the probe position for which the probe pickup is
 a minimum at the half-power points of $Q_L$ as the tuning parameter
 $\delta$ is varied; this is not the same as the probe position at
@@ -1807,20 +1961,32 @@ first approximation, the probe pickup will be a minimum when the
 impedance point is the same distance from the point ($2Q_L\delta = -1$)
 that the probe position is from point D, we have, since the radius of
 the Smith Chart is unity and $d\psi$ is expressed in radians:
-$$|d\Gamma| = d\psi = \pi N/Q_L \tag{82}$$ where $|d\Gamma|$ is the
+$$|d\Gamma| = d\psi = \pi N/Q_L \tag{82}$$
+
+where $|d\Gamma|$ is the
 absolute magnitude of the change in reflection coefficient from the
 half-power point ($2Q_L\delta = -1$). In order to find the frequency
 error represented by this displacement, we need to know the value of
 the derivative:
-$$\left|\frac{d\Gamma}{d(2Q_L\delta)}\right|$$ evaluated at the half-power point. We may find $\Gamma$ as a function
+$$\left|\frac{d\Gamma}{d(2Q_L\delta)}\right|$$
+
+evaluated at the half-power point. We may find $\Gamma$ as a function
 of ($2Q_L\delta$) by substituting $Z_p$ from equation (74) into
 equation (4). The resulting expression is differentiated, the absolute
 value taken, and the condition ($2Q_L\delta$) = -1 imposed, giving the
 result:
-$$\left|\frac{d\Gamma}{d(2Q_L\delta)}\right| = \beta/(1+\beta) \tag{83}$$ We then find the frequency error to be given by:
-$$d(2Q_L\delta) = \frac{|d\Gamma|}{\left|\frac{d\Gamma}{d(2Q_L\delta)}\right|} = \frac{\pi N(1+\beta)}{Q_L\beta} \tag{84}$$ this is equal to the percentage error in $Q_L$, so we have:
-$$(\text{True } Q_L) = (\text{Apparent } Q_L) \cdot [1 - \pi N(1+\beta)/Q_L\beta] \tag{85}$$ or
-$$(\text{True } Q_L) = (\text{Apparent } QL) - \pi N(1+1/\beta) \tag{86}$$ this formula may be used to correct for the effects of a long line. It
+$$\left|\frac{d\Gamma}{d(2Q_L\delta)}\right| = \beta/(1+\beta) \tag{83}$$
+
+We then find the frequency error to be given by:
+$$d(2Q_L\delta) = \frac{|d\Gamma|}{\left|\frac{d\Gamma}{d(2Q_L\delta)}\right|} = \frac{\pi N(1+\beta)}{Q_L\beta} \tag{84}$$
+
+this is equal to the percentage error in $Q_L$, so we have:
+$$(\text{True } Q_L) = (\text{Apparent } Q_L) \cdot [1 - \pi N(1+\beta)/Q_L\beta] \tag{85}$$
+
+or
+$$(\text{True } Q_L) = (\text{Apparent } QL) - \pi N(1+1/\beta) \tag{86}$$
+
+this formula may be used to correct for the effects of a long line. It
 is seen that the per cent error due to a line of given length
 increases rapidly with tightness of coupling (lower QL), so that
 when one couples more tightly to a cavity in the belief that the
@@ -1847,12 +2013,24 @@ are too broad to locate accurately.
    $Z_p$ from equation (74) into equation (4), which transforms $Z_p$
    to the reflection coefficient $\Gamma$. Taking the absolute value of
    this reflection coefficient, we have:
-   $$|\Gamma| = \frac{1}{1+\beta}\sqrt{1 + 2/\beta(\alpha^2-1)/(\alpha^2+1)+\beta^2} \tag{87}$$ where $\alpha = 2Q_L\delta$ is the detuning parameter. the standing-wave
+ 
+
+$$|\Gamma| = \frac{1}{1+\beta}\sqrt{1 + 2/\beta(\alpha^2-1)/(\alpha^2+1)+\beta^2} \tag{87}$$
+
+where $\alpha = 2Q_L\delta$ is the detuning parameter. the standing-wave
    ratio corresponding to this reflection coefficient is then:
-   $$\eta = \frac{1+|\Gamma|}{1-|\Gamma|} \tag{88}$$ If we expand this
+ 
+
+$$\eta = \frac{1+|\Gamma|}{1-|\Gamma|} \tag{88}$$
+
+If we expand this
    expression by substituting equation (87) and solve for $\alpha$, we
    have:
-   $$(1+\beta)\alpha = 2Q_u\delta = \sqrt{(\eta^2-\beta)(\beta\eta-1)/\eta} \tag{89}$$ This equation gives the detuning parameter as a function of $\beta$
+ 
+
+$$(1+\beta)\alpha = 2Q_u\delta = \sqrt{(\eta^2-\beta)(\beta\eta-1)/\eta} \tag{89}$$
+
+This equation gives the detuning parameter as a function of $\beta$
    and $\eta$, the measured values of SWR. If $\delta$ is measured with a
    wavemeter, we can then calculate $Q_u$ from equation (89).
 
@@ -1866,7 +2044,11 @@ are too broad to locate accurately.
    $\eta$, taken on both sides of resonance. It is found from equations
    (87) and (88) that at the half-power points
    of $Q_L$($\alpha = \pm 1$), the SWR reduces to:
-   $$\eta_L = \frac{1+\beta+\sqrt{1+\beta^2}}{1+\beta-\sqrt{1+\beta^2}} \tag{90}$$ If the measured values of $\eta$ are plotted versus frequency and a
+ 
+
+$$\eta_L = \frac{1+\beta+\sqrt{1+\beta^2}}{1+\beta-\sqrt{1+\beta^2}} \tag{90}$$
+
+If the measured values of $\eta$ are plotted versus frequency and a
    smooth curve drawn through the points, the frequencies where this curve
    reaches the SWR given by equation (90) are the half-power points
    of $Q_L$. This eliminates the error due to uncertainty as to the
@@ -1878,19 +2060,35 @@ are too broad to locate accurately.
    some increase in the convenience of the method can be achieved by
    working in terms of $Q_c$ rather than $Q_L$. If equation (87) is written
    in terms of the detuning parameter relative to $Q_c$,
-   $$\epsilon = 2Q_c\delta = \alpha(1+1/\beta) \tag{91}$$ then the
+ 
+
+$$\epsilon = 2Q_c\delta = \alpha(1+1/\beta) \tag{91}$$
+
+then the
    magnitude of the reflection coefficient is given by:
-   $$|\Gamma|^2 = \frac{\beta^2\epsilon^2 + (\beta-1)^2}{\beta^2\epsilon^2 + (\beta+1)^2} \tag{92}$$ at the half-power points
+ 
+
+$$|\Gamma|^2 = \frac{\beta^2\epsilon^2 + (\beta-1)^2}{\beta^2\epsilon^2 + (\beta+1)^2} \tag{92}$$
+
+at the half-power points
    of $Q_c$, we have $\epsilon = \pm 1$, which reduces (92) to a very
    simple form. The resulting SWR is then found as before, from equation
    (88), to be:
-   $$\eta_c = \frac{\sqrt{1+2\beta+2\beta^2} + \sqrt{1-2\beta+2\beta^2}}{\sqrt{1+2\beta+2\beta^2} - \sqrt{1-2\beta+2\beta^2}} \tag{93}$$ which at first glance seems to be far more complicated than equation
+ 
+
+$$\eta_c = \frac{\sqrt{1+2\beta+2\beta^2} + \sqrt{1-2\beta+2\beta^2}}{\sqrt{1+2\beta+2\beta^2} - \sqrt{1-2\beta+2\beta^2}} \tag{93}$$
+
+which at first glance seems to be far more complicated than equation
    (90) and more cumbersome to use. Its advantage, however, lies in the
    fact that in practical cases $\beta$ is usually of the order of 3 to 10
    (voltage ratio) and the series expansion of (93) in powers of $1/\beta$
    converges very rapidly. The first few terms of this series are found
    to be:
-   $$\eta_c = 2\beta + \frac{1}{2\beta} + \frac{1}{8\beta^3} + \frac{3}{512\beta^5} + \dots \tag{94}$$ It is seen that even when $\beta=5$, the second term is only 1% of the
+ 
+
+$$\eta_c = 2\beta + \frac{1}{2\beta} + \frac{1}{8\beta^3} + \frac{3}{512\beta^5} + \dots \tag{94}$$
+
+It is seen that even when $\beta=5$, the second term is only 1% of the
    first one, so that we need use only the first term for $\beta \ge 5$.
    The resulting simplification is evident; we do not need to compute
    values of $\eta_c$ from the exact equation, and do not need any
@@ -1900,7 +2098,11 @@ are too broad to locate accurately.
 
    For purposes of comparison, the first few terms of the series
    expansion of equation (90) are found to be
-   $$\eta_L = 2\beta + 2 + \frac{1}{2\beta} - \frac{1}{2\beta^2} + \frac{1}{8\beta^3} + \dots \tag{95}$$ the asymptote is here ($2\beta+2$), which is more complicated than the
+ 
+
+$$\eta_L = 2\beta + 2 + \frac{1}{2\beta} - \frac{1}{2\beta^2} + \frac{1}{8\beta^3} + \dots \tag{95}$$
+
+the asymptote is here ($2\beta+2$), which is more complicated than the
    $2\beta$ of (94), especially when dealing with values of SWR measured in
    db, and in addition, the approach to this asymptote is less rapid than
    for the other series, since the term in $1/\beta$ is here three
@@ -1984,8 +2186,8 @@ are indicated. It is seen that the preceding theory is an accurate
 description of what takes place in a coupling system, and that method
 (1) is capable of high accuracy. The values of $Q_u$ obtained by the three
 different methods were as follows:
-| Method |
-Value of $Q_u$ |
+
+| Method | Value of $Q_u$ |
 | :--- | :--- |
 | "$\Delta\lambda$" method | 822 |
 | SWR method | 791 |
@@ -2011,5 +2213,5 @@ Ensign, USNR
 [^10]: This assumes that direct coupling between the input and output circuits may be neglected as far as its effect on input impedance is concerned.
 [^11]: Rad Lab Report #64-3, dated May 18, 1942.
 [^12]: Rad. Lab Report #64-6, "Measurement of the Q-Value of a T-R Box", dated July 13, 1942.
-[^13]: *Since SWR is usually measured directly in db, this means that one would find the two frequencies when the SWR is 6 db greater than the resonance value. **It is, of course, generally realized that in the limit of very loose coupling the measured bandwidth approaches the value due to Qu alone, but it is rarely that anyone using the brute force method has any idea of the extent to which this is true in any specific case. In addition it is not generally realized that the two couplings must approach zero independently; it is not enough that the insertion loss be increased merely by decoupling at one end.
+[^13]: Since SWR is usually measured directly in db, this means that one would find the two frequencies when the SWR is 6 db greater than the resonance value. It is, of course, generally realized that in the limit of very loose coupling the measured bandwidth approaches the value due to Qu alone, but it is rarely that anyone using the brute force method has any idea of the extent to which this is true in any specific case. In addition it is not generally realized that the two couplings must approach zero independently; it is not enough that the insertion loss be increased merely by decoupling at one end.
 [^14]: Following Page 47.

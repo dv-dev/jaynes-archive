@@ -120,7 +120,7 @@ and the theory ought to recognize this from the start instead of doing
 things twice.\"
 
 Indeed, the solution of the EM field equations is, in either classical
-or quantum theory, $$A_{\mu}(x) = \int D(x - y)J_{\mu}(y)d^4y.$$ In
+or quantum theory, $$A_{\mu}(x) = \int D(x - y)J_{\mu}(y)d^4y.\tag{1}$$ In
 quantum theory $A_{\mu}(x)$ and $J_{\mu}(y)$ are operators; but since
 the propagator $D(x - y)$ is a scalar function, the $A_{\mu}(x)$ in (1)
 is not an operator on a "Maxwell Hilbert Space\" of a quantized EM field
@@ -235,9 +235,7 @@ interpretation is a mass of contradictions and irrationality and that,
 while theoretical physics can of course continue to make progress in the
 mathematical details and computational techniques, there is no hope of
 any further progress in our basic understanding of Nature until this
-conceptual mess is cleared up.
-
-[^2] [^3]
+conceptual mess is cleared up.[^2][^3]
 
 Because this position seems to arouse fierce controversy, let me stress
 our motivation: if quantum theory were not successful pragmatically, we
@@ -300,7 +298,6 @@ physics; trying to describe the realities of Nature. Bohr's thinking is
 always on the epistemological level, describing not reality but only our
 information about reality. The peculiar flavor of his language arises
 from the absence of all words with any ontological import. J. C.
-
 Polkinghorne (1989, pp. 78-79) came independently to this same
 conclusion about the reason why physicists have such difficulty in
 reading Bohr. He quotes Bohr as saying:
@@ -416,10 +413,11 @@ generations the former view has dominated science almost completely.
 More specifically, the basic equations of probability theory are the
 product and sum rules: denoting by AB the proposition: \"A and B are
 both true\"; and by $\bar{A}$ the proposition \"A is false\", these are
-$$\begin{aligned}
-    P(AB|C) &= P(A|BC)P(B|C) = P(B|AC)P(A|C) \\\\
-    P(A|B) + P(\bar{A}|B) &= 1,
-\end{aligned}$$ and the issue is: What do these equations mean? Are they
+$$P(AB|C) = P(A|BC)P(B|C) = P(B|AC)P(A|C)\tag{2a}$$
+
+$$P(A|B) + P(\bar{A}|B) = 1\tag{2b}$$
+
+and the issue is: What do these equations mean? Are they
 rules for calculating frequencies of \"random variables\", or rules for
 conducting plausible inference (reasoning from incomplete information)?
 Does the conditional probability symbol $P(A|B)$ stand for the frequency
@@ -427,12 +425,14 @@ with which A is true in some \"random experiment\" defined by B; or for
 the degree of plausibility, in a single instance, that A is true, given
 that B is true? Do probabilities describe real properties of Nature; or
 only human information about Nature?
+
 The original view of James Bernoulli and Laplace was that probability
 theory is an extension of logic to the case where, because of incomplete
 information, deductive reasoning by the Aristotelian syllogisms is not
 available. It was sometimes called \"The calculus of inductive
 reasoning.\" Laplace's great contributions to science were made with the
 help of probability theory interpreted in this way.
+
 But, starting in the mid-Nineteenth Century, Laplace's viewpoint came
 under attack from Leslie Ellis, John Venn, George Boole, R. von Mises,
 R. A. Fisher, M. G. Kendall, W. Feller, J. Neyman, and others down to
@@ -442,6 +442,7 @@ Eqs (2a), (2b) as a form of extended logic\] contained any inconsistency
 or led to any unsatisfactory results. Whenever they seemed to find such
 a case, closer examination always showed that they had only
 misunderstood and misapplied Laplace's methods.
+
 Nevertheless, this school of thought was so aggressive that it has
 dominated the field almost totally in this Century, so that virtually
 all probability textbooks in current use are written from a viewpoint
@@ -461,6 +462,7 @@ consistency and rationality in plausible reasoning. Its validity is a
 matter of logic, independent of all physical hypotheses. Today, in our
 view, nothing in any physical science has anywhere near the fundamental
 theoretical justification that Laplace's methods have.
+
 But their basis is not only theoretical; we have today a mass of
 demonstrated pragmatic results obtained from using them, fully
 confirming what the theory indicates. Yet denunciations of the
@@ -473,6 +475,7 @@ to resolve them (the theoretical basis and pragmatic results of both
 approaches) are already in the literature and available to all. Those
 who engage in these attacks are only making a public display of their
 own ignorance of recent work in this field.
+
 But the failure of our critics to find inconsistencies or errors does
 not in itself prove that our methods have any positive value for
 science. Are there any new useful results to be had from using
@@ -487,6 +490,7 @@ put this issue to a real test; although the results never conflicted
 with common sense, neither did they extend it very far beyond what
 common sense could see, or what \"random variable\" probability theory
 could also derive.
+
 Only recently, thanks to the computer, has it become feasible to solve
 real, nontrivial problems of reasoning from incomplete information, in
 which we use probability theory as a form of logic in situations where
@@ -496,6 +500,7 @@ obscured by arguments over philosophy. One can always argue with a
 philosophy; it is not so easy to argue with a computer printout, which
 says to us: \"Independently of all your philosophy, here are the facts
 about what this method actually gives when applied.\"
+
 The \"MEM\" program developed by John Skilling, Steve Gull, and their
 colleagues at Cambridge University, England can maximize entropy
 numerically in a space of 1,000,000 dimensions, subject to 2,000
@@ -509,13 +514,14 @@ of the theories in the light of the data. It was interesting, although
 to us not surprising, to find that this leads automatically to an
 improved, quantitative version of Occam's Razor: prefer the simpler
 and/or more plausible theory unless the other gives a significantly
-better fit to the data.
-[^4]
+better fit to the data.[^4]
+
 Many computer printouts have now been made at Cambridge University, of
 image reconstructions in optics and radio astronomy; and at Washington
 University in analysis of economic, geophysical, and nuclear magnetic
 resonance data. The results were astonishing to all of us; they could
 never have been found, or guessed, by hand methods.
+
 In particular, the Bretthorst programs extract far more information from
 NMR data (where the ideal sinusoidal signals are corrupted by decay)
 than could the previously used fourier transform methods. No longer does
@@ -527,12 +533,14 @@ time series when the data are corrupted by trend and seasonality; no
 longer do these obscure the information that we are trying to extract
 from the data. Conventional \"random variable\" probability theory lacks
 the technical means to eliminate nuisance parameters in this way.
+
 In other words, there is no need to shout; it is now a very well
 demonstrated fact that, after all criticisms of its underlying
 philosophy, probability theory interpreted and used as the logic of
 human inference does rather well in dealing with problems of scientific
 reasoning -- just as James Bernoulli and Laplace thought it would, back
 in the 18'th Century.
+
 Our probabilities and the entropies based on them are indeed
 \"subjective\" in the sense that they represent human information; if
 they did not, they could not serve their purpose. But they are
@@ -607,6 +615,7 @@ vibration modes with a definite relative phase; we just interpret the
 mode (amplitudes)$^2$ as energies, not probabilities. So it is the way
 we look at quantum theory, trying to interpret $|\psi|^2$ directly as a
 probability density, that is causing the difficulty.
+
 If this seems at first to be an obstacle to our purpose, it is also our
 real opportunity, because it shows that the probabilities we seek, which
 are to express the incompleteness of the information in a pure state in
@@ -615,6 +624,7 @@ terms of a set of mutually exclusive possibilities (call it an
 \"probability\" in the QM textbooks. The human information must be
 represented in a deeper \"hypothesis space\" which contains the phases
 as well as the amplitudes.
+
 To realize this is to throw off a whole legacy of supposed difficulties
 from the past; the non-classical behavior of QM probabilities pointed
 out by Feynman ceases to bother us because the quantities exhibiting
@@ -625,6 +635,7 @@ difficulty of getting the standard QM probabilities out of a causal
 theory. But if they are not the basic probabilities after all, the
 failure of a causal theory to reproduce them as probabilities might seem
 rather a merit than a defect. So the clouds begin to lift, just a bit.
+
 This is not an auspicious time to be making public announcements of
 startling, revolutionary new scientific discoveries; so it is rather a
 relief that we have none to announce. To exhibit the variables of that
@@ -632,6 +643,7 @@ deeper hypothesis space explicitly is a job for the future; but in the
 meantime we can do a little job of housecleaning that is in any event a
 prerequisite for it. We cannot hope to get our probability connections
 right until we get some basic points of logic right.
+
 The first difficulty we encounter upon any suggestion that probabilities
 in quantum theory might represent human information, is the barrage of
 criticism from those who believe that dispersions
@@ -639,13 +651,13 @@ $(\Delta F)^2 = \langle F^2 \rangle - \langle F \rangle^2$ represent
 experimentally observable \"quantum fluctuations\" in F. Some who pose
 as disciples of Bohr even claim that these fluctuations are real
 physical events that take place constantly whether or not any
-measurement is being made (although of course that does
-[^5]
-violence to Bohr's position, as we have just seen). For example, at the
+measurement is being made (although of course that does violence to
+Bohr's position, as we have just seen).[^5] For example, at the
 1966 Rochester Coherence Conference, Roy Glauber assured us that vacuum
 fluctuations are \"very real things\" and that any attempts to dispense
 with EM field quantization are therefore doomed to failure. It can be
 reported that he was widely and enthusiastically believed.
+
 Now in basic probability theory, $\Delta F$ represents fundamentally the
 accuracy with which we are able to predict the value of F. This does not
 deny that it may be also the variability seen in repeated measurements
@@ -658,6 +670,7 @@ probability theory requires an entirely different calculation (Jaynes,
 1978, 1983). However, it is almost right to say that, given such
 information, any observed fluctuations are unlikely to be greater than 5
 percent.
+
 Let us analyze in some depth the single example of EM field
 fluctuations, and show that (1) the experimental facts do not require
 vacuum fluctuations to be real events after all; (2) Bayesian
@@ -671,6 +684,7 @@ seriously, apparently considering it only a formal detail like the
 infinite charge density in the original hole theory, which went away
 when the charge symmetry of the theory was made manifest in Schwinger's
 action principle formulation.
+
 But the ZP problem has not gone away; and on the other hand as we have
 noted, there is a widespread belief that ZP fluctuations are real and
 necessary to account for all kinds of things, such as spontaneous
@@ -679,11 +693,12 @@ Weinberg (1989) accepted the Casimir effect as demonstrating the reality
 of ZP energy, and worried about it in connection with cosmology. We know
 that Pauli also worried about this and did some calculations, but
 apparently never published them.
+
 If one takes the ZP energy literally, one of the disturbing consequences
 is the gravitational field it would produce. For example, if there is a
 ZP energy density $W_{zp}$ in space, the Kepler ratio for a planet of
 mean distance R from the sun would be changed to
-$$\frac{R^3}{T^2} = \frac{G}{4\pi^2} \left[ M_{sun} + \frac{4\pi R^3}{3c^2} W_{zp} \right].$$
+$$\frac{R^3}{T^2} = \frac{G}{4\pi^2} \left[ M_{sun} + \frac{4\pi R^3}{3c^2} W_{zp} \right].\tag{3}$$
 
 Numerical analysis of this shows that, in order to avoid conflict with
 the observed Kepler ratios of the outer planets, the upper frequency
@@ -704,22 +719,23 @@ in a frequency band $\Delta\omega$ is
 $$W_{zp} = \rho_{zp}(\omega)\Delta\omega = \left( \frac{1}{2}\hbar\omega \right) \left( \frac{\omega^2}{\pi^2 c^3} \right) \Delta\omega \quad \text{ergs/cm}^3$$
 
 Then an atom decaying at a rate determined by the Einstein A-coefficient
-$$A = \frac{4\mu^2\omega_0^3}{3\hbar c^3}$$ where $\mu$ is the dipole
+$$A = \frac{4\mu^2\omega_0^3}{3\hbar c^3}\tag{5}$$ where $\mu$ is the dipole
 moment matrix element for the transition, sees this over an effective
 bandwidth
 $$\Delta\omega = \frac{\int I(\omega)d\omega}{I(\omega_0)} = \frac{\pi A}{2}$$
 where $I(\omega)$ is the Lorentzian spectral density
 $$I(\omega) \propto \frac{1}{(\omega - \omega_0)^2 + (A/2)^2}.$$ The
 effective energy density in one field component, say $E_z$, is then
-$$(W_{zp})_{eff} = \frac{1}{6}\rho_{zp}(\omega)\Delta\omega = \frac{1}{18\pi} \mu^2 \left(\frac{\omega}{c}\right)^6 \text{ergs/cm}^3$$
+$$(W_{zp})_{eff} = \frac{1}{6}\rho_{zp}(\omega)\Delta\omega = \frac{1}{18\pi} \mu^2 \left(\frac{\omega}{c}\right)^6 \text{ergs/cm}^3\tag{8}$$
 and it seems curious that Planck's constant has cancelled out. This
 indicates the magnitude of the electric field that a radiating atom sees
 according to the ZP theory.
+
 On the other hand, the classical radiation reaction field generated by a
 dipole of moment $\mu$:
 $$E_{RR} = \frac{2}{3c^3}\frac{d^3\mu}{dt^3} = -\frac{2\omega^3}{3c^3}\mu$$
 has energy density
-$$W_{RR} = \frac{E_{RR}^2}{8\pi} = \frac{1}{18\pi} \mu^2 \left(\frac{\omega}{c}\right)^6 \text{ergs/cm}^3.$$
+$$W_{RR} = \frac{E_{RR}^2}{8\pi} = \frac{1}{18\pi} \mu^2 \left(\frac{\omega}{c}\right)^6 \text{ergs/cm}^3.\tag{10}$$
 
 But (8) and (10) are identical! A radiating atom is indeed interacting
 with an electric field of just the magnitude predicted by the zero-point
@@ -731,11 +747,13 @@ emission does not require an infinite energy density throughout all
 space. Surely, this is a potentially far more satisfactory way of
 looking at the mechanism of spontaneous emission (if we can clear up
 some details about the dynamics of the process).
+
 But then someone will point immediately to the Lamb shift; does this not
 prove the reality of the ZP energy? Indeed, Schwinger (1948) and
 Weisskopf (1949) stated explicitly that ZP field fluctuations are the
 physical cause of the Lamb shift, and Welton (1948) gave an elementary
 "classical\" derivation of the effect from this premise.
+
 Even Niels Bohr concurred. To the best of our knowledge, the closest he
 ever came to making an ontological statement was uttered while perhaps
 thrown momentarily off guard under the influence of Schwinger's famous
@@ -743,6 +761,7 @@ thrown momentarily off guard under the influence of Schwinger's famous
 Wheeler's notes on that meeting, Bohr says: \"It was a mistake in the
 older days to be discontented with field and charge fluctuations. They
 are necessary for the physical interpretation.\"
+
 Dyson (1953) also concurred, picturing the quantized field as something
 akin to hydrodynamic flow with superposed random turbulence, and he
 wrote: \"The Lamb-Retherford experiment is the strongest evidence we
@@ -753,6 +772,7 @@ change in total ZP energy in space due to the presence of a hydrogen
 atom in the 2s state; and in 1966 E. A. Power gave the calculation
 demonstrating this in detail. How can we possibly resist such a weight
 of authority and factual evidence?
+
 As it turns out, quite easily. The problem has been that these
 calculations have been done heretofore only in a quantum field theory
 context. Because of this, people jumped to the conclusion that they were
@@ -762,6 +782,7 @@ a result, two generations of physicists have regarded the Lamb shift as
 a deep, mysterious quantum effect that ordinary people cannot hope to
 understand. So we are facing not so much a weight of authority and facts
 as a mass of accumulated folklore.
+
 Since our aim now is only to explain the elementary physics of the
 situation rather than to give a full formal calculation, let us show
 that this radiative frequency shift effect was present already in
@@ -778,7 +799,7 @@ $\{q_i(t), p_i(t)\}$, and one 'Extra Oscillator' $\{Q(t), P(t)\}$, a
 caricature of a decaying atom or plucked string; call it "the EO\". It
 is coupled linearly to the field oscillators with coupling constants
 $\{\alpha_i\}$, leading to a total Hamiltonian
-$$H = \frac{1}{2}\sum_{i=1}^{n} (p_i^2 + \omega_i^2 q_i^2) + \frac{1}{2}(P^2 + \Omega^2 Q^2) - \sum_i \alpha_i q_i Q.$$
+$$H = \frac{1}{2}\sum_{i=1}^{n} (p_i^2 + \omega_i^2 q_i^2) + \frac{1}{2}(P^2 + \Omega^2 Q^2) - \sum_i \alpha_i q_i Q.\tag{11}$$
 
 The physical effects of coupling the EO to the field variables may be
 calculated in two 'complementary' ways: (I) Dynamic: How are the EO
@@ -786,16 +807,16 @@ oscillations modified by the field coupling? (II) Static: How is the
 distribution of normal mode frequencies changed? The new normal mode
 frequencies are the roots $\{\nu_i\}$ of the equation
 $\Omega^2 - \nu^2 = K(\nu)$, where $K(\nu)$ is the dispersion function
-$$K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2} = \int_0^\infty K(t)e^{-st}dt, \quad s = i\nu.$$
+$$K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2} = \int_0^\infty K(t)e^{-st}dt, \quad s = i\nu.\tag{12}$$
 
 Let us solve the problem first in the more familiar dynamical way. With
 initially quiescent field modes: $q_i(0) = \dot{q}_i(0) = 0$, the decay
 of the extra oscillator is found to obey a Volterra equation:
-$$\ddot{Q}(t) + \Omega^2 Q(t) = \int_0^t K(t - t^\prime) Q(t^\prime)dt^\prime.$$ Thus
+$$\ddot{Q}(t) + \Omega^2 Q(t) = \int_0^t K(t - t^\prime) Q(t^\prime)dt^\prime.\tag{13}$$ Thus
 $K(t)$ is a memory function and the integral in (13) is a source field.
 For arbitrary initial EO conditions $Q(0), \dot{Q}(0)$ the solution is
-$$Q(t) = \dot{Q}(0)G(t) + Q(0)\dot{G}(t)$$ with the Green's function
-$$G(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \frac{e^{i\nu t}d\nu}{\Omega^2 - \nu^2 - K(\nu)}$$
+$$Q(t) = \dot{Q}(0)G(t) + Q(0)\dot{G}(t)\tag{14}$$ with the Green's function
+$$G(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \frac{e^{i\nu t}d\nu}{\Omega^2 - \nu^2 - K(\nu)}\tag{15}$$
 where the contour goes under the poles on the real axis. This is the
 exact decay solution for arbitrary field mode patterns.
 
@@ -805,13 +826,13 @@ $$\sum(\cdot) \rightarrow \int_0^\infty (\cdot) \rho_0(\omega) d\omega$$
 
 Then from (12), $K(\nu)$ goes into a slowly varying function on the path
 of integration (15):
-$$K(\nu - i\epsilon) \rightarrow \int_0^\infty \frac{\alpha^2(\omega)\rho_0(\omega)d\omega}{\omega^2 - (\nu-i\epsilon)^2} \rightarrow -2\nu[\Delta(\nu) + i\Gamma(\nu)]$$
+$$K(\nu - i\epsilon) \rightarrow \int_0^\infty \frac{\alpha^2(\omega)\rho_0(\omega)d\omega}{\omega^2 - (\nu-i\epsilon)^2} \rightarrow -2\nu[\Delta(\nu) + i\Gamma(\nu)]\tag{16}$$
 and neglecting some small terms, the resulting Green's function goes
 into
-$$G(t) \rightarrow \exp(-\Gamma t) \frac{\sin(\Omega + \Delta)t}{(\Omega + \Delta)}$$
+$$G(t) \rightarrow \exp(-\Gamma t) \frac{\sin(\Omega + \Delta)t}{(\Omega + \Delta)}\tag{17}$$
 where
-$$\Gamma(\Omega) = \frac{\pi \alpha^2(\Omega)\rho_0(\Omega)}{4\Omega^2}$$
-$$\Delta(\Omega) = \frac{1}{2\Omega} \mathcal{P} \int_0^\infty \frac{\alpha^2(\omega)\rho_0(\omega)d\omega}{\Omega^2 - \omega^2} = \frac{1}{\pi} \mathcal{P} \int_{-\infty}^\infty \frac{\Gamma(\omega)d\omega}{\omega - \Omega}$$
+$$\Gamma(\Omega) = \frac{\pi \alpha^2(\Omega)\rho_0(\Omega)}{4\Omega^2}\tag{18}$$
+$$\Delta(\Omega) = \frac{1}{2\Omega} \mathcal{P} \int_0^\infty \frac{\alpha^2(\omega)\rho_0(\omega)d\omega}{\Omega^2 - \omega^2} = \frac{1}{\pi} \mathcal{P} \int_{-\infty}^\infty \frac{\Gamma(\omega)d\omega}{\omega - \Omega}\tag{19}$$
 are the \"spontaneous emission rate\" and \"radiative frequency shift\"
 exhibited by the EO due to its coupling to the field modes. We note that
 $\Delta(\Omega)$ and $\Gamma(\omega)$ form a Hilbert transform pair, a
@@ -835,9 +856,8 @@ material.
 
 It is clear from this derivation that the spontaneous emission and the
 radiative frequency shift do not require field fluctuations, since we
-started with the explicit initial condition of a quiescent
-[^6]
-field: $q_i = \dot{q}_i = 0$. The damping and shifting exhibited above
+started with the explicit initial condition of a quiescent field:
+$q_i = \dot{q}_i = 0$.[^6] The damping and shifting exhibited above
 are due entirely to the source field reacting back on the source, as
 expressed by the integral in (13).
 
@@ -892,7 +912,7 @@ mode density increment, we need to evaluate the limiting form of the
 dispersion function $K(\nu)$ more carefully than in (17). From the
 Hamiltonian (11), the normal modes are the roots $\{\nu_i\}$ of the
 dispersion equation
-$$\Omega^2 - \nu^2 = K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2}.$$
+$$\Omega^2 - \nu^2 = K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2}.\tag{23}$$
 
 K($\nu$) resembles a tangent function, having poles at the free field
 mode frequencies $\{\omega_i\}$ and zeroes close to midway between them.
@@ -914,7 +934,7 @@ the vicinity of $\Omega$. To calculate it, note that if the field mode
 $\omega_i$ is shifted a very small amount to
 $\nu_k = \omega_i + \delta\nu$, and $\delta\nu$ varies with $\omega_i$,
 then the mode density is changed to
-$$\rho(\omega) = \rho_0(\omega) + \rho_1(\omega) = \rho_0(\omega) \left[1 - \frac{d}{d\omega}(\delta\nu) + \dots \right].$$
+$$\rho(\omega) = \rho_0(\omega) + \rho_1(\omega) = \rho_0(\omega) \left[1 - \frac{d}{d\omega}(\delta\nu) + \dots \right].\tag{24}$$
 
 In the continuum limit, $\rho_0 \rightarrow \infty$ and
 $\delta\nu \rightarrow 0$; but the increment $\rho_1(\omega)$ remains
@@ -952,10 +972,10 @@ previous result (16). Thus if we again assume a sharp resonance
 ($\Omega \approx \nu$) and write the dynamically shifted frequency as
 $\omega_0 = \Omega + \Delta$, the dispersion relation (23) becomes a
 formula for the static mode shift $\delta\nu$:
-$$\pi\rho_0(\nu)\delta\nu = \tan^{-1}\left(\frac{\Gamma}{\nu-\omega_0}\right)$$
+$$\pi\rho_0(\nu)\delta\nu = \tan^{-1}\left(\frac{\Gamma}{\nu-\omega_0}\right)\tag{29}$$
 and (24) then yields for the increment in mode density a Lorentzian
 function:
-$$\rho_1(\nu)d\nu = \frac{1}{\pi} \frac{\Gamma d\nu}{(\nu - \omega_0)^2 + \Gamma^2}.$$
+$$\rho_1(\nu)d\nu = \frac{1}{\pi} \frac{\Gamma d\nu}{(\nu - \omega_0)^2 + \Gamma^2}.\tag{30}$$
 
 This is the spectrum of a damped oscillation:
 $$\int_{-\infty}^\infty \rho_1(\nu)e^{i\nu t}d\nu = e^{i\omega_0 t}e^{-\Gamma|t|}$$
@@ -1021,7 +1041,7 @@ superimposed. Turning on the coupling spreads this out into
 $\rho_1(\omega)$, superimposed on the same background, and shifts its
 center frequency by just the radiative shift $\Delta$. In view of the
 normalization of $\rho_1(\omega)$ we can write
-$$\Delta = \int_0^\infty \omega\rho_1(\omega)d\omega - \Omega.$$
+$$\Delta = \int_0^\infty \omega\rho_1(\omega)d\omega - \Omega.\tag{32}$$
 
 Suppose, then, that we had asked a different question: \"What is the
 total frequency shift in all modes, due to the coupling?\" Before the
@@ -1038,6 +1058,7 @@ is no longer much mystery about why Power could calculate the radiative
 shift in the dynamical problem by the change in total ZP energy;
 actually, he calculated the change in total frequency of all modes,
 which was equal to the dynamical shift even in classical mechanics.
+
 But some will still hold out and point to the Casimir attraction effect,
 where one measures a definite force which is held to arise from the
 change in total ZP energy when one changes the separation of two
@@ -1146,6 +1167,7 @@ in Dielectrics\", *Ann. Phys.* **115**, 1.
 I. R. Senitzky (1973), \"Radiation-Reaction and Vacuum-Field Effects in
 Heisenberg-Picture Quantum Electrodynamics\", *Phys. Rev. Lett.* **31**,
 955.
+
 S. Weinberg (1989), \"The Cosmological Constant Problem\", *Revs. Mod.
 Phys.* **61**, 1-24.
 
@@ -1154,6 +1176,7 @@ Electron\", *Revs. Mod. Phys.* **21**, 305.
 
 T. A. Welton (1948), \"Some Observable Effects of the Quantum-Mechanical
 Fluctuations of the Electromagnetic Field\", *Phys. Rev.* **74**, 1157.
+
 E. P. Wigner (1974), \"Reminiscences on Quantum Theory\", Colloquium
 talk at Washington University, St. Louis, March 27, 1974.
 
@@ -1162,13 +1185,6 @@ Econometrics*, J. Wiley & Sons, Inc. Reprinted by R. Krieger Pub. Co.,
 Malabar FLA (1987). The principles of Bayesian inference apply equally
 well in all fields, and all scientists can profit from these analytical
 solutions to real problems.
-
-[^1]: A revised and extended version of a paper presented at the
-    Workshop on Complexity, Entropy, and the Physics of Information,
-    Santa Fe, New Mexico, May 29 -- June 2, 1989. The original version
-    is in the Proceedings Volume, Complexity, Entropy and the Physics of
-    Information, W. H. Zurek, Editor, Addison-Wesley Publishing Co.,
-    Reading, MA (1990).
 
 [^2]: \* Not to be confused with Schwinger's 'source theory' which is
     quite different in outlook and premises, although of course related

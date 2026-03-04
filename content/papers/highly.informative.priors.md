@@ -313,12 +313,14 @@ appears that in the seasonal adjustment case the effect may be greater.
 
 We have a discrete time y series of length N; think of it as a monthly
 economic report over N/12 years:
-$$y_t = s_t + e_t, \quad 1 \le t \le N$$ composed of a periodic seasonal
+$$y_t = s_t + e_t, \quad 1 \le t \le N \tag{1}$$
+
+composed of a periodic seasonal
 component: $s_t = s_{t+12}$, and the part $e_t$, variously termed
 "irregular", "error", or "noise". The seasonal component is
 represented by a finite Fourier series, containing 12 parameters,
 $(A_0...A_6, B_1... B_5)$:
-$$s_t = A_0 + \sum_{k=1}^{6} [A_kC(kt) + B_kS(kt)]$$
+$$s_t = A_0 + \sum_{k=1}^{6} [A_kC(kt) + B_kS(kt)] \tag{2}$$
 where $C(kt) = \cos(2\pi kt/12)$, $S(kt) = \sin(2\pi kt/12)$. Define,
 for uniform summation limits, $B_0 = B_6 = 0$. The inversions
 $$
@@ -361,7 +363,9 @@ The calculation may be organized as follows. Using the abbreviations:
 - $A = (A_0...B_5)$, seasonal parameters,
 we want the joint posterior density of $(e_1...e_N)$ conditional on the
 data and the prior information
-$$p(e|yI) = \int \int p(e|\sigma AyI)p(\sigma A|yI)d\sigma dA.$$ But if
+$$p(e|yI) = \int \int p(e|\sigma AyI)p(\sigma A|yI)d\sigma dA. \tag{6}$$
+
+But if
 y and A are given, then e is known; so $\sigma$ is irrelevant in the
 first factor: $p(e|\sigma yAI) = p(e|yAI)$. Then $\sigma$ integrates out
 of the second factor, leaving, $$p(e|yI) = \int p(e|yAI)p(A|yI)dA.$$
@@ -370,13 +374,13 @@ $p(e|yAI)$ is nonzero only on a complicated set of points. But one can
 avoid going into all these intricate details by calculating first the
 N-fold Fourier transform of (6): using the notation
 $r \cdot a = \sum_t r_t a_t$,
-$$E(e^{ir \cdot e}|yI) = e^{ir \cdot y}E(e^{-ir \cdot s}|yI) = e^{ir \cdot y} f(r).$$
+$$E(e^{ir \cdot e}|yI) = e^{ir \cdot y}E(e^{-ir \cdot s}|yI) = e^{ir \cdot y} f(r). \tag{8}$$
 
 So in general the calculation could proceed in three steps:
 - Evaluate the joint posterior density $p(A|yI)$ of the seasonal
   parameters.
 - Calculate, with s given by (2), the characteristic function
-  $$f(r) = \int e^{-ir \cdot s} p(A|yI)dA.$$
+  $$f(r) = \int e^{-ir \cdot s} p(A|yI)dA. \tag{9}$$
 - Invert $f(r)$, translating by the data $y$:
   $$p(e|yI) = (2\pi)^{-N} \int f(r) e^{ir \cdot (y-e)} d^N r.$$
 
@@ -388,7 +392,7 @@ $$
 Q_L(A_0...B_5) = \sigma^{-2} \sum_{t=1}^{N} \left \{ y_t - \sum_{k=0}^{6} [A_kC(kt) + B_kS(kt)] \right \}^2
 $$
 from which we find that the joint maximum likelihood estimates of
-$(A_0...B_5)$ are given by (3) with $s_t$ replaced by $y_t$ (this being
+$(A_0...B_5)$ are given by (3a-3d) with $s_t$ replaced by $y_t$ (this being
 exact if N is a multiple of 12 as supposed; otherwise new small terms of
 relative order $N^{-1}$ would be present).
 
@@ -398,7 +402,7 @@ A_k &\sim N(a_k, \sigma_k), \quad 0 \le k \le 6  \\\\
 B_k &\sim N(b_k, \sigma_k), \quad 1 \le k \le 5 
 \end{aligned} \tag{12a, 12b}$$ and define for formal reasons, $b_0 = b_6 = 0$. Then
 their joint prior distribution has another quadratic form:
-$$p(A_0...B_5|I) \propto \exp(-\frac{Q_P}{2})$$ where
+$$p(A_0...B_5|I) \propto \exp(-\frac{Q_P}{2}) \tag{14}$$ where
 $$Q_P = \sum_{k=0}^{6} \sigma_k^{-2} [(A_k - a_k)^2 + (B_k - b_k)^2] .$$
 
 In general the joint posterior density of the seasonal parameters will
@@ -407,7 +411,7 @@ $$p(A|yI) \propto p(A|I)p(y|AI) = p(A|I) \int p(y|A\sigma I)p(\sigma|AI)d\sigma.
 
 But if we assign independent priors to $\sigma$ and A, we have
 $p(\sigma|AI) = p(\sigma|I)$, and our result is
-$$p(A_0...B_5|yI) \propto \int p(\sigma|I)\sigma^{-N} \exp\left[ -\frac{(Q_L+Q_P)}{2} \right] d\sigma.$$
+$$p(A_0...B_5|yI) \propto \int p(\sigma|I)\sigma^{-N} \exp\left[ -\frac{(Q_L+Q_P)}{2} \right] d\sigma. \tag{16}$$
 
 If $\sigma$ is supposed known in advance, then $p(\sigma|I)$ is a delta
 function concentrated on a single point and in (16) we need only keep
@@ -441,7 +445,7 @@ $$p(A|\sigma yI) \propto \exp \left[ -\frac{(Q_L+Q_P)}{2} \right]$$
 
 Expanding these merged quadratic forms we have, to within an irrelevant
 additive constant,
-$$Q_L + Q_P = \sum_{k=0}^{6} M_k \left[ (A_k - \hat{A}_k)^2 + (B_k - \hat{B}_k)^2 \right]$$
+$$Q_L + Q_P = \sum_{k=0}^{6} M_k \left[ (A_k - \hat{A}_k)^2 + (B_k - \hat{B}_k)^2 \right] \tag{18}$$
 in which, as before, $B_0 = B_6 = b_0 = b_6 = 0$; and in consequence
 $\hat{B}_0 = \hat{B}_6 = 0$ from (20d) below. The reciprocal variances
 (exact if N is a multiple of 6) are $$\begin{aligned}
@@ -454,7 +458,8 @@ symmetric loss function): $$\begin{aligned}
 \hat{A}_6 &= M_6^{-1} \left[ \frac{N}{\sigma^2} \cdot \frac{1}{N} \sum_t (-)^t y_t + \frac{a_6}{\sigma_6^2} \right],  \\\\
 \hat{B}_k &= M_k^{-1} \left[ \frac{N}{2\sigma^2} \cdot \frac{2}{N} \sum_t y_t S(kt) + \frac{b_k}{\sigma_k^2} \right], \quad 0 \le k \le 6 
 \end{aligned} \tag{20a, 20b, 20c, 20d}$$
-The Bayes estimates (20) are weighted averages of the prior estimates
+
+The Bayes estimates (20a-20d) are weighted averages of the prior estimates
 $a_k, b_k$, and the maximum likelihood estimates; a rather old result.
 In his *Essai Philosophique* (1814) Laplace discusses a similar problem
 where the "prior" distribution (14) is -- as it could well be in our
@@ -469,7 +474,7 @@ Eponymy; see Appendix A) the Gaussianity of $p(A|yI)$, we need now only
 find the posterior expectations and covariance matrix for the
 irregulars: $$\hat{e}_t = E(e_t|\sigma yI)$$
 $$R_{tr} = E(e_t e_r|\sigma yI) - \hat{e}_t \hat{e}_r.$$ We find for the
-former $$\hat{e}_t = y_t - g_t - \sigma^{-2} \sum_{r=1}^{N} R_{tr} y_r$$
+former $$\hat{e}_t = y_t - g_t - \sigma^{-2} \sum_{r=1}^{N} R_{tr} y_r \tag{23}$$
 where
 $$g_t = \sum_{k=0}^{6} \frac{[a_k C(kt) + b_k S(kt)]}{M_k \sigma_k^2}$$
 is a kind of shrunken prior estimate of the seasonal component $s_t$, in
@@ -478,11 +483,11 @@ variances. (23) may also be written as $\hat{e}_t = y_t - \hat{s}_t$
 where $\hat{s}_t$ is Laplace's "plus avantageux" weighted average
 estimate of $s_t$.
 The covariance matrix R is found to be
-$$R_{tr} = \sum_{k=0}^{6} M_k^{-1} \cos \frac{2\pi k(t-r)}{12}$$ which,
+$$R_{tr} = \sum_{k=0}^{6} M_k^{-1} \cos \frac{2\pi k(t-r)}{12} \tag{25}$$ which,
 like any covariance matrix, must be positive semidefinite; a direct
 proof of this which also determines the rank of R is given below.
 The joint posterior distribution of the irregulars is therefore
-$$p(e|yI) = \exp \left[ -\frac{1}{2} (e-\hat{e})' R^{-1} (e-\hat{e}) \right].$$
+$$p(e|yI) = \exp \left[ -\frac{1}{2} (e-\hat{e})' R^{-1} (e-\hat{e}) \right]. \tag{26}$$
 
 This solution reveals a great deal of interesting (and to the writer
 unexpected) insight into the seasonal adjustment problem. To see the
@@ -495,7 +500,7 @@ How would sampling theory deal with this problem? One answer is given by
 Tukey et al (1980). They would also subtract from the data an estimate
 of the seasonal as in (23); but say "few would argue" that the proper
 way to estimate that seasonal is by the monthly averages, which are the
-least squares estimates: $$(\hat{s}_t)_{ST} = (12/N) \sum_m y_{t+12k}.$$
+least squares estimates: $$(\hat{s}_t)_{ST} = (12/N) \sum_m y_{t+12k}. \tag{27}$$
 This is doubtless the most obvious thing to do. In similar problems it
 is much used also (to reduce the amount of data to be analyzed) by
 geophysicists, who call it a "Brute Stack". But we seem to be among
@@ -514,15 +519,15 @@ pass to the limit
 $$a_k \rightarrow 0, \quad b_k \rightarrow 0, \quad \sigma_k \rightarrow 0, \quad 1 \le k \le 6$$
 
 Then $M_k^{-1} \rightarrow 0, 1 \le k \le 6$ and (23), (25) reduce to
-$$R_{tr}^{(1)} = M_0^{-1} = \left(\frac{N}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1} \quad 1 \le t,r \le N$$
-$$\hat{e}_t^{(1)} = y_t - \left(\frac{N}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1} \left(\frac{a_0}{\sigma_0^2} + \frac{N\bar{y}}{\sigma^2}\right)$$
+$$R_{tr}^{(1)} = M_0^{-1} = \left(\frac{N}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1} \quad 1 \le t,r \le N \tag{28}$$
+$$\hat{e}_t^{(1)} = y_t - \left(\frac{N}{\sigma^2} + \frac{1}{\sigma_0^2}\right)^{-1} \left(\frac{a_0}{\sigma_0^2} + \frac{N\bar{y}}{\sigma^2}\right) \tag{29}$$
 with $\bar{y} = N^{-1}\sum y_t$, the sample mean. The solution corrects
 for the unknown offset $A_0$ by subtracting from the datum $y_t$ our
 "best" weighted average (20a) estimate of $A_0$. If now
 $\sigma_0 \rightarrow 0$ (we know in advance that $A_0 = a_0$) this
 reduces, as it should, to $$\hat{e}_t = y_t - a_0$$ and in the opposite
 limit $\sigma_0 \rightarrow \infty$ (we have no prior knowledge of
-$A_0$) it becomes $$\hat{e}_t = y_t - \bar{y}$$ and we must "let the
+$A_0$) it becomes $$\hat{e}_t = y_t - \bar{y} \tag{31}$$ and we must "let the
 data speak for themselves", having nothing else to rely on.
 
 Out of all the Bayesian results that are in Case 1, Eq. (31) appears to
@@ -568,7 +573,7 @@ from (28), (31) $$\begin{aligned}
 E[(e_1+e_2)^2|yI_1) &= (e_1+e_2)^2 + 4\sigma^2/N  \\\\
 E[(e_1-e_2)^2|yI_1) &= (e_1-e_2)^2 
 \end{aligned} \tag{34a, 34b}$$ and conclude that the probable error in estimating
-$(e_1+e_2)$ is larger by a factor $\sqrt{2}$ than indicated by (33); but
+$(e_1+e_2)$ is larger by a factor $\sqrt{2}$ than indicated by (33a-33b); but
 that $(e_1 - e_2)$ can be estimated with perfect accuracy.
 
 But this is obviously the case; for if we know that there is no
@@ -584,18 +589,18 @@ with his estimate, but will say that (33a) is overoptimistic about its
 accuracy, by that factor $\sqrt{2}$.
 
 But again the Bayesian result is obviously correct, for the sampling
-distribution variances $(2\sigma^2/N)$ in (33) are entirely irrelevant.
+distribution variances $(2\sigma^2/N)$ in (33a-33b) are entirely irrelevant.
 In the sampling theorist's scenario we are to think of repeating all
 this many times with $A_0$ fixed; then our estimates would indeed vary
-according to (33). But the true values of the $e_i$ would vary along
+according to (33a-33b). But the true values of the $e_i$ would vary along
 with them by the same amounts, so the accuracy of our estimates would
-have nothing to do with (33). It is determined, rather, by the accuracy
+have nothing to do with (33a-33b). It is determined, rather, by the accuracy
 of our estimate of $A_0$. In estimating $(e_1 - e_2)$, whatever error
 may be in it cancels out, as noted. But in estimating $(e_1+e_2)$ the
 identical error occurs twice; whatever errors we are making in our
 estimates of $e_1$ and $e_2$ separately are not independent, which would
-lead to a variance $(2\sigma^2/N)$ as in (33); but they are perfectly
-correlated, leading instead to $(4\sigma^2/N)$ as in (34).
+lead to a variance $(2\sigma^2/N)$ as in (33a-33b); but they are perfectly
+correlated, leading instead to $(4\sigma^2/N)$ as in (34a-34b).
 
 The point of this trivial example is to make it obvious that the prior
 information contained in R, far from lacking in cogency and
@@ -620,10 +625,10 @@ to pass to the limit $a_0 \rightarrow 0, \sigma_0 \rightarrow 0$, and
 $$a_k \rightarrow 0, \quad b_k \rightarrow 0, \quad \sigma_k \rightarrow 0. \quad 2 \le k \le 6$$
 
 Now the covariance matrix (25) reduces to
-$$R_{tr}^{(2)} = M_1^{-1} \cos \frac{2\pi(t-r)}{12}$$ and the estimate
+$$R_{tr}^{(2)} = M_1^{-1} \cos \frac{2\pi(t-r)}{12} \tag{36}$$ and the estimate
 of irregulars to
 $$\hat{e}_t^{(2)} = y_t - \hat{A}_1 C(t) - \hat{B}_1 S(t)$$ where
-$\hat{A}_1, \hat{B}_1$ are given by (20) and as in (2),
+$\hat{A}_1, \hat{B}_1$ are given by (20a-20d) and as in (2),
 $C(kt) = \cos(2\pi kt/12), S(kt) = \sin(2\pi kt/12)$ are the k'th
 harmonic seasonal sinusoids. The solution now subtracts from the data
 our "best" weighted average estimate of the first harmonic seasonal
@@ -644,9 +649,11 @@ is, after all, correct. But once understood, this result also can be
 made to seem "obvious" by the following argument.
 Factor the joint posterior distribution (26) into a two-point
 distribution and a conditional distribution:
-$$p(e_1...e_N|yI) = p(e_3...e_N|e_1e_2yI)p(e_1, e_2|yI).$$ Now if we
+$$p(e_1...e_N|yI) = p(e_3...e_N|e_1e_2yI)p(e_1, e_2|yI). \tag{39}$$
+
+Now if we
 know that there is only a first harmonic seasonal component, then the
-model equations (1), (2) reduce to $$y_t = A_1C(t) + B_1S(t) + e_t.$$
+model equations (1), (2) reduce to $$y_t = A_1C(t) + B_1S(t) + e_t. \tag{40}$$
 But if $e_1, e_2$ are given in additional to the data $y_t$, then we can
 solve (40) for the two unknowns $A_1$ and $B_1$. Then all the subsequent
 values $(e_3...e_N)$ are also known. In other words, the possible
@@ -662,7 +669,7 @@ the general solution in the safe territory where all $\sigma_k > 0$, and
 then approach various limits from it.
 
 Given $e_1$ and $e_2$, the extrapolation to all t is just
-$$e_t = y_t + (y_1 - e_1) \frac{S(t-2)}{S(1)} - (y_2 - e_2) \frac{S(t-1)}{S(1)}, \quad 1 \le t \le N$$
+$$e_t = y_t + (y_1 - e_1) \frac{S(t-2)}{S(1)} - (y_2 - e_2) \frac{S(t-1)}{S(1)}, \quad 1 \le t \le N \tag{41}$$
 for (41) has the required form of $y_t$ plus a first harmonic and is
 obviously true for $t = 1, t = 2$; so it must be true for all t.
 
@@ -708,6 +715,7 @@ continuously to zero. In the limit the support set lies on a manifold of
 smaller dimensionality. Instead of blowing up, we therefore have a
 mathematically well-behaved and useful solution; (26) is nonzero only
 when $(e - \hat{e})$ lies entirely in the subspace $S_r$.
+
 It seemed worth while to stress this point, because some working on the
 lore of improper priors have become entangled in "paradoxes" much less
 subtle than this. In working with any kind of singular mathematics we
@@ -716,6 +724,7 @@ learned, over many years, to follow: (I) start from safe territory where
 everything is finite, convergent, and well-behaved and there is no
 question about what is the correct solution; (II) approach the singular
 cases cautiously, as limits from this.
+
 The limit of a sequence of "good" solutions may or may not be a
 "good" solution in itself. A mathematically well-behaved limit is one
 wherein certain quantities just become smaller and smaller and 
@@ -838,7 +847,7 @@ $y = \sum (h_i, y) h_i$, the quadratic form
 $$F(y) = (y^\prime Ry) = \sum_{t,r=1}^{N} R_{tr} y_t y_r$$
 can be decomposed as $$F(y) = \sum_{i=1}^{N} (h_i, y)^2 \beta_i.$$ But
 in our case, from (25) this is also equal to
-$$F(y) = \sum_{k=0}^{6} M_k^{-1} \left| \sum_t y_t \exp\left(\frac{i\pi kt}{6}\right) \right|^2 \ge 0$$
+$$F(y) = \sum_{k=0}^{6} M_k^{-1} \left| \sum_t y_t \exp\left(\frac{i\pi kt}{6}\right) \right|^2 \ge 0 \tag{44}$$
 therefore R is positive semidefinite. But then if $F(y) = 0$, from (44)
 y must be orthogonal to all $h_i$ with $\beta_i > 0$; i.e. y is itself
 an eigenvector with zero eigenvalue; call it a *zector* for short. The
@@ -848,7 +857,7 @@ of R.
 Consider, then, the prior information $I_1$ of Sec. 5, that there is no
 oscillating seasonal component but there may be a DC offset $A_0$, which
 led in (28) to $R_{tr} = M_0^{-1}$, $1 \le t,r \le N$. This gives
-$$F(y) = M_0^{-1} \left(\sum_t y_t\right)^2 = M_0^{-1} (u_0, y)^2$$
+$$F(y) = M_0^{-1} \left(\sum_t y_t\right)^2 = M_0^{-1} (u_0, y)^2 \tag{46}$$
 where the vector $u_0$ with components (1...1) is an eigenvector of R
 with eigenvalue $\beta = N/M_0 > 0$. But from (46) every vector z
 orthogonal to $u_0$ yields $F(z) = 0$, and is therefore a zector. In an
@@ -871,11 +880,13 @@ v_k \text{ with components } (v_{tk} = \sin \frac{\pi kt}{6}, \quad 1 \le t \le 
 \end{aligned}$$ Evidently, $F(u_1) > 0$ and $F(v_1) > 0$; and any vector
 z that is orthogonal to both $u_1$ and $v_1$ is a zector. There are
 $N-2$ linearly independent zectors, so $R^{(2)}$ is of rank 2.
+
 For the prior information $I_3$ which allowed the possibility of both
 the DC offset and the first harmonic component, R yields the quadratic
 form $$F(y) = M_0^{-1}(u_0, y)^2 + M_1^{-1} [(u_1, y)^2 + (v_1, y)^2)]$$
 from which it is now evident that R is of rank 3, since every vector
 orthogonal to $u_0, u_1$, and $v_1$ is a zector.
+
 In general, then, we have
 $$F(y) = \sum_{k=0}^{6} M_k^{-1} [(u_k, y)^2 + (v_k, y)^2]$$
 and the rank of R is the number of scalar products appearing. Note,

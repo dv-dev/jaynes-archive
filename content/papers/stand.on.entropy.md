@@ -11,22 +11,30 @@ tags: ["maximum entropy", "statistical mechanics", "history", "irreversible proc
 </blockquote>
 ## Historical Background
 The ideas to be discussed at this Symposium are found clearly expressed already in ancient sources, particularly the Old Testament, Herodotus, and Ovennus.
+
 All note the virtue of making wise decisions by taking into account all possibilities, i.e., by not presuming more information than we possess.
+
 But probability theory, in the form which goes beyond these moral exhortations and considers actual numerical values of probabilities and expectations, begins with the *Ludo aleae* of Gerolamo Cardano, some time in the mid-sixteenth century.
+
 Wilks (1961) places this "around 1520," although Cardano’s Section "On Luck in Play" contains internal evidence that shows the date of its writing to be 1564, still 90 years before the Pascal-Fermat correspondence.
+
 Already in these earliest works, special cases of the Principle of Maximum Entropy are recognized intuitively and, of necessity, used.
+
 For there is no application of probability theory in which one can evade that all-important first step: assigning some initial numerical values of probabilities so that the calculation can get started.
+
 Even in the most elementary homework problems, such as "Find the probability of getting at least two heads in four tosses of a coin," we have no basis for the calculation until we make some initial judgment, usually that "heads" shall have the probability $1/2$ independently at each toss.
 But by what reasoning does one arrive at this initial assignment?
 If it is questioned, how shall we defend it?
 ### The First Line: Bernoulli to Cox
 The basis underlying such initial assignments was stated as an explicit formal principle in the *Ars Conjectandi* of James (= Jacob) Bernoulli (1713).
+
 Unfortunately, it was given the curious name: *Principle of Insufficient Reason* which has had, ever since, a psychologically repellant quality that prevents many from seeing the positive merit of the idea itself.
 Keynes (1921) helped somewhat by renaming it the *Principle of Indifference*; but by then the damage had been done.
 Had Bernoulli called his principle, more appropriately, the *Desideratum of Consistency*, nobody would have ventured to deprecate it, and today statistical theory would be in considerably better shape than it is.
 The essence of the principle is just:
 (1) we recognize that a probability assignment is a means of describing a certain *state of knowledge*.
 (2) if the available evidence gives us no reason to consider proposition $A_1$, either more or less likely than $A_2$, then the only honest way we can describe that state of knowledge is to assign them equal probabilities: $p_1 = p_2$.
+
 Any other procedure would be inconsistent in the sense that, by a mere interchange of the labels $1, 2$ we could then generate a new problem in which our state of knowledge is the same but in which we are assigning different probabilities.
 (3) Extending this reasoning, one arrives at the rule
 $$
@@ -288,8 +296,7 @@ $$
 where the normalization constant $A(\beta)$ is determined from $\sum N_a = N$.
 This is the famous Boltzmann distribution law.
 
-In
-a gravitational field, $\phi(x) = mgz$, it gives the usual "barometric formula" for decrease of the atmospheric density with height:
+In a gravitational field, $\phi(x) = mgz$, it gives the usual "barometric formula" for decrease of the atmospheric density with height:
 $$
 	\rho(z) = \rho(0) \exp(-\beta mgz) \tag{A18}
 $$
@@ -1044,6 +1051,9 @@ If now both imperfections are present, since the perturbations are so small we c
 $$
 	g_i \approx \frac{1}{6} [1 + 6\alpha\epsilon f_1(i)][1 + 3\alpha\epsilon f_3(i)] \tag{B50}
 $$
+$$
+	\phantom{0} \tag{50}
+$$
 
 But this is hardly different from
 $$
@@ -1053,10 +1063,13 @@ and so a few elementary physical common-sense arguments have led us to something
 If we had done maximum entropy using the constraints $B46$, $B48$, we would find a distribution proportional to $\exp[-\lambda_1 f_1(i) - \lambda_3 f_3(i)]$, so that $B51$ is a maximum-entropy distribution based on those constraints.
 We see that the Lagrange multiplier by which any information constraint is coupled into our probability distribution, is just a measure of the strength of the physical constraint required to realize a numerically equal frequency distribution:
 $$
-\begin{aligned}
-	&\lambda_1 = -6\alpha\epsilon \\
-	&\lambda_3 = -3\beta\delta
-\end{aligned} \tag{B52}
+\lambda_1 = -6\alpha\epsilon \tag{B52}
+$$
+$$
+	\phantom{0} \tag{52}
+$$
+$$
+\lambda_3 = -3\beta\delta \tag{B53}
 $$
 and if our die has no other imperfections beyond the two noted, then it is overwhelmingly more likely to produce the distribution $B51$ than any other.
 If the observed frequencies show any statistically significant departure from $B51$, then we have extracted from the data evidence of a third imperfection, which probably would have been totally invisible in the raw data; i.e., only when we have used the maximum entropy principle to "subtract off" the effect of the stronger influences, can we hope to detect a weaker one.
@@ -1281,10 +1294,10 @@ $$
 $$
 where
 $$
-\begin{aligned}
-	\lambda^{*}_j \equiv \sum_{k} \lambda_k \cdot A_{kj} \\
-	f^{*}_j \equiv \sum_{k} (A^{-1})_{kj} \cdot f_k
-\end{aligned} \tag{B74b}
+\lambda^{*}_j \equiv \sum_{k} \lambda_k \cdot A_{kj} \tag{B74a}
+$$
+$$
+f^{*}_j \equiv \sum_{k} (A^{-1})_{kj} \cdot f_k \tag{B74b}
 $$
 and the class of distributions $B72$ can be written equally well as
 $$
@@ -1558,6 +1571,11 @@ That is just the "ergodic" problem for this model.
 Future progress in a number of areas will, I think, require that the relation between ensembles and physical systems be more carefully defined.
 The issue is not merely one of "philosophy of interpretation" that practical people may ignore; for not only the quantitative details, but even the qualitative kinds of physical predictions that a theory can make, depend on how these conceptual problems are resolved.
 For example, as was pointed out in my 1962 Brandeis Lectures, [*loc.cit.* Eqs. (83)--(93)], one cannot even state, in terms of the underlying ensemble, the criterion for a phase transition, or distinguish between laminar and turbulent flow, until the meaning of that ensemble is recognized.
+
+$$
+	\phantom{0} \tag{83}
+$$
+
 A striking example of the need for clarifications in fluctuation theory is provided by quantum electrodynamics.
 Here one may calculate the expectation of an electric field at a point: $\langle E(x,t)\rangle = 0$, but the expectation of its square diverges: $\langle E^2(x, t)\rangle = \infty$.
 Thus $\Delta E = \infty$; in present quantum theory one interprets this as indicating that empty space is filled with "vacuum fluctuations," yielding an infinite "zero-point" energy density.
@@ -1732,7 +1750,9 @@ We can hardly avoid the inference that it represents, uniquely, the condition of
 This example shows how marginalization is able to give results consistent with those found before, but in a way that springs directly out of the principles of probability theory without any additional appeal to intuition (as is involved in choosing a transformation group).
 At the moment, this approach seems very promising as a means of rigorizing and extending the basic theory. However, there are enough complicated technical details not noted here, so that it will require quite a bit more research before we can assess its full scope and power.
 In fact, the chase is at present quite exciting, because it is still mathematically an open question whether the integral equations may in some cases become overdetermined, so that no uninformative prior exists.
-If so, this would call for some deep clarification, and perhaps revision, of present basic statistical theory.## An Application: Irreversible Statistical Mechanics
+If so, this would call for some deep clarification, and perhaps revision, of present basic statistical theory.
+
+## An Application: Irreversible Statistical Mechanics
 The calculation of an irreversible process usually involves three distinct stages;
 (1) Setting up an "ensemble," i.e., choosing a density matrix $\rho(0)$, or an $N$-particle distribution function, which is to describe our initial knowledge about the system of interest;
 (2) Solving the dynamical problem; i.e., applying the microscopic equations of motion to obtain the time-evolution of the system $\rho(t)$;
@@ -2126,10 +2146,9 @@ $$
 	K_{CF}(t, t^\prime) = K_{CF}(t - t^\prime)
 $$ 
 and $D41$ becomes
-$$ 
-	i\hbar \frac{\partial K_{CF}(t, t^\prime)}{dt} = \langle [C(t), F(t^\prime)]
-angle_0 \tag{D53}
-$$ 
+$$
+	i\hbar \frac{\partial K_{CF}(t, t^\prime)}{dt} = \langle [C(t), F(t^\prime)]\rangle_0 \tag{D53}
+$$
 ### Integral Equations for the Lagrange Multipliers
 We wish to find the $\lambda_k(x, t)$ to first order in the given departures from equilibrium, $\langle F_k(x, t)\rangle - \langle F_k(x, t)\rangle_0$.
 This could be done by direct application of the formalism; by finding the perturbation expansion of $\log Z$ to second order in the $\lambda$'s and taking the functional derivative explicitly according to $D21$.

@@ -1,0 +1,138 @@
+=== STDOUT ===
+QA pass completed on `content/papers/parametric.amplifier.md`.
+
+No changes were needed.
+
+Self-check results:
+- Paragraph boundaries are already separated with blank lines where true paragraph breaks occur.
+- No unresolved in-text equation references: referenced equations are present as numbered display equations (`\tag{1}` through `\tag{11}`).
+- No duplicate abstract found in body text.
+- No citation normalization issues or double-citation patterns found.
+- No extraneous metadata lines (e.g., “Lecture given at ...”) found.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba71-83ee-7853-972d-b206d15461b3
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/parametric.amplifier.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/parametric.amplifier.md` for paragraph structure, equation-reference numbering markup, duplicate abstract/body metadata issues, and citation formatting, then apply only minimal structural edits.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/parametric.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "The Maser as a Parametric Amplifier"
+year: 1960
+abstract: >
+  Jaynes explores the mathematical analogy between masers and classical
+  parametric amplifiers. He demonstrates that the Schrödinger equation
+  describing a quantum-mechanical system (like a molecule in a maser)
+  interacting with an electromagnetic field can be recast in the form of
+  classical Hamiltonian equations for an assemblage of harmonic oscillators.
+  This analogy shows that the conservation of probability in quantum theory
+  corresponds to the conservation of action in classical parametric systems,
+  suggesting that many maser-like functions can be achieved through purely
+  classical parametric mechanisms.
+author: ["E.T. Jaynes"]
+categories: ["Electrodynamics & Signal Processing"]
+tags: ["maser", "parametric amplifier", "Schrödinger equation", "Hamiltonian mechanics", "adiabatic theorem", "Manley-Rowe equations", "quantum-classical analogy"]
+---
+## THE MASER AS A PARAMETRIC AMPLIFIER
+MANY PEOPLE have noted an amusing similarity between the maser and the
+parametric amplifier, whose behavior is also governed by
+codex
+I finished the pass over structure and equations; next I’m running a quick consistency check for all in-text equation references versus tagged display equations to confirm nothing is unresolved before deciding whether edits are necessary.
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Equation|Equations|\\([0-9]+\\)\" content/papers/parametric.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+83:of them, the quantity (5) becomes
+88:imaginary parts of $V_{mn}$, and the Equations of motion (4) and (6)
+93:Equations (8) and (9) are, of course, nothing but the Schrödinger
+96:In consequence of the fact that $H_{mn}$ is Hermitian, the Equation of
+97:motion (4) has a rigorous constant of the motion
+102:interpret as "conservation of probability." Using Equation (7), we find
+107:where $W_n$ is the energy stored in the n'th mode. Equation (11) is also
+108:easily verified directly from Equations (8) and (9).
+110:If we had been shown only the final Equations (8), (9), and (11), and
+112:interpretation would seem natural. In Equations (8) and (9) we have an
+115:Since the Hamiltonian (8) is quadratic in the $p_n, q_n$, for any
+168:    Hamiltonian, [Equation (8)], this corresponds to the fact that the
+212:[^strandberg_1958]: Phys. Rev. (1958), "Spin-Lattice Relaxation".
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/parametric.amplifier.md" in /home/dave/Projects/jaynes-archive exited 1 in 50ms:
+
+exec
+/bin/bash -lc "rg -n -F \"\\\\tag{\" content/papers/parametric.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+35:$$x(t) = \frac{1}{\sqrt{\omega}} \exp\left[i \int \omega(t) dt\right] \tag{1}$$
+39:$$E = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} m \omega^2 x^2 = (\text{const.}) (\omega). \tag{2}$$
+55:$$\psi(t) = \sum_n a_n(t) u_n. \tag{3}$$
+59:$$i\hbar\dot{a}_m = \sum_n H_{mn} a_n = E_m a_m + \sum_n V_{mn}(t) a_n \tag{4}$$
+66:$$H = \sum_{mn} H_{mn} a_m^* a_n \tag{5}$$
+75:\end{aligned} \tag{6}$$
+80:$$a_n = \frac{p_n - i\omega_n q_n}{(2\hbar\omega_n)^{1/2}}. \tag{7}$$
+85:$$H(q,p) = \frac{1}{2}\sum_n (p_n^2 + \omega_n^2 q_n^2) + \frac{1}{2}\sum_{mn} [a_{mn}(p_m p_n + \omega_m \omega_n q_m q_n) + 2b_{mn}\omega_m q_m p_n] \tag{8}$$
+91:$$\dot{q}_m = \frac{\partial H}{\partial p_m}, \quad \dot{p}_m = -\frac{\partial H}{\partial q_m}. \tag{9}$$
+99:$$\sum_m |a_m|^2 = \text{constant} \tag{10}$$
+105:$$\sum_n \frac{p_n^2 + \omega_n^2 q_n^2}{2\omega_n} = \sum_n \frac{W_n}{\omega_n} = \text{constant} \tag{11}$$
+codex
+QA pass completed on `content/papers/parametric.amplifier.md`.
+
+No changes were needed.
+
+Self-check results:
+- Paragraph boundaries are already separated with blank lines where true paragraph breaks occur.
+- No unresolved in-text equation references: referenced equations are present as numbered display equations (`\tag{1}` through `\tag{11}`).
+- No duplicate abstract found in body text.
+- No citation normalization issues or double-citation patterns found.
+- No extraneous metadata lines (e.g., “Lecture given at ...”) found.
+tokens used
+7,766
+

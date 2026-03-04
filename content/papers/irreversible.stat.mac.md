@@ -209,6 +209,7 @@ measurable quantities must already be slowly-varying functions of time
 and position; and thus not affected by coarse-graining. In cases where
 this is not true, coarse-graining would result in loss of the physical
 effects of interest. This point is discussed further in Appendix B.
+
 It appears, therefore, that the real nature of the forward integration
 and coarse-graining operations has not yet been explained; in a
 correctly formulated theory neither should be required. We are led to
@@ -273,6 +274,7 @@ $$
 $$
 where H, M are the
 phase functions representing Hamiltonian and total angular momentum.
+
 A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
 "analytical tricks", devoid of any real significance, and stressed the
 physical superiority of Boltzmann's methods, thereby initiating a school

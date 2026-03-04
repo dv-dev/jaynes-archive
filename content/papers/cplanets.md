@@ -24,11 +24,11 @@ Our optical system has a point-spread function $(\sin x/x)^2$. A
 "star" whose image should be a sharp point at position $x=a$ then
 produces a smeared image proportional to
 
-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
+$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2} \tag{1}$$
 
 and a "planet" at $x=b$ gives an offset diffraction pattern
 
-$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
+$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2} \tag{2}$$
 
 These are the "model functions" to be built into the computer program.
 The star and planet have brightnesses $A_1, A_2$ and so they produce
@@ -39,7 +39,7 @@ $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
 This is
 observed at the positions $(x_1 \dots x_N)$, getting a data set
 $D = (d_1 \dots d_N)$:
-$$d_i = f(x_i) + e_i, \quad 1 \le i \le N$$ 
+$$d_i = f(x_i) + e_i, \quad 1 \le i \le N \tag{4}$$
 where the $e_i$ are white (i.e. uncorrelated) Gaussian noise measurement 
 errors. Don't worry about the assumption of whiteness; it will turn out 
 that the assumption can be removed almost trivially at the end, as 
@@ -131,7 +131,7 @@ $$H(x) = C [G_1(x) \pm G_2(x)]$$
 
 so,
 supplying the proper normalization factors, we have 
-$$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned}$$ 
+$$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned} \tag{9}$$ 
 which somehow remind one of molecular orbitals. As we
 see from (1), (2), and (9), they contain the quantities of interest
 $(a,b)$ as parameters. Once the computer is set to calculate these
@@ -148,7 +148,7 @@ then a jointly sufficient
 statistic, which contains all the information the data have to give us
 about the unknown parameters $(a,b)$ is simply
 
-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
+$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2. \tag{15}$$
 
 If the computer is to
 estimate the noise level from the data and use the student
@@ -159,12 +159,12 @@ $$\sum d_i^2 = N \overline{d^2}.$$
 Then the joint posterior probability 
 density function for the parameters $(a,b)$, as derived in the 
 Bretthorst thesis, is proportional to
-$$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2}$$
+$$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2} \tag{17}$$
 where $m$ (=2 in the present case) is the number of model functions that
 we are fitting to the data. But the only parameter of interest is
 $r = b-a$, so go to the mean and relative coordinates
 
-$$R = (a+b)/2; \quad r=b-a.$$
+$$R = (a+b)/2; \quad r=b-a. \tag{18}$$
 
 The Jacobian of the transformation (18) is
 one, so the joint posterior probability density for $R$ and $r$ is the
@@ -176,7 +176,7 @@ The final step is to
 integrate out the uninteresting parameter $R$, getting a function of
 $r$:
 
-$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
+$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I) \tag{20}$$
 
 which tells us
 everything the data have to say about the planetary separation,
@@ -249,20 +249,20 @@ and define the quantity $s^2$ by
 $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
 Now the joint posterior probability density (17) is, to within a
 normalization constant,
-$$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2}$$
+$$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2} \tag{23}$$
 which is the form in which we are used to seeing the t-distribution. 
 This is still exact everywhere, only written in different notation; 
 but one sees that we have set it up for a Gaussian approximation. When 
 $N$ becomes large, (23) goes into 
-$$\exp\left[ - \frac{Q(a,b)}{2s^2} \right]$$
+$$\exp\left[ - \frac{Q(a,b)}{2s^2} \right] \tag{24}$$
 
 But in the neighborhood of the peak, $Q(a, b)$ can be expanded as a 
 quadratic form:
-$$Q(a,b) = Q_{11}(a - \hat{a})^2 + 2Q_{12}(a - \hat{a})(b - \hat{b}) + Q_{22}(b - \hat{b})^2$$
+$$Q(a,b) = Q_{11}(a - \hat{a})^2 + 2Q_{12}(a - \hat{a})(b - \hat{b}) + Q_{22}(b - \hat{b})^2 \tag{25}$$
 and so, in spite of first appearances, the exact distribution (17) is
 very nearly, in the most important region, a bivariate Gaussian; quite
 accurately so if we have a lot of data. The quantity
-$$s^2 = \frac{\sum d^2 - \sum h_{max}^2}{N-m}$$
+$$s^2 = \frac{\sum d^2 - \sum h_{max}^2}{N-m} \tag{26}$$
 (where we are still writing $m$ as the number of model functions being fitted to the data,
 to show the general formula) is just the estimate of the mean-square
 noise level that probability theory is making. Let us explain this more
@@ -281,7 +281,7 @@ not being fit to the model. Generally, the integration (20) over $R$
 should be performed numerically by the computer. But in the Gaussian
 approximation (25) we can do it analytically, with the result that the
 posterior probability density $p(r)$ for $r$ alone is proportional to
-$$\exp\left[ - \frac{1}{2s^2} \frac{Q_{11}Q_{22}-Q_{12}^2}{Q_{11}+2Q_{12}+Q_{22}} (r - \hat{r})^2 \right]$$
+$$\exp\left[ - \frac{1}{2s^2} \frac{Q_{11}Q_{22}-Q_{12}^2}{Q_{11}+2Q_{12}+Q_{22}} (r - \hat{r})^2 \right] \tag{27}$$
 where $\hat{r} = \hat{b} - \hat{a}$ is the planetary distance at which
 $\sum h^2$ peaks. Thus the "best" estimate and probable error of that
 estimate would be given by the (mean) $\pm$ (standard deviation) of
@@ -355,11 +355,19 @@ principle, is in the Bretthorst thesis where he considers how to
 eliminate trend distortion from the economic data, so as to detect
 periodicities if the data have evidence for them. Superposed on the
 periodic model function of interest, is a trend "nuisance function"
-$T(x)$ which the computer program estimates and removes. In the present
-problem, the different detail is that the nuisance function would not be
-an additive term in the model function, of the form $$f(x) + T(x),$$ but
-it would specify the likely distortions in the independent variable $x$
-that might occur: $$f[x + q(x)].$$ Thus, just as Bretthorst expanded the
+$T(x)$ which the computer program estimates and removes.
+
+In the present problem, the different detail is that the nuisance function would not be
+an additive term in the model function, of the form
+
+$$f(x) + T(x),$$
+
+but it would specify the likely distortions in the independent variable $x$
+that might occur:
+
+$$f[x + q(x)].$$
+
+Thus, just as Bretthorst expanded the
 trend function $T(t)$ in the orthogonal functions and eliminated the
 coefficients as nuisance parameters, we would now express the distortion
 function $q(x)$ in some suitable functions (probably a power series in
@@ -413,7 +421,10 @@ the change likely to help the most is also the easiest to carry out.
 
 To take this into account, first get the computer program running which
 finds the optimal solution discussed above, given the model function
-matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+matrix
+
+$$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+
 and data vector $D = (d_1, d_2, \dots)$ for white (i.e., uncorrelated)
 noise values $e_i$. This is the program developed in the Bretthorst
 thesis. But now suppose that the inverse correlation matrix of the noise
@@ -422,13 +433,15 @@ magnitude of the noise, known or unknown, and $M$ is an $(N \times N)$
 matrix indicating the correlation coefficients. No problem; just use the
 first program as a subroutine, and write a driver program that feeds it
 instead the massaged matrix and massaged data
-$$G_0 = M^{1/2}G \quad \text{and} \quad D_0 = M^{1/2}D,$$
+
+$$G_0 = M^{1/2}G \quad \text{and} \quad D_0 = M^{1/2}D, \tag{29}$$
+
 and it will
 generate the optimal solution for the nonwhite noise. To prove this, we
 need only note that the basic sampling distribution for the nonwhite
 case, from which all else follows, is proportional to
 $\exp(-Q/2\sigma^2)$, where 
-$$\begin{aligned} Q &= \sum_i \sum_r [d_i - \sum_j G_{ij} A_j] M_{ir} [d_r - \sum_k G_{rk} A_k] \\ &= [D - GA]^T M [D - GA] \end{aligned}$$
+$$\begin{aligned} Q &= \sum_i \sum_r [d_i - \sum_j G_{ij} A_j] M_{ir} [d_r - \sum_k G_{rk} A_k] \\ &= [D - GA]^T M [D - GA] \end{aligned} \tag{30}$$
 and if $M$ is the unit matrix, this reduces to the uncorrelated case,
 analyzed in the Bretthorst thesis. So if we had a computer programmed to
 do the bigger calculation defined by (30), but we gave it a problem in
@@ -438,7 +451,9 @@ symmetric and positive definite, so it can be factored uniquely as
 $$M = M^{1/2} M^{1/2}$$
 and the two factors can be absorbed into the vectors on either side in
 (30). Doing this, and using the notation (29), we see that the quadratic
-form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
+form (30) is equal to
+
+$$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
 
 which is of
 the form used in the Bretthorst calculation. Therefore, if the
@@ -457,7 +472,9 @@ computers. Psychologically, apodizing always leaves us not knowing
 whether something better could have been done, because it is only an
 intuitive, *ad hoc* device not derived from any theoretical principles
 or optimality criterion. For this same reason, it leaves us unable to
-judge the accuracy of our final results. More serious, apodizing throws
+judge the accuracy of our final results.
+
+More serious, apodizing throws
 away valuable, relevant information, in two respects. The first is
 simply that any tampering with the pupil amplitude transmittance
 function throws away photons and sacrifices signal/noise ratio. To see

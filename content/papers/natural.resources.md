@@ -46,19 +46,23 @@ Einstein had noted, and demonstrated in applications, over 75 years ago.
 It takes a long time for the understanding of the Masters to trickle
 down into the elementary textbooks. Now we turn to some specific
 comments on NGR's work.
+
 ## THE TECHNICAL ARGUMENTS
 **p. 12.** The concept of open systems was introduced, not by Prigogine
 (1967), but by Gibbs (1875). Physical chemistry has been based on Gibbs'
 work for over a Century.
+
 **p. 13.** The archaic sources of the work are revealed again when we
 are told that the calorie is defined by the specific heat of water, and
 its "present value" is 4.1858 joules. This is ancient history; later
 measurements in this Century reduced that number and since 1954 the
 calorie has been defined to be 4.1840 joules, this number being exact by
 definition.
+
 **p. 14.** Here and throughout the work, NGR accuses others of
 misunderstanding elementary technical facts. Misunderstanding is indeed
 present in these passages.
+
 **p. 15.** Here we meet NGR's fundamental problem -- his
 misunderstanding of the term "reversible" -- that will invalidate almost
 everything he says from this point on. In confusing thermodynamic
@@ -88,6 +92,7 @@ by Gibbs:
 
 NGR indicates, by unfortunate remarks scattered throughout his writings,
 that he is completely ignorant of Gibbs' work.
+
 **p. 16.** Another elementary error appears here. The work available in
 an isothermal process is equal to the change in the Helmholtz function
 $F = U-TS$; but this does not imply any interpretation of TS alone,
@@ -107,6 +112,7 @@ gradually increasing, reducing its available energy!!! He promises to
 show, in a later communication, that even the available matter is
 shrinking because of its entropy. This is pure crackpot stuff; not even
 Velikovsky or Lysenko ever committed bloopers this bad.
+
 **p. 20.** Here we are back to that confusion of thermal and mechanical
 reversibility, which now leads NGR into a quixotic attack on a
 "mechanistic dogma" which he attributes to Laplace. If NGR can
@@ -117,6 +123,7 @@ being expectations over ensembles of those mechanistic equations, as the
 Ehrenfest theorem demonstrates (see D. Otero, et al, 1982). The facts of
 mechanics, recognized by Laplace, cannot be changed by misinterpreting
 the second law.
+
 **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
 There is no "incompatibility between thermodynamic irreversibility and
 the reversibility of mechanical laws" because that phrase does not make
@@ -135,6 +142,7 @@ granting this, we agree that thermal irreversibility is observed daily
 by everybody. The point is that thermal irreversibility is easily
 explained as a phenomenological fact that has nothing to do with
 mechanical reversibility.
+
 **p. 26.** Still another time, an argument is rendered senseless by that
 fundamental misunderstanding. What NGR tells us that Planck "obviously
 had in mind" is just the opposite of what Planck had in mind, as our
@@ -143,6 +151,7 @@ Planck's statement of the second law, but a very glaring one in NGR's
 amendment of it. If we strike out "no effect except" then, far from
 having a nonredundant statement of a law, we have a statement of a
 non-law that has been violated by every heat engine ever made.
+
 **p. 27--32.** We need not dwell on this material. The technical level
 of the work is now established sufficiently, and this long, tedious
 discussion is irrelevant to the purpose of the work. We do, however,
@@ -154,6 +163,7 @@ every textbook, new or old. Indeed, it is very hard to see where NGR
 could have picked up such a false notion, because nearly all textbooks
 on thermodynamics stress the error of NGR's statement, and warn the
 student against it.
+
 ## THE ECONOMIC CONCLUSIONS
 **p. 33.** We now encounter the statement: "Eq (24) proves that the
 efficiency of every type of energy converter has a theoretical upper
@@ -192,6 +202,7 @@ in which the upper temperature is replaced by the highest temperature to
 which the activated molecules could deliver heat; close to 100%. In this
 we are only paraphrasing a penetrating remark made by Gibbs in a letter
 to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
+
 **p. 36.** NGR seems to think it now demonstrated that "mankind's
 existence is beset by an entropic predicament". WHAT predicament? Are
 there some pages missing here? We find no such demonstration on the
@@ -229,6 +240,7 @@ threatening mankind's existence.
 NGR's attempted entropy scare is based on egregious technical errors and
 fallacious logic, and it is irrelevant to the real problems of this
 world.
+
 ## WHAT IS OUR LONG--RANGE OUTLOOK?
 It is true -- although it has nothing to do with entropy -- that the
 world has only finite amounts of copper, cobalt, zinc, mercury,
@@ -297,9 +309,11 @@ night sky are doing for us, and the good things that technology has in
 store for us, if we can somehow make it through this Century. Then let's
 get back to our present real problems, motivated by high -- and
 justifiably high -- "rational expectations".
+
 ## REFERENCES
 P. L. Auer (1977), "Does Entropy Production Limit Economic Growth?" in
 K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
+
 A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
 Reading MA.
 

@@ -3,6 +3,7 @@ title: "Development of Thermodynamics"
 author: ["E.T. Jaynes"]
 year: 1965
 ---
+
 ## Introduction
 Our first intuitive, or \"subjective\" notions of temperature arise from
 the sensations of warmth and cold associated with our sense of touch.
@@ -60,6 +61,7 @@ its laws; in other words, exactly where are the boundaries of present
 knowledge, that we can hope to uncover new things. Clearly, much
 research is still needed in this field, and we shall be able to
 accomplish only a small part of this program in the present review.
+
 It will develop that there is an astonishingly close analogy with the
 logic underlying statistical theory in general, where again a
 qualitative feeling that we all have (for the degrees of plausibility of
@@ -68,6 +70,7 @@ precisely defined quantitative concept (probability). Our later
 development of probability theory in Chapter 6,7 will be, to a
 considerable degree, a paraphrase of our present
 review of the logic underlying classical thermodynamics.
+
 ## The Primitive Thermometer
 The earliest stages of our story are necessarily speculative, since they
 took place long before the beginnings of recorded history. But we can
@@ -112,6 +115,7 @@ number read off from any such instrument is called the *empirical
 temperature*, and we denote it by t. Since the exact calibration of the
 thermometer is not specified, any monotonic increasing function
 $t^\prime = f(t)$ provides an equally good temperature scale for the present.
+
 ## Thermodynamic Systems
 The \"thermodynamic systems which are the objects of our study may be,
 physically, almost any collections of objects. The traditional simplest
@@ -179,6 +183,7 @@ development of thermodynamics cannot proceed. Because of this
 special status, these relations have become known as the \"laws\" of
 thermodynamics. The most fundamental one is a qualitative rather than
 quantitative relation, the \"zero'th law.\"
+
 ## Equilibrium; the "Zero'th Law"
 It is a common experience that when objects are placed in contact with
 each other but isolated from their surroundings, they may undergo
@@ -301,6 +306,7 @@ part of our investigation to determine whether there are other essential
 conditions as well. In fact, as we will find, there are many different
 kinds of equilibrium; and failure to distinguish between them can be a
 prolific source of paradoxes.
+
 ## Equation of State
 Another important reproducible connection is found when we consider a
 thermodynamic system defined by three parameters; in addition to the
@@ -325,6 +331,7 @@ and all others we may introduce, are determined. Mathematically, this is
 expressed by the existence of a functional relationship of the form
 $$
 f(X,x,t) = 0
+\tag{1-1}
 $$
  where X is a generalized force (pressure, tension,
 electric or magnetic field, etc.), x is the corresponding generalized
@@ -348,6 +355,7 @@ expansion coefficient $\alpha$ varies with pressure P, so that within
 the accuracy of the data,
 $$
 \frac{\partial K}{\partial t} = -\frac{\partial \alpha}{\partial P}
+\tag{1-2}
 $$
 
 Is this a particular property of oxygen; or is there reason to believe
@@ -362,6 +370,7 @@ $$
 and, substituting these into (1-2), it reduces to
 $$
 \frac{\partial^2 V}{\partial P \partial t} = \frac{\partial^2 V}{\partial t \partial P}
+\tag{1-4}
 $$
 which is simply a mathematical expression of the fact that the
 volume V is a definite function of P and t; i.e., it depends only an
@@ -400,6 +409,7 @@ relations of the form $V = V(P,t,E)$, $M = M(P,t,E)$, or in more
 symmetrical form 
 $$
 f(V,P,t,E) = 0, \quad g(M,P,t,E) = 0
+\tag{1-5}
 $$
 
  In other
@@ -428,6 +438,7 @@ electrodes) so that M is determined by E; i.e., there is a functional
 relation of the form 
 $$
 g(M,E) = \text{const.}
+\tag{1-6}
 $$
  then (1-5) and (1-6)
 constitute three simultaneous equations, from which both E and M may be
@@ -514,6 +525,7 @@ time? To the best of the writer's knowledge, this is an open question;
 there seems to be no fundamental reason why variables must always be
 introduced in conjugate pairs, but there seems to be no known case in
 which a different scheme suggests itself as more appropriate.
+
 ## Heat
 We are now in a position to consider the results and interpretation of a
 number of elementary experiments involving
@@ -582,6 +594,7 @@ $t_2$, the final temperatures $t_0'$, $t_0$ will adjust themselves so
 that the following relation holds:
 $$
 \frac{t_2 - t_0}{t_0 - t_1} = \frac{t_2' - t_0'}{t_0' - t_1'}
+\tag{1-8}
 $$
  in
 other words, the ratio of the temperature changes of the iron and water
@@ -595,6 +608,7 @@ mass $M_W$ of water and inversely proportional to the mass $M_I$ of
 iron, so that 
 $$
 \frac{t_2 - t_0}{t_0 - t_1} = K_I \frac{M_W}{M_I}
+\tag{1-9}
 $$
 where $K_I$ is a constant.
 
@@ -620,6 +634,7 @@ respectively, and define $K_W = 1$ for water. Equation (1-9) then
 becomes 
 $$
 K_W M_W \Delta t_w + K_I M_I \Delta t_I = 0
+\tag{1-11}
 $$
 
  The form of this
@@ -633,6 +648,7 @@ differences $\Delta t_j = t_0 - t_j$. Just as we suspected, it turns out
 that regardless of the K's, M's, and t's chosen, the relation
 $$
 \sum_{i=1}^n K_i M_i \Delta t_i = 0
+\tag{1-12}
 $$
  is always satisfied! This sort
 of process is an old story in scientific investigations; although the
@@ -664,6 +680,7 @@ What is this new conserved quantity? Mathematically, it can be defined
 as $Q_i = K_i M_i t_i$; whereupon (1-12) becomes
 $$
 \sum_i \Delta Q_i = 0
+\tag{1-13}
 $$
  and at this point we can correct a slight
 quantitative inaccuracy. As noted, the above relations hold accurately
@@ -673,6 +690,7 @@ one finds that the specific heats $K_i$ depend on
 temperature; if we then adopt the integral definition of $\Delta Q_i$
 $$
 \Delta Q_i = \int_{t_i}^{t_0} K_i(t) M_i dt
+\tag{1-14}
 $$
  the conservation law
 (1-13) will be found to hold in calorimetric experiments with liquids
@@ -778,6 +796,7 @@ Up to the point, then, one had the experimental fact that a conservation
 law (1-13) exists whenever purely thermal interactions were involved;
 but in processes involving mechanical work the conservation law broke
 down.
+
 ## The First Law
 Corresponding to the partially valid law of \"conservation of heat,\"
 there had long been known another partially valid conservation law in
@@ -849,6 +868,7 @@ supplied to the system, and the mechanical work W done by the system. On
 an infinitesinal change of state, this becomes 
 $$
 dU = dQ - dW
+\tag{1-15}
 $$
 
  For a
@@ -859,6 +879,7 @@ means that dU must be an exact
 differential; i.e., the integral
 $$
 \int_1^2 dU = U(V_1,t_2) - U(V_1,t_1)
+\tag{1-16}
 $$
  between any two thermodynamic
 states must be independent of the path. Equivalently, the integral
@@ -867,6 +888,7 @@ state 1 to state 2 along path A, then back to state 1 by a different
 path B) must be zero. From (1-15), this gives for any cyclic integral,
 $$
 \oint dQ = \oint PdV
+\tag{1-17}
 $$
  another form of the first law, which states
 that in any process in which the system ends in the same thermodynamic
@@ -927,6 +949,7 @@ that rather fast changes of state (on the time scale of our own
 perceptions) may be quite good approximations to reversible changes;
 thus the change of state of water vapor in a steam engine may be
 considered reversible to a useful engineering approximation.
+
 ## Intensive and Extensive Parameters
 The literature of thermodynamics has long recognized a distinction
 between two kinds of quantities that may be used to define the
@@ -987,6 +1010,7 @@ stress tensor, mass density, energy density, particle density,
 temperature, chemical potential, angular velocity, as intensive, while
 volume, mass, energy, particle numbers, strain, entropy, angular
 momentum, will be considered extensive.
+
 ## The Kelvin Temperature Scale
 The form of the first law, $dU = dQ - dW$, expresses the net energy
 increment of a system as the heat energy supplied to it, minus the work
@@ -1040,6 +1064,7 @@ new function of the thermodynamic state? If so, then the temperature
 scale T will have a great theoretical advantage, in that the laws of
 thermodynamics will take an especially simple form in terms of this
 particular scale;
+
 and the new quantity S, which we call the *entropy*, will be a kind of
 \"volume\" factor for heat.
 
@@ -1047,9 +1072,10 @@ We recall that $dQ = dU + P dV$ is not an exact differential; i.e., on a
 change from one equilibrium state to another the integral
 $$
 \int_1^2 dQ
+\tag{1-18}
 $$
 
- Cannot be set equal to the difference $Q_2 - Q_1$ of
+Cannot be set equal to the difference $Q_2 - Q_1$ of
 values of any state function Q(U,V), since the integral has different
 values for different paths connecting the same initial and final states.
 Thus there is no \"heat function\" Q(U,V), and the notion of \"amount of
@@ -1061,6 +1087,7 @@ change from one equilibrium state to another, the first law requires
 that it satisfy
 $$
 dS(U,V) = \frac{dQ}{T} = \frac{dU}{T} + \frac{P}{T}dV
+\tag{1-19}
 $$
 
  Thus (1/T)
@@ -1074,6 +1101,7 @@ integrating factor for the moment by $w(U,V) = T^{-1}$; then the first
 law becomes 
 $$
 dS(U,V) = w dU + wP dV
+\tag{1-20}
 $$
  from which the derivative are
 $$
@@ -1084,10 +1112,12 @@ The condition that dS be exact is that the cross-derivatives be equal,
 as in (1-4):
 $$
 \frac{\partial^2 S}{\partial U \partial V} = \frac{\partial^2 S}{\partial V \partial U}
+\tag{1-22}
 $$
 or,
 $$
 \left(\frac{\partial w}{\partial V}\right)_U = w \left(\frac{\partial P}{\partial U}\right)_V + P \left(\frac{\partial w}{\partial U}\right)_V
+\tag{1-23}
 $$
 
 Any function w(U,V) satisfying this differential equation is an
@@ -1106,6 +1136,7 @@ differential is, therefore, not enough to determine any unique entropy
 function S(U,V). However, the derivative
 $$
 \left(\frac{\partial U}{\partial V}\right)_S = -P
+\tag{1-24}
 $$
  is evidently
 uniquely determined; so also, therefore, is the family of lines of
@@ -1129,6 +1160,7 @@ $$
 and (1-23) becomes
 $$
 \frac{d}{dt} \log w = \frac{(\frac{\partial P}{\partial U})_V}{(\frac{\partial t}{\partial U})_V - P (\frac{\partial t}{\partial V})_U}
+\tag{1-28}
 $$
 which shows that w will be determined to within a multiplicative factor.
 Is the temperature scale thus defined independent of the empirical scale
@@ -1163,6 +1195,7 @@ terms of the empirical temperature scale t. Integrating between any two
 states denoted 1 and 2, we have
 $$
 \frac{T_2}{T_1} = \exp \left\{ \int_{t_1}^{t_2} \frac{(\frac{\partial P}{\partial t})_V dt}{P - C_V^\prime (\frac{\partial t}{\partial U})_V} \right\}
+\tag{1-31}
 $$
 
 If the quantities on the right-hand side have been determined
@@ -1177,11 +1210,13 @@ sufficiently far from their condensation points are found to obey this
 rule very accurately. But then
 $$
 \left(\frac{\partial t}{\partial V}\right)_U = 0
+\tag{1-32}
 $$
  and on a change of
 state in which we heat this gas at constant volume, (1-31) collapses to
 $$
 \frac{T_2}{T_1} = \exp \left\{ \int_{t_1}^{t_2} \frac{1}{P} \left(\frac{\partial P}{\partial t}\right)_V dt \right\} = \frac{P_2}{P_1}
+\tag{1-33}
 $$
 
 Therefore, with a constant-volume ideal gas thermometer, (or more
@@ -1206,6 +1241,7 @@ $$
 Equation (1-19) then becomes 
 $$
 dS = \frac{dH}{T} - \frac{V}{T}dP
+\tag{1-36}
 $$
 
 Repeating the steps (1-20) to (1-31) of the above derivation starting
@@ -1216,6 +1252,7 @@ $$
 or,
 $$
 \frac{T_2}{T_1} = \exp \left\{ \int_{t_1}^{t_2} \frac{\alpha^\prime dt}{1 + (C_p^\prime \mu^\prime / V)} \right\}
+\tag{1-38}
 $$
 where
 $$
@@ -1239,7 +1276,7 @@ Since $\alpha^\prime$, $C_p^\prime$, $\mu^\prime$ are all easily measured in the
 laboratory, Eq. (1-38) provides a feasible way of realizing the Kelvin
 temperature scale experimentally, taking account of the imperfections of
 real gases. For an account of the work of Roebuck and others based on
-this relation, see Zemansky (1943); pp. 252-255.
+this relation, see Zemansky (1943), pp. 252-255.[^2]
 
 Note that if $\mu^\prime = 0$ and we heat the gas at constant pressure, (1-38)
 reduces to
@@ -1268,6 +1305,7 @@ temperature T. In terms of the Kelvin temperature, the ideal gas
 equation of state is therefore simply 
 $$
 PV = nRT
+\tag{1-44}
 $$
 
  The relations (1-32)
@@ -1283,6 +1321,7 @@ empirically before the Kelvin temperature scale was defined; and the
 temperature scale $\theta$ defined by
 $$
 \theta = \lim_{P \to 0} \left(\frac{PV}{nR}\right)
+\tag{1-45}
 $$
  was found to be
 convenient, easily reproducible, and independent of the properties of
@@ -1346,6 +1385,7 @@ theoretically, and the experimental procedures for their measurement can
 be developed, without any appeal to the second law. From the standpoint
 of logic, therefore, the second law serves only to establish that the
 Kelvin temperature scale is the same for all substances.
+
 ## Entropy of an Ideal Boltzmann Gas
 At the present stage we are far from understanding the physical meaning
 of the function S defined by (1-19); but we can investigate its
@@ -1354,12 +1394,14 @@ consisting of n moles of a substance which obeys the ideal gas equation
 of state 
 $$
 PV = nRT
+\tag{1-46}
 $$
  and for which the heat capacity at constant volume
 $C_V$ is a constant. The difference in entropy between any two states
 (1) and (2) is from (1-19),
 $$
 S_2 - S_1 = \int_1^2 \frac{dQ}{T} = \int_1^2 \left[ \left(\frac{\partial S}{\partial V}\right)_T dV + \left(\frac{\partial S}{\partial T}\right)_V dT \right]
+\tag{1-47}
 $$
 where we integrate over any reversible path connecting the two states.
 From the manner in which S was defined, this integral must be the same
@@ -1409,6 +1451,7 @@ From the derivation, the additive constant must be independent of V and
 T; but it can still depend on n. We indicate this by writing
 $$
 S(n,V,T) = n[R \log V + C_V \log T] + f(n)
+\tag{1-54}
 $$
  where f(n) is a function
 not determined by the definition (1-47). The form of f(n) is, however,
@@ -1417,12 +1460,14 @@ i.e., two identical systems placed together should have twice the
 entropy of a single system; or more generally,
 $$
 S(qn,qV,T) = q S(n,V,T), \quad 0 < q < \infty
+\tag{1-55}
 $$
 
  Substituting (1-54)
 into (1-55), we find that f(n) must satisfy the functional equation
 $$
 f(qn) = q f(n) - Rnq \log q
+\tag{1-56}
 $$
 
  To solve this, one can differentiate
@@ -1430,6 +1475,7 @@ with respect to q and set q = 1; we then obtain the differential
 equation 
 $$
 n f^\prime(n) - f(n) + Rn = 0
+\tag{1-57}
 $$
  which is readily solved;
 alternatively, just set n = 1 in (1-56) and replace q by n. By either
@@ -1443,6 +1489,7 @@ verified that this is the solution of (1-56) and (1-57). We then have
 finally,
 $$
 S(n,V,T) = n\left[C_V \log T + R \log\left(\frac{V}{n}\right) + A\right]
+\tag{1-59}
 $$
 where A = f(1) is still an arbitrary constant, not determined by the
 definition (1-19), or by the condition (1-55) that S be extensive.
@@ -1464,10 +1511,12 @@ heating, and so $dS \approx n C_V dT/T$, and if $C_V$ is independent of
 temperature, we would have in place of (1-59),
 $$
 S = n[C_V \ln T + A_l]
+\tag{1-60}
 $$
  where $A_l$ is an integration constant, which
 also has physical meaning in connection with conditions of equilibrium
 between two different phases.
+
 ## The Second Law: Definition
 Probably no proposition in physics has been the subject of more deep and
 sustained confusion than the second law of thermodynamics. It is not in
@@ -1543,10 +1592,7 @@ things which have been asserted to be impossible, except for one case
 which actually succeeded! In the experimental realization of negative
 spin temperatures, one can transfer heat from a lower to a higher
 temperature without external changes; and so one of the common
-impossibility statements is now known to be false [for a clear
-discussion of this, see the article of N. F. Ramsey (1956); experimental
-details of calorimetry with negative temperature spin systems are given
-by Abragam and Proctor (1958)].
+impossibility statements is now known to be false[^3].
 
 Finally, impossibility statements are of very little use in applications
 of thermodynamics; the assertion that a certain kind of machine cannot
@@ -1600,6 +1646,7 @@ $$
 U_l &= (N-n)[C_l T + A] \\\\
 U_v &= n[C_v T + A + L]
 \end{aligned}
+\tag{1-62}
 $$
  where A is a constant which plays no role in the
 problem. The appearance of L in (1-62) recognizes that the zero from
@@ -1609,6 +1656,7 @@ energy L necessary to form the vapor. On evaporation of dn moles of
 liquid, the total energy increment is $dU = dU_l + dU_v = 0$; or
 $$
 [n C_v + (N-n)C_l]dT + [(C_v - C_l)T + L]dn = 0
+\tag{1-63}
 $$
  which is the
 constraint imposed by the first law. As we found previously (1-59),
@@ -1628,6 +1676,7 @@ maximized subject to the constraint (1-63), when the values
 $n_{eq}, T_{eq}$ are related by
 $$
 \frac{n_{eq}}{V} = B T_{eq}^a \exp\left(-\frac{L}{RT_{eq}}\right)
+\tag{1-66}
 $$
 where $B = \exp\{- 1 - a - \frac{A_v-A_l}{R}\}$ and
 $a \equiv (C_v - C_l)/R$ are constants. Equation (1-66) is recognized as
@@ -1636,6 +1685,7 @@ an approximate form of the vapor pressure formula.
 We note that $A_l, A_v$, which appeared first as integration constants
 for the entropy with no particular physical meaning, now play a role in
 determining the vapor pressure.
+
 ## The Second Law: Discussion
 We have emphasized the distinction between the weak and strong forms of
 the second law because (with the exception of Boltzmann's original
@@ -1671,8 +1721,7 @@ new and more complicated ways.
 One of the most persistent of these attempts involves the use of
 Caratheodory's principle. This states that, in the neighborhood of any
 thermodynamic state there are other states which cannot be reached by an
-adiabatic process. After some mathematical analysis [Margenau and
-Murphy (1943), pp. 26-31; or Wannier (1966), pp. 126-132] one infers
+adiabatic process. After some mathematical analysis[^4] one infers
 the existence of a state function (entropy) which tends to increase; or
 at least, cannot decrease. From a mathematical standpoint there can be
 no objection at all to this; the analysis is quite rigorous. But from a
@@ -1763,9 +1812,7 @@ so that the hot air can escape. The result is that when compressed air
 at room temperature is injected, one can obtain air from the hot side at
 +100$^{\circ}$F, from the cold side at -70$^{\circ}$F, in sufficient
 quantities to be used for quick-freezing small objects, or for cooling
-photomultiplier tubes [for construction drawings and experimental data,
-see Stong (1960); for a partial thermodynamic analysis, see Hilsch
-(1947)].
+photomultiplier tubes[^5].
 
 Of course, the air could also be cooled by adiabatic expansion (i.e., by
 doing work against a piston); and it appears that the amount of cooling
@@ -1849,3 +1896,7 @@ whether such machines can or cannot be made.
 
 [^1]: Note, however, that the second law has nothing to say about how
     rapidly this approach to equilibrium takes place.
+[^2]: Zemansky (1943), pp. 252-255.
+[^3]: For discussion, see N. F. Ramsey (1956); for calorimetry details with negative-temperature spin systems, see Abragam and Proctor (1958).
+[^4]: Margenau and Murphy (1943), pp. 26-31; Wannier (1966), pp. 126-132.
+[^5]: For construction drawings and data, see Stong (1960); for partial thermodynamic analysis, see Hilsch (1947).

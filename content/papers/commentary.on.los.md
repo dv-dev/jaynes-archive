@@ -34,6 +34,7 @@ that they are 'subjective' and 'prejudiced'. Repeatedly, his own
 proposal is called 'exact'. In our view, the work
 does contain some valid criticisms which could lead to better practice
 in the future, so it is worth while to examine it in some detail.
+
 The most general problem considered is that where we have $T$
 observations of an $n$ component vector, thus a $(T \times n)$ matrix
 $X$ of data values. The object is to see whether there is evidence for
@@ -59,6 +60,7 @@ that we determine $q$ and $\beta$ directly from the data. Since his
 determinations are called 'exact' there is no mention of their accuracy.
 To fix ideas, we note first the specific example which he considers,
 then proceed to the general problem.
+
 # THE EXAMPLE {#the-example .unnumbered} 
 Los reports that the data refer to the year 1985 and $T = 32$ Bank
 holding companies; $x_{t1}$ is the net interest margin of the t'th
@@ -66,12 +68,14 @@ company, $x_{t2}$ is "the consumer loans in percent of total loans to
 the U.S. addresses"; $x_{t3}$ is "the net purchases funds in percent
 of total assets." The raw data, with other explanatory remarks, are
 presented in [^3], Appendix A. Then he gives the $(3 \times 3)$ data
-covariance matrix $$\Sigma = X^\prime X = 
+covariance matrix $$\Sigma = X^\prime X =
 \begin{pmatrix}
 0.7022 & 6.9040 & -10.6826 \\\\
 6.9040 & 99.0556 & -114.7687 \\\\
 -10.6826 & -114.7687 & 259.2516
-\end{pmatrix}$$ His matrix $X$ is not the actual data, but those data
+\end{pmatrix} \tag{1}$$
+
+His matrix $X$ is not the actual data, but those data
 with mean values over $t$ subtracted off; i.e. denoting the raw data
 values by $D_{ti}$, we have $X_{ti} = D_{ti} - T^{-1} \sum_t D_{ti}$.
 Los takes it for granted without discussion, that $\Sigma$ "contains the
@@ -85,7 +89,7 @@ matrix can be found, and visualized intuitively, from its principal axes
 and eigenvalues, it must be true that everything we can infer is
 contained in the diagonalization of (1). We find that the
 diagonalization $\Sigma = U \Lambda U^\prime$ is achieved by the components:
-$$\Lambda = 
+$$\Lambda =
 \begin{pmatrix}
 .163573 & 0 & 0 \\\\
 0 & 39.23379 & 0 \\\\
@@ -97,17 +101,23 @@ U =
 0.998756 & .030199 & -.039681 \\\\
 -.045142 & .885617 & -.462218 \\\\
 .021184 & .463434 & .885878
-\end{pmatrix}$$ $U$ is a real orthogonal matrix, so its columns are the
+\end{pmatrix} \tag{2}$$
+
+$U$ is a real orthogonal matrix, so its columns are the
 normalized eigenvectors of $\Sigma$. The data concentration ellipsoid
 (locus of vectors $x$ satisfying $x^\prime \Sigma^{-1} x = 1$) has semi-axes
 (0.4, 6.3, 17.9), oriented parallel to those eigenvectors.
+
 Los demands that we choose our linear relations solely from (2) without
 making any use of what we may know about the measurement errors in the
 three directions, or other relevant evidence.
+
 But even under these handicaps, we can still ask for small residuals; we
 observe that the component of data parallel to the first eigenvector
 (the one with the smallest eigenvalue)
-$$u_t = 0.999 x_{t1} - 0.045 x_{t2} + 0.021 x_{t3}$$ has by construction
+$$u_t = 0.999 x_{t1} - 0.045 x_{t2} + 0.021 x_{t3} \tag{3}$$
+
+has by construction
 the mean value zero, and shows a smaller mean-square variation across
 $t$ than does any other component; so in this state of self-imposed
 ignorance about the nature of the problem, we can do little else than to
@@ -127,13 +137,14 @@ this component accounts for nearly 90% of the total data variance. Let
 us call this the Simple Solution; we do not see how it is possible to do
 any better than this under the constraints imposed by Los, so it will be
 interesting to compare the Simple Solution with the Los solution.
+
 # CRITICISM {#criticism .unnumbered} 
 But these results are quite arbitrary; with noisy data one cannot judge
 linear relations merely from $\Sigma$ because it depends on our units.
 For example, suppose we expressed interest rates in hundredths of a
 percent instead of percents. Then all values of $x_{t1}$ would be
 increased by a factor of 100, and the eigenvalues and eigenvectors would
-be totally different; we now find in place of (2): $$\Lambda = 
+be totally different; we now find in place of (2): $$\Lambda =
 \begin{pmatrix}
 29.589 & 0 & 0 \\\\
 0 & 95.547 & 0 \\\\
@@ -145,7 +156,9 @@ U =
 -.076403 & -.163329 & -.983609 \\\\
 .987469 & .124221 & -.097330 \\\\
 .138082 & -.978720 & .151790
-\end{pmatrix}$$ and if we are not permitted to use the knowledge that
+\end{pmatrix} \tag{4}$$
+
+and if we are not permitted to use the knowledge that
 the measurement errors in $x_1$ are now 100 times greater than before,
 the linear relation 'most strongly indicated' would correspond to the
 first column of the new $U$, almost orthogonal to the first estimate
@@ -209,35 +222,43 @@ the conditions usually used, which express our information about
 relevant properties of the real problem, are to be dismissed as
 'prejudice', then what epithet shall we apply to conditions which do not
 express any such information?
+
 # THE GENERAL PROBLEM {#the-general-problem .unnumbered} 
 In the Los formulation, the goal is to separate the reduced data matrix
 $X$ into an 'exact' or 'explained' component $\hat{X}$ of interest (for
 example, vectors orthogonal to the above $u_t$), and another component
 $\tilde{X}$ variously termed 'inexact', 'unexplained', 'noise', 'error',
 or 'residual'. Only linear relations are permitted, by imposing a
-condition $$A \hat{X}^\prime = 0$$ where $A$ is a $(q \times n)$ matrix of
+condition $$A \hat{X}^\prime = 0 \tag{5}$$
+
+where $A$ is a $(q \times n)$ matrix of
 rank $q$. Note that if we partition off the first $q$ columns by writing
 $A = (I | -\beta^\prime)$ and $\hat{X} = (y|X_2)$, then (5) takes the more
 familiar form $X_2 \beta = y$. From (5) he then obtains
-$$A \hat{X}^\prime \hat{X} = A \hat{\Sigma} = 0$$ where $\hat{\Sigma}$
+$$A \hat{X}^\prime \hat{X} = A \hat{\Sigma} = 0 \tag{6}$$
+
+where $\hat{\Sigma}$
 is the reduced covariance matrix. The nature of the problem facing us can be
 seen at once by dealing directly with the data vectors $X$ without
 introducing $\Sigma$ at all; but Los chooses to take this detour, which
 obscures that information.
+
 Next he partitions the columns of $A$ in the aforementioned way
 $A = (I | B)$ where $I$ is a $(q \times q)$ matrix and $B$ a
 $q \times (n-q)$ one, and partitions $\hat{\Sigma}$ similarly:
-$$\hat{\Sigma} = 
+$$\hat{\Sigma} =
 \begin{pmatrix}
 \hat{\Sigma}_11 & \hat{\Sigma}_12 \\\\
 \hat{\Sigma}_21 & \hat{\Sigma}_22
-\end{pmatrix}$$ where $\hat{\Sigma}_12 = \hat{\Sigma}_21'$ is a
+\end{pmatrix} \tag{7}$$
+
+where $\hat{\Sigma}_12 = \hat{\Sigma}_21'$ is a
 $(q \times n)$ matrix, etc., and $\hat{\Sigma}_22$ is to have full
 rank $(n-q)$. Then writing out (6) we find that $B$ is determined to be
 $B = -I \hat{\Sigma}_12 \hat{\Sigma}_22^{-1}$. If we choose $I$ to
 be the $(q \times q)$ unit matrix, as Los does, then (6) reduces to the
 condition
-$$\hat{\Sigma}_11 - \hat{\Sigma}_12 \hat{\Sigma}_22^{-1} \hat{\Sigma}_21 = 0.$$ 
+$$\hat{\Sigma}_11 - \hat{\Sigma}_12 \hat{\Sigma}_22^{-1} \hat{\Sigma}_21 = 0. \tag{8}$$
 
 When first introduced, this appears to be the principal relation that
 Los proposes to use to determine his solution. Thus he describes (8) as
@@ -256,7 +277,8 @@ case (or in any case where $q = n - 1$), the missing general solution is
 simply a projection operator:
 $$\hat{\Sigma}_ij = a_i a_j, 
 \quad
-(a_1 \cdots a_n) \text{ arbitrary}$$ 
+(a_1 \cdots a_n) \text{ arbitrary} \tag{9}$$
+
 showing that (8) imposes no condition at all on the solution! By the
 choice $q = n - 1$ we have already required that the 'exact' component
 of the data $\hat{X}$ must be parallel to some fixed vector $a$, but (8)
@@ -267,7 +289,9 @@ Since all matrix elements are real, the symmetric matrix $\hat{\Sigma}$
 has $n(n+1)/2$ independent components and (8) imposes $q(q+1)/2$ conditions on them. Therefore by the 'general solution' of (8) we mean
 any algorithm that enables us to write a specific solution
 $\hat{\Sigma}$ as a function of
-$$\frac{n(n + 1)}{2} - \frac{q(q + 1)}{2}$$ arbitrary real constants. To
+$$\frac{n(n + 1)}{2} - \frac{q(q + 1)}{2} \tag{10}$$
+
+arbitrary real constants. To
 do this, choose $\hat{\Sigma}_22$ as an arbitrary symmetric positive
 definite matrix; this requires $(n - q)(n - q + 1)/2$ quantities. Then
 define $\hat{\Sigma}_12$ arbitrarily; this requires $q(n-q)$ more
@@ -296,6 +320,7 @@ attempt to extract information (restricting conditions) from an equation
 which does not contain it; the basic ambiguity of the problem has not
 been reduced below that indicated by (10), so the search resumes for
 other conditions to impose.
+
 # THE PROPOSED SOLUTION {#the-proposed-solution .unnumbered} 
 To see the situation we are in more clearly, note that if there were no
 'noise', the problem would indeed be one of exact mathematical deduction
@@ -351,6 +376,7 @@ is not surprising that his example is (3,2). It seems to us that at this
 point he might have perceived that the Wilson inequality, far from
 causing difficulty for the conventional solutions as he alleges, is what
 makes his proposed solution indefensible and unusable in general.
+
 In any event, his final solution for the current problem ([^3], Table
 6) is that $\hat{\Sigma}$ is the projection operator (9) with the vector
 $a^\prime = (-.80162, -8.61237, 13.32603)$. Normalized to unit length, this
@@ -367,6 +393,7 @@ corresponding to (4) instead of (1), the Los solution would have
 stretched the component $a_1$ by a factor of 100, and thus would still
 yield the same substantive conclusions. So, it appears that the Los
 solution has one desirable property which the Simple Solution lacks.
+
 In understanding the reason for this, we get a much clearer
 characterization of the Los solution; in effect, supplying the missing
 rationale for it. If our model was indeed correct (that is, it accounted
@@ -400,6 +427,7 @@ the Los solution, the Simple Solution - or any other method of
 mathematical solution - would give the same results and achieve
 automatically this invariance under a change of units. Since the Los
 solution, in effect, assumes this case, it too achieves that invariance.
+
 This still leaves us with one question: "Why does the Los solution work
 only for certain special values of $n$ and $q$?" Answer: however large
 $T$, the contribution of noise to the diagonal elements of $\Sigma$
@@ -410,6 +438,7 @@ from the off-diagonal elements of $\Sigma$. Only for these special
 values of $n$ and $q$ do the off-diagonal elements contain that
 information. In all other cases one must resort to a different
 algorithm, which makes use of a sampling distribution.
+
 # WHAT IS THE CORRECT METHOD? {#what-is-the-correct-method .unnumbered} 
 After all these criticisms, let us now try to make some positive,
 constructive remarks about such problems. If the available information
@@ -506,6 +535,7 @@ On very similar problems, including economic time series, the analytical
 theory and many fully worked-out numerical examples to illustrate its
 use in all four of the above extensions of maximum likelihood, are given
 by Bretthorst [^4].
+
 # REFERENCES {#references .unnumbered} 
 [^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted

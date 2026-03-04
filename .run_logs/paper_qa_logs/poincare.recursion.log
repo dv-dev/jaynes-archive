@@ -1,0 +1,334 @@
+=== STDOUT ===
+Edits applied to [content/papers/poincare.recursion.md](/home/dave/Projects/jaynes-archive/content/papers/poincare.recursion.md).
+
+Summary of changes:
+- Added one blank-line paragraph break in **EXPERIMENTAL TEMPERATURE AND ENTROPY** between the italicized sentence ending `...corresponding concepts.*` and the next paragraph starting `We may say...`.
+- Added one blank-line paragraph break in **B. Condensation** between `...rather than statistics.` and the next paragraph starting `We see that...`.
+
+Self-check:
+- Paragraph boundaries are blank-line separated where those two intended breaks were missing.
+- Equation references remain resolved and consistent (`(2.1)`, `(2.2)`, `(2.3)`, `(3.1)`, `(3.2)`, `(3.3)`, `(4.1)`, `(4.2)` all have corresponding tagged display equations).
+- No paper content, meaning, or math expressions were changed.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba72-069a-72c0-9ad4-25705f20e14e
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/poincare.recursion.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/poincare.recursion.md` for structure, equation-reference numbering, citation formatting, duplicate abstract/body metadata, then apply only minimal structural edits in that file. I’ll report exactly what changed at the end.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/poincare.recursion.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Poincaré Recurrence Times and Statistical Mechanics"
+year: 1957
+abstract: >
+  The theory of almost-periodic functions is applied to the problem of
+  the relation, conjectured by the Ehrenfests, between Poincaré
+  recurrence times and the time over which averages of phase functions
+  must be taken in order to approximate their limiting values for
+  infinite time. It is concluded that the necessary averaging times
+  might be very much longer than the Poincaré periods. Equality of
+  ensemble averages and time averages would then carry no implications
+  about equality of ensemble averages and experimental values. Two
+  possible ways of understanding the success of statistical mechanics
+  without recourse to ergodicity are then discussed. One of these
+  interpretations has implications for the theory of irreversible
+  processes and the problem of condensation, which are capable of being
+  tested independently.
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["Poincaré recurrence", "statistical mechanics", "ergodic theory", "almost-periodic functions", "thermodynamics", "irreversible processes", "quantum theory"]
+exec
+/bin/bash -lc "sed -n '260,520p' content/papers/poincare.recursion.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+the use of a probability distribution over initial states accomplishes
+for us is that it protects us from that danger*; in calculating the
+average over many possible states, we *suppress this small minority*.
+"*Almost any*" probability assignment for initial states, which gives
+the correct average values for the controlled or observed parameters,
+would lead to the same macroscopic predictions. The Boltzmann
+distribution, besides being mathematically convenient, is the broadest
+one (i.e., it has maximum entropy) for a given value of
+$\langle E \rangle$; therefore it is the one which affords maximum
+protection against minority states.
+
+Because of the principle of macroscopic uniformity, the validity of
+statistical mechanics as a method for predicting experimental results in
+no way depends on the "correctness" of the Boltzmann distribution. It
+is rather the other way around; the Boltzmann distribution or a
+generalization thereof *derives its validity* as a tool for prediction
+from the fact that it is consistent with the measured values of
+temperature and other parameters, and it assumes nothing beyond
+that.[^11] This remark carries many implications. In particular, if we
+adopt the view just expressed, it becomes necessary to discuss anew the
+codex
+I’ve completed a full read-through and am doing a targeted pass for subtle paragraph-boundary issues (single-newline joins that should be blank-line breaks), since equation tags and footnote citations already look mostly consistent.
+exec
+/bin/bash -lc "nl -ba content/papers/poincare.recursion.md | sed -n '1,280p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Poincaré Recurrence Times and Statistical Mechanics"
+     3	year: 1957
+     4	abstract: >
+     5	  The theory of almost-periodic functions is applied to the problem of
+     6	  the relation, conjectured by the Ehrenfests, between Poincaré
+     7	  recurrence times and the time over which averages of phase functions
+     8	  must be taken in order to approximate their limiting values for
+     9	  infinite time. It is concluded that the necessary averaging times
+    10	  might be very much longer than the Poincaré periods. Equality of
+    11	  ensemble averages and time averages would then carry no implications
+    12	  about equality of ensemble averages and experimental values. Two
+    13	  possible ways of understanding the success of statistical mechanics
+    14	  without recourse to ergodicity are then discussed. One of these
+    15	  interpretations has implications for the theory of irreversible
+    16	  processes and the problem of condensation, which are capable of being
+    17	  tested independently.
+    18	author: ["E.T. Jaynes"]
+    19	categories: ["Quantum Mechanics & Advanced Physics"]
+    20	tags: ["Poincaré recurrence", "statistical mechanics", "ergodic theory", "almost-periodic functions", "thermodynamics", "irreversible processes", "quantum theory"]
+exec
+/bin/bash -lc "nl -ba content/papers/poincare.recursion.md | sed -n '280,560p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   280	meaning of experimentally measured temperature and entropy.
+   281	
+   282	## EXPERIMENTAL TEMPERATURE AND ENTROPY
+   283	In a thermodynamic experiment, a few degrees of freedom of a system are
+   284	fixed by the experimental conditions, and a few others are observed,
+   285	while the vast majority are neither controlled nor observed. Energy
+   286	exchanged via controlled degrees of freedom is called work; energy
+   287	exchanged via uncontrolled ones is called heat. Two systems are said to
+   288	be at the same temperature if, when placed in weak interaction with each
+   289	other, the net amount of energy which they exchange over long periods of
+   290	time is small, of the order of the interaction energy. Numerical values
+   291	of temperature are defined by the relative amounts of energy which two
+   292	heat baths interchange with a third system operating in a Carnot cycle
+   293	between them. *Since these are the only criteria used in experiments to
+   294	measure temperature and heat, they must, according to the operational
+   295	view of physics, be the only ones involved in the corresponding
+   296	concepts.*
+   297	We may say that the temperature of a system is known if we can predict
+   298	correctly which one of a set of thermometers, showing different
+   299	readings, will not exchange appreciable energy with it if brought into
+codex
+I found two clear single-newline paragraph joins that should be blank-line-separated for cleaner Markdown rendering. I’m applying only those structural paragraph-break fixes now.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/poincare.recursion.md
+@@ -296,2 +296,3 @@
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+@@ -402,2 +403,3 @@
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/poincare.recursion.md
+file update:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index ed01a3b7c99ab0e545b29b783e89a8d69c6c06b9..320cbe473a7215b5dc777ed234c08ec355060339
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -294,6 +294,7 @@
+ measure temperature and heat, they must, according to the operational
+ view of physics, be the only ones involved in the corresponding
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+ correctly which one of a set of thermometers, showing different
+ readings, will not exchange appreciable energy with it if brought into
+@@ -400,6 +401,7 @@
+ possible stationary states correspond to a greater density of matter
+ along the bottom portion of the container. Thus the problem of
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+ same time retain the assumption of realism, the fact that statistical
+ mechanics is successful carries far-reaching implications which are
+
+file update:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index ed01a3b7c99ab0e545b29b783e89a8d69c6c06b9..320cbe473a7215b5dc777ed234c08ec355060339
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -294,6 +294,7 @@
+ measure temperature and heat, they must, according to the operational
+ view of physics, be the only ones involved in the corresponding
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+ correctly which one of a set of thermometers, showing different
+ readings, will not exchange appreciable energy with it if brought into
+@@ -400,6 +401,7 @@
+ possible stationary states correspond to a greater density of matter
+ along the bottom portion of the container. Thus the problem of
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+ same time retain the assumption of realism, the fact that statistical
+ mechanics is successful carries far-reaching implications which are
+
+exec
+/bin/bash -lc "rg -n '\\([0-9]+\\.[0-9]+\\)|\\\\tag\\{[0-9]+\\.[0-9]+\\}' content/papers/poincare.recursion.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+79:$$f_N(t) = \sum_{n=1}^{N} a_n e^{i\omega_n t} \tag{2.1}$$
+83:the f_N: $|f(t) - f_N(t)| \le \epsilon$ for all $t$. In (2.1) the
+89:$$\rho_{nm}(t) = \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.2}$$
+96:$$f(t) = \langle F \rangle = \text{Tr}(\rho F) = \sum_{m,n} F_{mn} \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.3}$$
+100:(2.3).
+110:$$Mf(t) = \lim_{T\to\infty} \frac{1}{T} \int_{\alpha}^{\alpha+T} f(t) dt \tag{3.1}$$
+115:$$\left| Mf(t) - \frac{1}{T} \int_{0}^{T} f(t) dt \right| \le \epsilon \tag{3.2}$$
+119:$$T \ge \frac{4}{3\epsilon} T_0(\epsilon/2) f_{\text{max}} \tag{3.3}$$
+144:For any macroscopic system the averaging time for the quantities (2.3)
+210:$$\psi(1,2) = \sum_{n,m} a_{nm} u_n(1) v_m(2) \tag{4.1}$$
+216:$$\rho_{nk}(1) = \sum_m a_{nm} a_{km}^{*} \tag{4.2}$$
+220:*successively*; because of coherence properties implied by (4.1) which
+file update:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index ed01a3b7c99ab0e545b29b783e89a8d69c6c06b9..320cbe473a7215b5dc777ed234c08ec355060339
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -294,6 +294,7 @@
+ measure temperature and heat, they must, according to the operational
+ view of physics, be the only ones involved in the corresponding
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+ correctly which one of a set of thermometers, showing different
+ readings, will not exchange appreciable energy with it if brought into
+@@ -400,6 +401,7 @@
+ possible stationary states correspond to a greater density of matter
+ along the bottom portion of the container. Thus the problem of
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+ same time retain the assumption of realism, the fact that statistical
+ mechanics is successful carries far-reaching implications which are
+
+exec
+/bin/bash -lc 'git diff -- content/papers/poincare.recursion.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index 88561cb..320cbe4 100644
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -19,6 +19,7 @@ author: ["E.T. Jaynes"]
+ categories: ["Quantum Mechanics & Advanced Physics"]
+ tags: ["Poincaré recurrence", "statistical mechanics", "ergodic theory", "almost-periodic functions", "thermodynamics", "irreversible processes", "quantum theory"]
+ ---
++
+ ## INTRODUCTION
+ One of the most serious objections[^1][^2][^3] to the ergodic approach in
+ statistical mechanics is the fact that, even if the equality of time
+@@ -59,6 +60,7 @@ analog of recurrence in phase space will be taken as a recurrence of the
+ expectation values of all observables. The problem then reduces to a
+ transcription of known results in the theory of almost-periodic
+ functions.[^8]
++
+ ## ALMOST-PERIODIC FUNCTIONS
+ A set of real numbers $\{\tau_i\}$ is called relatively dense if there
+ exists a number $T$ such that every interval $t < \tau < t + T$ of length
+file update:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index ed01a3b7c99ab0e545b29b783e89a8d69c6c06b9..320cbe473a7215b5dc777ed234c08ec355060339
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -294,6 +294,7 @@
+ measure temperature and heat, they must, according to the operational
+ view of physics, be the only ones involved in the corresponding
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+ correctly which one of a set of thermometers, showing different
+ readings, will not exchange appreciable energy with it if brought into
+@@ -400,6 +401,7 @@
+ possible stationary states correspond to a greater density of matter
+ along the bottom portion of the container. Thus the problem of
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+ same time retain the assumption of realism, the fact that statistical
+ mechanics is successful carries far-reaching implications which are
+
+codex
+Edits applied to [content/papers/poincare.recursion.md](/home/dave/Projects/jaynes-archive/content/papers/poincare.recursion.md).
+
+Summary of changes:
+- Added one blank-line paragraph break in **EXPERIMENTAL TEMPERATURE AND ENTROPY** between the italicized sentence ending `...corresponding concepts.*` and the next paragraph starting `We may say...`.
+- Added one blank-line paragraph break in **B. Condensation** between `...rather than statistics.` and the next paragraph starting `We see that...`.
+
+Self-check:
+- Paragraph boundaries are blank-line separated where those two intended breaks were missing.
+- Equation references remain resolved and consistent (`(2.1)`, `(2.2)`, `(2.3)`, `(3.1)`, `(3.2)`, `(3.3)`, `(4.1)`, `(4.2)` all have corresponding tagged display equations).
+- No paper content, meaning, or math expressions were changed.
+file update:
+diff --git a/content/papers/poincare.recursion.md b/content/papers/poincare.recursion.md
+index ed01a3b7c99ab0e545b29b783e89a8d69c6c06b9..320cbe473a7215b5dc777ed234c08ec355060339
+--- a/content/papers/poincare.recursion.md
++++ b/content/papers/poincare.recursion.md
+@@ -294,6 +294,7 @@
+ measure temperature and heat, they must, according to the operational
+ view of physics, be the only ones involved in the corresponding
+ concepts.*
++
+ We may say that the temperature of a system is known if we can predict
+ correctly which one of a set of thermometers, showing different
+ readings, will not exchange appreciable energy with it if brought into
+@@ -400,6 +401,7 @@
+ possible stationary states correspond to a greater density of matter
+ along the bottom portion of the container. Thus the problem of
+ condensation becomes primarily one of physics rather than statistics.
++
+ We see that if we abandon the attempt to utilize ergodicity, and at the
+ same time retain the assumption of realism, the fact that statistical
+ mechanics is successful carries far-reaching implications which are
+
+tokens used
+21,497
+

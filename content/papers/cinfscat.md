@@ -32,19 +32,21 @@ adding a new constraint.
 Gibbs (1875)[^1] gave two relations connecting neighboring thermal
 equilibrium states. The linear one is the familiar
 $$
-T\delta S - \delta U - P\delta V + \sum \mu_i \delta n_i = 0
+T\delta S - \delta U - P\delta V + \sum \mu_i \delta n_i = 0 \tag{1}
 $$
 where we use the conventional symbols for temperature, entropy, energy,
 pressure, volume, chemical potentials, and mole numbers respectively.
 This "Gibbs relation" is in constant use in chemical thermodynamics.
 The less familiar quadratic relation (loc cit, Eq. 171):
 $$
-\delta T\delta S - \delta P\delta V + \sum \delta \mu_i \delta n_i \ge 0
+\delta T\delta S - \delta P\delta V + \sum \delta \mu_i \delta n_i \ge 0 \tag{2}
 $$
 expresses a basic convexity property, from which Gibbs derived all his
 conditions for stability. But this convexity may fail at certain
 critical points, and then we have some kind of "catastrophe" -- phase
-transition, bifurcation, or other instability.[^1][^dag] These relations were
+transition, bifurcation, or other instability.[^1][^dag]
+
+These relations were
 retained implicitly in Gibbs' final work, *Statistical Mechanics*
 (1902)[^2]; but the work was left unfinished and they were not emphasized.
 Few readers since then have been aware that the Gibbs "canonical
@@ -161,14 +163,14 @@ A small change in the problem might involve independent changes in the
 possible values $\{A_i\}$ and in the assigned probabilities $\{p_i\}$. The
 change in expectation is then
 $$
-\delta \langle A \rangle = \sum_{i} [p_i \delta A_i + \delta p_i A_i]
+\delta \langle A \rangle = \sum_{i} [p_i \delta A_i + \delta p_i A_i] \tag{4}
 $$
 
 But we recognize the first sum as the expected change in A:
 $\langle \delta A \rangle = \sum p_i \delta A_i$. Therefore we can write
 (4) in the form
 $$
-\delta \langle A \rangle - \langle \delta A \rangle = \delta Q_A
+\delta \langle A \rangle - \langle \delta A \rangle = \delta Q_A \tag{5}
 $$
 where $\delta Q_A = \sum_i \delta p_i A_i$.
 
@@ -181,7 +183,7 @@ be $\delta E_i$ if it is in the i'th state; thus
 $\delta W = -\langle \delta E \rangle$ is the predicted work done by the
 system. Eq. (5) then has the form:
 $$
-\delta U + \delta W = \delta Q_E
+\delta U + \delta W = \delta Q_E \tag{6}
 $$
 and since U and W are unambiguously identified, $\delta Q_E$ is
 identified as representing heat.
@@ -274,13 +276,13 @@ applied" Hamiltonian $H_{ext}(t)$ which is added to $H_{tot}$ whenever
 the switch is turned on. Then we should solve the Schrödinger equation
 of motion
 $$
-i\hbar \dot{\rho} = [H_{tot} + H_{ext}(t), \rho(t)]
+i\hbar \dot{\rho} = [H_{tot} + H_{ext}(t), \rho(t)] \tag{8}
 $$
 with an initial density matrix $\rho(0)$ given, if the water is initially in
 thermal equilibrium, by a canonical distribution at the initial water
 temperature $T_i$:
 $$
-\rho(0) = Z^{-1} \exp(-H_{tot}/kT_i)
+\rho(0) = Z^{-1} \exp(-H_{tot}/kT_i) \tag{9}
 $$
 where $Z = \text{Tr} \exp(-H_{tot}/kT_i)$ is inserted for normalization,
 $\text{Tr}(\rho) = 1$.
@@ -289,7 +291,7 @@ One would expect, naively, that the solution of (8) after we turn off
 the switch should tend to a final density matrix that is again
 canonical:
 $$
-\rho(t) \to \rho_c = Z_f^{-1} \exp(-H_{tot}/kT_f)
+\rho(t) \to \rho_c = Z_f^{-1} \exp(-H_{tot}/kT_f) \tag{10}
 $$
 representing the final higher temperature $T_f$ of the water. Indeed,
 many authors state this as if they were quite sure that it must be true.
@@ -392,6 +394,10 @@ quantum states in whatever ensemble we may have before us, however
 defined. In the MAXENT principle, $S_I$ is the thing we maximize to
 define our initial density matrix.
 
+$$
+S_I = -k\text{Tr}(\rho \log \rho) \tag{11}
+$$
+
 On the other hand, the phenomenological entropy $S_E$ of the
 experimenter is by construction a function $S_E(P, T, M, \dots)$ of the
 experimentally observed macroscopic quantities $(P, T, M, \dots)$. The
@@ -476,7 +482,7 @@ $$
 Therefore, the ratio of the number of states in the two density matrices
 is about
 $$
-W_f/W_i = \exp[(S_f - S_i)/k] = \exp(6.5 \times 10^{25}).
+ W_f/W_i = \exp[(S_f - S_i)/k] = \exp(6.5 \times 10^{25}). \tag{13}
 $$
 By
 contrast, the number of microseconds in the age of the universe is
@@ -633,7 +639,7 @@ So we have the rule: when a small macroscopic source $\delta Q_A$
 operates and thereby affects any other quantity B internally, the
 predicted change in B is
 $$
-\delta \langle B \rangle = \frac{K_{BA}}{K_{AA}} \delta Q_A
+\delta \langle B \rangle = \frac{K_{BA}}{K_{AA}} \delta Q_A \tag{15}
 $$
 This
 agrees with a more rigorous perturbation treatment of canonical
@@ -646,7 +652,7 @@ number of physical quantities $(A_1 \dots A_m)$ and associated Lagrange
 multipliers, or "potentials" $(\lambda_1 \dots \lambda_m)$. For brevity,
 write their inner product as
 $$
-\lambda \cdot A = \sum_{k=1}^m \lambda_k A_k
+\lambda \cdot A = \sum_{k=1}^m \lambda_k A_k \tag{16}
 $$
 As written, this form
 includes all those treated by Gibbs. But now these quantities might
@@ -657,8 +663,8 @@ The covariance of two quantities A, B is a function of whatever
 parameters are in A, B, so we may have a space-time covariance function
 $K_{AB}(x, t; x^\prime, t^\prime)$ which now begins to resemble a Green's function
 of physics. With such space-time dependences, the partition function and
-entropy functions of Gibbs become promoted to functionals (Jaynes, 1978[^14];
-Jaynes, 1980[^3]), and the MAXENT formalism strongly resembles that of quantum field
+entropy functions of Gibbs become promoted to functionals (Jaynes (1978)[^14];
+Jaynes (1980)[^3]), and the MAXENT formalism strongly resembles that of quantum field
 theory. But for present simpler purposes we may accomplish nearly the
 same thing while retaining a Gibbs-like form (16) of our equations, by
 defining our physical quantities to be localized to small space-time
@@ -679,7 +685,7 @@ $$
 and the potentials $\lambda_k$ are determined from the experimenter's data
 $(\langle A^\prime_1 \dots A^\prime_m \rangle)$ by the m simultaneous equations
 $$
-A^\prime_k = \langle A_k \rangle = -\frac{\partial}{\partial \lambda_k} \log Z, \quad 1 \le k \le m.
+A^\prime_k = \langle A_k \rangle = -\frac{\partial}{\partial \lambda_k} \log Z, \quad 1 \le k \le m. \tag{20}
 $$
 
 These relations merely summarize the standard MAXENT formalism, still
@@ -692,7 +698,7 @@ $$
 \begin{gathered}
 \delta S = \lambda \cdot [\delta \langle A \rangle - \langle \delta A \rangle] = \lambda \cdot \delta Q \\\\
 \delta \lambda \cdot \delta \langle A \rangle \le 0.
-\end{gathered}
+\end{gathered} \tag{22}
 $$
 ## MEANING OF THE GIBBS CONVEXITY
 To see the meaning of (22), suppose that our original MAXENT ensemble is
@@ -710,7 +716,7 @@ $$
 \begin{aligned}
 \delta \langle A \rangle &= \frac{\partial \langle A \rangle}{\partial \lambda_a} \delta \lambda_a + \frac{\partial \langle A \rangle}{\partial \lambda_b} \delta \lambda_b, \\\\
 \delta \langle B \rangle &= \frac{\partial \langle B \rangle}{\partial \lambda_a} \delta \lambda_a + \frac{\partial \langle B \rangle}{\partial \lambda_b} \delta \lambda_b,
-\end{aligned}
+\end{aligned} \tag{23}
 $$
 But by the general MAXENT reciprocity theorem these coefficients are just
 the covariances:
@@ -730,7 +736,7 @@ K_{BA} & K_{BB}
 \begin{pmatrix}
 \delta \lambda_a \\\\
 \delta \lambda_b
-\end{pmatrix}
+\end{pmatrix} \tag{25}
 $$
 
 Now if we substitute this into the Gibbs convexity relation (22), it
@@ -765,7 +771,7 @@ $$
 $$
 or
 $$
-\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A
+\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A \tag{27}
 $$
 which is identical with the prediction rule (15) that we reasoned out in an
 entirely different way!
@@ -804,7 +810,7 @@ K_{CA} & K_{CB} & K_{CC}
 \delta\lambda_a \\\\
 \delta\lambda_b \\\\
 \delta\lambda_c
-\end{pmatrix}
+\end{pmatrix} \tag{28}
 $$
 
 Now as soon as we recognize that these infinitesimal changes are related
@@ -822,7 +828,7 @@ readjust to this (i.e., in the electrical analogy, ports $B$ and $C$ are
 short-circuited, offering no resistance to a current flow), we have by the
 above principles
 $$
-\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A \quad \delta\langle C\rangle = (K_{CA}/K_{AA})\delta Q_A
+\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A \quad \delta\langle C\rangle = (K_{CA}/K_{AA})\delta Q_A \tag{29}
 $$
 amounting to two independent applications of our rule.
 
@@ -863,7 +869,7 @@ left free to readjust, so the predicted change in $B$ due to the source
 $\delta Q_A$ is now
 
 $$
-\delta\langle B\rangle = \frac{K^{\prime}_{BA}}{K^{\prime}_{AA}}\delta Q_A
+\delta\langle B\rangle = \frac{K^{\prime}_{BA}}{K^{\prime}_{AA}}\delta Q_A \tag{33}
 $$
 
 The difference between (33) and (27) represents inferential scattering; the
@@ -880,12 +886,12 @@ $$
 Then we can write (33) as
 
 $$
-\delta\langle B\rangle = \left[ \frac{K_{BA}}{K_{AA}} - \frac{K_{BC}}{K_{CC}} \frac{K_{CA}}{K_{AA}} \right] \delta Q^{\prime}_A
+\delta\langle B\rangle = \left[ \frac{K_{BA}}{K_{AA}} - \frac{K_{BC}}{K_{CC}} \frac{K_{CA}}{K_{AA}} \right] \delta Q^{\prime}_A \tag{35}
 $$
 where
 
 $$
-\delta Q^{\prime}_A \equiv \frac{\delta Q_A}{(1 - R_{AC}^2)}
+\delta Q^{\prime}_A \equiv \frac{\delta Q_A}{(1 - R_{AC}^2)} \tag{36}
 $$
 
 is a "renormalized source strength", whose significance will appear presently.
@@ -969,7 +975,7 @@ P(x,t) = \int dt^{\prime} \int d^3x^{\prime} G(x, t; x^{\prime}, t^{\prime})s(x^
 $$
 we see that the MAXENT prediction of the acoustic Green's function is
 $$
-G(x, t; x^{\prime}, t^{\prime}) = \langle \delta P(x, t)n(x^{\prime}, t^{\prime}) \rangle = \left(1/kT\right)\langle \delta P(x, t)\delta P(x^{\prime}, t^{\prime}) \rangle
+G(x, t; x^{\prime}, t^{\prime}) = \langle \delta P(x, t)n(x^{\prime}, t^{\prime}) \rangle = \left(1/kT\right)\langle \delta P(x, t)\delta P(x^{\prime}, t^{\prime}) \rangle \tag{46}
 $$
 where now we are writing (in a notation perhaps slightly inconsistent with our
 previous usage) $\delta P = P - P_0$, the departure from equilibrium pressure.
@@ -989,11 +995,11 @@ density fields through $v = -\nabla\phi$, $\delta n = -n_0 \dot{\phi}/c^2$,
 where $c$ is the velocity of sound and $v$ the mass velocity of the fluid. The
 point source solution of the acoustical wave equation is spherically symmetric:
 $$
-\phi(r,t) = -\frac{\dot{s}(t - r/c)}{4\pi r}
+\phi(r,t) = -\frac{\dot{s}(t - r/c)}{4\pi r} \tag{47}
 $$
 and if the source operates as a short pulse, our $\delta Q_A$ is
 $$
-\delta Q_A = n_0 \delta s = n_0 \int \dot{s}(t^{\prime})dt^{\prime} = \int \dot{Q}_A dt^{\prime}.
+\delta Q_A = n_0 \delta s = n_0 \int \dot{s}(t^{\prime})dt^{\prime} = \int \dot{Q}_A dt^{\prime}. \tag{48}
 $$
 
 At this point it is easier mathematically and also more general to go into the
@@ -1055,7 +1061,7 @@ $$
 $$
 and so the scattering cross-section predicted by MAXENT is
 $$
-\sigma = \frac{\omega^4 V_C^2}{4\pi c^4} \propto \frac{V_C^2}{\lambda^4}
+\sigma = \frac{\omega^4 V_C^2}{4\pi c^4} \propto \frac{V_C^2}{\lambda^4} \tag{57}
 $$
 which is just Rayleigh's formula down to the last factor of $\pi$[^rayleigh]
 with the $\lambda^{-4}$ dependence which he used to explain the blue color of
@@ -1142,6 +1148,7 @@ interactions with the electromagnetic field, so in principle they could be
 determined only after summing an infinite perturbation series. But this is not
 the case here; as Schwinger puts it:
 > "It should be emphasized that the iterated solution is a classification of processes in terms of increasing degree of complexity. It is not a perturbation expansion. The physical electron mass $m_e$ and the physical electron charge $e$, which are identified originally under specific physical circumstances, will never change their significance when the class of phenomena under examination is enlarged. Later terms in this series do not contain modifications of earlier ones."
+
 Schwinger's source concept enables him to define the symbols $e, m$ as the
 experimental charge and mass from the start, with great simplification of the
 logic and great pragmatic advantages in calculation. Our thermal source concept

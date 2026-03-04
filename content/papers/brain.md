@@ -236,20 +236,20 @@ $$
 (ABD|C) = F [(AB|DC), (D|C)] = F \{F [(A|BDC), (B|DC)], (D|C)\}.
 $$
 
- But
+But
 if we first regard $BD$ as a single proposition, (2-4) leads to
 $$
 (ABD|C) = F [(A|BDC), (BD|C)] = F [(A|BDC), F [(B|DC), (D|C)]]
 $$
 
- Thus,
+Thus,
 if (2-4) is to be consistent, $F(x, y)$ must satisfy the functional
 equation 
 $$
 F [F (x,y), z] = F [x, F (y, z)]. \tag{2-6}
 $$
 
- Conversely, it
+Conversely, it
 is easily shown by induction that if (2-6) is satisfied, then (2-4) is
 automatically consistent for all possible ways of finding any number of
 joint plausibilities, such as $(ABCDEFG)$. This functional equation
@@ -258,7 +258,7 @@ given also by Cox,[^3] is
 $$
 p[F(x,y)] = p(x) p(y), \tag{2-7}
 $$
- where
+where
 $p(x)$ is an arbitrary function. By (2-5) it must be a continuous
 monotonic function. Therefore our rule necessarily has the form
 $$
@@ -269,20 +269,20 @@ $$
 p(AB|C) = p(A|BC) p(B|C). \tag{2-8}
 $$
 
- The condition (2-3) above places
+The condition (2-3) above places
 further restrictions on the function $p(x)$. Assume first that $A$ is
 certain, given $C$. Then $(AB|C)=(B|C)$, and $(A|BC) = (A|C) = (A|A)$.
 Equation (2-8) then reduces to 
 $$
 p(B|C) = p(A|A) p(B|C)
 $$
- and this must
+and this must
 hold for all $(B|C)$. Therefore,
 $$
 \text{\textit{Certainty must be represented by $p=1$.}} \tag{2-9}
 $$
 
- If
+If
 for some particular degree of plausibility $(A|BC)$, the function
 $p(A|BC)$ becomes zero or infinite, then (2-8) says that $(B|C)$ becomes
 irrelevant to $(AB|C)$. This contradicts common sense unless $(A|BC)$
@@ -297,7 +297,7 @@ $(AB|C) = (A|BC) = (A|C)$, and (2-8) reduces to
 $$
 p(A|C) = p(A|C) p(B|C)
 $$
- which must hold for all $(B|C)$. There are
+which must hold for all $(B|C)$. There are
 three choices for $p(A|C)$ which satisfy this; $p(A|C) = 0$, or
 $+\infty$, or $-\infty$. But by (2-9) and (2-10) the choice $-\infty$
 must be excluded, for any continuous monotonic function which has the
@@ -317,7 +317,7 @@ b &= \text{``B is false''}
 \end{aligned}
 $$
 
- We could equally well say that $A$ = "a is false," etc.
+We could equally well say that $A$ = "a is false," etc.
 
 Clearly, $(A+a)$ is always true, and $Aa$ is always false.
 
@@ -332,7 +332,7 @@ Now there must be some functional relationship of the form
 $$
 [a|B] = S[A|B] \tag{2-12}
 $$
- where by (2-1), $S(x)$ must be a
+where by (2-1), $S(x)$ must be a
 monotonic, decreasing function. Since the propositions $a$ and $A$ are
 reciprocally related, we must have also 
 $$
@@ -365,7 +365,7 @@ $$
 \end{aligned}
 $$
 
- Substituting these into (2-15) and (2-16), we see that
+Substituting these into (2-15) and (2-16), we see that
 $S(x)$ must also satisfy the functional equation
 $$
 x S \left[ \frac{S(y)}{x} \right] = y S \left[ \frac{S(x)}{y} \right]. \tag{2-17}
@@ -382,7 +382,7 @@ $$
 [A|B]^m + [a|B]^m = 1. \tag{2-19}
 $$
 
- Suppose we represent impossibility
+Suppose we represent impossibility
 by $p=0$. Then, from (2-19), $m$ must be chosen positive. However, use
 of different values for $m$ does not represent any freedom of choice
 that we did not already have in the arbitrariness of the function
@@ -394,12 +394,12 @@ $$
 p_2(x) = [p_1(x)]^m.
 $$
 
- Therefore
+Therefore
 if we write (2-19) in the form 
 $$
 p(A|B) + p(a|B) = 1 \tag{2-20}
 $$
- in
+in
 which $p(x)$ is understood to be an arbitrary monotonic function, Eq.
 (2-20) is just as general as is (2-19).
 
@@ -412,7 +412,7 @@ impossibility. The equation
 $$
 \frac{1}{p(A|B)} + \frac{1}{p(a|B)} = 1 \tag{2-21}
 $$
- is also just as
+is also just as
 general as (2-19).
 
 An entire consistent theory of plausible reasoning can be based on
@@ -421,7 +421,7 @@ for if $p_1(x)$ satisfies (2-21), the equally good function
 $$
 p_2(x) = \frac{1}{p_1(x)}
 $$
- satisfies (2-20), and says exactly the
+satisfies (2-20), and says exactly the
 same thing. If we agree to use only functions of type (2-20), we are not
 excluding any possibility of representation, but only removing a certain
 redundancy in the mathematics.
@@ -437,7 +437,7 @@ p(A+B|C) &= 1 - p(ab|C) = 1 - p(a|bC)p(b|C) \\\\
 &= p(B|C) + p(A|C)[1-p(B|AC)]
 \end{aligned}
 $$
- or, 
+or,
 $$
 p(A+B|C) = p(A|C) + p(B|C) - p(AB|C). \tag{2-22}
 $$
@@ -462,7 +462,7 @@ $$
 p(A_1 + \dots + A_n|C) = \sum_{k=1}^n p(A_k|C). \tag{2-23}
 $$
 
- If now
+If now
 the $A_k$ are all equally likely on data $C$ (this means only that data
 $C$ gives us no reason to expect that one of them is more valid than the
 others), and one of them must be true on data $C$, the $p(A_k|C)$ are
@@ -471,7 +471,7 @@ $$
 p(A_k|C) = \frac{1}{n}. \tag{2-24}
 $$
 
- This is Laplace's "Principle of
+This is Laplace's "Principle of
 Insufficient Reason." No matter what function $p(x)$ we choose, there is
 no escape from the result (2-24). Therefore, rather than saying that $p$
 is an arbitrary monotonic function of $(A|C)$, it is more to the point
@@ -580,6 +580,7 @@ theory has additional information of some sort, relevant to the question
 being asked, but not actually incorporated into the equations.* Then his
 common sense utilizes this information unconsciously and of necessity
 comes to a different conclusion than that provided by the theory.
+
 Here is one of Polya's examples.[^11] A boy is ten years old today.
 According to Laplace's law of succession, he has the probability
 $\frac{11}{12}$ of living one more year. His grandfather is 70.
@@ -820,7 +821,7 @@ with the $\lambda_r$ determined by
 $$
 \lambda_0 = \log Z, \tag{5-4}
 $$
- and
+and
 $$
 \langle f_r(x) \rangle = -\frac{\partial}{\partial \lambda_r} \log Z, \quad 1 \le r \le k. \tag{5-5}
 $$
@@ -841,7 +842,7 @@ never under control or observation; there will be perhaps
 $$
 10^{10^{20}} = \left(10^{10^{10}}\right)^{10^{10}}
 $$
- different quantum
+different quantum
 states compatible with a given set of experimental conditions. Although
 the microscopic state is changing rapidly, the time required for any
 reasonably complete "sampling" of so many states is still rather long;
@@ -929,7 +930,7 @@ $$
 (N_n|A_p) = \binom{N}{n} p^n (1-p)^{N-n} \tag{6-3}
 $$
 
- As a function of
+As a function of
 $n$, this attains a maximum value when $n$ is within one unit of $Np$,
 so that the most probable frequency is substantially equal to the
 probability.
@@ -938,10 +939,10 @@ Note that the phrase "in each case," in (6-1) is essential. To
 demonstrate this, we look more closely at the derivation of (6-3) from
 our basic rules. Define the proposition
 $$
-B_n = \text{``A is true in the n'	ext{-th} trial.''} \tag{6-4}
+B_n = \text{``A is true in the n\text{-th} trial.''} \tag{6-4}
 $$
 
- Now
+Now
 according to (2-25) we have 
 $$
 (B_2 B_1|A_p) = (B_2|B_1 A_p)(B_1|A_p)
@@ -950,7 +951,7 @@ which reduces to
 $$
 (B_2|A_p)(B_1|A_p) = p^2
 $$
- only if
+only if
 $(B_2|B_1 A_p) = (B_2|A_p)$; i.e. the probability of $A$ at the second
 trial which is involved in (6-3) is that based on $A_p$ and knowledge of
 the result of the first trial. It is equal to $p$, as assumed in (6-3),
@@ -978,7 +979,7 @@ $(B_2|B_1 C_p)=1$, so that
 $$
 (B_2 B_1|C_p) = (B_2|B_1 C_p)(B_1|C_p) = p
 $$
- and by repeated
+and by repeated
 applications of (2-25), we find that the only sequences of $N$ throws
 which do not have probability zero, correspond to 
 $$
@@ -987,11 +988,11 @@ $$
 (b_n \dots b_2 b_1|C_p) &= 1-p
 \end{aligned}
 $$
- so that in place of (6-3) we have
+so that in place of (6-3) we have
 $$
 (N_n|C_p) = p \delta(n,N) + (1-p)\delta(n,0), \tag{6-6}
 $$
- which is
+which is
 exactly what our common sense told us without any calculation.
 
 This shows that *before we can infer any definite frequency from a
@@ -1014,7 +1015,7 @@ $$
 (D_f|A_p) = \delta(f-p). \tag{6-8}
 $$
 
- Equation (6-8) is loaded with
+Equation (6-8) is loaded with
 logical booby-traps, which we must hasten to point out. Note first that
 it by no means says that the relative frequency $f=p$ *must* occur. It
 says only that, on the basis of the information which led to the
@@ -1038,10 +1039,11 @@ $(p-\epsilon) < f < (p+\epsilon)$ is
 $$
 \int_{p-\epsilon}^{p+\epsilon} (D_f|A_p) df = 1; \tag{6-9}
 $$
- i.e., $f$
+i.e., $f$
 was *certain*, on data $A_p$, to lie in this interval. How could we have
 been certain of *anything* on the basis of only partial information? How
 could we have been certain that a limiting frequency even exists?
+
 Well, Eq (6-8) is actually a logical contradiction, but a useful one. We
 have asked the theory a foolish question, and it has given us a foolish
 answer. Equation (6-8) refers only to an infinite number of trials. If
@@ -1066,11 +1068,11 @@ $$
 (E|D_f) = (E|A_p), \quad f=p.
 $$
 
- In particular,
+In particular,
 $$
 (N_n|D_f) = \binom{N}{n} f^n (1-f)^{N-n} \tag{6-10}
 $$
- which is the
+which is the
 form used in the frequency theory.
 
 The inverse problem, of inferring a probability from an observed
@@ -1100,7 +1102,7 @@ $$
 (D_f|N_n) = (D_f|X) \frac{(N_n|D_f)}{(N_n|X)}. \tag{6-12}
 $$
 
- The
+The
 a-priori probabilities $(D_f|X)$ and $(N_n|X)$ must now say nothing
 about the values of $f$ or $n$. The consistent way of saying this is,
 from the principle of maximum entropy,

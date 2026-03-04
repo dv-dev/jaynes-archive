@@ -37,7 +37,7 @@ $$E_z = \begin{cases}
     B J_0(k_1 r) \exp [-(k_1^2 - k^2)^{1/2}z], & z > \frac{d}{2} \\\\
     A J_0(k_1 r) \cos [(\epsilon k^2 - k_1^2)^{1/2}z], & |z| < \frac{d}{2} \\\\
     B J_0(k_1 r) \exp [+(k_1^2 - k^2)^{1/2}z], & z < -\frac{d}{2}
-\end{cases}$$
+\end{cases}\tag{1}$$
 In (1),
 $$k_1 = \frac{2.405}{a} = \frac{\omega_c}{c}, \quad k = \frac{\omega}{c}$$
 where $\omega_c$ and $\omega$ are, respectively, the TM$_{01}$ cutoff
@@ -45,7 +45,7 @@ frequency and an operating frequency to be determined presently.
 
 Matching solutions across the dielectric-air interfaces, we obtain the
 condition
-$$\tan \left( \epsilon k^2 - k_1^2 \right)^{1/2} \frac{d}{2} = \epsilon \left[ \frac{k_1^2 - k^2}{\epsilon k^2 - k_1^2} \right]^{1/2}$$
+$$\tan \left( \epsilon k^2 - k_1^2 \right)^{1/2} \frac{d}{2} = \epsilon \left[ \frac{k_1^2 - k^2}{\epsilon k^2 - k_1^2} \right]^{1/2}\tag{2}$$
 
 For any $\epsilon > 1$, (2) has at least one solution for $k$ with
 $k < k_1$. If $(\epsilon - 1)^{1/2}k_1d < 2\pi$, only one such solution
@@ -55,13 +55,13 @@ from (2) is very close to $k_1$, and it will be a good approximation to
 set
 $$(\epsilon k^2 - k_1^2)^{1/2}d \approx (\epsilon - 1)^{1/2} k_1 d \ll 1,$$
 so that (2) reduces to the following formula for $\omega$:
-$$\omega^2 \approx \omega_c^2 \left[ 1 - \frac{\epsilon}{2} \left( \frac{k_1 d}{2} \right)^2 \right].$$
+$$\omega^2 \approx \omega_c^2 \left[ 1 - \frac{\epsilon}{2} \left( \frac{k_1 d}{2} \right)^2 \right].\tag{3}$$
 The field derived from (1) thus represents a resonant mode with resonant
 frequency slightly below the cutoff frequency of the TM$_{01}$ mode, in
 which the fields are localized to the vicinity of the dielectric disk.
 The electric field configuration is sketched in Fig. 1. The longitudinal
 extension of this ghost mode is described by the "$1/e$ distance"
-$$x_0 = \frac{1}{(k_1^2 - k^2)^{1/2}} = \frac{\lambda_c}{2\pi (1 - \omega^2/\omega_c^2)^{1/2}}$$
+$$x_0 = \frac{1}{(k_1^2 - k^2)^{1/2}} = \frac{\lambda_c}{2\pi (1 - \omega^2/\omega_c^2)^{1/2}}\tag{4}$$
 where $\lambda_c = 2\pi/k_1 = 2.6a$ is the TM$_{01}$ cutoff wavelength.
 Numerical values of $(x_0/\lambda_c)$ are indicated in Fig. 2. It is
 seen that the ghost is surprisingly well localized; for example, in the
@@ -131,7 +131,7 @@ resonant frequency slightly lower than $\omega_c$. Two examples are
 given in Fig. 4, in which only the electric field lines are sketched.
 The Q of a ghost mode due to a small imperfection as in Fig. 4 is given
 to order of magnitude by
-$$Q \approx \frac{a}{\delta} = \frac{\text{waveguide radius}}{\text{skin depth}}$$
+$$Q \approx \frac{a}{\delta} = \frac{\text{waveguide radius}}{\text{skin depth}}\tag{5}$$
 from which it is seen that values in excess of $10^4$ are easily
 attained. For the ghost of any mode other than the lowest one, there
 also will be a "loaded Q" involving the strength of coupling to
@@ -139,25 +139,25 @@ propagating modes.
 
 Crude estimates of the frequency and longitudinal extension of these
 ghosts, obtained from (4) and the Slater perturbation formula, are
-$$\omega^2 \approx \omega_c^2 \left[ 1 - \left( \frac{\pi \alpha \delta V}{A \lambda_c} \right)^2 \right],$$
-$$x_0 \approx \frac{A \lambda_c^2}{2\pi^2 \alpha \delta V}.$$ 
+$$\omega^2 \approx \omega_c^2 \left[ 1 - \left( \frac{\pi \alpha \delta V}{A \lambda_c} \right)^2 \right],\tag{6}$$
+$$x_0 \approx \frac{A \lambda_c^2}{2\pi^2 \alpha \delta V}.\tag{7}$$
 
 Here A is the cross-sectional area of the waveguide, $\delta V$ is the
 volume added or removed by the imperfection, and $\alpha$ a
 dimensionless quantity of the order of magnitude unity, given by
-$$\alpha = \frac{|\mu_0 H^2 - \epsilon_0 E^2|}{\langle \mu_0 H^2 + \epsilon_0 E^2 \rangle_{Av}}$$
+$$\alpha = \frac{|\mu_0 H^2 - \epsilon_0 E^2|}{\langle \mu_0 H^2 + \epsilon_0 E^2 \rangle_{Av}}\tag{8}$$
 where the fields in the numerator are values near the imperfection,
 while the denominator is an average over a waveguide cross section
 passing through the imperfection [^4].
 
 From these formulas several general conclusions may be drawn. If the
 imperfection is so small that
-$$\delta V < \frac{A \lambda_c}{100}$$
+$$\delta V < \frac{A \lambda_c}{100}\tag{9}$$
 then one may expect the ghost to be separated from the cutoff frequency
 by less than the bandwidth $\omega_c/Q$, so that it does not appear as a
 well-resolved resonance, but only a slight broadening of the cutoff
 region. If, on the other hand,
-$$\delta V > \frac{A \lambda_c}{100}$$
+$$\delta V > \frac{A \lambda_c}{100}\tag{10}$$
 the ghost will generally appear as a distinct resonance. The
 longitudinal extension $x_0$ of any well-resolved ghost will, from Fig.
 2, never be more than a few times $\lambda_c$. The $\delta V$ required
@@ -166,6 +166,7 @@ machining errors, inadvertent hammer blows, etc., do not cause
 separation of ghosts from the waveguide modes. However, installation of
 almost any kind of apparatus inside a waveguide will cause them to
 appear, as may the presence of any twist or bend.
+
 # Periodic Structures
 What was said above for waveguides applies equally well to any periodic
 structure, such as those used in linear accelerators, traveling-wave

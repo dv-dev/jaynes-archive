@@ -1,13 +1,15 @@
 === STDOUT ===
-Changed `content/papers/craddis.md` with minimal structural QA edits only:
+Edits applied to [content/papers/craddis.md](/home/dave/Projects/jaynes-archive/content/papers/craddis.md).
 
-- Normalized front matter `author` to valid YAML list format.
-- Normalized the inline citation `Bretthorst (1988)` to footnote citation format:
-  - `Bretthorst[^bretthorst1988]`
-  - added `[^bretthorst1988]: Bretthorst (1988).`
-- Removed the unreferenced trailing footnote `[^100]` (extraneous metadata-style note).
+Summary of changes:
+- Added minimal display-equation numbering markup (`\tag{...}`) so every in-text equation reference `(1-1)`, `(2-*)`, `(3-*)` now maps to a discoverable numbered display equation.
+- Corrected one mis-tag during QA (`3-3` in the aspect-angle section) and filled missing tags for referenced equations (`2-21`, `2-35`, `2-55`, `2-64`, `2-65`).
+- Added a few missing blank-line paragraph breaks where prose paragraphs were clearly fused in the introduction (structural readability only).
 
-No math/LaTeX content was modified. No abstract duplication was found in body text, so no abstract removal was needed.
+Self-check results:
+- Intended paragraph breaks are blank-line separated where adjusted.
+- No unresolved in-text Eq. references remain (reference-to-tag check passed).
+- No paper meaning/content or equation content was changed; only structural formatting and equation-number markup were adjusted.
 
 
 === STDERR ===
@@ -20,21 +22,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb997-7b30-7c32-8a2f-a6c669b19c98
+session id: 019cb9ea-563c-7723-8705-43ad6c95ef5c
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/craddis.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -46,13 +60,16 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’m going to inspect `content/papers/craddis.md` for structural QA issues only (paragraphing, tables, citations, duplicate abstract, and stray metadata), then make minimal edits directly in that file.
+I’m going to inspect `content/papers/craddis.md` for structure, equation-reference numbering, duplicate abstract/body metadata, and citation formatting, then apply only minimal structural edits in that file.
 exec
-/bin/bash -lc "sed -n '1,260p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '1,260p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
 ---
 title: "Theory of Radar Target Discrimination"
 year: 1991
@@ -68,13 +85,13 @@ abstract: >
   quite different from those that have been tried in the past, and give
   elementary intuitive explanations of why this is so.
 author:
-["E.T. Jaynes"]
+  - "E.T. Jaynes"
 ---
 # INTRODUCTION
 If radar systems could distinguish different targets from each other,
 there would be big advantages in air safety. Airport traffic controllers
 codex
-I’ve loaded the first section and now I’ll scan the remainder to catch duplicate abstract text, malformed tables, and citation patterns before editing.
+I’ve reviewed the first section and found multiple single-newline paragraph joins and unnumbered display equations despite many in-text Eq. references. I’ll scan the rest of the file now to map all equation references before editing.
 exec
 /bin/bash -lc "sed -n '261,520p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 have perceived this intuitively. Probability theory tells us, in (2-14),
@@ -97,8 +114,10 @@ The term $n \cdot (y_A - y_B)$ represents an unavoidable confusion due
 to noise. Eqs. (2-17) tell us that if $n(t)$ happens to resemble
 $(y_A - y_B)$, this term will be positive and it will incline us in the
 direction of favoring A. If $n(t)$ happens to have the opposite sign, so
+codex
+I’m continuing through the remaining sections to catch all Eq. references and any citation/metadata anomalies before I patch; after this pass I’ll make one minimal structural cleanup edit.
 exec
-/bin/bash -lc "sed -n '521,780p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '521,820p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 $$\int n^2(t) dt = \frac{\pi}{\Omega} \sum_j n_j^2.$$ Note that (2-48)
 and (2-49) are not merely discrete sum approximations to the integrals; 
 for band-limited functions they are exact.
@@ -119,190 +138,723 @@ In other words, our definition (2-50) plus the band-limited condition
 implies white noise in the sense that the values of $n(t)$ separated by
 Nyquist intervals are independent. The noise is as "white" as it can
 be in view of the band limiting.
-exec
-/bin/bash -lc "sed -n '781,1040p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-$p(D|A\alpha\sigma)$, weighted according to the prior probability
-$p(\alpha|A\sigma)$. Therefore the odds ratio for comparing target A
-with target B still takes the form (2-12):
-$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{\int p(D|A\alpha\sigma)p(\alpha|A\sigma)d\alpha}{\int p(D|B\beta\sigma)p(\beta|B\sigma)d\beta}$$
-
-Thus probability theory tells us, very sensibly, that if $\alpha$ is
-unknown, then the best we can do is to "hedge our bets" by making
-allowance for all possible values that it might have, taking into
-account any information about how likely the different possible values
-are. The calculation could be organized differently by applying the sum
-rule and product rule directly to the final probability $f(A|D\sigma)$:
-$$p(A|D\sigma) = \int p(A\alpha|D\sigma) d\alpha = \int p(A|D\alpha\sigma)p(\alpha|D\sigma)$$
-which is a weighted average, now using probabilities of $\alpha$
-conditional on the data. Then we apply the rule (3-3) with a different
-choice of propositions:
-$$p(A|D\alpha\sigma) = p(A|\alpha\sigma) \frac{p(D|A\alpha\sigma)}{p(D|\alpha\sigma)}$$
-
-Of course, the calculation via (3-3) -- (3-5) is entirely equivalent to
-the one using (3-6), (3-7), and we are free to choose whichever one is
-more convenient computationally. But let us view this another way. Suppose 
 codex
-I’ve identified a small, safe edit set: normalize the front matter `author` list formatting, convert the one inline author-year citation to a footnote citation, and remove an orphan/extraneous footnote definition at the end that isn’t referenced in the body. I’ll keep all paper text meaning and all math exactly unchanged.
+I’ve reached the aspect-angle section and confirmed many in-text references rely on visible numbering that currently isn’t rendered. I’ll finish the final chunk, then do a targeted pass to add equation tags and paragraph breaks without changing equation content.
+exec
+/bin/bash -lc "sed -n '821,1140p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+target range $R$, which is very accurately known from the echo time
+even when we have no prior information about it.
+3.  The data and prior information are not sufficient to determine
+$\alpha$ very well. Then the integrand of (3-5) remains broad, and
+we have no choice but to use the full integral formula. In the case
+of failure to know $\alpha$ is almost sure to cause a deterioration
+in our ability to resolve targets. Therefore it becomes critically
+important that we make use of every bit of prior information about
+$\alpha$ that we can acquire. This may be the case if $\alpha$ is
+the aspect angle of the target.
+
+Of course, everything we have said about $\alpha$ applies equally well
+to $\beta$.
+### What Happened to the Poles?
+Note that the effect of poles in the singularity expansion of the
+scattering, although not explicitly visible in the above, has been taken
+into account automatically by probability theory -- but in much greater
+generality than just poles. For if there is *any* feature of the
+likelihood $p(D|A\alpha\sigma)$ that does not depend on $\alpha$, then
+that feature will come through the averaging over $\alpha$ in (3-4)
+codex
+I’m now extracting all in-text equation references (`(1-1)`, `(2-54)`, etc.) so I can add only the minimum `\tag{...}` markup needed for those referenced equations.
+exec
+/bin/bash -lc "rg -o '\\([0-9]+-[0-9]+\\)' content/papers/craddis.md | sort | uniq -c" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+      2 (1-1)
+      1 (1-2)
+      2 (2-1)
+      2 (2-12)
+      1 (2-14)
+      5 (2-17)
+      3 (2-18)
+      1 (2-19)
+      2 (2-20)
+      2 (2-21)
+      1 (2-23)
+      2 (2-26)
+      1 (2-27)
+      4 (2-3)
+      1 (2-31)
+      1 (2-33)
+      1 (2-35)
+      5 (2-36)
+      1 (2-38)
+      1 (2-4)
+exec
+/bin/bash -lc "nl -ba content/papers/craddis.md | rg '\\"'$'"\\"'$'"'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+    52	form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime$$ where $r(t)$ is the "impulse
+    55	$$r(t) = 0 \quad \text{when} \quad t < 2d/c$$ where $d$ is the distance
+    78	$$r(t) = (\text{transmitter function}) \ast (\text{echo in space}) \ast (\text{receiver function}).$$ 
+    81	$$R(\omega) = A_T(\omega) E(\omega) A_R(\omega),$$ and the effects that
+   132	components: $$d(t) = y(t) + h(t) + n(t)$$
+   135	$$h(t) = \int r_H(t-t^\prime)f(t^\prime)dt^\prime$$ and $n(t)$ is noise. This always
+   172	$$y_A(t) = \int r_A(t-t^\prime)f(t^\prime)dt^\prime,$$ while if target B is present it is
+   173	$$y_B(t) = \int r_B(t-t^\prime)f(t^\prime)dt^\prime.$$ Then our data from a single pulse
+   174	will be $$d(t) = y_A(t) + n(t), \text{ if the target is A},$$
+   175	$$d(t) = y_B(t) + n(t), \text{ if the target is B}.$$ We shall take
+   179	$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int n^2(t)dt\right\}$$
+   193	$$p(D|A\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_A(t)]^2 dt\right\}$$
+   195	$$p(D|B\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_B(t)]^2 dt\right\}$$
+   201	$$p(A|D\sigma), \quad p(B|D\sigma).$$ Probability theory tells us how to
+   204	$$p(AD|\sigma) = p(A|\sigma) p(D|A\sigma) = p(D|\sigma)p(A|D\sigma)$$
+   207	$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)}$$ The
+   216	$$p(B|D\sigma) = p(B|\sigma) \frac{p(D|B\sigma)}{p(D|\sigma)}$$ Now in
+   219	$$p(A|\sigma) + p(B|\sigma) = 1,$$ and this is still true after getting
+   220	the data, so $$p(A|D\sigma) + p(B|D\sigma) = 1.$$
+   222	$$p(D|\sigma) = p(D|A\sigma) p(A|\sigma) + p(D|B\sigma)p(B|\sigma),$$
+codex
+I’m about to patch `content/papers/craddis.md` with two minimal classes of changes only: adding `\tag{...}` to the specific display equations referenced in prose, and inserting blank-line paragraph breaks where prose blocks were clearly fused.
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$y'"\\(t\\) = \\\\int r\\(t - t\\"'^'"\\\\prime\\)f\\(t\\"'^'"\\\\prime\\)dt\\"'^'"\\\\prime\\"'$'"\\"'$/'"\\"'$'"\\"'$y(t) = '"\\\\int r(t - t"'^'"\\\\prime)f(t"'^'"\\\\prime)dt"'^'"\\\\prime \\\\tag{1-1}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$r'"\\(t\\) = 0 \\\\quad \\\\text\\{when\\} \\\\quad t < 2d\\/c\\"'$'"\\"'$/'"\\"'$'"\\"'$r(t) = 0 '"\\\\quad \\\\text{when} \\\\quad t < 2d\\/c \\\\tag{1-2}\\"'$'"\\"'$/g; s/hold'"\\.\\nMore important/hold\\.\\n\\nMore important/g; s/currents at the actual transmitter and receiver terminals\\.\\nIt is much more convenient/currents at the actual transmitter and receiver terminals\\.\\n\\nIt is much more convenient/g; s/laboratory equipment\\.\\nOur reflection functions are then convolutions:/laboratory equipment\\.\\n\\nOur reflection functions are then convolutions:/g; s/carry all the information about the target that is in the echoes\\.\\nWe stress this point/carry all the information about the target that is in the echoes\\.\\n\\nWe stress this point/g; s/role the poles may play in the problem, beyond intuitive guesswork\\.\\nThe total data set/role the poles may play in the problem, beyond intuitive guesswork\\.\\n\\nThe total data set/g' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$y_A'"\\(t\\) = \\\\int r_A\\(t-t\\"'^'"\\\\prime\\)f\\(t\\"'^'"\\\\prime\\)dt\\"'^'"\\\\prime,\\"'$'"\\"'$/'"\\"'$'"\\"'$y_A(t) = '"\\\\int r_A(t-t"'^'"\\\\prime)f(t"'^'"\\\\prime)dt"'^'"\\\\prime, \\\\tag{2-1}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(n\\(t\\)\\|\\\\sigma\\) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac\\{1\\}\\{2\\\\sigma\\"'^2'"\\}\\\\int n\\"'^2'"\\(t\\)dt\\\\right\\\\\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(n(t)'"\\|\\\\sigma) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac{1}{2\\\\sigma"'^2}'"\\\\int n"'^2(t)dt'"\\\\right\\\\\\} \\\\tag{2-3}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(D\\|A\\\\sigma\\) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac\\{1\\}\\{2\\\\sigma\\"'^2'"\\}\\\\int \\[d\\(t\\) - y_A\\(t\\)\\]\\"'^2 dt'"\\\\right\\\\\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(D'"\\|A\\\\sigma) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac{1}{2\\\\sigma"'^2}'"\\\\int [d(t) - y_A(t)]"'^2 dt'"\\\\right\\\\\\} \\\\tag{2-4}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(A\\|D\\\\sigma\\) = p\\(A\\|\\\\sigma\\) \\\\frac\\{p\\(D\\|A\\\\sigma\\)\\}\\{p\\(D\\|\\\\sigma\\)\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(A'"\\|D\\\\sigma) = p(A\\|\\\\sigma) \\\\frac{p(D\\|A\\\\sigma)}{p(D\\|\\\\sigma)} \\\\tag{2-7}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(B\\|D\\\\sigma\\) = p\\(B\\|\\\\sigma\\) \\\\frac\\{p\\(D\\|B\\\\sigma\\)\\}\\{p\\(D\\|\\\\sigma\\)\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(B'"\\|D\\\\sigma) = p(B\\|\\\\sigma) \\\\frac{p(D\\|B\\\\sigma)}{p(D\\|\\\\sigma)} \\\\tag{2-9}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(A\\|\\\\sigma\\) \\+ p\\(B\\|\\\\sigma\\) = 1,\\"'$'"\\"'$/'"\\"'$'"\\"'$p(A'"\\|\\\\sigma) + p(B\\|\\\\sigma) = 1, \\\\tag{2-8}\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$'"\\\\frac\\{p\\(A\\|D\\\\sigma\\)\\}\\{p\\(B\\|D\\\\sigma\\)\\} = \\\\frac\\{p\\(A\\|\\\\sigma\\)\\}\\{p\\(B\\|\\\\sigma\\)\\} \\\\frac\\{p\\(D\\|A\\\\sigma\\)\\}\\{p\\(D\\|B\\\\sigma\\)\\},\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\frac{p(A\\|D\\\\sigma)}{p(B\\|D\\\\sigma)} = \\\\frac{p(A\\|\\\\sigma)}{p(B\\|\\\\sigma)} \\\\frac{p(D\\|A\\\\sigma)}{p(D\\|B\\\\sigma)} \\\\tag{2-12},\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$o'"\\(A\\|D\\\\sigma\\) = o\\(A\\|\\\\sigma\\) \\\\exp\\\\left\\\\\\{\\\\frac\\{1\\}\\{\\\\sigma\\"'^2'"\\}\\[d\\\\cdot\\(y_A - y_B\\) \\+ \\\\frac\\{1\\}\\{2\\}\\(y_B\\\\cdot y_B - y_A\\\\cdot y_A\\)\\]\\\\right\\\\\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$o(A'"\\|D\\\\sigma) = o(A\\|\\\\sigma) \\\\exp\\\\left\\\\\\{\\\\frac{1}{\\\\sigma"'^2}[d'"\\\\cdot(y_A - y_B) + \\\\frac{1}{2}(y_B\\\\cdot y_B - y_A\\\\cdot y_A)]\\\\right\\\\\\} \\\\tag{2-14}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\sigma\\"'^2 '"\\\\log o\\(A\\|D\\\\sigma\\) = n\\\\cdot \\(y_A - y_B\\) \\+ \\\\frac\\{1\\}\\{2\\}\\(y_A - y_B\\)\\\\cdot \\(y_A - y_B\\)\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\sigma"'^2 '"\\\\log o(A\\|D\\\\sigma) = n\\\\cdot (y_A - y_B) + \\\\frac{1}{2}(y_A - y_B)\\\\cdot (y_A - y_B) \\\\tag{2-17}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\sigma\\"'^2 '"\\\\langle\\\\log o\\(A\\|D\\\\sigma\\)\\\\rangle = \\\\pm \\\\frac\\{1\\}\\{2\\} \\(y_A - y_B\\)\\\\cdot\\(y_A - y_B\\)\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\sigma"'^2 '"\\\\langle\\\\log o(A\\|D\\\\sigma)\\\\rangle = \\\\pm \\\\frac{1}{2} (y_A - y_B)\\\\cdot(y_A - y_B) \\\\tag{2-18}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$r'"\\(t - t\\"'^'"\\\\prime\\) = r_A\\(t - t\\"'^'"\\\\prime\\) - r_B\\(t - t\\"'^'"\\\\prime\\)\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$r(t - t''^'"\\\\prime) = r_A(t - t"'^'"\\\\prime) - r_B(t - t"'^'"\\\\prime)\\. \\\\tag{2-19}\\"'$'"\\"'$/g; s/'"\\\\end\\{aligned\\}\\"'$'"\\"'$ /'"\\\\end{aligned} \\\\tag{2-20}\\"'$'"\\"'$ /g; s/'"\\"'$'"\\"'$g'"\\(t\\"'^'"\\\\prime,t\\"'^'"\\{\\\\prime\\\\prime\\}\\) = \\\\int dt \\, r\\(t-t\\"'^'"\\\\prime\\)r\\(t-t\\"'^'"\\{\\\\prime\\\\prime\\}\\)\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$g(t''^'"\\\\prime,t"'^{'"\\\\prime\\\\prime}) = \\\\int dt \\, r(t-t"'^'"\\\\prime)r(t-t"'^{'"\\\\prime\\\\prime})\\. \\\\tag{2-21}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\int g\\(t-t\\"'^'"\\\\prime\\) f\\(t\\"'^'"\\\\prime\\) dt\\"'^'"\\\\prime = \\\\lambda f\\(t\\)\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\int g(t-t"'^'"\\\\prime) f(t"'^'"\\\\prime) dt"'^'"\\\\prime = \\\\lambda f(t)\\. \\\\tag{2-23}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\frac\\{\\\\iint fgf\\}\\{\\\\int f\\"'^2'"\\} = \\\\frac\\{\\\\sum_i \\|a_i\\|\\"'^2 '"\\\\lambda_i\\}\\{\\\\sum_i \\|a_i\\|\\"'^2'"\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\frac{\\\\iint fgf}{\\\\int f"'^2} = '"\\\\frac{\\\\sum_i |a_i|"'^2 '"\\\\lambda_i}{\\\\sum_i |a_i|"'^2} '"\\\\tag{2-26}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$g'"\\(t\\"'^'"\\\\prime,t\\"'^'"\\{\\\\prime\\\\prime\\}\\) = g\\(t\\"'^'"\\\\prime - t\\"'^'"\\{\\\\prime\\\\prime\\}\\)\\"'$'"\\"'$/'"\\"'$'"\\"'$g(t''^'"\\\\prime,t"'^{'"\\\\prime\\\\prime}) = g(t"'^'"\\\\prime - t"'^{'"\\\\prime\\\\prime}) \\\\tag{2-27}\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$'"\\\\iint fgf = \\\\int dt\\"'^'"\\\\prime f\\(t\\"'^'"\\\\prime\\) \\\\int \\\\frac\\{d\\\\omega\\}\\{2\\\\pi\\} G\\(\\\\omega\\)F\\(\\\\omega\\)e\\"'^{-i'"\\\\omega t\\"'^'"\\\\prime} = \\\\int \\\\frac\\{d\\\\omega\\}\\{2\\\\pi\\} G\\(\\\\omega\\)\\|F\\(\\\\omega\\)\\|\\"'^2'"\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\iint fgf = \\\\int dt"'^'"\\\\prime f(t"'^'"\\\\prime) \\\\int \\\\frac{d\\\\omega}{2\\\\pi} G(\\\\omega)F(\\\\omega)e"'^{-i'"\\\\omega t"'^'"\\\\prime} = \\\\int \\\\frac{d\\\\omega}{2\\\\pi} G(\\\\omega)|F(\\\\omega)|"'^2 '"\\\\tag{2-31}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\frac\\{\\\\iint fgf\\}\\{\\\\int f\\"'^2'"\\} = \\\\frac\\{\\\\int d\\\\omega \\|F\\(\\\\omega\\)\\|\\"'^2 G'"\\(\\\\omega\\)\\}\\{\\\\int d\\\\omega \\|F\\(\\\\omega\\)\\|\\"'^2'"\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\frac{\\\\iint fgf}{\\\\int f"'^2} = '"\\\\frac{\\\\int d\\\\omega |F(\\\\omega)|"'^2 G('"\\\\omega)}{\\\\int d\\\\omega |F(\\\\omega)|"'^2} '"\\\\tag{2-33}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\langle \\\\log o\\(A\\|D\\\\sigma\\) \\\\rangle \\\\approx \\\\frac\\{\\\\int f\\"'^2'"\\(t\\)dt\\}\\{2\\\\sigma\\"'^2'"\\} \\|R_A\\(\\\\omega_0\\) - R_B\\(\\\\omega_0\\)\\|\\"'^2,'"\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\langle \\\\log o(A\\|D\\\\sigma) \\\\rangle \\\\approx \\\\frac{\\\\int f"'^2(t)dt}{2'"\\\\sigma"'^2} |R_A('"\\\\omega_0) - R_B(\\\\omega_0)|"'^2 '"\\\\tag{2-36},\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$f_'"\\\\pm\\(t\\) = \\\\frac\\{1\\}\\{2\\}\\\\left\\[\\\\frac\\{v\\(t\\)\\}\\{\\\\sqrt\\{Z\\}\\} \\\\pm i\\(t\\)\\\\sqrt\\{Z\\}\\\\right\\],\\"'$'"\\"'$/'"\\"'$'"\\"'$f_'"\\\\pm(t) = \\\\frac{1}{2}\\\\left[\\\\frac{v(t)}{\\\\sqrt{Z}} \\\\pm i(t)\\\\sqrt{Z}\\\\right] \\\\tag{2-38},\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$'"\\\\int n\\(t\\)g\\(t\\)dt = \\\\int dt \\\\sum_\\{j,k\\} n_j g_k s_j\\(t\\)s_k\\(t\\) = \\\\frac\\{\\\\pi\\}\\{\\\\Omega\\} \\\\sum_j n_j g_j\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\int n(t)g(t)dt = \\\\int dt \\\\sum_{j,k} n_j g_k s_j(t)s_k(t) = \\\\frac{\\\\pi}{\\\\Omega} \\\\sum_j n_j g_j \\\\tag{2-48}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\int n\\"'^2'"\\(t\\) dt = \\\\frac\\{\\\\pi\\}\\{\\\\Omega\\} \\\\sum_j n_j\\"'^2'"\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\int n"'^2(t) dt = '"\\\\frac{\\\\pi}{\\\\Omega} \\\\sum_j n_j"'^2'"\\. \\\\tag{2-49}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(n\\(t\\)\\|\\\\sigma\\) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac\\{1\\}\\{2\\\\sigma\\"'^2'"\\} \\\\int n\\"'^2'"\\(t\\) dt \\\\right\\\\\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(n(t)'"\\|\\\\sigma) \\\\propto \\\\exp\\\\left\\\\\\{-\\\\frac{1}{2\\\\sigma"'^2} '"\\\\int n"'^2(t) dt '"\\\\right\\\\\\} \\\\tag{2-50}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\langle n_j n_k \\\\rangle = \\\\frac\\{\\\\sigma\\"'^2 '"\\\\Omega\\}\\{\\\\pi\\} \\\\delta_\\{jk\\}\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\langle n_j n_k \\\\rangle = \\\\frac{\\\\sigma"'^2 '"\\\\Omega}{\\\\pi} \\\\delta_{jk}\\. \\\\tag{2-52}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\frac\\{\\\\pi\\}\\{\\\\Omega\\} \\\\sum_j \\\\langle n_j\\"'^2 '"\\\\rangle = k T_N \\\\cdot \\\\frac\\{\\\\Omega\\\\tau\\}\\{2\\\\pi\\}\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\frac{\\\\pi}{\\\\Omega} \\\\sum_j \\\\langle n_j"'^2 '"\\\\rangle = k T_N \\\\cdot \\\\frac{\\\\Omega\\\\tau}{2\\\\pi}\\. \\\\tag{2-53}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\sigma\\"'^2 = '"\\\\frac\\{1\\}\\{2\\} k T_N\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\sigma"'^2 = '"\\\\frac{1}{2} k T_N \\\\tag{2-54}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\langle \\(n\\\\cdot g\\)\\"'^2 '"\\\\rangle = \\\\left\\(\\\\frac\\{\\\\pi\\}\\{\\\\Omega\\}\\right\\)\\"'^2 '"\\\\sum_\\{j,k\\} \\\\langle n_j n_k \\\\rangle g_j g_k = \\\\frac\\{\\\\pi\\}\\{\\\\Omega\\}\\\\sigma\\"'^2 '"\\\\sum_j g_j\\"'^2'"\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\langle (n\\\\cdot g)"'^2 '"\\\\rangle = \\\\left(\\\\frac{\\\\pi}{\\\\Omega}\\\\right)"'^2 '"\\\\sum_{j,k} \\\\langle n_j n_k \\\\rangle g_j g_k = \\\\frac{\\\\pi}{\\\\Omega}\\\\sigma"'^2 '"\\\\sum_j g_j"'^2 '"\\\\tag{2-55}\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$'"\\\\langle \\\\log o\\(A\\|D\\\\sigma\\) \\\\rangle \\\\approx \\\\frac\\{\\\\text\\{\\(Energy radiated per pulse\\)\\}\\}\\{k T_N\\} \\|R_A\\(\\\\omega_0\\) - R_B\\(\\\\omega_0\\)\\|\\"'^2,'"\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\langle \\\\log o(A\\|D\\\\sigma) \\\\rangle \\\\approx \\\\frac{\\\\text{(Energy radiated per pulse)}}{k T_N} |R_A(\\\\omega_0) - R_B(\\\\omega_0)|"'^2 '"\\\\tag{2-56},\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\pm \\\\left\\[ \\\\frac\\{\\\\int \\[y_A\\(t\\) - y_B\\(t\\)\\]\\"'^2 dt'"\\}\\{\\\\sigma\\"'^2'"\\} \\\\right\\]\\"'^'"\\{1\\/2\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\pm \\\\left[ \\\\frac{\\\\int [y_A(t) - y_B(t)]"'^2 dt}{'"\\\\sigma"'^2} '"\\\\right]"'^{1'"\\/2} \\\\tag{2-57}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$L_A = '"\\\\frac\\{\\[d\\\\cdot \\(y_A - y_B\\) \\+ \\\\frac\\{1\\}\\{2\\}\\(y_B\\\\cdot y_B - y_A\\\\cdot y_A\\)\\]\\}\\{k T_N\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$L_A = '"\\\\frac{[d\\\\cdot (y_A - y_B) + \\\\frac{1}{2}(y_B\\\\cdot y_B - y_A\\\\cdot y_A)]}{k T_N} \\\\tag{2-59}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$M = '"\\\\langle L_A \\\\rangle = \\\\frac\\{\\(y_A - y_B\\)\\\\cdot \\(y_A - y_B\\)\\}\\{k T_N\\}\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$M = '"\\\\langle L_A \\\\rangle = \\\\frac{(y_A - y_B)\\\\cdot (y_A - y_B)}{k T_N}\\. \\\\tag{2-60}\\"'$'"\\"'$/g; s/is '"\\"'$'"\\"'$P_'"\\{inc\\} = G \\\\frac\\{P_\\{rad\\}\\}\\{4\\\\pi d\\"'^2'"\\} \\\\quad \\\\text\\{watts\\/m\\}\\"'^2'"\\.\\"'$'"\\"'$/is '"\\"'$'"\\"'$P_{inc} = G '"\\\\frac{P_{rad}}{4\\\\pi d"'^2} '"\\\\quad \\\\text{watts\\/m}"'^2'"\\. \\\\tag{2-63}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$G '"\\\\approx \\\\frac\\{4\\\\pi\\}\\{\\\\Omega\\} \\\\approx \\\\left\\(\\\\frac\\{4a\\}\\{\\\\lambda\\}\\right\\)\\"'^2'"\\.\\"'$'"\\"'$/'"\\"'$'"\\"'$G '"\\\\approx \\\\frac{4\\\\pi}{\\\\Omega} \\\\approx \\\\left(\\\\frac{4a}{\\\\lambda}\\\\right)"'^2'"\\. \\\\tag{2-64}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$G '"\\\\approx \\\\frac\\{\\\\pi a\\"'^2'"\\}\\{\\\\lambda\\"'^2'"\\/4\\\\pi\\} = \\\\left\\(\\\\frac\\{2\\\\pi a\\}\\{\\\\lambda\\}\\right\\)\\"'^2'"\\"'$'"\\"'$/'"\\"'$'"\\"'$G '"\\\\approx \\\\frac{\\\\pi a"'^2}{'"\\\\lambda"'^2'"\\/4\\\\pi} = \\\\left(\\\\frac{2\\\\pi a}{\\\\lambda}\\\\right)"'^2 '"\\\\tag{2-65}\\"'$'"\\"'$/g; s/from it to be '"\\"'$'"\\"'$'"\\\\Sigma \\\\approx \\\\pi r_1 r_2\\.\\"'$'"\\"'$/from it to be '"\\"'$'"\\"'$'"\\\\Sigma \\\\approx \\\\pi r_1 r_2\\. \\\\tag{2-67}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\|R\\(\\\\omega_0\\)\\|\\"'^2 '"\\\\approx \\\\frac\\{\\\\Sigma\\}\\{4\\\\pi\\\\lambda\\"'^2'"\\} \\\\frac\\{A_t A_r\\}\\{d\\"'^4'"\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$|R('"\\\\omega_0)|"'^2 '"\\\\approx \\\\frac{\\\\Sigma}{4\\\\pi\\\\lambda"'^2} '"\\\\frac{A_t A_r}{d"'^4} '"\\\\tag{2-71}\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'$'"\\"'$p'"\\(A\\|D\\\\sigma\\) = p\\(A\\|\\\\sigma\\) \\\\frac\\{p\\(D\\|A\\\\sigma\\)\\}\\{p\\(D\\|\\\\sigma\\)\\}\\"'$'"\\"'$ But now/'"\\"'$'"\\"'$p(A'"\\|D\\\\sigma) = p(A\\|\\\\sigma) \\\\frac{p(D\\|A\\\\sigma)}{p(D\\|\\\\sigma)} \\\\tag{3-3}\\"'$'"\\"'$ But now/g; s/'"\\"'$'"\\"'$p'"\\(D\\|A\\\\sigma\\) = \\\\int p\\(D\\\\alpha\\|A\\\\sigma\\) d\\\\alpha = \\\\int p\\(D\\|A\\\\alpha\\\\sigma\\)p\\(\\\\alpha\\|A\\\\sigma\\) d\\\\alpha\\"'$'"\\"'$/'"\\"'$'"\\"'$p(D'"\\|A\\\\sigma) = \\\\int p(D\\\\alpha\\|A\\\\sigma) d\\\\alpha = \\\\int p(D\\|A\\\\alpha\\\\sigma)p(\\\\alpha\\|A\\\\sigma) d\\\\alpha \\\\tag{3-4}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$'"\\\\frac\\{p\\(A\\|D\\\\sigma\\)\\}\\{p\\(B\\|D\\\\sigma\\)\\} = \\\\frac\\{p\\(A\\|\\\\sigma\\)\\}\\{p\\(B\\|\\\\sigma\\)\\} \\\\frac\\{\\\\int p\\(D\\|A\\\\alpha\\\\sigma\\)p\\(\\\\alpha\\|A\\\\sigma\\)d\\\\alpha\\}\\{\\\\int p\\(D\\|B\\\\beta\\\\sigma\\)p\\(\\\\beta\\|B\\\\sigma\\)d\\\\beta\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$'"\\\\frac{p(A\\|D\\\\sigma)}{p(B\\|D\\\\sigma)} = \\\\frac{p(A\\|\\\\sigma)}{p(B\\|\\\\sigma)} \\\\frac{\\\\int p(D\\|A\\\\alpha\\\\sigma)p(\\\\alpha\\|A\\\\sigma)d\\\\alpha}{\\\\int p(D\\|B\\\\beta\\\\sigma)p(\\\\beta\\|B\\\\sigma)d\\\\beta} \\\\tag{3-5}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(A\\|D\\\\sigma\\) = \\\\int p\\(A\\\\alpha\\|D\\\\sigma\\) d\\\\alpha = \\\\int p\\(A\\|D\\\\alpha\\\\sigma\\)p\\(\\\\alpha\\|D\\\\sigma\\)\\"'$'"\\"'$/'"\\"'$'"\\"'$p(A'"\\|D\\\\sigma) = \\\\int p(A\\\\alpha\\|D\\\\sigma) d\\\\alpha = \\\\int p(A\\|D\\\\alpha\\\\sigma)p(\\\\alpha\\|D\\\\sigma) \\\\tag{3-6}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(A\\|D\\\\alpha\\\\sigma\\) = p\\(A\\|\\\\alpha\\\\sigma\\) \\\\frac\\{p\\(D\\|A\\\\alpha\\\\sigma\\)\\}\\{p\\(D\\|\\\\alpha\\\\sigma\\)\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p(A'"\\|D\\\\alpha\\\\sigma) = p(A\\|\\\\alpha\\\\sigma) \\\\frac{p(D\\|A\\\\alpha\\\\sigma)}{p(D\\|\\\\alpha\\\\sigma)} \\\\tag{3-7}\\"'$'"\\"'$/g; s/'"\\"'$'"\\"'$p'"\\(\\\\alpha\\|DA\\\\sigma\\) = p\\(\\\\alpha\\|A\\\\sigma\\) \\\\frac\\{p\\(D\\|A\\\\alpha\\\\sigma\\)\\}\\{p\\(D\\|A\\\\sigma\\)\\}\\"'$'"\\"'$/'"\\"'$'"\\"'$p('"\\\\alpha\\|DA\\\\sigma) = p(\\\\alpha\\|A\\\\sigma) \\\\frac{p(D\\|A\\\\alpha\\\\sigma)}{p(D\\|A\\\\sigma)} \\\\tag{3-8}\\"'$'"\\"'$/g'"' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+
+codex
+I’ve applied the tagging pass and now I’m validating for formatting mistakes (accidental duplicate equations, malformed math blocks, and unresolved Eq references) before I finalize.
+exec
+/bin/bash -lc "rg -n '\\\\tag\\{' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+52:form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime \tag{1-1}$$ where $r(t)$ is the "impulse
+55:$$r(t) = 0 \quad \text{when} \quad t < 2d/c \tag{1-2}$$ where $d$ is the distance
+177:$$y_A(t) = \int r_A(t-t^\prime)f(t^\prime)dt^\prime, \tag{2-1}$$ while if target B is present it is
+184:$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int n^2(t)dt\right\} \tag{2-3}$$
+198:$$p(D|A\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int [d(t) - y_A(t)]^2 dt\right\} \tag{2-4}$$
+212:$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ The
+221:$$p(B|D\sigma) = p(B|\sigma) \frac{p(D|B\sigma)}{p(D|\sigma)} \tag{2-9}$$ Now in
+224:$$p(A|\sigma) + p(B|\sigma) = 1, \tag{2-8}$$ and this is still true after getting
+237:$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{p(D|A\sigma)}{p(D|B\sigma)} \tag{2-12},$$ 
+245:$$o(A|D\sigma) = o(A|\sigma) \exp\left\{\frac{1}{\sigma^2}[d\cdot(y_A - y_B) + \frac{1}{2}(y_B\cdot y_B - y_A\cdot y_A)]\right\} \tag{2-14}$$
+276:$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) + \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B) \tag{2-17}$$
+290:$$\sigma^2 \langle\log o(A|D\sigma)\rangle = \pm \frac{1}{2} (y_A - y_B)\cdot(y_A - y_B) \tag{2-18}$$
+296:reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+298:$$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+309:equation $$\int g(t-t^\prime) f(t^\prime) dt^\prime = \lambda f(t). \tag{2-23}$$ To understand the
+316:$$\frac{\iint fgf}{\int f^2} = \frac{\sum_i |a_i|^2 \lambda_i}{\sum_i |a_i|^2} \tag{2-26}$$
+324:(2-21) that it is translationally invariant: $$g(t^\prime,t^{\prime\prime}) = g(t^\prime - t^{\prime\prime}) \tag{2-27}$$
+338:$$\iint fgf = \int dt^\prime f(t^\prime) \int \frac{d\omega}{2\pi} G(\omega)F(\omega)e^{-i\omega t^\prime} = \int \frac{d\omega}{2\pi} G(\omega)|F(\omega)|^2 \tag{2-31}$$
+342:$$\frac{\iint fgf}{\int f^2} = \frac{\int d\omega |F(\omega)|^2 G(\omega)}{\int d\omega |F(\omega)|^2} \tag{2-33}$$
+370:$$\langle \log o(A|D\sigma) \rangle \approx \frac{\int f^2(t)dt}{2\sigma^2} |R_A(\omega_0) - R_B(\omega_0)|^2 \tag{2-36},$$ 
+exec
+/bin/bash -lc "rg -n '2-64|2-65|3-3|2-21|2-17|2-54|2-31|2-33|2-36' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+191:receiver [see Eq. (2-54) below], and one will surely have determined
+276:$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) + \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B) \tag{2-17}$$
+283:to noise. Eqs. (2-17) tell us that if $n(t)$ happens to resemble
+324:(2-21) that it is translationally invariant: $$g(t^\prime,t^{\prime\prime}) = g(t^\prime - t^{\prime\prime}) \tag{2-27}$$
+338:$$\iint fgf = \int dt^\prime f(t^\prime) \int \frac{d\omega}{2\pi} G(\omega)F(\omega)e^{-i\omega t^\prime} = \int \frac{d\omega}{2\pi} G(\omega)|F(\omega)|^2 \tag{2-31}$$
+342:$$\frac{\iint fgf}{\int f^2} = \frac{\int d\omega |F(\omega)|^2 G(\omega)}{\int d\omega |F(\omega)|^2} \tag{2-33}$$
+351:functions. Referring to Equations (2-19) -- (2-21), we can make another
+356:$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
+370:$$\langle \log o(A|D\sigma) \rangle \approx \frac{\int f^2(t)dt}{2\sigma^2} |R_A(\omega_0) - R_B(\omega_0)|^2 \tag{2-36},$$ 
+378:receiver operation, a little more closely. The term $\sigma^2$ in (2-36)
+557:out, and (2-53) becomes simply $$\sigma^2 = \frac{1}{2} k T_N \tag{2-54}$$
+564:(2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+571:return to the log-odds calculation (2-17), (2-36) with all factors
+574:The approximate expected log-odds (2-36) in favor of target A is now
+579:the calculated log-odds (2-17) vary due to noise? For reliable
+581:compared to its random variability. In (2-17) we saw that the noise
+588:(2-31) and (2-35):
+591:twice the expected log-odds (2-36).
+599:mean value, or "expected value" of $L_A$ is given by (2-18), (2-54) as
+607:do not have the approximation made in (2-36) and (2-56) which supposed
+codex
+I found a few cleanup issues from the first patch pass: one mis-tagged equation, and a couple missing tags (`2-64`, `2-65`, `3-3`, `2-21`). I’m fixing those now and then re-running a strict reference check.
+exec
+/bin/bash -lc "sed -n '288,372p;500,535p;618,650p;768,790p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+symmetry it is as likely to be positive as negative, so the expected
+log-odds in favor of A comes from the systematic term alone:
+$$\sigma^2 \langle\log o(A|D\sigma)\rangle = \pm \frac{1}{2} (y_A - y_B)\cdot(y_A - y_B) \tag{2-18}$$
+with the plus sign if A is true.
+
+Evidently, for best discrimination between A and B we want to make the
+magnitude of (2-18) as large as possible. To see how this depends on the
+reflection functions and the transmitted pulse, write the difference in
+reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+We have from (2-1), 
+$$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
+Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+$$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+problem first in the time domain, then in the frequency domain.
+### Time Domain
+The condition that (2-20) be a maximum for a given total amount of
+energy radiated, '$\int [f(t)]^2 dt$', is found by Lagrange multipliers: 
+in our shorthand notation,
+$$0 = \delta\left[\iint fgf - \lambda \int f^2\right] = 2\delta f \cdot \left[\int gf - \lambda f\right]$$
+exec
+/bin/bash -lc 'refs=$(rg -o '"'\\([0-9]+-[0-9]+\\)' content/papers/craddis.md | tr -d '()' | sort -u); tags="'$(rg -o '"'\\\\tag\\{[0-9]+-[0-9]+\\}' content/papers/craddis.md | sed 's/\\\\tag{//;s/}//' | sort -u); echo 'Missing tags for refs:'; comm -23 <(printf '%s
+' \""'$refs") <(printf '"'%s
+' \""'$tags"); echo '"'Extra tags not referenced:'; comm -13 <(printf '%s
+' \""'$refs") <(printf '"'%s
+' \""'$tags")' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Missing tags for refs:
+2-21
+2-35
+2-55
+2-64
+2-65
+3-3
+Extra tags not referenced:
+exec
+/bin/bash -lc "rg -n 'tag\\{2-55\\}|2-55\\)' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+583:$\sigma^{-2} n \cdot (y_A - y_B)$, and from (2-55) we can estimate this
+exec
+/bin/bash -lc "sed -n '556,570p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+(2-52) these terms are all equal. Therefore $\Omega$ and $\tau$ cancel
+out, and (2-53) becomes simply $$\sigma^2 = \frac{1}{2} k T_N \tag{2-54}$$
+just the average thermal energy per degree of freedom according to the
+Rayleigh-Jeans law, at temperature $T_N$. Although the argument leading
+to this result has been long, we are rewarded in the end with a pleasant
+surprise: a beautifully simple formula.
+
+Another equally nice result is the estimated value of the integral
+(2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+expected square. Using (2-48) we have
+$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
+or, in view of (2-49),
+$$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+turns out so simple and neat is another pleasant surprise. Now we can
+codex
+I’m applying a final targeted patch for the remaining missing equation tags and one mis-numbered tag (`3-3`), then I’ll re-run the reference-vs-tag check.
 file update
 M /home/dave/Projects/jaynes-archive/content/papers/craddis.md
-@@ -15,3 +15,3 @@
- author:
--["E.T. Jaynes"]
-+  - "E.T. Jaynes"
- ---
-@@ -183,3 +183,3 @@
- and probability theory tells us the proper way of doing this, as shown
--by Bretthorst (1988). But in the present problem, $\sigma$ will be known
-+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
- in advance because it is essentially the noise temperature of the
-@@ -893,2 +893,2 @@
+@@ -298,3 +298,3 @@
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+@@ -355,3 +355,3 @@
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+@@ -510,3 +510,3 @@
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+@@ -566,3 +566,3 @@
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+@@ -634,3 +634,3 @@
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
  
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-+[^bretthorst1988]: Bretthorst (1988).
-apply_patch(auto_approved=true) exited 0 in 14ms:
+@@ -647,3 +647,3 @@
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+@@ -777,3 +777,3 @@
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+apply_patch(auto_approved=true) exited 0 in 11ms:
 Success. Updated the following files:
-M content/papers/craddis.md
+M /home/dave/Projects/jaynes-archive/content/papers/craddis.md
 file update:
 diff --git a/content/papers/craddis.md b/content/papers/craddis.md
-index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
 --- a/content/papers/craddis.md
 +++ b/content/papers/craddis.md
-@@ -13,7 +13,7 @@
-   quite different from those that have been tried in the past, and give
-   elementary intuitive explanations of why this is so.
- author:
--["E.T. Jaynes"]
-+  - "E.T. Jaynes"
- ---
- # INTRODUCTION
- If radar systems could distinguish different targets from each other,
-@@ -181,7 +181,7 @@
- We indicate this as a conditional probability, conditional on knowledge
- of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
- and probability theory tells us the proper way of doing this, as shown
--by Bretthorst (1988). But in the present problem, $\sigma$ will be known
-+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
- in advance because it is essentially the noise temperature of the
- receiver [see Eq. (2-54) below], and one will surely have determined
- this before trying to test the system at all. This simplifies our
-@@ -891,4 +891,4 @@
- power. For its realization in practice, the present top priority job is
- to obtain the aforementioned reflection function information.
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
  
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-+[^bretthorst1988]: Bretthorst (1988).
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
 
 file update:
 diff --git a/content/papers/craddis.md b/content/papers/craddis.md
-index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
 --- a/content/papers/craddis.md
 +++ b/content/papers/craddis.md
-@@ -13,7 +13,7 @@
-   quite different from those that have been tried in the past, and give
-   elementary intuitive explanations of why this is so.
- author:
--["E.T. Jaynes"]
-+  - "E.T. Jaynes"
- ---
- # INTRODUCTION
- If radar systems could distinguish different targets from each other,
-@@ -181,7 +181,7 @@
- We indicate this as a conditional probability, conditional on knowledge
- of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
- and probability theory tells us the proper way of doing this, as shown
--by Bretthorst (1988). But in the present problem, $\sigma$ will be known
-+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
- in advance because it is essentially the noise temperature of the
- receiver [see Eq. (2-54) below], and one will surely have determined
- this before trying to test the system at all. This simplifies our
-@@ -891,4 +891,4 @@
- power. For its realization in practice, the present top priority job is
- to obtain the aforementioned reflection function information.
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
  
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-+[^bretthorst1988]: Bretthorst (1988).
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
 
-codex
-I’ve applied the minimal structural edits. I’ll run a quick pass to verify there’s no duplicated abstract in the body and that footnotes are now clean.
 exec
-/bin/bash -lc 'rg -n "''^#'"\\s*ABSTRACT|Bretthorst|\\[\\"'^" content/papers/craddis.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-184:by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
-894:[^bretthorst1988]: Bretthorst (1988).
+/bin/bash -lc 'refs=$(rg -o '"'\\([0-9]+-[0-9]+\\)' content/papers/craddis.md | tr -d '()' | sort -u); tags="'$(rg -o '"'\\\\tag\\{[0-9]+-[0-9]+\\}' content/papers/craddis.md | sed 's/\\\\tag{//;s/}//' | sort -u); echo 'Missing tags for refs:'; comm -23 <(printf '%s
+' \""'$refs") <(printf '"'%s
+' \""'$tags"); echo '"'Extra tags not referenced:'; comm -13 <(printf '%s
+' \""'$refs") <(printf '"'%s
+' \""'$tags")' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Missing tags for refs:
+Extra tags not referenced:
 file update:
 diff --git a/content/papers/craddis.md b/content/papers/craddis.md
-index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
 --- a/content/papers/craddis.md
 +++ b/content/papers/craddis.md
-@@ -13,7 +13,7 @@
-   quite different from those that have been tried in the past, and give
-   elementary intuitive explanations of why this is so.
- author:
--["E.T. Jaynes"]
-+  - "E.T. Jaynes"
- ---
- # INTRODUCTION
- If radar systems could distinguish different targets from each other,
-@@ -181,7 +181,7 @@
- We indicate this as a conditional probability, conditional on knowledge
- of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
- and probability theory tells us the proper way of doing this, as shown
--by Bretthorst (1988). But in the present problem, $\sigma$ will be known
-+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
- in advance because it is essentially the noise temperature of the
- receiver [see Eq. (2-54) below], and one will surely have determined
- this before trying to test the system at all. This simplifies our
-@@ -891,4 +891,4 @@
- power. For its realization in practice, the present top priority job is
- to obtain the aforementioned reflection function information.
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
  
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-+[^bretthorst1988]: Bretthorst (1988).
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
+
+exec
+/bin/bash -lc "git diff -- content/papers/craddis.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 9b91c63..cf000f8 100644
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -49,16 +49,17 @@ the problem. Most important, we use full Bayesian probability theory,
+ which overcomes the limitations of sampling theory.
+ 
+ A transmitted pulse $f(t)$ gives rise to an echo from a target, of the
+-form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime$$ where $r(t)$ is the "impulse
++form $$y(t) = \int r(t - t^\prime)f(t^\prime)dt^\prime \tag{1-1}$$ where $r(t)$ is the "impulse
+ response function", or as we shall call it, the *reflection function*,
+ of the target, which we consider defined for all time. Presumably,
+-$$r(t) = 0 \quad \text{when} \quad t < 2d/c$$ where $d$ is the distance
++$$r(t) = 0 \quad \text{when} \quad t < 2d/c \tag{1-2}$$ where $d$ is the distance
+ to the nearest part of the target, $c$ the velocity of light. In the
+ theory, however, we do not assume this; the final formulas turn out to
+ have the same general form whether or not (2) is satisfied. Thus our
+ results would hold also in discrimination problems where the variable
+ $t$ is not a time, and the physical causality condition (1-2) need not
+ hold.
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
+ 
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
+
+exec
+/bin/bash -lc "git diff -- content/papers/craddis.md | sed -n '261,520p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+ Rayleigh-Jeans law, at temperature $T_N$. Although the argument leading
+ to this result has been long, we are rewarded in the end with a pleasant
+@@ -559,7 +564,7 @@ Another equally nice result is the estimated value of the integral
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -568,7 +573,7 @@ known.
+ ### Final Results:
+ The approximate expected log-odds (2-36) in favor of target A is now
+ simply
+-$$\langle \log o(A|D\sigma) \rangle \approx \frac{\text{(Energy radiated per pulse)}}{k T_N} |R_A(\omega_0) - R_B(\omega_0)|^2,$$ 
++$$\langle \log o(A|D\sigma) \rangle \approx \frac{\text{(Energy radiated per pulse)}}{k T_N} |R_A(\omega_0) - R_B(\omega_0)|^2 \tag{2-56},$$ 
+ the product of two dimensionless factors, one enormously large and one
+ enormously small; we estimate them separately below. But how much can
+ the calculated log-odds (2-17) vary due to noise? For reliable
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
+ 
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
 
 codex
-Changed `content/papers/craddis.md` with minimal structural QA edits only:
+Edits applied to [content/papers/craddis.md](/home/dave/Projects/jaynes-archive/content/papers/craddis.md).
 
-- Normalized front matter `author` to valid YAML list format.
-- Normalized the inline citation `Bretthorst (1988)` to footnote citation format:
-  - `Bretthorst[^bretthorst1988]`
-  - added `[^bretthorst1988]: Bretthorst (1988).`
-- Removed the unreferenced trailing footnote `[^100]` (extraneous metadata-style note).
+Summary of changes:
+- Added minimal display-equation numbering markup (`\tag{...}`) so every in-text equation reference `(1-1)`, `(2-*)`, `(3-*)` now maps to a discoverable numbered display equation.
+- Corrected one mis-tag during QA (`3-3` in the aspect-angle section) and filled missing tags for referenced equations (`2-21`, `2-35`, `2-55`, `2-64`, `2-65`).
+- Added a few missing blank-line paragraph breaks where prose paragraphs were clearly fused in the introduction (structural readability only).
 
-No math/LaTeX content was modified. No abstract duplication was found in body text, so no abstract removal was needed.
+Self-check results:
+- Intended paragraph breaks are blank-line separated where adjusted.
+- No unresolved in-text Eq. references remain (reference-to-tag check passed).
+- No paper meaning/content or equation content was changed; only structural formatting and equation-number markup were adjusted.
 file update:
 diff --git a/content/papers/craddis.md b/content/papers/craddis.md
-index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+index 9dc3c61463666a62e24b2ac5f6d0a5902cf59b43..cf000f8a6fcfb2c28a80e89f50ff5b96d012fc5b
 --- a/content/papers/craddis.md
 +++ b/content/papers/craddis.md
-@@ -13,7 +13,7 @@
-   quite different from those that have been tried in the past, and give
-   elementary intuitive explanations of why this is so.
- author:
--["E.T. Jaynes"]
-+  - "E.T. Jaynes"
- ---
- # INTRODUCTION
- If radar systems could distinguish different targets from each other,
-@@ -181,7 +181,7 @@
- We indicate this as a conditional probability, conditional on knowledge
- of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
- and probability theory tells us the proper way of doing this, as shown
--by Bretthorst (1988). But in the present problem, $\sigma$ will be known
-+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
- in advance because it is essentially the noise temperature of the
- receiver [see Eq. (2-54) below], and one will surely have determined
- this before trying to test the system at all. This simplifies our
-@@ -891,4 +891,4 @@
- power. For its realization in practice, the present top priority job is
- to obtain the aforementioned reflection function information.
+@@ -296,7 +296,7 @@
+ reflection functions (2-1) as $$r(t - t^\prime) = r_A(t - t^\prime) - r_B(t - t^\prime). \tag{2-19}$$ 
+ We have from (2-1), 
+ $$\begin{aligned} (y_A - y_B)\cdot(y_A-y_B) &= \int dt \left[\int dt^\prime r(t-t^\prime) f(t^\prime)\right] \left[\int dt^{\prime\prime} r(t-t^{\prime\prime}) f(t^{\prime\prime})\right] \\\\ &= \int \int f(t^\prime)g(t^\prime,t^{\prime\prime})f(t^{\prime\prime})dt^\prime dt^{\prime\prime} \end{aligned} \tag{2-20}$$ 
+-where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}).$$ 
++where $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime)r(t-t^{\prime\prime}). \tag{2-21}$$ 
+ Abbreviating the integral in (2-20) by '$\iint fgf$', this is
+ $$(y_A - y_B)\cdot(y_A - y_B) = \iint fgf$$ We discuss the maximization
+ problem first in the time domain, then in the frequency domain.
+@@ -353,7 +353,7 @@
+ $$g(t^\prime,t^{\prime\prime}) = \int dt \, r(t-t^\prime) \int \frac{d\omega}{2\pi} R(\omega) e^{-i\omega(t^{\prime\prime}-t^\prime)} = \int \frac{d\omega}{2\pi} |R(\omega)|^2 e^{-i\omega(t^\prime-t^{\prime\prime})}$$
  
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-+[^bretthorst1988]: Bretthorst (1988).
+ In other words, we have simply
+-$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2$$ which makes (2-33) appear
++$$G(\omega) = |R_A(\omega) - R_B(\omega)|^2 \tag{2-35}$$ which makes (2-33) appear
+ very cogent and sensible. This is the usual outcome of a Bayesian
+ probability analysis; a final result that intuition would never have
+ found for us, but which seems intuitively right after a little
+@@ -508,7 +508,7 @@
+ simplifies the probability description of the noise, because it means
+ that the sampling theorem representation is available. Given a fourier
+ transform pair 
+-$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned} \tag{2-20}$$ 
++$$\begin{aligned} F(\omega) &= \int f(t)e^{i\omega t} dt, \\\\ f(t) &= \int \frac{d\omega}{2\pi} F(\omega)e^{-i\omega t} \end{aligned}$$ 
+ if it is band limited to frequencies less than $\Omega$:
+ $$F(\omega) = 0, \quad |\omega| > \Omega$$
+ then define the Nyquist
+@@ -564,7 +564,7 @@
+ (2-48). As we noted before [Eqs. (2-17), (2-18)] its expectation is,
+ trivially $\langle(n\cdot g)\rangle = 0$; but now we can calculate its
+ expected square. Using (2-48) we have
+-$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2$$
++$$\langle (n\cdot g)^2 \rangle = \left(\frac{\pi}{\Omega}\right)^2 \sum_{j,k} \langle n_j n_k \rangle g_j g_k = \frac{\pi}{\Omega}\sigma^2 \sum_j g_j^2 \tag{2-55}$$
+ or, in view of (2-49),
+ $$\langle (n\cdot g)^2 \rangle = \sigma^2 \int g^2(t)dt.$$ That this
+ turns out so simple and neat is another pleasant surprise. Now we can
+@@ -632,7 +632,7 @@
+ $\delta\theta \approx \lambda/2a$, so its main beam fills in space a
+ solid angle of about $\Omega \approx \pi(\delta\theta/2)^2$. Thus we
+ estimate its gain as
+-$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2.$$ 
++$$G \approx \frac{4\pi}{\Omega} \approx \left(\frac{4a}{\lambda}\right)^2. \tag{2-64}$$ 
+ 
+ On the other hand, consider its absorption properties. An infinitesimal
+ dipole has an absorption cross section of $3\lambda^2/8\pi$; i.e. the
+@@ -645,7 +645,7 @@
+ is about equal to its area, $\pi a^2$ (actually, slightly less because
+ the dish is not uniformly illuminated by the feeder), and so we estimate
+ the gain as
+-$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2$$
++$$G \approx \frac{\pi a^2}{\lambda^2/4\pi} = \left(\frac{2\pi a}{\lambda}\right)^2 \tag{2-65}$$
+ in approximate agreement with (2-64). For example, for an 18 inch dish
+ at X band ($\lambda = 3$ cm) we estimate a gain of about $G \sim 2000$.
+ To get crude estimates of scattering cross-sections, suppose that our
+@@ -775,7 +775,7 @@
+ There are two different ways of organizing the probability calculation
+ to answer this. First, note that the basic rule (2-7) is still valid
+ without change:
+-$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{2-7}$$ But now
++$$p(A|D\sigma) = p(A|\sigma) \frac{p(D|A\sigma)}{p(D|\sigma)} \tag{3-3}$$ But now
+ the sampling probability that we have, $p(D|A\alpha\sigma)$ contains
+ $\alpha$ and the sampling probability that we want, $p(D|A\sigma)$, does
+ not; and similarly for target B. To get from one to the other, apply the
 
 tokens used
-18,282
+60,827
 

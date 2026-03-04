@@ -232,6 +232,12 @@ $$
     \frac{d^2}{dt^2}M + \omega^2 M &= -K^2WE(t), \\\\    \dot{W} &= \dot{M}E,
 \end{aligned} \tag{3.8}
 $$
+$$
+\frac{d^2}{dt^2}M + \omega^2 M = -K^2WE(t). \tag{3.8a}
+$$
+$$
+\dot{W} = \dot{M}E. \tag{3.8b}
+$$
  where 
 $$
 K = 2\mu/\hbar. \tag{3.9}
@@ -273,6 +279,12 @@ $$
 \begin{aligned}
     \dot{M} + i\omega M &= i\mu\omega e^{i\Omega t}(x+iy), \\\\    W &= \frac{1}{2}\hbar\omega z,
 \end{aligned} \tag{3.12}
+$$
+$$
+\dot{M} + i\omega M = i\mu\omega e^{i\Omega t}(x+iy). \tag{3.12a}
+$$
+$$
+W = \frac{1}{2}\hbar\omega z. \tag{3.12b}
 $$
  where x(t) and y(t) are real, and $\Omega$ is
 the frequency of the applied field, which is supposed to be mono-
@@ -525,6 +537,7 @@ occur before spontaneous emission begins, if this theory is correct. This
 has not been confirmed or disproved by existing experiments. We will
 discuss this further in Sec. 6.
 **[FIGURE 1: The time dependence of the energy and of the amplitude of the dipole moment for spontaneous emission.]**
+
 This theory predicts the proper decay constant, the Einstein A
 coefficient. For long-term decay,
 $$
@@ -637,6 +650,7 @@ illustrated in Fig. 2. Again we might be able to test this result with a
 Michelson visibility experiment if we could guarantee that the
 excitation was such that we got the entire transition.
 **[FIGURE 2: The line shape for spontaneous emission including the time-dependent frequency shift.]**
+
 ### D. Applied Field, No Lamb Shift
 We will now investigate, in detail, the solutions when there is a
 monochromatic applied field. We will first neglect the frequency shift.
@@ -728,6 +742,7 @@ equation of an ellipse. These curves are illustrated in Fig. 3. Using
 this graph we can read off the oscillation frequency and the damping
 constant for any set of the parameters $\alpha$ and $\lambda$.
 **[FIGURE 3: The decay constants and oscillation frequencies for transients after sudden turn on of the driving field.]**
+
 Note that we have qualitatively different solutions for the case
 $\alpha=0$, exact resonance. At resonance with a field strength
 satisfying $\lambda<\beta$, the oscillation frequency is zero. Above the
@@ -764,8 +779,11 @@ values of the parameters $\alpha$ and $\lambda$. These graphs were
 obtained by solving the differential equations (4.17) directly with an
 analog computer.
 **[FIGURE 4: Solutions of the secular equations for α = γ = 0 and λ = 0.99β.]**
+
 **[FIGURE 5: Solutions of the secular equations for α < 0.01β, λ = 1.01β, and γ = 0.]**
+
 **[FIGURE 6: Solutions of the secular equations for strong applied field off resonance, γ = 0, α = β, and λ = 3β.]**
+
 ### E. Strong Field with Lamb Shift
 We have already seen that the effect of the Lamb shift is to cause the
 frequency of the atomic transition to be raised when the atom is near the
@@ -777,6 +795,9 @@ $$
 \begin{aligned}
     \dot{x} &= \gamma y z, \\\\    \dot{y} &= \gamma x z + \lambda z, \\\\    \dot{z} &= -\lambda y,
 \end{aligned} \tag{4.33}
+$$
+$$
+\dot{z} = -\lambda y. \tag{4.33c}
 $$
  where we have assumed the applied field to be
 resonant with the unshifted transition frequency. There is an immediate
@@ -835,13 +856,18 @@ $$
 must in general include spontaneous emission before we get damping or
 steady-state solutions.
 **[FIGURE 7: The system-point orbits for α = β = 0, various λ/γ.]**
+
 **[FIGURE 8: Solutions of the secular equations for α = β = 0, and λ < 1/2γ.]**
+
 We can obtain analytic solutions also for the case in which the applied
 field is off-resonance. In this case the secular equations are
 $$
 \begin{aligned}
     \dot{x} &= -\gamma yz + \alpha y, \\\\    \dot{y} &= \gamma xz + \lambda z - \alpha x, \\\\    \dot{z} &= -\lambda y.
 \end{aligned} \tag{4.40}
+$$
+$$
+\dot{z} = -\lambda y. \tag{4.40c}
 $$
 
  Again there is a first integral which gives a
@@ -871,7 +897,9 @@ Figs. 9-11. For the case of exact resonance, $\alpha=0$, we are able to
 reduce the secular equations to quadrature, though we are unable to
 perform the resulting integral.[^22]
 **[FIGURE 9: Solutions of the general secular equations at resonance with a weak applied field, α = 0, β = 0.1γ, and λ = 1/2γ.]**
+
 **[FIGURE 10: The system-point orbits for α = 0, β = 0.1γ, and λ = 1/2γ.]**
+
 There are several things we can learn about these general solutions. The
 analog plots seem to indicate that for $\alpha=0$, the critical field is
 $\lambda_c \approx \frac{1}{2}\gamma$. Above this field, the solutions
@@ -892,6 +920,7 @@ $$
 \end{gathered} \tag{4.43}
 $$
 **[FIGURE 11: Solutions of the general secular equations with a strong applied field, α = 0, β = 0.1γ, and λ > γ.]**
+
 ## 5. GENERAL FORMALISM
 The formalism which we have developed and applied in Secs. 3 and 4 uses
 an interpretation of quantum mechanics that differs from the Copenhagen
@@ -1149,6 +1178,7 @@ fields at which the stimulated processes are able to overcome spontaneous
 emission and the radiative shift, respectively. The $P_\gamma$ is just the
 power in a plane wave with the electric field $E_\gamma$.
 **[TABLE: Typical values of the radiation parameters.]**
+
 ## APPENDIX B: RADIATION REACTION
 The radiation problem in which we are interested is an oscillating
 dipole whose radiation field reacts back on the dipole changing its

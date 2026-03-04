@@ -1,13 +1,12 @@
 === STDOUT ===
-Edited [`content/papers/AJP00180.md`](/home/dave/Projects/jaynes-archive/content/papers/AJP00180.md).
+No changes were needed in `content/papers/AJP00180.md`.
 
-Concise summary of changes:
-- Added explicit KaTeX equation tags `\tag{1}` through `\tag{9}` to the nine display equations so in-text references (`Eq. (1)` ... `Eq. (9)`) have visible numbered equations.
-- Kept equation expressions/content unchanged (only numbering markup added).
-- Added missing blank-line paragraph boundaries around section headings and the figure placeholder so Markdown/Hugo rendering is cleaner.
-- No abstract duplication found in body.
-- No citation-format normalization changes were needed (footnote citations were already in use).
-- No extraneous “lecture given at ...” metadata found.
+Self-check completed:
+- Paragraph boundaries are already separated by blank lines where intended.
+- In-text equation references (Eqs. (1) through (9), including combined references like Eqs. (2) and (3)) all resolve to display equations with visible `\tag{...}` numbers.
+- No duplicate abstract appears in the body.
+- Citations are already normalized as footnotes.
+- No extraneous metadata line (e.g., “Lecture given at ...”) was present.
 
 
 === STDERR ===
@@ -20,7 +19,7 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb9b6-5d22-7882-a3ed-dc7beccb1dcd
+session id: 019cb9bf-bdbd-7f43-b97a-9e2ec59fa9e9
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/AJP00180.md`.
@@ -34,12 +33,19 @@ Hard constraints (must follow exactly):
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
-  - ensure true paragraph boundaries use a blank line (double newline)
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
 - Equation references:
-  - if text references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
   - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -51,11 +57,14 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’ll QA `content/papers/AJP00180.md` for structure, equation-number markup consistency, duplicate abstract/citations, and then apply minimal in-place edits only within that file. I’m starting by reading the file content end-to-end.
+I’ll review `content/papers/AJP00180.md` for structural QA only, then apply minimal edits for paragraph breaks, citations, abstract duplication, and equation-numbering markup consistency with in-text Eq. references. I’ll inspect the file first and then patch only that file.
 exec
 /bin/bash -lc "sed -n '1,260p' content/papers/AJP00180.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 ---
@@ -68,647 +77,52 @@ categories: ["Thermodynamics"]
 tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
 ---
 # INTRODUCTION
+
 For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
 
 Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
 
 In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
+
 # THEORETICAL DERIVATION
+
 We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
-$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
-$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
 codex
-I’ve identified the main needed fixes: equation numbering markup is missing for equations referenced as `Eq. (1)` through `Eq. (9)`, and there are a few heading/paragraph boundary issues. I’ll now make minimal structural edits and add only equation tags to align with the existing in-text references.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/AJP00180.md
-@@ -10,2 +10,3 @@
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
-@@ -15,7 +16,9 @@
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}. \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2}. \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
-@@ -25,6 +28,6 @@
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}. \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
-@@ -32,10 +35,12 @@
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}. \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
-@@ -44,3 +49,3 @@
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9. \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
-@@ -48,4 +53,7 @@
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
-@@ -53,3 +61,3 @@
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}. \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
-@@ -61,2 +69,3 @@
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
-apply_patch(auto_approved=true) exited 0 in 13ms:
-Success. Updated the following files:
-M content/papers/AJP00180.md
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..a9416aa0a86628acc832f90d9959aae1fb72711c
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}. \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2}. \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}. \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}. \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9. \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}. \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
-
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..a9416aa0a86628acc832f90d9959aae1fb72711c
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}. \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2}. \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}. \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}. \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9. \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}. \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
-
-codex
-I’ve applied the structural pass and equation-tagging updates. I’ll do a quick verification read to ensure numbering aligns with all in-text `Eq.` references and no content meaning changed.
+I finished the pass and I’m doing a quick self-check sweep for in-text equation references vs tagged display equations before concluding.
 exec
-/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|"'^'"\\"'$'"\\"'$" content/papers/AJP00180.md && echo '"'---' && sed -n '1,280p' content/papers/AJP00180.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-11:
-13:
-15:
-17:
-19:
-25:
-27:
-30:
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|\\"'$'"\\"'$.*'"\\\\tag\\{\" content/papers/AJP00180.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 31:If we combine Eqs. (2) and (3), we have now obtained the total heat
 33:and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
-34:
 35:Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
-37:
 40:where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-41:
-43:
 44:Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
-46:
-48:
 49:A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..a9416aa0a86628acc832f90d9959aae1fb72711c
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}. \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2}. \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}. \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}. \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9. \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}. \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
+59:Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
+61:Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
+65:Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/AJP00180.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
 
+exec
+/bin/bash -lc 'grep -n "tag{" content/papers/AJP00180.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+21:$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, \tag{1} $$
+23:$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} \tag{2} $$
+29:$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
+32:$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, \tag{4} $$
+36:$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
+39:$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, \tag{6} $$
+45:$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
+50:$$ T_0/(T_1 - T_0) = 10.9 \tag{8} $$
+62:$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9} $$
 codex
-I spotted a strictness issue: I altered some trailing equation punctuation while adding tags. I’m reverting those punctuation marks to match the original equation text exactly, keeping only numbering markup changes.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/AJP00180.md
-@@ -20,5 +20,5 @@
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}. \tag{1} $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2}. \tag{2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
-@@ -31,3 +31,3 @@
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}. \tag{4} $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
-@@ -38,3 +38,3 @@
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}. \tag{6} $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-@@ -49,3 +49,3 @@
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9. \tag{8} $$
-+$$ T_0/(T_1 - T_0) = 10.9 \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
-@@ -61,3 +61,3 @@
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}. \tag{9} $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
-apply_patch(auto_approved=true) exited 0 in 7ms:
-Success. Updated the following files:
-M content/papers/AJP00180.md
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..55e09bfbc17bbf5c94f1a398e8c39515385e9d99
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9 \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
+No changes were needed in `content/papers/AJP00180.md`.
 
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..55e09bfbc17bbf5c94f1a398e8c39515385e9d99
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9 \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
-
-codex
-Edited [`content/papers/AJP00180.md`](/home/dave/Projects/jaynes-archive/content/papers/AJP00180.md).
-
-Concise summary of changes:
-- Added explicit KaTeX equation tags `\tag{1}` through `\tag{9}` to the nine display equations so in-text references (`Eq. (1)` ... `Eq. (9)`) have visible numbered equations.
-- Kept equation expressions/content unchanged (only numbering markup added).
-- Added missing blank-line paragraph boundaries around section headings and the figure placeholder so Markdown/Hugo rendering is cleaner.
-- No abstract duplication found in body.
-- No citation-format normalization changes were needed (footnote citations were already in use).
-- No extraneous “lecture given at ...” metadata found.
-file update:
-diff --git a/content/papers/AJP00180.md b/content/papers/AJP00180.md
-index b7a69aa4b037222d584ce41e04d10437c5de6a48..55e09bfbc17bbf5c94f1a398e8c39515385e9d99
---- a/content/papers/AJP00180.md
-+++ b/content/papers/AJP00180.md
-@@ -8,50 +8,58 @@
- tags: ["heating efficiency", "Carnot engine", "heat pump", "second law"]
- ---
- # INTRODUCTION
-+
- For over 200 years the University of Glasgow has played a uniquely important role in the development of thermodynamics. There the distinction between temperature as a measure of intensity of something, and heat as a quantity of something, was first seen clearly by Joseph Black in about 1760. This knowledge contributed to the work of his colleague, James Watt, in the first practical means of converting heat into work. Then Carnot and others tried to find the maximum theoretical efficiency of this conversion, but the one who finally succeeded was Wm. Thomson (later Lord Kelvin) at the University of Glasgow.
- 
- Recently an addition to this was made, which is not only of theoretical interest as representing in a sense the completion of the logical structure of classical thermodynamics; it has immediate practical implications. Yet the principle is hardly new; it is such a simple and immediate consequence of Thomson's work that it must have been known to Thomson in 1870.[^2] Today it cannot be really unknown to anyone familiar with the theory of heat pumps. But to the best of our knowledge it has not yet appeared in any physics textbook, stated in a form where it is seen as logically independent of Carnot engines, and forming the natural dual theorem to the one on the efficiency of Carnot engines.[^3] It seems appropriate that this way of looking at the result was finally pointed out by Robert S. Silver,[^4] the James Watt Professor (now emeritus) of the University of Glasgow.
- 
- In Sec. II we give the almost trivial derivation, and in Sec. III we point out its practical implications by numerical examples. Because a large part of the world's energy resources are actually used for heating rather than production of work, these implications are not trivial. Section IV points out another surprising application.
-+
- # THEORETICAL DERIVATION
-+
- We have a source of heat $Q_2$ which is available at Kelvin temperature $T_2$. By this we mean, as was stressed long ago by Gibbs,[^5] that the source is capable of delivering that heat to a heat reservoir which is at temperature $T_2$; $T_2$ is the highest temperature to which it can deliver that heat. If there is available a cold reservoir at temperature $T_1 < T_2$, then according to classical thermodynamics we may exploit this temperature difference to obtain work $W$. By applying the first and second laws, we obtain $W=Q_2-Q_1$, $Q_1/T_1=Q_2/T_2$; if we solve these for $W$ and $Q_1$, we have
--$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, $$
-+$$ W = Q_2 \left(1-\frac{T_1}{T_2}\right), \quad Q_1 = Q_2 \frac{T_1}{T_2}, \tag{1} $$
- with an equality if and only if the engine is reversible. In the latter case the "wasted energy"
--$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} $$
-+$$ Q_1(\text{Carnot}) = Q_2\frac{T_1}{T_2} \tag{2} $$
- is delivered as heat to the reservoir at temperature $T_1$. This is the standard result.
- 
- But now suppose that our objective is not to produce work, but to deliver the maximum possible heat to that lower temperature reservoir. This is the conversion problem faced in every home, where one has heat from a gas, oil, wood, or coal flame but wants heat at room temperature. At present, we simply allow the primary heat $Q_2$ to degrade itself directly to the lower temperature $T_1$ by passing through ducts, radiators, etc. In this way we obtain, at best (neglecting heat loss through chimneys) the amount of heat $Q_1(\text{direct})=Q_2$. But this process is irreversible because there is a net entropy increase $\Delta S = Q_2/T_1 - Q_2/T_2 > 0$, indicating that something has been wasted, and we can do better. The first and second laws imply that, not only in the conversion of heat to work, but also in the conversion of heat to heat, the maximum efficiency will be attained if we can carry out the process reversibly.
- 
- Suppose we have an ambient heat reservoir (the outside world) at temperature $T_0 < T_1$, and we use a perfect Carnot engine to obtain the heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available, which we can use to drive a heat pump between $T_0$ and $T_1$, yielding the additional heat
--$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. $$
-+$$ Q_1(\text{pump}) = \frac{T_1 W}{T_1 - T_0}. \tag{3} $$
- 
- If we combine Eqs. (2) and (3), we have now obtained the total heat
--$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, $$
-+$$ Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1(T_2-T_0)}{T_2(T_1-T_0)}, \tag{4} $$
- and there is always a net gain, because $Q_1$ is always greater than $Q_2$ whenever $T_0<T_1<T_2$. But while we know that a reversible Carnot engine delivers the maximum attainable work, this argument does not make it obvious whether Eq. (4) is the maximum attainable heat.
- 
- Now from a theoretical standpoint it is more general and more elegant to apply the first and second laws directly to this process, as we did in Eq. (1). Because some heat $Q_0$ is removed from the outside reservoir, we must have
--$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. $$
-+$$ Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \ge \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5} $$
- 
- By solving these equations for $Q_1$ and $Q_0$, we have
--$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, $$
-+$$ Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2-T_0}{T_1-T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2-T_1}{T_1-T_0}, \tag{6} $$
- where the equality holds if and only if the process is reversible. Thus we obtain automatically the same result Eq. (4), plus the statement that it is the maximum attainable heating, without invoking Carnot engines at all. It is in this simple argument that the main theoretical and pedagogical interest of this discussion lies.
-+
- # PRACTICAL IMPLICATIONS
-+
- Consider heating from a primary temperature $T_2 = 1000$ K to room temperature, $T_1=25\,^{\circ}\text{C}=298$ K, with an outside temperature $T_0=0\,^{\circ}\text{C}=273$ K. Comparing our ideal $Q_1$ with the present maximum $Q_2$, we have from Eq. (6), the gain factor
--$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. $$
-+$$ G = \frac{Q_1}{Q_2} = \frac{1-0.273}{1-0.916} = 8.66. \tag{7} $$
- 
- This seems at first glance quite startling; if we take into account that we are at present far from getting even $Q_2$ because of heat loss up chimneys, the conclusion is that it is in principle possible to heat our homes with an order of magnitude less fuel than we are now consuming.
- 
- A better idea of the numerical improvement allowed by the second law is given in Fig. 1, where we give contours of constant gain $G=Q_1/Q_2$ in the $(T_0, T_2)$ plane for $T_1=25\,^{\circ}\text{C}$, room temperature. Even in cold climates, average gains of the order of 5 are indicated. The reason for this high efficiency is that $T_0$ and $T_1$ are not very different on the Kelvin scale. With the values of inside and outside temperature assumed in Eq. (7), one Joule of work will pump
--$$ T_0/(T_1 - T_0) = 10.9 $$
-+$$ T_0/(T_1 - T_0) = 10.9 \tag{8} $$
- Joules of heat from the outside world, and deliver 11.9 Joules to the inside. Unfortunately, presently available heat pumps are far from realizing this theoretical efficiency. Silver notes that if present engines realize only half of the theoretical efficiency, then the heat pump component of $Q_1$ will be only a quarter of our calculated value.
- 
- Evidently, the development of heat pumps that approach the theoretical efficiency for small temperature differences would be of very great economic importance, and no physical law stands in the way of realizing them. It is only a matter of the ingenuity of inventors, and the one who succeeds will be one of the world's great benefactors. We suspect that the successful technology will avoid the crude mechanical pumps of our present realizations, perhaps depending on thermoelectric or electrochemical means that avoid all mechanical moving parts, although perhaps with circulating fluids.
-+
- **[FIGURE 1: Contours of constant gain in the $(T_0, T_2)$ plane, for $T_1=25^{\circ}\text{C}$.]**
-+
- # FREE OVENS FOR ESKIMOS
-+
- Note that the derivation of Eq. (6) is general in that it holds for any exchange of heat between three reservoirs whatever the relative temperatures and the signs of the $Q_i$, although the arrangement of Carnot engines envisaged in our derivation of Eq. (4) would no longer apply. But this seems to contradict a common statement of the second law attributed to Kelvin that "It is impossible for heat to flow of itself from a cold reservoir to a hotter one." The statement actually made by Kelvin is that it is impossible to do this *without leaving changes in external bodies*. Equation (6) demonstrates the need for this qualification for it is quite possible for heat to flow spontaneously from room temperature $T_1$ to a higher temperature $T_2$, if there is at the same time a compensating flow to a lower temperature $T_0$.
- 
- Suppose then that we want to heat an oven at the standard cooking temperature of $T_2=400\,^{\circ}\text{F}=204\,^{\circ}\text{C}=477$ K, using heat extracted from the air of a kitchen at room temperature $T_1=25\,^{\circ}\text{C}=298$ K. Our equations use the sign convention that $Q_1$ is the heat delivered to the reservoir at $T_1$, while $Q_0$ and $Q_2$ represent heat *extracted from* those at $T_0, T_2$. Therefore $Q_0, Q_1,$ and $Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted from the room and $(-Q_2)$ is the resulting heat delivered to the oven; but Eq. (6) still holds. If we write the first as
--$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, $$
-+$$ (-Q_2) = (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9} $$
- we see that the maximum heat that can be delivered to the oven is less than that extracted from the room, but if the outside temperature $T_0$ is low enough, the efficiency can be quite high; unlike room heating, oven heating becomes more efficient as the outside temperature is lowered.
- 
- Indeed, we have only to run a Carnot engine between $T_1$ and $T_0$ extracting the work $W=(-Q_1)(1-T_0/T_1)$, then use that to run a heat pump between $T_0$ and $T_2$, which delivers the heat $(-Q_2)=W/(1-T_0/T_2)$, in agreement with Eq. (9). If the outside temperature $T_0$ is $-40\,^{\circ}\text{F}=-40\,^{\circ}\text{C}=233$ K then according to Eq. (9), 1000 calories of heat removed from the room can deliver 426 calories to the oven. If this leaks back eventually to reheat the room, it might appear that the "cost" of running the oven was not the 1000 calories removed from the room, but only the 574 calories lost to the outside.
-@@ -59,6 +67,7 @@
- But this leaking back is again an irreversible process in which something is wasted, and we can do better. If the oven is well insulated, then when we are done with it the heat $(-Q_2)$ is still in it, so we have only to run those Carnot engines backward, obtaining the work $W=426(1-T_0/T_2)$ from which the heat pump can return the heat $W/(1-T_0/T_1)=1000$ calories to the room, completely restoring the *status quo*. The second law allows us to operate an oven, at whatever temperature we please, at zero cost, the outside reservoir $T_0$ serving only as a temporary repository for the entropy that must be disposed of in heating the oven.[^6]
- 
- Unfortunately, the second law will not allow us to supply our cooling needs as easily; it offers free (that is, zero operating cost) ovens to eskimos, but not free air-conditioning to hottentots because they have no lower temperature reservoir to take up that entropy.
-+
- [^2]: WTG---Actually, Kelvin had realized it much earlier: W. Thomson (Lord Kelvin), "On the economy of the heating or cooling of buildings by means of currents of air," Proc. R. Philos. Soc. (Glasgow) **3**, 269--272 (1852).
- [^3]: WTG---There is, however, at least one textbook that presents the principle in terms of Carnot engines: F. H. Crawford, *Heat, Thermodynamics, and Statistical Physics* (Harcourt, Brace & World, New York, 1963), pp. 217--219.
- [^4]: R. S. Silver, "Reflexions sur la puissance chaleurique du feu," J. Heat Recovery Syst. **1**, 205--207 (1981).
-
+Self-check completed:
+- Paragraph boundaries are already separated by blank lines where intended.
+- In-text equation references (Eqs. (1) through (9), including combined references like Eqs. (2) and (3)) all resolve to display equations with visible `\tag{...}` numbers.
+- No duplicate abstract appears in the body.
+- Citations are already normalized as footnotes.
+- No extraneous metadata line (e.g., “Lecture given at ...”) was present.
 tokens used
-21,979
+7,484
 

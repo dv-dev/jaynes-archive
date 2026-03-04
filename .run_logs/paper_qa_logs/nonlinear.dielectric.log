@@ -1,0 +1,243 @@
+=== STDOUT ===
+Applied a minimal structural QA edit to [content/papers/nonlinear.dielectric.md](/home/dave/Projects/jaynes-archive/content/papers/nonlinear.dielectric.md):
+
+- Added one blank line before the numbered list under “conditions:” so paragraph/list boundaries are explicit and render reliably in Markdown (Hugo+KaTeX-safe).
+
+Self-check results:
+
+- Paragraph boundaries: no additional clearly intended paragraph breaks were missing.
+- Equation references: all in-text numeric equation references resolve to existing display equations with `\tag{...}`.
+- Abstract duplication: abstract appears only in front matter.
+- Citation normalization: no duplicate parenthetical+footnote citation pattern found.
+- Extraneous metadata like “Lecture given at ...”: not present in body.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba6f-8d74-7663-b610-c7220acf63a8
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/nonlinear.dielectric.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/nonlinear.dielectric.md` for paragraph structure, equation-number references, duplicate abstract/body metadata issues, and citation formatting, then apply minimal structural fixes only.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/nonlinear.dielectric.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Nonlinear Dielectric Materials"
+year: 1955
+abstract: >
+  The following is a brief description of nonlinear
+  dielectrics from the standpoint of the fundamental physics involved.
+  Specific available materials and technical applications are considered
+  only by way of illustration of general properties. It is shown that,
+  although dielectric nonlinearity and ferroelectricity are quite
+  different phenomena, the fact that ferroelectrics have high dielectric
+  constants makes them the most likely materials to exhibit a high
+  degree of nonlinearity at electric field strengths safely below the
+  breakdown values.
+author: ["E.T. Jaynes"]
+categories: ["Electrodynamics & Signal Processing"]
+tags: ["nonlinear dielectrics", "ferroelectricity", "dielectric constant", "barium titanate", "Rochelle salt", "Curie point", "polarization"]
+---
+## INTRODUCTION
+The macroscopic electromagnetic properties of matter are commonly
+described by specifying the current density J, electric displacement
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/nonlinear.dielectric.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+theory of ferroelectrics has been given by Devonshire.[^27]
+
+## THEORY OF DIELECTRICS
+
+It might be supposed that with modern knowledge of the properties of
+atoms and molecules, it would be a straightforward matter to calculate
+the dielectric constant of any material of known composition from first
+principles. Unfortunately, this turns out to be an extremely complicated
+problem on which little progress has been made; only in the case of
+gases where the dielectric constant is very close to unity and the
+similar case of dilute solutions of polar molecules in nonpolar liquids
+can one claim quantitative success. Although it is easy to describe in
+words the mathematical procedure that would give a rigorous treatment,
+in practice one must make from the start drastic simplifications which
+make it difficult to interpret whatever agreement or disagreement with
+experiment is found. The basic reason for this is that the properties of
+a crystal are not merely the properties of a single molecule, multiplied
+by the number of molecules present, but the interactions between them
+are an essential part of the picture, and these are never taken into
+account in a correct way. From the point of view of quantum mechanics,
+codex
+I’ve reviewed the full file and next I’m doing a quick consistency scan for equation-number mentions like `(n)` versus available `\tag{n}` entries to confirm there are no unresolved Eq. references before deciding whether any edits are necessary.
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{[0-9]+\\}|\\([0-9]+\\)\" content/papers/nonlinear.dielectric.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+221:term in (5) is small compared to the linear one. Since B is negative
+340:In the first place, (12) cannot be used when the polarizability is due
+350:T the temperature in degrees Kelvin. Eq. (12) predicts an infinite
+368:as an assembly of rotating dipoles exhibiting the catastrophe of (12).
+exec
+/bin/bash -lc "rg -n \"tag\\{[0-9]+\\}\" content/papers/nonlinear.dielectric.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+36:\end{aligned} \tag{1}
+42:D(\omega) = \epsilon(\omega) E(\omega). \tag{2}
+196:F(P, T) = F_0(T) + A(T) P^2 + B(T)P^4, \tag{3}
+207:\end{aligned} \tag{4}
+212:E = \partial F/\partial P = 2AP + 4BP^3. \tag{5}
+218:\epsilon = 1 + 4\pi(\partial P/\partial E) = 1 + 4\pi/(2A + 12BP^2) \approx 4\pi A^2/(2A^3 + 3BE^2), \tag{6}
+295:M = \alpha F. \tag{7}
+304:F = E + \beta P. \tag{8}
+313:P = N \alpha F = N \alpha (E + \beta P), \tag{9}
+318:\chi = P/E = N\alpha / (1 - N\alpha\beta). \tag{10}
+323:\epsilon = 1 + 4\pi\chi, \tag{11}
+328:\frac{\epsilon-1}{\epsilon+2} = \frac{4\pi N\alpha}{3}, \tag{12}
+344:\epsilon - 1 = 4\pi N\alpha \ll 1. \tag{13}
+404:\alpha = (M/F)L(a) = M^2/3kT - M^4F^2/45k^3T^3 + \dots, \tag{14}
+441:M_{01} = e \int \psi_0^* z \psi_1 dV \tag{15}
+448:\alpha = \frac{|M_{01}|^2 \tanh a}{k T a} \tag{16}
+452:a = \frac{[4(E_1-E_0)^2 + |M_{01}|^2 F^2]^{1/2}}{kT} \tag{17}
+codex
+I found one concrete markdown-structure issue to fix: the numbered list under “conditions:” is not separated by a blank line, which can render inconsistently. I’ll make that minimal edit and then re-check.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/nonlinear.dielectric.md
+@@ -48,2 +48,3 @@
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/nonlinear.dielectric.md
+file update:
+diff --git a/content/papers/nonlinear.dielectric.md b/content/papers/nonlinear.dielectric.md
+index 27958445c0748579bce6ecaa4e712ff359437573..4ab77d72976460a9b7ca80cb31cb65656f064bcb
+--- a/content/papers/nonlinear.dielectric.md
++++ b/content/papers/nonlinear.dielectric.md
+@@ -46,6 +46,7 @@
+ to no simple relation between D(t) and E(t). Thus, a linear
+ dielectric material is characterized intuitively by the following
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+     E(t).
+ 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
+
+file update:
+diff --git a/content/papers/nonlinear.dielectric.md b/content/papers/nonlinear.dielectric.md
+index 27958445c0748579bce6ecaa4e712ff359437573..4ab77d72976460a9b7ca80cb31cb65656f064bcb
+--- a/content/papers/nonlinear.dielectric.md
++++ b/content/papers/nonlinear.dielectric.md
+@@ -46,6 +46,7 @@
+ to no simple relation between D(t) and E(t). Thus, a linear
+ dielectric material is characterized intuitively by the following
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+     E(t).
+ 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
+
+exec
+/bin/bash -lc "awk 'BEGIN{for(i=1;i<=200;i++)tags[i]=0} /tag\\{[0-9]+\\}/{while(match("'$0,/tag'"\\{[0-9]+\\}/)){n=substr("'$0,RSTART+4,RLENGTH-5);tags[n]=1;$0=substr($0,RSTART+RLENGTH)}} {line=$0; while(match(line,/(Eq'"\\. *\\([0-9]+\\)|\\([0-9]+\\))/)){tok=substr(line,RSTART,RLENGTH); gsub(/["'^0-9]/,"",tok); refs[tok]=1; line=substr(line,RSTART+RLENGTH)}} END{for(r in refs){if(!tags[r])print "missing tag for ref",r}}'"' content/papers/nonlinear.dielectric.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+file update:
+diff --git a/content/papers/nonlinear.dielectric.md b/content/papers/nonlinear.dielectric.md
+index 27958445c0748579bce6ecaa4e712ff359437573..4ab77d72976460a9b7ca80cb31cb65656f064bcb
+--- a/content/papers/nonlinear.dielectric.md
++++ b/content/papers/nonlinear.dielectric.md
+@@ -46,6 +46,7 @@
+ to no simple relation between D(t) and E(t). Thus, a linear
+ dielectric material is characterized intuitively by the following
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+     E(t).
+ 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
+
+exec
+/bin/bash -lc 'rg -n "The following is a brief description of nonlinear dielectrics|although dielectric nonlinearity and ferroelectricity" content/papers/nonlinear.dielectric.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+9:  although dielectric nonlinearity and ferroelectricity are quite
+file update:
+diff --git a/content/papers/nonlinear.dielectric.md b/content/papers/nonlinear.dielectric.md
+index 27958445c0748579bce6ecaa4e712ff359437573..4ab77d72976460a9b7ca80cb31cb65656f064bcb
+--- a/content/papers/nonlinear.dielectric.md
++++ b/content/papers/nonlinear.dielectric.md
+@@ -46,6 +46,7 @@
+ to no simple relation between D(t) and E(t). Thus, a linear
+ dielectric material is characterized intuitively by the following
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+     E(t).
+ 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
+
+codex
+Applied a minimal structural QA edit to [content/papers/nonlinear.dielectric.md](/home/dave/Projects/jaynes-archive/content/papers/nonlinear.dielectric.md):
+
+- Added one blank line before the numbered list under “conditions:” so paragraph/list boundaries are explicit and render reliably in Markdown (Hugo+KaTeX-safe).
+
+Self-check results:
+
+- Paragraph boundaries: no additional clearly intended paragraph breaks were missing.
+- Equation references: all in-text numeric equation references resolve to existing display equations with `\tag{...}`.
+- Abstract duplication: abstract appears only in front matter.
+- Citation normalization: no duplicate parenthetical+footnote citation pattern found.
+- Extraneous metadata like “Lecture given at ...”: not present in body.
+file update:
+diff --git a/content/papers/nonlinear.dielectric.md b/content/papers/nonlinear.dielectric.md
+index 27958445c0748579bce6ecaa4e712ff359437573..4ab77d72976460a9b7ca80cb31cb65656f064bcb
+--- a/content/papers/nonlinear.dielectric.md
++++ b/content/papers/nonlinear.dielectric.md
+@@ -46,6 +46,7 @@
+ to no simple relation between D(t) and E(t). Thus, a linear
+ dielectric material is characterized intuitively by the following
+ conditions:
++
+ 1.  No frequencies are present in D(t) which not are present in
+     E(t).
+ 2.  If $E_1(t)$ produces $D_1(t)$, which we write compactly as
+
+tokens used
+13,731
+

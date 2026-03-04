@@ -16,6 +16,7 @@ x = y
 $$
 
 If we have text
+
 $$
 z = w
 $$

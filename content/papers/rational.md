@@ -62,8 +62,6 @@ If that were not enough, any MAXENT solution also defines a particular
 model for which the predictive distribution using the maximum-likelihood
 estimates of the parameters, is identical with the MAXENT distribution.
 This is essentially the
-[^1]
-
 Pitman-Koopman theorem used backwards; given any data, the MAXENT
 distribution, having exponential form, in effect creates a model for
 which those data would have been sufficient statistics. This can give
@@ -177,7 +175,7 @@ for a single trial, while \"outcome\" refers to the experiment as a
 whole; thus one outcome consists of an enumeration of $N$ results,
 including their order). Each outcome yields a set of sample numbers
 $\{N_i\}$ and frequencies $\{f_i = N_i/N, 1 \le i \le n\}$, with an
-entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i.$$ This
+entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i. \tag{1}$$ This
 encompasses many different scenarios, for example: 1) *Generalized
 Loaded Dice*: A die with $n$ faces is tossed $N$ times, the $i$th face
 turning up $N_i$ times. 2) *Statistical Mechanics*: A system contains
@@ -195,7 +193,7 @@ $N_i$ times.
 Consider the subclass $C$ of all possible outcomes that could be
 observed in $N$ trials, compatible with $m$ linearly independent
 constraints ($m < n$) of the form
-$$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m.$$ The conceptual
+$$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m. \tag{2}$$ The conceptual
 interpretation is that $m$ different \"physical quantities\" have been
 measured, the matrix $A_{ji}$ defines their \"nature,\" and
 $D = \{d_1 \dots d_m\}$ is our data set. For example, in image
@@ -206,9 +204,10 @@ The data $D$ tell us that the actual outcome must have been in class
 $C$, but do not determine the frequencies $\{f_i\}$. We examine the
 combinatorial basis for using---and the consequences of failing to
 use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
+
 A certain fraction $F$ of the outcomes in class $C$ will yield an
 entropy in the range
-$$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}}$$
+$$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
 where $H_{\text{max}}$ is determined by the well-known algorithm
 recalled in Appendix I. Their concentration near this upper bound (i.e.,
 the functional relation connecting $F$ and $\Delta H$) is given by the
@@ -217,7 +216,7 @@ over class $C$ as chi-squared with $k = n-m-1$ degrees of freedom,
 independently of the nature of the constraints. That is, denoting the
 critical chi-squared for $k$ degrees of freedom at the $100P$ percent
 significance level by $\chi_k^2(P)$, $\Delta H$ is given in terms of the
-upper tail area ($1-F$) by $$2N\Delta H = \chi_k^2(1-F).$$ The proof is
+upper tail area ($1-F$) by $$2N\Delta H = \chi_k^2(1-F). \tag{4}$$ The proof is
 relegated to Appendix II, since it consists of little more than
 repeating mutatis mutandis Karl Pearson's original derivation of the
 chi-squared distribution, taking note of the reduction of dimensionality
@@ -254,9 +253,9 @@ distribution. Applying the concentration theorem, we have $6-1=5$
 degrees of freedom. Entering the chi-squared tables at the conventional
 5-percent significance level, we find $\chi_5^2(0.05) = 11.07$. Thus 95
 percent of all possible outcomes have entropy in the range
-$2N\Delta H = 11.07$, or $$1.786 \le H \le 1.792.$$ Likewise,
+$2N\Delta H = 11.07$, or $$1.786 \le H \le 1.792. \tag{5}$$ Likewise,
 $\chi_5^2(0.005) = 16.75$, and so 99.5 percent of all possible outcomes
-have entropy in the interval $$1.783 \le H \le 1.792.$$ It is,
+have entropy in the interval $$1.783 \le H \le 1.792. \tag{6}$$ It is,
 therefore, pretty clear which estimate we shall wish to make. Without
 invoking either empirical evidence, or any probability model of
 Bernoulli trials we know, as an elementary combinatorial theorem, that
@@ -274,9 +273,9 @@ feel for the uniform distribution.
 In fact, this rationale was well understood by Jacob Bernoulli and
 Laplace, although they did not use the logarithmic form that we now call
 \"entropy.\" They calculated multiplicities, such as
-$$W = \frac{N!}{N_1! N_2! \dots N_n!}$$ but today we prefer to invoke
+$$W = \frac{N!}{N_1! N_2! \dots N_n!} \tag{7}$$ but today we prefer to invoke
 the Stirling approximation to derive
-$$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N)$$ the
+$$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N) \tag{8}$$ the
 
 Shannon entropy form. Intuitively, then, distributions of higher entropy
 have higher multiplicity---i.e., they can be realized by Nature in more
@@ -304,7 +303,7 @@ such anomalies as spurious sidelobes.
 influence causing the distribution to depart from uniformity. We learn
 that in the 1000 tosses the average number of spots up was not 3.5, as
 we would have predicted from the uniform distribution, but
-$$\sum_{i=1}^6 i f_i = 4.5$$ which is a special case of (2). Given this
+$$\sum_{i=1}^6 i f_i = 4.5 \tag{9}$$ which is a special case of (2). Given this
 constraint and nothing else (i.e., not making use of any additional
 information that you or I might get from inspection of the die or from
 past experience with dice in general), what estimates should we now make
@@ -319,9 +318,9 @@ before \[7\] are:
 
 $\{f_i = e^{-\lambda i}(\sum e^{-\lambda i})^{-1}, 1\le i \le 6\}$ with
 $\lambda = -0.37105$, or
-$$\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}.$$
+$$\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}. \tag{10}$$
 
-This distribution has entropy $$H_{\text{max}} \approx 1.61358$$ far
+This distribution has entropy $$H_{\text{max}} \approx 1.61358 \tag{11}$$ far
 below the range (6), indicating that the new constraint is very strong,
 confining us to an extremely small subclass of all the $6N$ outcomes
 conceivable a priori.
@@ -330,7 +329,7 @@ Again applying the concentration theorem, we have $6-1-1 = 4$ degrees of
 freedom; the chi-squared tables tell us that 95 percent of all possible
 outcomes allowed by the constraint (9) have entropy in a range of width
 $\Delta H = (2N)^{-1} \chi_4^2(0.05) = 0.00474$; or, to sufficient
-accuracy, $$1.609 \le H \le 1.614.$$ Thus on the \"null hypothesis\"
+accuracy, $$1.609 \le H \le 1.614. \tag{12}$$ Thus on the \"null hypothesis\"
 which supposes that no further systematic influence is operative in the
 experiment other than the one taken into account (i.e., which assigns
 equal probability to all outcomes in the new class $C$), there is less
@@ -338,16 +337,17 @@ than a 5-percent chance that the frequency distribution has entropy
 outside the interval (12).
 
 A remarkable feature is that the \"95-percent concentration range\"
-$$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}}$$ is valid
+$$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
 asymptotically for any experiment with four degrees of freedom, although
 the value of $H_{\text{max}}$ may vary widely with other details.
+
 More interesting numerical results are found at more extreme
 significance levels. Thus in an experiment with 1000 trials and four
 degrees of freedom, 99.99 percent of all outcomes allowed by the
 constraints have entropy in a range of width
 $\Delta H = (2N)^{-1}\chi_4^2(0.0001) = 0.012$. In the above example
-this is $$1.602 \le H \le 1.614$$ and only one in $10^8$ of the possible
-outcomes has entropy outside $$1.592 \le H \le 1.614.$$ Thus given
+this is $$1.602 \le H \le 1.614 \tag{14}$$ and only one in $10^8$ of the possible
+outcomes has entropy outside $$1.592 \le H \le 1.614. \tag{15}$$ Thus given
 incomplete information, the distribution of maximum entropy is not only
 the one that can be realized in the greatest number of ways; in fact,
 for large $N$ the overwhelming majority of all possible distributions
@@ -360,19 +360,21 @@ $10^8$ has $H < H_{\text{max}} - 0.001$. As $N \to \infty$, any
 frequency distribution other than the one of maximum entropy thus
 becomes highly atypical of those allowed by the constraints. This is the
 asymptotic optimality property.
+
 In view of this result, we can now appreciate the prophetic wisdom in
 the remark of Burg \[1\] that \"\... a reasonable goal is to find a
 single function, $P(f)$, which will be representative of the class of
 all possible spectra.\" This is precisely what he did accomplish; and
 indeed in a deeper sense than he may have realized at the time.
+
 Even more interesting numbers are readily found. Rowlinson \[11\]
 rejected the principle of maximum entropy for this problem, and proposed
 as an alternative solution in place of (10) the binomial distribution
-$$f_i = \binom{5}{i-1} p^{i-1}(1-p)^{6-i}, \quad 1 \le i \le 6$$ which
+$$f_i = \binom{5}{i-1} p^{i-1}(1-p)^{6-i}, \quad 1 \le i \le 6 \tag{16}$$ which
 also satisfies the constraint (9) if $p = 0.7$. But the distribution
 (16) has entropy $H^\prime = 1.4136 = H_{\text{max}} - 0.200$, far below the
 limit (15). We now have $2N\Delta H = 400 = \chi_4^2(1 - F)$; or from
-(A12) $$1 - F \approx 2.94 \times 10^{-84}.$$ This indicates that in
+(A12) $$1 - F \approx 2.94 \times 10^{-84}. \tag{17}$$ This indicates that in
 1000 tosses, less than one in $10^{83}$ of the outcomes compatible with
 the constraint (9) have entropy as low as $H^\prime$.
 
@@ -490,12 +492,12 @@ we make, usually the mean value over a MAXENT distribution.
 
 The MAXENT problem for our time series then takes the form: find the
 probability density $p(y_0 \dots y_T)$ which has maximum entropy
-$$H = -\int dy_0 \dots \int dy_T p(y_0 \dots y_T) \log p(y_0 \dots y_T)$$
+$$H = -\int dy_0 \dots \int dy_T p(y_0 \dots y_T) \log p(y_0 \dots y_T) \tag{18}$$
 subject to constraints that represent all our information about the time
 series. If these constraints take the form of mean values of $m$
 different quantities $A_k$, our data set $D = \{A_1' \dots A_m^\prime\}$
 imposes the constraints
-$$A_k^\prime = \int dy_0 \dots \int dy_T p(y_0 \dots y_T) A_k(y_0 \dots y_T), \quad 1 \le k \le m$$
+$$A_k^\prime = \int dy_0 \dots \int dy_T p(y_0 \dots y_T) A_k(y_0 \dots y_T), \quad 1 \le k \le m \tag{19}$$
 and this is, but for notation, the problem that was formulated and
 solved by Gibbs. It is a continuous analog of (1) and (2).
 
@@ -503,14 +505,14 @@ Constraints of the form (19) appear general enough (with a little
 ingenuity in defining the functions $A_k$) to deal with almost any real
 problem yet thought of. The algorithm proceeds as before; define the
 partition function analogous to (A1)
-$$Z(\lambda_1 \dots \lambda_m) = \int dy e^{-\lambda \cdot A}$$ and the
+$$Z(\lambda_1 \dots \lambda_m) = \int dy e^{-\lambda \cdot A} \tag{20}$$ and the
 maximum-entropy distribution is, analogous to (A4),
-$$p(y) = Z^{-1} e^{-\lambda \cdot A}$$ where we have passed to the
+$$p(y) = Z^{-1} e^{-\lambda \cdot A} \tag{21}$$ where we have passed to the
 compact notation $dy=dy_0 \dots dy_T$
-$$\lambda \cdot A \equiv \sum_{k=1}^{m} \lambda_k A_k(y_0 \dots y_T)$$
+$$\lambda \cdot A \equiv \sum_{k=1}^{m} \lambda_k A_k(y_0 \dots y_T) \tag{22}$$
 and the Lagrange multipliers $\lambda_k$ are still determined by (A3).
 The maximum entropy attained is a function of the data (compare (A2))
-$$H_{\text{max}} = S(A_1' \dots A_m^\prime) = \log Z + \lambda \cdot A^\prime$$ and
+$$H_{\text{max}} = S(A_1' \dots A_m^\prime) = \log Z + \lambda \cdot A^\prime \tag{23}$$ and
 if this function were known, the Lagrange multipliers would be given by
 $\lambda_k = \partial S/\partial A_k^\prime$. That is, $\log Z(\lambda)$ and
 $S(A^\prime)$ are equivalent representations, each containing full information
@@ -518,7 +520,7 @@ about the distribution, and differing by the Legendre transformation
 (23).
 ## Example: The Burg Problem
 Our information consists of measured values $R_k^\prime$ of the autocovariance
-$$R_k(y_0 \dots y_T) = \frac{1}{T+1} \sum_{j=0}^{T-k} y_j y_{j+k}^*, \quad 0 \le k \le m$$
+$$R_k(y_0 \dots y_T) = \frac{1}{T+1} \sum_{j=0}^{T-k} y_j y_{j+k}^*, \quad 0 \le k \le m \tag{24}$$
 for $m+1$ lags, where $m < T$. Put, for formal reasons, $R_{-k}=R_k^*$,
 although these quantities are real in most applications. If we have no
 other information, then the probability density that has maximum entropy
@@ -527,19 +529,19 @@ multipliers $\{\lambda_{-m} \dots \lambda_0 \dots \lambda_m\}$.
 The quantities $A_k(y_0 \dots y_T)$ in the general formalism may be
 defined with any coefficients we please, and the scalar product
 $\lambda \cdot A$ and final conclusion will, of course, be independent
-of our choice. The choice $$A_k = \frac{T+1}{2} R_k, \quad -m < k < m$$
+of our choice. The choice $$A_k = \frac{T+1}{2} R_k, \quad -m < k < m \tag{25}$$
 will be convenient, making the Lagrange multipliers $\lambda_k$
 independent of $T$.
 The maximum-entropy distribution is then
-$$p(y_0 \dots y_T) = Z^{-1} \exp\left[-\sum_k \lambda_k A_k(y_0 \dots y_T)\right]$$
+$$p(y_0 \dots y_T) = Z^{-1} \exp\left[-\sum_k \lambda_k A_k(y_0 \dots y_T)\right] \tag{26}$$
 which is a Gibbsian generalized canonical ensemble. But in this case,
 the exponent is a quadratic form in the $y_i$; from (24) and (25) we
 have
-$$p(y_0 \dots y_T) \propto \exp\left[-\frac{1}{2}(y^\dagger A y)\right]$$
+$$p(y_0 \dots y_T) \propto \exp\left[-\frac{1}{2}(y^\dagger A y)\right] \tag{27}$$
 where y is the column vector $(y_0 \dots y_T)$, $y^\dagger$ its
 Hermitian conjugate row vector $(y_0^* \dots y_T^*)$, and A is the
 matrix with $(T+1)$ rows and columns
-$$A_{ij} = \begin{cases} \lambda_{|j-i|}, & |j-i| \le m \\\\ 0, & |j-i|>m \end{cases}$$
+$$A_{ij} = \begin{cases} \lambda_{|j-i|}, & |j-i| \le m \\\\ 0, & |j-i|>m \end{cases} \tag{28}$$
 in which the Lagrange multipliers are assembled in the Toeplitz form.
 With this kind of information, the MAXENT distribution is, therefore,
 multivariate Gaussian. Note that in this derivation, which differs from
@@ -552,23 +554,23 @@ distributions in this field calls for further comment to be given
 elsewhere.
 
 The partition function (20) is given by
-$$\log Z = -\frac{1}{2} \sum_{j=0}^{T} \log g_j + (\text{const})$$ where
+$$\log Z = -\frac{1}{2} \sum_{j=0}^{T} \log g_j + (\text{const}) \tag{29}$$ where
 $g_j$ are the eigenvalues of A. If we define the polynomial
-$$g(z) = \sum_{k=-m}^{m} \lambda_k z^k$$ then from Toeplitz theory, for
-$T \gg m$ the eigenvalues go into $$g_j = g(z_j), \quad 0 \le j \le T$$
+$$g(z) = \sum_{k=-m}^{m} \lambda_k z^k \tag{30}$$ then from Toeplitz theory, for
+$T \gg m$ the eigenvalues go into $$g_j = g(z_j), \quad 0 \le j \le T \tag{31}$$
 where $z_j$ are the roots of $z^{T+1} = 1$; i.e.,
-$$z_j = \exp[2\pi i j/(T+1)].$$ In fact, for a \"circular\" time series,
+$$z_j = \exp[2\pi i j/(T+1)]. \tag{32}$$ In fact, for a \"circular\" time series,
 $y_{T+1}=y_0$, A is a circulant matrix and (31) is exact for finite $T$,
 a fact that will prove essential in understanding the \"line-splitting\"
 phenomenon.
 
 As $T \to \infty$, then, from (29) and (31), $\log Z$ goes
 asymptotically into an integral over the unit circle in the z-plane
-$$\frac{2}{T+1} \log Z(\lambda_k) \to -\frac{1}{2\pi} \int_0^{2\pi} \log g(e^{i\theta}) d\theta.$$
+$$\frac{2}{T+1} \log Z(\lambda_k) \to -\frac{1}{2\pi} \int_0^{2\pi} \log g(e^{i\theta}) d\theta. \tag{33}$$
 
 The general MAXENT formalism then determines the $\lambda_k$ from
 $A_k^\prime = -\partial \log Z / \partial \lambda_k$, or
-$$R_k^\prime = \frac{1}{2\pi} \int_0^{2\pi} \frac{e^{ik\theta} d\theta}{g(e^{i\theta})}, \quad -m \le k \le m.$$
+$$R_k^\prime = \frac{1}{2\pi} \int_0^{2\pi} \frac{e^{ik\theta} d\theta}{g(e^{i\theta})}, \quad -m \le k \le m. \tag{34}$$
 
 At this point we note an interesting property of the MAXENT formalism.
 Suppose we wish to extrapolate the autocovariance $R_k$ beyond the data,
@@ -586,9 +588,9 @@ extrapolation of the covariance function: $\hat{R}_k = R_k$.
 
 But a further generalization is then obvious: if we have data on any
 information set $I$; i.e., we are given $R_k^\prime$ for $k \in I$, then
-define $$g(z) = \sum_{k \in I} \lambda_k z^k$$ whereupon (34) will be
+define $$g(z) = \sum_{k \in I} \lambda_k z^k \tag{35}$$ whereupon (34) will be
 valid for all $k$, with the meaning
-$$\hat{R}_k = \begin{cases} \text{data } R_k^\prime, & k \in I \\\\ \text{prediction } \hat{R}_k, & \text{otherwise.} \end{cases}$$
+$$\hat{R}_k = \begin{cases} \text{data } R_k^\prime, & k \in I \\\\ \text{prediction } \hat{R}_k, & \text{otherwise.} \end{cases} \tag{36}$$
 
 There is a Lagrange multiplier for each item of data we have, and the
 same formula (34) gives the optimal interpolation of missing data as
@@ -627,11 +629,11 @@ Once the $\lambda_k$ are determined from (34), the MAXENT prediction for
 any property of the time series follows from the distribution (29). If
 we wish only to predict the power spectrum $P(f)$, the result is
 trivial, for this is given by autocovariance
-$$P(f) = \sum_{k=-\infty}^{\infty} R_k \exp(+i2\pi fk), \quad |f| \le \frac{1}{2}.$$
+$$P(f) = \sum_{k=-\infty}^{\infty} R_k \exp(+i2\pi fk), \quad |f| \le \frac{1}{2}. \tag{37}$$
 
 But then (34) is just the inversion of this Fourier series, and we have,
 by inspection, $P(f) = 1/g$; the predicted spectrum is
-$$\hat{P}(f) = \frac{1}{\sum_{k \in I} \lambda_k e^{-i2\pi fk}}, \quad |f| \le \frac{1}{2}.$$
+$$\hat{P}(f) = \frac{1}{\sum_{k \in I} \lambda_k e^{-i2\pi fk}}, \quad |f| \le \frac{1}{2}. \tag{38}$$
 
 This formula, first derived by Burg \[1\], is one of the most beautiful
 analytical results in statistics. Note some of its properties; by the
@@ -639,6 +641,7 @@ MAXENT principle it is the \"smoothest\" (by the Burg
 $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
 therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
 cannot show any details for which there is no evidence in the data.
+
 It is interesting to note the manner in which (38) strives constantly
 for all the uniformity that the data will allow. Consider two problems:
 *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
@@ -667,6 +670,7 @@ never necessary, when setting up a MAXENT problem, to ascertain whether
 the different pieces of information used are independent. Any redundant
 information will drop out automatically---for in any variational
 problem, adding a redundant constraint cannot change the solution.
+
 Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
 missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
 from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
@@ -755,7 +759,7 @@ enter into the confusion of the current literature.
 In the derivation just given, we have been led to the solution (38) for
 one very specific problem, namely one in which a) the data consist of
 the exact values of
-$$R_k^\prime = \frac{1}{T+1} \sum_{t=0}^{T-k} y_t y_{t+k}^*, \quad 0 \le k \le m.$$
+$$R_k^\prime = \frac{1}{T+1} \sum_{t=0}^{T-k} y_t y_{t+k}^*, \quad 0 \le k \le m. \tag{39}$$
 b) $T \gg m$, because (38) is only the asymptotic form of (29), (A3).
 If condition a) is not met, then our state of knowledge is different
 from that portrayed by (27), (29), and the whole problem must be
@@ -769,7 +773,7 @@ briefly the exact calculation that should, in principle, be done when
 condition a) is met but b) is not. Then the MAXENT distribution will
 always have the Toeplitz form (27), (28); but the $\lambda_k$ should be
 determined from (A3) which now reads, using (20), (25)
-$$R_k^\prime = -\frac{1}{T+1} \frac{\partial}{\partial\lambda_k} \log \det(A), \quad -m \le k \le m.$$
+$$R_k^\prime = -\frac{1}{T+1} \frac{\partial}{\partial\lambda_k} \log \det(A), \quad -m \le k \le m. \tag{40}$$
 
 This is, in complex notation $R_{-k} = R_k^*$, a set of $(2m+1)$
 simultaneous equations for $(2m+1)$ unknowns; or if we revert to real
@@ -795,7 +799,7 @@ $\lambda_{m+1} = \dots = \lambda_T = 0$. Looking at the problem this
 way, it is clear that (39) holds for all $k$ in ($-T \le k \le T$), with
 the derivatives evaluated at $\lambda_k=0$ for $(m+1 \le |k| \le T)$.
 The exact predicted MAXENT spectrum is then
-$$P(f) = \frac{1}{T+1} \sum_{k=-T}^{T} e^{\pm i2\pi fk} \frac{\partial}{\partial\lambda_k} \log\det(A)$$
+$$P(f) = \frac{1}{T+1} \sum_{k=-T}^{T} e^{\pm i2\pi fk} \frac{\partial}{\partial\lambda_k} \log\det(A) \tag{41}$$
 and the essence of the computer program is to find the determinant of an
 arbitrary finite-dimensional Toeplitz matrix.
 
@@ -874,7 +878,7 @@ of the process; there is no longer any distinction between a correlation
 over a lag less than half way around the circle and more than half way
 around. More precisely, because $y_j = y_{j+T+1}$, we have necessarily
 not only $R_k=R_{-k}^*$, but also
-$$R_k = R_{T+1-k}^*, \quad 1 \le k \le m$$ and so the maximum possible
+$$R_k = R_{T+1-k}^*, \quad 1 \le k \le m \tag{42}$$ and so the maximum possible
 $m$ is $T/2$ or $(T+1)/2$, whichever is an integer.
 
 The form (27) of the MAXENT distribution still holds, but A is now a
@@ -885,16 +889,16 @@ eigenvalues are given by (31), (32).
 
 Equation (38) determining $\{\lambda_0 \dots \lambda_m\}$ then reduces
 to
-$$R_k^\prime = \frac{1}{T+1} \sum_j \frac{z_j^k}{g(z_j)}, \quad -m \le k \le m$$
+$$R_k^\prime = \frac{1}{T+1} \sum_j \frac{z_j^k}{g(z_j)}, \quad -m \le k \le m \tag{43}$$
 a discrete version of (34). But because of the circularity we have: a)
 the power spectrum need be defined only at $(T+1)$ discrete frequencies
-$$f_j = \frac{j}{T+1}, \quad 0 \le j [\text{mod } (T+1)] < T$$ and b)
+$$f_j = \frac{j}{T+1}, \quad 0 \le j [\text{mod } (T+1)] < T \tag{44}$$ and b)
 only $(T+1)$ consecutive values of $R_k$ are different, so
-$$P(f) = \sum_{k=0}^{T} R_k e^{-2\pi ikf}$$ and any other $(T+1)$
+$$P(f) = \sum_{k=0}^{T} R_k e^{-2\pi ikf} \tag{45}$$ and any other $(T+1)$
 consecutive values would yield the same sum. Then, because of
 orthogonality of $z_j^k = \exp[2\pi ijk/ (T+1)]$ on the unit circle,
 using (42) in (44) yields simply
-$$P(f_j) = \frac{1}{g(z_j)}, \quad 0 \le j \le T$$ which is identical
+$$P(f_j) = \frac{1}{g(z_j)}, \quad 0 \le j \le T \tag{46}$$ which is identical
 with (38).
 
 This identity of the asymptotic solution to the linear time series
@@ -924,9 +928,9 @@ phenomenon is simplest mathematically in the continuous case. The
 function $y(t) = \cos(\nu |t| + \phi)$ has a nominal frequency $\nu$,
 but with a phase jump of $2\phi$ at $t=0$. If it persists for an
 interval $T$, its spectrum is proportional to
-$$|Y(\omega)|^2 = \left[ \int_{-T/2}^{T/2} y(t) \cos \omega t \, dt \right]^2$$
+$$|Y(\omega)|^2 = \left[ \int_{-T/2}^{T/2} y(t) \cos \omega t \, dt \right]^2 \tag{47}$$
 and in the vicinity of $\omega \approx \nu$ this varies like
-$$\frac{[\sin(\alpha+\phi)-\sin\phi]^2}{\alpha^2}$$ where
+$$\frac{[\sin(\alpha+\phi)-\sin\phi]^2}{\alpha^2} \tag{48}$$ where
 $\alpha = (\nu - \omega)T/2$. Without the phase jump this would be the
 conventional Dirichlet $\sin\alpha/\alpha$ function, but the phase jump
 gives a skewed spectrum with two main peaks. In the case $\phi = \pi/4$,
@@ -1202,15 +1206,15 @@ argument; a similar result must hold also in spectrum analysis.
 
 To incorporate noise, one represents the data $D=\{d_1 \dots d_m\}$ by a
 modification of (2) above
-$$d_j = \sum_{i=1}^{n} A_{ji} f_i + e_j, \quad 1 \le j \le m$$ where
+$$d_j = \sum_{i=1}^{n} A_{ji} f_i + e_j, \quad 1 \le j \le m \tag{49}$$ where
 $e_j$ are the traditional noise terms. If $e_j \sim N(0, \sigma_j)$
 independently, define the quadratic form
-$$Q(f_1 \dots f_n) = \frac{1}{2} \sum_{j=1}^{m} \frac{1}{\sigma_j^2} \left( \sum_{i=1}^{n} A_{ji} f_i - d_j \right)^2$$
+$$Q(f_1 \dots f_n) = \frac{1}{2} \sum_{j=1}^{m} \frac{1}{\sigma_j^2} \left( \sum_{i=1}^{n} A_{ji} f_i - d_j \right)^2 \tag{50}$$
 
 Then given the prior information I and data D, any scene
 $(f_1 \dots f_n)$ of entropy $H(f_1 \dots f_n)$ has a posterior
 probability proportional to
-$$p(\text{scene}|D,I) \propto \exp[NH(\text{scene}) - Q(\text{scene})]$$
+$$p(\text{scene}|D,I) \propto \exp[NH(\text{scene}) - Q(\text{scene})] \tag{51}$$
 in which both the prior probability (multiplicity factor)
 
 $W \sim \exp(NH)$ of (A5) and the likelihood $\exp(-Q)$ are present. In
@@ -1401,14 +1405,14 @@ preliminary conceptual understanding without which further theoretical
 development could not proceed.
 ## Appendix I {#appendix-i .unnumbered}
 To summarize the MAXENT algorithm, define the partition function
-$$Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp\left(-\sum_{j=1}^{m} \lambda_j A_{ji}\right)$$
+$$Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp\left(-\sum_{j=1}^{m} \lambda_j A_{ji}\right) \tag{A1}$$
 
-Then $$H_{\text{max}} = \log Z + \sum_{j=1}^{m} \lambda_j d_j$$ in which
+Then $$H_{\text{max}} = \log Z + \sum_{j=1}^{m} \lambda_j d_j \tag{A2}$$ in which
 the Lagrange multipliers $\{\lambda_j\}$ are found from
-$$\frac{\partial}{\partial\lambda_j} \log Z + d_j = 0, \quad 1 \le j \le m$$
+$$\frac{\partial}{\partial\lambda_j} \log Z + d_j = 0, \quad 1 \le j \le m \tag{A3}$$
 a set of $m$ simultaneous equations for $m$ unknowns. The frequency
 distribution which has this maximum entropy is then
-$$f_i = Z^{-1} \exp\left(-\sum_j \lambda_j A_{ji}\right), \quad 1 \le i \le n.$$
+$$f_i = Z^{-1} \exp\left(-\sum_j \lambda_j A_{ji}\right), \quad 1 \le i \le n. \tag{A4}$$
 
 Other distributions $\{f_i^\prime\}$ allowed by the constraints (2) will have
 various entropies less than $H_{\text{max}}$.
@@ -1417,12 +1421,12 @@ In $N$ trials of a random experiment, the $i$th result occurs
 $N_i = Nf_i$ times, $1 \le i \le n$. Out of the $n^N$ conceivable
 outcomes, the number which yield a particular set of frequencies
 $\{f_i\}$ is the multiplicity factor
-$$W(f_1 \dots f_n) = \frac{N!}{(Nf_1)!\dots(Nf_n)!}$$ and as
+$$W(f_1 \dots f_n) = \frac{N!}{(Nf_1)!\dots(Nf_n)!} \tag{A5}$$ and as
 $N \to \infty$ we have by the Stirling approximation
-$$N^{-1} \log W \to H(f_1 \dots f_n)$$ the entropy function (1). Given
+$$N^{-1} \log W \to H(f_1 \dots f_n) \tag{A6}$$ the entropy function (1). Given
 two sets of frequencies $\{f_i\}$ and $\{f_i^\prime\}$, the ratio (number of
 ways $f_i$ can be realized)/(number of ways $f_i^\prime$ can be realized) is
-asymptotically $$\frac{W}{W^\prime} \sim A e^{N(H-H^\prime)}$$ The conceivable
+asymptotically $$\frac{W}{W^\prime} \sim A e^{N(H-H^\prime)} \tag{A7}$$ The conceivable
 frequencies $\{f_1 \dots f_n\}$ may be regarded as Cartesian coordinates
 of a point $P$ in an $n$-dimensional space, restricted to
 $\{S: 0 \le f_i, \sum f_i = 1\}$, the $(n-1)$-dimensional convex set
@@ -1445,23 +1449,23 @@ new coordinates $(x_1 \dots x_k)$ as appropriate linear functions of
 $\{f_1 \dots f_n\}$ such that the new origin is at the maximum-entropy
 point, and there is a distance $r=(\sum x_i^2)^{1/2}$ such that near the
 origin a power series expansion yields
-$$H(P) = H_{\text{max}} - ar^2 + \dots, \quad a > 0.$$ We then have a
+$$H(P) = H_{\text{max}} - ar^2 + \dots, \quad a > 0. \tag{A8}$$ We then have a
 volume element in $S^\prime$ proportional to $r^{k-1} dr$. The domain of all
 possible frequency distributions $\{f_1 \dots f_n\}$ which satisfy the
 constraints and whose entropy is in the range (3) is a k-sphere of
 radius $R$, given by $aR^2 = \Delta H$.
 In N trials, this sphere contains a fraction F of all possible
-outcomes in class C. From (A7), (A8) this is given asymptotically by $$F \sim I(R)/I(\infty)$$ where
-$$I(r) = \int_0^R e^{-Nar^2} r^{k-1} dr.$$ But, setting
+outcomes in class C. From (A7), (A8) this is given asymptotically by $$F \sim I(R)/I(\infty) \tag{A9}$$ where
+$$I(r) = \int_0^R e^{-Nar^2} r^{k-1} dr. \tag{A10}$$ But, setting
 $NaR^2 = N\Delta H = (1/2)\chi^2$, this is just the cumulative
 chi-squared distribution with $k$ degrees of freedom, in conventional
 notation the relation between $\Delta H$ and $F$ is given by (4).
 In our applications we are generally concerned with numerical values for
 large $N\Delta H$, beyond the range of tables. The chi-squared
 distribution $F(N\Delta H)$ may be expressed analytically as
-$$F(x) = \frac{1}{s!} \int_0^x t^s e^{-t} dt$$ where $s=(k/2)-1$. For
+$$F(x) = \frac{1}{s!} \int_0^x t^s e^{-t} dt \tag{A11}$$ where $s=(k/2)-1$. For
 large $x=N\Delta H$, this yields the asymptotic expansion
-$$1 - F(x) \sim (s!)^{-1} x^s e^{-x} [1+sx^{-1}+s(s-1)x^{-2}+\dots].$$
+$$1 - F(x) \sim (s!)^{-1} x^s e^{-x} [1+sx^{-1}+s(s-1)x^{-2}+\dots]. \tag{A12}$$
 
 When $s$ is an integer ($k$ even) (A12) terminates and is exact. Most of
 the numerical results cited in the text have been obtained from (A12).
@@ -1513,7 +1517,3 @@ D. N. Zubarev, *Nonequilibrium Statistical Thermodynamics*. New York:
 Plenum, 1974.
 :::
 \*These papers are reprinted in \[9\].
-
-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
-    author is with Arthur Holly Compton Laboratory of Physics,
-    Washington University, St. Louis, MO 63130.

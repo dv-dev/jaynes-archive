@@ -9,9 +9,6 @@ author: ["E.T. Jaynes"]
 title: PRIOR INFORMATION IN INFERENCE[^1]
 year: 1982
 ---
-::: flushright
-July 1982
-:::
 # INTRODUCTION {#introduction .unnumbered}
 For many years the writer has carried an evangelical message to
 physicists, telling them: \"Statisticians have learned many important
@@ -40,6 +37,7 @@ of intuition and reduced to a formal mathematical procedure. In some
 cases prior information can create our model and parameters for us, out
 of the data, in a way that is optimal by a certain well-defined
 criterion (this \"adjunct model\" makes the best use of the data).
+
 These things have been, in a sense, \"well known\" to physicists for
 decades, but in a language and context so different that they were not
 recognized. To explain, without going into lengthy details, why this
@@ -564,6 +562,7 @@ be changed. But of course, if I did have that kind of prior information,
 to ignore it would be an even greater sin than ignoring multiplicity.
 The objection deserves a more aggressive reply; we return to it in our
 concluding remarks.
+
 But do we really have such enormous variations in multiplicity in the
 real problems that arise in image reconstruction and time series
 analysis? Let us get some idea of the numbers of involved in a real
@@ -696,6 +695,7 @@ peak of a posterior distribution. This is just the way Gull and Daniell
 (1978) allowed for noise, and they show how the quality of a
 reconstruction varies with the noise level. Further details are in the
 process of publication, and should be available by late 1983.
+
 Although there is much more to be said about the generalized inverse
 problem, let us turn now to some more general uses for (15). We have
 obtained it by a combinatorial argument, as an estimate of the frequency
@@ -1050,44 +1050,44 @@ inference that appears to the writer to combine the best features of
 both camp A and camp B, into something broader and more useful than
 either taken alone.
 ## References {#references .unnumbered}
-J. Bertrand (1889); *Calcul des probabilites*, Gauthier-Villars, Paris
-R. B. Blackman & J. W. Tukey (1958); *The Measurement of Power Spectra*,
-Dover Publishing Co., New York.
-L. Boltzmann (1877); *Wiener Berichte* vol. 76, p. 373
-J. P. Burg (1967); \"Maximum Entropy Spectral Analysis\", Proc. 37th
-Meeting, Society of Exploration Geophysicists: reprinted in *Modern
-Spectrum Analysis*, D. G. Childers, Editor, J. Wiley & Sons, Inc., New
-York (1978).
-J. P. Burg (1975); Stanford University Doctoral Thesis
-R. G. Currie (1981); \"Solar Cycle Signal in Earth Rotation:
-Nonstationary Behavior\", *Science*, vol. 211, pp 386-389
-B. R. Frieden (1980); \"Statistical Models for the Image Restoration
-Problem\", *Computer Graphics & Image Processing*, Vol. 33, pp. 381-390
-J. W. Gibbs (1875); \"Heterogeneous Equilibrium\", *Conn. Acad. Sci.*;
-reprinted, Dover Publications, Inc. (1961).
-J. W. Gibbs (1902); *Statistical Mechanics*, Longmans, Green & Co.;
-reprinted, Dover Publications, Inc. (1961).
-I. J. Good (1950); *Probability and the Weighing of Evidence*, Hafner
-Publishing Co., New York.
-S. F. Gull & G. J. Daniell (1978); \"Image reconstruction from
-incomplete and noisy data\", *Nature*, Vol. 272, pp. 686-690
-S. Haykin (ed.) (1982); IEEE Special Issue on Spectral Estimation.
-Contains many articles with further details.
-E. T. Jaynes (1957); \"Information Theory and Statistical Mechanics\",
-*Phys. Rev.* vol 106, pp. 620-630; vol. 108, pp 171-190
-E. T. Jaynes (1978); \"Where do We Stand on Maximum Entropy?\", in *The
-Maximum-Entropy Formalism*, R. D. Levine and M. Tribus, editors, M.I.T.
-Press, Cambridge MA; pp. 15-118
-E. T. Jaynes (1980); \"The Minimum Entropy Production Principle\", in
-*Annual Review of Physical Chemistry*, Vol. 31, Annual Reviews, Inc.,
-Palo Alto CA; pp. 579-601
-H. Jeffreys (1939); *Theory of Probability*, Oxford University Press.
-E. Parzen (1968); \"Multiple Time Series Modelling\", in *Multivariate
-Analysis II* Academic Press, New York.
-H. Poincare (1912); *Calcul des probabilites*, Paris
-L. J. Savage (1954); *The Foundations of Statistics*, J. Wiley & Sons,
-Inc., N. Y.
-L. J. Savage (1962) discussion in *The Foundations of Statistical
-Inference*, M. S. Bartlett, Editor, Methuen & Co., Ltd., London
+- J. Bertrand (1889); *Calcul des probabilites*, Gauthier-Villars, Paris
+- R. B. Blackman & J. W. Tukey (1958); *The Measurement of Power Spectra*,
+  Dover Publishing Co., New York.
+- L. Boltzmann (1877); *Wiener Berichte* vol. 76, p. 373
+- J. P. Burg (1967); \"Maximum Entropy Spectral Analysis\", Proc. 37th
+  Meeting, Society of Exploration Geophysicists: reprinted in *Modern
+  Spectrum Analysis*, D. G. Childers, Editor, J. Wiley & Sons, Inc., New
+  York (1978).
+- J. P. Burg (1975); Stanford University Doctoral Thesis
+- R. G. Currie (1981); \"Solar Cycle Signal in Earth Rotation:
+  Nonstationary Behavior\", *Science*, vol. 211, pp 386-389
+- B. R. Frieden (1980); \"Statistical Models for the Image Restoration
+  Problem\", *Computer Graphics & Image Processing*, Vol. 33, pp. 381-390
+- J. W. Gibbs (1875); \"Heterogeneous Equilibrium\", *Conn. Acad. Sci.*;
+  reprinted, Dover Publications, Inc. (1961).
+- J. W. Gibbs (1902); *Statistical Mechanics*, Longmans, Green & Co.;
+  reprinted, Dover Publications, Inc. (1961).
+- I. J. Good (1950); *Probability and the Weighing of Evidence*, Hafner
+  Publishing Co., New York.
+- S. F. Gull & G. J. Daniell (1978); \"Image reconstruction from
+  incomplete and noisy data\", *Nature*, Vol. 272, pp. 686-690
+- S. Haykin (ed.) (1982); IEEE Special Issue on Spectral Estimation.
+  Contains many articles with further details.
+- E. T. Jaynes (1957); \"Information Theory and Statistical Mechanics\",
+  *Phys. Rev.* vol 106, pp. 620-630; vol. 108, pp 171-190
+- E. T. Jaynes (1978); \"Where do We Stand on Maximum Entropy?\", in *The
+  Maximum-Entropy Formalism*, R. D. Levine and M. Tribus, editors, M.I.T.
+  Press, Cambridge MA; pp. 15-118
+- E. T. Jaynes (1980); \"The Minimum Entropy Production Principle\", in
+  *Annual Review of Physical Chemistry*, Vol. 31, Annual Reviews, Inc.,
+  Palo Alto CA; pp. 579-601
+- H. Jeffreys (1939); *Theory of Probability*, Oxford University Press.
+- E. Parzen (1968); \"Multiple Time Series Modelling\", in *Multivariate
+  Analysis II* Academic Press, New York.
+- H. Poincare (1912); *Calcul des probabilites*, Paris
+- L. J. Savage (1954); *The Foundations of Statistics*, J. Wiley & Sons,
+  Inc., N. Y.
+- L. J. Savage (1962) discussion in *The Foundations of Statistical
+  Inference*, M. S. Bartlett, Editor, Methuen & Co., Ltd., London
 [^1]: An Invited Essay written for the Journal of the American
     Statistical Ass'n.

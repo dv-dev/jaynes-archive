@@ -133,6 +133,7 @@ $Q_r = R(t)QR(-t)$ gives the operator in the rotating system.
 Explicitly, 
 $$
 R(t) = \exp[(i/\hbar)J \cdot \omega t],
+\tag{2}
 $$
  where $J$ is the
 total angular momentum of the system and $\omega$ the angular velocity
@@ -156,12 +157,14 @@ $$
 magnetic field, it is
 $$
 \psi = \exp[-(i/\hbar)(\mathcal{H}_1+\mathcal{H}_0)t]\psi(x,0).
+\tag{4}
 $$
 
 Applying the rotation operator $R(t)$ corresponding to a uniform rate of
 rotation to (3), gives
 $$
 \psi_r = \exp[(i/\hbar)J\cdot\omega t] \exp[-(i/\hbar)\mathcal{H}_0 t] \psi(x,0).
+\tag{5}
 $$
 
 Restricting consideration to a Hamiltonian $\mathcal{H}_0$ which is
@@ -169,6 +172,7 @@ invariant to rotation around the direction of $\omega$, so that
 $[J\cdot\omega, \mathcal{H}_0]=0$, permits rewriting (5) in the form
 $$
 \psi_r = \exp[-(i/\hbar)(-\omega\cdot J+\mathcal{H}_0)t]\psi(x,0).
+\tag{6}
 $$
 
 To obtain a Larmor theorem,[^8] we compare Eqs. (4) and (6) for some
@@ -186,6 +190,7 @@ velocity $\omega$, $\psi_t$ and $\psi_r$ are equal only if the fields
 $H_k$ have the values 
 $$
  H_k = (1/\gamma_k)\omega; 
+\tag{7}
 \tag{7a}
 $$
  or if a uniform field $H_0=H$ is given, the theorem may be
@@ -201,6 +206,7 @@ the magnetic part of the Hamiltonian for the motion of an electron in a
 uniform magnetic field $H$,
 $$
 \mathcal{H}_1 = (e/2mc)H\cdot(L+2S)+(e^2/8mc^2)H^2 r^2 \sin^2\theta,
+\tag{8}
 $$
 where $\theta$ is the angle between the position vector $r$ and the
 magnetic field. In this case, it is necessary to assume that the
@@ -209,6 +215,7 @@ Then the Larmor theorem applies, the space function and spin functions
 being rotated with angular velocities
 $$
 \omega_1 = -\frac{e}{2mc}H, \quad \text{and} \quad \omega_s = 2\omega_1,
+\tag{9}
 $$
  respectively. For ordinary laboratory fields, the quadratic term in (8)
 is indeed very small compared to a linear term and (9) is a very good
@@ -256,6 +263,7 @@ $$
  and the limit of the product
 $$
  R(t) = \lim_{N\to\infty} \prod_{n=1}^N R_n = \exp \left[-\frac{i}{\hbar}\sum_k I_k \int_0^t \omega_k(t^\prime)dt^\prime\right].
+\tag{13}
 $$
 
  In (13), the convention must be observed that in every product of
@@ -268,6 +276,7 @@ only in that $H$ and $\omega$ are time-dependent. For example, (7b)
 becomes 
 $$
 \omega_k(t) = \gamma_k H(t) \text{ for all } t.
+\tag{14}
 $$
 
  For magnetic
@@ -305,6 +314,7 @@ equation $i\hbar \dot{\psi} = G(t)\psi$ by the unitary transformation
 $\psi^\prime = \exp[(i/\hbar)\omega\cdot St]\psi$ gives the equation
 $$
 i\hbar \frac{d\psi^\prime}{dt} = [G(0)-\hbar\omega\cdot S]\psi^\prime, \quad S=S_1+S_2.
+\tag{15}
 $$
 
 The Schrödinger equation for the pair of coupled spins with identical
@@ -326,6 +336,7 @@ oscillations, we find the following results for the expectation value of
 the total spin after the field (or rotation) has been on a long time:
 $$
 \langle S_x \rangle = \frac{3\hbar\omega E_0}{\epsilon^2} [|b_1(0)+b_3(0)|^2 - 2|b_2(0)|^2] + \frac{4(\hbar\omega)^2}{\epsilon^2} \langle S_x(0) \rangle,
+\tag{16}
 $$
  $\langle S_y \rangle = \langle S_z \rangle = 0$, with
 $E_0=(\hbar\gamma)^2/2R^3$,
@@ -340,6 +351,7 @@ a temperature $T_0$, and then at $t=0$ the reservoir is removed, we find
 from (16) for one such pair on the average
 $$
 \langle\langle S_x \rangle\rangle = -\frac{\hbar\omega}{kT_0} \frac{(3E_0)^2}{2\epsilon^2}.
+\tag{17}
 $$
 
  The second $\langle\langle \cdot \rangle\rangle$ indicates the average
@@ -359,6 +371,7 @@ spin is transferred to the nuclear-orbital motion via the interaction
 $G$. Thus, the dipole-dipole coupling provides a mechanism for spin
 polarization through the exchange of angular momentum with the
 nuclear-position coordinates.
+
 ## EQUILIBRIUM THEORY
 ### Density-Matrix Description of Rotating-Material System
 The foregoing example illustrates that Larmor's theorem (or in fact the
@@ -376,6 +389,7 @@ subject to the constraints imposed by knowledge of the expectation value
 of energy and angular momentum.[^11] The resulting density matrix is
 $$
 \rho = \exp(-\beta\mathcal{H} - \lambda_i J_i - \lambda_0 1),
+\tag{18}
 $$
  where
 $\beta$, $\lambda_i$, and $\lambda_0$ are introduced in the derivation
@@ -391,6 +405,7 @@ $$
 \langle \mathcal{H} \rangle &= \mathrm{Tr}(\rho\mathcal{H}) = -\partial \ln Z / \partial\beta; \nonumber \\\\ 
 \langle J_i \rangle &= \mathrm{Tr}(\rho J_i) = -\partial \ln Z / \partial\lambda_i.
 \end{aligned}
+\tag{19}
 $$
 
  The entropy corresponding to the density matrix (18) is, in
@@ -399,6 +414,7 @@ $$
 \begin{aligned}
 S &= -k \mathrm{Tr}(\rho\ln\rho) \nonumber \\\\ &= k[\beta\langle\mathcal{H}\rangle+\lambda_i\langle J_i \rangle + \lambda_0],
 \end{aligned}
+\tag{20}
 $$
  where $k$ is the Boltzmann constant. Differentiating
 (20) and noting from (19) that
@@ -406,6 +422,7 @@ $-d\lambda_0=\langle\mathcal{H}\rangle d\beta + \langle J_i \rangle d\lambda_i$,
 gives
 $$
 dS = k[\beta d\langle\mathcal{H}\rangle + \lambda_i d\langle J_i \rangle].
+\tag{21}
 $$
 
 We now consider a macroscopic system characterized by a uniform and
@@ -416,12 +433,14 @@ total energy is $dE=dQ+\omega_i dM_i$, from which the differential of
 entropy is 
 $$
  dS = dQ/T = (1/T)dE - (\omega_i/T)dM_i.
+\tag{22}
 $$
 
  Comparison of
 (21) and (22) yields the physical meaning of the Lagrange multipliers,
 $$
 \beta=1/kT, \quad \lambda_i = -\omega_i/kT.
+\tag{23}
 $$
 
  The density matrix (18)
@@ -484,6 +503,7 @@ ourselves to the case of sufficiently weak interactions so that
 cooperative phenomena do not appear. Before proceeding to calculate
 specific gyromagnetic effects with the density matrix (18), the
 perturbation method to be employed is developed.
+
 ### Perturbation Expansion[^13] for Expectation Values
 The expectation value of an arbitrary operator $C$, pertaining to a
 system described by a density matrix of the form (18), is
@@ -499,6 +519,7 @@ convergence of the expansion is bound to be better. Consider a quite
 general system described by a density matrix
 $$
 \rho = e^{\epsilon A+B}[\mathrm{Tr}(e^{\epsilon A+B})]^{-1},
+\tag{25}
 $$
  where
 $A$ and $B$ are arbitrary operators. A second, simpler, density matrix,
@@ -515,16 +536,19 @@ Expanding $\langle C \rangle_\epsilon$ in a Taylor series about
 $\epsilon=0$,
 $$
 \langle C \rangle_\epsilon = \sum_{n=0}^\infty \frac{\epsilon^n}{n!} \frac{d^n \langle C \rangle_\epsilon}{d\epsilon^n} \bigg|_{\epsilon=0}.
+\tag{26}
 $$
 
  To evaluate the leading terms in (26), we make use of the well-known
 mathematical identity[^14]
 $$
 e^{A+B} = e^A\left[1+\epsilon \int_0^1 e^{-Ax}Be^{A(x+\epsilon B)}dx \right]
+\tag{27}
 $$
  to obtain, by iteration,
 $$
 e^{\epsilon A+B} = e^A[1+\epsilon S_1 + \epsilon^2 S_2 + O(\epsilon^3)]
+\tag{28}
 $$
 $$
 \begin{aligned}
@@ -536,6 +560,7 @@ $$
 \begin{aligned}
 \frac{de^{\epsilon A+B}}{d\epsilon}\bigg|_{\epsilon=0} &= e^A S_1; \nonumber \\\\ \frac{d^2e^{\epsilon A+B}}{d\epsilon^2}\bigg|_{\epsilon=0} &= 2e^A S_2.
 \end{aligned}
+\tag{29}
 $$
 
  The derivatives for $\langle C \rangle_\epsilon$ are
@@ -544,15 +569,18 @@ $\langle C \rangle$. The result is up to $n=2$ for $\epsilon=1$, if we
 define $\Gamma=C-\langle C \rangle_0\cdot 1$,
 $$
 \langle\Gamma\rangle = \langle S_1 \Gamma \rangle_0 + (\langle S_2 \Gamma \rangle_0 - \langle S_1 \rangle_0 \langle B\Gamma \rangle_0).
+\tag{30}
 $$
 
  The subscript 0 means the average is taken over density matrix $\rho_0$. The higher-order terms to arbitrary order are derived in Appendix B. In the special case that $A$ and $B$ commute, the calculation becomes relatively simple because $S_1=B$ and $S_2=\frac{1}{2}B^2$. A somewhat more complicated case is the one where $A$ and $B$ do not commute, but $A$ and $C$ are commuting operators. In that case, (30) becomes
 $$
 \langle\Gamma\rangle = \langle B\Gamma \rangle_0 + \langle(S_2 - \langle B \rangle_0 B)\Gamma \rangle_0 = \langle B\Gamma \rangle_0 + \frac{1}{2}\langle(B-\langle B \rangle_0)^2 \Gamma \rangle_0 + Q,
+\tag{31}
 $$
  where
 $$
 Q = \int_0^1 xdx \int_0^1 dx^\prime \langle e^{-A\Gamma}[Be^{A\Gamma(1-x^\prime)}]Be^{A\Gamma x^\prime} \rangle_0.
+\tag{32}
 $$
 
  It is seen that if the operator $A \to 0$, the commutator in $Q$
@@ -795,6 +823,7 @@ $$
 \begin{aligned}
 A &= -\beta\mathcal{H}_0^*, \nonumber \\\\ B &= \beta\left[\frac{e}{2mc}(L+2S)^*\cdot H^*(t) \right. \nonumber \\\\ & \quad \left. - \frac{e^2}{8mc^2} \sum_k r_k^* \times H_k^*(t) \cdot r_k^* + J\cdot\omega \right].
 \end{aligned}
+\tag{44}
 $$
 
  The time dependence of $H^*(t)$ arises because a field
@@ -810,6 +839,7 @@ laboratory frame, if the axis of rotation is the 3 direction, by the
 relation
 $$
 \begin{pmatrix} v_1^* \\\\ v_2^* \\\\ v_3^* \end{pmatrix} = \begin{pmatrix} \cos{\omega t} & \sin{\omega t} & 0 \\\\ -\sin{\omega t} & \cos{\omega t} & 0 \\\\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} v_1 \\\\ v_2 \\\\ v_3 \end{pmatrix}.
+\tag{45}
 $$
 
  If the $\cos{\omega t}$ and $\sin{\omega t}$ are treated as C numbers,
@@ -830,12 +860,14 @@ $$
 \begin{aligned}
 \langle M_i^* \rangle &= -\frac{e}{2mc}\langle L_i^*+2S_i^* \rangle_0 = \sum_{j=1}^3 \chi_{ij}H_j^*(t)+\theta_{i3}\omega, \nonumber \\\\ \langle J_i^* \rangle - \langle J_i^* \rangle_0 &= \sum_{j=1}^3 \theta_{ij}^\prime H_j^*(t)+\eta_{i3}\omega,
 \end{aligned}
+\tag{46}
 $$
  where 
 $$
 \begin{aligned}
 \chi_{ij} &= \beta \left(\frac{e}{2mc}\right)^2 \int_0^1 dx \langle e^{-A^*} (L_i^*+2S_i^*) e^{A^*} (L_j^*+2S_j^*) \rangle_0 \nonumber \\\\ & \quad -\beta(e/2mc)^2\langle(L_i^*+2S_i^*)\rangle_0 \langle(L_j^*+2S_j^*)\rangle_0 \nonumber \\\\ & \quad + (e^2/4mc^2)\sum_k \langle x_i^* x_j^* - \delta_{ij} (r^*)^2 \rangle_0, \nonumber \\\\ \theta_{i3} &= \beta\frac{e}{2mc}\int_0^1 dx \langle e^{-A^*} J_3^* e^{A^*} (L_i^*+2S_i^*) \rangle_0 \nonumber \\\\ & \quad -\beta\frac{e}{2mc} \langle J_3^* \rangle_0 \langle L_i^*+2S_i^* \rangle_0, \nonumber \\\\ \theta^\prime_{ij} &= \beta\frac{e}{2mc}\int_0^1 dx \langle e^{-A^*} (L_i^*+2S_i^*) e^{A^*} J_j^* \rangle_0 \nonumber \\\\ & \quad -\beta\frac{e}{2mc} \langle L_i^*+2S_i^* \rangle_0 \langle J_j^* \rangle_0, \nonumber \\\\ \eta_{i3} &= \beta \int_0^1 dx \langle e^{-A^*} J_3^* e^{A^*} J_i^* \rangle_0 - \beta\langle J_3^* \rangle_0 \langle J_i^* \rangle_0.
 \end{aligned}
+\tag{47}
 $$
 
  From the identity (35), it follows that these
@@ -1072,6 +1104,7 @@ spin and the surroundings is neglected, the density matrix, in view of
 (18) and (23) is
 $$
 \rho_I = (1/Z)\exp(\beta\mu g I\cdot K), \quad \text{where } K_i = H_i+\omega_i/\gamma,
+\tag{54}
 $$
  the $K_i$ are the components of the effective magnetic field due to the
 combined action of the external field and the angular velocity $\omega$
@@ -1080,6 +1113,7 @@ rest of this paper. The expectation value for the component $I_{||}$
 along the direction $K$ is
 $$
 \langle I_{||} \rangle = (I+\tfrac{1}{2})\coth[a(I+\tfrac{1}{2})] - \tfrac{1}{2}\coth(a/2) \approx \tfrac{1}{3}aI(I+1), \quad \text{if } Ka = \beta\mu g K \ll 1.
+\tag{55}
 $$
 
  The expectation value $\langle I_{||} \rangle$ is time-independent; the
@@ -1091,6 +1125,7 @@ of inertia $\eta_V$, defined by $\langle I \rangle=f_V\omega$, and the
 nuclear susceptibility are related:
 $$
 \chi_\nu = \gamma\eta_\nu = \beta(\mu g)^2 I(I+1).
+\tag{56}
 $$
 
  To include the
@@ -1108,6 +1143,7 @@ $$
 \begin{aligned}
 A &= -\beta(\mathcal{H}_0-H\cdot M - \omega\cdot J - \mu g K\cdot I), \nonumber \\\\ B &= -\beta\mathcal{H}_{12}, \nonumber \\\\ \Gamma &= I - \langle I \rangle_0.
 \end{aligned}
+\tag{57}
 $$
 
  Here, $\mathcal{H}_0$ is the uncoupled Hamiltonian of
@@ -1120,9 +1156,11 @@ nuclear spin of interest. To calculate $\langle\Gamma_z\rangle$, Eq.
 corresponding approximation is made in Eq. (30). Thus one obtains,
 $$
 \langle\Gamma_z\rangle = \beta\langle\mathcal{H}_{12}I_z\rangle_0 + \beta^2(\langle\mathcal{H}_{12}^2 I_z\rangle_0 - 2\langle\Gamma_z\mathcal{H}_{12}\rangle_0\langle H_{12}\rangle_0),
+\tag{58}
 $$
 $$
 \langle I_\pm \rangle = -\beta(1\pm\sigma)\langle\mathcal{H}_{12}I_\pm\rangle_0 + \beta^2\langle[\Gamma I_{12}(\sigma/a)] \times (\mathcal{H}_{12} I_\pm)_0 - [\Gamma I_0]\langle\mathcal{H}_{12}I_\pm\rangle_0\langle\mathcal{H}_{12}\rangle_0\rangle,
+\tag{59}
 $$
  where $a=\beta\mu gK$; $\sigma=(1-e^{-a})/a-1 \approx -\frac{1}{2}a$;
 and $I_\pm = I_x \pm i I_y$. The $z$ direction is chosen parallel to
@@ -1139,17 +1177,20 @@ dependence on the components of $I$. These terms are:
 1.  the magnetic-dipole coupling between nuclei
 $$
     \mathcal{H}^{(1)} = - \mu^2 g^2 \sum_\alpha \left[ \frac{I \cdot I_\alpha}{R_\alpha^3} - 3 \frac{(R_\alpha \cdot I)(R_\alpha \cdot I_\alpha)}{R_\alpha^5} \right];
+\tag{60}
 $$
 2.  the coupling with electron spins of unpaired electrons
 $$
     \begin{aligned}
     \mathcal{H}^{(2)} &= -(8\pi/3)g_e\mu_B\gamma_e \sum_m \delta(r_m)I\cdot S_m - g_e\mu_B\gamma_e \sum_{m} \left[ \frac{I\cdot S_m}{r_m^3} - \frac{3(I\cdot r_m)(S_m\cdot r_m)}{r_m^5} \right];
     \end{aligned}
+\tag{61}
 $$
 3.  the interaction due to the electric-quadrupole moment of the
     nucleus[^36]
 $$
     \mathcal{H}^{(3)} = -\frac{1}{6} \sum_{i,k} Q_{ik} \frac{\partial^2\phi}{\partial x_i \partial x_k}, \quad Q_{ik} = C[I_iI_k+I_kI_i - \delta_{ik}I^2]
+\tag{62}
 $$
  with the constant $C=eQ/I(2I-1)$; and
 4.  the interaction between the nuclear magnetic moment and the orbital
@@ -1157,6 +1198,7 @@ $$
     in the presence of the external field,
 $$
     \mathcal{H}^{(4)} = -\mu g \frac{e}{mc} \sum_m \frac{r_m \times p_m}{r_m^3}\cdot I - \frac{e}{2c}H\cdot r_m - (\mu g) \frac{e^2}{8mc^2} \sum_m \left[I\times\frac{H\times r_m}{r_m^3} \right].
+\tag{63}
 $$
 
  The notation used is the conventional one. In the first term of (61),
@@ -1206,6 +1248,7 @@ With these reservations, the first order to $\langle I_z \rangle$, in
 view of (57) and (60) to (63), are found to be
 $$
 \langle I_z \rangle - \langle I_z \rangle_0 = -\beta\mu g(H^I+H^S+H^{S^\prime}+H^P+H^D)\times\langle I_z^2\Gamma \rangle_0 - \beta(D_1+D_2)\langle I_z^2\Gamma \rangle_0,
+\tag{64}
 $$
  with the following expressions for the quantities in (64) (see Appendix
 C): 
@@ -1234,10 +1277,12 @@ $$
 spins for all but s electrons is
 $$
 H^S = -\gamma_e \sum_{\substack{\text{electrons} \\\\ r_i \neq 0}} \left\langle \frac{\langle S_i \rangle_z}{r_i^3} - \frac{3z_i(r_i \cdot S_i)}{r_i^5} \right\rangle_0,
+\tag{66}
 $$
  and the internal field due to the s electrons,
 $$
 H^{S^\prime} = (8\pi/3)\gamma_e \sum_s \langle \delta(r_i)S_{iz} \rangle_0.
+\tag{67}
 $$
 
  This
@@ -1254,6 +1299,7 @@ angular momenta $L^\prime$ of the individual electrons gives rise through
 $\mathcal{H}^{(4)}$ to the internal field
 $$
 H^P = \frac{\mu_B}{\hbar} \sum_i \left\langle \frac{L^\prime_{iz}}{r_i^3} \right\rangle_0,
+\tag{69}
 $$
  where, in evaluating the expectation value, it must be remembered that
 the electrons are in an effective external field
@@ -1261,6 +1307,7 @@ $(H+\hbar\omega/\mu_e)$. Also, from $\mathcal{H}^{(4)}$, there arises
 the field
 $$
 H^D = -\frac{e^2}{2mc^2}\sum_i \left\langle H\left[\frac{y_i^2}{r_i^3} - \frac{y_i^2}{r_i^3}\right] - H_z \frac{x_i^2+y_i^2}{r_i^3} + H\left[\frac{x_i^2+y_i^2}{r_i^3}\right]\right\rangle_0.
+\tag{70}
 $$
 
  For the spin of a nucleus in an atom with a spherically symmetric charge
@@ -1372,6 +1419,7 @@ shifts of resonance lines due to chemical surroundings have been found
 for example to be $H^P/H\sim 6\times 10^{-4}$ for fluorine atoms.
 Measurements of chemical shifts have been made by a number of
 investigators.[^46]
+
 The field $H^D$ [Eq. (70)] becomes in the limit of no rotation the
 diamagnetic-shielding field found by Lamb[^46]: $H^D=\sigma H$, where
 $$
@@ -1394,6 +1442,7 @@ magnetic-resonance spectrum of molecules, and the line shift evaluated
 for deuterium molecules. It gives rise to an apparent quadrupole moment,
 since it produces the same line-splitting as the nuclear-quadrupole term
 $D_1$.
+
 In evaluating the correction to $\langle I_z \rangle_0$, which is linear
 in the direct coupling of the spin to the surroundings
 $\mathcal{H}_{12}$, we have found actually two types of corrections: one
@@ -1409,6 +1458,7 @@ $\sim \beta\langle\mathcal{H}_{12}\mathcal{H}_{23}I\rangle_{00}$ and are
 exemplified by the Ramsey shielding and the effective-nuclear-exchange
 term; the corresponding corrections to the energy levels would appear in
 second-order perturbation theory.
+
 Of course, we might have employed a perturbation
 $\mathcal{H}^\prime_{12}=\mathcal{H}_{12}+\mathcal{H}_{23}$ in the first
 place, and then the terms proportional to
@@ -1418,6 +1468,7 @@ of individual terms is more clearly brought out in the present way of
 doing it; besides, we are assured that the
 $\beta\langle\mathcal{H}_{12}\rangle$ effect is small, whereas this may
 not be the case for $\beta^2\langle\mathcal{H}^\prime_{12}\rangle^2$.
+
 In Eq. (64), seven linear corrections were distinguished; we would
 obtain 28 types of terms from them in evaluating
 $\langle \mathcal{H}_{12}^2 \rangle$. While all of these quadratic
@@ -1434,6 +1485,7 @@ frequency corresponding to the internal fields; however, (64) states
 that the polarization of the spin acts as if the levels were shifted by 
 just that amount. In some cases, as for example in the lowest-order 
 Knight shift or the Lamb shielding, it is in fact so.
+
 We write the part of $\mathcal{H}_{12}$ giving rise to
 $H^I, H^S, H^{S^\prime}, H^P,$ and $H^D$ in the form
 $\mathcal{H}^I+\mathcal{H}^S+\mathcal{H}^{S^\prime}+\mathcal{H}^P$, where
@@ -1441,8 +1493,10 @@ $\mathcal{H}^I$ gives $H^I$, etc. The coupling of hyperfine interaction
 $\mathcal{H}^{S^\prime}$ with $\mathcal{H}^S$ gives in second order,
 $$
 (g\mu_B)^2[(3H_{x,y}^S H_{x,y}^{S'} - H_z^S H_z^{S'}) \langle I_z^2\Gamma \rangle_0 - 4H_{x,y}^S H_{x,y}^{S'} \langle (I_x^2)_0 \rangle \langle I_z\Gamma \rangle_0],
+\tag{76}
 $$
  where $H_{x,y}$ are obtained from (65) by replacing $z$ by $x$ and $y$, respectively; similarly, $H_{x,y}^{S^\prime}$ are obtained from (67). To obtain (76), the simplifying assumption is made that the coordinates and spins of the electrons responsible for the contact interaction are not correlated to the spins of the nuclei, other than the one of interest.
+
 The quadratic term coupling $\mathcal{H}^S$ and $\mathcal{H}^{S^\prime}$ is of
 the same form, if it is assumed that the coordinates of different
 electrons are uncorrelated and that a particular electron either has the
@@ -1450,17 +1504,20 @@ $\mathcal{H}^S$ type or the $\mathcal{H}^{S^\prime}$ type of interaction, but
 not both:
 $$
 (g\mu_B)^2[(3H_x^S H_x^{S'} - H_z^S H_z^{S'}) \langle I_z^2\Gamma \rangle_0 - 4H_x^S H_x^{S'} \langle (I_x^2)_0 \rangle \langle I_z\Gamma \rangle_0].
+\tag{77}
 $$
  If the correlation between electrons is to be included, the coefficient
 of $\langle I_z^2\Gamma \rangle_0$ in (77) is replaced by
 $$
 (8\pi/3)(g\mu_B\beta)^2 \left\langle \sum_{n,n'} \left( \delta(r_n) \frac{3S_{nz'}}{r_{n'}^3} - \frac{3z_{n'}(S_{n'}\cdot r_{n'})}{r_{n'}^5} \right)_0 \left( \delta(r_{n'}) \frac{3S_{n'z}}{r_n^3} - \frac{3z_n(S_n \cdot r_n)}{r_n^5} \right)_0 \right\rangle.
+\tag{78}
 $$
  The quadratic correction depending on $(\mathcal{H}^S)^2$ is
 $$
 \begin{aligned}
 [(8\pi/3)g\mu_n(\mu_B/\hbar)\beta]^2 \langle I_z^2\Gamma \rangle_0 \left\langle \sum_{n,n'} \langle [S_n^z S_{n'}^{z'} - (S_n^x S_{n'}^x + S_n^y S_{n'}^y)] \right. \nonumber \\ \left. \times \delta(r_n)\delta(r_{n'}) \rangle - (g\mu H'\beta)^2 \langle(I_z)_0\rangle \langle I_z\Gamma \rangle_0 \right\rangle.
 \end{aligned}
+\tag{79}
 $$
  If $n \neq n^\prime$, the first term of (79) clearly vanishes; it can make a contribution only if at least two electrons have a finite probability of being at the nucleus. Even then, it can be shown to vanish, if the electron-spin space and coordinate space may be separated. For the quadratic terms coupling $\mathcal{H}^{S^\prime}$ and
 $\mathcal{H}^P$, one assumes that the electrons with finite probability
@@ -1469,6 +1526,7 @@ $$
 \begin{aligned}
 (8\pi/3)(g\mu_B\beta)^2 \langle I_z^2\Gamma \rangle_0 \left\langle \sum_{n,n'} \delta(r_n) \frac{1}{r_{n'}^2} (3L_{z,n'}S_{n,z'}-L\cdot S')_0 \right\rangle \nonumber \\ - 2(g\mu_B)^2 H_z^P H_z^{S'} \langle (I_x)_0 \rangle \langle I_z\Gamma \rangle_0.
 \end{aligned}
+\tag{80}
 $$
  The terms arising from products of $\mathcal{H}^{S^\prime}$ and
 $\mathcal{H}^D$ give rise to the quadratic correction
@@ -1476,6 +1534,7 @@ $$
 \begin{aligned}
 (4\pi/3)(g\mu_B)(e^2/mc^2)\mu_e \langle I_z^2\Gamma \rangle_0 \left\langle \sum_n \delta(r_n)(3S_{nz}f_z - S_n \cdot f) \right\rangle_0 \nonumber \\ + 2(g\mu_B)^2 H_z^D H_z^{S'} \langle (I_x)_0 \rangle \langle I_z\Gamma \rangle_0,
 \end{aligned}
+\tag{81}
 $$
  where $f_z$ is the sum over electron coordinates:
 $$
@@ -1646,12 +1705,14 @@ $$
  and 
 $$
 \dot{\rho}' = (1/i\hbar)[G', \rho'], \quad G' = SG(t)S^{-1}.
+\tag{91}
 $$
  Applying perturbation theory to (91), keeping terms up to second order
 in $G^\prime$, and then summing over the quantum numbers of the environment,
 gives in the usual way[^52]
 $$
 \dot{\sigma}' + i \mathrm{Tr}_2[G'(t), \rho'(0)] = - \mathrm{Tr}_2 \int_0^t [G'(t), [G'(t'), \rho'(0)]]dt',
+\tag{92}
 $$
  where $\mathrm{Tr}\_2$ means the diagonal sum over the quantum numbers of
 the environment, and $\sigma^\prime = \mathrm{Tr}\_2\rho^\prime$. The eigenvalues of
@@ -1682,16 +1743,19 @@ particular, we consider $\omega$ and $H_0$ parallel, $\theta=0$. Since
 $d_{mm^\prime}^{(I)}(0)=\delta_{mm^\prime}$, (94) becomes for this case
 $$
 \langle mg|G'(t)|m'g'\rangle = e^{i(m-m')\Omega t} \langle mg|G(0)|m'g'\rangle,
+\tag{95}
 $$
  where $\Omega=\gamma H_0+\omega$. The heat bath is assumed to remain in
 thermal equilibrium
 $$
 \sum_m \langle gm|\rho'|g'm \rangle = (e^{-\beta g}/\sum_{g''} e^{-\beta g''})\delta_{gg'};
+\tag{96}
 $$
  further, the interaction of the spin of interest is assumed to be linear
 in the spin components, so that one may expand
 $$
 G(0) = \sum_n F_n K_n,
+\tag{97}
 $$
  with
 $\langle gm|K_n|g^\prime m^\prime\rangle=\langle m|K_n|m+n\rangle \delta_{gg^\prime}\delta_{m, m^\prime+n}$
@@ -1705,6 +1769,7 @@ $$
 oscillation in the usual manner[^52] to obtain in the laboratory system
 $$
 \dot{\sigma}+i[\gamma H_0 I_z + \Delta E + \Gamma, \sigma]\_z = \pi\sum_n \langle F_n(0)F_{-n}(0)\rangle (2e^{-\beta\hbar n\Omega}\sigma K_n K_{-n} - \sigma K_n K_{-n} - K_n K_{-n}\sigma),
+\tag{99}
 $$
  with $\Delta E$ defined by its matrix elements
 $$

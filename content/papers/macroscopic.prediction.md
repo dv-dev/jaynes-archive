@@ -140,13 +140,25 @@ and lower temperatures $t, t^\prime$) it follows that all reversible engines
 must have the same efficiency depending only on $t, t^\prime$. So, as Kelvin
 saw, the reversible efficiency e(R) must define a universal
 temperature scale T(t), independent of the properties of any
-particular substance: $$e(R) = 1 - T^\prime/T. \tag{1}$$ From the first law the actual
+particular substance:
+
+$$e(R) = 1 - T^\prime/T. \tag{1}$$
+
+From the first law the actual
 efficiency is $e = 1 - Q^\prime/Q$; so as Clausius saw, Carnot's inequality
 $e \le e(R)$ implies the existence of a new function of the
-thermodynamic state $$S = \int dQ/T \tag{2}$$ which he named \"entropy\", with
+thermodynamic state
+
+$$S = \int dQ/T \tag{2}$$
+
+which he named \"entropy\", with
 the property that in a macroscopic change that begins and ends in
 thermal equilibrium, the total entropy of all bodies involved cannot
-decrease: $$S_{\text{final}} \ge S_{\text{initial}}, \tag{3}$$ *ergo*, if it
+decrease:
+
+$$S_{\text{final}} \ge S_{\text{initial}}, \tag{3}$$
+
+*ergo*, if it
 increases, the process is irreversible.
 
 All this was accomplished within thirty years of Carnot's work; but
@@ -188,6 +200,7 @@ writer:
 > circumstances that were not under the experimenter's control are very
 > likely not to be reproduced, and therefore are very likely not to be
 > relevant.*
+
 Now in the laboratory we find that irreversible processes follow a
 definite course; control of a few initial macroscopic quantities is
 sufficient to yield a reproducible result. We observe this not only
@@ -222,7 +235,7 @@ how to recognize and use this missing information I. Indeed, that is
 just what Gibbs did. But surprisingly, the Clausius statement of the
 Second law remains the culmination of the subject as taught to
 physicists. Recent works from which we might have learned something
-better [1,2] are still ignored in our pedagogy and research
+better [^1][^2] are still ignored in our pedagogy and research
 literature.
 
 For decades the thermodynamics of physical chemists, trained instead in
@@ -238,6 +251,7 @@ been made. So many different approaches have appeared - all of the
 nature of *ad hoc* rules of thumb without foundation in first principles
 -- that the field is reduced to chaos, even the meanings of such common
 terms as \"entropy\" and \"reversible\" being in contention.
+
 ## THE BASIC IDEA
 In the following we conjecture about common features that might be in
 any theory of macrobehavior; thermodynamic, biological, or economic. But
@@ -265,7 +279,7 @@ them. We never know the microstate; only a few aspects of the
 macrostate. Nevertheless, the aforementioned principle of
 reproducibility convinces us that this should be enough; the relevant
 information is there, if only we can see how to recognize it and use it.
-The problem that Gibbs [3] faced in his *Heterogeneous Equilibrium* of
+The problem that Gibbs [^3] faced in his *Heterogeneous Equilibrium* of
 1875 was: given a few macrovariables defining a nonequilibrium state of
 a system, predict the final equilibrium macrostate that it will go to.
 But this problem is ill-posed; not enough information is given to
@@ -295,7 +309,7 @@ In spite of its seemingly shaky logical status, Gibbs's principle has
 proved to be as successful in practice as any of the \"certain\" laws of
 physics. Whenever the equilibrium macrostate is reproducible, Gibbs's
 rule predicts it with quantitative accuracy. Physical chemistry has been
-based on this variational principle for two generations [4].
+based on this variational principle for two generations [^4].
 
 Clearly, then, the missing information \"I\" that was needed to resolve
 the ambiguity of the ill-posed problem was contained somehow in the
@@ -308,7 +322,11 @@ Today, macroscopic prediction has barely advanced beyond the level
 reached by Gibbs. Yet the way to generalize it has been staring us in
 the face for 80 years; for the meaning of entropy was seen already by
 Boltzmann, Einstein, and Planck before 1906. It is carved on Boltzmann's
-gravestone in Vienna: $$S = k \log W. \tag{4}$$ The thermodynamic entropy of a
+gravestone in Vienna:
+
+$$S = k \log W. \tag{4}$$
+
+The thermodynamic entropy of a
 macrostate (defined by specifying pressure, volume, energy, etc.) is
 essentially the logarithm of the classical phase volume (or in quantum
 theory the number of microscopic quantum states) consistent with it; i.e.,
@@ -369,7 +387,10 @@ As is well known, the minorities are extremely small in the usual
 thermodynamic situations. For two macrostates A and B, if there is a
 tiny entropy difference $D = S(B) - S(A)$ corresponding to one
 microcalorie at room temperature, the ratio of multiplicities is about
-$$W(B)/W(A) = \exp(D/k) = \exp(10^{15}). \tag{5}$$ The macrostate of higher
+
+$$W(B)/W(A) = \exp(D/k) = \exp(10^{15}). \tag{5}$$
+
+The macrostate of higher
 entropy can be realized in overwhelmingly more ways; this is the basic
 reason for the high reliability of the Gibbs equilibrium predictions.
 In other applications we cannot expect the ratios to be so large; but
@@ -377,11 +398,13 @@ there is a long way to go. If the ratio were only $\exp(10)$, as it
 might be in a problem of economics, we would still expect the
 predictions to be reliable enough for most purposes (in any event, to
 make any better ones would require more information).
+
 Clearly, new information which does not cause an appreciable contraction
 of the class C cannot appreciably affect our predictions. Thus the
 cogency of new information - the degree to which it could help to
 improve our predictions - is indicated in a general way by how much
 further reduction in entropy it would achieve.
+
 Now the equations of probability theory are usually presented as rules
 for calculating frequencies of \"random variables\" in \"random
 experiments.\" But we are not forced to think of them in that way;
@@ -392,12 +415,13 @@ Indeed, probability theory was originally conceived, by James Bernoulli
 and Laplace, as a tool for conducting inference. A probability
 distribution may be used to describe a state of incomplete knowledge,
 where there is no \"random experiment\" involved. Its power for this
-purpose was demonstrated in massive detail by Sir Harold Jeffreys [5],
+purpose was demonstrated in massive detail by Sir Harold Jeffreys [^5],
 and its uniqueness as the only consistent such tool was proved by R. T.
-Cox [6]. In recent years there have been exciting new applications of
+Cox [^6]. In recent years there have been exciting new applications of
 this viewpoint in many areas of science, such as spectrum analysis and
 image reconstruction; and indeed, any situation where we are obliged to
-draw the best conclusions we can from incomplete information [7].
+draw the best conclusions we can from incomplete information [^7].
+
 ## MATHEMATICAL FORMALISM
 In setting up our generalization of Gibbs's variational principle we
 shall use probability distributions over microstates. It almost never
@@ -413,13 +437,15 @@ knowledge when we have the incomplete information A and some prior
 information I consisting of whatever we know about the laws of
 microbehavior and any other information that seems relevant. This gives
 us the freedom to take advantage of whatever information we have.
+
 For our purposes the quantity W is not yet well defined. Specifying a
 macrostate is never so precise that it makes one microstate easily
 possible and an adjacent one impossible. Rather the probabilities on
 microstates that describe real macroscopic information must shade off to
 zero in some smooth way, and we need a refined definition of W that
 takes this into account.
-We have noted before [8] that the asymptotic equipartition theorem of
+
+We have noted before [^8] that the asymptotic equipartition theorem of
 information theory has an application to this problem, relating
 Boltzmann's W to the Gibbs H function in classical theory, and to
 the von Neumann-Shannon information entropy
@@ -427,7 +453,11 @@ $H = -\text{Tr}(\rho \ln \rho)$ in quantum theory. Consider the latter
 case; almost everything we say holds *mutatis mutandis* in the former.
 Given any density matrix $\rho$ with eigenvalues
 $(r_1 \ge r_2 \ge \dots)$, let $W(\epsilon)$ be the smallest integer for
-which $$\sum_{i=1}^{W(\epsilon)} r_i \ge 1-\epsilon. \tag{6}$$ Intuitively,
+which
+
+$$\sum_{i=1}^{W(\epsilon)} r_i \ge 1-\epsilon. \tag{6}$$
+
+Intuitively,
 $W(\epsilon)$ is the number of reasonably probable microstates,
 \"reasonable\" being defined by $\epsilon$. Now we can associate
 $\log W(\epsilon)$ with H in various ways. The strongest supposes that
@@ -436,7 +466,8 @@ distance. Then as $N \to \infty$ with the intensive parameters held
 constant, $N^{-1}[\log W(\epsilon) - H] \to 0$ provided $\epsilon$ is
 not 0 or 1. Remarkably, in the limit it does not matter what we mean by
 \"reasonably probable\". This theorem is discussed more fully by
-Feinstein [9].
+Feinstein [^9].
+
 Numerical experimentation shows that a similar result holds under wider
 conditions than have been proved. But rather than going into all the
 minute details of more rigorous theorems about this connection - which
@@ -450,6 +481,7 @@ conflict with masses of known results in equilibrium statistical
 mechanics, where the H of the canonical density matrix gives the
 experimental entropy to quantitative accuracy; and therefore
 $S = k \log W$ will remain valid with this definition of W.
+
 This gives us a mathematically well posed, and formally elegant,
 variational principle; given incomplete information A, the best
 predictions we can make of other quantities are those obtained from the
@@ -458,30 +490,45 @@ agreeing with A. By \"agreeing\" with A we mean, of course, that the
 information A can be extracted back from $\rho$ by the usual rule of
 prediction: $\langle A \rangle = \text{Tr}(\rho A)$. This represents the
 taking of that majority vote.
+
 If A consists of values of constants of the motion (energy, mole
 numbers, angular momentum, etc.) this prescription leads, as is well
 known, back to the Gibbs canonical, grand canonical, and
 rotational ensembles. Thus conventional equilibrium statistical
 mechanics, with the mathematical apparatus of partition functions, etc.,
 is contained in our proposed rules as a special case.
+
 Extensions to other kinds of information A are straightforward
 mathematical generalizations of that standard apparatus. We indicate
-briefly in two stages what is described more fully elsewhere [10]. Let
+briefly in two stages what is described more fully elsewhere [^10]. Let
 A stand for a set of m real quantities {$A_1, \dots A_m$} such as
 energy, pressure, magnetization, concentration gradient, etc. and denote
 their observed values at time t = 0 (the data) by $A^\prime_k$,
 ($1 \le k \le m$). We define an m-component vector
 $\lambda = {\lambda_1 \dots \lambda_m}$ of Lagrange multipliers, the
 scalar product $\lambda \cdot A$, and the partition function
-$$Z(\lambda) = \text{Tr} \exp(-\lambda \cdot A). \tag{7}$$ Then the density
+
+$$Z(\lambda) = \text{Tr} \exp(-\lambda \cdot A). \tag{7}$$
+
+Then the density
 matrix that agrees with the data A' while assuming nothing beyond
 that - i.e., which spreads the probability as uniformly as possible over
 all microstates subject to the constraint $\text{Tr}(\rho A) = A^\prime$, is
-$$\rho = Z^{-1} \exp(-\lambda \cdot A). \tag{8}$$ The Lagrange multipliers are
+
+$$\rho = Z^{-1} \exp(-\lambda \cdot A). \tag{8}$$
+
+The Lagrange multipliers are
 found from the m conditions
-$$A^\prime_k = -\frac{\partial}{\partial \lambda_k} \log Z, \quad 1 \le k \le m \tag{9}$$ and from this information the \"best\" (in the sense that it minimizes
+
+$$A^\prime_k = -\frac{\partial}{\partial \lambda_k} \log Z, \quad 1 \le k \le m \tag{9}$$
+
+and from this information the \"best\" (in the sense that it minimizes
 the expected square of the error) prediction of any other quantity B
-is $$\langle B \rangle = \text{Tr}(\rho B) \tag{10}$$ which we may think of as
+is
+
+$$\langle B \rangle = \text{Tr}(\rho B) \tag{10}$$
+
+which we may think of as
 the majority consensus of the likely microstates. If some of the $A_k$
 are not constants of the motion, specifying their values at only one
 time t = 0 would not in general lead to equilibrium predictions of
@@ -513,7 +560,7 @@ scale, so that the values A' have persisted for a short time in the
 past. Taking this seemingly trivial, unimportant information into
 account removes the induction time phenomenon, the corrected algorithm
 then yielding irreversible fluxes by direct quadratures over the initial
-ensemble. An example [11] shows calculation of the diffusion
+ensemble. An example [^11] shows calculation of the diffusion
 coefficient; others are entirely analogous.
 
 This illustrates why we lay such stress on the interpretation of
@@ -551,38 +598,59 @@ describe information.
 
 The extension to take into account time dependent information is
 straightforward. If the given information consists of the values of
-$$A^\prime_k(x,t), \quad 1 \le k \le m \tag{11}$$ in the space-time regions $R_k$,
+
+$$A^\prime_k(x,t), \quad 1 \le k \le m \tag{11}$$
+
+in the space-time regions $R_k$,
 then the corresponding Lagrange multiplier functions are defined in the
 same regions, so that
-$$\lambda \cdot A = \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x,t) A_k(x,t) \tag{12}$$ in which $A_k(x, t)$ is the Heisenberg
+
+$$\lambda \cdot A = \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x,t) A_k(x,t) \tag{12}$$
+
+in which $A_k(x, t)$ is the Heisenberg
 representation operator, and the rest of the formalism is extended in
 the obvious way.
 
 However, when time dependent information is used, a new terminology will
 help to avoid confusion. When information entropy is maximized subject
 to constraints A', the maximum attained is of course a function of the
-constraints: $$S(A^\prime) = \log Z + \lambda \cdot A^\prime \tag{13}$$ If the $A_k$
+constraints:
+
+$$S(A^\prime) = \log Z + \lambda \cdot A^\prime \tag{13}$$
+
+If the $A_k$
 are ordinary thermodynamic parameters, this is the Clausius experimental
 entropy of thermodynamics. For the \"local equilibrium\" case, it
-becomes a functional $$S_0 = S[A^\prime(x)] \tag{14}$$ still conventionally
+becomes a functional
+
+$$S_0 = S[A^\prime(x)] \tag{14}$$
+
+still conventionally
 called \"entropy\". The same functional, with the $A^\prime_k(x)$ taken at any
 time t, then defines a time-dependent entropy $S_t$ which is a property
 of the macrostate at time t and for which various inequalities can be
-proved [10].
+proved [^10].
 
 The notion of entropy varying with time is so ingrained in our thinking
 that the next stage of generalization, in which the maximum information
-entropy becomes a functional $$\sigma_A = \sigma[A^\prime(x,t)] \tag{15}$$ of
+entropy becomes a functional
+
+$$\sigma_A = \sigma[A^\prime(x,t)] \tag{15}$$
+
+of
 the entire space-time history of the macroscopic process (over the
 regions $R_k$ where we have information), calls for a new name. We have
-ventured [10] to call it the *caliber* of the process, since it
+ventured [^10] to call it the *caliber* of the process, since it
 measures the cross-section of a tube, a bundle of world-lines in
 \"phase-space-time\", each line representing the time development of a
 possible microstate consistent with all the given information.
 
-We have shown [11] that this space-time generalization of the canonical
+We have shown [^11] that this space-time generalization of the canonical
 ensemble, stated in terms of the partition functional
-$$Z[\lambda_1(x,t)\dots\lambda_m(x,t)] \tag{16}$$ leads automatically to
+
+$$Z[\lambda_1(x,t)\dots\lambda_m(x,t)] \tag{16}$$
+
+leads automatically to
 such known results as the Wiener prediction theory and the Kubo formulas
 for transport coefficients, but in a more general form free of
 restrictions to quasi-stationary or near-equilibrium conditions. For
@@ -601,14 +669,26 @@ based on the caliber instead of the partition functional, makes the
 relation to the work of Einstein, Fokker-Planck, and Onsager clearer.
 The first functional derivatives of the caliber generate the Lagrange
 multipliers, or \"potentials\":
-$$\lambda_k(x,t) = \frac{\delta \sigma}{\delta A^\prime_k(x,t)} \tag{18}$$ and at a
+
+$$\lambda_k(x,t) = \frac{\delta \sigma}{\delta A^\prime_k(x,t)} \tag{18}$$
+
+and at a
 point where $\sigma_A$ is locally convex, by which we mean that under a
 slight change in the problem
-$$A^\prime_k(x,t) \to A^\prime_k(x,t) + \delta A^\prime_k(x,t) \tag{19}$$ with $\delta A^\prime_k$
+
+$$A^\prime_k(x,t) \to A^\prime_k(x,t) + \delta A^\prime_k(x,t) \tag{19}$$
+
+with $\delta A^\prime_k$
 not identically zero, we have
-$$\delta \lambda \cdot \delta A = \sum_{k=1}^m \int_{R_k} d^3x dt \, \delta\lambda_k(x,t) \delta A^\prime_k(x, t) < 0, \tag{20}$$ the second functional derivatives generate a new set of space-time
+
+$$\delta \lambda \cdot \delta A = \sum_{k=1}^m \int_{R_k} d^3x dt \, \delta\lambda_k(x,t) \delta A^\prime_k(x, t) < 0, \tag{20}$$
+
+the second functional derivatives generate a new set of space-time
 functions
-$$G_{ij}(x,t; x^\prime,t^\prime) = \frac{\delta^2 \sigma}{\delta A^\prime_i(x,t) \delta A^\prime_j(x^\prime,t^\prime)} \tag{21}$$ which are the functional inverses of the covariance functions
+
+$$G_{ij}(x,t; x^\prime,t^\prime) = \frac{\delta^2 \sigma}{\delta A^\prime_i(x,t) \delta A^\prime_j(x^\prime,t^\prime)} \tag{21}$$
+
+which are the functional inverses of the covariance functions
 $K_{ij}(x,t;x^\prime,t^\prime)$.
 
 If the $A_k$ are ordinary thermodynamic variables, our convexity
@@ -616,17 +696,28 @@ condition becomes positive definiteness of the matrix G, and they
 reduce to inverse matrices, $G = K^{-1}$. If in addition we are at an
 equilibrium point, the matrix G defines the quadratic form in
 Onsager's expansion of the entropy
-$$S = S_0 - \frac{1}{2} \sum_{ij} G_{ij} \delta A_i \delta A_j + \dots \tag{22}$$ about that point. Onsager
+
+$$S = S_0 - \frac{1}{2} \sum_{ij} G_{ij} \delta A_i \delta A_j + \dots \tag{22}$$
+
+about that point. Onsager
 thought of the entropy gradient
-$$X_i = -\frac{\partial S}{\partial A_i} = -\sum_j G_{ij} A_j \tag{23}$$ as the
+
+$$X_i = -\frac{\partial S}{\partial A_i} = -\sum_j G_{ij} A_j \tag{23}$$
+
+as the
 \"force\" that drives a system to equilibrium according to his
-phenomenological equations $$\dot{A}_j = \sum_k L_{jk} X_k \tag{24}$$ and
+phenomenological equations
+
+$$\dot{A}_j = \sum_k L_{jk} X_k \tag{24}$$
+
+and
 argued for the reciprocal relations $L=L^T$.
 
 In Onsager's work there was no apparent connection with the earlier work
 of Einstein on diffusion in ordinary space or of Fokker-Planck on
 diffusion in momentum space. But now, if we restate our general
 prediction algorithm in terms of the caliber, a relation appears.
+
 ## THE MAXIMUM CALIBER PRINCIPLE.
 Although the mathematical details needed to carry it out can become
 almost infinitely complicated, the principle itself remains almost
@@ -659,6 +750,7 @@ prediction -- optimal in the sense that it takes into account all our
 knowledge of the microphysics and all our macroscopic data; and makes no
 arbitrary assumptions beyond that. Whether the prediction is correct or
 not, to make any better one would require more information than we had.
+
 The caliber of a space-time process thus appears as the fundamental
 quantity that \"presides over\" the theory of irreversible processes in
 much the same way that the Lagrangian presides over mechanics. That is,
@@ -683,19 +775,36 @@ stabilized by the entropy function.
 Thus define {$\delta A_k, \delta B_k$} as the departures from the
 equilibrium values. Then close to equilibrium we may use the expansion
 (22); in a shorthand notation
-$$\sigma_A = S_0 - \frac{1}{2} \delta A \cdot G_{AA} \cdot \delta A + \dots \tag{25}$$ and
-$$\sigma_{AB} = S_0 - \frac{1}{2} [\delta A \cdot G_{AA} \cdot \delta A + \delta B \cdot G_{BA} \cdot \delta A + \delta A \cdot G_{AB} \cdot \delta B + \delta B \cdot G_{BB} \cdot \delta B]. \tag{26}$$ Now the reciprocities
-$$G_{AB} = G_{BA} \tag{27}$$ turn out to hold trivially in this theory. Therefore
+
+$$\sigma_A = S_0 - \frac{1}{2} \delta A \cdot G_{AA} \cdot \delta A + \dots \tag{25}$$
+
+and
+
+$$\sigma_{AB} = S_0 - \frac{1}{2} [\delta A \cdot G_{AA} \cdot \delta A + \delta B \cdot G_{BA} \cdot \delta A + \delta A \cdot G_{AB} \cdot \delta B + \delta B \cdot G_{BB} \cdot \delta B]. \tag{26}$$
+
+Now the reciprocities
+
+$$G_{AB} = G_{BA} \tag{27}$$
+
+turn out to hold trivially in this theory. Therefore
 $\sigma_{AB}$ is maximized with respect to B for fixed A, if
-$$G_{BB} \cdot \delta B = -G_{BA} \cdot \delta A \tag{28}$$ which is a set of
+
+$$G_{BB} \cdot \delta B = -G_{BA} \cdot \delta A \tag{28}$$
+
+which is a set of
 simultaneous linear integral equations determining {$\delta B_1(x,t) \dots \delta B_m(x,t)$}.
+
 If the caliber is convex, the kernel $G_{BB}$ is positive definite and
 there is a formal inversion
-$$\delta B = -K_{BB} \cdot G_{BA} \cdot \delta A. \tag{29}$$ Of course, this
+
+$$\delta B = -K_{BB} \cdot G_{BA} \cdot \delta A. \tag{29}$$
+
+Of course, this
 is extremely compact notation, to demonstrate how simple the underlying
 ideas are. But it is probably beyond our mathematical ability to do the
 indicated calculations explicitly for any really nontrivial problem; that
 is perhaps a task for the computers of the next Century.
+
 Nevertheless, many formal relations can be extracted from (28), which
 are capable of being tested experimentally even if we are unable to
 calculate the covariance functions from first principles. There is no
@@ -704,11 +813,15 @@ equilibrium canonical ensemble that it predicts experimentally testable
 relations like $(\partial P/\partial T)_V = (\partial S/\partial V)_T$
 but we can seldom calculate $(\partial P/\partial T)_V$ exactly from
 first principles.
+
 ## BUBBLE DYNAMICS
 Finally, we sketch hurriedly the short-memory approximation to a
 prediction problem. Our given information consists of the past behavior
 of a few macroscopic variables:
-$$A_k(t), \quad 1 \le k \le m, \quad -\infty < t < 0 \tag{30}$$ and the
+
+$$A_k(t), \quad 1 \le k \le m, \quad -\infty < t < 0 \tag{30}$$
+
+and the
 quantities $B_k$ that we want to predict are their future values. Our
 full prediction equations would in principle make use of the values of
 the $A_k(t)$ arbitrarily far into the past. But we may be able to make a
@@ -734,10 +847,16 @@ would lead to slightly different macrostates a short time later.
 
 Recall that the ordinary diffusion equation for particle density
 n(x,t)
-$$\dot{n} = -\nabla \cdot \mathbf{J} = D \nabla^2 n \tag{31}$$ expresses
+
+$$\dot{n} = -\nabla \cdot \mathbf{J} = D \nabla^2 n \tag{31}$$
+
+expresses
 a short memory approximation to the correct constitutive
 equation for particle flux, which has the form
-$$\mathbf{J}(x,t) = \int d^3 x^\prime \int_{-\infty}^t dt^\prime M(x-x^\prime; t-t^\prime) n(x^\prime,t^\prime) \tag{32}$$ recognizing that the particles that are here now came on the average
+
+$$\mathbf{J}(x,t) = \int d^3 x^\prime \int_{-\infty}^t dt^\prime M(x-x^\prime; t-t^\prime) n(x^\prime,t^\prime) \tag{32}$$
+
+recognizing that the particles that are here now came on the average
 from a mean free path away a mean free time ago. The phenomenological
 diffusion coefficient D is really a space-time integral over a memory
 function M.
@@ -755,10 +874,14 @@ $P(A_1 \dots A_m;t)$ which represents a "bubble" of probability in the
 macroscopic state space, which expands due to diffusion and is found
 after some long arguments to satisfy a phenomenological equation of
 "bubble dynamics"; slightly oversimplified, it is
-$$\frac{\partial P}{\partial t} + (D/k)\nabla \cdot (P\nabla S) = D \nabla^2 P \tag{33}$$ where $S(A) = k\log W(A)$ is the ordinary entropy of thermodynamics;
+
+$$\frac{\partial P}{\partial t} + (D/k)\nabla \cdot (P\nabla S) = D \nabla^2 P \tag{33}$$
+
+where $S(A) = k\log W(A)$ is the ordinary entropy of thermodynamics;
 i.e., the entropy of an equilibrium state with the same values of the
 macrovariables {A}. More generally, the diffusion coefficient D
 would be a diffusion tensor.
+
 Equation (33) is like a Fokker-Planck equation in that it has a
 diffusion effect given by the right-hand side. But it is also like an
 Onsager equation in that the local entropy gradient is present. It turns
@@ -769,7 +892,10 @@ summed exactly in closed form, so all questions about the solution can
 be answered. An arbitrary initial distribution $P(A_1 \dots A_m; 0)$
 relaxes quickly to a gaussian shape, which is retained as it moves to
 the final equilibrium state:
-$$P(A_1 \dots A_m; \infty) \propto \exp(k^{-1}S) = W(A_1 \dots A_m) \tag{34}$$ which is
+
+$$P(A_1 \dots A_m; \infty) \propto \exp(k^{-1}S) = W(A_1 \dots A_m) \tag{34}$$
+
+which is
 also the final solution of (33) for any entropy function and is
 of course just the supposition that Einstein made in his discussion of
 fluctuations; the size of the bubble (34) is the range of fluctuations
@@ -787,10 +913,13 @@ accurate solution is
 $$P(x,t) = \frac{1}{\sqrt{2\pi R(t)}} \exp \left\{ -\frac{[x-q(t)]^2}{2R(t)} \right\} \tag{35}$$
 
 where
-$$\begin{aligned}
-\dot{q} &= k^{-1}DS^\prime(q) = LS^\prime(q) \\\\ 
-\dot{R} &= 2D[1+k^{-1}S^{\prime\prime}(q)R] = -a[R(t) - R_\infty] 
-\end{aligned} \tag{36}$$ in which $L=k^{-1}D$, $R_\infty = k|S^{\prime\prime}(q)|^{-1}$.
+
+$$\dot{q} = k^{-1}DS^\prime(q) = LS^\prime(q) \tag{36}$$
+
+$$\dot{R} = 2D[1+k^{-1}S^{\prime\prime}(q)R] = -a[R(t) - R_\infty] \tag{37}$$
+
+in which $L=k^{-1}D$, $R_\infty = k|S^{\prime\prime}(q)|^{-1}$.
+
 Equation (36) is of the familiar Onsager form, the system moving along a
 trajectory defined by the local entropy gradient. In general the Onsager
 phenomenological coefficients are related to our diffusion tensor by
@@ -799,7 +928,11 @@ the triviality $(\delta A_i \delta A_j) = (\delta A_j \delta A_i)$.
 But (37) shows a welcome new feature; the curvature of the entropy
 function stabilizes the bubble if it is convex ($S^{\prime\prime} < 0$). If
 $S^{\prime\prime}(q)=0$, and we start from a delta function $R(0)=0$, (37) gives for
-the variance $$\langle (\delta x)^2 \rangle = R(t) = 2Dt, \tag{38}$$ the
+the variance
+
+$$\langle (\delta x)^2 \rangle = R(t) = 2Dt, \tag{38}$$
+
+the
 Einstein Brownian motion spreading law. With a linear entropy function,
 bubble dynamics reduces to Einsteinian Brownian motion with superposed
 steady Onsager drift. But if $S^{\prime\prime}(q) < 0$, the spreading (38) does not
@@ -912,6 +1045,7 @@ what fraction of the bubble will move to the left or right (i.e., given
 the size, shape, and position of a bubble approaching a bifurcation
 point, what is the probability that the system will move ultimately to
 the left or right?).
+
 ## CONCLUSION
 We should correct a possible misconception that the reader may have
 gained. Most recent discussions of macrophenomena outside of physical
@@ -936,17 +1070,17 @@ inverse covariance functions G contain the full dynamics. This will
 remain true in the classical limit. In a mechanical problem, the bubble
 dynamics equations (35), (36) will acquire new terms representing
 inertial effects that we have left out here.
+
 ## REFERENCES
-[1] H. C. Callen, *Thermodynamics*, J. Wiley & Sons, Inc. New York (1960).
-[2] C. Truesdell, *Rational Thermodynamics*, McGraw-Hill Book Co., New York (1969); Second enlarged edition, 1985.
-[3] J. Willard Gibbs, "Heterogeneous Equilibrium", Trans. Conn. Acad. Sci. (1875-1878). Reprinted in *The Scientific Papers of J. Willard Gibbs*, Longmans, Green & Co., New York (1906) and by Dover Publications, Inc., New York (1961).
-[4] G. N. Lewis and M. Randall, *Thermodynamics and the Free Energy of Chemical Substances*, McGraw-Hill Book Co., New York (1923).
-[5] H. Jeffreys, *Theory of Probability*, Oxford University Press (1939); also numerous later editions.
-[6] R. T. Cox, *The Algebra of Probable Inference*, Johns Hopkins University Press (1961).
-[7] E. T. Jaynes, "Predictive Statistical Mechanics", in *Frontiers of Nonequilibrium Statistical Mechanics*, G. T. Moore & M. O. Scully, Editors, Plenum Press, N. Y. (1986). pp. 33-55. Reprinted in [12]. Contains a long list of references to Maximum Entropy applications up to 1984.
-[8] E. T. Jaynes, "Gibbs vs. Boltzmann Entropies", Am. Jour. Phys. **133**, 391-398 (1965). Reprinted in [12].
-[9] A. Feinstein, *Foundations of Information Theory*, McGraw-Hill Book Co., N. Y. (1958); Ch. 6.
-[10] E. T. Jaynes, "The Minimum Entropy Production Principle", in *Annual Review of Physical Chemistry*, S. Rabinovitch, Editor, Annual Reviews, Inc., Palo Alto, California (1980). Reprinted in [12].
-[11] E. T. Jaynes, "Where do we Stand on Maximum Entropy?", in *The Maximum Entropy Formalism*, R. D. Levine & M. Tribus, Editors, MIT Press, Cambridge, Mass. (1978). Reprinted in [12].
-[12] E. T. Jaynes, *Papers on Probability, Statistics, and Statistical Physics* R. D. Rosenkrantz, Ed., D. Reidel Publishing Co., Dordrecht, Holland (1983). Reprints of 13 papers dated 1957-1980, with commentary.
-[^1]: In *Complex Systems---Operational Approaches in Neurobiology, Physics, and Computers*, H. Haken, Ed.; Springer-Verlag, Berlin (1985); pp. 254--269
+[^1]: H. C. Callen, *Thermodynamics*, J. Wiley & Sons, Inc. New York (1960).
+[^2]: C. Truesdell, *Rational Thermodynamics*, McGraw-Hill Book Co., New York (1969); Second enlarged edition, 1985.
+[^3]: J. Willard Gibbs, "Heterogeneous Equilibrium", Trans. Conn. Acad. Sci. (1875-1878). Reprinted in *The Scientific Papers of J. Willard Gibbs*, Longmans, Green & Co., New York (1906) and by Dover Publications, Inc., New York (1961).
+[^4]: G. N. Lewis and M. Randall, *Thermodynamics and the Free Energy of Chemical Substances*, McGraw-Hill Book Co., New York (1923).
+[^5]: H. Jeffreys, *Theory of Probability*, Oxford University Press (1939); also numerous later editions.
+[^6]: R. T. Cox, *The Algebra of Probable Inference*, Johns Hopkins University Press (1961).
+[^7]: E. T. Jaynes, "Predictive Statistical Mechanics", in *Frontiers of Nonequilibrium Statistical Mechanics*, G. T. Moore & M. O. Scully, Editors, Plenum Press, N. Y. (1986). pp. 33-55. Reprinted in [^12]. Contains a long list of references to Maximum Entropy applications up to 1984.
+[^8]: E. T. Jaynes, "Gibbs vs. Boltzmann Entropies", Am. Jour. Phys. **133**, 391-398 (1965). Reprinted in [^12].
+[^9]: A. Feinstein, *Foundations of Information Theory*, McGraw-Hill Book Co., N. Y. (1958); Ch. 6.
+[^10]: E. T. Jaynes, "The Minimum Entropy Production Principle", in *Annual Review of Physical Chemistry*, S. Rabinovitch, Editor, Annual Reviews, Inc., Palo Alto, California (1980). Reprinted in [^12].
+[^11]: E. T. Jaynes, "Where do we Stand on Maximum Entropy?", in *The Maximum Entropy Formalism*, R. D. Levine & M. Tribus, Editors, MIT Press, Cambridge, Mass. (1978). Reprinted in [^12].
+[^12]: E. T. Jaynes, *Papers on Probability, Statistics, and Statistical Physics* R. D. Rosenkrantz, Ed., D. Reidel Publishing Co., Dordrecht, Holland (1983). Reprints of 13 papers dated 1957-1980, with commentary.

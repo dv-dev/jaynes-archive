@@ -93,12 +93,15 @@ for a single trial, while "outcome" refers to the experiment as a
 whole; thus one outcome consists of an enumeration of N results,
 including their order). Each outcome yields a set of sample numbers
 $N_i$ and frequencies $f_i = N_i/N, 1 \le i \le n$, with an
-entropy $H(f_1 \dots f_n) = - \sum_{i=1}^{n} f_i \log f_i \quad .$
+entropy
+$$
+H(f_1 \dots f_n) = - \sum_{i=1}^{n} f_i \log f_i \quad . \tag{1}
+$$
 Consider the subclass C of all possible outcomes that could be observed
 in N trials, compatible with m linearly independent constraints (m<n)
 of the form
 $$
-\sum_{i=1}^{n} A_{ji} f_i = D_j \quad , \quad (1 \le j \le m) \quad .
+\sum_{i=1}^{n} A_{ji} f_i = D_j \quad , \quad (1 \le j \le m) \quad . \tag{2}
 $$
 
 The conceptual interpretation is that m different "physical
@@ -125,22 +128,25 @@ $H_{\max}$ permitted by the assumed constraints (2), "sufficiently
 close" being defined by the following concentration theorem.
 
 A certain fraction F of the outcomes in class C will yield an entropy in
-the range $H_{\max} - \Delta H \le H(f_1 \dots f_n) \le H_{\max}$
+the range
+$$
+H_{\max} - \Delta H \le H(f_1 \dots f_n) \le H_{\max} \tag{3}
+$$
 where $H_{\max}$ may be determined by the following algorithm: define
 the partition function
 $$
-Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp \left( - \sum_{j=1}^{m} \lambda_j A_{ji} \right) \quad .
+Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp \left( - \sum_{j=1}^{m} \lambda_j A_{ji} \right) \quad . \tag{4}
 $$
 
 Then $H_{\max} = \log Z + \sum_{j=1}^{m} \lambda_j D_j$ in which the
 Lagrange multipliers $\{\lambda_j\}$ are found from
 $$
-\frac{\partial}{\partial \lambda_j} \log Z + D_j = 0 \quad , \quad (1 \le j \le m)
+\frac{\partial}{\partial \lambda_j} \log Z + D_j = 0 \quad , \quad (1 \le j \le m) \tag{5}
 $$
 a set of m simultaneous equations for m unknowns. The frequency
 distribution which has this maximum entropy is then
 $$
-f_i = Z^{-1} \exp \left( - \sum_{j=1}^{m} \lambda_j A_{ji} \right) \quad , \quad (1 \le i \le n) \quad .
+f_i = Z^{-1} \exp \left( - \sum_{j=1}^{m} \lambda_j A_{ji} \right) \quad , \quad (1 \le i \le n) \quad . \tag{6}
 $$
 
 Other distributions {$f_i$} allowed by the constraints (2) will have
@@ -151,7 +157,10 @@ distributed over class C as Chi-squared with $k=n-m-1$ degrees of
 freedom, independently of the nature of the constraints. That is,
 denoting the critical Chi-squared for k degrees of freedom at the 100 P
 % significance level by $\chi_k^2(P)$, $\Delta H$ is given in terms of
-the upper tail area (1-F) by $2N \Delta H = \chi_k^2(1-F) \quad .$
+the upper tail area (1-F) by
+$$
+2N \Delta H = \chi_k^2(1-F) \quad . \tag{7}
+$$
 
 The
 proof is relegated to the Appendix, since it consists of little more
@@ -166,7 +175,11 @@ probability to each outcome in class C.
 We illustrate the meaning and use of this result by a much-discussed
 example. Suppose a die is tossed N = 1000 times and we are told only
 that the average number of spots up was not 3.5 as we might expect from
-a "true" die, but 4.5, i.e., $\sum_{i=1}^{6} i f_i = 4.5$ which is a
+a "true" die, but 4.5, i.e.,
+$$
+\sum_{i=1}^{6} i f_i = 4.5 \tag{9}
+$$
+which is a
 special case of (2). Given this information and nothing else, (i.e., not
 making use of any additional information that you or I might get from
 inspection of the die or from past experience with dice in general),
@@ -180,7 +193,7 @@ $Z(\lambda) = (e^{-\lambda} + \dots + e^{-6\lambda})$,
 $\lambda = -0.37105$. The result, derived in more detail before
 Jaynes[^jaynes-1978], is
 $$
-\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}
+\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\} \tag{10}
 $$
 and it has entropy $H_{\max} = 1.61358$ as compared to the value
 $\log_e 6 = 1.79176$, corresponding to no constraint and a uniform
@@ -193,7 +206,7 @@ constraint (9) have entropy in the range (3) of width
 $\Delta H = (2N)^{-1}\chi_4^2(0.05) = 0.00474$; or, to sufficient
 accuracy,
 $$
-1.609 \le H \le 1.614
+1.609 \le H \le 1.614 \tag{12}
 $$
 
 Thus on the "null hypothesis"
@@ -205,7 +218,7 @@ interval (12).
 
 A remarkable feature is that the "95% concentration range"
 $$
-H_{\max} - \frac{4.74}{N} \le H \le H_{\max}
+H_{\max} - \frac{4.74}{N} \le H \le H_{\max} \tag{15}
 $$
 
 is valid asymptotically
@@ -237,14 +250,14 @@ Even more interesting numbers are readily found. Rowlinson[^rowlinson-1970]
 rejected the principle of maximum entropy for this problem, and proposed
 as an alternative solution in place of (10) the binomial distribution
 $$
-f_i = \binom{5}{i-1} p^{i-1} (1-p)^{6-i}, \quad 1 \le i \le 6
+f_i = \binom{5}{i-1} p^{i-1} (1-p)^{6-i}, \quad 1 \le i \le 6 \tag{16}
 $$
  which
 also satisfies the constraint (9) if $p=0.7$. But the distribution (16)
 has entropy $H^\prime = 1.4136 = H_{\max} - 0.200$, far below the limit (15).
 We now have $2N \Delta H = 400 = \chi_4^2(1-F)$; or from (A8),
 $$
-1 - F = 2.94 \times 10^{-84}
+1 - F = 2.94 \times 10^{-84} \tag{17}
 $$
 This indicates that in 1000 tosses,
 less than one in $10^{83}$ of the outcomes compatible with the
@@ -255,6 +268,7 @@ the approximation (A4) made in its derivation; and even for N=1000 we
 might distrust its numerical accuracy that far out in the tail of the
 distribution. However, we can check the magnitude of (17) by direct
 counting.
+
 The number of ways W in which a specific set of sample numbers
 $N_1 \dots N_6$ can be realized is given by the multinomial
 coefficient (A1). The asymptotic formula (A3) for the ratio $W/W^\prime$ (which
@@ -276,6 +290,7 @@ no longer need asymptotic formulas; for every way in which the
 distribution $\{N^\prime_k\}$ can be realized, there are exactly
 $W/W^\prime = (7!16!18!)/(3!4!6!12!17!) = 38,220$ ways in which the
 maximum-entropy distribution $\{N_k\}$ can be realized.
+
 Such numbers illustrate rather clearly just what we are accomplishing
 when we maximize entropy. If our data do not fully determine a
 distribution {$f_i$} it is prudent to adopt, for purposes of
@@ -312,6 +327,7 @@ experiment with n=36 possible results at each trial. On the null
 hypothesis which assigns uniform probabilities p=n^{-1}=1/36, the
 expectation and standard deviation of any sample number are $Np=555.55$,
 $\sigma=[Np(1-p)]^{1/2} = 23.24$ respectively.
+
 Czuber, writing in the days when commonly understood statistical
 inference consisted of little more than fitting by least squares,
 compared $\sigma$ with the observed mean-square deviation
@@ -321,21 +337,25 @@ $$
  and concluded only that the
 null hypothesis must have been wrong; "die Würfelseiten nicht als
 gleichmögliche Fälle sich darstellen."
+
 Feller, writing 58 years later and extolling, in his Preface to Vol. I,
 the "success of the modern theory" that had evolved in the interval,
 did even less with the data. Noting only that agreement with prediction
 of the null hypothesis was atrocious, he castigated Wolf for having
 wasted his time on apparatus of such poor quality.
+
 Neither seems to have seen in such "bad" data an opportunity for
 further analysis, that would have been lost had Wolf worked with perfect
 dice and produced the kind of data expected of him. To the best of the
 writer's knowledge, no statistician has ever attempted to draw any
 specific inferences about the imperfections in Wolf's dice from these
 data.
+
 Yet to a physicist, Wolf's data stand there, telling us something very
 clear and simple about the condition of those dice; information that can
 be extracted from the data by a straightforward entropy analysis that
 does not require us to go into complicated mechanical details.
+
 Ludwig Boltzmann, writing thirty years before Czuber and about six years
 before Wolf's experiment, had given the principle by which this analysis
 may be carried out; and J. Willard Gibbs, writing six years before
@@ -343,6 +363,7 @@ Czuber, had developed the resulting mathematical apparatus to a high
 degree of perfection. Yet today, 100 years after Boltzmann's work, it 
 still seems generally believed that the principles of statistical 
 mechanics apply only to molecules; and in not to dice.
+
 We do not expect, and Wolf's data do not give evidence for, any
 correlations between the results of the two dice. Therefore, the import
 of the data for our purposes is contained in the marginal totals. The
@@ -365,6 +386,7 @@ On the null hypothesis that the dice were true, the standard deviations
 of {$f_i$} from p=1/6 should be
 $\sigma = [p(1-p)/N]^{1/2} = 0.0026$. The observed deviations $\Delta_i$
 are many times this amount.
+
 Now let us judge the deviation by the entropy criterion, considering
 only the white die. The entropy of the observed distribution lies below
 the maximum, $\log 6$, by 
@@ -377,6 +399,7 @@ $\exp(N\Delta H) = 6 \times 10^{58}$, indicating a very large strong
 constraint (i.e., systematic influence) keeping the frequencies away
 from the uniform distribution that could happen in the greatest number
 of ways if the die were equally free to settle in all positions.
+
 The more precise concentration theorem gives
 $$
 2N \Delta H = 270.1 = \chi_5^2(1-F)
@@ -409,7 +432,7 @@ $$
 has a non-zero expectation. The strength of these two systematic
 influences is indicated by Wolf's measured averages for them:
 $$
-\bar{f}_1 = 0.0983 \quad , \quad \bar{f}_2 = 0.1393
+\bar{f}_1 = 0.0983 \quad , \quad \bar{f}_2 = 0.1393 \tag{22}
 $$
 
 Now if these are
@@ -426,7 +449,7 @@ taken into account.
 The maximum entropy $H_{\max}$ allowed by (22) was calculated in
 Jaynes[^jaynes-1978] by the algorithm (4)-(7), with the result indicated below:
 $$
-\begin{aligned} H_{\max} &= 1.785\ 225 \\\\ H_{\text{Wolf}} &= 1.784\ 990 \\\\ \hline \Delta H &= 0.000\ 235 \end{aligned}
+\begin{aligned} H_{\max} &= 1.785\ 225 \\\\ H_{\text{Wolf}} &= 1.784\ 990 \\\\ \hline \Delta H &= 0.000\ 235 \end{aligned} \tag{24}
 $$
 The discrepancy is reduced by nearly a factor of thirty.
 The concentration theorem now gives
@@ -434,6 +457,7 @@ $$
 2N \Delta H = 9.38 = \chi_3^2(1-F)
 $$
  or $1-F = 0.025$
+
 The result appears just barely significant. That is, 97.5 percent of all
 outcomes compatible with (22) have an entropy greater than observed by
 Wolf. To assume a further very tiny imperfection [the (2-3-6) corner
@@ -450,6 +474,7 @@ laborious computation of Chi-squared from the observed deviations
 $\Delta_i$; the discrepancy between the observed entropy and that
 allowed by the hypothesis is already a more precise measure of
 significance.
+
 We now see that the single maximum entropy formalism defined by (1) -
 (7) provides not only the procedure for predicting frequencies when
 incomplete data are available, that is optimal by a certain well-defined
@@ -483,17 +508,20 @@ $$
 represent corrections from the higher terms in the
 Stirling approximation. Their variation with $f_i$ is, of course,
 completely overwhelmed by that of the factor $\exp N(H-H^\prime)$.
+
 The conceivable frequencies $f_1 \dots f_n$ may be regarded as
 cartesian coordinates of a point P in an n-dimensional space, restricted
 to (S: $0 \le f_i$, $\sum f_i = 1$), an (n-1)-dimensional convex set
 whose vertices are the n points $f_i = \delta_{ij}, 1 \le i \le n$. 
 On S, the entropy (1) varies continuously, taking on all values in 
 ($0 \le H(P) \le \log n$) as P moves from a vertex to the center.
+
 But now we obtain information that imposes the m linearly independent
 constraints (2), which define an (n-m)-dimensional hyperplane M. P is
 now confined to the intersection $S^\prime = M \cap S$, a closed set
 comprising a bounded portion of hyperplane of dimensionality
 $k = n-m-1$.
+
 On $S^\prime$ the entropy attains a maximum $H_{\max} \le \log n$. That this is
 attained at a unique point of $S^\prime$ may be proved analytically, but is
 perhaps made obvious as follows. Since any "mixing" increases the
@@ -501,6 +529,7 @@ entropy, the set ($S_x: P \in S, H(P) \ge x$) is strictly convex.
 Entropy maximization with constraints linear in $f_i$ thus amounts
 to finding the value of $x=H_{\max}$ for which $S^\prime$ is a supporting
 tangent plane to $S_x$.
+
 After these preliminaries, our argument follows slavishly the original
 derivation by Karl Pearson, as recalled by Lancaster[^lancaster-1969]. In $S^\prime$ we
 may define new coordinates $(x_1 \dots x_k)$ as appropriate linear
@@ -511,10 +540,12 @@ $$
 H(P) = H_{\max} - ar^2 + \dots, \quad a>0 \quad . \tag{A4}
 $$
  We then
+
 have a volume element in $S^\prime$ proportional to $r^{k-1} dr$. The domain of
 all possible frequency distributions $f_1 \dots f_n$ which satisfy
 the constraints and whose entropy is in the range (3) is a k-sphere of
 radius R, given by $aR^2 = \Delta H$.
+
 In N trials this sphere contains a fraction F of all possible outcomes
 in class C. From (A2), (A4) this is given asymptotically by
 $$
@@ -528,6 +559,7 @@ $$
 $NaR^2 = N \Delta H = (1/2)\chi^2$, this is just the cumulative
 Chi-squared distribution with k degrees of freedom; in conventional
 notation the relation between $\Delta H$ and F is given by Eq. (4).
+
 In our applications we are generally concerned with numerical values for
 large $N \Delta H$, beyond the range of tables. The Chi-squared
 distribution $F(N \Delta H)$ may be expressed analytically as

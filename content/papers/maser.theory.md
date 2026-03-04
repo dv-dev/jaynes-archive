@@ -470,6 +470,7 @@ relation between upper and lower states of the molecule, then
 $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
 states n=0 and n=1 can be set up by the molecule unless there was some
 coherence initially between upper and lower states of the molecule.
+
 The expectation value of electric field along the axis of the cavity, as
 obtained from (2.21), is
 $$
@@ -514,11 +515,11 @@ $$
 (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
 \end{aligned} \tag{3.31}
 $$
- if the field density matrix is initially diagonal,
+if the field density matrix is initially diagonal,
 $$
 (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
 $$
- the only nonvanishing
+the only nonvanishing
 components of $\rho_f(t)$ are
 $$
 (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
@@ -527,6 +528,7 @@ $$
 (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
 $$
 which relations will be used in the next section.
+
 ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
 If several molecules pass through the cavity in succession, the N'th
 entering as the (N-1)'th leaves, all with the same initial state, this
@@ -534,7 +536,7 @@ generates a Markov chain,
 $$
 \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
 $$
- and
+and
 particular interest attaches to the limiting form of $\rho_f$ as
 $N \to \infty$.
 
@@ -722,9 +724,13 @@ By the "semiclassical theory" we mean the system of equations (5.5),
 eliminating the amplitudes a(t), b(t). The result is the nonlinear
 system of coupled equations 
 $$
-\begin{aligned}
-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
-\end{aligned} \tag{5.12}
+\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
+$$
+$$
+\dot{W} = E \dot{M}, \tag{5.12b}
+$$
+$$
+\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
 $$
  where
 $$
@@ -735,18 +741,18 @@ $$
 W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
 $$
 is the expectation value of energy of the molecule, referred to a zero
-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
+lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
 an apparently classical nonlinear system, all reference to
 "quantum-mechanical" quantities having disappeared.
 
-The first two of the equations (5.12) admit a first integral,
+The first two of the equations (5.12a), (5.12b) admit a first integral,
 $$
 (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
 $$
 which is readily verified by eliminating E between them. Eq. (5.15a) is
 a highly disguised form of the "principle of conservation of
 probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
+two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
 yield the constant of the motion
 $$
 (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
@@ -754,7 +760,7 @@ $$
  which
 expresses the conservation of energy for the system.
 
-Now, what is the relationship between the system of equations (5.12) and
+Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
 our earlier ones based on quantum electrodynamics? In order to answer
 this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
 resemblance to a general operator equation of motion, which is obtained
@@ -1006,7 +1012,7 @@ $$
 (7.1) is not.
 
 In a fully consistent semiclassical theory the variation of M, W, E,
-would be determined from solving Eqs. (5.12) instead of "borrowing"
+would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
 the solutions of the quantum electrodynamics problem as is implied by
 (7.3) and (7.4). Therefore the following arguments cannot claim full
 validity. It is apparent from the above equations, however, that in
@@ -1036,7 +1042,7 @@ ever have in practice), it turns out that the difference between
 $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
 negligible.
 ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
-In this section we look more closely at the system of equations (5.12)
+In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
 representing the semiclassical theory. It is convenient to eliminate the
 constants K, S by the change of variables
 $$
@@ -1044,13 +1050,17 @@ $$
 x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
 \end{aligned} \tag{8.1}
 $$
- whereupon the equations of motion reduce to
+whereupon the equations of motion reduce to
 $$
-\begin{aligned}
-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
-\end{aligned} \tag{8.2}
+\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
 $$
- and the conservation laws (5.15) become
+$$
+\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
+$$
+$$
+\dot{z} = x\dot{y}, \tag{8.2c}
+$$
+and the conservation laws (5.15a), (5.15b) become
 $$
 (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
 $$
@@ -1092,7 +1102,7 @@ the order of 1000 subseconds. On this time scale, the oscillations of
 field (x) and dipole moment (y) are still very rapid, while secular
 changes due to their interaction are very slow. Because of this clean
 separation into fast and slow changes, one might hope to get a fairly
-complete understanding of the solutions of (8.2) in spite of their
+complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
 nonlinear character.
 
 The simplest approximate solution is the one wherein we ignore the time
@@ -1171,7 +1181,7 @@ $\omega = \Omega$, we may consider the orbits in the
 in Fig. 1.
 **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
 Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
+$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
 $$
 (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
 $$
@@ -1210,7 +1220,7 @@ $$
 \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
 $$
 
- If we regard
+If we regard
 the above orbit diagrams as complex planes, the quantities depicted are
 just the complex numbers (8.15) and (8.16). Noting the properties
 $$
@@ -1219,14 +1229,18 @@ $$
 $$
 \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
 $$
-and similarly for Y, we can write the equations of motion (8.2) in the
+and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
 form: 
 $$
-\begin{aligned}
-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
-\end{aligned} \tag{8.19}
+2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
 $$
- which are exact for the case $\omega = \Omega$. The
+$$
+2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
+$$
+$$
+4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
+$$
+which are exact for the case $\omega = \Omega$. The
 conservation laws become simply 
 $$
 |Y|^2 + z^2 = 1, \tag{8.20}
@@ -1235,21 +1249,25 @@ $$
 |X|^2 + 2z = \text{const}. \tag{8.21}
 $$
 
- Now the quantities X, Y are
+Now the quantities X, Y are
 slowly varying functions of time, and again it is their average change
 over many cycles, rather than the very small rapid fluctuation at
 frequency $2\omega$, which interest us. Therefore the oscillating terms
-in (8.19) may be dropped, since their average over a cycle is negligible
+in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
 compared to that of the "DC" terms. The system of equations determining
 secular changes of both amplitude and phase is therefore 
 $$
-\begin{aligned}
-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
-\end{aligned} \tag{8.22}
+2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
+$$
+$$
+2i\omega \dot{Y} = -zX, \tag{8.22b}
+$$
+$$
+4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
 $$
 
- It is readily verified that the conservation
-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
+It is readily verified that the conservation
+laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
 (8.22c) once more are making use of the conservation laws, we can
 eliminate X and Y, obtaining the equation
 $$

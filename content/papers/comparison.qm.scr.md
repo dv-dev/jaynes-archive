@@ -121,6 +121,7 @@ operation in terms of "Fermi golden rule" type of equations for the
 transition probabilities, i.e.,
 $$
 W_{1 \rightarrow 2} = \frac{2\pi}{\hbar^2} |H_{12}|^2 \rho(\omega)
+\tag{1}
 $$
 may lead to conclusions qualitatively as well as quantitatively wrong.
 Most of the existing noise figure calculations are based on a treatment
@@ -223,49 +224,57 @@ $\mathbf{E}_\alpha(\mathbf{x})$, $k_\alpha^2 = \omega_\alpha^2/c^2$ be the
 eigenfunctions and eigenvalues of the boundary-value problem.
 $$
 \begin{gathered} \nabla \times \nabla \times \mathbf{E} - k^2 \mathbf{E} = 0 \quad \text{in V} \\\\ \mathbf{n} \times \mathbf{E} = 0 \quad \text{on S} \end{gathered}
+\tag{2}
 $$
 where $\mathbf{n}$ is a unit vector normal to S. The
 $\mathbf{E}_\alpha(\mathbf{x})$ are so normalized that
 $$
 \int_V (\mathbf{E}_\alpha \cdot \mathbf{E}_\beta) dV = \delta_{\alpha\beta}.
+\tag{3}
 $$
 
- The
-vector functions $\mathbf{H}_\alpha(\mathbf{x})$, related to
+The vector functions $\mathbf{H}_\alpha(\mathbf{x})$, related to
 $\mathbf{E}_\alpha$ by
 $$
 \nabla \times \mathbf{E}_\alpha = k_\alpha \mathbf{H}_\alpha, \quad \nabla \times \mathbf{H}_\alpha = k_\alpha \mathbf{E}_\alpha
+\tag{4}
 $$
 are also orthonormal in $V$ as follows:
 $$
 \int_V (\mathbf{H}_\alpha \cdot \mathbf{H}_\beta) dV = \delta_{\alpha\beta}.
+\tag{5}
 $$
 
- The
-electric and magnetic fields can be expanded in the following forms:
+The electric and magnetic fields can be expanded in the following forms:
 $$
 \mathbf{E}(\mathbf{x}, t) = -\sqrt{4\pi} \sum_\alpha p_\alpha(t) \mathbf{E}_\alpha(\mathbf{x})
+\tag{6}
 $$
 and
 $$
 \mathbf{H}(\mathbf{x}, t) = \sqrt{4\pi} \sum_\alpha \omega_\alpha q_\alpha(t) \mathbf{H}_\alpha(\mathbf{x}).
+\tag{7}
 $$
 
 From these relations, we find for the total field energy
 $$
 \mathcal{H} = \int \frac{E^2+H^2}{8\pi} dV = \frac{1}{2}\sum_\alpha (p_\alpha^2+\omega_\alpha^2 q_\alpha^2),
+\tag{8}
 $$
 and the Maxwell equations,
 $$
 \nabla \times \mathbf{E} = \frac{1}{c}\frac{\partial \mathbf{H}}{\partial t}
+\tag{9a}
 $$
 and
 $$
 \nabla \times \mathbf{H} = \frac{1}{c}\frac{\partial \mathbf{E}}{\partial t}
+\tag{10}
 $$
 then reduce to the Hamiltonian equations of motion, 
 $$
 \begin{aligned} \dot{q}_\alpha &= \frac{\partial\mathcal{H}}{\partial p_\alpha} = p_\alpha, \\\\ \dot{p}_\alpha &= -\frac{\partial\mathcal{H}}{\partial q_\alpha} = -\omega_\alpha^2 q_\alpha, \end{aligned}
+\tag{11}
 $$
 respectively.
 
@@ -273,10 +282,12 @@ On quantization of the field the canonically conjugate coordinates and
 momenta satisfy the commutation rules,
 $$
 [q_\alpha, q_\beta] = [p_\alpha, p_\beta] = 0
+\tag{12}
 $$
  and
 $$
 [q_\alpha, p_\beta] = i\hbar\delta_{\alpha\beta}.
+\tag{13}
 $$
 
  The operators
@@ -284,10 +295,12 @@ $C_\alpha^*$, $C_\alpha$ which create or annihilate a photon in the
 $\alpha$th cavity mode are then
 $$
 C_\alpha^* = \frac{p_\alpha + i\omega_\alpha q_\alpha}{\sqrt{2\hbar\omega_\alpha}}, \quad C_\alpha = \frac{p_\alpha - i\omega_\alpha q_\alpha}{\sqrt{2\hbar\omega_\alpha}}
+\tag{14}
 $$
 with the commutation rule
 $$
 [C_\alpha, C_\beta^*] = \delta_{\alpha\beta}.
+\tag{15}
 $$
 
  Denote by
@@ -296,21 +309,24 @@ are $n_1$ quanta in mode 1, $n_2$ in mode 2, etc. The $C_\alpha$
 operators have the properties
 $$
 C_\alpha \phi(\dots, n_\alpha, \dots) = \sqrt{n_\alpha} \phi(\dots, n_\alpha-1, \dots)
+\tag{16}
 $$
 and
 $$
 C_\alpha^* \phi(\dots, n_\alpha, \dots) = \sqrt{n_\alpha+1} \phi(\dots, n_\alpha+1, \dots)
+\tag{17}
 $$
 from which we easily verify (13), and obtain the matrix elements in the
 $n_\alpha$ representation,
 $$
 \langle n_\alpha | C_\alpha | n_\alpha^\prime \rangle = \langle n_\alpha^\prime | C_\alpha^* | n_\alpha \rangle = \sqrt{n_\alpha+1}\delta(n_\alpha^\prime, n_\alpha+1).
+\tag{18}
 $$
 
- The
-Hamiltonian, with zero point energy removed, then reduces to
+The Hamiltonian, with zero point energy removed, then reduces to
 $$
 \mathcal{H} = \sum_\alpha \hbar\omega_\alpha C_\alpha^* C_\alpha = \sum_\alpha \hbar\omega_\alpha n_\alpha.
+\tag{19}
 $$
 
 Finally, we work out for later purposes the matrix elements of the
@@ -323,6 +339,7 @@ the cylinder (along which the molecules travel in an ammonia maser) the
 function $E_{az}$ reduces to 
 $$
  E_{az} = \frac{1}{J_1 \sqrt{V}}.
+\tag{20}
 $$
 
 Here $J_1=J_1(u)=0.5191$, and $u=2.405$ is the first root of $J_0(u)=0$. $V$
@@ -330,12 +347,14 @@ is the volume of the cavity. The operator $p_a$ involved in the electric
 field expansion is, from (12),
 $$
 p_a = \sqrt{\frac{\hbar\omega_a}{2}}(C_a+C_a^*).
+\tag{21}
 $$
 
  Combining (5),
 (16), (18), and (19), we obtain the matrix elements
 $$
 \langle n|E|n^\prime \rangle = -(\frac{2\pi\hbar\omega}{J_1^2 V})^{1/2} [\sqrt{n}\delta_{n,n^\prime-1} + \sqrt{n+1}\delta_{n,n^\prime+1}]
+\tag{22}
 $$
 in which we have dropped the subscript a, it being understood that (20)
 refers to the case where only the lowest TM mode is taken into account.
@@ -368,18 +387,21 @@ $\psi_m \phi_n$ then form a basis for the system (molecule plus field). In
 this representation, the total Hamiltonian is
 $$
 \langle mn | H | m^\prime n^\prime \rangle = (E_m + n\hbar\omega)\delta_{mm^\prime}\delta_{nn^\prime} + \langle mn | H_{int} | m^\prime n^\prime \rangle.
+\tag{23}
 $$
 
 The interaction Hamiltonian between molecule and field is taken of the
 form 
 $$
 H_{int} = -\boldsymbol{\mu} \cdot \mathbf{E}
+\tag{24}
 $$
  where
 $\boldsymbol{\mu}$ is the electric dipole moment of the molecule, whose
 component along $\mathbf{E}$ shall have the matrix elements
 $$
 \langle m n | \mu_E | m^\prime n^\prime \rangle = \mu (1 - \delta_{mm^\prime}) \delta_{nn^\prime}.
+\tag{25}
 $$
 
  Combining this
@@ -387,10 +409,12 @@ with (20), we obtain the matrix elements for the
 interaction energy
 $$
 \langle mn | H_{int} | m^\prime n^\prime \rangle = \hbar\alpha (1-\delta_{mm^\prime})[\sqrt{n}\delta_{n^\prime,n-1} + \sqrt{n+1}\delta_{n^\prime,n+1}]
+\tag{26}
 $$
 where
 $$
 \alpha = \frac{\mu}{\hbar}\sqrt{\frac{2\pi\hbar\omega}{J_1^2 V}}
+\tag{27}
 $$
 is the interaction constant. Using the value [^ref11]
 
@@ -402,10 +426,12 @@ The interaction Hamiltonian has matrix elements of two different types:
 $H_{int} = V+W$, where 
 $$
 \begin{aligned} V_n &= \langle 1, n+1 | V | 2, n \rangle = \langle 2, n | V | 1, n+1 \rangle \\\\ &= \hbar\alpha\sqrt{n+1} \end{aligned}
+\tag{28}
 $$
 and
 $$
 W_n = \langle 1, n | W | 2, n+1 \rangle = \langle 2, n+1 | W | 1, n \rangle = \hbar\alpha\sqrt{n+1}
+\tag{29}
 $$
 all other elements being zero. The term $V$ cannot be treated as a
 perturbation, for its matrix elements connect "unperturbed" states
@@ -418,6 +444,7 @@ $W/2\hbar\omega \ll 10^{-7}$, we may treat $W$ as a small perturbation,
 or even neglect it entirely. We thus write the Hamiltonian as
 $$
 H = H_0 + W
+\tag{30}
 $$
 in which the term $H_0 = (H_{mol} + H_{field} + V)$ must
 be diagonalized exactly. This is readily done, since $H_0$ has a "block
@@ -426,49 +453,57 @@ diagonal. The eigenvalues and eigenfunctions of $H_0$, defined by
 $H_0 \Phi = E\Phi$, are the ground state
 $$
 E_0 = E_1 - \hbar\omega \quad \Phi_0 = \psi_1 \phi_0
+\tag{31}
 $$
 and for $n>0$,
 $$
 E_n^{\pm} = \hbar\omega_n = \frac{1}{2}[E_1+E_2+(2n-1)\hbar\omega] \pm \frac{1}{2}[ (E_2 - E_1 - \hbar\omega)^2 + 4n\hbar^2\alpha^2 ]^{1/2}.
+\tag{32}
 $$
 
- We
-find it convenient now to define our zero molecular energy midway
+We find it convenient now to define our zero molecular energy midway
 between the levels $E_1$ and $E_2$ such that
 $E_1+E_2=0 \quad E_2-E_1=\hbar\Omega$ so that (28) now reads
 $$
 E_n^{\pm} = \hbar\omega_n^{\pm} = (n-\frac{1}{2})\hbar\omega \pm \frac{\hbar}{2}[(\Omega-\omega)^2 + 4n\alpha^2]^{1/2}.
+\tag{33}
 $$
 
  Now 
 $$
 \begin{aligned} \Phi_n^+ &= \psi_2 \phi_{n-1} \cos\theta_n + \psi_1 \phi_n \sin\theta_n \\\\ \Phi_n^- &= -\psi_2 \phi_{n-1} \sin\theta_n + \psi_1 \phi_n \cos\theta_n 
 \end{aligned}
+\tag{34}
 $$
 where
 $$
 \tan 2\theta_n = \frac{2\alpha\sqrt{n}}{\Omega-\omega}
+\tag{35}
 $$
 
  We now
 require the time-development matrix (in units with $\hbar=1$)
 $$
 U(t, t^\prime) = U(t-t^\prime) = \exp[-iH(t-t^\prime)]
+\tag{36}
 $$
 for which the perturbation
 expansion is
 $$
 U(t) = e^{-iH_0t} - i \int_0^t e^{i(t-t^\prime)H_0} W e^{it^\prime H_0}dt^\prime + \dots
+\tag{37}
 $$
 
 The major term $U_0 = \exp{(-iH_0t)}$ has the matrix elements, for
 n>0, 
 $$
 \begin{aligned} \langle 2, n-1 | U_0 | 2, n-1 \rangle &= a_n = \cos^2\theta_n e^{-i\omega_n^- t} + \sin^2\theta_n e^{-i\omega_n^+ t} \\\\ \langle 2, n-1 | U_0 | 1, n \rangle &= b_n = \sin\theta_n \cos\theta_n (e^{-i\omega_n^- t} - e^{-i\omega_n^+ t}) \\\\ \langle 2, n | U_0 | 2, n-1 \rangle &= b_n \\\\ \langle 1, n | U_0 | 1, n \rangle &= c_n = \cos^2\theta_n e^{-i\omega_n^+ t} + \sin^2\theta_n e^{-i\omega_n^- t} \end{aligned}
+\tag{38}
 $$
 and, for $n=0$,
 $$
 \langle 1,0 | U_0 | 1,0 \rangle = e^{-i\omega_0t}
+\tag{39}
 $$
 where now
 $\omega_0 = \Omega/2$ all other elements vanish. The transition
@@ -476,10 +511,12 @@ probability for emission or absorption of one photon during time $t$ is
 therefore, neglecting terms in $W$,
 $$
 |b_n|^2 = \sin^2 2\theta_n \sin^2 (\omega_n^+ - \omega_n^-)t/2 = \frac{n\alpha^2\sin^2\beta t}{\beta^2}
+\tag{40}
 $$
 where 
 $$
 4\beta^2 = (\omega-\Omega)^2 + 4n\alpha^2.
+\tag{41}
 $$
 
 The above notation
@@ -487,6 +524,7 @@ has been chosen in such a way that the block form of $U$ consists of the
 symmetric, $(2 \times 2)$ unitary matrices 
 $$
 \begin{bmatrix} a_n & b_n \\\\ b_n & c_n \end{bmatrix} \quad n=1, 2, \dots
+\tag{42}
 $$
 along the main diagonal. The first row and column, however, contain only the single term (34).
 We now consider the effect on the field of passing a single molecule
@@ -498,34 +536,41 @@ thus the direct product $\rho(0) = \rho_I(0) \times \rho_F(0)$, with
 matrix elements
 $$
 \langle mn | \rho(0) | m^\prime n^\prime \rangle = \langle m | \rho_I(0) | m^\prime \rangle \langle n | \rho_F(0) | n^\prime \rangle.
+\tag{43}
 $$
 
 During the interaction, $\rho$ undergoes a unitary transformation
 $$
 \rho(t) = U(t,0)\rho(0)U^{-1}(t,0)
+\tag{44}
 $$
 and the density matrix
 $\rho_F(t)$, which describes the state of the field only, is the
 projection of (38) onto the space of the field variables
 $$
 \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+\tag{45}
 $$
 
 The net change in the state of the field thus consists of a linear
 transformation,
 $$
 \langle n | \rho_F(t) | n^\prime \rangle = \sum_{k,k^\prime} \langle nn^\prime | G | kk^\prime \rangle \langle k | \rho_F(0) | k^\prime \rangle
+\tag{46}
 $$
 or 
 $$
 \rho_F(\tau) = G \rho_F(0)
+\tag{47a}
 $$
 $$
 \langle nn^\prime | G | kk^\prime \rangle = \sum_{m^{\prime\prime},m^\prime} \langle m^{\prime\prime}n | U | mk \rangle \langle m^\prime k^\prime | U^{-1} | m^{\prime\prime}n^\prime \rangle \sigma_{mm^\prime}
+\tag{48}
 $$
  where we have written for brevity
 $$
 \sigma_{mm^\prime} = \langle m | \rho_I(0) | m^\prime \rangle.
+\tag{49}
 $$
 
 The sums (42) are
@@ -533,6 +578,7 @@ readily evaluated with the use of (33), with the result that the only
 nonvanishing elements of $G$ are 
 $$
 \begin{aligned} \langle nn^\prime | G | n, n^\prime \rangle &= a_{n+1}^* a_{n^\prime+1} \sigma_{22} + c_n^* c_{n^\prime}^* \sigma_{11} \\\\ \langle nn^\prime | G | n+1, n^\prime \rangle &= b_{n+1}^* a_{n^\prime+1} \sigma_{12} \\\\ \langle n,n^\prime | G | n, n^\prime+1 \rangle &= a_{n+1}^* b_{n^\prime+1} \sigma_{21}, \\\\ \langle n,n^\prime | G | n, n^\prime-1 \rangle &= c_n^* b_{n^\prime}^* \sigma_{12}, \\\\ \langle n,n^\prime | G | n-1, n^\prime \rangle &= b_n^* c_{n^\prime}^* \sigma_{21}, \\\\ \langle n,n^\prime | G | n+1, n^\prime+1 \rangle &= b_{n+1}^* b_{n^\prime+1}^* \sigma_{11}, \\\\ \langle n,n^\prime | G | n-1, n^\prime-1 \rangle &= b_n^* b_{n^\prime}^* \sigma_{22}. \end{aligned}
+\tag{50}
 $$
 
 These relations hold for all quantum numbers $n$ if we understand that $c_0$
@@ -546,12 +592,14 @@ a molecule with initial density matrix $\sigma$ has passed through, the
 field density matrix has elements 
 $$
 \begin{aligned} \langle 0 | \rho_F(\tau) | 0 \rangle &= |a_1|^2 \sigma_{22} + \sigma_{11} \\\\ \langle 0 | \rho_F(\tau) | 1 \rangle &= \langle 1 | \rho_F(\tau) | 0 \rangle^* = c_0 a_1 b_1^* \sigma_{12} \\\\ \langle 1 | \rho_F(\tau) | 1 \rangle &= |b_1|^2 \sigma_{22}, \end{aligned}
+\tag{51}
 $$
 all other elements still vanishing. If the molecule were initially in its lowest state then nothing happens, and the field remains in its ground state. If the molecule was initially in the upper state $[\sigma_{22}=1, \sigma_{11}=\sigma_{12}=0]$ we have a simple transition probability of $|b_1|^2$ for the molecule to emit one photon in passing through. If there was initially no coherence relation between upper and lower states of the molecule, then $\sigma_{12}=0$, and $\rho_F$ remains diagonal; no coherence between states $n=0$ and $n=1$ can be set up by the molecule unless there was some coherence initially between upper and lower states of the molecule.
 The expectation value of electric field along the axis of the cavity, as
 obtained from (20), is 
 $$
 \begin{aligned} \langle E \rangle &= \text{Trace}(\rho_F E) \\\\ &= -\frac{\hbar\alpha}{\mu} \sum_n \sqrt{n+1} [ \langle n | \rho_F | n+1 \rangle + \langle n+1 | \rho_F | n \rangle ] \\\\ &= -\frac{2\alpha\hbar}{\mu} \text{Re} \sum_n \sqrt{n+1} \langle n | \rho_F | n+1 \rangle. \end{aligned}
+\tag{52}
 $$
 
 This remains zero as long as there is no coherence among
@@ -559,12 +607,14 @@ adjacent levels, even though the energy stored in the field may be
 large. In the case (45), we obtain for $\langle E \rangle$,
 $$
 \begin{aligned} \langle E \rangle &= -\frac{2\alpha\hbar}{\mu} \text{Re}(c_0 a_1 b_1^* \sigma_{12}) \\\\ &= -\frac{2\hbar a}{\mu \beta} \sin\beta t \text{Re}[i\sigma_{12}e^{i(\Omega+\omega)t/2}] \end{aligned}
+\tag{53}
 $$
 where $\beta$ is defined by (36) with $n=1$. Suppose now
 the cavity is so tuned that its resonant frequency $\omega$ is equal to
 $\Omega$, then $\beta=\alpha$ and we obtain simply
 $$
 \langle E \rangle = -\frac{2\hbar a}{\mu} \sin\alpha t \text{Re}[i\sigma_{12}e^{i\Omega t}].
+\tag{54}
 $$
 
 Since $\alpha \approx 5$ cps, the term $\sin(\alpha t)$ reaches its
@@ -577,6 +627,7 @@ space would emit with a natural line width (full width at half-maximum
 intensity),
 $$
 \Delta\omega = \frac{8\pi^3 \Omega^3 \mu^2}{3hc^3} \approx 10^{-7} \text{ sec}^{-1},
+\tag{55}
 $$
 which leads to spontaneous emission times of the order of months at the
 frequencies here considered.
@@ -586,21 +637,25 @@ transformation of the field caused by passage of the molecule is, from
 (44), 
 $$
 \begin{aligned} \langle n | \rho_F(t) | n^\prime \rangle &= \sigma_{11} [a_{n+1}^* a_{n^\prime+1}^* \langle n+1 | \rho_F(0) | n^\prime+1 \rangle + c_n^* c_{n^\prime}^* \langle n | \rho_F(0) | n^\prime \rangle ] \\\\ &+ \sigma_{12}[b_{n+1}^* a_{n^\prime+1}^* \langle n+1 | \rho_F(0) | n^\prime \rangle + c_n^* b_{n^\prime}^* \langle n | \rho_F(0) | n^\prime-1 \rangle ] \\\\ &+ \sigma_{21}[a_{n+1}^* b_{n^\prime+1} \langle n | \rho_F(0) | n^\prime+1 \rangle + b_n^* c_{n^\prime} \langle n-1 | \rho_F(0) | n^\prime \rangle ] \\\\ &+ \sigma_{22}[a_{n+1}^* a_{n^\prime+1} \langle n | \rho_F(0) | n^\prime \rangle + b_n^* b_{n^\prime}^* \langle n-1 | \rho_F(0) | n^\prime-1 \rangle]. \end{aligned}
+\tag{56}
 $$
 
 If the field density matrix is initially diagonal,
 $$
 \langle n | \rho_F(0) | n^\prime \rangle = p_n \delta_{nn^\prime},
+\tag{57}
 $$
 
  The only
 nonvanishing components of $\rho_F(t)$ are
 $$
 \langle n | \rho_F(t) | n \rangle = \sigma_{11}[|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22}[|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}]
+\tag{58}
 $$
 and
 $$
 \langle n | \rho_F(t) | n+1 \rangle = \langle n+1 | \rho_F(t) | n \rangle^* = \sigma_{12}[b_{n+1}^* a_{n+2}^* p_{n+1} + c_n^* b_{n+1}^* p_n].
+\tag{59}
 $$
 
 These relations will be used in the next section.
@@ -610,6 +665,7 @@ entering as the (N-1)th leaves, all with the same initial state, this
 generates a Markov chain,
 $$
 \rho_F(N\tau) = G^N \rho_F(0) = G\rho_F(N\tau-\tau).
+\tag{60}
 $$
 
  Of particular
@@ -617,15 +673,18 @@ interest is the limit $N\to\infty$. If the density matrices of field and
 molecule are initially diagonal,
 $$
 \sigma_{12} = \sigma_{21} = 0 \quad \langle n | \rho_F(0) | n^\prime \rangle = p_n \delta_{nn^\prime},
+\tag{61}
 $$
 then $\rho_F$ remains diagonal for all time. In this case the entering
 molecules can always be described by a temperature, defined by
 $$
 \frac{\sigma_{22}}{\sigma_{11}} = e^{-x}, \quad \sigma_{22} = (e^x+1)^{-1} \quad x=\hbar\Omega/kT
+\tag{62}
 $$
 and, using (51), (53) reduces to
 $$
 p_n(N\tau) = (e^x+1)^{-1}[(|a_{n+1}|^2 + |c_n|^2 e^x) p_n(N\tau-\tau) + |b_{n+1}|^2 e^x p_{n+1}(N\tau-\tau) + |b_n|^2 p_{n-1}(N\tau-\tau)].
+\tag{63}
 $$
 
 From this the limiting form of $p_n$ may be found. Taking note of the
@@ -634,6 +693,7 @@ and sufficient condition for a steady state
 $p_n(N\tau)=p_n(N\tau-\tau)=p_n$, is that the quantities
 $$
 B_n = |b_n|^2(p_{n-1} - e^x p_n)
+\tag{64}
 $$
 be independent of n. Now
 $\sum p_n=1$, and so $p_n\to 0$ as $n\to\infty$. Consequently,
@@ -642,6 +702,7 @@ only if $B_n=0$, and the only steady-state solution is the Boltzmann
 distribution,
 $$
 p_n = e^{-x} p_{n-1},
+\tag{65}
 $$
 for all n for which
 $|b_n|^2 \ne 0$. From (35) it is seen that $b_n$ could vanish only for
@@ -711,25 +772,30 @@ Now one considers that the electric field $E(t)$ is classically
 describable, and introduces a wave function,
 $$
 \psi(t) = a(t)\psi_1 + b(t)\psi_2,
+\tag{66}
 $$
  for the molecule alone, which
 develops in time according to the Schrödinger equation
 $$
 i\hbar\dot{\psi} = (H_{mol} + H_{int})\psi
+\tag{67}
 $$
  where
 $$
 \langle m | H_{mol} | m^\prime \rangle = E_m \delta_{mm^\prime}
+\tag{68}
 $$
  and
 $$
 \langle m | H_{int} | m^\prime \rangle = \langle m | -\boldsymbol{\mu}\cdot\mathbf{E}(t) | m^\prime \rangle = -\mu(1-\delta_{mm^\prime})E(t).
+\tag{69}
 $$
 
  Schrödinger's
 equation (59) then reduces to 
 $$
 \begin{aligned} i\hbar\dot{a} &= E_1 a - \mu E(t)b \\\\ i\hbar\dot{b} &= -\mu E(t)a + E_2 b. \end{aligned}
+\tag{70}
 $$
 
 These equations describe the effect of the field on the molecule.
@@ -739,6 +805,7 @@ field, one calculates the expectation value of the dipole moment of the
 molecule from the solution of (62),
 $$
 M(t) = \langle \psi | \mu | \psi \rangle (t) = \mu(ab^*+ba^*),
+\tag{71}
 $$
 and
 assumes that the field satisfies the classical equations of motion which
@@ -747,28 +814,33 @@ obtained most easily from the Hamiltonian equations of motion by
 addition of the interaction energy
 $$
 -M\cdot E = +\sqrt{4\pi}\sum_a p_a(t) \mathbf{E}_a(x) \cdot \mathbf{M}(t)
+\tag{72}
 $$
 to $\mathcal{H}$ in (7) of Section II, where x denotes the position of
 the molecule. The classical equations of motion are now
 $$
 \begin{aligned} \dot{p}_a &= -\frac{\partial\mathcal{H}}{\partial q_a} = -\omega_a^2 q_a \\\\ \dot{q}_a &= \frac{\partial\mathcal{H}}{\partial p_a} = p_a + \sqrt{4\pi} \mathbf{M}\cdot\mathbf{E}_a(x). \end{aligned}
+\tag{73}
 $$
 
 Eliminating $q_a$,
 $$
 \ddot{p}_a + \omega_a^2 p_a = -\sqrt{4\pi}\omega_a^2 \mathbf{M}\cdot\mathbf{E}_a(x).
+\tag{74}
 $$
 
  Assuming that we have only one normal mode excited, the electric field
 of this mode satisfies the differential equation
 $$
 \ddot{E}+\omega^2 E = \frac{4\pi\omega^2}{J_1 \sqrt{V}} \ddot{M}
+\tag{75}
 $$
 where again we drop the subscript a. If the cavity has a finite $Q$, due
 to wall losses and/or energy coupled out, this is taken into account by
 adding a phenomenological damping term to (67), giving us
 $$
 \ddot{E}+\frac{\omega}{Q}\dot{E}+\omega^2 E = \frac{4\pi\omega^2}{J_1 \sqrt{V}} \ddot{M}
+\tag{76}
 $$
 
 By the "semiclassical" theory we mean the system of equations (62),
@@ -777,18 +849,22 @@ eliminating the amplitudes $a(t)$, $b(t)$. The result is the nonlinear
 system of coupled equations, 
 $$
 \begin{aligned} \ddot{M} + \Omega^2 M &= -K^2 W E, \ \dot{W} &= E\dot{M} \end{aligned}
+\tag{69a}
 $$
 and
 $$
 \ddot{E} + \omega/Q \dot{E} + \omega^2 E = S\ddot{M},
+\tag{69c}
 $$
  where
 $$
 K=2\mu/\hbar \quad S=4\pi\omega^2/J_1\sqrt{V}
+\tag{79}
 $$
  and 
 $$
 \begin{aligned} W &= E_1|a|^2 + E_2|b|^2 - \frac{1}{2}(E_1+E_2) \ &= \frac{\hbar\Omega}{2}(|b|^2-|a|^2) \end{aligned}
+\tag{80}
 $$
 is the expectation value of energy of the molecule,
 referred to a zero lying midway between the levels $E_1, E_2$. In the
@@ -798,6 +874,7 @@ reference to "quantum-mechanical" quantities having disappeared.
 The first two equations of (69) admit a first integral,
 $$
 \dot{M}^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2
+\tag{72a}
 $$
 
 This is readily verified by eliminating $E$ between them. Eq. (72a) is a
@@ -806,6 +883,7 @@ $|a|^2+|b|^2=1$. Similarly, the last two equations of (69) can be
 combined, in the case $Q=\infty$, to yield the constant of the motion
 $$
 \frac{1}{2}\dot{E}^2 + \frac{1}{2}\omega^2 E^2 + 2S(W-ME) = \text{constant},
+\tag{72b}
 $$
 which is easily identified as the conservation of energy statement for
 the system.
@@ -814,6 +892,7 @@ For the equation of motion of any quantum-mechanical operator we have
 $i\hbar\dot{F}=[F,H]$. Differentiating this, we have
 $$
 \hbar^2 \ddot{F} + [H,[H,F]] = i\hbar[\dot{H},F]
+\tag{83}
 $$
 which is exact for any operator $F$ which has no explicit time dependence. Let us apply
 this identity to the electric field operator $F=E$. The total
@@ -823,17 +902,19 @@ double commutator, we note that $H_{int}$ commutes with $E$ but not with
 $[H_f, E]$, while $H_f$ commutes with both. Therefore,
 $$
 [H,[H,E]] = [H_f, [H_f, E]] + [H_{int},[H_{int},E]].
+\tag{84}
 $$
 
- These
-commutators are easily worked out, and the result is 
+These commutators are easily worked out, and the result is 
 $$
 \begin{aligned} [H_f, [H_f, E]] &= \hbar^2\omega^2 E \\\\ [H_{int}, [H_{int}, E]] &= -\hbar^2 S \mu_{op} \end{aligned}
+\tag{85}
 $$
 
 Thus a special case of (73) is the operator identity
 $$
 \ddot{E}+\omega^2E = S \mu_{op}
+\tag{12c}
 $$
 which is to be compared to (12c). If
 we interpret (12c) as the expectation value of (20), they are seen to be
@@ -843,6 +924,7 @@ of $\mu_{op}$ be defined, not in terms of $a(t)$ and $b(t)$ by means of
 $\langle mn | \rho | m^\prime n^\prime \rangle$, i.e.,
 $$
 \langle \mu_{op} \rangle = \text{Tr}(\rho \mu_{op}) = \sum_{m,m^\prime,n,n^\prime} \langle mn | \rho | m^\prime n^\prime \rangle \langle m^\prime | \mu_{op} | m \rangle.
+\tag{87}
 $$
 
 With this change in interpretation (69c) is seen to be an exact
@@ -853,29 +935,35 @@ time $H_{int}$ commutes with $\mu_{op}$, but not with $[H_m, \mu_{op}]$,
 while $H_f$ commutes with both. Therefore,
 $$
 [H,[H, \mu_{op}]] = [H_m, [H_m, \mu_{op}]] + [H_{int}, [H_m, \mu_{op}]].
+\tag{88}
 $$
 
  Proceeding as before, a short calculation yields the following results:
 $$
 [H_m, [H_m, \mu_{op}]] = \hbar^2\Omega^2\mu_{op}
+\tag{89}
 $$
 and
 $$
 [H_{int}, [H_m, \mu_{op}]] = \hbar^2 K H^\prime E
+\tag{90}
 $$
 where we have defined an operator 
 $$
 H^\prime = H_{mol} - \frac{1}{2}(E_1+E_2)
+\tag{91}
 $$
 with matrix elements
 $$
 \langle mn | H^\prime | m^\prime n^\prime \rangle = \frac{\hbar\Omega}{2}(-1)^m \delta_{mm^\prime}\delta_{nn^\prime}.
+\tag{92}
 $$
 which is just the energy of the molecule, referred to a zero lying
 midway between its levels $E_1, E_2$. Combining these relations, we find
 that another special case of (73) is the operator identity
 $$
 \ddot{\mu}_{op} + \Omega^2\mu_{op} = -KH^\prime E
+\tag{93}
 $$
 which is to be compared to (69a). However, now when we take the expectation value of (84) we do
 not get (69a) in general, for in the semiclassical equation the
@@ -888,6 +976,7 @@ uncorrelated, the density matrix reduces to a direct product
 $\rho=\rho_m \rho_f$, or
 $$
 \langle mn | \rho | m^\prime n^\prime \rangle = \langle m | \rho_m | m^\prime \rangle \langle n | \rho_f | n^\prime \rangle
+\tag{94}
 $$
 when (85) holds, then
 $\langle H^\prime E \rangle = \langle H^\prime \rangle \langle E \rangle$. But in
@@ -927,17 +1016,19 @@ $M$ have a common time factor $\exp{(ivt)}$; if $W$=constant, then (69a)
 and (69c) reduce to 
 $$
 (\omega^2 - \nu^2)(\Omega^2 - \nu^2) + KSW = 0
+\tag{95}
 $$
 or
 $$
 \nu^2 = \frac{\omega^2+\Omega^2}{2} \pm \frac{1}{2}\sqrt{(\omega^2-\Omega^2)^2 - 4KSW}.
+\tag{96}
 $$
 
- We
-see here a new feature, not present in coupled pendulums. If $W>0$
+We see here a new feature, not present in coupled pendulums. If $W>0$
 and the cavity is tuned so closely to the natural line frequency that
 $$
 |\omega^2-\Omega^2| < \sqrt{4KSW},
+\tag{97}
 $$
  the square root in (87) becomes
 imaginary; one of the normal modes grows exponentially, the other
@@ -953,17 +1044,20 @@ Suppose that the cavity is tuned exactly to the natural line frequency,
 $\omega=\Omega$. Then (87) reduces to
 $$
 \nu^2 = \omega^2 \pm i\sqrt{KSW}
+\tag{98}
 $$
 or to an extremely good
 approximation,
 $$
 \nu = \omega \pm i \frac{\sqrt{KSW}}{2\omega}
+\tag{99}
 $$
 
 If we start with the molecule nearly in the upper state then $W=\hbar\Omega/2$
 and the amplitude of the field varies like
 $$
 \exp\left(\frac{\sqrt{KSW}}{2\omega}t\right)e^{i\omega t} = \exp(\alpha t)e^{i\omega t}
+\tag{100}
 $$
 where $\alpha$ is the interaction constant defined in (25). This is to
 be compared to the result (47a) describing spontaneous emission
@@ -993,6 +1087,7 @@ energy of the molecule $W$, the conservation of energy law (72b)
 reduces, in almost all cases, to
 $$
 (\dot{E})^2 + \omega^2 E^2 + 2SW = \text{constant},
+\tag{101}
 $$
 which shows that
 as $W$ increases, the orbit in the $(E, \omega\dot{E})$ plane must
@@ -1025,25 +1120,30 @@ To this end introduce the slowly varying complex amplitudes $X$ and $Y$,
 defined by 
 $$
 \begin{aligned} \dot{E} + i\omega E &= X(t) e^{i\omega t} \ \dot{M} + i\Omega M &= Y(t) e^{i\omega t} \end{aligned}
+\tag{102}
 $$
 and 
 $$
 \ddot{E}+\omega^2 E = \dot{X}e^{i\omega t}
+\tag{103}
 $$
 and
 similarly for $M$, we can write the equations of motion (69) in the
 form, for the case $\omega=\Omega$, 
 $$
 \begin{aligned} 2i\omega \dot{X} &= S(\dot{Y} - Y^*e^{-2i\omega t}), \ 2i\omega\dot{Y} &= -K^2 W(X-X^*e^{-2i\omega t}), \ 4i\omega\dot{W} &= X\dot{Y}e^{i\omega t} + X\dot{Y}^* - X^* \dot{Y} - X^* \dot{Y}^* e^{-2i\omega t}. \end{aligned}
+\tag{104}
 $$
 
 The conservation laws become
 $$
 |Y|^2 + K^2 W^2 = \text{constant} = \left(\frac{K\hbar\Omega}{2}\right)^2
+\tag{98a}
 $$
 and 
 $$
 |X|^2 + 2SW = \text{constant}.
+\tag{98b}
 $$
 
  Now the functions $X$ and $Y$ are
@@ -1055,12 +1155,14 @@ compared to their dc components. The quantities depicted in Fig. 2 are
 just the complex numbers (93) and (94). Noting the properties,
 $$
 (\dot{E})^2 + \omega^2 E^2 = |X|^2,
+\tag{107}
 $$
 
 The system of equations determining secular changes of both amplitude
 and phase is, therefore,
 $$
 \begin{aligned} 2i\omega \dot{X} &= SY, \ 2i\Omega \dot{Y} &= -K^2 WX, \ 4\omega \dot{W} &= XY^* - X^* Y. \end{aligned}
+\tag{99c}
 $$
 
 It is easily verified that the conservation laws (98)
@@ -1069,21 +1171,23 @@ making use of the conservation laws, we can eliminate $X$ and $Y$,
 obtaining the equation
 $$
 4\omega^2 \ddot{W} - 3SK^2 W^2 + K^2 CW + SK^2\left(\frac{\hbar\Omega}{2}\right)^2 = 0
+\tag{109}
 $$
 where $C$ is the constant of the motion (98b). A first integral of (100)
 can be obtained immediately by multiplication with $\dot{W}$ and
 integrating
 $$
 2\omega^2 (\dot{W})^2 - SK^2 W^3 + \frac{K^2CW}{2} + SK^2\left(\frac{\hbar\Omega}{2}\right)^2 W = \text{constant}.
+\tag{110}
 $$
 
- This
-equation has the form of the Hamilton-Jacobi equation for motion of
+This equation has the form of the Hamilton-Jacobi equation for motion of
 a particle in a particular potential well. For any motion in which
 either of the points $W=\pm(\hbar\Omega/2)$ is accessible, we have the
 constant on the right-hand side of (101) equal to
 $$
 \frac{K^2C}{2}\left(\frac{\hbar\Omega}{2}\right).
+\tag{111}
 $$
 
  This is easily
@@ -1093,16 +1197,18 @@ see this most easily, introduce the change of variable
 $(\hbar\Omega/2)z=W$. Then (101) takes the form,
 $$
 b^2(\dot{z}^2-az^2+a) = b^2[(z^2-1)(z+1)(z-a)]=0,
+\tag{112}
 $$
  where
 $$
 b^2 = \frac{SK^2 \hbar\omega}{4\omega^2}, \quad a = \frac{C}{S\hbar\omega}.
+\tag{113}
 $$
 
- The
-solution is
+The solution is
 $$
 \sqrt{2}\alpha t = \int_{z(0)}^{z(t)} \frac{dz}{\sqrt{(1-z^2)(a-z)}}.
+\tag{114}
 $$
 
 The motion is therefore periodic between turning points represented by
@@ -1112,11 +1218,13 @@ evaluation of the constant $a=C/S\hbar\omega$. From (5), (9a) and (17)
 we have
 $$
 \dot{E}^2+\omega^2 E^2 = \frac{4\pi\omega}{J_1 \sqrt{V}} (2n\hbar\omega)
+\tag{115}
 $$
 where $n$ is the number of photons stored in the cavity. Now,
 examination of (72b) with the small interaction term neglected gives us
 $$
 \frac{4\pi\omega^2}{J_1 \sqrt{V}}(2n\hbar\omega) + S\hbar\omega = C = S\hbar\omega(2n+1)
+\tag{116}
 $$
 if we assume there are $n$ molecules in the field when the molecule is
 in its upper state, $W=+(\hbar\omega/2)$. Thus $a=(2n+1)$. There is in
@@ -1131,20 +1239,24 @@ standard notation sn($u, k$), the solution for the case
 n $\ge 0$ is
 $$
 z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+\tag{117}
 $$
 where
 $$
 Q_s = \text{sn}^{-1}\left(\sqrt{\frac{z(0)+1}{2}}, \frac{1}{\sqrt{n+1}}\right)
+\tag{118}
 $$
 is the initial phase of the motion. In the limit of large $n$, the
 elliptic functions approach trigonometric functions, as is seen most
 easily from (104). If $a \gg 1$, then (104) reduces to
 $$
 \sqrt{2}\alpha t = \int \frac{1}{\sqrt{a}}\frac{dz}{\sqrt{1-z^2}} = \frac{1}{\sqrt{a}}\sin^{-1} z(t) + \text{constant},
+\tag{119}
 $$
 or 
 $$
 z(t) \approx \sin(2\sqrt{n}\alpha t+\theta).
+\tag{120}
 $$
 
  The case $a=1, n=0$
@@ -1251,6 +1363,7 @@ Our starting point for obtaining the ideal steady-state solution for the
 ammonia maser will be (69), i.e., 
 $$
 \begin{aligned} \ddot{M}_i + \Omega^2 M_i &= -K^2 W_i E(t) \ \ddot{E} + \frac{\omega}{Q}\dot{E} + \omega^2 E &= S \ddot{M}, \ \dot{W}_i &= E\dot{M}_i, \end{aligned}
+\tag{108a}
 $$
 where now the subscript $i$ refers to the $i$th
 molecule. If now all of the molecules are subjected to the same field
@@ -1258,12 +1371,14 @@ $E(t)$ as in the Stanford [^ref6] ammonia maser, we can simply define the
 total moment and energy 
 $$
 \begin{aligned} M(t) &= \sum_i M_i(t), \ W(t) &= \sum_i W_i(t). \end{aligned}
+\tag{122}
 $$
 
 We see that (108a)-(108c) are still satisfied by these
 quantities, in particular,
 $$
 \ddot{E}+\frac{\omega}{Q}\dot{E}+\omega^2 E = S\ddot{M} = S\sum_i \ddot{M}_i.
+\tag{108c}
 $$
 
 The conservation law (72a) is still valid in the sense that the
@@ -1287,28 +1402,32 @@ It is readily verified by substitution that the solution of (108a) with
 the initial conditions $M_i(t_i)=\dot{M}_i(t_i)=0$ is
 $$
 M_i(t) = -\frac{K}{\Omega}\int_{t_i}^t W_i(t^\prime)E(t^\prime) \sin \Omega(t-t^\prime)dt^\prime.
+\tag{124}
 $$
 
 Using this, (108c) can be written as an integral equation. A time
 integration yields 
 $$
 \begin{aligned} W_i(t) - W_i(t_i) &= \int_{t_i}^t dt^{\prime\prime} E(t^{\prime\prime}) \dot{M}(t^{\prime\prime}) \\\\ &= -\frac{K^2}{\Omega}\int_{t_i}^t dt^{\prime\prime} E(t^{\prime\prime}) \int_{t_i}^{t^{\prime\prime}} dt^\prime W_i(t^\prime)E(t^\prime) \cos \Omega(t^{\prime\prime}-t^\prime). \end{aligned}
+\tag{125}
 $$
 
 Interchanging the order of integration in (112), we find
 that $W_i(t)$ satisfies an integral equation of Volterra form,
 $$
 W_i(t) - W_i(t_i) = \int_{t_i}^t G(t,t^\prime)W_i(t^\prime)dt^\prime,
+\tag{126}
 $$
 with the kernel,
 $$
 G(t,t^\prime) = -K^2 \int_{t^\prime}^t dt^{\prime\prime} E(t^{\prime\prime}) \cos \Omega(t^{\prime\prime}-t^\prime) E(t^\prime).
+\tag{127}
 $$
 
- We
-now assume the electric field is given by 
+We now assume the electric field is given by 
 $$
 E(t) = 2a \sin \nu t
+\tag{128}
 $$
  where
 $a$ and $\nu$ are parameters to be determined by the condition that
@@ -1322,26 +1441,30 @@ fluctuations, we neglect terms in (114) of frequency $(\Omega+\nu)$.
 Their contribution to $W_i$ is of the relative order of magnitude
 $$
 \frac{(\Omega-\nu)}{(\Omega+\nu)} \lesssim 10^{-7}
+\tag{129}
 $$
 in all cases of practical interest. With this approximation (114)
 reduces to
 $$
 G(t,t^\prime) \approx -K^2 a^2 \frac{\sin(\Omega-\nu)(t-t^\prime)}{(\Omega-\nu)}
+\tag{130}
 $$
 and the slowly varying part of $W_i(t)$ satisfies the integral equation
 $$
 W_i(t) = W_i(t_i) - K^2 a^2 \int_{t_i}^t W_i(t^\prime) \frac{\sin(\Omega-\nu)(t-t^\prime)}{(\Omega-\nu)}dt^\prime.
+\tag{131}
 $$
 
- The
-exact solution of (117) with the initial condition
+The exact solution of (117) with the initial condition
 $W_i(t_i)=\hbar\Omega/2$ is
 $$
 W_i(t) = \frac{\hbar\Omega}{2\lambda^2}[(\Omega-\nu)^2+a^2K^2\cos\lambda(t-t_i)]
+\tag{132}
 $$
 where 
 $$
 \lambda^2 = (\Omega-\nu)^2+(Ka)^2.
+\tag{133}
 $$
 
 As a check, and an
@@ -1353,11 +1476,13 @@ problem by direct integration of Schrödinger's equation.
 The total dipole moment of all the molecules in the cavity is
 $$
 \begin{aligned} M(t) &= A\int_{t-\tau}^t M_i(t_i)dt_i; \ &= -\frac{AK^2}{\Omega}\int_{t-\tau}^t dt^\prime E(t^\prime) \sin\Omega(t-t^\prime) \int_{t^\prime-\tau}^{t^\prime} dt_i W_i(t^\prime) \end{aligned}
+\tag{134}
 $$
 where we have used (111) and inverted the order of
 integration. With the solution (118) for $W_i(t)$, this becomes
 $$
 M(t) = \frac{A_0 \hbar\Omega K^2}{\Omega^2\lambda^2} [(\Omega-\nu)^2q + \frac{a^2K^2}{\lambda}\sin q] \int_0^\tau \sin(q+t-r)\sin\Omega(q-r)xdq
+\tag{135}
 $$
 where $q=\Omega(r-t+t^\prime)$. As a function of $q$, the last factor of the
 integrand contains oscillating terms of frequencies $(\Omega\pm\nu)$, and
@@ -1366,6 +1491,7 @@ of the order of $10^{-7}$ or smaller under all conditions of interest.
 Neglecting this small term, (121) reduces to
 $$
 M(t) = \frac{A_0 \hbar\Omega K^2}{\Omega\lambda^2} [(1-\cos\lambda\tau)\cos\nu t - \frac{(\Omega-\nu)}{\lambda}(\lambda\tau-\sin\lambda\tau)\sin\nu t].
+\tag{136}
 $$
 
 Details from this point on will be considered later, as a special case
@@ -1381,6 +1507,7 @@ cavity per unit time, and $f(\tau)d\tau$ is the fraction of entering
 molecules with flight times in the range $d\tau$, normalized so that
 $$
 \int_0^\infty f(\tau)d\tau = 1.
+\tag{137}
 $$
 
 The total dipole moment of all
@@ -1388,19 +1515,23 @@ molecules in the cavity is then obtained by one more integration of
 (122), as follows:
 $$
 M(t) = n\gamma \left\{ [1-c(\lambda)]\cos\nu t - \frac{(\Omega-\nu)}{\lambda}[\lambda\bar\tau - s(\lambda)]\sin\nu t \right\}
+\tag{138}
 $$
 where we have defined
 $$
 \gamma = \frac{a\hbar\Omega K^2}{\Omega^2\lambda^2}
+\tag{139}
 $$
 for convenience, and where 
 $$
 \bar\tau = \int_0^\infty \tau f(\tau) d\tau
+\tag{140}
 $$
 is the mean
 flight time, and 
 $$
 \begin{aligned} c(\lambda) &= \int_0^\infty \cos\lambda\tau f(\tau)d\tau \\\\ s(\lambda) &= \int_0^\infty \sin\lambda\tau f(\tau)d\tau \end{aligned}
+\tag{141}
 $$
 are the Fourier transforms of the flight time distribution.
 
@@ -1409,49 +1540,59 @@ To obtain the conditions for a self-consistent solution, we substitute
 $\sin\nu t$. We obtain the relations
 $$
 \frac{\omega\nu}{Q} = \frac{Sn\gamma}{2a}[1-c(\lambda)]
+\tag{142}
 $$
 and
 $$
 \nu^2-\omega^2 = \frac{Sn\gamma}{2a}\frac{\Omega-\nu}{\lambda}[\lambda\bar\tau-s(\lambda)].
+\tag{143}
 $$
 
 The starting current $n_0$ is determined by (129) for small $\lambda$. From
 (127) we have
 $$
 \lim_{\lambda\to 0} \frac{1-c(\lambda)}{\lambda^2} = \frac{1}{2}\int_0^\infty \tau^2 f(\tau)d\tau = \frac{\overline{\tau^2}}{2}
+\tag{144}
 $$
 so that it is the mean-square flight time which determines the starting
 current, as follows:
 $$
 n_0 = \frac{4\omega\nu}{Q\overline{\tau^2}S} = \frac{\hbar J_1 \sqrt{V}}{Q\overline{\tau^2}4\pi\mu^2}.
+\tag{145}
 $$
 
  Similarly, we have from (128),
 $$
 \lim_{\lambda\to 0} \frac{\lambda\bar\tau-s(\lambda)}{\lambda^3} = \frac{1}{6}\overline{\tau^3},
+\tag{146}
 $$
 so that if we define new functions,
 $$
 F(\lambda) = \frac{6[\lambda\bar\tau-s(\lambda)]}{\lambda^3 \overline{\tau^3}}
+\tag{147}
 $$
 and 
 $$
 G(\lambda) = \frac{2[1-c(\lambda)]}{\lambda^2\overline{\tau^2}},
+\tag{148}
 $$
 we have $F(0)=G(0)=1$. Previous writers [^ref1] have expressed their
 results in terms of an "effective $Q$" of the molecular beam. The
 appropriate definition here would be
 $$
 Q_m = \frac{\Omega\overline{\tau^3}}{6\overline{\tau^2}} \approx 10^5.
+\tag{149}
 $$
 
 Our conditions (129) and (130) then assume the forms
 $$
 n_0/n = G(\lambda)
+\tag{150}
 $$
 and
 $$
 (\nu-\omega)(\omega-\Omega) = \frac{Q}{Q_m} \frac{G(\lambda)}{F(\lambda)}
+\tag{151}
 $$
 if we neglect terms of order $(Q/Q_m)^2$. These relations are to be used
 graphically as follows: For a given velocity distribution, the functions
@@ -1474,6 +1615,7 @@ with velocities in the range $dv$ is proportional to
 $v^3\exp(-v^2/v_0^2)dv$, or
 $$
 f(\tau) \sim \exp(-L^2/2v_0^2\tau^2)/\tau^4
+\tag{152}
 $$
 ($L$=length of cavity, $v_0^2=2KT/m$), they reduce to the theory of Lamb and Helmer [^ref6]. In
 the Maxwellian case our dimensionless parameters $F, G, Q_m$ become
@@ -1524,6 +1666,7 @@ generated in the cavity and/or load. The equation of motion for the
 electric field then becomes
 $$
 \ddot{E}+\frac{\omega}{Q}\dot{E}+\omega^2 E = S\ddot{M}(t)+F(t)
+\tag{153}
 $$
 and
 this $F(t)$ causes a change of $E_1$ in the electric field. Suppose now
@@ -1532,14 +1675,17 @@ is not too close to the oscillation frequency $\nu$, the change in
 electric moment of the $i$th molecule will satisfy
 $$
 \ddot{M}_{i1}+\Omega^2 M_{i1} = -K^2 \bar{W}_i E_1
+\tag{154}
 $$
 where we have set
 $$
 E=E_0+E_1 = 2a\sin\nu t+E_1
+\tag{155}
 $$
 and 
 $$
 \begin{aligned} M_i &= M_{i0}+M_{i1} \ W_i &= W_{i0}+W_{i1} \end{aligned}
+\tag{156}
 $$
 where the subscript "0" denotes the unperturbed or
 steady-state solutions of Section IV. Here we have dropped a term
@@ -1548,6 +1694,7 @@ component of frequency $\beta$. Under these conditions, the change in
 total moment of all molecules in the cavity will be simply
 $$
 M_1 = \sum_i M_{i1} = \frac{-K^2\bar{W}E_1}{\Omega^2-\beta^2}
+\tag{157}
 $$
 where
 $\bar{W}$ is the average energy of all molecules in the cavity.
@@ -1556,6 +1703,7 @@ Combining these relations, we find the electric field fluctuation to be
 given by
 $$
 E_1 = \frac{F(t)(\Omega^2-\beta^2)}{\left[-\beta^2 + \frac{i\omega\beta}{Q} + \omega^2\right](\Omega^2-\beta^2) + K^2 S \bar{W}}
+\tag{158}
 $$
 
 If $\bar{W}=0$, this reduces, as it must, to the response of the cavity
@@ -1576,20 +1724,24 @@ Keeping terms to only the first order in the perturbation, we have to
 solve the system of linear equations with time varying coefficients,
 $$
 \begin{aligned} \ddot{E}_1 + \frac{\omega}{Q}\dot{E}_1+\omega^2 E_1 &= S\ddot{M}_1(t)+F(t), \ &= S\sum_i \ddot{M}_{i1}(t)+F(t), \ \ddot{M}_{i1}+\Omega^2 M_{i1} &= -K^2 W_{i0}E_1 - K^2 W_{i1}E_0, \end{aligned}
+\tag{159}
 $$
 and
 $$
 \dot{W}_{i1} = E_0 \dot{M}_{i1} + E_1 \dot{M}_{i0}
+\tag{160}
 $$
 
 From (149) we
 have 
 $$
 \begin{aligned} W_{i1}(t) &= \int_{t_i}^t E_0(t^\prime) [-K^2 \int_{t_i}^{t^\prime} (W_{i0}(t^{\prime\prime})E_1(t^{\prime\prime})+W_{i1}(t^{\prime\prime})E_0(t^{\prime\prime})) \cos\Omega(t^\prime-t^{\prime\prime})dt^{\prime\prime}]dt^\prime \ &+ \int_{t_i}^t E_1(t^\prime) [-K^2 \int_{t_i}^{t^\prime} W_{i0}(t^{\prime\prime})E_0(t^{\prime\prime})\cos\Omega(t^\prime-t^{\prime\prime})dt^{\prime\prime}]dt^\prime \end{aligned}
+\tag{161}
 $$
 where we have used
 $$
 M_{i1}(t) = -\frac{K}{\Omega}\int_{t_i}^t \sin\Omega(t-t^\prime) [W_{i1}(t^\prime)E_0(t^\prime)+W_{i0}(t^\prime)E_1(t^\prime)]dt^\prime.
+\tag{162}
 $$
 
 We specialize to the case of the tuned cavity, $\omega=\Omega$, since
@@ -1597,6 +1749,7 @@ this will not significantly affect the results and renders the
 mathematics very much less tedious. Now, assuming a solution of the form
 $$
 E_1(t) = a_1 e^{i\beta t} + a_2^* e^{-i(\beta-2\Omega)t}
+\tag{163}
 $$
 we are able
 to get self-consistent solutions for (147)-(149). Using (152) and the
@@ -1604,48 +1757,57 @@ unperturbed solutions of the preceding chapter for the case of a single
 molecular flight time, we have for (150),
 $$
 W_{i1}(t) = \frac{K\hbar\Omega}{4\Omega^\prime}(a_1-a_2^*)(e^{-i\Omega^\prime t_i}-e^{-i\Omega^\prime t})\sin\lambda(t-t_i).
+\tag{164}
 $$
 
- We
-have dropped terms of frequency $\Omega+\beta$, as they do not
+We have dropped terms of frequency $\Omega+\beta$, as they do not
 contribute appreciably to $W_{i1}$. Here $\Omega^\prime=\Omega-\beta$. Now we
 put this result into (151) and after integrating over all the molecules, i.e., 
 $$
 M_1(t) = A\int_{t-\tau}^t M_{i1}(t)dt_i,
+\tag{165}
 $$
 and, inverting the order of integration, we have 
 $$
 \begin{aligned} M_1(t) &= -\frac{K^2 A}{\Omega}\int_{t-\tau}^t dt^\prime E_0(t^\prime) \sin\Omega(t-t^\prime) \int_{t^\prime-\tau}^{t^\prime} W_{i1}(t^\prime)dt_i \\\\ &-\frac{K^2 A}{\Omega}\int_{t-\tau}^t dt^\prime E_1(t^\prime)\sin\Omega(t-t^\prime) \int_{t^\prime-\tau}^{t^\prime} W_{i0}(t^\prime)dt_i. \end{aligned}
+\tag{166}
 $$
 
 The result of the integrations is
 $$
 SM_1(t) = \frac{a_1 B e^{i\beta t} + a_1 C e^{i(\beta-2\Omega)t} - a_2^* B e^{-i(\beta-2\Omega)t}}{a_2^* C e^{i\beta t}}
+\tag{167}
 $$
 where we have defined
 $$
 C = \frac{AK^2S\hbar i}{4((\Omega^\prime)^2-\lambda^2)} e^{i\Omega^\prime\tau/2} \left[\cos\Omega^\prime\tau/2(1-\cos\lambda\tau) - \frac{\lambda}{\Omega^\prime}\sin\Omega^\prime\tau/2\sin\lambda\tau\right]
+\tag{168}
 $$
 and
 $$
 B=C+\frac{AK^2 S\hbar i}{4((\Omega^\prime)^2-\lambda^2)}\left[\cos\lambda\tau + \frac{i\lambda}{\Omega^\prime}\sin\lambda\tau - \cos\Omega^\prime\tau-i\sin\Omega^\prime\tau\right].
+\tag{169}
 $$
 
 Inserting this expression into (147) we find
 $$
 a_1 = \frac{F(\Omega_2+B)}{[(\Omega_1-B)(\Omega_2+B)+C^2]}
+\tag{105}
 $$
  and
 $$
 a_2 = \frac{FC}{[(\Omega_1-B)(\Omega_2+B)+C^2]}
+\tag{121}
 $$
  where we define
 $$
 \Omega_1 = \Omega^2-\beta^2+i\Omega\beta/Q
+\tag{172}
 $$
 and
 $$
 \Omega_2 = \Omega^2-(\beta-2\Omega)^2+i\frac{\Omega}{Q}(\beta-2\Omega).
+\tag{173}
 $$
 
  Note that $\Omega_1 \approx -\Omega_2$ if
@@ -1654,14 +1816,17 @@ be simplified somewhat by remembering that we can replace $A$ by the
 starting current $A_0$ divided by $G(\lambda)$ for the univelocity case, i.e.,
 $$
 A = A_0/G(\lambda) = \frac{4\Omega^3}{Q\tau^2(\hbar\Omega K^2 S)} \frac{\lambda^2\tau^2}{2(1-\cos\lambda\tau)}
+\tag{174}
 $$
 from (132) and (135). Thus,
 $$
 C = \frac{i\lambda^2(\Omega^3/Q)[\Omega^\prime\cos\Omega^\prime\tau/2\sin\lambda\tau/2 - \lambda\cos\lambda\tau/2\sin\Omega^\prime\tau/2]}{2\Omega^\prime((\Omega^\prime)^2-\lambda^2)\sin\lambda\tau/2}
+\tag{175}
 $$
 and
 $$
 B = C + \frac{i\lambda^2\Omega^3/Q[(\cos\lambda\tau-\cos\Omega^\prime\tau)+i\lambda/(\Omega^\prime\sin\lambda\tau-\lambda\sin\Omega^\prime\tau)]}{2\Omega^\prime((\Omega^\prime)^2-\lambda^2)(1-\cos\lambda\tau)}.
+\tag{176}
 $$
 
 We see here the result of having time-varying coefficients in our linear
@@ -1695,10 +1860,12 @@ $FQ/\Omega^2=1$.
 One can recast the electric field,
 $$
 E(t) = 2a\sin\Omega t + \int_{-\infty}^{+\infty} a_1 e^{i\beta t}d\beta + \int_{-\infty}^{+\infty} a_2^* e^{-i(2\Omega-\beta)t}d\beta + c.c.
+\tag{177}
 $$
 in the form 
 $$
 E(t)=A(t)\sin[\Omega t+\phi(t)]
+\tag{178}
 $$
 **[FIGURE: (a) A plot of $|E_1|^2/|F/(\Omega Q)|^2$ versus $k=(\Omega-\beta)/\lambda$ for $\lambda\tau=\pi/2$, $\pi$, and $3\pi/2$.]**
 **[FIGURE: (b) A plot of $|E_2|^2/|F/(\Omega Q)|^2$ versus $k=(\Omega-\beta)/\lambda$ for $\lambda\tau=\pi/2$, $\pi$, and $3\pi/2$.]**
@@ -1738,6 +1905,7 @@ of this type. In assuming that the actual output could be represented in
 the form 
 $$
 E(t) = 2a\sin\nu t + E_1(t)
+\tag{179}
 $$
 with $|E_1|\ll a$, we have in
 effect restricted the theory to cases (or time intervals) such that the

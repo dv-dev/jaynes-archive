@@ -81,12 +81,16 @@ because we think that those facts are cogent enough to speak for
 themselves.
 ## The Experimental Facts: Clausius {#the-experimental-facts-clausius .unnumbered}
 The general statement of the empirical second law, due to Clausius, is
-simply $$S_{\text{initial}} \le S_{\text{final}}$$ in which S stands for
+simply $$S_{\text{initial}} \le S_{\text{final}} \tag{1}$$
+
+in which S stands for
 the total entropy of all bodies that take part in a process, and the
 entropy for a single system is defined to within an additive constant
-for closed systems by $$S_B - S_A = \int_A^B \frac{dQ}{T}$$ but it
-requires some discussion to set forth its full meaning. We note five
+for closed systems by $$S_B - S_A = \int_A^B \frac{dQ}{T} \tag{2}$$
+
+but it requires some discussion to set forth its full meaning. We note five
 important facts:
+
 \(I\) This statement is logically equivalent to Carnot's principle (no
 heat engine can be more efficient than a reversible one operating
 between the same temperatures). That is, it is deducible directly from
@@ -96,11 +100,13 @@ Therefore, although (1) is not proved to be true as a consequence of the
 laws of physics, if a physical phenomenon is ever found which violates
 (1), then we shall have the means to realize Carnot's perpetual motion
 machines of the second kind after all.
+
 \(II\) The integral in (2) is necessarily over a reversible path (i.e.,
 a locus of equilibrium states) connecting the macroscopic thermodynamic
 states A and B, because the temperature T in (2) is not defined except
 in states of thermal equilibrium. Entropy is therefore defined in
 classical thermodynamics only for states of thermal equilibrium.
+
 \(III\) Because of (II), statements of the genre $dS/dt \ge 0$ are not
 justified (i.e. not deducible from the foundations) in classical
 thermodynamics. Of course, one can generalize the notion of entropy to
@@ -110,11 +116,13 @@ different ways and there is no criterion for saying that one is
 not useful. But the onus is on the one who generalizes to demonstrate
 that useful properties actually do exist, which make a difference in
 applications.
+
 \(IV\) According to (2) the entropy is to be found from experimental
 measurements with calorimeters and thermometers, and so it is by
 construction a function $S(V,T,N)$ of the macrostate of a system. It
 makes no reference to any such notion as a microstate, much less to any
 probability.
+
 \(V\) The entropy defined by (2) is not necessarily extensive; that is,
 from (2) one cannot deduce that $S(T, 2V, 2N) = 2S(T,V,N)$. For in (2)
 we are varying T and V, while holding N constant.
@@ -235,11 +243,13 @@ system from getting to the maximum entropy state. But I choose to ignore
 that warning, go ahead with my calculation, and then ask an
 experimentalist to compare my prediction with observation. What
 conclusions will we be able to draw from his verdict?
+
 \"Suppose my prediction turns out to be right. That does not prove that
 no unknown constraints exist; but it does prove that there are none
 which prevent the system from getting to the macrostate of maximum
 entropy. So the calculation has served a useful predictive purpose, and
 its success gives us more confidence in future predictions.
+
 \"But suppose my prediction turns out to be wrong; the experiment
 repeatedly gives a different result. Then we have learned far more; we
 know that there is some new (i.e., previously unknown) constraint
@@ -275,6 +285,7 @@ nonequilibrium statistical mechanics may lead to incorrect predictions,
 which would then point the way to the next higher level of understanding
 of physical law, beyond our present quantum theory. We may be seeing the
 incipient beginnings of this in the lore of \"strange attractors\".
+
 We think that this scenario will be repeated many times in the future,
 particularly as the method moves into biology. Most maximum entropy
 inferences will be correct, serving a useful predictive purpose. But
@@ -297,21 +308,34 @@ nature and usefulness were recognized and exploited, the question:
 answer was first revealed to Ludwig Boltzmann, when he calculated the
 phase volume of an ideal gas of N atoms in volume V, for which the
 energy lies in $(E, E + dE)$:
+
+$$S_B - S_A = \int_A^B \frac{dQ}{T} \tag{12}$$
+
 $$W = \int_R d^3x_1 \dots d^3x_N d^3p_1 \dots d^3p_N = CV^N E^{3N/2-1} dE$$
+
 where the region R of integration is those points for which all
 coordinates are within a volume V, and the momenta satisfy
-$$E < \sum p_i^2/2m < E + dE.$$ The constant C is independent of V and E.
+
+$$E < \sum p_i^2/2m < E + dE.$$
+
+The constant C is independent of V and E.
 
 Now from elementary thermodynamics it was known that the entropy of any
 system which obeys the equation of state $PV = RT$ with a heat capacity
 $C_v = \text{const.}$, has the form
-$S(V,T) = C_v \log T + R \log V + \text{const.}$, where the const. is
+
+$$S(V,T) = C_v \log T + R \log V + \text{const.} \tag{15}$$
+
+where the const. is
 independent of T and V. But with the heat capacity for Boltzmann's
 monoatomic gas, $C_v = (3/2)R$ and the resulting internal energy
 function $E = (3/2)RT$, it was evident that $\log W$ has the same volume
 and energy dependence as the entropy of that gas, calculated from (12).
-That is, to within an additive constant independent of T and V, it was
-true that $$S = k \log W.$$ This is such a strikingly simple relation
+That is, to within an additive constant independent of T and V, it was true that
+
+$$S = k \log W. \tag{17}$$
+
+This is such a strikingly simple relation
 that one can hardly avoid jumping to the conclusion that it must be true
 in general; i.e., the entropy of any macroscopic thermodynamic state A
 is a measure of the phase volume $W_A$ occupied by all microstates
@@ -324,6 +348,7 @@ volume W does correspond to a number of global quantum states
 $n = W/h^{3N}$. So if we agree, as a convention, that we shall measure
 classical phase volume in units of $h^{3N}$, then this manner of
 speaking will be appropriate in either classical or quantum theory.
+
 We feel quickly that the conjectured generalization of (17) must be
 correct, because of the light that this throws on our problem. Suddenly,
 the mysteries evaporate; the meaning of Carnot's principle, the reason
@@ -342,15 +367,19 @@ Clausius statement (14), appear in the laboratory as absolutely rigid
 \"stone wall\" constraints suggesting a law of physics rather than a
 matter of probability.
 
+$$S_{\text{initial}} \le S_{\text{final}} \tag{14}$$
+
 Let us see the light that this casts on Gibbs' method, by examining a
 simple application. We have two systems of one degree of freedom (i.e.,
 their energy and temperature can vary when in contact with other
 systems). Then their entropy functions are
-$$S_1(E_1) = k \log W_1(E_1), \quad S_2(E_2) = k \log W_2(E_2),$$ The
-systems start out in thermal equilibrium with arbitrary initial energies
+
+$$S_1(E_1) = k \log W_1(E_1), \quad S_2(E_2) = k \log W_2(E_2),$$
+
+The systems start out in thermal equilibrium with arbitrary initial energies
 $E_{1i}, E_{2i}$. Then they are placed in contact so they can exchange
 energy in such a way that the total amount is conserved:
-$$E = E_1 + E_2 = \text{const.}, \quad E_1 > 0, \quad E_2 > 0.$$
+$$E = E_1 + E_2 = \text{const.}, \quad E_1 > 0, \quad E_2 > 0. \tag{19}$$
 
 Required: to predict the final energies $E_{1f}, E_{2f}$ that they will
 reach when they come into equilibrium with each other.
@@ -363,20 +392,26 @@ Gibbs' algorithm was: predict that energy distribution that maximizes
 the total entropy $S_1 + S_2$ subject to the constraint (19). At first
 this seems arbitrary; but now if (17) is correct we can see why this
 guess is \"best\". We are maximizing the product
-$$M(E_1) = W_1(E_1)W_2(E - E_1)$$ with respect to $E_1$; but that
+$$M(E_1) = W_1(E_1)W_2(E - E_1) \tag{20}$$
+
+with respect to $E_1$; but that
 product is just the multiplicity, or number of ways in which the energy
 distribution $(E_1, E_2)$ can be realized. So in the light of (17)
 Gibbs' rule now says, merely: \"Predict that energy distribution that
 can happen in the greatest number of ways, subject to the information
 you have\". An eminently sensible criterion!
+
 Experimentally, one says that equilibrium is reached when the systems
 have equal temperature. Differentiating (20), we find that the maximum
 is reached when $d \log W_1/dE_1 = d \log W_2/dE_2$. But the general
-thermodynamic relation $T^{-1} = dS/dE$ that follows from (12) becomes,
-in the light of (17) $$\frac{1}{kT} = \frac{d \log W}{dE}$$ So the
-general interpretation of entropy by (17) not only predicts equal
+thermodynamic relation $T^{-1} = dS/dE$ that follows from (12) becomes, in the light of (17)
+
+$$\frac{1}{kT} = \frac{d \log W}{dE} \tag{21}$$
+
+So the general interpretation of entropy by (17) not only predicts equal
 temperature as the condition for equilibrium; it gives a simple
 explanation of why this is true.
+
 The above explains why Gibbs' method gives, in a sense, the best guess
 one could have made in view of our great ignorance as to the microstate;
 but does not explain why it is so uniformly successful. If the
@@ -384,15 +419,21 @@ multiplicity (20) had a broad maximum, or many local maxima, one would
 not expect Gibbs' rule to be very reliable in practice. This raises the
 question: How sharp is the maximum in the multiplicity (20)? Note that
 differentiating (21) once more gives the heat capacity:
-$$\frac{d^2 \log W}{dE^2} = - \frac{1}{kT^2 C_v}$$ But, as (15) shows
+$$\frac{d^2 \log W}{dE^2} = - \frac{1}{kT^2 C_v} \tag{22}$$
+
+But, as (15) shows
 for an ideal gas and is true in general, $C_v$ may be interpreted as
 $C_v = nk/2$, where n is the effective number of degrees of freedom of
 the system (in quantum theory, the number excited at the temperature T),
 of the order of Avogadro's number for a macroscopic system. Therefore,
 expanding $\log M(E_1)$ about its peak at $E^\prime$ we have
-$$M(E_1) = M(E^\prime) \exp\left \{-\frac{(E_1 - E^\prime)^2}{2\sigma^2}\right \}$$
+$$M(E_1) = M(E^\prime) \exp\left \{-\frac{(E_1 - E^\prime)^2}{2\sigma^2}\right \} \tag{23}$$
+
 with the RMS deviation
-$$\sigma = kT \left[ \frac{n_1 n_2}{n_1 + n_2} \right]^{1/2},$$ which is
+
+$$\sigma = kT \left[ \frac{n_1 n_2}{n_1 + n_2} \right]^{1/2},$$
+
+which is
 of the order of $kT n^{1/2} = E^\prime/n^{1/2} \approx 10^{-12} E^\prime$.
 Therefore, not only is $E^\prime$ the value of $E_1$ that can happen in the
 greatest number of ways for given total energy $E$; the vast majority of
@@ -407,16 +448,20 @@ Imagine $n_2$ to become very large; then we may expand using (21):
 $$\log W_2(E-E_1) = \log W_2(E) - \frac{E_1}{kT} + \dots$$ and from (22)
 the next term is negligible. But then the fraction of the multiplicity
 (23) in the interval $(E_1, E_1+dE_1)$ becomes
-$$f(E_1) dE_1 = Z^{-1} W_1(E_1) \exp(-E_1/kT) dE_1$$ which is the
+$$f(E_1) dE_1 = Z^{-1} W_1(E_1) \exp(-E_1/kT) dE_1 \tag{26}$$
+
+which is the
 distribution of Gibbs' \"Canonical Ensemble\", the basis of his later
 work on Statistical Mechanics. The normalization constant
-$$Z(\beta) = \int W_1(E) \exp^{-\beta E_1} dE, \quad \beta=1/kT$$ is
+$$Z(\beta) = \int W_1(E) \exp^{-\beta E_1} dE, \quad \beta=1/kT$$
 
-Gibbs' partition function, and if we refine the inference procedure by
+is Gibbs' partition function, and if we refine the inference procedure by
 taking as our prediction the mean value over the distribution (26)
 instead of the peak $E^\prime$, our prediction reduces to
-$$\langle E_1 \rangle = -\frac{d \log Z}{d\beta},$$ the basic predictive
-rule of statistical mechanics.
+
+$$\langle E_1 \rangle = -\frac{d \log Z}{d\beta},$$
+
+the basic predictive rule of statistical mechanics.
 
 All these relations generalize effortlessly to systems with more
 macroscopic degrees of freedom (volume, magnetization, angular momentum,
@@ -468,6 +513,7 @@ temperature, volume, pressure, magnetization, such that the change
 $A \to B$ can be carried out, reproducibly, in the laboratory. What do
 we mean by saying that it is reversible? In the literature, we find
 these quite different meanings:
+
 \(1\) **Mechanical Reversibility.** Reversing all molecular velocities
 in B, the equations of motion carry the system back along exactly its
 previous path to A. In the end this would restore each individual
@@ -477,6 +523,7 @@ restore the original microstate).
 
 But this is manifestly not what Carnot had in mind. In his reversible
 engines he is considering instead:
+
 \(2\) **Carnot Reversibility.** The macroscopic physical process can be
 made to proceed in the opposite direction $B \to A$, restoring the
 original macrostate.
@@ -484,6 +531,7 @@ original macrostate.
 This is an enormously weaker condition than mechanical reversibility.
 But it was noted by Clausius, Gibbs, and Planck that thermodynamic
 reversibility is a still weaker condition:
+
 \(3\) **Thermodynamic Reversibility.** Even if the backward process
 $B \to A$ cannot be made to take place reversibly (for example, because
 of supercooling at a phase transition), if by any means such as
@@ -558,8 +606,9 @@ In other words, reproducibility of the process $A \to B$ requires that
 $W_B \ge W_A$, or $S_B \ge S_A$. If the inequality holds, then the
 reverse process is, as Gibbs noted, not impossible, but only improbable;
 i.e., not reproducible. The probability of success is something like
-$$p = \frac{W_A}{W_B} = \exp\left(-\frac{S_B - S_A}{k}\right)$$ If the
-entropy difference corresponds to about the smallest amount that could
+$$p = \frac{W_A}{W_B} = \exp\left(-\frac{S_B - S_A}{k}\right)$$
+
+If the entropy difference corresponds to about the smallest amount that could
 be measured in the laboratory, say one microcalorie at room temperature,
 $p < \exp(-10^{15})$. We do not see why any more than this is needed to
 understand and explain the observed phenomenological facts about

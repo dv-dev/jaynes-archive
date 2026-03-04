@@ -40,8 +40,9 @@ hopeless boundary-value problems, one is led to a somewhat different
 conception of the place of electromagnetic theory in the mine detector
 program. By means of electromagnetic theory one can learn:
 
-1\. The physical mechanism by which a detector finds mines. 2. The
-significant things that should be measured (not calculated!) when
+1\. The physical mechanism by which a detector finds mines.
+
+2\. The significant things that should be measured (not calculated!) when
 testing a system.
 
 Beyond these factors (which may be regarded as answered for most systems
@@ -121,7 +122,7 @@ h(x) &= \text{mine function} = \begin{cases} \epsilon_{\text{mine}} - \langle\ep
 \gamma(x,x') &= \text{ground covariance function} = \langle g(x) g*(x') \rangle.
 \end{aligned}$$ In terms of these functions, the ratio of
 $| \text{peak signal}|^2$ to mean square anomaly signal is
-$$\eta = \frac{\left| \int h(x) f(x) dx \right|^2}{\iint f(x) \gamma(x,x') f*(x') dx dx'}$$
+$$\eta = \frac{\left| \int h(x) f(x) dx \right|^2}{\iint f(x) \gamma(x,x') f*(x') dx dx'} \tag{2-1}$$
 and the antenna design problem is that of choosing f(x) so as to make
 this as large as possible. Writing
 $$p(x) = \int \gamma(x,x') f*(x') dx'$$
@@ -132,7 +133,7 @@ $$\le \int \frac{|h(x)|^2}{|p(x)|} dx \cdot \int |f(x)|^2 p(x) dx$$ or
 $$\eta \le \int \frac{|h(x)|^2}{|p(x)|} |f(x)| dx$$ with equality if and
 only if $h(x) = K p(x)$, where K is some constant. Thus the maximum
 possible value of $\eta$ is attained if f(x) satisfies the integral
-equation $$h*(x) = \int f(x') \gamma(x',x) dx'$$ the solution of which
+equation $$h*(x) = \int f(x') \gamma(x',x) dx' \tag{2-2}$$ the solution of which
 was called the \"unconditional optimum\" antenna function in the
 previous work.
 
@@ -144,11 +145,11 @@ f(x) &= \frac{1}{2\pi} \int F(k) e^{-ikx} dk \\
 \gamma(x,x') &= \int |G(k)|^2 e^{ik(x-x')} dk
 \end{aligned}
 \right\}$$ where $|G(k)|^2$ is the spectral density of g(x). Then
-$$\eta = \frac{\left| \int H(k) F(k) dk \right|^2}{\int |F(k)|^2 |G(k)|^2 dk}$$
+$$\eta = \frac{\left| \int H(k) F(k) dk \right|^2}{\int |F(k)|^2 |G(k)|^2 dk} \tag{2-4}$$
 and $\eta$ is maximized by the choice
 
-$$F(k) = \frac{H(k)*}{|G(k)|^2}$$ whereupon $\eta$ becomes
-$$\eta_{\text{max}} = \int \frac{|H(k)|^2}{|G(k)|^2} dk$$
+$$F(k) = \frac{H(k)*}{|G(k)|^2} \tag{2-5}$$ whereupon $\eta$ becomes
+$$\eta_{\text{max}} = \int \frac{|H(k)|^2}{|G(k)|^2} dk \tag{2-6}$$
 
 ## Practical Constraints and the Improvement Factor
 
@@ -164,7 +165,7 @@ outside a certain range (-K \< k \< K) of wave-numbers for any
 physically realizable antenna. At frequencies such that the mine is
 largely in the antenna radiation field, rather than the induction field,
 the maximum possible wave-number K is determined by the frequency:
-$$K = \frac{2\omega \sqrt{\epsilon_g}}{c} = \frac{4\pi}{\lambda_g}$$ the
+$$K = \frac{2\omega \sqrt{\epsilon_g}}{c} = \frac{4\pi}{\lambda_g} \tag{2-7}$$ the
 factor 2 arising because, in $f(x) = (E_1 \cdot E_2)$, the phase factor
 $\exp\left[ i \frac{\omega}{c} x \right]$ appears in both $E_1$ and
 $E_2$. Since $\lambda_g$ is the wavelength in the ground, we have
@@ -174,7 +175,6 @@ where $\gamma$ is the frequency in kmc.
 
 Because of these practical considerations, the limits of integration in
 (2-4) and (2-6) must be taken as ($\pm$ K) or the appropriate
-
 generalization to 2 and 3 dimensions, and (2-5) must be understood as
 holding only within this range. We can now define a figure of merit
 $[\eta / \eta_{\text{max}}]$ which tells how far a given antenna
@@ -217,14 +217,14 @@ class="math inline">1 − |<em>k</em>|<sup><em>n</em></sup></span>,
 n&gt;2, WITH CORRESPONDING IMPROVEMENT FACTORS I(n)</figcaption>
 </figure>
 
-  n          I(n)
-  ---------- ------
-  $\infty$   1.00
-  4          1.11
-  2          1.20
-  1          1.33
-  0.5        1.50
-  0.25       1.67
+| n | I(n) |
+| --- | --- |
+| $\infty$ | 1.00 |
+| 4 | 1.11 |
+| 2 | 1.20 |
+| 1 | 1.33 |
+| 0.5 | 1.50 |
+| 0.25 | 1.67 |
 
 <figure>
 
@@ -234,15 +234,15 @@ class="math inline">|<em>k</em>| &lt; 1</span>, WITH CORRESPONDING
 IMPROVEMENT FACTORS I(n)</figcaption>
 </figure>
 
-  n      I(n)
-  ------ ------
-  0      1.00
-  0.25   1.04
-  0.50   1.12
-  1.00   1.33
-  2.0    1.80
-  4.0    2.78
-  8.0    4.76
+| n | I(n) |
+| --- | --- |
+| 0 | 1.00 |
+| 0.25 | 1.04 |
+| 0.50 | 1.12 |
+| 1.00 | 1.33 |
+| 2.0 | 1.80 |
+| 4.0 | 2.78 |
+| 8.0 | 4.76 |
 
 If F(k) oscillates, very large values of $I[F(k)]$ may result, since
 oscillations reduce $\overline{F}$ much more than they do
@@ -300,11 +300,11 @@ mine is present\", \"the observed signal is S,\" etc. Then
 . etc.
 
 For our purposes, everything follows from the single fundamental rule of
-calculation, $$(AB|C) = (A|BC)(B|C) = (B|AC)(A|C)$$ If the propositions
+calculation, $$(AB|C) = (A|BC)(B|C) = (B|AC)(A|C) \tag{3-1}$$ If the propositions
 B, C are not mutually contradictory, this may be rearranged to give the
 rule of learning by experience, called Bayes' Theorem:
 
-$$(A|BC) = (A|B)\frac{(C|AB)}{(C|B)} = (A|C)\frac{(B|AC)}{(B|C)}$$ of
+$$(A|BC) = (A|B)\frac{(C|AB)}{(C|B)} = (A|C)\frac{(B|AC)}{(B|C)} \tag{3-2}$$ of
 which the last expression follows from the symmetry of (A$|$BC) in B and
 C. Equation (3-2) shows how the probability of an event changes as a
 result of acquiring new information. It forms the cornerstone of our
@@ -312,7 +312,7 @@ theory, when used to tell us the probability of the presence of a mine
 on the basis of the observed signal.
 
 Summing (3-1) over B, we obtain the chain rule
-$$(A|C) = \sum_B (A|BC)(B|C).$$
+$$(A|C) = \sum_B (A|BC)(B|C). \tag{3-3}$$
 
 Now let $$\begin{aligned}
 X &= \text{prior knowledge, of any kind} \\
@@ -336,9 +336,8 @@ impression that X is some kind of universally valid proposition about
 nature; it is simply whatever initial information we have at our
 disposal for attacking the problem. If X happens to be irrelevant to
 estimation of some quantity Y, then this attitude is unnecessary but
-harmless. Alternatively, we can equally well regard X as
-
-a set of hypotheses whose consequences we wish to investigate, so that
+harmless. Alternatively, we can equally well regard X as a set of
+hypotheses whose consequences we wish to investigate, so that
 all equations may be read, \"If X were true, then ....\". It makes no
 difference in the formal theory. We often suppress X for brevity, with
 the understanding that even when it does not appear explicitly it is
@@ -365,17 +364,17 @@ decision rule which can be built into automatic equipment is that the
 decision must be made on the basis of V alone; V is, by definition, the
 quantity which contains all the information actually used (in addition
 to the ever-present X) in arriving at the decision. Thus for all Y, we
-have $$(D|V) = (D|VY)$$
+have $$(D|V) = (D|VY) \tag{3-5}$$
 
 An equivalent statement is that D depends on any quantity Y only through
-the intermediate influence of Y on V: $$(D|Y) = \sum_V (D|V)(V|Y)$$
+the intermediate influence of Y on V: $$(D|Y) = \sum_V (D|V)(V|Y) \tag{3-6}$$
 
 ## Sufficiency and Information
 
 Equation (3-5) has interesting consequences; suppose we wish to judge
 the correctness of the proposition Y on the basis of knowledge of V and
 D. From (3-1) $$(Y|VD) = (D|VY)(Y|V)$$ and, using (3-5), this reduces to
-$$(Y|VD) = (Y|V).$$ Thus, if V is known, knowledge of D is redundant and
+$$(Y|VD) = (Y|V). \tag{3-7}$$ Thus, if V is known, knowledge of D is redundant and
 cannot help us in estimating any other quantity. The reverse is not
 true, however; we could equally well use (3-1) in another way:
 $$(Y|VD)(V|D) = (Y|D)(V|YD)$$ Combining this with (3-7), there results
@@ -383,7 +382,7 @@ the
 
 **Theorem** -- Let D be a possible decision, given V. Then
 $$(V|D) \neq 0, \text{ and}$$
-$$(Y|V) = (Y|D) \text{ if and only if } (V|D) = (V|YD).$$ In words:
+$$(Y|V) = (Y|D) \text{ if and only if } (V|D) = (V|YD). \tag{3-9}$$ In words:
 Knowledge of D is as good as knowledge of V for estimating Y if and only
 if Y is irrelevant for the estimation of V given D. Stated differently,
 in the \"environment\" produced by knowledge of D, the propositions Y
@@ -421,7 +420,7 @@ $$\begin{aligned}
 &- \sum_{VY} (V|X)(Y|V) \log(Y|V) \\
 &= \sum_{DVY} (DV|X)(Y|DV) \log \left[\frac{(Y|DV)}{(Y|V)}\right] \\
 &\ge \sum_{DVY} (DV|X) \left[(Y|DV)-(Y|V)\right] = 0
-\end{aligned}$$ Here we have used the fact that
+\end{aligned} \tag{3-13}$$ Here we have used the fact that
 $\log X \ge (1- \frac{1}{X})$, with equality if and only if X = 1. Thus,
 $\overline{H}_{DV}(Y) \le \overline{H}_V(Y)$, with equality if and only
 if equation (3-7) holds for all D,V,Y for which (DV$|$X) $\neq$ 0. Since
@@ -440,9 +439,7 @@ specific piece of information (that an event previously considered
 improbable had in fact occurred) may in some cases increase the entropy
 of Y. However, we expect this to happen only rarely, and on the average
 the entropy can only be lowered by additional information. These
-considerations show that the
-
-term \"information\" is not altogether a happy choice for entropy
+considerations show that the term \"information\" is not altogether a happy choice for entropy
 expressions; in spite of the entropy increase, the situation just
 described could hardly be called one of less information, but rather one
 of less certainty.
@@ -483,11 +480,11 @@ criterion is difficult to apply, because the function L(D,S) depends on
 the decision rule.
 
 The [conditional loss]{.underline} L(S) is the average loss incurred
-when the specific signal S is present: $$L(S) = \sum_D L(D,S) (D|S)$$
+when the specific signal S is present: $$L(S) = \sum_D L(D,S) (D|S) \tag{3-15}$$
 which may in turn be expressed in terms of the decision rule and the
 properties of the noise by using (3-6). The [average loss]{.underline}
 is the expected value of this over all possible signals:
-$$\langle L \rangle = \sum_S L(S) (S|X).$$ Two different criteria of
+$$\langle L \rangle = \sum_S L(S) (S|X). \tag{3-16}$$ Two different criteria of
 optimum performance now suggest themselves:
 
 1\. [The Minimax Criterion]{.underline}
@@ -569,7 +566,7 @@ $$\left\{
 signal are $$(S_1|X) = p, \quad (S_0|X) = q = 1-p$$ respectively, we
 have $(V|S_1 X) = (V|S_1)(S_1|X) = p(V|S_1)$, etc., and the decision
 rule becomes
-$$\text{choose } D_1 \text{ if } \quad \frac{(V|S_1)}{(V|S_0)} \gt \frac{qL_a}{pL_r}, \quad \text{etc.}$$
+$$\text{choose } D_1 \text{ if } \quad \frac{(V|S_1)}{(V|S_0)} \gt \frac{qL_a}{pL_r}, \quad \text{etc.} \tag{3-24}$$
 The left-hand side of (3-24) is called a likelihood ratio. It depends
 only on the statistical properties of the noise, and is the quantity
 which should be computed by the optimum receiver according to the Bayes
@@ -587,9 +584,8 @@ the noise.
 We now work out, for purposes of illustration, the decision rules and
 their degree of reliability, for several of the above criteria. To make
 the problem as simple as possible, imagine a linear system in which the
-voltage is observed at a single instant, and we are to decide
-
-whether a signal, which can have only amplitude $S_1$, is present in
+voltage is observed at a single instant, and we are to decide whether a
+signal, which can have only amplitude $S_1$, is present in
 noise, which is gaussian with mean square value $\langle N^2 \rangle$:
 $$W(N) = \frac{1}{\sqrt{2\pi \langle N^2 \rangle}} \exp\left[-\frac{N^2}{2\langle N^2 \rangle}\right]$$
 The likelihood ratio in (3-24) then becomes
@@ -598,22 +594,22 @@ and since this is a monotonic function of V, the decision rule can be
 written as
 $$\text{choose } \begin{cases} D_1 \\ D_0 \end{cases} \text{ when } V \begin{cases} \gt \\ \lt \end{cases} V_b$$
 with
-$$v_b = \frac{V_b}{\sqrt{2\langle N^2 \rangle}} = \frac{1}{2s} \log\left(\frac{qL_a}{pL_r}\right) + s^2 = v_b$$
+$$v_b = \frac{V_b}{\sqrt{2\langle N^2 \rangle}} = \frac{1}{2s} \log\left(\frac{qL_a}{pL_r}\right) + s^2 = v_b \tag{3-28}$$
 in which
-$$s = \frac{S_1}{\sqrt{2\langle N^2 \rangle}} \quad \text{is the signal-to-noise ratio,}^{*} \text{ and}$$
+$$s = \frac{S_1}{\sqrt{2\langle N^2 \rangle}} \quad \text{is the signal-to-noise ratio, and}$$
 $$v = \frac{V}{\sqrt{2\langle N^2 \rangle}} \quad \text{is the normalized voltage.}$$
 Now we find for the probability of a false rest: $$\begin{aligned}
 (R|X) = (D_0 S_1 | X) &= p \sum_V (D_0|V)(V|S_1) = p \int_{-\infty}^{V_b} dV W(V-S_1) \\
 &= \frac{1}{2}p [1+\text{erf}(v_b-s)]
-\end{aligned}$$ ^\*^ The factor $\sqrt{2}$ in this definition is perhaps
+\end{aligned} \tag{3-30}$$ The factor $\sqrt{2}$ in this definition is perhaps
 unusual, but it makes the following equations especially simple.
 
 and for a false alarm, $$\begin{aligned}
 (A|X) = (D_1 S_0 | X) &= q \sum_V (D_1|V)(V|S_0) = q \int_{V_b}^{\infty} dV W(V) \\
 &= \frac{1}{2}q [1-\text{erf }v_b].
-\end{aligned}$$ Here erf(X) is the error function
+\end{aligned} \tag{3-31}$$ Here erf(X) is the error function
 $$\text{erf}(X) = \frac{2}{\sqrt{\pi}} \int_0^X e^{-y^2} dy$$ tabulated
-in Pierce.^\*\*^ For X > 2, a good approximation is
+in Pierce.[^6] For X > 2, a good approximation is
 $$1-\text{erf}(X) \approx \frac{e^{-X^2}}{X\sqrt{\pi}}$$ As a numerical
 example, if $L_r = 10 L_a$, $q=10p$, these expressions reduce to
 $$(A|X) = 10(R|X) = \frac{5}{11} \left[1-\text{erf}\left(\frac{1}{2}s\right)\right]$$
@@ -624,10 +620,9 @@ Let us see what the minimax criterion would give in this problem. The
 conditional losses are $$\begin{aligned}
 L(S_0) &= L_a \sum_V (D_1|V)(V|S_0) = L_a \int (D_1|V) W(V) dV \\
 L(S_1) &= L_r \sum_V (D_0|V)(V|S_1) = L_r \int (D_0|V) W(V-S_1) dV
-\end{aligned}$$ Writing $f(V) = (D_1|V) = 1 - (D_0|V)$, the only
+\end{aligned} \tag{3-34}$$ Writing $f(V) = (D_1|V) = 1 - (D_0|V)$, the only
 restriction on $f(V)$ is $0 \le f(V) \le 1$. Since $L_a, L_r$, and
-$W(V)$ are all positive, a change ^\*\*^ Pierce, B.O., *A Short Table of
-Integrals*, Ginn and Co. (1929)
+$W(V)$ are all positive, a change
 
 $\delta f(V)$ in the neighborhood of any given point V will always
 increase one of the quantities (3-34) and decrease the other. Thus when
@@ -643,13 +638,12 @@ it with respect to the smaller class of variations which keep
 $L(S_0)=L(S_1)$. Therefore our optimum decision rule will have the same
 form as before: There is some threshold $V_m$ such that
 $$
-f(V) = \begin{cases} 0, & V \lt V_m \\ 1, & V \gt V_m \end{cases}
+f(V) = \begin{cases} 0, & V \lt V_m \\ 1, & V \gt V_m \end{cases} \tag{3-36}
 $$
-Any change
-in $V_m$ from the value which makes $L(S_0) = L(S_1)$ necessarily
+Any change in $V_m$ from the value which makes $L(S_0) = L(S_1)$ necessarily
 increases one or the other of these quantities. The equation determining
 $V_m$ is therefore
-$$L_a \int_{V_m}^{\infty} W(V) dV = L_r \int_{-\infty}^{V_m} W(V-S_1) dV$$
+$$L_a \int_{V_m}^{\infty} W(V) dV = L_r \int_{-\infty}^{V_m} W(V-S_1) dV \tag{3-38}$$
 or, in terms of normalized quantities,
 $$L_a [1 - \text{erf } v_m] = L_r [1 + \text{erf }(v_m - s)]$$
 Note that
@@ -781,7 +775,7 @@ considered solved by the application of Bayes' Theorem [equation
 a certain a-priori probability (A$|$X) representing our judgment as to
 the truth of proposition A, and this judgment is altered by acquisition
 of new information B, according to the equation
-$$(A|BX) = (A|X) \frac{(B|AX)}{(B|X)}.$$ In recent years, the situation
+$$(A|BX) = (A|X) \frac{(B|AX)}{(B|X)}. \tag{6-1}$$ In recent years, the situation
 has become obscured by rise of the positivist philosophy, according to
 which any probability is considered meaningless unless it can be
 measured numerically by observation of frequency ratios in a random
@@ -826,9 +820,7 @@ In applying our theory, one of the first problems that confronts us is
 that of translating the initial information, which may be of very
 diverse nature, into an assignment of a-priori probabilities. This is
 the problem of \"inventing thermometers\" discussed in Chapter 4. As
-already noted, it is
-
-not an easy problem, and from a psychological point of view it is
+already noted, it is not an easy problem, and from a psychological point of view it is
 probably safe to conclude that the difficulty of finding any unique
 assignments in cases where very little information is available is the
 real reason why the principle of inverse probability has fallen into
@@ -847,11 +839,11 @@ inference in this special case.
 The quantity x is capable of taking on the discrete values $x_i$, (i =
 1,2,\...,n). We are not given the corresponding probabilities $p_i$; all
 we know is the expectation value of the function f(x):
-$$\langle f(x) \rangle = \sum_i p_i f(x_i)$$ On the basis of this
+$$\langle f(x) \rangle = \sum_i p_i f(x_i) \tag{6-2}$$ On the basis of this
 information, what can be said about the expected value of the function
 g(x)? At first glance, the problem seems insoluble because the given
 information is insufficient to determine the probabilities $p_i$.
-Equation (6-2) and the normalization condition $$\sum_i p_i = 1$$ give
+Equation (6-2) and the normalization condition $$\sum_i p_i = 1 \tag{6-3}$$ give
 only two relations; it would require specification of (n-2) more
 conditions before the quantities necessary for calculation of
 $\langle g(x) \rangle$ could be found.
@@ -869,7 +861,7 @@ natural mathematically to consider uncertainty, or lack of information.
 At the end of this section we sketch Shannon's proof that the quantity
 which increases with increasing uncertainty and is additive for
 independent sources of uncertainty is
-$$H(p_1...p_n) = -K \sum_i p_i \log p_i$$ where K is a positive
+$$H(p_1...p_n) = -K \sum_i p_i \log p_i \tag{6-4}$$ where K is a positive
 constant. Since this is just the expression found for entropy in
 statistical mechanics, it will be called the entropy of the probability
 distribution $p_i$; henceforth we shall consider the terms \"entropy\"
@@ -878,7 +870,6 @@ and \"uncertainty\" as synonymous.
 It is now evident how to solve our problem; in making estimates we must
 use that probability distribution which has maximum entropy subject to
 the given information. This is the only unbiased assignment we can make;
-
 to use any other would amount to arbitrary assumption of information
 which by hypothesis we do not have. From this point on, the problem is
 elementary; we have to maximize (6-4) subject to the constraints of
@@ -902,7 +893,7 @@ form the partition function
 $$Z(\lambda_1,...,\lambda_m) = \sum_i \exp \left[-\lambda_1 f_1(x_i) + ... + \lambda_m f_m(x_i)\right]$$
 Then the maximum-entropy probability distribution is given by
 
-$$p_i = \exp \left[-\lambda_0 + \lambda_1 f_1(x_i) + ... + \lambda_m f_m(x_i)\right]$$
+$$p_i = \exp \left[-\lambda_0 + \lambda_1 f_1(x_i) + ... + \lambda_m f_m(x_i)\right] \tag{6-10}$$
 in which the constants are determined from $$\begin{gathered}
 \langle f_r(x) \rangle = - \frac{\partial}{\partial \lambda_r} \log Z \\
 \lambda_0 = \log Z
@@ -917,12 +908,11 @@ $$\left\langle (f_k - \langle f_k \rangle)^m (f_r - \langle f_r \rangle)^n \righ
 In addition to its dependence on x, the function $f_k$ may contain other
 parameters $\alpha_i$, and it is easily verified that the
 maximum-entropy estimates of the derivatives are given by
-$$\left\langle \frac{\partial f_k}{\partial \alpha_i} \right\rangle = \frac{1}{\lambda_k} \frac{\partial}{\partial \alpha_i} (\log Z),$$
+$$\left\langle \frac{\partial f_k}{\partial \alpha_i} \right\rangle = \frac{1}{\lambda_k} \frac{\partial}{\partial \alpha_i} (\log Z), \tag{6-16}$$
 etc.
 
 The principle of maximum entropy may be regarded as an extension of the
 principle of insufficient reason (to which it reduces in case no
-
 information is given except enumeration of the possibilities $x_i$),
 with the following essential difference. The maximum-entropy
 distribution may be asserted for the positive reason that it is uniquely
@@ -1006,17 +996,17 @@ example, with n = 3, we might choose ($n_1, n_2, n_3$) = (3, 4, 2). For
 this case the composition law becomes
 $$H\left(\frac{3}{9}, \frac{4}{9}, \frac{2}{9}\right) + \frac{3}{9} A(3) + \frac{4}{9} A(4) + \frac{2}{9} A(2) = A(9)$$
 In general, it could be written
-$$H(p_1...p_n) + \sum_i p_i A(n_i) = A(\sum_i n_i).$$ Particularly, we
+$$H(p_1...p_n) + \sum_i p_i A(n_i) = A(\sum_i n_i). \tag{6-18}$$ Particularly, we
 could choose all values of $n_i$ equal to m, whereupon (6-18) reduces to
-$$A(m) + A(n) = A(mn)$$ Evidently this is solved by setting
-$$A(n) = K \log n$$
+$$A(m) + A(n) = A(mn) \tag{6-19}$$ Evidently this is solved by setting
+$$A(n) = K \log n \tag{6-20}$$
 
 (Shannon has shown that (6-20) is in fact the only solution of (6-19)).
 where, by condition (2), K > 0. Substituting (6-20) into (6-18), we
 have the desired result, $$\begin{aligned}
 H(p_1...p_n) &= K \log(\sum n_i) - K \sum p_i \log n_i \\
 &= -K \sum p_i \log p_i.
-\end{aligned}$$ In quantum statistical mechanics, this same expression
+\end{aligned} \tag{6-21}$$ In quantum statistical mechanics, this same expression
 is obtained for entropy by certain combinatorial arguments associated
 with an ensemble of N systems, the essential mathematical fact being the
 identity
@@ -1070,7 +1060,7 @@ single function g(x). The use of an ensemble is a great convenience
 mathematically, since the average of some functional $F[g(x)]$ can then
 be written in a way that appears to avoid difficult mathematical
 questions in the limiting process
-$$\langle F \rangle = \lim_{X\to\infty} \frac{1}{2X} \int_{-X}^{X} F[g(x)]dx$$
+$$\langle F \rangle = \lim_{X\to\infty} \frac{1}{2X} \int_{-X}^{X} F[g(x)]dx \tag{8-3}$$
 of the direct calculation. However, the important point we wish to make
 here is that the difficulty is in no sense avoided by using the
 ensemble; it is merely pushed back into the problem of determining the
@@ -1090,7 +1080,6 @@ but merely hidden from view by a trick of notation. In practice no such
 difficulties can exist, because we have only a finite sample of the
 function g(x) to operate with; thus (8-3) does not correctly describe
 the process actually used to find averages. The quantity X does not tend
-
 to infinity, but represents the size of some finite interval over which
 we have measured g(x). This is, furthermore, never as large as the
 entire domain of existence of g(x), otherwise we would have no need of
@@ -1133,7 +1122,7 @@ covariance function then becomes $$\begin{aligned}
 \end{aligned}$$ which we recognize as the bilinear form of a Green's
 function, so that $\phi_n$ and $\lambda_n$ are the eigenfunctions and
 eigenvalues of the integral equation
-$$\phi(x) = \lambda \int_R \gamma(x,x') \phi(x') dx'$$ This equation
+$$\phi(x) = \lambda \int_R \gamma(x,x') \phi(x') dx' \tag{8-6}$$ This equation
 leaves an arbitrary constant (that is, independent of x) phase factor
 $e^{i\theta_n}$ in each $\phi_n$. Since the $g_n$ are complex we write
 $$g_n = a_n + i b_n$$
@@ -1159,7 +1148,7 @@ different types of filters than those found here would give greater
 reliability of detection than we will obtain. The new filters would,
 however, be non-linear and undoubtedly more difficult to realize. We
 write the noise function as
-$$g(x) = \sum_n (A_n u_n + iB_n v_n) \phi_n(x)$$
+$$g(x) = \sum_n (A_n u_n + iB_n v_n) \phi_n(x) \tag{8-11}$$
 
 with probability distribution P[g(x)] which is a symbolic shorthand
 expression for (8-11). Also there may or may not be a signal centered at
@@ -1181,7 +1170,7 @@ $$L(M, x_0) = \frac{P[q_n - h_n(M,x_0)]}{P[q_n]}$$
 
 $$= \frac{\text{Probability that } q_n(x) \text{ would be observed if a signal of amplitude M were present at position } x_0}{\text{Probability that } q_n(x) \text{ would be observed if no signal were present}}$$
 From (8-11), we obtain
-$$\log L(M,x_0) = \frac{1}{2} \sum_n \left\{ q_n'^2 + q_n''^2 - [q_n' - MS_n'(x_0)]^2 - [q_n'' - MS_n''(x_0)]^2 \right\}$$
+$$\log L(M,x_0) = \frac{1}{2} \sum_n \left\{ q_n'^2 + q_n''^2 - [q_n' - MS_n'(x_0)]^2 - [q_n'' - MS_n''(x_0)]^2 \right\} \tag{8-19}$$
 $$= M \alpha(x_0) - \frac{M^2}{2} \beta(x_0)$$ where
 $$\alpha(x_0) = \sum_n [q_n' S_n'(x_0) + q_n'' S_n''(x_0)]$$
 $$\beta(x_0) = \sum_n \left\{ [S_n'(x_0)]^2 + [S_n''(x_0)]^2 \right\}$$
@@ -1189,7 +1178,7 @@ As a function of M, $L(M,x_0)$ reaches a maximum given by
 $$\log L_{\text{max}}(x_0) = \frac{\alpha^2}{2\beta}$$ when
 $$\alpha - M\beta = 0$$ We define the total likelihood that a signal is
 at $x_0$, regardless of M, by
-$$L(x_0) = \int L(M,x_0) dM = \sqrt{\frac{2\pi}{\beta(x_0)}} L_{\text{max}}(x_0).$$
+$$L(x_0) = \int L(M,x_0) dM = \sqrt{\frac{2\pi}{\beta(x_0)}} L_{\text{max}}(x_0). \tag{8-20}$$
 Equations (8-19) and (8-20) are cast into a more unified form if we
 define a function
 $$\tilde{\Phi}(x_0, x) = \sum_n \left[\frac{S_n'(x_0)}{A_n} + i \frac{S_n''(x_0)}{B_n}\right] \phi_n(x)$$
@@ -1229,7 +1218,7 @@ $\phi_n(x) \to \phi_n(x+x'')$ merely shifts the phase of $\phi_n$,
 therefore of $g_n$. Thus the random variable ($g_n e^{i\theta_n}$),
 $\theta_n = (k_n \cdot x'')$, must have exactly the same probability
 distribution as does $g_n$, and so we must have
-$$A_n = B_n = \frac{1}{\sqrt{2\lambda_n}}$$ The reconstituted signal is
+$$A_n = B_n = \frac{1}{\sqrt{2\lambda_n}} \tag{8-28}$$ The reconstituted signal is
 now
 $$\tilde{\Phi}(x_0, x) = \tilde{\Phi}(x_0-x) = \sum_n \frac{S_n}{A_n} \phi_n(x-x_0)$$
 where $$S_n = S_n'(0) + iS_n''(0)$$ so that $\beta(x_0)$ no longer
@@ -1239,7 +1228,7 @@ The most important fact for intuitive understanding of this theory, is
 the observation that in consequence of the simplification (8-28), the
 \"reconstituted signal\" (which is the weighting function for the linear
 filter whose output is $\alpha(x_0)$) itself satisfies an integral
-equation: $$2S^*(x) = \int_R \tilde{\Phi}^*(x') \gamma(x',x) dx'$$ This
+equation: $$2S^*(x) = \int_R \tilde{\Phi}^*(x') \gamma(x',x) dx' \tag{8-30}$$ This
 is readily verified by substituting (8-6) and (8-28) into (8-30). Define
 a function $$f_a(x) = \frac{M}{2} \tilde{\Phi}^*(x)$$
 
@@ -1294,14 +1283,14 @@ identical. The meaning of this is seen most clearly in terms of the
 fourier transforms of the various functions. For convenience, we list
 here the needed functions and their fourier transforms:
 
-                                                                  **function**                         **fourier transform**
-  --------------------------------------------------------------- ------------------------------------ ----------------------------------
-  Mine function                                                   h(x)                                 H(k)
-  Ground autocorrelation function                                 $\gamma(x)$                          $|G(k)|^2$
-  Antenna function                                                f(x)                                 F(k)
-  Mine function as seen at antenna terminals                      $h_a(x)$                             $H_a(k) = H(k) F(k)$
-  Anomaly autocorrelation function as seen at antenna terminals   $\gamma_a(x)$                        $|G_a(k)|^2 = |G(k)|^2 |F(k)|^2$
-  Weight function of filter in computer                           $f_a(x) = 1/2 M \tilde{\Phi}^*(x)$   $F_a(k)$
+| **quantity** | **function** | **fourier transform** |
+| --- | --- | --- |
+| Mine function | h(x) | H(k) |
+| Ground autocorrelation function | $\gamma(x)$ | $|G(k)|^2$ |
+| Antenna function | f(x) | F(k) |
+| Mine function as seen at antenna terminals | $h_a(x)$ | $H_a(k) = H(k) F(k)$ |
+| Anomaly autocorrelation function as seen at antenna terminals | $\gamma_a(x)$ | $|G_a(k)|^2 = |G(k)|^2 |F(k)|^2$ |
+| Weight function of filter in computer | $f_a(x) = 1/2 M \tilde{\Phi}^*(x)$ | $F_a(k)$ |
 
 
 Now, just as the solution of the integral equation (2-2) for the optimum
@@ -1310,8 +1299,8 @@ antenna function assumes the form (2-5),
 $$F(k)_{\text{opt}} = \frac{H^*(k)}{|G(k)|^2}$$ the solution of the
 integral equation (5-3) for the optimum weight function of the
 data-processing computer is
-$$F_a(k) = \frac{H_a^*(k)}{|G_a(k)|^2} = \frac{H^*(k) F^*(k)}{|G(k)|^2 |F(k)|^2}$$
-But this reduces to $$F_a(k) F(k) = \frac{H^*(k)}{|G(k)|^2}.$$ Thus if
+$$F_a(k) = \frac{H_a^*(k)}{|G_a(k)|^2} = \frac{H^*(k) F^*(k)}{|G(k)|^2 |F(k)|^2} \tag{5-3}$$
+But this reduces to $$F_a(k) F(k) = \frac{H^*(k)}{|G(k)|^2}. \tag{6-4}$$ Thus if
 F(k) were actually equal to the \"unconditional optimum\" (6-2), the
 solution of the computer problem would reduce to $F_a(k)=1$, or
 $f_a(x)=\delta(x)$; that is, no computer is needed. If the antenna
@@ -1333,9 +1322,8 @@ physical realizability since the independent variable is position rather
 than time. Both the antenna and the computer can \"see\" forward as well
 as backward. This greatly simplifies the theory, for it means that,
 whatever finite amplitude and phase may be specified for $F_a(k)$ by
-(6-4), it is always possible in principle to construct a
-
-computer which will accomplish this. However, in regions where F(k) = 0,
+(6-4), it is always possible in principle to construct a computer which
+will accomplish this. However, in regions where F(k) = 0,
 the filter receives no input to work with, and the value of $F_a(k)$ is
 irrelevant, so long as its magnitude is not great enough to introduce
 noise (true thermal or shot noise, as distinguished from anomalies) in
@@ -1499,7 +1487,6 @@ There is one direction, however, in which further theoretical work
 involving only electromagnetic theory, instead of statistics, could help
 to advance the mine-detection art even without new experiments. This
 concerns the new antenna design requirements found for an antenna which
-
 is to be followed by a computer. The problem might be stated in the form
 of two more questions:
 
@@ -1525,3 +1512,5 @@ answer to question (c) is that the maximum R is a circle of radius K =
 
 [^4]: Blackwell, D., and Girschick, M.A., *Theory of Games and
     Statistical Decisions*, Wiley and Sons, Inc., New York (1954)
+
+[^6]: Pierce, B.O., *A Short Table of Integrals*, Ginn and Co. (1929)

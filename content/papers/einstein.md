@@ -32,9 +32,9 @@ usual "integral approximation" and its modification is revealed.
 The fundamental expressions in the Bose-Einstein statistics for N, p and
 E, denoting respectively the total number of bosons, the pressure and
 the total energy of the system, are:
-$$N = \sum_i \frac{g_i}{z^{-1}e^{\beta E_i} - 1}$$
-$$p = \sum_i \frac{g_i}{z^{-1}e^{\beta E_i} - 1} \left(-\frac{\partial E_i}{\partial V}\right)$$
-$$E = \sum_i \frac{E_i g_i}{z^{-1}e^{\beta E_i} - 1}$$
+$$N = \sum_i \frac{g_i}{z^{-1}e^{\beta E_i} - 1} \tag{1}$$
+$$p = \sum_i \frac{g_i}{z^{-1}e^{\beta E_i} - 1} \left(-\frac{\partial E_i}{\partial V}\right) \tag{2}$$
+$$E = \sum_i \frac{E_i g_i}{z^{-1}e^{\beta E_i} - 1} \tag{3}$$
 where
 - $\beta = 1/kT$
 - $k$ = Boltzmann constant
@@ -53,11 +53,12 @@ grand canonical ensemble the independent variables are V, $\beta$ and z,
 but in the canonical ensemble the independent variables are V, $\beta$
 and N, therefore z changes with V. This familiar fact is important in
 the later discussion of the limiting process $V \rightarrow \infty$.
+
 Let us now choose the volume of the system to be a cubic box with side
 length $L = V^{1/3}$, and impose periodic boundary conditions upon the
 wave functions of the individual boson. The energy $E_i$ then takes the
-following form: $$E_i = E_0 (n_x^2 + n_y^2 + n_z^2),$$ where
-$$E_0 = h^2 / (2mV^{2/3}),$$ (m = mass of each boson, h = Planck's
+following form: $$E_i = E_0 (n_x^2 + n_y^2 + n_z^2), \tag{4}$$ where
+$$E_0 = h^2 / (2mV^{2/3}), \tag{5}$$ (m = mass of each boson, h = Planck's
 constant), and $n_x$, $n_y$ and $n_z$ are
 integers, including zero. To each $E_i$ there is generally more than one
 set of integers, ($n_x$, $n_y$, $n_z$), satisfying (4), the number of
@@ -67,7 +68,7 @@ be 2S + 1 times more).
 
 From (4) and (5) we get immediately
 $$-\frac{\partial E_i}{\partial V} = \frac{2}{3} E_i V^{-1}.$$ Hence (2)
-and (3) have the following relation $$E = \frac{3}{2} pV,$$ which holds
+and (3) have the following relation $$E = \frac{3}{2} pV, \tag{6}$$ which holds
 also for the ideal Boltzmann or Fermi gas.
 
 Since the lowest energy, $E_i$, in (4) is zero, an inspection of (1),
@@ -76,12 +77,12 @@ range of z is $0 < z < 1$. Hence we can expand each term of the series
 in (1) and (2) (consequently (3) by (6)) in power series in z and
 interchange the order of the summation in the resulted repeated series,
 which can be shown to be allowable.[^ref2] Thus we have
-$$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
-$$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+$$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right) \tag{7}$$
+$$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right) \tag{8}$$
 
 In the "integral approximation" the two series in the parentheses of
 (7) and (8) are approximated by the following replacement:
-$$\sum_i g_i (\dots) \rightarrow \int_0^\infty g(E)dE (\dots),$$ where
+$$\sum_i g_i (\dots) \rightarrow \int_0^\infty g(E)dE (\dots), \tag{9}$$ where
 $$g(E) = 2\pi V \left(\frac{2m}{h^2}\right)^{3/2} E^{1/2}$$
 
 This approximation, in a crude sense, amounts to taking the limit of infinite
@@ -93,32 +94,32 @@ about the correct volume dependence of thermodynamic properties of the
 ideal boson system.
 
 We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
-$$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i},$$ 
+$$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i}, \tag{10}$$ 
 can be exactly expressed in terms of the theta function, $\theta(x)$,
 which is defined by
-$$\theta(x) = \sum_{n=-\infty}^{\infty} e^{-\pi n^2 x},$$ and its
+$$\theta(x) = \sum_{n=-\infty}^{\infty} e^{-\pi n^2 x}, \tag{11}$$ and its
 derivative. In fact, by (4) and (5), we have
-$$I = \sum_{n_x=-\infty}^{\infty} \sum_{n_y=-\infty}^{\infty} \sum_{n_z=-\infty}^{\infty} e^{-l\beta E_0 (n_x^2 + n_y^2 + n_z^2)} = \left(\sum_{n=-\infty}^{\infty} e^{-l\beta E_0 n^2}\right)^3 = \theta^3\left(\frac{l\beta E_0}{\pi}\right) = \theta^3\left(\frac{l\lambda^2}{V^{2/3}}\right),$$ 
-where $$\lambda = h\sqrt{\beta/2\pi m}.$$ The theta function has the
+$$I = \sum_{n_x=-\infty}^{\infty} \sum_{n_y=-\infty}^{\infty} \sum_{n_z=-\infty}^{\infty} e^{-l\beta E_0 (n_x^2 + n_y^2 + n_z^2)} = \left(\sum_{n=-\infty}^{\infty} e^{-l\beta E_0 n^2}\right)^3 = \theta^3\left(\frac{l\beta E_0}{\pi}\right) = \theta^3\left(\frac{l\lambda^2}{V^{2/3}}\right), \tag{12}$$ 
+where $$\lambda = h\sqrt{\beta/2\pi m}. \tag{13}$$ The theta function has the
 following properties: $\theta(x)$ is a monotonically decreasing function
 in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
 $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
 Besides it satisfies the following important functional relation:[^ref3]
-$$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+$$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right). \tag{14}$$ Hence
 (12) becomes
-$$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+$$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right). \tag{15}$$ 
 
 By (15), (10) then becomes
-$$J = \frac{3}{2}V\lambda^{-3}\beta^{-1}l^{-5/2}\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right),$$ 
-where $$\Psi(x) \equiv \theta^3(x) + 2x\theta^\prime(x)\theta^2(x).$$ 
+$$J = \frac{3}{2}V\lambda^{-3}\beta^{-1}l^{-5/2}\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right), \tag{16}$$ 
+where $$\Psi(x) \equiv \theta^3(x) + 2x\theta^\prime(x)\theta^2(x). \tag{17}$$ 
 The function $\Psi(x)$ has the following properties: $0 < \Psi(x) < 1$
 for $0 < x < 1$; $\Psi(x) \rightarrow 1$, as $x \rightarrow \infty$;
 $\Psi(x) \approx kx^{-5/2}e^{-\pi/x} \rightarrow 0$, as
 $x \rightarrow 0$. See Fig. 1.
 Substituting (15) and (16) into (7) and (8) respectively, we obtain the
 exact expressions for N and p for any finite V:
-$$\frac{N}{V} = \frac{1}{v} = \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} \theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l,$$ 
-$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l,$$ 
+$$\frac{N}{V} = \frac{1}{v} = \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} \theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l, \tag{18}$$ 
+$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l, \tag{19}$$ 
 where v is the specific volume (number of particles per unit
 volume)$^{-1}$.
 The series (18) and (19) are convergent for $z < 1$ for any finite V,
@@ -153,8 +154,8 @@ To show the condensation phenomenon of the ideal boson system, we have
 to consider the properties of the system in the limit
 $V \rightarrow \infty$. The expressions for $1/v$ and p to be
 investigated, from (18) and (19), now are:
-$$\frac{1}{v} = \lambda^{-3} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-3/2} \theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l,$$ 
-$$p = \lambda^{-3}\beta^{-1} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-5/2} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l.$$ 
+$$\frac{1}{v} = \lambda^{-3} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-3/2} \theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l, \tag{20}$$ 
+$$p = \lambda^{-3}\beta^{-1} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-5/2} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l. \tag{21}$$ 
 
 A sufficient condition that the "lim" in (20) and (21) can be placed
 inside the summation sign is that the series in (20) and (21) be
@@ -175,8 +176,8 @@ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
 $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
 we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
 p:
-$$\frac{1}{v} = \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} z^l,$$ 
-$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} z^l.$$ 
+$$\frac{1}{v} = \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} z^l, \tag{22}$$ 
+$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} z^l. \tag{23}$$ 
 
 These
 expressions are exactly the same as those obtained by "integral
@@ -204,7 +205,7 @@ Next we consider z as depending on V besides v and $\beta$. We then
 regard (20) and (21) as being derived from the canonical ensemble
 method. To emphasize this we write z as z(V). Because of its absolute
 convergence, we can rewrite the series in (20) in the following form:
-$$\frac{\lambda^3}{V} \frac{z(V)}{1-z(V)} + \sum_{l=1}^{\infty} l^{-3/2} \phi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l,$$ 
+$$\frac{\lambda^3}{V} \frac{z(V)}{1-z(V)} + \sum_{l=1}^{\infty} l^{-3/2} \phi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l, \tag{24}$$ 
 where $$\phi(x) \equiv \theta^3(x) - x^{-3/2}$$
 The function $\phi(x)$ has similar properties to $\Psi(x)$; i.e. $0 < \phi(x) < 1$
 for $0 < x < 1$; $\phi(x) \rightarrow 1$, as $x \rightarrow \infty$;
@@ -214,10 +215,11 @@ By these properties of $\phi(x)$ and those of $\Psi(x)$, it is easy to
 show, again by the Weierstrass M-test, that the series in (24) and (21)
 are
 uniformly convergent with respect to V near $V=\infty$. Thus we have
-$$\frac{1}{v} = \lim_{V\rightarrow\infty} \frac{1}{V}\frac{z(V)}{1-z(V)} + \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} \lim_{V\rightarrow\infty} \phi\left(\frac{V^{2/3}}{l\lambda^2}\right)z^l(V),$$ 
-$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} \lim_{V\rightarrow\infty} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l(V).$$ 
+$$\frac{1}{v} = \lim_{V\rightarrow\infty} \frac{1}{V}\frac{z(V)}{1-z(V)} + \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} \lim_{V\rightarrow\infty} \phi\left(\frac{V^{2/3}}{l\lambda^2}\right)z^l(V), \tag{25}$$ 
+$$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} \lim_{V\rightarrow\infty} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l(V). \tag{26}$$ 
 
 Two regions of v have to be considered separately:
+
 a) For $v > v_c$. In this case we must have
 $$z_{00} = \lim_{V\rightarrow\infty} z(V) < 1.$$ 
 
@@ -230,6 +232,7 @@ $$\frac{1}{v} = \lambda^{-3} \sum_{l=1}^{\infty} l^{-3/2} z_{00}^l,$$
 $$p = \lambda^{-3}\beta^{-1} \sum_{l=1}^{\infty} l^{-5/2} z_{00}^l,$$ 
 which are identical to (22) and (23). Thus we have reproduced the p-v
 curve shown in Fig. 2, curve (b).
+
 b) For $v < v_c$. z(V) then must tend to 1 as $V \rightarrow \infty$ in
 such a way, from (25), that
 $$\lim_{V\rightarrow\infty} \frac{1}{V} \frac{z(V)}{1-z(V)} = \frac{1}{v} - \frac{1}{v_c}.$$ 
@@ -256,13 +259,16 @@ may, according to our above discussions, be regarded not as a
 modification to the "integral approximation", but as an entirely
 different approach to the problem by using a different (i.e. canonical)
 ensemble method.
+
 # FIGURE CAPTIONS {#figure-captions .unnumbered}
 **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
 $\phi(x)$.
+
 **Fig. 2:** Curve (a) is the isotherm at finite volume. Curve (b) is the
 isotherm at infinite volume obtained from the grand canonical ensemble
 method. The dotted line is missing in the process
 $V \rightarrow \infty$.
+
 **Fig. 3:** The isotherm at infinite volume obtained from the canonical
 ensemble method. The horizontal line shows the region of condensation.
 <figure>

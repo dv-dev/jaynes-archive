@@ -1,13 +1,23 @@
 === STDOUT ===
-Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only:
+Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only.
 
-- Added proper footnote citations for source mentions:
-  - `Gardner and Barnes` (used in both the textbook line and later table lookup reference).
-  - `Campbell & Foster` (for pair 863.1).
-- Removed inline parenthetical citation style `(Gardner & Barnes)` where replaced by footnote formatting.
-- Split one dense paragraph in the first lecture into smaller paragraphs for readability.
-- Left all math/LaTeX content unchanged.
-- Confirmed abstract text is only in front matter (no duplicate abstract in body).
+**What changed**
+- Added missing blank-line paragraph breaks where prose was visually joined by single newlines:
+  - between `**Textbook:** ...` and `**Other books** ...`
+  - around the LRC-mode/diagram block in Lecture 1
+  - between the Fourier-series frequency line and the next sentence in Lecture 5
+  - between “The impressed force is represented ...” and “The transform of the bracket is:” in Lecture 6
+- Normalized footnote citation spacing:
+  - `..., 1942.[^...]` → `..., 1942. [^...]`
+  - `tables,[^...]` → `tables, [^...]`
+  - `is:[^...]` → `is: [^...]`
+- Cleaned table separator rows for markdown consistency:
+  - `| :--- | :--- |` → `| --- | --- |` (both tables)
+
+**Self-check**
+- Paragraph boundaries intended as paragraph breaks are now blank-line separated.
+- No in-text equation references were left unresolved; no equation expressions/symbols were changed.
+- No abstract duplication/body abstract removal was needed.
 
 
 === STDERR ===
@@ -20,21 +30,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb98c-ccd6-77c0-b450-8f4a4b800a46
+session id: 019cb9d4-f440-7f70-8ab4-398eb5643918
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/circuit.analysis.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -46,37 +68,44 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’ll inspect `content/papers/circuit.analysis.md` for structural QA issues (paragraph breaks, table formatting, duplicate abstract in body, citation style, and extraneous metadata), then apply minimal edits directly to that file only.
+I’ll inspect `content/papers/circuit.analysis.md` for paragraph structure, equation-reference numbering markup, duplicate abstract/body metadata, and citation formatting, then apply minimal structural edits only in that file.
 exec
-/bin/bash -lc "sed -n '1,260p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
----
-title: "Circuit Analysis by Laplace and Fourier Transforms"
-year: 1945
-abstract: >
-  A series of nine lectures given at the Combined Research Group,
-  Naval Research Laboratory, Washington, D. C. in August 1945.
-  The course provides a technique for solving practical transient problems
-  using classical, Heaviside, and Laplace transform methods.
-author: ["E.T. Jaynes"]
----
-
-## FIRST LECTURE: Classical and Heaviside Methods
-
-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
-
-**Aim of course:** to provide a technique for solving practical transient problems.
-
-The classical method will be studied first, using as an example a series-peaked video amplifier stage. This problem will later be solved operationally. We assume a "unit step" current applied to the interstage coupling circuit, defined by:
-
+/bin/bash -lc "wc -l content/papers/circuit.analysis.md && rg -n \"Eq\\.|Eqs\\.|equation|\\([0-9]+\\)\" content/papers/circuit.analysis.md && sed -n '1,260p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+817 content/papers/circuit.analysis.md
+33:The problem will be solved when we have found $e(t)$. The standard classical procedure would be to set up a differential equation in which $e(t)$ is the unknown and $i(t)$ the driving function. However, in this relatively simple problem, the driving function is not differentiable, and the procedure described would fail.
+37:The fundamental equations of the circuit may be written as follows:
+41:i_1 &= i - i_2 = C \frac{de}{dt} \quad &(1) \\
+42:R i_2 &+ L \frac{di_2}{dt} = e(t) \quad &(2) \\
+43:\frac{de}{dt} &= L \frac{d^2 i_2}{dt^2} + R \frac{di_2}{dt} = \frac{1}{C}(i - i_2) \quad &(3)
+47:In order to eliminate $i_1$, we differentiate (2). Rearranging this equation, we have for the differential equation giving $i_2$:
+50:\frac{d^2 i_2}{dt^2} + \frac{R}{L} \frac{di_2}{dt} + \frac{i_2}{LC} = \frac{i(t)}{LC} \quad (4)
+55:2a = \frac{R}{L} \quad (5)
+58:h^2 = \frac{1}{LC} \quad (6)
+61:The differential equation is then:
+63:\frac{d^2 i_2}{dt^2} + 2a \frac{di_2}{dt} + h^2 i_2 = \frac{i(t)}{LC} \quad (7)
+105:e(t) = R i_0 \left[ 1 - \frac{1}{4} \left( 2 - \frac{a}{\rho} - \frac{\rho}{a} \right) e^{-(a+\rho)t} - \frac{1}{4} \left( 2 + \frac{a}{\rho} + \frac{\rho}{a} \right) e^{-(a-\rho)t} \right] \quad (8)
+114:There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
+116:Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
+136:In the Heaviside method, we obtain an operational equation from the differential equation by substituting $p = \frac{d}{dt}$, $p^2 = \frac{d^2}{dt^2}$, $\frac{1}{p} = \int_{0-}^t dt$, $\frac{1}{p^2} = \int_{0-}^t \int_{0-}^\tau (\cdot) dt^2$, etc. This transforms an integro-differential equation into an algebraic one.
+138:If this is solved for the unknown treating $p$ as an algebraic quantity, the result is a symbolic solution involving $p$ and the driving function. This can be converted into a real time function if we know how to interpret the operational equations; we will now consider how this is done. The fundamental type of driving function is the unit step $1$ which is defined by:
+143:Heaviside found, by working backwards from known solutions of simple differential equations, that the following interpretations of operational expressions could be made:
+152:\frac{1}{p^n} 1 = \frac{t^n}{n!} 1 \quad (11)
+155:It should be clearly understood what this type of equation means; it is not valid to cancel out the $1$ sign, because the left hand side of the equation is not a product, but rather represents an operation on $1$. The right hand side, however, is an ordinary product, and simply means that the time function is cut off before $t$ equals 0, which amounts to assuming zero for all initial conditions.
 codex
-I’ve reviewed the first part and haven’t changed anything yet; next I’m scanning the rest of the file for duplicate abstract text, malformed tables, and citation/metadata issues before applying a single minimal patch.
+I’ve confirmed the file is long and includes many equation-number references. Next I’m scanning the remaining sections to catch single-newline paragraph joins, duplicated abstract/body blocks, and citation/table issues before patching.
 exec
-/bin/bash -lc "sed -n '261,620p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '261,560p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+L [s I(s) - i(0)] + R I(s) + \frac{1}{Cs} [I(s) + q(0)] = E(s) \quad (11)
+$$
+
 This is now reduced to an algebraic equation in $s$. Note that the initial conditions give the correct quantities to specify, namely the initial current in an $L$, and the initial charge on a $C$. Quantities such as the initial voltage on $L$ are not permissible initial conditions, because they can be changed instantaneously.
 
 The Heaviside method automatically assumes zero initial conditions, because the operational interpretation of $1/p = \int_{0-}^t dt$ requires the $(-0)$ as the lower limit, in order that $p$ and $1/p$ be exactly inverse operations, whereas the Laplace transforms have $(+0)$ as the lower limit.
@@ -93,324 +122,622 @@ This rule is of great convenience, and enables us to bypass the differential equ
 ---
 
 ## THIRD LECTURE
-
-We may apply this rule to the series-peaked video amplifier circuit discussed in lecture one, as follows:
-$$
-E(s) = \frac{I(s) \left[ (R+Ls)\frac{1}{Cs} \right]}{R + Ls + \frac{1}{Cs}} = \frac{I(s) [R + Ls]}{1 + RCs + LCs^2} \quad (1)
 exec
-/bin/bash -lc "sed -n '621,980p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-| $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
-| $d^n f/dt^n$ discontinuity | $1/\omega^{n+1} = 6(n+1)$ db/octave |
-| No discontinuity in any derivative | $\sim e^{-\omega^2}$ |
-| infinite discontinuity (impulse) | $F(\omega)$ constant |
-| infinite doublet disc. | $F(\omega) \sim \omega$ |
+/bin/bash -lc "sed -n '561,900p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[\\"'^[''^'"\\]]+\\]|\\(["'^'"\\)]*[0-9]{4}["'^'"\\)]*\\)|Lecture given at|Combined Research Group|"'^'"\\|\" content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+*(Graphs of $Si(x)$ and $Ci(x)$)*
 
-The reason for this is in the varying quality of cancellation in the integral defining $F(\omega)$, due to the smoothness of $f(t)$. The smoother this function, the more perfect the cancellation will be between adjacent half-cycles of the kernel $e^{j\omega t}$.
+---
 
-**Analysis of Transmission Lines by the Laplace Transform**
+## SEVENTH LECTURE
 
-Fundamental equations are:
+If $x_1$ and $x_2$ are positive, $|x_1| = x_1$, $|x_2| = x_2$, and integrals vanish, leaving:
 $$
-v = v(x,t), \quad i = i(x,t)
+\int_{x_1}^{x_2} \frac{\cos u}{u} du = Ci(x_2) - Ci(x_1)
+$$
+
+If $x_1 < 0 < x_2$, we have
+$$
+\int_{x_1}^{x_2} \frac{\cos u}{u} du = \int_{x_1}^{-\epsilon} \frac{\cos u}{u} du + \int_{-\epsilon}^{\epsilon} \frac{\cos u}{u} du + \int_{\epsilon}^{x_2} \frac{\cos u}{u} du
+$$
+The 1st and 3rd integrals cancel (if limits symmetric?), since $\cos(u)/u$ is an odd function. We are left with:
+$$
+\int_{-\epsilon}^{\epsilon} \frac{\cos u}{u} du = \ln(\epsilon) - \ln(-\epsilon) = \ln(-1) = j\pi
 $$
 $$
-\frac{\partial v}{\partial x} = -(R i + L \frac{\partial i}{\partial t}) \quad (1)
-$$
-$$
-\frac{\partial i}{\partial x} = -(G v + C \frac{\partial v}{\partial t}) \quad (2)
-$$
+ succeeded in 51ms:
+5:  A series of nine lectures given at the Combined Research Group,
+14:**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+292:Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+509:| If $f(t)$ is: | Then $F(\omega)$ is: |
+510:| :--- | :--- |
+511:| Real | Real part Even, Imaginary part Odd |
+512:| Even | Real, Even |
+513:| Odd | Imaginary, Odd |
+621:| If $f(t)$ has a: | $F(\omega)$ goes down as: |
+622:| :--- | :--- |
+623:| finite discontinuity | $1/\omega = 6$ db/octave |
+624:| $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+625:| $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+626:| $d^n f/dt^n$ discontinuity | $1/\omega^{n+1} = 6(n+1)$ db/octave |
+627:| No discontinuity in any derivative | $\sim e^{-\omega^2}$ |
+628:| infinite discontinuity (impulse) | $F(\omega)$ constant |
+629:| infinite doublet disc. | $F(\omega) \sim \omega$ |
+719:Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+816:[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
+817:[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+exec
+/bin/bash -lc "awk 'NR>1{if(prev"'!="" && $0!="" ){print NR-1":"prev" || "NR":"$0}} {prev=$0}'"' content/papers/circuit.analysis.md | rg -n \"\\. \\|\\*\\(|\\*\\*|\\|\" | head -n 80" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+1:1:--- || 2:title: "Circuit Analysis by Laplace and Fourier Transforms"
+2:2:title: "Circuit Analysis by Laplace and Fourier Transforms" || 3:year: 1945
+3:3:year: 1945 || 4:abstract: >
+4:4:abstract: > || 5:  A series of nine lectures given at the Combined Research Group,
+5:5:  A series of nine lectures given at the Combined Research Group, || 6:  Naval Research Laboratory, Washington, D. C. in August 1945.
+6:6:  Naval Research Laboratory, Washington, D. C. in August 1945. || 7:  The course provides a technique for solving practical transient problems
+7:7:  The course provides a technique for solving practical transient problems || 8:  using classical, Heaviside, and Laplace transform methods.
+8:8:  using classical, Heaviside, and Laplace transform methods. || 9:author: ["E.T. Jaynes"]
+9:9:author: ["E.T. Jaynes"] || 10:---
+10:14:**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942] || 15:**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+11:21:$$ || 22:i(t) = 
+12:22:i(t) =  || 23:\begin{cases} 
+13:23:\begin{cases}  || 24:0 & t < 0 \\
+14:24:0 & t < 0 \\ || 25:i_0 & t > 0 
+15:25:i_0 & t > 0  || 26:\end{cases}
+16:26:\end{cases} || 27:$$
+17:39:$$ || 40:\begin{aligned}
+18:40:\begin{aligned} || 41:i_1 &= i - i_2 = C \frac{de}{dt} \quad &(1) \\
+19:41:i_1 &= i - i_2 = C \frac{de}{dt} \quad &(1) \\ || 42:R i_2 &+ L \frac{di_2}{dt} = e(t) \quad &(2) \\
+20:42:R i_2 &+ L \frac{di_2}{dt} = e(t) \quad &(2) \\ || 43:\frac{de}{dt} &= L \frac{d^2 i_2}{dt^2} + R \frac{di_2}{dt} = \frac{1}{C}(i - i_2) \quad &(3)
+exec
+/bin/bash -lc "awk 'NR>1{prevLine[NR-1]=prev; curr[NR]="'$0} {prev=$0} END {for(i=1;i<NR;i++){a=prevLine[i]; b=curr[i+1]; if(a!="" && b!="" && a !~ /''^#/ && b !~ /''^#/ && a !~ /''^'"\\"'$'"\\"'$/ && b !~ /''^'"\\"'$'"\\"'$/ && a !~ /''^'"\\|/ && b "'!~ /''^'"\\|/ && a "'!~ /''^'"\\*/ && b "'!~ /''^'"\\*/ && a "'!~ /''^---$/ && b !~ /''^---$/ && a !~ /''^'"\\[\\"'^/ && b !~ /''^'"\\[\\"'^/ && a !~ /''^'"\\s*[-0-9]+\\./){ if(a ~ /[\\.:]"'$/ && b ~ /''^[A-Z(]/) print i"|"a" ==> "(i+1)"|"b } }}'"' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+124|With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$. ==> 125|As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
+125|As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$. ==> 126|Critical damping occurs when the modes coincide at:
+490|$\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here. ==> 491|As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+517|The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$. ==> 518|The transform of the bracket is:
 codex
-I found no duplicate abstract in the body and no missing-figure issues that need action. I’m now applying a minimal structural patch: citation footnotes for source mentions, small paragraph splits for readability, and preserving all math exactly unchanged.
+I found a few concrete single-newline paragraph joins that should be split for clean Markdown rendering. I’ll patch only those structural breaks (plus any minimal citation spacing fixes) and then re-check equation-reference coverage.
 exec
-/bin/bash -lc "rg -n \"Gardner|Campbell|The following table:|Textbook|Other books|This is the solution of the problem\\. There are a few generalizations|The two modes for a simple LRC circuit\" content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-14:**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-15:**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
-112:This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-118:The two modes for a simple LRC circuit vary with increasing losses as shown below. 
-288:Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-503:The following table:
-615:The following table:
-715:Pair 863.1 of Campbell & Foster is:
+/bin/bash -lc "nl -ba content/papers/circuit.analysis.md | sed -n '10,40p;116,136p;484,526p;708,736p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+    10	---
+    11	
+    12	## FIRST LECTURE: Classical and Heaviside Methods
+    13	
+    14	**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+    15	**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+    16	
+    17	**Aim of course:** to provide a technique for solving practical transient problems.
+    18	
+    19	The classical method will be studied first, using as an example a series-peaked video amplifier stage. This problem will later be solved operationally. We assume a "unit step" current applied to the interstage coupling circuit, defined by:
+    20	
+    21	$$
+    22	i(t) = 
+    23	\begin{cases} 
+    24	0 & t < 0 \\
+    25	i_0 & t > 0 
+    26	\end{cases}
+    27	$$
+    28	
+    29	The circuit and terminology are as shown below:
+codex
+I’m applying a minimal structural patch now: only blank-line paragraph boundary fixes, minor citation-spacing normalization, and small table separator cleanup for cleaner Hugo/KaTeX rendering. I won’t alter any math content.
 file update
 M /home/dave/Projects/jaynes-archive/content/papers/circuit.analysis.md
-@@ -13,3 +13,3 @@
+@@ -13,3 +13,4 @@
  
--**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
  **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
-@@ -111,4 +111,8 @@
+@@ -121,6 +122,10 @@
  
--This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+This is the solution of the problem.
- 
-+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
 +
-+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
+ *(Diagram of complex s-plane showing poles)*
 +
- The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
-@@ -287,3 +291,3 @@
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+@@ -291,3 +296,3 @@
  
--Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
  $$
-@@ -714,3 +718,3 @@
- 
--Pair 863.1 of Campbell & Foster is:
-+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
- $$
-@@ -809,2 +813,5 @@
- 
--This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-\ No newline at end of file
-+This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+@@ -490,2 +495,3 @@
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
 +
-+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
-+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
-apply_patch(auto_approved=true) exited 0 in 14ms:
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+@@ -509,3 +515,3 @@
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+@@ -517,2 +523,3 @@
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+@@ -621,3 +628,3 @@
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+@@ -718,3 +725,3 @@
+ 
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
+ $$
+apply_patch(auto_approved=true) exited 0 in 7ms:
 Success. Updated the following files:
-M /home/dave/Projects/jaynes-archive/content/papers/circuit.analysis.md
+M content/papers/circuit.analysis.md
 file update:
 diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
-index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+index e12a45b0cee25eb8968042ec52e0094d50ce4ce4..10c44087cae87cde230ad36bd37b8e7bc11d130d
 --- a/content/papers/circuit.analysis.md
 +++ b/content/papers/circuit.analysis.md
-@@ -11,7 +11,7 @@
+@@ -11,7 +11,8 @@
  
  ## FIRST LECTURE: Classical and Heaviside Methods
  
--**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
  **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
  
  **Aim of course:** to provide a technique for solving practical transient problems.
-@@ -109,8 +109,12 @@
- \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
- $$
- 
--This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+This is the solution of the problem.
- 
-+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
-+
-+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+
- The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+@@ -119,10 +120,14 @@
  
  $$f(t) = e^{-at} - e^{-bt}$$
-@@ -285,7 +289,7 @@
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
++
+ *(Diagram of complex s-plane showing poles)*
++
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+ $$
+ Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
+@@ -289,7 +294,7 @@
  E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
  $$
  
--Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
  $$
  E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
  $$
-@@ -712,7 +716,7 @@
+@@ -488,6 +493,7 @@
+ 
+ The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
++
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+ 
+ *("Snake in Complex Plane" diagram)*
+@@ -507,7 +513,7 @@
+ The following table:
+ 
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+ | Even | Real, Even |
+ | Odd | Imaginary, Odd |
+@@ -515,6 +521,7 @@
+ Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
+ 
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+ $$
+ F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
+@@ -619,7 +626,7 @@
+ The following table:
+ 
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+ | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+ | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+@@ -716,7 +723,7 @@
  V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
  $$
  
--Pair 863.1 of Campbell & Foster is:
-+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
  $$
  e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
  $$
-@@ -807,4 +811,7 @@
- e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
- $$
- 
--This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-\ No newline at end of file
-+This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-+
-+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
-+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
 
 file update:
 diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
-index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+index e12a45b0cee25eb8968042ec52e0094d50ce4ce4..10c44087cae87cde230ad36bd37b8e7bc11d130d
 --- a/content/papers/circuit.analysis.md
 +++ b/content/papers/circuit.analysis.md
-@@ -11,7 +11,7 @@
+@@ -11,7 +11,8 @@
  
  ## FIRST LECTURE: Classical and Heaviside Methods
  
--**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
  **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
  
  **Aim of course:** to provide a technique for solving practical transient problems.
-@@ -109,8 +109,12 @@
- \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
- $$
- 
--This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+This is the solution of the problem.
- 
-+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
-+
-+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+
- The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+@@ -119,10 +120,14 @@
  
  $$f(t) = e^{-at} - e^{-bt}$$
-@@ -285,7 +289,7 @@
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
++
+ *(Diagram of complex s-plane showing poles)*
++
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+ $$
+ Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
+@@ -289,7 +294,7 @@
  E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
  $$
  
--Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
  $$
  E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
  $$
-@@ -712,7 +716,7 @@
+@@ -488,6 +493,7 @@
+ 
+ The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
++
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+ 
+ *("Snake in Complex Plane" diagram)*
+@@ -507,7 +513,7 @@
+ The following table:
+ 
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+ | Even | Real, Even |
+ | Odd | Imaginary, Odd |
+@@ -515,6 +521,7 @@
+ Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
+ 
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+ $$
+ F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
+@@ -619,7 +626,7 @@
+ The following table:
+ 
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+ | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+ | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+@@ -716,7 +723,7 @@
  V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
  $$
  
--Pair 863.1 of Campbell & Foster is:
-+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
  $$
  e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
  $$
-@@ -807,4 +811,7 @@
- e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
- $$
- 
--This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-\ No newline at end of file
-+This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-+
-+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
-+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
 
 exec
-/bin/bash -lc 'rg -n "A series of nine lectures|Combined Research Group|Naval Research Laboratory" content/papers/circuit.analysis.md' in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-5:  A series of nine lectures given at the Combined Research Group,
-6:  Naval Research Laboratory, Washington, D. C. in August 1945.
+/bin/bash -lc "awk 'NR>1{prevLine[NR-1]=prev; curr[NR]="'$0} {prev=$0} END {for(i=1;i<NR;i++){a=prevLine[i]; b=curr[i+1]; if(a!="" && b!="" && a !~ /''^#/ && b !~ /''^#/ && a !~ /''^'"\\"'$'"\\"'$/ && b !~ /''^'"\\"'$'"\\"'$/ && a !~ /''^'"\\|/ && b "'!~ /''^'"\\|/ && a "'!~ /''^'"\\*/ && b "'!~ /''^'"\\*/ && a "'!~ /''^---$/ && b !~ /''^---$/ && a !~ /''^'"\\[\\"'^/ && b !~ /''^'"\\[\\"'^/ && a !~ /''^'"\\s*[-0-9]+\\./){ if(a ~ /[\\.:]"'$/ && b ~ /''^[A-Z(]/) print i"|"a" ==> "(i+1)"|"b } }}'"' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
 file update:
 diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
-index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+index e12a45b0cee25eb8968042ec52e0094d50ce4ce4..10c44087cae87cde230ad36bd37b8e7bc11d130d
 --- a/content/papers/circuit.analysis.md
 +++ b/content/papers/circuit.analysis.md
-@@ -11,7 +11,7 @@
+@@ -11,7 +11,8 @@
  
  ## FIRST LECTURE: Classical and Heaviside Methods
  
--**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
  **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
  
  **Aim of course:** to provide a technique for solving practical transient problems.
-@@ -109,8 +109,12 @@
- \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
- $$
- 
--This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+This is the solution of the problem.
- 
-+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
-+
-+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+
- The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+@@ -119,10 +120,14 @@
  
  $$f(t) = e^{-at} - e^{-bt}$$
-@@ -285,7 +289,7 @@
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
++
+ *(Diagram of complex s-plane showing poles)*
++
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+ $$
+ Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
+@@ -289,7 +294,7 @@
  E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
  $$
  
--Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
  $$
  E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
  $$
-@@ -712,7 +716,7 @@
+@@ -488,6 +493,7 @@
+ 
+ The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
++
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+ 
+ *("Snake in Complex Plane" diagram)*
+@@ -507,7 +513,7 @@
+ The following table:
+ 
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+ | Even | Real, Even |
+ | Odd | Imaginary, Odd |
+@@ -515,6 +521,7 @@
+ Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
+ 
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+ $$
+ F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
+@@ -619,7 +626,7 @@
+ The following table:
+ 
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+ | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+ | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+@@ -716,7 +723,7 @@
  V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
  $$
  
--Pair 863.1 of Campbell & Foster is:
-+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
  $$
  e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
  $$
-@@ -807,4 +811,7 @@
- e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
- $$
- 
--This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-\ No newline at end of file
-+This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-+
-+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
-+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
 
 codex
-Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only:
-
-- Added proper footnote citations for source mentions:
-  - `Gardner and Barnes` (used in both the textbook line and later table lookup reference).
-  - `Campbell & Foster` (for pair 863.1).
-- Removed inline parenthetical citation style `(Gardner & Barnes)` where replaced by footnote formatting.
-- Split one dense paragraph in the first lecture into smaller paragraphs for readability.
-- Left all math/LaTeX content unchanged.
-- Confirmed abstract text is only in front matter (no duplicate abstract in body).
-file update:
+I’ve finished the patch and I’m running a quick self-check now for paragraph-boundary consistency and any obvious unresolved equation-reference numbers before I summarize changes.
+exec
+/bin/bash -lc "git diff -- content/papers/circuit.analysis.md && rg -n \"Eq\\.|Eqs\\.|equation|equations|formula|formulas|solve \\([0-9]+\\)|\\([0-9]+a?\\)\" content/papers/circuit.analysis.md | head -n 80" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
-index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+index e12a45b..10c4408 100644
 --- a/content/papers/circuit.analysis.md
 +++ b/content/papers/circuit.analysis.md
-@@ -11,7 +11,7 @@
+@@ -11,7 +11,8 @@ author: ["E.T. Jaynes"]
  
  ## FIRST LECTURE: Classical and Heaviside Methods
  
--**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
-+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
  **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
  
  **Aim of course:** to provide a technique for solving practical transient problems.
-@@ -109,8 +109,12 @@
- \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
- $$
- 
--This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+This is the solution of the problem.
- 
-+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
-+
-+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
-+
- The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+@@ -119,10 +120,14 @@ The transient part of the solution contains a sufficient number of arbitrary con
  
  $$f(t) = e^{-at} - e^{-bt}$$
-@@ -285,7 +289,7 @@
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index e12a45b0cee25eb8968042ec52e0094d50ce4ce4..10c44087cae87cde230ad36bd37b8e7bc11d130d
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,8 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -119,10 +120,14 @@
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
++
+ *(Diagram of complex s-plane showing poles)*
++
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+ $$
+ Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
+@@ -289,7 +294,7 @@
  E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
  $$
  
--Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
-+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
  $$
  E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
  $$
-@@ -712,7 +716,7 @@
+@@ -488,6 +493,7 @@
+ 
+ The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
++
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+ 
+ *("Snake in Complex Plane" diagram)*
+@@ -507,7 +513,7 @@
+ The following table:
+ 
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+ | Even | Real, Even |
+ | Odd | Imaginary, Odd |
+@@ -515,6 +521,7 @@
+ Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
+ 
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+ $$
+ F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
+@@ -619,7 +626,7 @@
+ The following table:
+ 
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+ | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+ | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+@@ -716,7 +723,7 @@
  V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
  $$
  
--Pair 863.1 of Campbell & Foster is:
-+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
  $$
  e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
  $$
-@@ -807,4 +811,7 @@
- e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
+
+codex
+Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only.
+
+**What changed**
+- Added missing blank-line paragraph breaks where prose was visually joined by single newlines:
+  - between `**Textbook:** ...` and `**Other books** ...`
+  - around the LRC-mode/diagram block in Lecture 1
+  - between the Fourier-series frequency line and the next sentence in Lecture 5
+  - between “The impressed force is represented ...” and “The transform of the bracket is:” in Lecture 6
+- Normalized footnote citation spacing:
+  - `..., 1942.[^...]` → `..., 1942. [^...]`
+  - `tables,[^...]` → `tables, [^...]`
+  - `is:[^...]` → `is: [^...]`
+- Cleaned table separator rows for markdown consistency:
+  - `| :--- | :--- |` → `| --- | --- |` (both tables)
+
+**Self-check**
+- Paragraph boundaries intended as paragraph breaks are now blank-line separated.
+- No in-text equation references were left unresolved; no equation expressions/symbols were changed.
+- No abstract duplication/body abstract removal was needed.
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index e12a45b0cee25eb8968042ec52e0094d50ce4ce4..10c44087cae87cde230ad36bd37b8e7bc11d130d
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,8 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942. [^gardner-barnes-1942]
++
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -119,10 +120,14 @@
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+ 
+-The two modes for a simple LRC circuit vary with increasing losses as shown below. 
++The two modes for a simple LRC circuit vary with increasing losses as shown below.
++
+ *(Diagram of complex s-plane showing poles)*
++
+ With no losses ($Q=\infty$), the modes are at $\pm j\omega_0$, and represent an undamped sine wave, since $e^{j\omega_0 t} + e^{-j\omega_0 t} = 2 \cos \omega_0 t$.
++
+ As losses increase, the modes move along the arc of a circle, representing an exponentially decaying oscillation of lower frequency than $\omega_0$.
++
+ Critical damping occurs when the modes coincide at:
+ $$
+ Q = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}} = \frac{1}{2}
+@@ -289,7 +294,7 @@
+ E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
  $$
  
--This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
-\ No newline at end of file
-+This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+-Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables, [^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+ E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
+ $$
+@@ -488,6 +493,7 @@
+ 
+ The geometrical/physical interpretation of a Fourier series is that of rotating vectors of various frequencies:
+ $\omega_0, 2\omega_0, 3\omega_0, 4\omega_0, \dots$ most active out here.
 +
-+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
-+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+ As $\omega_0 \to 0$, this merges into a continuous curve, the projection of the end of which is the voltage.
+ 
+ *("Snake in Complex Plane" diagram)*
+@@ -507,7 +513,7 @@
+ The following table:
+ 
+ | If $f(t)$ is: | Then $F(\omega)$ is: |
+-| :--- | :--- |
++| --- | --- |
+ | Real | Real part Even, Imaginary part Odd |
+ | Even | Real, Even |
+ | Odd | Imaginary, Odd |
+@@ -515,6 +521,7 @@
+ Using these theorems, we can find the effect of suddenly impressing a sine wave of frequency $\omega_0$ on a filter which passes frequencies from $\omega_1$ to $\omega_2$.
+ 
+ The impressed force is represented as $\text{Re}[u(t)e^{j\omega_0 t}]$.
++
+ The transform of the bracket is:
+ $$
+ F(\omega) = \frac{1}{j(\omega - \omega_0)} \quad (1)
+@@ -619,7 +626,7 @@
+ The following table:
+ 
+ | If $f(t)$ has a: | $F(\omega)$ goes down as: |
+-| :--- | :--- |
++| --- | --- |
+ | finite discontinuity | $1/\omega = 6$ db/octave |
+ | $df/dt$ discontinuity | $1/\omega^2 = 12$ db/octave |
+ | $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+@@ -716,7 +723,7 @@
+ V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
+ $$
+ 
+-Pair 863.1 of Campbell & Foster is:[^campbell-foster]
++Pair 863.1 of Campbell & Foster is: [^campbell-foster]
+ $$
+ e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
+ $$
 
 tokens used
-19,851
+40,397
 

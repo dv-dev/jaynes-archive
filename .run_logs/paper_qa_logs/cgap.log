@@ -1,9 +1,13 @@
 === STDOUT ===
-Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md) with one minimal QA fix:
+Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md).
 
-- Removed an orphaned/extraneous footnote metadata line at the end: `[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130`.
-
-No paper content meaning was changed, no math/LaTeX was modified, and no abstract duplication was found in the body.
+Concise summary of changes:
+- Added missing blank-line paragraph boundaries around section headings so markdown paragraph/section separation is explicit and clean for Hugo rendering.
+- No content meaning changed.
+- No math/equation content changed.
+- No equation-numbering edits were needed (no in-text equation references found).
+- No abstract duplication found in body, so none removed.
+- No citation-footnote normalization was needed (no citation formatting issues found).
 
 
 === STDERR ===
@@ -16,21 +20,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb986-051a-7963-9645-07754828892f
+session id: 019cb9d2-0ab6-7ff2-a6f7-78ee9256850f
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/cgap.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -42,13 +58,19 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’ll QA `content/papers/cgap.md` for markdown-only structure issues, citation normalization, duplicate abstract/body cleanup, and non-body metadata removal, while preserving all paper meaning and leaving all math untouched. I’m opening the file now and will apply minimal edits directly if needed.
+I’m going to inspect `content/papers/cgap.md` for paragraph-boundary issues, duplicated abstract/body metadata text, citation formatting, and equation-reference numbering consistency, then apply only minimal structural edits in that file.
 exec
-/bin/bash -lc "sed -n '1,260p' content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|equation|\\(\\d+\\)|abstract|Lecture given at|\\"'^'"\\[|\\[\\"'^" content/papers/cgap.md && wc -l content/papers/cgap.md && sed -n '"'1,260p' content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+4:abstract: >
+5:  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
+212 content/papers/cgap.md
 ---
 title: "Recollections and Mementos of G. A. Pfeiffer"
 year: 1990
@@ -66,99 +88,267 @@ Parkersburg where he operated a drug store in the 1890's and married
 Louise Foote of Parkersburg. [Forty years later, as a child growing up
 in Parkersburg, I knew the Foote house well because it was on main
 street diagonally across from the schoolhouse.]
-
-In the 1890's, Tom Ferguson and his family lived next door to Gus and
-Paul Pfeiffer and they became lifelong friends. My mother, Ethel
-exec
-/bin/bash -lc "sed -n '261,520p' content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-
 codex
-I found one clear structural issue: an orphaned footnote definition at the end (`[^100]: ...`) with no in-text reference, which reads like affiliation metadata rather than paper body. I’m making a minimal edit to remove that extraneous metadata and keep the rest intact.
+I’ve finished the initial pass: there are no equation references, tables, or citation-footnote conflicts in this file, and no duplicate abstract text in the body. I’m now applying minimal structural cleanup to heading/paragraph spacing so paragraph boundaries are consistently explicit.
+exec
+/bin/bash -lc "nl -ba content/papers/cgap.md | sed -n '1,240p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+     1	---
+     2	title: "Recollections and Mementos of G. A. Pfeiffer"
+     3	year: 1990
+     4	abstract: >
+     5	  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
+     6	author: ["E.T. Jaynes"]
+     7	---
+     8	# NINETEENTH CENTURY BACKGROUND
+     9	The story starts with my grandfather, Tom Ferguson, born in the early
+    10	1860's. His parents had emigrated from Scotland to Toronto, but he lived
+    11	most of his life as a realtor in the small town of Parkersburg, Iowa.
+    12	Gustavus Adolphus Pfeiffer, slightly younger, was born of German
+    13	immigrant parents in Cedar Falls, Iowa in 1872, and he also moved to
+    14	Parkersburg where he operated a drug store in the 1890's and married
+    15	Louise Foote of Parkersburg. [Forty years later, as a child growing up
+    16	in Parkersburg, I knew the Foote house well because it was on main
+    17	street diagonally across from the schoolhouse.]
+    18	
+    19	In the 1890's, Tom Ferguson and his family lived next door to Gus and
+    20	Paul Pfeiffer and they became lifelong friends. My mother, Ethel
 file update
 M /home/dave/Projects/jaynes-archive/content/papers/cgap.md
-@@ -212,2 +212 @@
- person who knew personally everyone whose portrait hangs in our library.
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-apply_patch(auto_approved=true) exited 0 in 11ms:
+@@ -8,2 +8,3 @@
+ # NINETEENTH CENTURY BACKGROUND
++
+ The story starts with my grandfather, Tom Ferguson, born in the early
+@@ -35,3 +36,5 @@
+ of it have survived.
++
+ # THE 1920's AND 1930's
++
+ I too was born very near Cedar Falls, just fifty years after Gus
+@@ -94,3 +97,5 @@
+ only $25; one Winter she bought me an overcoat.
++
+ # THE 1940's AND 1950's
++
+ Somehow (probably from inquiring of my grandmother) Uncle Gus kept
+@@ -182,3 +187,5 @@
+ 1950's in the Physics Department.
++
+ # THE 1960's
++
+ In 1960 I moved to Washington University in St. Louis, and by a strange
+apply_patch(auto_approved=true) exited 0 in 28ms:
 Success. Updated the following files:
-M content/papers/cgap.md
+M /home/dave/Projects/jaynes-archive/content/papers/cgap.md
 file update:
 diff --git a/content/papers/cgap.md b/content/papers/cgap.md
-index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+index f2f07583652baf5c288908918a9d601010ad9107..23f46a3a5ef5f405cd1b8f90e89fe881a41483ed
 --- a/content/papers/cgap.md
 +++ b/content/papers/cgap.md
-@@ -210,4 +210,3 @@
- He agreed at once, and arranged to have a copy made of an oil portrait,
- which we received about two years later. Today, I am the only living
- person who knew personally everyone whose portrait hangs in our library.
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
+@@ -6,6 +6,7 @@
+ author: ["E.T. Jaynes"]
+ ---
+ # NINETEENTH CENTURY BACKGROUND
++
+ The story starts with my grandfather, Tom Ferguson, born in the early
+ 1860's. His parents had emigrated from Scotland to Toronto, but he lived
+ most of his life as a realtor in the small town of Parkersburg, Iowa.
+@@ -33,7 +34,9 @@
+ 14, attended the 1904 St. Louis World's Fair as a guest of the Paul
+ Pfeiffers; she has told me about it many times, but no actual mementos
+ of it have survived.
++
+ # THE 1920's AND 1930's
++
+ I too was born very near Cedar Falls, just fifty years after Gus
+ Pfeiffer, and due to family circumstances moved to Parkersburg. My
+ Father was a surgeon in practice in Waterloo, Iowa (except for a short
+@@ -92,7 +95,9 @@
+ print shop and by a loan from the Louise Foote Foundation (which I
+ repaid later on schedule). My entire college education cost my mother
+ only $25; one Winter she bought me an overcoat.
++
+ # THE 1940's AND 1950's
++
+ Somehow (probably from inquiring of my grandmother) Uncle Gus kept
+ himself informed of my progress at Cornell, and he invited me to come to
+ New York, to work with Drs. Gustav Martin and Marvin R. Thompson at the
+@@ -180,7 +185,9 @@
+ that day lost that I do not spend at the Homestead"). I finished my
+ Ph.D. degree at Princeton, then returned to Stanford where I spent the
+ 1950's in the Physics Department.
++
+ # THE 1960's
++
+ In 1960 I moved to Washington University in St. Louis, and by a strange
+ coincidence this move restored my contact with the Pfeiffers. At an
+ airport I struck up a conversation with a distinguished looking
 
 file update:
 diff --git a/content/papers/cgap.md b/content/papers/cgap.md
-index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+index f2f07583652baf5c288908918a9d601010ad9107..23f46a3a5ef5f405cd1b8f90e89fe881a41483ed
 --- a/content/papers/cgap.md
 +++ b/content/papers/cgap.md
-@@ -210,4 +210,3 @@
- He agreed at once, and arranged to have a copy made of an oil portrait,
- which we received about two years later. Today, I am the only living
- person who knew personally everyone whose portrait hangs in our library.
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
-
-exec
-/bin/bash -lc 'rg -n "''^abstract:|Wayman Crow|'"\\"'^'"\\[100\\]|Lecture given at|\\(.*[0-9]{4}.*\\)\\s*\\[\\"'^" content/papers/cgap.md && echo '"'---' && sed -n '1,80p' content/papers/cgap.md && echo '---' && tail -n 20 content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-4:abstract: >
----
----
-title: "Recollections and Mementos of G. A. Pfeiffer"
-year: 1990
-abstract: >
-  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
-author: ["E.T. Jaynes"]
----
-# NINETEENTH CENTURY BACKGROUND
-The story starts with my grandfather, Tom Ferguson, born in the early
-1860's. His parents had emigrated from Scotland to Toronto, but he lived
-most of his life as a realtor in the small town of Parkersburg, Iowa.
-Gustavus Adolphus Pfeiffer, slightly younger, was born of German
-immigrant parents in Cedar Falls, Iowa in 1872, and he also moved to
-Parkersburg where he operated a drug store in the 1890's and married
-Louise Foote of Parkersburg. [Forty years later, as a child growing up
-in Parkersburg, I knew the Foote house well because it was on main
-street diagonally across from the schoolhouse.]
-
-file update:
-diff --git a/content/papers/cgap.md b/content/papers/cgap.md
-index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
---- a/content/papers/cgap.md
-+++ b/content/papers/cgap.md
-@@ -210,4 +210,3 @@
- He agreed at once, and arranged to have a copy made of an oil portrait,
- which we received about two years later. Today, I am the only living
- person who knew personally everyone whose portrait hangs in our library.
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
+@@ -6,6 +6,7 @@
+ author: ["E.T. Jaynes"]
+ ---
+ # NINETEENTH CENTURY BACKGROUND
++
+ The story starts with my grandfather, Tom Ferguson, born in the early
+ 1860's. His parents had emigrated from Scotland to Toronto, but he lived
+ most of his life as a realtor in the small town of Parkersburg, Iowa.
+@@ -33,7 +34,9 @@
+ 14, attended the 1904 St. Louis World's Fair as a guest of the Paul
+ Pfeiffers; she has told me about it many times, but no actual mementos
+ of it have survived.
++
+ # THE 1920's AND 1930's
++
+ I too was born very near Cedar Falls, just fifty years after Gus
+ Pfeiffer, and due to family circumstances moved to Parkersburg. My
+ Father was a surgeon in practice in Waterloo, Iowa (except for a short
+@@ -92,7 +95,9 @@
+ print shop and by a loan from the Louise Foote Foundation (which I
+ repaid later on schedule). My entire college education cost my mother
+ only $25; one Winter she bought me an overcoat.
++
+ # THE 1940's AND 1950's
++
+ Somehow (probably from inquiring of my grandmother) Uncle Gus kept
+ himself informed of my progress at Cornell, and he invited me to come to
+ New York, to work with Drs. Gustav Martin and Marvin R. Thompson at the
+@@ -180,7 +185,9 @@
+ that day lost that I do not spend at the Homestead"). I finished my
+ Ph.D. degree at Princeton, then returned to Stanford where I spent the
+ 1950's in the Physics Department.
++
+ # THE 1960's
++
+ In 1960 I moved to Washington University in St. Louis, and by a strange
+ coincidence this move restored my contact with the Pfeiffers. At an
+ airport I struck up a conversation with a distinguished looking
 
 codex
-Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md) with one minimal QA fix:
-
-- Removed an orphaned/extraneous footnote metadata line at the end: `[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130`.
-
-No paper content meaning was changed, no math/LaTeX was modified, and no abstract duplication was found in the body.
+I’ve applied the structural spacing edits and I’m running a final self-check for paragraph-boundary blank lines and unresolved equation references before I wrap up.
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|equation \\(|\\(Eq\\.|\\[\\"'^|'"\\"'^'"\\[|Lecture given at\" content/papers/cgap.md; nl -ba content/papers/cgap.md | sed -n '1,240p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Recollections and Mementos of G. A. Pfeiffer"
+     3	year: 1990
+     4	abstract: >
+     5	  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
+     6	author: ["E.T. Jaynes"]
+     7	---
+     8	# NINETEENTH CENTURY BACKGROUND
+     9	
+    10	The story starts with my grandfather, Tom Ferguson, born in the early
+    11	1860's. His parents had emigrated from Scotland to Toronto, but he lived
+    12	most of his life as a realtor in the small town of Parkersburg, Iowa.
+    13	Gustavus Adolphus Pfeiffer, slightly younger, was born of German
+    14	immigrant parents in Cedar Falls, Iowa in 1872, and he also moved to
+    15	Parkersburg where he operated a drug store in the 1890's and married
+    16	Louise Foote of Parkersburg. [Forty years later, as a child growing up
+    17	in Parkersburg, I knew the Foote house well because it was on main
+    18	street diagonally across from the schoolhouse.]
+    19	
+    20	In the 1890's, Tom Ferguson and his family lived next door to Gus and
 file update:
 diff --git a/content/papers/cgap.md b/content/papers/cgap.md
-index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+index f2f07583652baf5c288908918a9d601010ad9107..23f46a3a5ef5f405cd1b8f90e89fe881a41483ed
 --- a/content/papers/cgap.md
 +++ b/content/papers/cgap.md
-@@ -210,4 +210,3 @@
- He agreed at once, and arranged to have a copy made of an oil portrait,
- which we received about two years later. Today, I am the only living
- person who knew personally everyone whose portrait hangs in our library.
--[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
-\ No newline at end of file
+@@ -6,6 +6,7 @@
+ author: ["E.T. Jaynes"]
+ ---
+ # NINETEENTH CENTURY BACKGROUND
++
+ The story starts with my grandfather, Tom Ferguson, born in the early
+ 1860's. His parents had emigrated from Scotland to Toronto, but he lived
+ most of his life as a realtor in the small town of Parkersburg, Iowa.
+@@ -33,7 +34,9 @@
+ 14, attended the 1904 St. Louis World's Fair as a guest of the Paul
+ Pfeiffers; she has told me about it many times, but no actual mementos
+ of it have survived.
++
+ # THE 1920's AND 1930's
++
+ I too was born very near Cedar Falls, just fifty years after Gus
+ Pfeiffer, and due to family circumstances moved to Parkersburg. My
+ Father was a surgeon in practice in Waterloo, Iowa (except for a short
+@@ -92,7 +95,9 @@
+ print shop and by a loan from the Louise Foote Foundation (which I
+ repaid later on schedule). My entire college education cost my mother
+ only $25; one Winter she bought me an overcoat.
++
+ # THE 1940's AND 1950's
++
+ Somehow (probably from inquiring of my grandmother) Uncle Gus kept
+ himself informed of my progress at Cornell, and he invited me to come to
+ New York, to work with Drs. Gustav Martin and Marvin R. Thompson at the
+@@ -180,7 +185,9 @@
+ that day lost that I do not spend at the Homestead"). I finished my
+ Ph.D. degree at Princeton, then returned to Stanford where I spent the
+ 1950's in the Physics Department.
++
+ # THE 1960's
++
+ In 1960 I moved to Washington University in St. Louis, and by a strange
+ coincidence this move restored my contact with the Pfeiffers. At an
+ airport I struck up a conversation with a distinguished looking
+
+codex
+Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md).
+
+Concise summary of changes:
+- Added missing blank-line paragraph boundaries around section headings so markdown paragraph/section separation is explicit and clean for Hugo rendering.
+- No content meaning changed.
+- No math/equation content changed.
+- No equation-numbering edits were needed (no in-text equation references found).
+- No abstract duplication found in body, so none removed.
+- No citation-footnote normalization was needed (no citation formatting issues found).
+file update:
+diff --git a/content/papers/cgap.md b/content/papers/cgap.md
+index f2f07583652baf5c288908918a9d601010ad9107..23f46a3a5ef5f405cd1b8f90e89fe881a41483ed
+--- a/content/papers/cgap.md
++++ b/content/papers/cgap.md
+@@ -6,6 +6,7 @@
+ author: ["E.T. Jaynes"]
+ ---
+ # NINETEENTH CENTURY BACKGROUND
++
+ The story starts with my grandfather, Tom Ferguson, born in the early
+ 1860's. His parents had emigrated from Scotland to Toronto, but he lived
+ most of his life as a realtor in the small town of Parkersburg, Iowa.
+@@ -33,7 +34,9 @@
+ 14, attended the 1904 St. Louis World's Fair as a guest of the Paul
+ Pfeiffers; she has told me about it many times, but no actual mementos
+ of it have survived.
++
+ # THE 1920's AND 1930's
++
+ I too was born very near Cedar Falls, just fifty years after Gus
+ Pfeiffer, and due to family circumstances moved to Parkersburg. My
+ Father was a surgeon in practice in Waterloo, Iowa (except for a short
+@@ -92,7 +95,9 @@
+ print shop and by a loan from the Louise Foote Foundation (which I
+ repaid later on schedule). My entire college education cost my mother
+ only $25; one Winter she bought me an overcoat.
++
+ # THE 1940's AND 1950's
++
+ Somehow (probably from inquiring of my grandmother) Uncle Gus kept
+ himself informed of my progress at Cornell, and he invited me to come to
+ New York, to work with Drs. Gustav Martin and Marvin R. Thompson at the
+@@ -180,7 +185,9 @@
+ that day lost that I do not spend at the Homestead"). I finished my
+ Ph.D. degree at Princeton, then returned to Stanford where I spent the
+ 1950's in the Physics Department.
++
+ # THE 1960's
++
+ In 1960 I moved to Washington University in St. Louis, and by a strange
+ coincidence this move restored my contact with the Pfeiffers. At an
+ airport I struck up a conversation with a distinguished looking
 
 tokens used
-12,859
+19,737
 

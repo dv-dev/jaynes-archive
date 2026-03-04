@@ -6,6 +6,7 @@ abstract: >
 author: ["E.T. Jaynes"]
 ---
 # NINETEENTH CENTURY BACKGROUND
+
 The story starts with my grandfather, Tom Ferguson, born in the early
 1860's. His parents had emigrated from Scotland to Toronto, but he lived
 most of his life as a realtor in the small town of Parkersburg, Iowa.
@@ -33,7 +34,9 @@ Pfeiffer went into the drug manufacturing business. My mother, at age
 14, attended the 1904 St. Louis World's Fair as a guest of the Paul
 Pfeiffers; she has told me about it many times, but no actual mementos
 of it have survived.
+
 # THE 1920's AND 1930's
+
 I too was born very near Cedar Falls, just fifty years after Gus
 Pfeiffer, and due to family circumstances moved to Parkersburg. My
 Father was a surgeon in practice in Waterloo, Iowa (except for a short
@@ -92,7 +95,9 @@ who lived in Pfeiffer Hall, and was supported by working part time in a
 print shop and by a loan from the Louise Foote Foundation (which I
 repaid later on schedule). My entire college education cost my mother
 only $25; one Winter she bought me an overcoat.
+
 # THE 1940's AND 1950's
+
 Somehow (probably from inquiring of my grandmother) Uncle Gus kept
 himself informed of my progress at Cornell, and he invited me to come to
 New York, to work with Drs. Gustav Martin and Marvin R. Thompson at the
@@ -180,7 +185,9 @@ at the Homestead that she loved so much (once she said to me: "I count
 that day lost that I do not spend at the Homestead"). I finished my
 Ph.D. degree at Princeton, then returned to Stanford where I spent the
 1950's in the Physics Department.
+
 # THE 1960's
+
 In 1960 I moved to Washington University in St. Louis, and by a strange
 coincidence this move restored my contact with the Pfeiffers. At an
 airport I struck up a conversation with a distinguished looking

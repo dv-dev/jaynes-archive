@@ -1,0 +1,437 @@
+=== STDOUT ===
+Edits applied to [content/papers/reply.to.dawid.md](/home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md).
+
+Concise summary of changes:
+- Added a blank-line paragraph break before `\[10\].` to separate a completed paragraph from the next one.
+- Added a blank-line paragraph break between:
+  - `In fact, nothing else in my presentation will be changed by this.`
+  - `It is regrettable that DSZ were not equally quick to accept my...`
+
+Self-check:
+- Intended paragraph breaks are now blank-line separated.
+- All in-text references to `(R2)`–`(R7)` point to display equations with visible tags already present.
+- No math expressions/content were changed.
+- No abstract duplication or extraneous metadata found to remove.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba5b-9bf5-7860-b431-51f76fbab93c
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/reply.to.dawid.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll QA `content/papers/reply.to.dawid.md` now, focusing only on structure, equation-numbering markup, citations, duplicated abstract, and extraneous metadata while preserving paper meaning and math exactly. I’ll inspect the file first, then apply minimal direct edits and run a self-check.
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && sed -n '1,260p' content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Reply to Dawid, Stone and Zidek"
+author: ["E.T. Jaynes"]
+year: 1980
+---
+Since my paper reported the beginnings of a serious attempt to turn the
+marginalization discovery of DSZ into a useful part of statistical
+theory, and marginalization opens up a large area of interesting and
+important new mathematical problems, I had looked forward eagerly to the
+comments of DSZ, thinking them the ones in the best position to
+contribute constructive suggestions that would help us to get on with
+the progress that their work has started. It is depressing to see
+instead a commentary which ignores all my mathematical demonstrations,
+recognizes no progress at all, and reaffirms all the elementary errors
+that my work had sought to correct.
+
+We shall not escape from this mire of confusion until we adopt a clear
+notation that defines unambiguously: (1) What specific problem are we
+trying to solve? (2) What specific calculations do the rules of
+probability theory prescribe for that problem?
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && sed -n '261,520p' content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+
+codex
+I finished reading the file. Next I’m checking nearby paper files for citation and equation-markup conventions so I can normalize only what’s necessary without changing content.
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n \"\\[\\"'^[0-9]+'"\\]|\\\\\\[[0-9]+\\\\\\]|tag\\{R|tag\\{\" content/papers | head -n 80" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+content/papers/observation.paramagnetic.res.md:18:titanate,[^1] which contain small amounts of iron. Figure 1 illustrates
+content/papers/observation.paramagnetic.res.md:68:[^1]: Supplied through the courtesy of Dr. S. O. Morgan at Bell Telephone Laboratories, Murray Hill, New Jersey.
+content/papers/well.md:188:$$g(r) = \int_0^{2\pi} f(r, \theta)d\theta. \tag{1}$$
+content/papers/well.md:204:$$f(r, \theta) = g(r, \theta - \alpha) \tag{2}$$
+content/papers/well.md:234:$$\int_0^{2\pi} \int_0^R f(r) r dr d\theta = 1. \tag{3}$$
+content/papers/well.md:248:$$f(r) = 2\pi h(r) \int_0^{aR} f(r)rdr, \quad 0 < a \le 1, \quad 0 \le r \le aR. \tag{4}$$
+content/papers/well.md:263:$$h(ar) (ar) d(ar) d\theta = f(r) r dr d\theta \tag{5}$$
+content/papers/well.md:269:$$a^2 f(ar) = 2\pi f(r) \int_0^{aR} f(u)u du, \quad 0 < a \le 1, \quad 0 \le r \le R. \tag{6}$$
+content/papers/well.md:274:$$f(r) = \frac{qr^{q-2}}{2\pi R^q} \tag{7}$$
+content/papers/well.md:294:$(r, \theta) \to (r^\prime, \theta^\prime)$ is given by $$r^\prime = |r - b \cos\theta| \tag{8}$$
+content/papers/well.md:295:$$\theta^\prime = \begin{cases} \theta, & r > b\cos\theta \\\\ \theta + \pi, & r < b\cos\theta \end{cases} \tag{9}$$
+content/papers/well.md:318:$$\int_\Gamma f(r) r dr d\theta = \frac{q}{2\pi R^q} \int_\Gamma r^{q-1} dr d\theta. \tag{10}$$
+content/papers/well.md:322:$$\frac{q}{2\pi R^q} \int_{\Gamma^\prime} (r^\prime)^{q-1} dr^\prime d\theta^\prime = \frac{q}{2\pi R^q} \int_\Gamma |r - b \cos\theta|^{q-1} dr d\theta \tag{11}$$
+content/papers/well.md:335:$$f(r, \theta) = \frac{1}{2\pi Rr}, \quad 0 \le r \le R, \quad 0 \le \theta \le 2\pi \tag{12}$$
+content/papers/well.md:362:$$p(x)dx = \frac{x dx}{(1-x^2)^{1/2}}, \quad 0 \le x \le 1 \tag{13}$$
+content/papers/general.relationship.md:12:author: ["M. O'Donnell[^100]", "E.T. Jaynes", "J.G. Miller[^100]"]
+content/papers/general.relationship.md:28:useful in several areas of physics.[^1][^2] Expressed in a form
+content/papers/general.relationship.md:32:\tag{1}
+content/papers/general.relationship.md:36:\tag{2}
+content/papers/general.relationship.md:64:\tag{3}
+exec
+/bin/bash -lc 'cd /home/dave/Projects/jaynes-archive && rg --files content/papers | head -n 20' in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+content/papers/general.background.md
+content/papers/propagation.in.waveguides.md
+content/papers/displacement.md
+content/papers/circuit.analysis.md
+content/papers/prior.md
+content/papers/theory.2.md
+content/papers/bayesian.methods.md
+content/papers/parametric.amplifier.md
+content/papers/cmonkeys.md
+content/papers/radiative.effects.md
+content/papers/cinfscat.md
+content/papers/reply.to.dawid.md
+content/papers/poincare.recursion.md
+content/papers/ambiguity.md
+content/papers/quantum.beats.md
+content/papers/cchirp.md
+content/papers/predictive.md
+content/papers/relationship.md
+content/papers/unique.dicipherability.md
+content/papers/microwaves.md
+codex
+I found one clear structural issue: `\[10\].` starts a new thought immediately after a completed paragraph without a blank-line separator. I’m checking line-level context now and will patch minimally.
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && nl -ba content/papers/reply.to.dawid.md | sed -n '1,90p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Reply to Dawid, Stone and Zidek"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1980
+     5	---
+     6	Since my paper reported the beginnings of a serious attempt to turn the
+     7	marginalization discovery of DSZ into a useful part of statistical
+     8	theory, and marginalization opens up a large area of interesting and
+     9	important new mathematical problems, I had looked forward eagerly to the
+    10	comments of DSZ, thinking them the ones in the best position to
+    11	contribute constructive suggestions that would help us to get on with
+    12	the progress that their work has started. It is depressing to see
+    13	instead a commentary which ignores all my mathematical demonstrations,
+    14	recognizes no progress at all, and reaffirms all the elementary errors
+    15	that my work had sought to correct.
+    16	
+    17	We shall not escape from this mire of confusion until we adopt a clear
+    18	notation that defines unambiguously: (1) What specific problem are we
+    19	trying to solve? (2) What specific calculations do the rules of
+    20	probability theory prescribe for that problem?
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && awk 'NR==1{prev="'$0;next} {if(prev!="" && $0!="" && prev ~ /[.!?"]$/ && $0 ~ /''^[A-Z'"\\[]/){print NR-1\":\"prev\"\\n\"NR\":\""'$0"'"\\n\"} prev="'$0}'"' content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+36:In fact, nothing else in my presentation will be changed by this.
+37:It is regrettable that DSZ were not equally quick to accept my
+
+91:B$_1$ for exhibiting any symptoms of "unBayesianity" or "impropriety".
+92:Clearly, B$_2$ (if his neglect is willful) is the guilty one.
+
+125:formulae, as in $(\sin x/x)$, we are to take the limit of the ratio.
+126:Which is, of course, just what I did in (24). The "difficulty" feared by
+
+211:when two quantities do not have independent posterior distributions.
+212:What they do not note is that the Bayes estimator $\sigma^*$ of $\sigma$
+
+codex
+I identified potential paragraph-boundary spots and only one is clearly a true boundary (`In fact...` then a new argument sentence). I’ll make that minimal paragraph split now and then run a reference self-check for equation mentions.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md
+@@ -36,2 +36,3 @@
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..74770bc1a6ae9f488372f6c4a788fce643f9a888
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -34,6 +34,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..74770bc1a6ae9f488372f6c4a788fce643f9a888
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -34,6 +34,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n \"\\\\tag\\{["'^}]+'"\\}\" content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n \"Eq\\.|Eqs\\.|\\([R]?[0-9]+\\)\" content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+18:notation that defines unambiguously: (1) What specific problem are we
+19:trying to solve? (2) What specific calculations do the rules of
+33:interpretation. So, will the reader please replace (1) by
+56:the sampling distribution (R2). His posterior distribution is therefore
+68:but in view of (R2), this collapses at once to
+71:Eqs. (R3), (R4) and (R6) then define the three *specific problems* that
+102:meaningless when I do the same in (21) and (26). But that was only for
+110:unambiguously by the calculations indicated in (R3), (R4) and (R6). But
+112:improper prior directly into formulae (R3) or (R6), which then become
+119:impropriety. By $f(0)$ we could mean only the limit of $f(x)$ as
+127:Which is, of course, just what I did in (24). The "difficulty" feared by
+138:satisfying (R7), and the corresponding sequences of posterior
+139:distributions (R3) and (R6), such that the limit of $\{\pi_i\}$ is
+143:limit. And we should not be surprised to find, as (24) shows, that
+151:I showed by explicit mathematical demonstration (24), we can find a
+168:point of my discussion was that if $t \ll yQ$, then in (24) it is surely
+179:the data y are irrelevant, then each of the two procedures (R3) and (R6)
+185:probability theory tell us that: (1) the data y are irrelevant only for
+187:following the DSZ paper); (2) for an
+188:improper prior the posterior distribution (R3) is not in general -- and
+ exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..74770bc1a6ae9f488372f6c4a788fce643f9a888
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -34,6 +34,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n \"\\\\tag\\{\" content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..74770bc1a6ae9f488372f6c4a788fce643f9a888
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -34,6 +34,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+exec
+/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n -F '\\tag{' content/papers/reply.to.dawid.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+34:$$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+48:$$p(z|\eta, \zeta) = \int p(y, z|\eta, \zeta) dy = p(z|\zeta), \tag{R2}$$
+52:$$p(\zeta|y, z, I_1) = \frac{\int p(y, z|\eta, \zeta) \pi(\eta, \zeta|I_1)d\eta}{\iint p(y, z|\eta, \zeta) \pi(\eta, \zeta|I_1)d\eta d\zeta}. \tag{R3}$$
+57:$$p(\zeta|z, I_2) = \frac{p(z|\zeta) \pi(\zeta|I_2)}{\int p(z|\zeta) \pi(\zeta|I_2) d\zeta}. \tag{R4}$$
+67:$$p(\zeta|z, I_3) = \frac{\int p(z|\eta, \zeta) \pi(\eta, \zeta|I_3) d\eta}{\iint p(z|\eta, \zeta) \pi(\eta, \zeta|I_3) d\eta d\zeta}, \tag{R5}$$
+69:$$p(\zeta|z, I_3) = \frac{p(z|\zeta) \int \pi(\eta, \zeta|I_3)d\eta}{\iint p(z|\zeta) \pi(\eta, \zeta|I_3) d\eta d\zeta}. \tag{R6}$$
+78:$$\int \pi(\eta, \zeta|I_1)d\eta = \pi(\zeta|I_2) = \int \pi(\eta, \zeta|I_3)d\eta = \pi(\zeta). \tag{R7}$$
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..74770bc1a6ae9f488372f6c4a788fce643f9a888
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -34,6 +34,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+codex
+I’m making one more structural-only fix: adding a blank-line paragraph break before `\[10\].`, which currently starts a new section of argument immediately after a finished paragraph.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md
+@@ -28,2 +28,3 @@
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+apply_patch(auto_approved=true) exited 0 in 13ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..117009cf62960366c9c0dde9f22b7a63483a0ebb
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -26,6 +26,7 @@
+ (m), \[n\], (Rk) denote respectively the mth equation in my
+ presentation, the nth paragraph of the DSZ commentary on it, and the kth
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+ independent of y, then it would be permissible to express that fact by
+ writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
+@@ -34,6 +35,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..117009cf62960366c9c0dde9f22b7a63483a0ebb
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -26,6 +26,7 @@
+ (m), \[n\], (Rk) denote respectively the mth equation in my
+ presentation, the nth paragraph of the DSZ commentary on it, and the kth
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+ independent of y, then it would be permissible to express that fact by
+ writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
+@@ -34,6 +35,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+exec
+/bin/bash -lc 'cd /home/dave/Projects/jaynes-archive && git diff -- content/papers/reply.to.dawid.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc09..117009c 100644
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -26,6 +26,7 @@ faith by acknowledging an ambiguity in my own notation. In the following
+ (m), \[n\], (Rk) denote respectively the mth equation in my
+ presentation, the nth paragraph of the DSZ commentary on it, and the kth
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+ independent of y, then it would be permissible to express that fact by
+ writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
+@@ -34,6 +35,7 @@ interpretation. So, will the reader please replace (1) by
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..117009cf62960366c9c0dde9f22b7a63483a0ebb
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -26,6 +26,7 @@
+ (m), \[n\], (Rk) denote respectively the mth equation in my
+ presentation, the nth paragraph of the DSZ commentary on it, and the kth
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+ independent of y, then it would be permissible to express that fact by
+ writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
+@@ -34,6 +35,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+codex
+Edits applied to [content/papers/reply.to.dawid.md](/home/dave/Projects/jaynes-archive/content/papers/reply.to.dawid.md).
+
+Concise summary of changes:
+- Added a blank-line paragraph break before `\[10\].` to separate a completed paragraph from the next one.
+- Added a blank-line paragraph break between:
+  - `In fact, nothing else in my presentation will be changed by this.`
+  - `It is regrettable that DSZ were not equally quick to accept my...`
+
+Self-check:
+- Intended paragraph breaks are now blank-line separated.
+- All in-text references to `(R2)`–`(R7)` point to display equations with visible tags already present.
+- No math expressions/content were changed.
+- No abstract duplication or extraneous metadata found to remove.
+file update:
+diff --git a/content/papers/reply.to.dawid.md b/content/papers/reply.to.dawid.md
+index 2c7dc0991ec9587b6123394f181547a0c53a5ca1..117009cf62960366c9c0dde9f22b7a63483a0ebb
+--- a/content/papers/reply.to.dawid.md
++++ b/content/papers/reply.to.dawid.md
+@@ -26,6 +26,7 @@
+ (m), \[n\], (Rk) denote respectively the mth equation in my
+ presentation, the nth paragraph of the DSZ commentary on it, and the kth
+ equation of this reply.
++
+ \[10\]. I had thought that if a function f(y, z) is found to be
+ independent of y, then it would be permissible to express that fact by
+ writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
+@@ -34,6 +35,7 @@
+ $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
+ 
+ In fact, nothing else in my presentation will be changed by this.
++
+ It is regrettable that DSZ were not equally quick to accept my
+ suggestion, i.e. that we follow Jeffreys's example by indicating
+ explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for
+
+tokens used
+19,502
+

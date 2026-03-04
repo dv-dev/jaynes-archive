@@ -41,7 +41,7 @@ author: ["E.T. Jaynes"]
 > "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
 > ist."
 >
-> Albert Einstein$^{1}$
+> Albert Einstein[^1]
 
 In 1966, QED was in one of its recurrent states of pessimism, just as it
 had been twenty years earlier. In 1946, the teacher from whom I first
@@ -54,15 +54,15 @@ moment, and optimism again ran high, with the belief that QED had been
 vindicated and could now advance to many new applications and elegant
 formulations.
 
-However, the next decade saw very little of that advance. Wigner,$^{2}$
-Schwinger,$^{3}$ Feynman,$^{4}$ and Weisskopf$^{5}$ expressed
+However, the next decade saw very little of that advance. Wigner,[^2]
+Schwinger,[^3] Feynman,[^4] and Weisskopf[^5] expressed
 dissatisfaction with the theory on grounds of logical consistency and
 lack of conceptual clarity. On the mathematical side, far from advancing
 to new applications, we became aware of more and more difficulties,
 whose discussion left room for fewer and fewer real applications in
 textbooks.
 
-Perhaps the low point came just before 1966. Arthur Wightman,$^{6}$ in
+Perhaps the low point came just before 1966. Arthur Wightman,[^6] in
 his 1964 Cargèse lectures, said that the problem, not of solving, but
 only of proving the existence of solutions for the standard models had
 "conspicuously and completely defeated two generations of theoretical
@@ -71,7 +71,7 @@ seem bleak, see Wightman's discussion of strange representations and
 Haag's theorem. Some had suggested that the whole apparatus of fields
 and Hamiltonians ought to be abandoned in favor of the S-matrix.
 
-Dirac,$^{7}$ in his Belfer lectures of 1963-64, described the usual
+Dirac,[^7] in his Belfer lectures of 1963-64, described the usual
 treatment of quantum field theory as "a stopgap, without any lasting
 future." So we were back just about to Oppenheimer's remark.
 
@@ -83,23 +83,23 @@ disentangling them. In 1966, then, we faced a seemingly desperate
 problem of separating the truth from the nonsense. What parts of QED are
 really required by experimental facts, what parts might be modified?
 Undoubtedly, the most sacred part of QED was field quantization itself;
-indeed, since the 1927 work of Dirac$^{8}$ that first used field
+indeed, since the 1927 work of Dirac[^8] that first used field
 quantization and derived the Einstein A-coefficients, QED was in the
 minds of most physicists defined as the theory which starts out by
 quantizing the EM field. And there was a weight of authority supporting
 the belief that field quantization and the resulting vacuum fluctuations
 were the essential physical cause of the Lamb shift and the anomalous
-moment. Schwinger$^{9}$ and Weisskopf$^{5}$ had stated this very
-explicitly. Dyson,$^{10}$ in concurring, pictured the quantized field as
+moment. Schwinger[^9] and Weisskopf[^5] had stated this very
+explicitly. Dyson,[^10] in concurring, pictured the quantized field as
 something akin to hydrodynamic flow with superposed random turbulence,
 and said, "The Lamb-Retherford experiment is the strongest evidence we
 have for believing that our picture of the quantum field is correct in
 detail."
 
-Furthermore, we had Welton's$^{11}$ elementary derivation of the Lamb
+Furthermore, we had Welton's[^11] elementary derivation of the Lamb
 shift directly from field fluctuations; and as if to emphasize the
 point, on the day the 1966 Conference opened there arrived in the mail
-the paper of E. A. Power$^{12}$ which derived the Lamb shift directly
+the paper of E. A. Power[^12] which derived the Lamb shift directly
 from the change of zero-point energy in the fields surrounding a
 hydrogen atom in its 2S state. At the 1966 Conference, Roy Glauber told
 us that vacuum fluctuations are "very real things."
@@ -119,15 +119,15 @@ and not the zero-point term? Some further facts about the fantastic
 numerical values of the zero-point energy density and the resulting
 turbulent power flow in space ($\sim10^{20}$ megawatts/cm$^2$) required
 by the cutoff at the Compton wavelength used in Welton's and
-Bethe's$^{13}$ calculations, were noted in my paper at the last
-conference.$^{14}$
+Bethe's[^13] calculations, were noted in my paper at the last
+conference.[^14]
 
 Of course, a staunch defender of present theory will say immediately
 that such objections reflect only naive metaphysical preconceptions of
 "reality," not unlike pre-relativistic notions of absolute
 simultaneity, of just the kind that the Copenhagen interpretation of
 quantum theory has recognized, and rightly removed from science. To this 
-I can only reply with what Heinrich Hertz$^{15}$ said on a similar 
+I can only reply with what Heinrich Hertz[^15] said on a similar 
 occasion: "A doubt which makes an impression on our mind cannot be 
 removed by calling it metaphysical." It is a supple ontology which 
 supposes that vacuum fluctuations are just real enough to shift the 
@@ -190,9 +190,9 @@ validity of QED, as well as that of semiclassical theory.
 
 However, it seems that those remarks succeeded only in provoking Peter
 Franken, although he could hardly be classed as a defender of QED (see
-the Conference report$^{16}$ of a year earlier, which has him
+the Conference report[^16] of a year earlier, which has him
 "postulating that quantum mechanics applies only to the matter and not
-to the light"). The result was a bet, recorded by D. L. MacAdam.$^{17}$
+to the light"). The result was a bet, recorded by D. L. MacAdam.[^17]
 The key issue, on which my statements contrasted most strongly with the
 prevailing view (the above quotation from Dyson) was the Lamb shift, as
 Franken correctly saw. The utter certainty with which the defenders of
@@ -221,7 +221,7 @@ sometimes held to be physically meaningless on the grounds that it
 depends on the charge distribution and diverges in the limit of a point
 charge. For an extended charge, however, it is finite and calculable.
 Being 90$^{\circ}$ out of phase with the damping component, it gives rise
-to reactive, frequency shift effects. M. Crisp$^{18}$ studied the effect
+to reactive, frequency shift effects. M. Crisp[^18] studied the effect
 of this term in NCT, using the nonrelativistic spinless Schrodinger
 equation and the two-level approximation. For the Lyman alpha line
 $\Psi(t) = a(t)\psi_{1s}+b(t)\psi_{2p}$, where one would expect the
@@ -236,18 +236,18 @@ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
 oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
 violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
 A more complete calculation is then needed; this was done by
-J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+J. Mahanty[^19] by an elegant contour integral method. In first order,
 the result agreed with the original "Bethe logarithm" term; the last
 several equations of Mahanty are identical with those of E. A.
-Power.$^{12}$
+Power.[^12]
 
 Nevertheless, we are not entitled to claim success; for the NCT
 equations also predict the "dynamic Lamb shift" chirp discussed
-before,$^{14}$ the emitted frequency varying from
+before,[^14] the emitted frequency varying from
 $\omega_o + \Delta\omega_{\text{Lamb}}$ to
 $\omega_o - \Delta\omega_{\text{Lamb}}$ as the atom moves down from the
 excited state to the ground state. There is now very convincing
-experimental evidence of Citron, Gray, Gabel, and Stroud$^{20}$
+experimental evidence of Citron, Gray, Gabel, and Stroud[^20]
 indicating that this chirp does not, after all, exist. Their experiment
 is in principle identical with one I performed in 1951, observing
 unsymmetrical resonance curves of piano strings due to nonlinearities
@@ -255,7 +255,8 @@ that cause the pitch to rise with amplitude. But in the optical case no
 asymmetry could be detected. The mere fact of getting the right
 numerical magnitude of $\Delta\omega_{\text{Lamb}}$ cannot be claimed as
 a valid "derivation" of the Lamb shift if we do not get also the
-correct qualitative behavior.$^{17}$
+correct qualitative behavior.[^17]
+
 However, this emphasis on the radiation reaction field did point to what
 now appears as the correct answer. Let us use the radiation reaction
 field, but interpret it as an operator. However, it is an operator not
@@ -263,14 +264,14 @@ on the "Maxwell Hilbert space" of a quantized field, but on the
 "Dirac Hilbert space" of the electrons. This is the "source field"
 approach, which need not be discussed at length here, since it has
 already moved out of the research journals and become textbook material.
-Allen and Eberly$^{21}$ give a unified discussion of the work of
-Series,$^{22}$ Senitzky,$^{23}$ Milonni, Ackerhalt and Smith,$^{24}$
-and
-Fain and Khanin.$^{25}$ When extended from two-level systems to real
+Allen and Eberly[^21] give a unified discussion of the work of
+Series,[^22] Senitzky,[^23] Milonni, Ackerhalt and Smith,[^24]
+and Fain and Khanin.[^25] When extended from two-level systems to real
 systems, it now appears that source fields will give a proper account of
 the Lamb shift, the anomalous moment, and presumably all of the usual
 "electrodynamic" effects. This approach is being carried much further
-in a series of articles by R. K. Bullough and collaborators.$^{26}$
+in a series of articles by R. K. Bullough and collaborators.[^26]
+
 Of course, source-field theory is not in conflict with QED; it is a
 truncated form of QED in which one notices that, with proper ordering of
 the operators at t = 0, the vacuum fluctuations of the quantized EM
@@ -288,7 +289,7 @@ and its vacuum fluctuations.
 ## WHERE ARE THE VACUUM FLUCTUATIONS?
 Why then, was there so much early confidence that vacuum fluctuations
 are "very real things," essential to account for experimental facts?
-Why did calculations like those of Welton$^{11}$ and Power$^{12}$
+Why did calculations like those of Welton[^11] and Power[^12]
 succeed? Part of the answer is well-known, and is discussed at length in
 references 21-25. At time t = 0 the field and current operators commute.
 Whatever order we use, the results of the calculation must be the same,
@@ -317,7 +318,9 @@ $$W_{ZP} = \rho(\omega)\Delta\omega = \frac{1}{\pi^2 c^3} \hbar\omega^3 \Delta\o
 Over what bandwidth $\Delta\omega$ should this be effective in causing
 the atom to radiate? Presumably, over the width of the natural emission
 line, as determined by the Einstein A-coefficient
-$$A = \frac{4\mu^2\omega_o^3}{3\hbar c^3}$$ where $\mu$ is the electric
+$$A = \frac{4\mu^2\omega_o^3}{3\hbar c^3}$$
+
+where $\mu$ is the electric
 dipole moment matrix element for the transition, $\omega_o$ the natural
 line frequency. Exponential decay at this rate, energy $\sim\exp(-At)$,
 leads to the usual Lorentzian spectral density of the radiation:
@@ -332,8 +335,10 @@ $(E_x^2, E_y^2, E_z^2, H_x^2, H_y^2, H_z^2)$, only one of which (say
 $E_z$, the component parallel to the atom's dipole moment) interacts
 with the atom. The energy density in the effective field $E_z$ is then
 $(W_{ZP})_{eff} = (1/6)\rho(\omega)(\pi A/2)$, or
-$$(W_{ZP})_{\text{eff}} = \frac{1}{18\pi} \mu^2 (\frac{\omega}{c})^6 \text{ ergs/cm}^3,$$ 
+$$(W_{ZP})_{\text{eff}} = \frac{1}{18\pi} \mu^2 (\frac{\omega}{c})^6 \text{ ergs/cm}^3,\tag{3}$$
+
 and we note with interest that Planck's constant has cancelled out.
+
 Now in classical electromagnetic theory, radiation from an oscillating
 dipole $\mu(t)$ is not attributed to "zero-point fluctuations" but to
 the radiation reaction field against which the dipole must do work:
@@ -345,15 +350,17 @@ $$W_{RR} = \frac{E_{RR}^2}{8\pi} = \frac{1}{18\pi} \mu^2 (\frac{\omega}{c})^6$$
 But this is identical with (3)! The radiating atom is indeed interacting
 with an EM field of the intensity predicted by the zero-point energy;
 but this is just the atom's own radiation reaction field.
-The fantastic numbers noted before$^{14}$ disappear as soon as we
+
+The fantastic numbers noted before[^14] disappear as soon as we
 realize that, in order to account for spontaneous emission, there is no
 need for this energy density to be present in all space, at all times,
 in all frequency bands. It is produced automatically by the radiating
 atom, but in a more economical way; only the field component that is
 needed, where it is needed, when it is needed, and in the frequency band
 needed.
+
 But are there other phenomena which require zero-point energy throughout
-space? What are we to make of the calculation of E. A. Power$^{12}$
+space? What are we to make of the calculation of E. A. Power[^12]
 obtaining the Lamb shift from the change in total zero-point energy of a
 region due to coupling the field to a hydrogen atom in its 2s state?
 ## LAMB SHIFT IN CLASSICAL MECHANICS
@@ -364,18 +371,26 @@ classical harmonic oscillators $(p_i, q_i)$, the "field oscillators,"
 coupled to one "extra oscillator" $(P,Q)$ via coupling constants
 $\alpha_i$, the total Hamiltonian being
 $$H = \sum_{i=1}^n \frac{1}{2}(p_i^2 + \omega_i^2 q_i^2) + \frac{1}{2}(P^2 + \Omega^2 Q^2) + \sum_{i=1}^n \alpha_i q_i Q$$ 
+
 and define the dispersion function
-$$K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2} = \int_0^\infty K(t)e^{-st} dt, \quad s = i\nu$$ 
+$$K(\nu) = \sum_i \frac{\alpha_i^2}{\omega_i^2 - \nu^2} = \int_0^\infty K(t)e^{-st} dt, \quad s = i\nu$$
 
 If $q_i(0) = \dot{q}_i(0) = 0$, the extra oscillator decays according to
 a Volterra equation:
-$$\ddot{Q} + \Omega^2 Q = \int_0^t K(t-t^\prime)Q(t^\prime)dt^\prime$$ which has the exact
-solution $$Q(t) = Q(0)\dot{G}(t) + \dot{Q}(0)G(t), \quad t > 0$$ with
+$$\ddot{Q} + \Omega^2 Q = \int_0^t K(t-t^\prime)Q(t^\prime)dt^\prime\tag{9}$$
+
+which has the exact solution
+
+$$Q(t) = Q(0)\dot{G}(t) + \dot{Q}(0)G(t), \quad t > 0$$
+
+with
 the Green's function
-$$G(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \frac{e^{i\nu t}d\nu}{\nu^2 - \Omega^2 - K(\nu)}$$ 
+$$G(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \frac{e^{i\nu t}d\nu}{\nu^2 - \Omega^2 - K(\nu)}$$
+
 the integration contour passing below all the poles $\nu_k$, which lie
 only on the real axis [since $\nu^2 + K(\nu)$ cannot be real unless
 $\nu$ is real] and represent the normal mode frequencies.
+
 **Method 1.** In the limit of large mode density,
 $\sum_i (\cdot)_i \rightarrow \int(\cdot)\rho_o(\omega)d\omega$, then on
 the path of integration Im$(\nu) < 0$, $K(\nu)$ goes into
@@ -383,7 +398,8 @@ $$K(\nu) \rightarrow \int_0^\infty \frac{\alpha^2(\omega)\rho_o(\omega)}{\omega^
 
 Supposing $\alpha(\omega)$ a smooth function, and assuming a sharp
 resonance, certain small terms may be neglected; and G(t) goes into
-$$G(t) \rightarrow \exp(-\Gamma t) \frac{\sin(\Omega+\Delta)t}{(\Omega+\Delta)}, \quad t > 0$$ 
+$$G(t) \rightarrow \exp(-\Gamma t) \frac{\sin(\Omega+\Delta)t}{(\Omega+\Delta)}, \quad t > 0\tag{12}$$
+
 where we have defined the "spontaneous emission rate"
 $$\Gamma = \frac{\pi\alpha^2(\Omega)\rho_o(\Omega)}{4\Omega^2}$$ 
 and the "radiative frequency shift"
@@ -396,6 +412,7 @@ Obviously, we have invoked no field "vacuum fluctuations," having
 started with the explicit initial conditions of a quiescent field,
 $q_i = \dot{q}_i = 0$. The damping and shifting are due entirely to the
 source field reacting back on the extra oscillator.
+
 **Method 2:** The mode density $\rho_o(\omega)$ of the free field is
 changed by the added oscillator by a small increment:
 
@@ -424,12 +441,12 @@ Afterward, it is
 $$\int_0^\infty \omega[\rho_o(\omega) + \rho_1(\omega)]d\omega = (\infty)_2$$ 
 which is no better. But then the change in total mode frequency due to
 the coupling is
-$$(\infty)_2 - (\infty)_1 = \int_0^\infty \omega \rho_1(\omega)d\omega - \Omega = \Delta.$$ 
+$$(\infty)_2 - (\infty)_1 = \int_0^\infty \omega \rho_1(\omega)d\omega - \Omega = \Delta.\tag{19}$$
 
 It is an awkward way of asking the question; but it leads to the same
 answer.
 
-Perhaps from this one can understand why Power$^{12}$ and Mahanty$^{19}$
+Perhaps from this one can understand why Power[^12] and Mahanty[^19]
 were able to calculate the Lamb shift from the total change in the
 (infinite) zero-point energy, without any need for the zero-point energy
 to be physically real. In fact, they calculated the total change in all
@@ -461,54 +478,54 @@ Electrodynamics of the future can be considerably simpler than QED, for
 source field theory can be re-cast in a mathematical form appropriate to
 its own nature; and not dictated by Ancient History.
 ## REFERENCES
-1. A. Einstein, as quoted by W. Pauli, *Aufsätze und Vorträge über Physik
-und Erkenntnistheorie*, Fr. Vieweg u. Sohn, Braunschweig (1961); p. 88.
-2. E. P. Wigner, *Symmetries and Reflections*, Indiana Univ. Press,
-Bloomington (1967); p. 46.
-3. J. Schwinger, *Stanford Lectures on Quantum Field Theory*, Stanford
-Research Institute (1957); also *Quantum Electrodynamics*, Dover
-Publications, Inc. N. Y. (1958); p. xv.
-4. R. P. Feynman, in *The Quantum Theory of Fields*, Interscience Pub.,
-Inc., N. Y. 1961).
-5. V. F. Weisskopf, Rev. Mod. Phys. **21**, 305 (1949); see also *Physics
-in the Twentieth Century*, M.I.T. Press, Cambridge, Mass. (1972); pp.
-97-111 and 120-129.
-6. A. S. Wightman, "Introduction to Some Aspects of the Relativistic
-Dynamics of Quantized Fields," French Summer School of Theoretical
-Physics, Cargèse, Corsica (July, 1964).
-7. P. A. M. Dirac, *Lectures on Quantum Field Theory*, Belfer Graduate
-School of Science, Yeshiva Univ., New York (1966).
-8. P. A. M. Dirac, Proc. Roy. Soc. London **A114**, 243 (1927).
-9. J. Schwinger, Phys. Rev. **74**, 1439 (1948); **75**, 651 (1949).
-10. F. J. Dyson, Scientific American (April, 1953).
-11. T. A. Welton, Phys. Rev. **74**, 1157 (1948).
-12. E. A. Power, Am. Jour. Phys. **34**, 516 (1966).
-13. H. A. Bethe, Phys. Rev. **72**, 339 (1947).
-14. E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E.
-Wolf, Editors, Plenum Press, New York (1973); pp. 35-81.
-15. H. Hertz, *Die Prinzipien der Mechanik*, Leipzig (1894).
-16. Feature article in Physics Today (Aug., 1965); p. 41).
-17. D. L. MacAdam, J.O.S.A. **56**, 1148 (1966). Following the present
-paper, Professor Lamb awarded the prize to Franken. Had we realized that
-the numerical magnitude in NCT would be considered all-important, and
-the qualitative nature of the phenomenon unimportant, a different
-outcome could easily have been arranged.
-18. M. D. Crisp, Phys. Rev. **179**, 1253 (1969).
-19. J. Mahanty, Il Nuovo Cimento **22B**, No. 1, 110 (1974).
-20. M. Citron, H. Gray, C. Gabel, and C. Stroud, "Experimental Study of
-Power Broadening in a Two-Level Atom," Phys. Rev. (to be published).
-21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
-Wiley & Sons, New York (1975); Chap. 7.
-22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
-Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
-Damping and Level Shifts without Field Quantization," (unpublished,
-1975).
-23. I. R. Senitzky, Phys. Rev. Lett. **31**, 954 (1973).
-24. Milonni, Ackerhalt, and Smith, Phys. Rev. Lett. **31**, 958 (1973).
-25. V. M. Fain and Ya. I. Khanin, in *Quantum Electronics*, MIT Press
-(1969).
-26. R. K. Bullough, et al., J. Phys. A., **7**, 1647 (1974); **8**, 759
-(1975): J. Phys. B **8**, L147 (1975).
+[^1]: A. Einstein, as quoted by W. Pauli, *Aufsätze und Vorträge über Physik
+    und Erkenntnistheorie*, Fr. Vieweg u. Sohn, Braunschweig (1961); p. 88.
+[^2]: E. P. Wigner, *Symmetries and Reflections*, Indiana Univ. Press,
+    Bloomington (1967); p. 46.
+[^3]: J. Schwinger, *Stanford Lectures on Quantum Field Theory*, Stanford
+    Research Institute (1957); also *Quantum Electrodynamics*, Dover
+    Publications, Inc. N. Y. (1958); p. xv.
+[^4]: R. P. Feynman, in *The Quantum Theory of Fields*, Interscience Pub.,
+    Inc., N. Y. 1961).
+[^5]: V. F. Weisskopf, Rev. Mod. Phys. **21**, 305 (1949); see also *Physics
+    in the Twentieth Century*, M.I.T. Press, Cambridge, Mass. (1972); pp.
+    97-111 and 120-129.
+[^6]: A. S. Wightman, "Introduction to Some Aspects of the Relativistic
+    Dynamics of Quantized Fields," French Summer School of Theoretical
+    Physics, Cargèse, Corsica (July, 1964).
+[^7]: P. A. M. Dirac, *Lectures on Quantum Field Theory*, Belfer Graduate
+    School of Science, Yeshiva Univ., New York (1966).
+[^8]: P. A. M. Dirac, Proc. Roy. Soc. London **A114**, 243 (1927).
+[^9]: J. Schwinger, Phys. Rev. **74**, 1439 (1948); **75**, 651 (1949).
+[^10]: F. J. Dyson, Scientific American (April, 1953).
+[^11]: T. A. Welton, Phys. Rev. **74**, 1157 (1948).
+[^12]: E. A. Power, Am. Jour. Phys. **34**, 516 (1966).
+[^13]: H. A. Bethe, Phys. Rev. **72**, 339 (1947).
+[^14]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E.
+    Wolf, Editors, Plenum Press, New York (1973); pp. 35-81.
+[^15]: H. Hertz, *Die Prinzipien der Mechanik*, Leipzig (1894).
+[^16]: Feature article in Physics Today (Aug., 1965); p. 41).
+[^17]: D. L. MacAdam, J.O.S.A. **56**, 1148 (1966). Following the present
+    paper, Professor Lamb awarded the prize to Franken. Had we realized that
+    the numerical magnitude in NCT would be considered all-important, and
+    the qualitative nature of the phenomenon unimportant, a different
+    outcome could easily have been arranged.
+[^18]: M. D. Crisp, Phys. Rev. **179**, 1253 (1969).
+[^19]: J. Mahanty, Il Nuovo Cimento **22B**, No. 1, 110 (1974).
+[^20]: M. Citron, H. Gray, C. Gabel, and C. Stroud, "Experimental Study of
+    Power Broadening in a Two-Level Atom," Phys. Rev. (to be published).
+[^21]: L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+    Wiley & Sons, New York (1975); Chap. 7.
+[^22]: G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+    Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+    Damping and Level Shifts without Field Quantization," (unpublished,
+    1975).
+[^23]: I. R. Senitzky, Phys. Rev. Lett. **31**, 954 (1973).
+[^24]: Milonni, Ackerhalt, and Smith, Phys. Rev. Lett. **31**, 958 (1973).
+[^25]: V. M. Fain and Ya. I. Khanin, in *Quantum Electronics*, MIT Press
+    (1969).
+[^26]: R. K. Bullough, et al., J. Phys. A., **7**, 1647 (1974); **8**, 759
+    (1975): J. Phys. B **8**, L147 (1975).
 ## ADDENDUM: POST MORTEM ON THE BET
 This note is added because the final moments of Peter Franken's little
 circus act were complicated, and several eyewitnesses came away with
@@ -520,22 +537,23 @@ verdict, provided this could have been clear and unequivocal. What is
 important now is to understand the technical situation as it emerges
 from this. Those who came away confused about the facts had plenty of
 company. Briefly, the present situation is this:
+
 1. NCT did fail to predict the facts for the Lamb shift, as we now
 believe them to be. Professor Lamb's verdict was therefore entirely
 proper and just according to the conditions of the bet.
 
 2. However, the failure of NCT lay not in the numerical value of the
 shift, but in the qualitative matter of the "dynamical Lamb shift"
-chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+chirp. At the 1972 meeting[^14] I stressed the importance of obtaining
 experimental evidence about this, because a dozen theoretical decisions,
 and the interpretation of several other experiments, all hung on the
-issue whether this chirp does or does not exist. The Citron$^{20}$
+issue whether this chirp does or does not exist. The Citron[^20]
 experiment now seems to show that it does not.
 
 3. The implications of this for the Lamb shift are the following. NCT
 will still agree with existing experiments, which measure only the
 stimulating frequency needed to initiate a transition starting from 
-a metastable S state.$^{18}$ But if the Lamb shift could be measured
+a metastable S state.[^18] But if the Lamb shift could be measured
 starting from a P state, it now appears that NCT would predict not the
 wrong magnitude, but the wrong sign, of the shift. It is for this reason
 that I stated in my presentation, "we are not entitled to claim
@@ -597,7 +615,7 @@ to observe!
 
 7. Finally, it should be noted that there was considerable
 uncertainty in all our minds as to just what the real issue of the bet
-had been, the only written record being that of MacAdam.$^{17}$ Two
+had been, the only written record being that of MacAdam.[^17] Two
 quite different issues are: (1) whether QED and vacuum fluctuations are
 necessary; and (2) whether NCT is adequate, to account for the Lamb
 shift. In fact, it was issue (1) that I stressed in my 1966 talk, just
@@ -630,8 +648,8 @@ with the result on qualitative physical grounds. In June 1976 I sent
 Lamb and Franken a long but not complete calculation, which addressed
 itself precisely to determining that resonance condition via Mahanty's
 contour integral representation of Eq. (19), and nearly made contact
-with the already published calculations of Power$^{12}$ and
-Mahanty.$^{19}$ Admittedly the manuscript, being unfinished for reasons
+with the already published calculations of Power[^12] and
+Mahanty.[^19] Admittedly the manuscript, being unfinished for reasons
 that have nothing to do with the scientific issue, failed to refer to
 Power and Mahanty, and I promised to send the rest of it presently.
 However, the manuscript has never been finished, because evidence for
@@ -646,5 +664,5 @@ effortlessly--even on issue (2)--five years ago, and saved us all a
 great deal of trouble. Nevertheless, I am glad that did not happen,
 because then we probably would not have the Citron experiment today, and
 a great deal more has been learned (still unpublished) about these
-matters since my 1972 report.$^{14}$ We are closer to the real truth
+matters since my 1972 report.[^14] We are closer to the real truth
 about electrodynamics for the way events have turned out.

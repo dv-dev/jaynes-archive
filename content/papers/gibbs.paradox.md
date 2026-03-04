@@ -115,11 +115,17 @@ temperature, pressure and total energy remaining unchanged.
 
 If the gases are different, the entropy change due to the diffusion is,
 by standard thermodynamics,
+
 $$\Delta S = S_{final} - S_{initial} = nR \log V - (n_1 R \log V_1 + n_2 R \log V_2)$$
-or, $$\Delta S = -nR [f \log f + (1-f) \log(1-f)]$$ where
+
+or,
+
+$$\Delta S = -nR [f \log f + (1-f) \log(1-f)] \tag{1}$$
+
+where
 $f=n_1/n = V_1/V$ is the mole fraction of component 1. Gibbs \[his Eq.
 (297)\] considers particularly the case $f=1/2$, whereupon
-$$\Delta S = nR \log 2.$$
+$$\Delta S = nR \log 2. \tag{297}$$
 
 What strikes Gibbs at once is that this is independent of the nature of
 the gases, "... except that the gases which are mixed must be of
@@ -345,7 +351,10 @@ phenomenology, true "almost always" simply from considerations of phase
 volume. Two thermodynamic states of slightly different entropy
 $S_1 - S_2 = 10^{-6}/393$ cal/deg, corresponding to one microcalorie at
 room temperature, exhibit a phase volume ratio
-$$W_1/W_2 = \exp[(S_1-S_2)/k] = \exp[10^{16}].$$ Macrostates of higher
+
+$$W_1/W_2 = \exp[(S_1-S_2)/k] = \exp[10^{16}] \tag{2}$$
+
+Macrostates of higher
 entropy are sometimes said to 'occupy' overwhelmingly greater phase
 volumes; put more accurately, macrostates of higher entropy may be
 *realized* by an overwhelmingly greater number, or range, of
@@ -408,13 +417,18 @@ identical in every detail, down to the precise path of each atom, with
 one that could have happened by rare chance before the discovery of
 Whifnium; but because of our greater knowledge we shall now ascribe to
 that diffusion an entropy increase $\Delta S$ given by Eq (1), which we
-write as: $$
-\Delta S = \Delta S_1 + \Delta S_2
+write as:
+
 $$
-where $$
+\Delta S = \Delta S_1 + \Delta S_2 \tag{3}
+$$
+
+where
+
+$$
 \begin{aligned}
-\Delta S_1 &= -nRf \log f \\
-\Delta S_2 &= -nR(1-f) \log(1-f)
+\Delta S_1 &= -nRf \log f \tag{4a} \\
+\Delta S_2 &= -nR(1-f) \log(1-f) \tag{4b}
 \end{aligned}
 $$
 
@@ -589,7 +603,8 @@ Consider now the phenomenological theory. The Clausius definition of
 entropy determines the difference of entropy of two thermodynamic states
 of a closed system (no particles enter or leave) that can be connected
 by a reversible path:
-$$S_2 - S_1 = \int_1^2 \frac{dQ}{T}$$
+
+$$S_2 - S_1 = \int_1^2 \frac{dQ}{T} \tag{7}$$
 
 Many are
 surprised when we claim that this is not necessarily extensive; the
@@ -608,12 +623,18 @@ constant. From this all elementary textbooks find, using the
 thermodynamic relations
 $(\partial S/\partial V)_T = (\partial P/\partial T)_V$ and
 $T(\partial S/\partial T)_V = C_v$:
-$$S(T_2, V_2, N) - S(T_1, V_1, N) = \int_1^2 \left[ \left( \frac{\partial S}{\partial V} \right)_T dV + \left( \frac{\partial S}{\partial T} \right)_V dT \right]$$
-$$= Nk \log \frac{V_2}{V_1} + \frac{3}{2} Nk \log \frac{T_2}{T_1}$$
+
+$$
+\begin{aligned}
+S(T_2, V_2, N) - S(T_1, V_1, N) &= \int_1^2 \left[ \left( \frac{\partial S}{\partial V} \right)_T dV + \left( \frac{\partial S}{\partial T} \right)_V dT \right] \\
+&= Nk \log \frac{V_2}{V_1} + \frac{3}{2} Nk \log \frac{T_2}{T_1}
+\end{aligned}
+\tag{8}
+$$
 
 It
 is evident that this is satisfied by any entropy function of the form
-$$S(T, V, N) = k \left[ N \log V + \frac{3}{2} N \log T \right] + kf(N)$$
+$$S(T, V, N) = k \left[ N \log V + \frac{3}{2} N \log T \right] + kf(N) \tag{9}$$
 where $f(N)$ is not an arbitrary constant, but an arbitrary function. The
 point is that in the reversible path (7) we varied only $T$ and $V$;
 consequently the definition (7) determines only the dependence of $S$ on
@@ -625,30 +646,33 @@ Pauli[^pauli-1973] noticed this incompleteness of (7) and saw that if we wish
 entropy to be extensive, then that is logically an additional condition, that
 we must impose separately. The extra condition is that entropy
 should satisfy the scaling law
-$$S(T, qV, qN) = qS(T,V,N), \quad 0 < q < \infty$$
+$$S(T, qV, qN) = qS(T,V,N), \quad 0 < q < \infty \tag{10}$$
 
 Then, substituting (9) into (10), we find that $f(N)$ must satisfy the
 functional equation
-$$f(qN) = qf(N) - qN \log q$$
+$$f(qN) = qf(N) - qN \log q \tag{11}$$
 
 Differentiating with respect to $q$ and setting $q=1$ yields a differential
 equation $N f^\prime(N) = f(N) - N$, whose general solution is
-$$f(N) = N f(1) - N \log N.$$
-\[alternatively, just set $N=1$ in (11) and we see the general solution\]. Thus the most
+$$f(N) = N f(1) - N \log N. \tag{12}$$
+(alternatively, just set $N=1$ in (11) and we see the general solution). Thus the most
 general extensive entropy function for this gas has the form
-$$S(T, V, N) = Nk \left[ \log \frac{V}{N} + \frac{3}{2} \log T + f(1) \right].$$
+$$S(T, V, N) = Nk \left[ \log \frac{V}{N} + \frac{3}{2} \log T + f(1) \right]. \tag{13}$$
 
 It contains one arbitrary constant, $f(1)$, which is essentially the
 chemical constant. This is not determined by either the Clausius
 definition (7) or the condition of extensivity (10); however, one more
 fact about it can be inferred from (13). Writing
 $f(1) = \log(Ck^{3/2})$, we have
-$$S(T, V, N) = Nk \log \left[ \frac{C V (kT)^{3/2}}{N} \right].$$ The
+
+$$S(T, V, N) = Nk \log \left[ \frac{C V (kT)^{3/2}}{N} \right]. \tag{14}$$
+
+The
 quantity in the square brackets must be dimensionless, so $C$ must have
 the physical dimensions of (volume)$^{-1}$(energy)$^{-3/2}$ =
 (mass)$^{-3/2}$(action)$^{-3}$. Thus on dimensional grounds we can
 rewrite (13) as
-$$S(T,V,N) = Nk \left\{\log \frac{V}{N} + \frac{3}{2} \log \left[ \frac{mkT}{c^2} \right] \right\}$$
+$$S(T,V,N) = Nk \left\{\log \frac{V}{N} + \frac{3}{2} \log \left[ \frac{mkT}{c^2} \right] \right\} \tag{15}$$
 where $m$ is the molecular mass and $c$ is an undetermined quantity of
 the dimensions of action. It might appear that this is the limit of what
 can be said about the entropy function from phenomenological
@@ -899,7 +923,7 @@ The trouble is again that in (SM.114) we are varying only $\epsilon$ and
 the $a_i$; consequently it determines only how $\sigma$ varies with
 $\epsilon$ and the $a_i$. As in (9), from Gibbs' (SM.114) we can infer
 only that the correct statistical analog of entropy must have the form
-$$\sigma = -\bar{\eta} + g(N),$$
+$$\sigma = -\bar{\eta} + g(N), \tag{16}$$
 where $N=n/3$ denotes as before the
 number of particles. Again, the "constant of integration" is not an
 arbitrary constant, but an arbitrary function $g(N)$. Clearly, no
@@ -950,23 +974,23 @@ is easily corrected, in a way exactly parallel to that indicated by
 Pauli. In the classical case, considering a gas defined by the
 thermodynamic variables $A_1 = p$ = pressure, $a_1 = V$ = volume, Gibbs'
 statistical analog equation (SM.114) may be written
-$$d\bar{\epsilon} = - \Theta d\bar{\eta} - \bar{p}dV$$
+$$d\bar{\epsilon} = - \Theta d\bar{\eta} - \bar{p}dV \tag{17}$$
 
 The statistical
 analog of entropy must have the form (16); and if we want it to be
 extensive, it must also satisfy the scaling law (10). Now from the
 canonical ensemble for an ideal gas, with phase space probability
 density
-$$P = \frac{1}{(2\pi m \Theta)^{3N/2} V^N} \exp \left[ - \sum \frac{p_i^2}{2m\Theta} \right]$$
+$$P = \frac{1}{(2\pi m \Theta)^{3N/2} V^N} \exp \left[ - \sum \frac{p_i^2}{2m\Theta} \right] \tag{18}$$
 (which we note is dimensionally correct and normalized, although it does
 not contain Planck's constant), we have from the dimensionally corrected
 (SM.90),
-$$-\bar{\eta} = N \log V + \frac{3N}{2} [\log(2\pi m \Theta) + 1] - 3N \log \xi$$
+$$-\bar{\eta} = N \log V + \frac{3N}{2} [\log(2\pi m \Theta) + 1] - 3N \log \xi \tag{19}$$
 
 Then, substituting (19) and (16) into (10), we find that $g(N)$ must
 satisfy the same functional equation (11), with the same solution (13).
 The Gibbs statistical analog of entropy (16) is now
-$$\sigma = N \left[ \log \frac{V}{N} + \frac{3}{2} \log \frac{2\pi m \Theta}{\xi^2} + \frac{3}{2} + g(1) \right]$$
+$$\sigma = N \left[ \log \frac{V}{N} + \frac{3}{2} \log \frac{2\pi m \Theta}{\xi^2} + \frac{3}{2} + g(1) \right] \tag{20}$$
 
 The extensive property (9) now holds, and the constants $g(1)$ and $\xi$
 combine to form essentially the chemical constant. This is not

@@ -124,7 +124,7 @@ The quantity $x$ is capable of assuming the discrete values $x_i$
 $p_i$; all we know is the expectation
 value of the function $f(x)$:
 $$
-\langle f(x) \rangle = \sum_{i=1}^n p_i f(x_i).
+\langle f(x) \rangle = \sum_{i=1}^n p_i f(x_i). \tag{2-1}
 $$
 
  On the basis of this
@@ -133,7 +133,7 @@ first glance, the problem seems insoluble because the given information
 is insufficient to determine the probabilities $p_i$. Equation (2-1) and
 the normalization condition 
 $$
-\sum p_i = 1
+\sum p_i = 1 \tag{2-2}
 $$
  would have to be
 supplemented by ($n-2$) more conditions before $\langle g(x) \rangle$
@@ -205,7 +205,7 @@ reasonable.[^4] In Appendix A we sketch Shannon's proof that the quantity
 which is positive, which increases with increasing uncertainty, and is
 additive for independent sources of uncertainty, is
 $$
-H(p_1, \dots, p_n) = -K \sum_i p_i \ln p_i,
+H(p_1, \dots, p_n) = -K \sum_i p_i \ln p_i, \tag{2-3}
 $$
  where K is a positive
 constant. Since this is just the expression for entropy as found in
@@ -249,16 +249,16 @@ $$
  form the
 partition function
 $$
-Z(\lambda_1, \dots, \lambda_m) = \sum_i \exp \{-[\lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)]\}.
+Z(\lambda_1, \dots, \lambda_m) = \sum_i \exp \{-[\lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)]\}. \tag{2-9}
 $$
 
 Then the maximum-entropy probability distribution is given by
 $$
-p_i = \exp \{-[\lambda_0 + \lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)]\},
+p_i = \exp \{-[\lambda_0 + \lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)]\}, \tag{2-10}
 $$
 in which the constants are determined from
 $$
-\langle f_r(x) \rangle = -\frac{\partial}{\partial \lambda_r} \ln Z,
+\langle f_r(x) \rangle = -\frac{\partial}{\partial \lambda_r} \ln Z, \tag{2-11}
 $$
 $$
 \lambda_0 = \ln Z.
@@ -267,7 +267,7 @@ $$
  The entropy of the distribution (2-10) then
 reduces to
 $$
-S_{max} = \lambda_0 + \lambda_1 \langle f_1(x) \rangle + \dots + \lambda_m \langle f_m(x) \rangle,
+S_{max} = \lambda_0 + \lambda_1 \langle f_1(x) \rangle + \dots + \lambda_m \langle f_m(x) \rangle, \tag{2-13}
 $$
 where the constant $K$ in (2-3) has been set equal to unity. The
 variance of the distribution of $f_r(x)$ is found to be
@@ -279,7 +279,7 @@ In addition to its dependence on $x$, the function $f_r$ may contain
 other parameters $\alpha_1, \alpha_2, \dots$, and it is easily shown
 that the maximum-entropy estimates of the derivatives are given by
 $$
-\left\langle \frac{\partial f_r}{\partial \alpha_k} \right\rangle = -\frac{1}{\lambda_r} \frac{\partial}{\partial \alpha_k} \ln Z.
+\left\langle \frac{\partial f_r}{\partial \alpha_k} \right\rangle = -\frac{1}{\lambda_r} \frac{\partial}{\partial \alpha_k} \ln Z. \tag{2-15}
 $$
 
 The principle of maximum entropy may be regarded as an extension of the
@@ -331,19 +331,17 @@ average energy $\langle E \rangle$, the maximum-entropy probabilities of
 the levels $E_i$ are given by a special case of (2-10), which we
 recognize as the Boltzmann distribution. This observation really
 completes our derivation
-^12^R. A. Fisher, Proc. Cambridge Phil. Soc. 22, 700 (1925).
-^13^J. L. Doob, Trans. Am. Math. Soc. 39, 410 (1936).
 of the conventional rules of statistical mechanics as an example of
 statistical inference; the identification of temperature, free energy,
 etc., proceeds in a familiar manner,[^14] with results summarized as
 $$
-\lambda_1 = (1/kT),
+\lambda_1 = (1/kT), \tag{3-2}
 $$
 $$
-U-TS = F(T, \alpha_1, \alpha_2, \dots) = -kT \ln Z(T, \alpha_1, \alpha_2, \dots),
+U-TS = F(T, \alpha_1, \alpha_2, \dots) = -kT \ln Z(T, \alpha_1, \alpha_2, \dots), \tag{3-3}
 $$
 $$
-S = -\frac{\partial F}{\partial T} = -k \sum_i p_i \ln p_i,
+S = -\frac{\partial F}{\partial T} = -k \sum_i p_i \ln p_i, \tag{3-4}
 $$
 $$
 \beta_i = kT \frac{\partial}{\partial \alpha_i} \ln Z.
@@ -387,7 +385,7 @@ $$
 $$
  where the
 free-energy function $F = -kT \lambda_0$, and $\lambda_0 = \ln Z$ is
-called the "grand potential."^16^ Writing out (2-13) for this case and
+called the "grand potential."[^16] Writing out (2-13) for this case and
 rearranging, we have the usual expression
 $$
 F(T, \alpha_1, \alpha_2 \dots, \mu_1, \mu_2 \dots) = \langle E \rangle - TS + \mu_1 \langle n_1 \rangle + \mu_2 \langle n_2 \rangle + \dots.
@@ -430,21 +428,6 @@ quite independently of whether physical systems are in fact ergodic.
 This shows the great practical convenience of the subjective point of
 view. If we were attempting to establish the probabilities of different
 states in the
-^14^E. Schrödinger, *Statistical Thermodynamics* (Cambridge University
-Press, Cambridge, 1948).
-^15^Boltzmann's constant may be regarded as a correction factor
-necessitated by our custom of measuring temperature in arbitrary units
-derived from the freezing and boiling points of water. Since the product
-TS must have the dimensions of energy, the units in which entropy is
-measured depend on those chosen for temperature. It would be convenient
-in general arguments to define an "absolute cgs unit" of temperature
-such that Boltzmann's constant is made equal to unity. Then entropy
-would become dimensionless (as the considerations of Sec. 2 indicate it
-should be), and the temperature would be equal to twice the average
-energy per degree of freedom; it is, of course, just the "modulus"
-$\Theta$ of Gibbs.
-^16^D. ter Haar, *Elements of Statistical Mechanics* (Rinehart and
-Company, New York, 1954), Chap. 7.
 objective sense, questions of metric transitivity would be crucial, and
 unless it could be shown that the system was metrically transitive, we
 would not be able to find any solution at all. If we are content with
@@ -502,7 +485,7 @@ $$
 $$
  where, from (3-9), we have
 $$
-\rho(x) = x^n/\epsilon.
+\rho(x) = x^n/\epsilon. \tag{3-9}
 $$
 
  This approximation is not at all essential,
@@ -521,7 +504,7 @@ $$
 
 Then we find, for the maximum-entropy estimate of $x^2$,
 $$
-\langle x^2 \rangle_{\{\langle x \rangle\}} = Z^{-1} \int_0^\infty x^2 \rho(x) e^{-\lambda x} dx = \frac{n+2}{n+1} \langle x \rangle^2.
+\langle x^2 \rangle_{\{\langle x \rangle\}} = Z^{-1} \int_0^\infty x^2 \rho(x) e^{-\lambda x} dx = \frac{n+2}{n+1} \langle x \rangle^2. \tag{3-10}
 $$
 
 Next we invert the problem: (B) Given $\langle x^2 \rangle$, estimate
@@ -533,7 +516,7 @@ $$
 \langle x^2 \rangle = -\frac{\partial}{\partial \lambda} \ln Z = \frac{n+1}{2\lambda},
 $$
 $$
-\langle x \rangle_{\{\langle x^2 \rangle\}} = Z^{-1} \int_0^\infty x \rho(x) \exp(-\lambda x^2) dx = \left( \frac{n+1}{2} \frac{(\frac{1}{2}n)!}{[(\frac{1}{2}(n+1))]!} \right) \langle x^2 \rangle^{\frac{1}{2}}.
+\langle x \rangle_{\{\langle x^2 \rangle\}} = Z^{-1} \int_0^\infty x \rho(x) \exp(-\lambda x^2) dx = \left( \frac{n+1}{2} \frac{(\frac{1}{2}n)!}{[(\frac{1}{2}(n+1))]!} \right) \langle x^2 \rangle^{\frac{1}{2}}. \tag{3-11}
 $$
 
 The solutions are plotted in Fig. 1 for the case $n=1$. The upper
@@ -734,7 +717,7 @@ quantity "statistically conjugate" to $f_k$, and use the terms
 "heat" and "temperature" only in their conventional sense. Up to
 this point, the theory is completely symmetrical with respect to all
 quantities $f_k$.
-^17^D. Bohm and W. Schützer, Nuovo cimento, Suppl. II, 1004 (1955).
+
 In all the foregoing discussions, the idea has been implicit that the
 $\langle f_k \rangle$ on which we base our probability distributions
 represent the results of measurements of various quantities. If the
@@ -845,10 +828,6 @@ unbiased representation of our knowledge of the state of a system is
 obtained by the same mathematical procedure whether the available
 information consists of a measurement of $\langle f_k \rangle$ or its
 statistically conjugate quantity $\lambda_k$.
-^18^This argument admittedly lacks rigor, which can be supplied only by
-consideration of phase coherence properties between the various states
-by means of the density matrix formalism. This, however, leads to the
-result given.
 
 We now give two elementary examples of the treatment of problems using
 this generalized form of statistical mechanics.
@@ -880,7 +859,7 @@ $$
 $$
 
  This is the
-distribution of the "pressure ensemble" of Lewis and Siegert.^19^
+distribution of the "pressure ensemble" of Lewis and Siegert.[^19]
 *A nuclear polarization effect*.---Consider a macroscopic system which
 consists of $\sigma_1$ (a nucleus with spin $I$), and $\sigma_2$ (the
 rest of the system). The nuclear spin is very loosely coupled to its
@@ -896,7 +875,7 @@ Let $m_2$ be the angular momentum quantum number of $\sigma_2$, and
 denote by $n$ all other quantum numbers necessary to specify a state of
 $\sigma_2$. Then we form the partition function
 $$
-Z_2(\beta, \lambda) = \sum_{n,m_2} \exp[-\beta E_2(n, m_2) - \lambda m_2],
+Z_2(\beta, \lambda) = \sum_{n,m_2} \exp[-\beta E_2(n, m_2) - \lambda m_2], \tag{5-12}
 $$
 where $\beta=1/kT$, and $\lambda$ is determined by
 $$
@@ -925,7 +904,7 @@ $$
 angular velocity $\omega$ is small, (5-12) may be approximated by a
 power series in $\lambda$:
 $$
-Z_2(\beta, \lambda) = Z_2(\beta, 0)[1-\lambda \langle m_2 \rangle_0 + \frac{1}{2}\lambda^2 \langle m_2^2 \rangle_0 + \dots],
+Z_2(\beta, \lambda) = Z_2(\beta, 0)[1-\lambda \langle m_2 \rangle_0 + \frac{1}{2}\lambda^2 \langle m_2^2 \rangle_0 + \dots], \tag{5-13}
 $$
 where $\langle \cdot \rangle_0$ stands for an expectation value in the
 nonrotating state. In the absence of a magnetic field
@@ -966,7 +945,6 @@ we can derive the usual relations in a very elementary way without any
 consideration of ensembles or appeal to the usual arguments concerning
 ergodicity or equal *a priori* probabilities. The principles and
 mathematical methods of statistical mechanics are seen to be of much
-[^19]M. B. Lewis and A. J. F. Siegert, Phys. Rev. 101, 1227 (1956).
 more general applicability than conventional arguments would lead one to
 suppose. In the problem of prediction, the maximization of entropy is
 not an application of a law of physics, but merely a method of reasoning
@@ -1003,7 +981,7 @@ information measure is to be consistent, we must obtain the same
 ultimate uncertainty no matter how the choices were broken down in this
 way. Thus, we must have
 $$
-H(p_1, \dots, p_n) = H(w_1, \dots, w_r) + w_1 H(p_1/w_1, \dots, p_k/w_1) + w_2 H(p_{k+1}/w_2, \dots, p_{k+m}/w_2) + \dots.
+H(p_1, \dots, p_n) = H(w_1, \dots, w_r) + w_1 H(p_1/w_1, \dots, p_k/w_1) + w_2 H(p_{k+1}/w_2, \dots, p_{k+m}/w_2) + \dots. \tag{A-1}
 $$
 
 The weighting factor $w_1$ appears in the second term because the
@@ -1033,23 +1011,23 @@ $$
 
 In general, it could be written
 $$
-H(p_1, \dots, p_n) + \sum_i p_i A(n_i) = A(\sum_i n_i).
+H(p_1, \dots, p_n) + \sum_i p_i A(n_i) = A(\sum_i n_i). \tag{A-2}
 $$
 
  In
 particular, we could choose all $n_i$ equal to $m$, whereupon (A-2)
 reduces to 
 $$
-A(m)+A(n) = A(mn).
+A(m)+A(n) = A(mn). \tag{A-3}
 $$
 
  Evidently this is solved by setting
 $$
-A(n) = K \ln n,
+A(n) = K \ln n, \tag{A-4}
 $$
  where, by condition (2), $K>0$. For a proof that
 (A-4) is the only solution of (A-3), we refer the reader to Shannon's
-paper.^4^ Substituting (A-4) into (A-2), we have the desired result,
+paper.[^4] Substituting (A-4) into (A-2), we have the desired result,
 $$
 H(p_1, \dots, p_n) = K \ln(\sum n_i) - K \sum p_i \ln n_i = -K \sum_i p_i \ln p_i.
 $$
@@ -1091,3 +1069,42 @@ $$
 
 [^7]: For several examples, see E. P. Northrop, *Riddles in Mathematics*
     (D. Van Nostrand Company, Inc., New York, 1944), Chap. 8.
+
+[^8]: Citation not available in source transcription.
+
+[^9]: Citation not available in source transcription.
+
+[^10]: Citation not available in source transcription.
+
+[^11]: Citation not available in source transcription.
+
+[^12]: R. A. Fisher, Proc. Cambridge Phil. Soc. 22, 700 (1925).
+
+[^13]: J. L. Doob, Trans. Am. Math. Soc. 39, 410 (1936).
+
+[^14]: E. Schrödinger, *Statistical Thermodynamics* (Cambridge University
+    Press, Cambridge, 1948).
+
+[^15]: Boltzmann's constant may be regarded as a correction factor
+    necessitated by our custom of measuring temperature in arbitrary
+    units derived from the freezing and boiling points of water. Since
+    the product TS must have the dimensions of energy, the units in
+    which entropy is measured depend on those chosen for temperature. It
+    would be convenient in general arguments to define an "absolute cgs
+    unit" of temperature such that Boltzmann's constant is made equal to
+    unity. Then entropy would become dimensionless (as the
+    considerations of Sec. 2 indicate it should be), and the temperature
+    would be equal to twice the average energy per degree of freedom; it
+    is, of course, just the "modulus" $\Theta$ of Gibbs.
+
+[^16]: D. ter Haar, *Elements of Statistical Mechanics* (Rinehart and
+    Company, New York, 1954), Chap. 7.
+
+[^17]: D. Bohm and W. Schützer, Nuovo cimento, Suppl. II, 1004 (1955).
+
+[^18]: This argument admittedly lacks rigor, which can be supplied only
+    by consideration of phase coherence properties between the various
+    states by means of the density matrix formalism. This, however,
+    leads to the result given.
+
+[^19]: M. B. Lewis and A. J. F. Siegert, Phys. Rev. 101, 1227 (1956).

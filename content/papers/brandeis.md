@@ -28,6 +28,7 @@ $\rho(0)$, should we use? Evidently, we shall want it to satisfy, at the
 very least, 
 $$
 \text{Tr} (\rho(0)M_{op}) = M(0)
+\tag{1}
 $$
  where $M_{op}$ is the
 operator corresponding to total magnetic moment. But Eq. (1) is very far
@@ -87,9 +88,11 @@ assigning the probabilities $P_n$; so let us think about it a little. We
 must, evidently, choose the $P_n$ such that 
 $$
 \sum_{n=1}^{6} P_n = 1
+\tag{2}
 $$
 $$
 \sum_{n=1}^{6} n P_n = 4.5
+\tag{3}
 $$
  where (3) is analogous to (1). A possible
 solution of (2) and (3) is indicated in Fig. 1; we could take
@@ -166,6 +169,7 @@ uncertainty" in a probability distribution. This is, of course, the
 expression 
 $$
 S_I = -\sum_i p_i \log p_i
+\tag{4}
 $$
  which, for some distributions
 and in some physical situations, has long been recognized as
@@ -186,13 +190,16 @@ to find the probability assignment $p_i = p(x_i)$ which satisfies the
 given data: $p_i \ge 0$, 
 $$
 \sum_{i=1}^n p_i = 1
+\tag{5}
 $$
 $$
 \sum_{i=1}^n p_i f_k(x_i) = \langle f_k(x) \rangle = F_k \quad k = 1, 2, \dots, m
+\tag{6}
 $$
 and, subject to (5) and (6), maximizes the information theory entropy
 $$
 S_I = -\sum_{i=1}^n p_i \log p_i
+\tag{7}
 $$
 
 The solution to this mathematical problem can be found immediately by
@@ -206,6 +213,7 @@ probability distributions over the $x_i$; i.e., $p_i \ge 0$,
 $u_i \ge 0$, $i = 1, 2, \dots n$ and
 $$
 \sum_{i=1}^n p_i = \sum_{i=1}^n u_i = 1
+\tag{8}
 $$
 
  Then, by using the fact that
@@ -214,15 +222,18 @@ following:
 **Lemma**
 $$
 \sum_{i=1}^n p_i \log \frac{p_i}{u_i} \ge \sum_{i=1}^n p_i (1 - \frac{u_i}{p_i}) = 0
+\tag{9}
 $$
 with equality if and only if $p_i = u_i$, $i=1, 2, \dots n$. Now make
 the choice
 $$
 u_i \equiv \frac{1}{Z(\lambda_1, \dots, \lambda_m)} \exp(-\lambda_1 f_1(x_i) - \dots - \lambda_m f_m(x_i))
+\tag{10}
 $$
 where $\lambda_1 \dots \lambda_m$ are fixed constants, and
 $$
 Z(\lambda_1, \dots, \lambda_m) = \sum_{i=1}^n \exp\{-\lambda_1 f_1(x_i) - \dots - \lambda_m f_m(x_i)\}
+\tag{11}
 $$
 will be called the "partition function." Substituting (10) into (9)
 results in the inequality
@@ -231,10 +242,12 @@ $$
 \sum_{i=1}^n p_i \log p_i &\ge \sum_{i=1}^n p_i \log u_i \\
 &= -\sum_{i=1}^n p_i [\lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)] - \log Z(\lambda_1, \dots, \lambda_m)
 \end{aligned}
+\tag{12}
 $$
  or
 $$
 S_I \le \log Z(\lambda_1, \dots, \lambda_m) + \sum_{k=1}^m \lambda_k \langle f_k \rangle
+\tag{13}
 $$
 
 Now let the distribution $p_i$ vary over the class of all possible
@@ -242,6 +255,7 @@ distributions that satisfy (6). The right-hand side of (12) remains
 fixed, and (12) shows that $S_I$ attains its maximum possible value
 $$
 (S_I)_{\text{max}} = \log Z + \sum_{k=1}^m \lambda_k \langle f_k \rangle
+\tag{14}
 $$
 if and only if $p_i$ is taken as the generalized canonical distribution
 (10). It only remains to choose the unspecified constants $\lambda_k$ so
@@ -250,6 +264,7 @@ $\lambda_k$ are determined in terms of the given data
 $F_k = \langle f_k \rangle$ by
 $$
 \langle f_k \rangle = -\frac{\partial}{\partial \lambda_k} \log Z(\lambda_1, \dots, \lambda_m) \quad k = 1, 2, \dots, m
+\tag{15}
 $$
 
 We now survey rapidly the main formal properties of the distribution
@@ -257,10 +272,12 @@ found. The maximum attainable entropy (13) is some function of the given
 data:
 $$
 (S_I)_{\text{max}} = S(\langle f_1 \rangle, \dots, \langle f_m \rangle)
+\tag{16}
 $$
 and, by using (13) and (14), we find
 $$
 \frac{\partial S}{\partial \langle f_k \rangle} = \lambda_k \quad k = 1, 2, \dots, m
+\tag{17}
 $$
 
 Regarding, in (14), the $\langle f_k \rangle$ expressed as functions of
@@ -268,6 +285,7 @@ $(\lambda_1, \dots, \lambda_m)$, we find, on differentiating, the
 reciprocity law
 $$
 \frac{\partial \langle f_k \rangle}{\partial \lambda_j} = \frac{\partial \langle f_j \rangle}{\partial \lambda_k} = -\frac{\partial^2}{\partial \lambda_k \partial \lambda_j} \log Z = A_{jk}
+\tag{18}
 $$
 while by the same argument, if we regard $\lambda_k$ in (16) expressed
 as
@@ -275,17 +293,20 @@ a function of $\langle f_1 \rangle, \dots, \langle f_m \rangle$, we find
 a corresponding law
 $$
 \frac{\partial \lambda_k}{\partial \langle f_j \rangle} = \frac{\partial \lambda_j}{\partial \langle f_k \rangle} = \frac{\partial^2 S}{\partial \langle f_j \rangle \partial \langle f_k \rangle} = B_{jk}
+\tag{19}
 $$
 
 Comparing (17) and (18) and remembering the chain rule for
 differentiating,
 $$
 \sum_l \frac{\partial \langle f_j \rangle}{\partial \lambda_l} \frac{\partial \lambda_l}{\partial \langle f_k \rangle} = \delta_{jk}
+\tag{20}
 $$
 we see that the second derivatives of S and of log Z yield inverse
 matrices: 
 $$
 A = B^{-1}
+\tag{21}
 $$
 
  The functions
@@ -301,12 +322,14 @@ The reciprocity law (17) acquires a deeper meaning when we consider the
 distribution of the $f_k(x)$ are given by
 $$
 \langle(f_k - \langle f_k \rangle)(f_l - \langle f_l \rangle)\rangle = \langle f_k f_l \rangle - \langle f_k \rangle \langle f_l \rangle = -\frac{\partial^2}{\partial \lambda_k \partial \lambda_l} \log Z
+\tag{22}
 $$
 and so, comparing with (17), there is a universal relation between the
 "fluctuations" of the $f_k$ and the "compliance coefficients"
 $\partial \langle f_k \rangle / \partial \lambda_l$:
 $$
 \langle f_k f_l \rangle - \langle f_k \rangle \langle f_l \rangle = -\frac{\partial \langle f_k \rangle}{\partial \lambda_l} = -\frac{\partial \langle f_l \rangle}{\partial \lambda_k}
+\tag{23}
 $$
 
 Likewise, higher derivatives of $\log Z(\lambda_1, \dots, \lambda_m)$
@@ -318,14 +341,17 @@ another parameter, $\alpha$. The partition function will then also have
 an explicit dependence on $\alpha$:
 $$
 Z(\lambda_1, \dots, \lambda_m; \alpha) = \sum_{i=1}^n \exp\{-\lambda_1 f_1(x_i; \alpha) - \dots - \lambda_m f_m(x_i; \alpha)\}
+\tag{24}
 $$
 and a short calculation shows that the expected derivatives
 $$
 \left\langle \frac{\partial f_k}{\partial \alpha} \right\rangle
+\tag{25}
 $$
 satisfy the relations
 $$
 \sum_{k=1}^m \lambda_k \left\langle \frac{\partial f_k}{\partial \alpha} \right\rangle = -\frac{\partial}{\partial \alpha} \log Z = -\frac{\partial S}{\partial \alpha}
+\tag{26}
 $$
 
 If several parameters $\alpha_1, \dots, \alpha_r$ are present, a
@@ -342,29 +368,35 @@ a change $\delta\lambda_k$ in $\lambda_k$. From (13), the maximum
 attainable entropy is changed by
 $$
 \delta S = \sum_{k=1}^m \frac{\partial \log Z}{\partial \lambda_k} \delta \lambda_k + \sum_{j=1}^r \frac{\partial \log Z}{\partial \alpha_j} \delta \alpha_j + \sum_{k=1}^m \langle f_k \rangle \delta \lambda_k + \sum_{k=1}^m \lambda_k \delta \langle f_k \rangle
+\tag{27}
 $$
 
 The first and third terms cancel by virtue of (14). Then, using (23), we
 have
 $$
 \delta S = -\sum_{j=1}^r \sum_{k=1}^m \lambda_k \left\langle \frac{\partial f_k}{\partial \alpha_j} \right\rangle \delta \alpha_j + \sum_{k=1}^m \lambda_k \delta \langle f_k \rangle
+\tag{28}
 $$
 
 Now we can write
 $$
 \sum_{j=1}^r \left\langle \frac{\partial f_k}{\partial \alpha_j} \right\rangle \delta \alpha_j = \left\langle \sum_{j=1}^r \frac{\partial f_k}{\partial \alpha_j} \delta \alpha_j \right\rangle = \langle \delta f_k \rangle
+\tag{29}
 $$
 and so finally
 $$
 \delta S = \sum_{k=1}^m \lambda_k [\delta \langle f_k \rangle - \langle \delta f_k \rangle]
+\tag{30}
 $$
 or 
 $$
 \delta S = \sum_{k=1}^m \lambda_k \delta Q_k
+\tag{31}
 $$
  where
 $$
 \delta Q_k = \delta \langle f_k \rangle - \langle \delta f_k \rangle
+\tag{32}
 $$
 
 In general $\delta Q_k$ is not an exact differential; i.e., there is no
@@ -383,6 +415,7 @@ situation can be described by (1) enumerating a discrete set of
 possibilities and by (2) specifying average values of various
 quantities. The above formalism has been applied also to problems in
 engineering[^2] and economics.[^3]
+
 In most problems, interest centers on making the best possible
 predictions for a specific situation, and we are not really interested
 in properties of any ensemble, real or imaginary. (For example, we want
@@ -408,10 +441,12 @@ to make the best estimates of the numbers $m_i$ on the basis of this
 much information. The knowledge of average values tells us that
 $$
 \sum_{i=1}^n \frac{m_i}{N} f_k(x_i) = \langle f_k \rangle \quad k=1, 2, \dots, m
+\tag{33}
 $$
 and, of course, 
 $$
 \sum_{i=1}^n \frac{m_i}{N} = 1
+\tag{34}
 $$
 
  Equations (30) and
@@ -424,10 +459,12 @@ give independently any of the results $\{x_1, x_2, \dots, x_n\}$. But
 for given $m_i$, there are only W of these possible, where
 $$
 W = \frac{N!}{m_1! \dots m_n!} = \frac{N!}{(Ng_1)! (Ng_2)! \dots (Ng_n)!}
+\tag{35}
 $$
 and 
 $$
 g_i = \frac{m_i}{N} \quad i=1, 2, \dots, n
+\tag{36}
 $$
  is the relative
 frequency with which the result $x_i$ is obtained. Which choice of the
@@ -438,6 +475,7 @@ what choice will maximize (32) while agreeing with (30). Now in the
 limit of large N, we have by the Stirling formula,
 $$
 \lim_{N \to \infty} \frac{1}{N} \log W = \lim_{N \to \infty} \frac{1}{N} \log \left[ \frac{N!}{(Ng_1)! \dots (Ng_n)!} \right] = -\sum_{i=1}^n g_i \log g_i
+\tag{37}
 $$
 and so, if we are to estimate limiting frequencies in an indefinitely
 large number of trials, we have in (30) and (34) formulated exactly the
@@ -478,17 +516,20 @@ and the expectation value of the energy of the system
 $\langle E \rangle$ are given. The partition function is
 $$
 Z(\lambda, V) = \sum_{i=1}^\infty e^{-\lambda E_i(V)}
+\tag{38}
 $$
 
  Then, by (14),
 $\lambda$ is determined from
 $$
 \langle E \rangle = -\frac{\partial}{\partial \lambda} \log Z
+\tag{39}
 $$
  and,
 as a special case of (23), we have
 $$
 \lambda \left\langle \frac{\partial E}{\partial V} \right\rangle = -\frac{\partial}{\partial V} \log Z
+\tag{40}
 $$
 
 But $-\langle \partial E / \partial V \rangle = \langle P \rangle$ is
@@ -496,6 +537,7 @@ the maximum-entropy estimate of pressure, and so the predicted equation
 of state is
 $$
 \langle P \rangle = \frac{1}{\lambda} \frac{\partial}{\partial V} \log Z
+\tag{41}
 $$
 
 To identify the temperature and entropy, we use the general variational
@@ -507,13 +549,15 @@ probabilities $p_i$ will not be changed. So, the maximum-entropy
 estimate of the work done is 
 $$
 \delta W = -\langle \delta E \rangle
+\tag{42}
 $$
 
- Of
+Of
 course, the given $\langle E \rangle$ is interpreted as the
 thermodynamic energy function U. In addition to the change $\delta V$,
 we allow a small reversible heat flow $\delta Q$, and by the first law,
 the net change in energy is $\delta U = \delta Q - \delta W$, or
+
 Thus, if $f_k$ is the energy, then the $\delta Q_k$ defined by (29) is
 the predicted heat flow in the ordinary sense. Equation (28) shows that
 for any quantity $f_k$, there is a quantity $\delta Q_k$ formally
@@ -522,9 +566,10 @@ analogous to heat.
 In the present case (28) reduces to
 $$
 \delta S(\langle E \rangle, V) = \lambda \delta Q
+\tag{43}
 $$
 
- Now the Kelvin
+Now the Kelvin
 temperature is defined by the condition that $(1/T)$ is the integrating
 factor for infinitesimal reversible heat in closed systems and the
 experimental entropy $S_e$ is defined as the resulting state function.
@@ -532,12 +577,14 @@ So from (41) the predicted temperature T' and experimental entropy
 $S^\prime_e$ are given by 
 $$
 \lambda = \frac{1}{kT^\prime}
+\tag{44}
 $$
 $$
 S^\prime_e = kS(\langle E \rangle, V) = k(S_I)_{\text{max}}
+\tag{45}
 $$
 
- The presence
+The presence
 of Boltzmann's constant k merely indicates the particular practical
 units in which we choose to measure temperature and entropy. For
 theoretical discussions, we may as well adopt units such that $k = 1$.
@@ -549,6 +596,7 @@ experimental facts. To put it differently, before we can establish any
 connection between our theoretical entropy $S^\prime_e$ and the experimentally
 measured quantity $S_e$, we have to introduce some physical assumption
 about what the result of an experiment would in fact be:
+
 **Physical assumption:** The equilibrium thermodynamic properties of a
 system, as measured experimentally, agree with the results calculated by
 the usual methods of statistical mechanics; i.e., from the canonical or
@@ -564,6 +612,7 @@ statements made below.
 If we accept (44), then the identification of entropy is complete, and
 connection between information theory entropy and experimental entropy
 for the present problem can be stated as a theorem.
+
 **Theorem:** Let $p_i = \text{prob}(E_i)$ be any probability assignment
 which conforms to the data in the sense that
 $\langle E \rangle = \sum_i p_i E_i$ is the measured energy. Let
@@ -574,11 +623,13 @@ $S_e = \log n$, where n is the degeneracy of the ground state, and let
 $S_e$ be expressed in units such that Boltzmann's constant $k=1$. Then
 $$
 S_I \le S_e
+\tag{46}
 $$
  with equality if and only if $p_i$ is chosen as the
 canonical distribution 
 $$
 p_i = \frac{1}{Z} \exp(-\lambda E_i(V))
+\tag{47}
 $$
 
  This
@@ -609,15 +660,18 @@ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
 partition function (11) becomes
 $$
 Z(\lambda_1, \lambda_2, V) = \sum_i \exp[-\lambda_1 E_i(V) - \lambda_2 E_i^2(V)]
+\tag{48}
 $$
 and from (14),
 $$
 \langle E \rangle = -\frac{\partial}{\partial \lambda_1} \log Z \quad \langle E^2 \rangle = -\frac{\partial}{\partial \lambda_2} \log Z
+\tag{49}
 $$
 
 The fluctuation theorem (21) then gives the relation
 $$
 \langle E^2 \rangle - \langle E \rangle^2 = -\frac{\partial \langle E \rangle}{\partial \lambda_2} = -\frac{\partial \langle E^2 \rangle}{\partial \lambda_1}
+\tag{50}
 $$
 
 In principle, whenever information of this sort is available, it should
@@ -653,11 +707,13 @@ values are given. In the limit, the
 partition function thus becomes a partition functional:
 $$
 Z[\lambda(t)] = \sum_i \exp \left[ -\int \lambda(t) f(x_i, t) dt \right]
+\tag{51}
 $$
 and the relations (14) determining the $\lambda$'s go into the
 corresponding functional derivative relations
 $$
 \langle f(t) \rangle = -\frac{\delta}{\delta \lambda(t)} \log Z[\lambda(t)]
+\tag{52}
 $$
 which determine the function $\lambda(t)$.
 
@@ -689,11 +745,13 @@ The expectation value of an operator $F_k$ of a system described by the
 density matrix $\rho$ is 
 $$
 \langle F_k \rangle = \text{Tr} (\rho F_k)
+\tag{53}
 $$
 where Tr stands for the trace. The information theory entropy
 corresponding to $\rho$ is 
 $$
 S_I = -\text{Tr} (\rho \log \rho)
+\tag{54}
 $$
  (See
 reference [^5] for the arguments that lead to this definition of $S_I$ and
@@ -702,15 +760,18 @@ $S_I$ subject to the constraints imposed by knowledge of the
 $\langle F_k \rangle$ yields
 $$
 \rho = \frac{1}{Z(\lambda_1, \dots, \lambda_m)} \exp(-\lambda_1 F_1 - \dots - \lambda_m F_m)
+\tag{55}
 $$
 where
 $$
 Z(\lambda_1, \dots, \lambda_m) = \text{Tr} \exp \{-\lambda_1 F_1 - \dots - \lambda_m F_m \}
+\tag{56}
 $$
 
 To prove (54), use the lemma
 $$
 \text{Tr} (\rho \log \rho) \ge \text{Tr} (\rho \log \sigma)
+\tag{57}
 $$
 analogous to (9). Here $\rho$ is any density matrix satisfying (52), and
 $\sigma$ is the canonical density matrix (54). All the formal relations
@@ -718,10 +779,12 @@ $\sigma$ is the canonical density matrix (54). All the formal relations
 the fluctuation law (21) must be generalized to
 $$
 -\frac{\partial \langle F_k \rangle}{\partial \lambda_j} = -\frac{\partial \langle F_j \rangle}{\partial \lambda_k} = \int_0^1 \langle e^{xA} F_k e^{-xA} F_j \rangle dx - \langle F_k \rangle \langle F_j \rangle
+\tag{58}
 $$
 where 
 $$
 A = \sum_{k=1}^m \lambda_k F_k
+\tag{59}
 $$
 
 For all $\rho$ that agree with the data in the sense of (52), we have
@@ -738,6 +801,7 @@ following argument can be made as rigorous as we please, but at
 considerable sacrifice of clarity. In the discrete entropy expression
 $$
 S_I^{(d)} = -\sum_{i=1}^n p_i \log p_i
+\tag{60}
 $$
  we suppose that the discrete
 points $x_i$, $i=1, 2, \dots, n$, become more and more numerous, in such
@@ -746,6 +810,7 @@ approaches a definite function $m(x)$:
 
 $$
 \lim_{n \to \infty} \frac{1}{n} (\text{number of points in } a \lt x \lt b) = \int_a^b m(x) dx
+\tag{61}
 $$
 
 If this passage to the limit is sufficiently well behaved, it will also
@@ -753,6 +818,7 @@ be true that adjacent differences $(x_{i+1} - x_i)$ in the neighborhood
 of any particular value of x will tend to zero so that
 $$
 \lim_{n \to \infty} [n(x_{i+1} - x_i)] = [m(x_i)]^{-1}
+\tag{62}
 $$
 
  The discrete
@@ -760,15 +826,18 @@ probability distribution $p_i$ will go over into a continuous
 probability density $w(x)$, according to the limiting form of
 $$
 p_i = w(x_i)(x_{i+1}-x_i)
+\tag{63}
 $$
  or, from (61),
 $$
 p_i \to w(x_i)[nm(x_i)]^{-1}
+\tag{64}
 $$
 
 Consequently, the discrete entropy (59) goes over into the integral
 $$
 S_I^{(d)} \to -\int w(x) dx \log \left[ \frac{w(x)}{nm(x)} \right]
+\tag{65}
 $$
 
 In the limit, this contains an infinite term $\log n$; but if we
@@ -777,6 +846,7 @@ approach a definite limit which we take as the continuous information
 measure:
 $$
 S_I^{(c)} \equiv \lim_{n \to \infty} [S_I^{(d)} - \log n] = -\int w(x) \log \left[ \frac{w(x)}{m(x)} \right] dx
+\tag{66}
 $$
 
 The expression (63) is invariant under parameter changes; i.e., instead
@@ -787,10 +857,12 @@ $$
 w_1(y) dy &= w(x) dx \\\\
 m_1(y) dy &= m(x) dx
 \end{aligned}
+\tag{67}
 $$
  so that (63) goes into
 $$
 S_I^{(c)} = -\int w_1(y) dy \log \left[ \frac{w_1(y)}{m_1(y)} \right]
+\tag{68}
 $$
 
 To achieve this invariance it is necessary that the "measure" $m(x)$
@@ -809,6 +881,7 @@ to a continuous distribution of several variables, $x_1 \dots x_r$; in
 this case the results readily generalize to
 $$
 S_I^{(c)} = - \int \dots \int w(x_1 \dots x_r) \log \left[ \frac{w(x_1 \dots x_r)}{m(x_1 \dots x_r)} \right] dx_1 \dots dx_r
+\tag{69}
 $$
 
 We apply this to the Liouville function of classical mechanics. For a
@@ -833,6 +906,7 @@ irrelevant additive constant which we drop, our information measure will
 be just the negative of the Gibbs H-function, $H_G$:
 $$
 -S_I = H_G = \int W_N \log W_N d\tau
+\tag{70}
 $$
  where
 $d\tau = d^3x_1 \dots d^3p_N$.
@@ -845,10 +919,12 @@ interpret this as specifying at each point of space, the expectation
 value of a certain quantity:
 $$
 \langle f_1(x_1 p_1 \dots x_N p_N; x) \rangle = \int W_N f_1 d\tau = \rho(x)
+\tag{71}
 $$
 where the phase function $f_1$ is given by
 $$
 f_1(x_1 p_1 \dots x_N p_N; x) = \sum_{i=1}^N m \delta(x_i - x)
+\tag{72}
 $$
 
  The
@@ -867,12 +943,14 @@ $$
 \vdots \nonumber \\\\
 \langle f_m(x_1 \dots p_N; x) \rangle &= \int W_N f_m d\tau
 \end{aligned}
+\tag{73}
 $$
 
  Maximization of $S_I$ subject to these constraints gives
 the partition functional
 $$
 Z[\lambda_1(x), \dots, \lambda_m(x)] = \int d\tau \exp \left\{ -\int \sum_{k=1}^m \lambda_k(x) \times f_k(x_1 \dots p_N; x) d^3x \right\}
+\tag{74}
 $$
 
 The Lagrange multiplier functions $\lambda_k(x)$ are determined by
@@ -880,6 +958,7 @@ relations analogous to (14), but now involving the functional
 derivatives:
 $$
 \langle f_k(x_1 \dots p_N; x) \rangle = -\frac{\delta}{\delta \lambda_k(x)} \log Z[\lambda_1(x), \dots, \lambda_m(x)]
+\tag{75}
 $$
 and the other properties, Eqs. (16) to (29), are likewise easily
 generalized.
@@ -888,15 +967,18 @@ kinetic energy are given at the initial time. This corresponds to
 expectation values of (68), and
 $$
 \langle f_2(x_1 \dots p_N; x) \rangle = \left\langle \sum_{i=1}^N p_i \delta(x_i - x) \right\rangle = \mathbf{P}(x)
+\tag{76}
 $$
 $$
 \langle f_3(x_1 \dots p_N; x) \rangle = \left\langle \sum_{i=1}^N \frac{p_i^2}{2m} \delta(x_i - x) \right\rangle = K(x)
+\tag{77}
 $$
 
 Since all the given data are formed additively from contributions
 of each particle, the maximum-entropy Liouville function factors:
 $$
 W_N = \prod_i w_1(x_i, p_i)
+\tag{78}
 $$
  (this would not be the case if the given
 information concerned mutual properties of different particles, such as
@@ -907,10 +989,12 @@ $$
 &-\int d^3x \left[ \lambda_1(x) \sum_i m \delta(x_i - x) + \lambda_2(x) \cdot \sum_i p_i \delta(x_i - x) + \lambda_3(x) \sum_i \frac{p_i^2}{2m} \delta(x_i - x) \right] \\\\
 &= -\sum_{i=1}^N \left[ m\lambda_1(x_i) + p_i \cdot \lambda_2(x_i) + \frac{p_i^2}{2m} \lambda_3(x_i) \right]
 \end{aligned}
+\tag{79}
 $$
  so that
 $$
 \log Z = N \log \left( \int \exp \left[-m\lambda_1(x) - p \cdot \lambda_2(x) - \frac{p^2}{2m}\lambda_3(x)\right] d^3x d^3p \right)
+\tag{80}
 $$
 
 Application of (71) now yields the physical meaning of the Lagrange
@@ -924,11 +1008,13 @@ $$
 \lambda_2(x) &= \beta(x)\mathbf{u}(x) \\\\
 m\lambda_1(x) &= 1/2 m u^2(x)\beta(x) - 3/2 \log \beta(x) - \log \rho(x) + (\text{const.}) \nonumber
 \end{aligned}
+\tag{81}
 $$
  and the single-particle distribution function $w_1$ of
 (74) reduces to
 $$
 w_1(x, p) = \frac{\rho(x)}{m[2\pi mkT(x)]^{3/2}} \exp \left[ -\frac{[\mathbf{p}-m\mathbf{u}(x)]^2}{2mkT(x)} \right]
+\tag{82}
 $$
 
 In this rather trivial example we merely recover a well-known result;
@@ -946,6 +1032,7 @@ is given. For predictions referring to other times, one should, in
 principle, solve the equations of motion, or Liouville equation,
 $$
 \dot{W}_N + [W_N, H] = 0
+\tag{83}
 $$
  where H is the Hamiltonian and $[W_N, H]$,
 the Poisson bracket. In practice, the history of irreversible
@@ -980,6 +1067,7 @@ six-dimensional phase space; thus if R is the set of phase points
 comprising a cell, the number of particles in R is $n_R$
 $$
 n_R = \int_R f(x, p, t) d^3x d^3p
+\tag{84}
 $$
 
  The well-known paradoxes involving
@@ -1000,6 +1088,7 @@ Establishment of a precise connection between Boltzmann's f and the
 single-particle function of the hierarchy,
 $$
 w_1(x_1, p_1, t) = \int W_N d^3x_2 \dots d^3p_N
+\tag{85}
 $$
  requires no
 coarse-graining, time-smoothing, or any other mutilation of the
@@ -1009,6 +1098,7 @@ symmetric under permutations of particle labels, then from (79) and (80)
 the exact connection between them is simply,
 $$
 \langle f \rangle = N w_1
+\tag{86}
 $$
  where the angular brackets denote an
 average over the Liouville function $W_N$. The only "statistical
@@ -1069,6 +1159,7 @@ that it determines only the expectation value of particle occupation
 numbers: 
 $$
 \langle n_R \rangle = N \int_R w_1(x, p, t) d^3x d^3p
+\tag{87}
 $$
 
 In words: the integral in (82) represents the probability that any
@@ -1080,6 +1171,7 @@ identifies (82) with the actual number of particles in R, it must be
 shown that the variance of the $n_R$ distribution is small:
 $$
 \frac{\langle n_R^2 \rangle - \langle n_R \rangle^2}{\langle n_R \rangle^2} \ll 1
+\tag{88}
 $$
 
 Unless (83) is satisfied, the Liouville function is making no definite
@@ -1089,35 +1181,42 @@ of large numbers" even for a cell R of macroscopic size, because the
 two-particle distribution function of the hierarchy,
 $$
 w_2(x_1 p_1, x_2 p_2, t) = \int W_N d^3x_3 \dots d^3p_N
+\tag{89}
 $$
  completely
 determines whether (83) is or is not satisfied. To see this, introduce
 the characteristic function of the set R:
 $$
 M(x,p) = \begin{cases} 1, & \text{x, p in R} \\\\ 0, & \text{otherwise} \end{cases}
+\tag{90}
 $$
 
 Then
 $$
 \langle n_R^2 \rangle = \left\langle \sum_{i,j=1}^N M(x_i,p_i) M(x_j,p_j) \right\rangle = NI_1 + N(N-1)I_2
+\tag{91}
 $$
 where 
 $$
 I_1 = \int_R w_1(x,p) d^3x d^3p
+\tag{92}
 $$
 $$
 I_2 = \int_R d^3x_1 d^3p_1 \int_R d^3x_2 d^3p_2 w_2(x_1 p_1, x_2 p_2)
+\tag{93}
 $$
 
 The measure of dispersion (83) then reduces to
 $$
 \frac{I_2 - I_1^2}{I_1^2} + \frac{I_1 - I_2}{NI_1^2}
+\tag{94}
 $$
 
 Thus, when $N \gg 1$ and $\langle n_R \rangle \gg 1$, the necessary and
 sufficient condition for validity of (83) becomes
 $$
 \left| \frac{I_2}{I_1^2} - 1 \right| \ll 1
+\tag{95}
 $$
 
  Usually one omits
@@ -1139,6 +1238,7 @@ terms of the Boltzmann distribution function, the total momentum in any
 phase cell R is 
 $$
 \mathbf{P} = \int_R \mathbf{p}f(x, p, t) d^3x d^3p
+\tag{96}
 $$
 and we choose R to consist of all momentum space plus a cell S' of
 ordinary space that is "microscopically large but macroscopically
@@ -1146,11 +1246,13 @@ small." Again, the single-particle function gives only the expectation
 value,
 $$
 \langle \mathbf{P} \rangle = N \int_R \mathbf{p}w_1(x, p, t) d^3x d^3p
+\tag{97}
 $$
 but $w_1$ gives no information at all as to whether this is a reliable
 prediction. To answer this, we must appeal to the two-particle function:
 $$
 \langle \mathbf{P}^2 \rangle = N \int_R p^2 w_1 dx dp + N(N-1) \int_R dx dp \int_R dx^\prime dp^\prime \times \mathbf{p} \cdot \mathbf{p}^\prime w_2(x, p, x^\prime, p^\prime)
+\tag{98}
 $$
 
 If the variance of P is everywhere small, then the Liouville func-
@@ -1206,10 +1308,12 @@ differential equation satisfied by $w_1(x_1, p_1, t)$ may be written
 compactly
 $$
 \frac{\partial w_1}{\partial t} + \frac{p_{1\alpha}}{m} \frac{\partial w_1}{\partial x_\alpha} + \frac{\partial}{\partial p_{1\alpha}} [\langle F_\alpha \rangle w_1] = 0
+\tag{99}
 $$
 where
 $$
 \langle F_\alpha \rangle = - \int \frac{\partial V}{\partial x_{1\alpha}} (x_2 \dots p_N | x_1 p_1) d^3x_2 \dots d^3p_N
+\tag{100}
 $$
 is the conditional expectation value of the force seen by particle 1,
 given that it has position and momentum $(x_1, p_1)$. Here
@@ -1244,10 +1348,12 @@ functions to represent entropy has not been resolved in any commonly
 agreed way. For example, in MD it is stated that the Boltzmann H,
 $$
 H_B = \int f \log f d^3x d^3p
+\tag{101}
 $$
 is "directly related" to the entropy, whereas the Gibbs expression
 $$
 H_G = \frac{1}{N} \int W_N \log W_N dv
+\tag{102}
 $$
  is rejected with the
 statement: "There is, however, no possibility of identifying or
@@ -1307,6 +1413,7 @@ words, we mean to use the single-particle function $w_1$ of the
 hierarchy to define a Boltzmann H: 
 $$
 H_B = \int w_1 \log w_1 d^3x d^3p
+\tag{103}
 $$
 
 There is really no other way of doing it if we are ever to prove precise
@@ -1346,17 +1453,20 @@ the physical assumption (44), for the quantum theory case.
 Statement (II) quotes a well-known mathematical theorem, 
 $$
 H_G \ge H_B
+\tag{104}
 $$
 with equality if and only if the Liouville function factors "almost
 everywhere" 
 $$
 W_N(x_1 \dots p_N) = \prod_{i=1}^N w_1(x_i, p_i)
+\tag{105}
 $$
  which
 corresponds, in quantum theory, to the condition that the global density
 matrix is a direct product[^5]
 $$
 \rho = \rho_1 \times \rho_2 \times \dots \times \rho_N
+\tag{106}
 $$
  where
 $\rho_i$ is the projection of $\rho$ onto the Hilbert space of the i-th
@@ -1425,6 +1535,7 @@ cannot have any real relevance to the second law. For, summarizing the
 above inequalities, 
 $$
 -kH_B \ge -kH_G \le S_e
+\tag{107}
 $$
  where the first
 inequality becomes an equality if and only if there are no interparticle
@@ -1441,6 +1552,7 @@ change of $H_B$ is just the negative of the expected divergence in
 momentum space of the molecular force $\langle F_\alpha \rangle$:
 $$
 \dot{H}_B = -\left\langle \frac{\partial \langle F_\alpha \rangle}{\partial p_\alpha} \right\rangle
+\tag{108}
 $$
 and this can have either sign. For example, if
 $\langle F_\alpha \rangle$ is dominated by a "dragging" term as in the

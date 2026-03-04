@@ -36,7 +36,7 @@ corresponding velocities $\dot{q}_1 \dots \dot{q}_n$. The equations of
 motion are then determined by a Lagrangian function which in simple
 mechanical problems is 
 $$
-L(q_i, \dot{q}_i) = T - V
+L(q_i, \dot{q}_i) = T - V \tag{5-1}
 $$
  where T and V are
 the kinetic and potential energies. In problems involving coupling of
@@ -44,14 +44,14 @@ particles to an electromagnetic field, the Lagrangian function takes a
 more general form, as we will see later. In either case, the equa- tions
 of motion are
 $$
-\frac{\partial L}{\partial q_i} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0.
+\frac{\partial L}{\partial q_i} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0. \tag{5-2}
 $$
 
 The advantage of the Lagrangian form (5-2) over the original Newtonian
 form (to which it is completely equivalent in simple mechanical
 problems) 
 $$
-m\ddot{x}_i = -\frac{\partial V}{\partial x_i}
+m\ddot{x}_i = -\frac{\partial V}{\partial x_i} \tag{5-3}
 $$
  is that
 (5-2) holds for arbitrary choices of the coordinates $q_i$; they can in-
@@ -62,17 +62,18 @@ Still more convenient for our purposes is the Hamiltonian form of the
 equations of motion. Define the momentum \"canonically conjugate\" to
 the co- ordinate $q_i$ by
 $$
-p_i = \frac{\partial L}{\partial \dot{q}_i}
+p_i = \frac{\partial L}{\partial \dot{q}_i} \tag{5-4}
 $$
  and a Hamiltonian
 function H by
 $$
-H(q_1, p_1 \dots q_n, p_n) = \sum_{i=1}^n p_i \dot{q}_i - L(q_1 \dots \dot{q}_n)
+H(q_1, p_1 \dots q_n, p_n) = \sum_{i=1}^n p_i \dot{q}_i - L(q_1 \dots \dot{q}_n) \tag{5-5}
 $$
 the notation indicating that after forming the right-hand side of (5-5)
 the velocities $\dot{q}_i$ are eliminated mathematically, so that the
 Hamiltonian is ex- pressed as a function of the coordinates and momenta
 only.
+
 **Problem (5.1).** A particle of mass m is located by specifying
 $(q_1, q_2, q_3) = (r, \theta, z)$ respectively, where r, $\theta$, z
 are a cylindrical coordinate system re- lated to the cartesian x, y, z
@@ -92,7 +93,7 @@ $p_1, p_2, p_3$.
 In terms of the Hamiltonian, the equations of motion assume a more sym-
 metrical form:
 $$
-\dot{q}_i = \frac{\partial H}{\partial p_i} \qquad \dot{p}_i = -\frac{\partial H}{\partial q_i}
+\dot{q}_i = \frac{\partial H}{\partial p_i} \qquad \dot{p}_i = -\frac{\partial H}{\partial q_i} \tag{5-7}
 $$
 of which the first follows from the definition (5-5), while the second
 is equivalent to (5-2).
@@ -107,7 +108,7 @@ form of the equations of motion can be preserved if there exists a new
 potential function $M(q_i, \dot{q}_i)$ such that the non-conservative
 force acting on coordinate $q_i$ is
 $$
-F_i = \frac{d}{dt}\frac{\partial M}{\partial \dot{q}_i} - \frac{\partial M}{\partial q_i}
+F_i = \frac{d}{dt}\frac{\partial M}{\partial \dot{q}_i} - \frac{\partial M}{\partial q_i} \tag{5-8}
 $$
 
 We then define the Lagrangian as $L = T - V - M$.
@@ -141,7 +142,7 @@ the equations of motion thus generate a continuous flow pattern in phase
 space, much like the flow pattern of a fluid in ordinary space. The
 divergence of the velocity of this flow pattern is
 $$
-\text{div}(v) = \sum_{i=1}^n \left[ \frac{\partial \dot{q}_i}{\partial q_i} + \frac{\partial \dot{p}_i}{\partial p_i} \right] = \sum_{i=1}^n \left[ \frac{\partial^2 H}{\partial q_i \partial p_i} - \frac{\partial^2 H}{\partial p_i \partial q_i} \right] = 0
+\text{div}(v) = \sum_{i=1}^n \left[ \frac{\partial \dot{q}_i}{\partial q_i} + \frac{\partial \dot{p}_i}{\partial p_i} \right] = \sum_{i=1}^n \left[ \frac{\partial^2 H}{\partial q_i \partial p_i} - \frac{\partial^2 H}{\partial p_i \partial q_i} \right] = 0 \tag{5-9}
 $$
 so that the flow in phase space corresponds to that of an incompressible
 fluid.
@@ -154,7 +155,7 @@ $\Gamma_o$ consisting of some possible range of initial conditions
 $q_i(0), p_i(0)$ for a mechanical system, as shown in Fig. (5.1). This
 region has a total phase volume
 $$
-\Omega(0) = \int_{\Gamma_o} dq_1 dp_1 \dots dq_n dp_n.
+\Omega(0) = \int_{\Gamma_o} dq_1 dp_1 \dots dq_n dp_n. \tag{5-10}
 $$
 
  In time t,
@@ -163,7 +164,7 @@ equations of motion, into a new point $[q_1(t) \dots p_n(t)]$. The
 totality of all points which were originally in $\Gamma_o$ now defines a
 new region $\Gamma_t$ with phase volume
 $$
-\Omega(t) = \int_{\Gamma_t} dq_1 \dots dp_n
+\Omega(t) = \int_{\Gamma_t} dq_1 \dots dp_n \tag{5-11}
 $$
  and from (5-9) it can be
 shown that 
@@ -181,7 +182,7 @@ $$
 \vdots &  & \vdots \\\\
 \frac{\partial q_{1t}}{\partial p_{n0}} & \dots & \frac{\partial p_{nt}}{\partial p_{n0}} 
 \end{vmatrix}
-= 1
+= 1 \tag{5-12}
 $$
 **Problem (5.4).** Prove that (5-9), (5-11), and (5-12) are equivalent
 statements. (Hint: See A. I. Khinchin, \"Mathematical Foundations of
@@ -222,7 +223,7 @@ various experimentally observable conditions. In particular, for a
 system in which the Hamiltonian and the energy are the same, the total
 phase volume below a certain energy E is
 $$
-\Omega(E) = \int \Theta[E - H(q_i p_i)] dq_1 \dots dp_n
+\Omega(E) = \int \Theta[E - H(q_i p_i)] dq_1 \dots dp_n \tag{5-16}
 $$
  (When limits
 of integration are unspecified, we understand integration over all
@@ -235,7 +236,7 @@ $$
 The differential phase volume, called the structure function, is given
 by
 $$
-\rho(E) = \frac{d\Omega}{dE} = \int \delta[E-H(q_i p_i)] dq_1 \dots dp_n
+\rho(E) = \frac{d\Omega}{dE} = \int \delta[E-H(q_i p_i)] dq_1 \dots dp_n \tag{5-18}
 $$
 and it will appear presently that essentially all thermodynamic
 properties of the system are known if $\rho(E)$ is known, in its
@@ -245,7 +246,7 @@ Calculation of $\rho(E)$ directly from the definition (5-18) is
 generally very difficult. It is much easier to calculate first its
 Laplace transform, known as the partition function:
 $$
-Z(\beta) = \int_0^\infty \rho(E) e^{-\beta E} dE
+Z(\beta) = \int_0^\infty \rho(E) e^{-\beta E} dE \tag{5-19}
 $$
  where we have
 assumed that all possible values of energy are positive; this can always
@@ -257,14 +258,14 @@ function $\rho(E)$ is unneces- sary for some purposes.
 
 Using (1-18), the partition function can be written as
 $$
-Z(\beta) = \int e^{-\beta H(q_i p_i)} dq_1 \dots dp_n
+Z(\beta) = \int e^{-\beta H(q_i p_i)} dq_1 \dots dp_n \tag{5-20}
 $$
  which is the
 form most useful for calculation. If the structure function $\rho(E)$ is
 needed, it is then found by the usual rule for inverting a Laplace
 trans- form:
 $$
-\rho(E) = \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} Z(\beta) e^{\beta E} d\beta
+\rho(E) = \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} Z(\beta) e^{\beta E} d\beta \tag{5-21}
 $$
 the path of integration passing to the right of all singularities of
 $Z(\beta)$, as in Fig. (5.2).
@@ -279,11 +280,11 @@ vector of the i'th particle. Similarly, the vector momenta of the
 particles are denoted by $p_1 \dots p_N$, and the individual components
 by $p_{i\alpha}$. The Hamiltonian is then
 $$
-H_1 = \sum_{i=1}^N \left[ \frac{p_i^2}{2m} + u(q_i) \right]
+H_1 = \sum_{i=1}^N \left[ \frac{p_i^2}{2m} + u(q_i) \right] \tag{5-23}
 $$
  where
 $$
-p_i^2 = \sum_{\alpha=1}^3 p_{i\alpha}^2
+p_i^2 = \sum_{\alpha=1}^3 p_{i\alpha}^2 \tag{5-24}
 $$
  and the potential function
 u(q) defines the box of volume V containing the gas:
@@ -401,7 +402,7 @@ tion of the Hamiltonian (5-33) to normal mode coordinates. The matrix $a_{ij}$ i
 real and symmetric, and so by a well-known result of matrix theory [Margenau
 and Murphy (1943); Chap. 10] there exists an orthogonal matrix N,
 $$
-\sum_{i=1}^n N_{ij} N_{ik} = \delta_{jk}
+\sum_{i=1}^n N_{ij} N_{ik} = \delta_{jk} \tag{5-38}
 $$
 which diagonalizes $a_{ij}$:
 
@@ -501,7 +502,7 @@ ex- ample, if $\rho(E) = A E^{n-1}$, then $\Omega(E) = (E/n)\rho(E)$,
 and the energy shell $\delta E$ con- tains half the phase volume
 $\Omega(E)$ if $\rho(E)\delta E = \frac{1}{2}\Omega(E)$, or
 $$
-\frac{\delta E}{E} = \frac{1}{2n}
+\frac{\delta E}{E} = \frac{1}{2n} \tag{5-53}
 $$
  i.e., the half-volume shell, for a
 macroscopic system, has relative thickness of only about one part in
@@ -533,13 +534,13 @@ that they can exchange energy, but not par-
 ticles. Together they constitute a larger system with phase volume below
 total energy E given by
 $$
-\Omega(E) = \int_0^E \rho_1(E_1) \Omega_2(E-E_1) dE_1
+\Omega(E) = \int_0^E \rho_1(E_1) \Omega_2(E-E_1) dE_1 \tag{5-55}
 $$
  or,
 differentiating with respect to E, the structure function of the
 combined system is 
 $$
-\rho(E) = \int_0^E \rho_1(E_1)\rho_2(E-E_1) dE_1
+\rho(E) = \int_0^E \rho_1(E_1)\rho_2(E-E_1) dE_1 \tag{5-56}
 $$
 
 Now for macroscopic systems the exponents $n_1, n_2$ are very large as
@@ -579,7 +580,7 @@ $$
 terms are very small compared to the term in $(E_1 - E_{10})^2$, and so
 a good approximation is
 $$
-\rho_1(E_1)\rho_2(E-E_1) = (\rho_1\rho_2)_{max} \exp\left[-n_1 \left(1+\frac{n_1}{n_2}\right) \frac{(E_1 - E_{10})^2}{2 E_{10}^2}\right]
+\rho_1(E_1)\rho_2(E-E_1) = (\rho_1\rho_2)_{max} \exp\left[-n_1 \left(1+\frac{n_1}{n_2}\right) \frac{(E_1 - E_{10})^2}{2 E_{10}^2}\right] \tag{5-61}
 $$
 **Problem (5.8).** As a check on the accuracy of the approximation
 (5-61), note that it leads to an approximate expression for $\rho(E)$ by
@@ -588,7 +589,7 @@ $$
 \begin{aligned}
 \rho(E) &= (\rho_1\rho_2)_{max} \int_{-\infty}^\infty \exp\left[-n_1 \left(1+\frac{n_1}{n_2}\right) \frac{(E_1 - E_{10})^2}{2 E_{10}^2}\right] dE_1 \\\\
 &= (\rho_1\rho_2)_{max} \sqrt{\frac{2\pi E_{10}^2 n_2}{n_1(n_1+n_2)}} \notag
-\end{aligned}
+\end{aligned} \tag{5-62}
 $$
 
  Calculate the exact $\rho(E)$ from (5-56) and compare
@@ -605,21 +606,22 @@ $$
 The relative contribution of various ranges of $E_1$ to $\rho(E)$ may be
 seen from tables of the \"error function\":
 $$
-\text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+\text{erf } x = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt \tag{5-65}
 $$
 
- Some
-numerical values of erf x are:
-     x                   erf x
-  ------- ------------------------------------
-    0.0                 0.00000
-    0.5                 0.52050
-    1.0                 0.84270
-    1.5                 0.96611
-    2.0                 0.99532
-    2.5                 0.99959
-    3.0                 0.99998
-   $> 3$   $1 - \frac{e^{-x^2}}{x\sqrt{\pi}}$
+Some numerical values of erf x are:
+
+| x | erf x |
+| --- | --- |
+| 0.0 | 0.00000 |
+| 0.5 | 0.52050 |
+| 1.0 | 0.84270 |
+| 1.5 | 0.96611 |
+| 2.0 | 0.99532 |
+| 2.5 | 0.99959 |
+| 3.0 | 0.99998 |
+| $> 3$ | $1 - \frac{e^{-x^2}}{x\sqrt{\pi}}$ |
+
 Suppose, for simplicity, that $n_1=n_2=10^{24}$. Then, letting
 $$
 x = \sqrt{n_1}\frac{E_1 - E_{10}}{E_{10}} = 10^{12} \frac{E_1-E_{10}}{E_{10}},
@@ -639,7 +641,7 @@ $E_1$ in a range three times as wide: $E_{10}(1 \pm 3 \times 10^{-12})$.
 Values of $E_1$ which deviate from $E_{10}$ by more than one part in a
 million contribute one part in
 $$
-\frac{e^{-x^2}}{x\sqrt{\pi}} \approx \frac{\exp[-10^{12}]}{10^6 \sqrt{\pi}} \approx 10^{-(4.3 \times 10^{11})}
+\frac{e^{-x^2}}{x\sqrt{\pi}} \approx \frac{\exp[-10^{12}]}{10^6 \sqrt{\pi}} \approx 10^{-(4.3 \times 10^{11})} \tag{5-69}
 $$
 to the structure function of the combined system.
 
@@ -662,7 +664,7 @@ the overwhelmingly greatest part of *all* the phase volume accessible to
 the system corresponds very accurately to one definite distribution of
 energy $E_1$, $E_2$, such that
 $$
-\frac{\partial\log\rho_1}{\partial E_1} = \frac{\partial\log\rho_2}{\partial E_2}
+\frac{\partial\log\rho_1}{\partial E_1} = \frac{\partial\log\rho_2}{\partial E_2} \tag{5-70}
 $$
 
 Thus, if we are asked to predict the final distribution of energy
@@ -702,7 +704,7 @@ We can hardly interpret this otherwise than that [equal
 $\partial \log\rho/\partial E$ means equal temperature]{.underline}. In
 other words, we infer that the quantity
 $$
-x = \frac{\partial\log\rho(E,V)}{\partial E} = x(T)
+x = \frac{\partial\log\rho(E,V)}{\partial E} = x(T) \tag{5-72}
 $$
  must be some
 function of the Kelvin temperature T. To find what function it is, there
@@ -713,16 +715,16 @@ $dQ = dE + P dV$, into an exact differential $dS = T^{-1} dQ$ of some
 state function $S(E,V)$, where P, V are the pressure and volume of our
 system. For convenience, call this integrating factor w:
 $$
-T^{-1} = w = w(x)
+T^{-1} = w = w(x) \tag{5-73}
 $$
  then we can repeat the argument of Equations
 (1-20) -- (1-28): 
 $$
-dS = w \, dQ = w \, dE + wP \, dV
+dS = w \, dQ = w \, dE + wP \, dV \tag{5-74}
 $$
  so that
 $$
-w = \left(\frac{\partial S}{\partial E}\right)_V, \qquad wP = \left(\frac{\partial S}{\partial V}\right)_E
+w = \left(\frac{\partial S}{\partial E}\right)_V, \qquad wP = \left(\frac{\partial S}{\partial V}\right)_E \tag{5-75}
 $$
 and the condition that dS is an exact differential is
 $$
@@ -739,7 +741,7 @@ w^\prime(x)\left(\frac{\partial x}{\partial V}\right)_E = w(x)\left(\frac{\parti
 $$
 or, the function w(x) must satisfy
 $$
-\frac{w^\prime(x)}{w(x)} = \frac{\left(\frac{\partial P}{\partial E}\right)_V}{\left(\frac{\partial x}{\partial V}\right)_E - P\left(\frac{\partial x}{\partial E}\right)_V}
+\frac{w^\prime(x)}{w(x)} = \frac{\left(\frac{\partial P}{\partial E}\right)_V}{\left(\frac{\partial x}{\partial V}\right)_E - P\left(\frac{\partial x}{\partial E}\right)_V} \tag{5-77}
 $$
 
 It is clear that this program will fail unless the right-hand side of
@@ -755,7 +757,7 @@ yet know how the pressure is related to these quantities. To investigate
 this, suppose we increase the volume (for example, by moving a piston).
 The system does work, and its energy decreases by
 $$
-\Delta E = - \int_{V_o}^{V_1} P dV = E_1 - E_o
+\Delta E = - \int_{V_o}^{V_1} P dV = E_1 - E_o \tag{5-78}
 $$
 
  The original and
@@ -807,14 +809,14 @@ as least large enough to accommodate all these points. Thus, a
 with the specified tolerances $\delta E_o, \delta E_1$ on initial and
 final energies, is 
 $$
-\rho_1(E_1)\delta E_1 \ge \rho_o(E_o)\delta E_o
+\rho_1(E_1)\delta E_1 \ge \rho_o(E_o)\delta E_o \tag{5-79}
 $$
 
 But, because of the numerical situation noted above, (5-79) is not the
 most appropriate way of stating this condition. For, the exact phase
 volume cor- responding to the energy increment $\delta E$ is
 $$
-\int_{E-\delta E}^E \rho(E) dE = \Omega(E) - \Omega(E-\delta E)
+\int_{E-\delta E}^E \rho(E) dE = \Omega(E) - \Omega(E-\delta E) \tag{5-80}
 $$
  and
 if $\delta E$ is so small that this is well approximated simply by
@@ -824,7 +826,7 @@ Indeed, if $\delta E$ represents any reasonable experi- mental error,
 then (5-80) reduces, to enormously great accuracy, simply to
 $\Omega(E)$, so that (5-79) ought to be replaced by
 $$
-\Omega_1(E_1) \ge \Omega_o(E_o)
+\Omega_1(E_1) \ge \Omega_o(E_o) \tag{5-81}
 $$
 
  Thus, (5-79) is not a realistic
@@ -847,7 +849,7 @@ volume compatible with the final macroscopic state cannot be less than
 the phase volume which mea- sures the accuracy with which we can
 reproduce the initial state: 
 $$
-\Omega_{final} \ge \Omega_{initial}
+\Omega_{final} \ge \Omega_{initial} \tag{5-82}
 $$
 
 Evidently this must hold however we specify the initial and final
@@ -862,7 +864,7 @@ shall have to do work $E_2 - E_1$. If this work done is experimentally
 reproducible, then exactly the same argument about phase volumes
 applies, and it is necessary that 
 $$
-\Omega_2(E_2) \ge \Omega_1(E_1)
+\Omega_2(E_2) \ge \Omega_1(E_1) \tag{5-83}
 $$
 
 If the expansion and compression are carried out rapidly, it will be
@@ -883,7 +885,7 @@ brium value which we needed to find in order to solve (5-77).
 
 Thus, the missing relation we need for (5-77) is
 $$
-P = -\left(\frac{\partial E}{\partial V}\right)_\Omega = -\left(\frac{\partial E}{\partial V}\right)_{\log\Omega}
+P = -\left(\frac{\partial E}{\partial V}\right)_\Omega = -\left(\frac{\partial E}{\partial V}\right)_{\log\Omega} \tag{5-85}
 $$
 but let us cast it into a more useful form. For any macroscopic system
 we will have a result more or less like (5-29); or
@@ -896,7 +898,7 @@ $$
 \begin{aligned}
 \log\Omega &= n\log V + m \log E + \text{const.} \\\\
 \log\rho &= n\log V + (m-1) \log E + \text{const.} \notag
-\end{aligned}
+\end{aligned} \tag{5-87}
 $$
 
  Now the condition ($\log\Omega = \text{const.}$) on

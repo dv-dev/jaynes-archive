@@ -127,11 +127,9 @@ not created or destroyed, it seems natural to think that there must have
 been a diffusion current, or flux $\mathbf{J}(\mathbf{x},t)$ carrying
 them from the high density regions to the low, so that the change in
 density with time is accounted for by the conservation law:
-$$\frac{\partial n}{\partial t} + \text{div}(\mathbf{J}) = 0.$$
-
+$$\frac{\partial n}{\partial t} + \text{div}(\mathbf{J}) = 0. \tag{1}$$
 Phenomenologically, Fick's law relates this to the density gradient:
-$$\mathbf{J} = -D \text{ grad}(n)$$
-
+$$\mathbf{J} = -D \text{ grad}(n) \tag{2}$$
 In the case of sugars, the diffusion coefficient $D$ is easy to measure
 by optical rotation. In Maxwell's great Encyclopaedia Brittanica article
 on diffusion he quotes the experimental result of Voit for sucrose:
@@ -148,6 +146,7 @@ the beginnings made in seeing how to deal with the problem, culminating
 finally in the correct formula for the diffusion coefficient. But
 Einstein had to work at it harder than we shall, because he did not have
 Harold Jeffreys around to show him how to use probability theory.[^3]
+
 It would seem that, given where a particle is now, we should find its
 velocity $\mathbf{v}$, and summing this over all particles in a small
 region would give the local flux $\mathbf{J}(\mathbf{x},t)$. However, the
@@ -160,7 +159,7 @@ present interest.
 
 Given where a particle is now, $\mathbf{x}(t)$, its average velocity
 over a time interval $2\tau$ centered at the present is
-$$\bar{\mathbf{v}} = \frac{\mathbf{x}(t + \tau) - \mathbf{x}(t-\tau)}{2\tau}$$
+$$\bar{\mathbf{v}} = \frac{\mathbf{x}(t + \tau) - \mathbf{x}(t-\tau)}{2\tau} \tag{3}$$
 so if we make our best estimate of where the particle will be a time
 $	au$ in the future that is long on the time scale of thermal
 fluctuations, and where it was an equal time in the past, we have an
@@ -175,7 +174,7 @@ mathematicians, because it draws on extra information that a
 mathematician would never use in proving the theorem) tells us that this
 will have a Gaussian form, and from symmetry the mean displacement is
 zero:
-$$P(\mathbf{y}| \mathbf{x}, I) = A \exp[- (\mathbf{y} - \mathbf{x})^2/2\sigma^2(\tau)]$$
+$$P(\mathbf{y}| \mathbf{x}, I) = A \exp[- (\mathbf{y} - \mathbf{x})^2/2\sigma^2(\tau)] \tag{4}$$
 where $I$ stands for the general prior information stated or implied in
 our formulation of the problem. All the analysis one could make of the
 dynamics of sugar-water interactions would, in the end, serve only to
@@ -271,11 +270,10 @@ Differentiating, the most probable value of the past position
 $\mathbf{z}$ is not $\mathbf{x}$, but
 $$\hat{\mathbf{z}} = \mathbf{x} + \sigma^2 \text{grad}(\log n) = \mathbf{x} + \langle(\delta x)^2\rangle \text{grad}(\log n)$$
 whereupon, substituting into (3) we estimate the drift velocity to be
-$$\bar{\mathbf{v}} = -\langle(\delta x)^2\rangle/2\tau \text{ grad}(\log n)$$
+$$\bar{\mathbf{v}} = -\langle(\delta x)^2\rangle/2\tau \text{ grad}(\log n) \tag{8}$$
 and our predicted average diffusion flux over the time interval $2\tau$
 is
-$$\mathbf{J}(\mathbf{x},t) = n\bar{\mathbf{v}} = -\langle(\delta x)^2\rangle/2\tau \text{ grad}(n).$$ 
-
+$$\mathbf{J}(\mathbf{x},t) = n\bar{\mathbf{v}} = -\langle(\delta x)^2\rangle/2\tau \text{ grad}(n). \tag{9}$$
 Bayes' theorem has given us just Einstein's formula for the diffusion
 coefficient: $$D = \frac{\langle(\delta x)^2\rangle}{2\tau}$$
 and a good deal more. We did not assume that grad(n) was the appropriate
@@ -668,15 +666,14 @@ the conflict with QM is introduced.
 
 Of course, the fundamentally correct relation according to probability
 theory would be,
-$$P(AB|\mathbf{ab}) = \int P(AB|\mathbf{ab}\lambda) p(\lambda|\mathbf{ab}) d\lambda.$$
-
+$$P(AB|\mathbf{ab}) = \int P(AB|\mathbf{ab}\lambda) p(\lambda|\mathbf{ab}) d\lambda. \tag{12}$$
 But if we grant that knowledge of the experimenters' free choices
 $(\mathbf{a}, \mathbf{b})$ would give us no information about $\lambda$: $p(\lambda|\mathbf{ab}) = p(\lambda)$ (and in this verbiage we too are
 being carefully epistemological), then Bell's interpretation of the EPR
 intentions lies in the factorization
-$$P(AB|\mathbf{ab}\lambda) = P(A|\mathbf{a}\lambda) P(B|\mathbf{b}\lambda)$$
+$$P(AB|\mathbf{ab}\lambda) = P(A|\mathbf{a}\lambda) P(B|\mathbf{b}\lambda) \tag{14}$$
 whereas the fundamentally correct factorization would read:
-$$P(AB|\mathbf{ab}\lambda) = P(A|B\mathbf{ab}\lambda) P(B|\mathbf{ab}\lambda) = P(A|\mathbf{ab}\lambda) P(B|A\mathbf{ab}\lambda)$$
+$$P(AB|\mathbf{ab}\lambda) = P(A|B\mathbf{ab}\lambda) P(B|\mathbf{ab}\lambda) = P(A|\mathbf{ab}\lambda) P(B|A\mathbf{ab}\lambda) \tag{15}$$
 in which both $\mathbf{a},\mathbf{b}$ always appear as conditioning
 statements. However, Bell (1987) thinks that the EPR demand for
 locality, in which events at A should not influence events at B when the
@@ -810,7 +807,6 @@ the urn. They are drawn out blindfolded without replacement." *$R_i$* =
 are a microcosm of the EPR experiment. For the first draw, given only
 the prior information $I$, we have 
 $$P(R_1|I) = M/N .$$
-
 Now if we know that red was found on the first draw, then that changes the
 contents of the urn for the second:
 $$P(R_2|R_1, I) = (M - 1)/(N - 1)$$
@@ -844,8 +840,7 @@ hypergeometric distribution) depends only on the number of red and white
 balls, not on the order in which they appear; i.e., it is an
 exchangeable distribution. From this it follows by a simple calculation
 that for all $i$ and $j$, 
-$$P(R_i|I) = P(R_j|I) = M/N$$
-
+$$P(R_i|I) = P(R_j|I) = M/N \tag{18}$$
 That is, just as in QM, merely knowing that other draws have been made does not
 change our prediction for any specified draw, although it changes the
 hypothesis space in which the prediction is made; before there is a
@@ -986,7 +981,7 @@ Our muscles deliver useful work when there is no cold reservoir at hand
 (on a hot day the ambient temperature is at or above body temperature)
 and a naïve application of (22) would lead us to predict zero, or even
 negative efficiency. The observed efficiency of a muscle, defined as
-$$\eta = \frac{\text{(work done)}}{\text{(work done + heat generated)}}$$
+$$\eta = \frac{\text{(work done)}}{\text{(work done + heat generated)}} \tag{22}$$
 is difficult to measure, and it is difficult to find reliable
 experimental values with accounts of how the experiments were done. We
 shall use only the latest value we have located, (Alberts, *et al.*
@@ -1097,7 +1092,7 @@ Consider the problem first in the simplicity of classical physics, where
 the Rayleigh-Jeans equipartition law holds. If in the Kelvin formula
 (22) we replace temperature by what it then amounts to -- energy per
 degree of freedom $E/N = (1/2) kT$, it takes the form
-$$\eta \le 1 - (E_2/N_2)(N_1/E_1)$$
+$$\eta \le 1 - (E_2/N_2)(N_1/E_1) \tag{23}$$
 which does not look like much progress, but by this trivial rewriting we
 have removed the limitation of thermal equilibrium on our energy source and
 sink. For "temperature" is defined only for a system in thermal
@@ -1129,8 +1124,7 @@ single degree of freedom and we can extract it before it spreads at all,
 then our engine is in effect a "pure mechanism" like a lever. The
 generalised efficiency (23) then reduces to $1 - kT_2/2E_1$ or, 
 interpreting $E_1$ as the work delivered to the lever,
-$$\text{(Work out)} = \text{(Work in)} - (1/2) kT_2.$$
-
+$$\text{(Work out)} = \text{(Work in)} - (1/2) kT_2. \tag{24}$$
 The last term is just the mean thermal energy of the lever itself, which
 cannot be extracted reproducibly by an apparatus that is itself at
 temperature $T_2$ or higher. At least, if anyone should succeed in doing
@@ -1198,7 +1192,7 @@ nonequilibrium -- has an entropy $S(M) = k \log W(M)$, where $W(M)$ is
 the phase volume compatible with the controlled or observed
 macrovariables $X_i$ (pressure, volume, magnetization, heat flux,
 electric current, etc.) that define $M$. Then a generalised second law
-$$S(\text{initial}) \le S(\text{final})$$
+$$S(\text{initial}) \le S(\text{final}) \tag{25}$$
 follows immediately from Liouville's theorem, as a necessary condition for
 the change of state $M_i \to M_f$ to be reproducible.
 
@@ -1352,21 +1346,18 @@ $\delta E_1$ and $\delta E_2$ are the same at the beginning and end, so
 they cancel out and their values do not matter. The necessary condition
 of reproducibility $W_i \le W_f$ when we manipulate only energies now
 becomes:
-$$\rho_1(E_1) \rho_2(E_2) \le \rho_1(E_1 - Q_1) \rho_2(E_2 + Q_2).$$ 
-
+$$\rho_1(E_1) \rho_2(E_2) \le \rho_1(E_1 - Q_1) \rho_2(E_2 + Q_2). \tag{28}$$
 Let us try to predict the maximum work obtainable by using only this
 relation (which makes no use of such notions as temperature, equation of
 state, heat capacity, or reversible operation). Given the energy $Q_1$ 
 extracted from the source, the maximum work we can get reproducibly is
 $Q_1 - Q_2$, where from (28), $Q_2$ is the root of
-$$\log \rho_1(E_1) + \log \rho_2(E_2) = \log \rho_1(E_1 - Q_1) + \log \rho_2(E_2 + Q_2).$$ 
-
+$$\log \rho_1(E_1) + \log \rho_2(E_2) = \log \rho_1(E_1 - Q_1) + \log \rho_2(E_2 + Q_2). \tag{29}$$
 Now vary $Q_1$; the RHS of (29) remains constant, and $Q_1 - Q_2$ is a
 maximum when
-$$\frac{\partial}{\partial Q_1} \log \rho_1(E_1 - Q_1) + \frac{\partial}{\partial Q_2} \log \rho_2(E_2 + Q_2) = 0$$
-
+$$\frac{\partial}{\partial Q_1} \log \rho_1(E_1 - Q_1) + \frac{\partial}{\partial Q_2} \log \rho_2(E_2 + Q_2) = 0 \tag{30}$$
 Therefore the maximum efficiency is 
-$$\eta = \frac{Q_1-Q_2}{Q_1}$$
+$$\eta = \frac{Q_1-Q_2}{Q_1} \tag{31}$$
 where $Q_1, Q_2$ are the simultaneous roots of (29) and (30). Note that this
 is the "global" efficiency that we need for this application, in which
 we contemplate extracting as much of the total available energy $E_1$ as
@@ -1400,16 +1391,14 @@ quantity
 $$r = \frac{N_1 E_2}{N_2 E_1}$$
 as the analog of $(T_2/T_1)$ in
 equilibrium theory. Then after some algebra, we find that (31) is
-$$\eta = 1 + \frac{N_2}{N_1} r - \frac{N_1+N_2}{N_1} r^{\frac{N_2}{N_1+N_2}}$$
-
+$$\eta = 1 + \frac{N_2}{N_1} r - \frac{N_1+N_2}{N_1} r^{\frac{N_2}{N_1+N_2}} \tag{37}$$
 In the case $N_1 = N_2$, this is $(1 - \sqrt{r})^2$, contrasted with
 Kelvin's differential efficiency $(1-r)$. Appropriate for muscles is the
 limiting form as $N_2 \to \infty$,
 $E_2/N_2 \to (1/2) kT_2 = \text{const.}$ (the blood stream is very large
 compared to a muscle fiber). Some care is needed in taking the limit, and
 (37) then reduces to 
-$$\eta = 1 - r + r\log r .$$
-
+$$\eta = 1 - r + r\log r . \tag{38}$$
 Now everything boils down to the question: what is $r$ for a muscle? As
 before, let us take for the large sink reservoir, $E_2 = (1/2) N_2 kT_2$,
 where $T_2 = 310$ K. The maximum theoretical efficiency surely corresponds to

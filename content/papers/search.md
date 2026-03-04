@@ -61,19 +61,25 @@ k by a continuous \"search effort\" variable z, and define a \"search
 parameter\" s by $(1-q) = \exp(-s^{-1})$.
 
 Then the probability that a search effort z will result in detection is
-$$p(D|z) = 1 - \exp(-z/s)$$ Now consider that, instead of a single
+$$p(D|z) = 1 - \exp(-z/s) \tag{1}$$
+
+Now consider that, instead of a single
 region R, the target is known to be in one and only one of n different
 \"cells\" with various search parameters $\{s_1 \dots s_n\}$. With prior
 probability $P_i$ that it is in cell i ($1 \le i \le n$), the predictive
 prior probability that the search allocations $\{z_1 \dots z_n\}$ will
-result in detection, is $$P_D = \sum_{i=1}^n P_i [1 - \exp(-z_i/s_i)]$$
+result in detection, is
+$$P_D = \sum_{i=1}^n P_i [1 - \exp(-z_i/s_i)] \tag{2}$$
 If, after this search, the target has not been located, the posterior
 probability that it is in cell i will be
-$$p_i = \frac{P_i \exp(-z_i/s_i)}{\sum_j P_j \exp(-z_j/s_j)}$$ In this
+$$p_i = \frac{P_i \exp(-z_i/s_i)}{\sum_j P_j \exp(-z_j/s_j)} \tag{3}$$
+
+In this
 notation, we use $p_i = p_i(z_1 \dots z_n)$ as the \"running variable\"
 cell probabilities that evolve continuously throughout the search, and
 $P_i = p_i(0)$ for their fixed initial values. The aforementioned
-entropy is then $$H_{ND} = - \sum_i p_i \log p_i$$
+entropy is then
+$$H_{ND} = - \sum_i p_i \log p_i \tag{4}$$
 ## Relative Entropy
 The cell parameter $s_i$ is a measure of the search effort required to
 achieve a given detection probability in cell i. If the cells consist of
@@ -90,18 +96,25 @@ natural way out of circumstances of the problem; but in principle their
 definition is arbitrary. They may be combined or subdivided in various
 ways and the cell sizes are additive. In particular, we can find
 integers $N_i$ such that
-$$\frac{s_i}{\sum s_i} = \frac{N_i}{\sum N_i}, \quad 1 \le i \le n$$ to
+$$\frac{s_i}{\sum s_i} = \frac{N_i}{\sum N_i}, \quad 1 \le i \le n \tag{5}$$
+
+to
 any desired accuracy (by choosing $N_i$ sufficiently large). But then a
 cell with size, probability, and search allocation $\{s_i, P_i, z_i\}$
 may be subdivided into $N_i$ equal cells, each of size, probability, and
 search allocation
-$$r_k = s_i/N_i; \quad w_k = p_i/N_i; \quad y_k = z_i/N_i; \quad 1 \le k \le N_i$$
+$$r_k = s_i/N_i; \quad w_k = p_i/N_i; \quad y_k = z_i/N_i; \quad 1 \le k \le N_i \tag{6}$$
 and the detection probability $p_i[1 - \exp(-z_i/s_i)]$ may be written
 equally
-well as $$\sum_{k=1}^{N_i} w_k[1 - \exp(-y_k/r_k)]$$ But by construction
+well as
+$$\sum_{k=1}^{N_i} w_k[1 - \exp(-y_k/r_k)] \tag{7}$$
+
+But by construction
 all the new cells (k) are the same size, from whatever old cell (i) they
 were derived. Therefore we have refined the problem to one where we have
-$$N = \sum_{i=1}^{n} N_i$$ equal cells. At this point, we could
+$$N = \sum_{i=1}^{n} N_i \tag{8}$$
+
+equal cells. At this point, we could
 generalize further by relaxing the requirement of equal $w_k, y_k$ in
 (6).
 
@@ -110,12 +123,17 @@ information about the refined cells must be
 $$H = - \sum_{k=1}^{N} w_k \log w_k = - \sum_{i=1}^{n} N_i(p_i/N_i) \log(p_i/N_i)$$
 which has the upper bound $H_{\text{max}} = \log N$. It is customary to
 subtract off this irrelevant additive constant by defining the new
-entropy $I = H - \log N$, or $$I(z) = \sum_{i=1}^{n} p_i \log(m_i/p_i)$$
-where $$m_i = \frac{N_i}{N} = \frac{s_i}{S}, \quad S = \sum s_i$$
+entropy $I = H - \log N$, or
+$$I(z) = \sum_{i=1}^{n} p_i \log(m_i/p_i) \tag{10}$$
+
+where
+$$m_i = \frac{N_i}{N} = \frac{s_i}{S}, \quad S = \sum s_i \tag{9}$$
 are the cell sizes, normalized to $\sum m_i = 1$. We may, equally well,
 define an entropy in which the roles of the distributions
 $\{p_i\}, \{m_i\}$ are interchanged:
-$$J(z) = \sum_{i=1}^{n} m_i \log(m_i/p_i)$$ These satisfy the Gibbs
+$$J(z) = \sum_{i=1}^{n} m_i \log(m_i/p_i) \tag{12}$$
+
+These satisfy the Gibbs
 inequalities $I \le 0, J \ge 0$, with equality in each case if and only
 if $\{p_i = m_i, 1 \le i \le n\}$.
 The quantity I may be called the entropy of the distribution $\{p_i\}$
@@ -129,6 +147,7 @@ different kind of object than $H_{ND}$. In fact, I is simply the entropy
 over the symmetric refined cells, and is every bit as much as a \"true
 entropy\" as $H_{ND}$. Indeed, it is not $H_{ND}$, but I and J, that
 have a simple and general relation to search theory, as follows:
+
 Consider a search that starts from initial values $I(0), J(0)$ which are
 measures of our prior information about the target location. At any
 subsequent stage $\{z_1 \dots z_n\}$ of the search effort--whether
@@ -143,11 +162,17 @@ derivation of (10). To demonstrate the connection of $J(z)$ with search
 effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
 Therefore, at any stage where we have allocated the search effort
 $\{z_i\}$, $J(z)$ is from (12)
-$$J(z) = \sum_{i=1}^{n} m_i \log\left[\frac{m_i}{p_i} (1-p_D) \exp(z_i/s_i)\right] = J(0) + \log(1 - p_D) + (z/S)$$
+$$J(z) = \sum_{i=1}^{n} m_i \log\left[\frac{m_i}{p_i} (1-p_D) \exp(z_i/s_i)\right] = J(0) + \log(1 - p_D) + (z/S) \tag{13}$$
+
 where $z = \sum z_i$ is the total search effort used. But (13) states
 only that at this stage the detection probability is
-$$p_D = 1 - \exp\left(-\frac{z+z^*}{S}\right)$$ where
-$$z^* \equiv S[J(0) - J(z)]$$ Since $J(z) \ge 0$, if we start from prior
+$$p_D = 1 - \exp\left(-\frac{z+z^*}{S}\right) \tag{14}$$
+
+where
+
+$$z^* \equiv S[J(0) - J(z)] \tag{15}$$
+
+Since $J(z) \ge 0$, if we start from prior
 ignorance, $J(0) = 0$, then clearly the best we can do is to conduct the
 search so as to keep $J(z) = 0$; then the detection probability will be
 $$p_D = 1 - \exp(-z/S)$$ i.e., just the original detection function (1),
@@ -177,7 +202,7 @@ the second try.
 
 The problem has dynamical consistency if the optimal total search
 allocation is the same in problems (A) and (B); i.e., if
-$$\hat{z}_i^{(1)} + \hat{z}_i^{(2)} = \hat{z}_i, \quad 1 \le i \le n$$
+$$\hat{z}_i^{(1)} + \hat{z}_i^{(2)} = \hat{z}_i, \quad 1 \le i \le n \tag{16}$$
 for all $C_1$ in ($0 \le C_1 \le C$). This is a highly desirable
 property for psychological, practical, and mathematical reasons.
 
@@ -204,12 +229,16 @@ previous search allocation $\{z_1 \dots z_n\}$, whether optimal or not,
 which has reduced the cell probabilities (3) to $\{p_1 \dots p_n\}$, if
 the new increment $\delta z$ is used in cell j, the probability that it
 will result in detection is
-$$p_j[1 - \exp(-\delta z/s_j)] = (p_j/s_j)\delta z$$ But if detection
-does not result, then according to (3) the probability of the i'th cell
-is changed by $$\delta p_i = (p_i - \delta_{ij})(p_j/s_j)\delta z$$ and
-from (10), (12) the entropies $I(z), J(z)$ will receive the increments
-$$\delta I = [I + \log(p_j/m_j)](p_j/s_j)\delta z$$
-$$\delta J = S^{-1}[1 - (p_j/m_j)]\delta z$$
+$$p_j[1 - \exp(-\delta z/s_j)] = (p_j/s_j)\delta z \tag{18}$$
+
+But if detection does not result, then according to (3) the probability
+of the i'th cell is changed by
+$$\delta p_i = (p_i - \delta_{ij})(p_j/s_j)\delta z \tag{19}$$
+
+and from (10), (12) the entropies $I(z), J(z)$ will receive the increments
+$$\delta I = [I + \log(p_j/m_j)](p_j/s_j)\delta z \tag{20}$$
+
+$$\delta J = S^{-1}[1 - (p_j/m_j)]\delta z \tag{21}$$
 
 Since $\sum p_i = \sum m_i = 1$, we have always
 $(p_j/m_j)_{\text{max}} \ge 1$, and from (10),

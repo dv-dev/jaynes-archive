@@ -145,12 +145,12 @@ equations of motion accurately over long times, without losing phase
 information.
 
 This work, done in 1956, led to a new respect for semiclassical theories
-and culminated in a report that we finally got out in 1958 $$1$$, which
+and culminated in a report that we finally got out in 1958 [1], which
 included the beginnings of the neoclassical theory, and saw the first
 appearance of elliptic functions, of which one particular limiting form
 -- the hyperbolic secant pulse -- was noted (but without any
 comprehension of the significance this would have later, thanks to
-McCall and Hahn). Developments since then $$2-9$$ are found in the Ph.D.
+McCall and Hahn). Developments since then [2-9] are found in the Ph.D.
 theses of many former students, who have contributed a large mass of
 detailed calculations, including quite a few surprises.
 ## Semiclassical Methods
@@ -164,7 +164,7 @@ mechanics, defined for our present purposes (which are served adequately
 by the model of a single nonrelativistic spin-less hydrogen atom) by the
 Schrödinger equation
 $$
-i\hbar\dot{\psi} = \left[ \frac{(\mathbf{p} - \frac{e}{c}\mathbf{A})^2}{2m} + e\phi \right]\psi
+i\hbar\dot{\psi} = \left[ \frac{(\mathbf{p} - \frac{e}{c}\mathbf{A})^2}{2m} + e\phi \right]\psi \tag{1}
 $$
 in which the electromagnetic potentials $\mathbf{A}, \phi$ are
 considered given. This equation determines the effect of the field on
@@ -176,7 +176,7 @@ appropriate generalization, very much more.
 SCA is incomplete in that it fails to give the effect of the atom on the
 field. To supply this, so that one could describe emission and
 scattering of radiation, there arose the \"Klein Vorschrift\" described
-in the Pauli Handbuch article $$10$$, in which one found it necessary to
+in the Pauli Handbuch article [10], in which one found it necessary to
 make arbitrary replacements of the form $\langle F^2 \rangle \to 2\langle F^+F^- \rangle$ for field
 quantities $F$, in order to obtain sensible results for rate of
 radiation of energy. Here $F^+, F^-$ are the positive and negative
@@ -185,7 +185,7 @@ modern normal-ordering methods of QED.
 
 Closely related to this was the \"transition current method\" (TCM)
 which is still very much in use today and is described, for example, in
-Schiff's textbook $$11$$. In TCM, one specifies initial and final states
+Schiff's textbook [11]. In TCM, one specifies initial and final states
 $\psi_i, \psi_f$ for the electrons, and sandwiches an operator
 representing current, dipole moment, etc. between them, making the
 \"transition current\"
@@ -238,7 +238,7 @@ $$
 (\Delta F)^2 = \langle F^2 \rangle - \langle F \rangle^2
 $$
  tends to zero. This was exploited in
-the famous 1946 paper of F. Bloch $$12$$ on magnetic resonance theory,
+the famous 1946 paper of F. Bloch [12] on magnetic resonance theory,
 resulting in a theory that I will call Semiclassical B (SCB). Imagine
 that we have a sample of a few milligrams of some substance containing
 protons; the number of them is probably of the order of
@@ -262,7 +262,7 @@ Defining the mean square fractional fluctuations as
 $R \equiv (\Delta M)^2 / \langle M \rangle^2$, $R_1 \equiv (\Delta M_1)^2 / \langle M_1 \rangle^2$,
 we have from (9), (10),
 $$
-R = \frac{\langle \mathbf{M}_1\mathbf{M}_2 \rangle - \langle \mathbf{M}_1 \rangle^2}{\langle \mathbf{M}_1 \rangle^2} + \frac{1}{n} \frac{\langle \mathbf{M}_1^2 \rangle - \langle \mathbf{M}_1\mathbf{M}_2 \rangle}{\langle \mathbf{M}_1 \rangle^2}
+R = \frac{\langle \mathbf{M}_1\mathbf{M}_2 \rangle - \langle \mathbf{M}_1 \rangle^2}{\langle \mathbf{M}_1 \rangle^2} + \frac{1}{n} \frac{\langle \mathbf{M}_1^2 \rangle - \langle \mathbf{M}_1\mathbf{M}_2 \rangle}{\langle \mathbf{M}_1 \rangle^2} \tag{11}
 $$
 
 The total moment $\mathbf{M}$ becomes better defined as $R \to 0$, and
@@ -278,7 +278,7 @@ Case 2, no correlation:
 $\langle \mathbf{M}_1\mathbf{M}_2 \rangle = \langle \mathbf{M}_1 \rangle\langle \mathbf{M}_2 \rangle = \langle \mathbf{M}_1 \rangle^2$.
 In this case, (11) reduces to 
 $$
-R = \frac{1}{n} R_1
+R = \frac{1}{n} R_1 \tag{12}
 $$
  and the law of
 large numbers is resurrected; for large n, the total moment becomes as
@@ -294,7 +294,7 @@ uncorrelated (or more generally, if spin-spin correlations drop off with
 their separation sufficiently rapidly for an ergodic condition to hold),
 the relative fluctuation R will be negligible, and we have the
 deterministic Bloch equations for total magnetic moment of the sample.
-As I have shown elsewhere $$13$$, it is such considerations that give,
+As I have shown elsewhere [13], it is such considerations that give,
 in large measure, the explanation for the success of statistical
 mechanics.
 
@@ -314,23 +314,23 @@ in an arbitrary way about the sample, is given by
 $V_{oc} = \mathbf{H} \cdot \mathbf{M}$, where $\mathbf{H}$ is the
 magnetic field at the sample due to unit current in the coil. In NMR
 work, the Q of the receiving circuit is usually so low that radiation
-damping $$i.e., the effect of the field calculated from (14), (15)
-reacting back on the moment M$$ can be neglected. In high resolution NMR
-and ESR, it may be a complicating factor $$12$$.
+damping (i.e., the effect of the field calculated from (14), (15)
+reacting back on the moment M) can be neglected. In high resolution NMR
+and ESR, it may be a complicating factor [12].
 
 In the 1946 Bloch paper one finds the sphere representation,
 fast-passage solutions which include the $\pi$-pulse, etc., which
-prepared the way for the Hahn spin-echo experiment $$14$$. Further
+prepared the way for the Hahn spin-echo experiment [14]. Further
 elaborations of the Bloch sphere representation led to a theoretical
-technique $$15$$ for predicting complicated sequences of spin echoes,
+technique [15] for predicting complicated sequences of spin echoes,
 which will probably find application soon in the theory of optical pulse
 echoes.
 
 The SCB method thus initiated, was applied some ten years later in the
 semiclassical theories of the ammonia maser, by Basov and Prokhorov
-$$16$$, and by Shimoda, Wang, and Townes $$17$$, who assumed a
+[16], and by Shimoda, Wang, and Townes [17], who assumed a
 delta-function velocity distribution. This was generalized to a
-Maxwellian distribution by Lamb and Helmer $$18$$. Cummings and I $$3$$,
+Maxwellian distribution by Lamb and Helmer [18]. Cummings and I [3],
 in a work devoted largely to other matters, noted that in an ammonia
 maser the velocity distribution will not be Maxwellian, because the
 electrostatic focusser is more efficient for low velocity molecules, and
@@ -364,9 +364,9 @@ spent the summer there in 1947. In a sense, it was \"obvious\" to anyone
 who knew that (2x2) unitary matrices form a faithful representation of
 the three-dimensional rotation group; but this does not seem to have
 been published at the time, and it was left for Feynman, Vernon, and
-Hellwarth $$19$$ to point it out in 1957, in an article where the
-hyperbolic secant pulse again puts in a brief appearance $$loc. cit.,
-Eq. (19)$$ under the heading: \"Radiation Damping\". As that suggests,
+Hellwarth [19] to point it out in 1957, in an article where the
+hyperbolic secant pulse again puts in a brief appearance (loc. cit.,
+Eq. (19)) under the heading: \"Radiation Damping\". As that suggests,
 they were considering only the back half of the pulse, where we move
 downward to the south pole of the Bloch sphere; but, of course, the
 analytical solution can be extrapolated backwards past $t=0$, to give
@@ -389,13 +389,13 @@ predominated over \"quantum noise\" except at extreme cryogenic
 temperatures, $T \le 1^\circ$K. Thus, also here the use of classical
 electromagnetic theory should not arouse any anxiety even in the most
 dedicated quantophile. But the next level of application of SCB, Lamb's
-analysis of the laser $$20$$, represents a further 20,000-fold increase
+analysis of the laser [20], represents a further 20,000-fold increase
 in frequency, into the region $(\hbar\omega/kT) \sim 60$, where some
 would expect radiation phenomena to be completely dominated by \"quantum
 effects\".
 
 The success of Lamb's semiclassical theory in predicting a large mass of
-experimental facts $$21$$ therefore came as an instructive surprise to
+experimental facts [21] therefore came as an instructive surprise to
 some whose education did not include real QED, but only the standard
 verbal misconceptions of it (i.e., the \"buckshot theory\" of light,
 which has propagated through several generations of elementary
@@ -443,7 +443,7 @@ Doppler broadening, which could be neglected in the ammonia maser, is
 now one of the crucial things determining performance; an atom moving at
 thermal velocities may see up to about fifty phase reversals of the
 field during a radiative lifetime. By analogy with the effect of flight
-time in the ammonia maser $$3$$, one would conclude that the \"useful\"
+time in the ammonia maser [3], one would conclude that the \"useful\"
 emission must be due mostly to the few percent of active atoms that are
 moving nearly transversely to the axis of the optical cavity, for a mode
 tuned exactly on the atom's natural frequency $\omega_0$. For the next
@@ -481,7 +481,7 @@ of the Bloch sphere representation.
 
 The Lamb SCB laser theory has been described in some detail so that a
 few of that long list of misconceptions can be pointed out. In a later
-paper on QED theory of the laser, Scully and Lamb $$22$$ give an
+paper on QED theory of the laser, Scully and Lamb [22] give an
 Introduction explaining the need for QED here, by pointing out defects
 in the semiclassical treatment. These points are made: (1) Semiclassical
 theory \"implies that laser radiation in an ideal steady state is
@@ -499,7 +499,7 @@ calculated the linewidth of an actual laser in the steady state by
 taking into account the statistical fluctuations in the number of
 excited atoms. He simply neglected to do so. A semiclassical theory of
 noise in the ammonia maser (where the main source is now thermal Nyquist
-noise generated in the cavity walls) has stood for some time $$3$$ as a
+noise generated in the cavity walls) has stood for some time [3] as a
 counter-example to this claim. Perhaps one would reply that the term
 \"ideal steady state\" was intended to mean one free of number
 fluctuations or thermal noise. But even in such a state, so ideal as to
@@ -538,15 +538,15 @@ predictions are, and the experiments are non-existent.
 
 To those who are surprised by this last remark, being under the
 impression that the theoretical situation is well understood, having
-been disposed of, to a large degree, already by Einstein $$23$$ in 1909,
+been disposed of, to a large degree, already by Einstein [23] in 1909,
 we say that we will return to the subject of energy fluctuations in a
 later section, starting with the recent treatment of Scully and Sargent
-$$24$$ but carrying the reasoning a few steps further. Be prepared for a
+[24] but carrying the reasoning a few steps further. Be prepared for a
 bigger surprise.
 
 The final -- and by far the greatest -- area of applications established
 for Semiclassical B theory is, of course, to the phenomena of
-self-induced transparency $$25$$, resonant pulse propagation, chirping,
+self-induced transparency [25], resonant pulse propagation, chirping,
 photon echoes, etc. There is no need to go into details here, or even
 attempt a fair set of references, since this field is developing at such
 a furious rate. Many other speakers at this Conference will tell us far
@@ -564,12 +564,12 @@ one example, I will venture to predict that, by the time another six
 years have passed, the subject of third-harmonic power generation will
 be developing as an important side-branch of this field. When the need
 for it arises, you will find the necessary theory, both QED and SCB,
-already worked out in the thesis of Duggan $$5$$.
+already worked out in the thesis of Duggan [5].
 
 In the area of quantum optics, it is clear that semiclassical theory has
 led to vastly more real physical predictions than QED. Indeed, the
 hundreds of existing experiments in this field have, with only two or
-three exceptions (the experiment of Clauser $$26$$ being outstanding)
+three exceptions (the experiment of Clauser [26] being outstanding)
 been predicted and/or explained in terms of SCB theory. It is usually
 much simpler mathematically than QED (although there is no theorem
 guaranteeing this for every individual problem), and it gives a simple
@@ -580,7 +580,7 @@ missing in QED. On the other hand, developments in QED inspired by
 quantum optics (coherent state representation, etc.) have given us a
 number of elegant theorems. However, they remain sterile, having almost
 no connection with real experimental facts, and there is a history of
-frustration $$27$$ in attempts to find experiments which require them.
+frustration [27] in attempts to find experiments which require them.
 In the face of this, I am glad that I do not have to defend the claim
 that QED is \"the only workable field theory we have\".
 ## Neoclassical Theory
@@ -631,7 +631,7 @@ but also the very concept of the moment of an individual atom, becomes
 fuzzy in such a way that it is held to be physically meaningless even to
 ask the question, \"How is the moment of an individual atom varying with
 time?\" The reason is connected with the famous von Neumann \"hidden
-variable\" theorem $$28$$. Although quantum theory readily yields
+variable\" theorem [28]. Although quantum theory readily yields
 certain mathematical quantities $\langle F \rangle = (\psi, F\psi)$ which are called
 \"expectation values\", they are not in general expectations over any
 underlying ensemble, the individual members of which could be identified
@@ -665,7 +665,7 @@ The mathematical quantities $\langle F \rangle$, whose usefulness is undeniable 
 form the source of the radiation field in SCB) ought not to be
 interpreted physically as mere expectation values; they have a more
 substantial meaning. As many physicists, including Einstein,
-Schrödinger, and von Laue $$29$$ have
+Schrödinger, and von Laue [29] have
 been pointing out for 45 years now, the Copenhagen theory slips here
 into mysticism; by refusing to recognize this contradiction and clinging
 to an unjustifiable interpretation, it ends up having to deny the
@@ -673,7 +673,7 @@ existence of an underlying ensemble, and therefore, of any \"objective
 reality\" on the microscopic level.
 
 That this denial is required by the Copenhagen interpretation, has been
-well recognized by Heisenberg $$30$$, who states it many times. I give
+well recognized by Heisenberg [30], who states it many times. I give
 three examples: \"They (i.e., opponents of the Copenhagen
 interpretation) would prefer to come back to the idea of an objective
 real world, whose smallest parts exist objectively in the same sense as
@@ -697,7 +697,7 @@ them. Instead, the Copenhagen school of thought tries to hide them from
 view, by proclaiming a new philosophy of human knowledge, according to
 which it is naive even to raise questions about \"objective reality\",
 or, for that matter, about anything that the Copenhagen theory cannot
-answer. Bohm and Bub $$31$$, recognizing this, have rightly emphasized
+answer. Bohm and Bub [31], recognizing this, have rightly emphasized
 the dangers for the progress of physics in a theory which effectively
 contains within itself a proclamation of its own infallibility, by the
 device of declaring to be meaningless any question that the theory is
@@ -769,7 +769,7 @@ effortlessly, in the most obvious way. We will retain all of the
 Schrödinger mathematical formalism associated with Eq. (1). There is the
 Hamiltonian 
 $$
-H = H_o + V(t)
+H = H_o + V(t) \tag{19}
 $$
  with 
 $$
@@ -781,7 +781,7 @@ $$
  the usual unperturbed stationary states
 $u_n(\mathbf{x})$:
 $$
-H_o u_n(\mathbf{x}) = E_n u_n(\mathbf{x}) = \hbar\omega_n u_n(\mathbf{x})
+H_o u_n(\mathbf{x}) = E_n u_n(\mathbf{x}) = \hbar\omega_n u_n(\mathbf{x}) \tag{21}
 $$
 and the usual wave function expansion
 $$
@@ -818,7 +818,10 @@ so $\mathbf{J}$ may be interpreted as electric current density (in emu
 cm$^{-2}$), with the proviso that, as far as charge conservation is
 concerned, any other choice with the same divergence, e.g.
 
-$\mathbf{J}^\prime = \mathbf{J} + \nabla \times \mathbf{Q}$, where
+$$
+\mathbf{J}^\prime = \mathbf{J} + \nabla \times \mathbf{Q} \tag{26}
+$$
+where
 $\mathbf{Q}(\mathbf{x})$ is any vector field, will do as well. This is
 one of the points of \"flexibility\" of NCT, that I alluded to in the
 Introduction; different choices of $\mathbf{Q}$ will alter the radiation
@@ -947,7 +950,7 @@ $$
 \begin{aligned}
 i\hbar \dot{a}_n &= \frac{\partial H^{\prime\prime}}{\partial a_n^*} \\\\
 i\hbar \dot{a}_n^* &= -\frac{\partial H^{\prime\prime}}{\partial a_n}
-\end{aligned}
+\end{aligned} \tag{40}
 $$
  with
 $$
@@ -1023,7 +1026,7 @@ relations they may have are simply mathematical relations that carry no
 physical implications of the \"uncertainty principle\" type.
 
 A large class of objections to neoclassical theory that have appeared
-recently $$24,32,33$$ (i.e., that its equations of motion are
+recently [24,32,33] (i.e., that its equations of motion are
 inconsistent, that it violates energy conservation, that it violates the
 uncertainty principle, etc.) arises solely from failure to comprehend
 the points made in the last paragraph. I hope it is now
@@ -1185,20 +1188,20 @@ effects\" in radiation phenomena on which the early development of
 quantum theory was based: the Ritz combination principle, the existence
 of stationary (i.e., nonradiating) states of fixed energy, the
 interchange of energy in units of $\hbar\Omega$, absorption and induced
-emission. As we have shown $$6,7$$ before, taking into account the
+emission. As we have shown [6,7] before, taking into account the
 atom's radiation reaction field (which means nothing more than finding
 the complete solution of (54) for all field modes and putting the result
 into (53)), leads to prediction of spontaneous emission with the correct
 Einstein A-coefficients, but a different shape (hyperbolic secant
 envelope) for the spontaneous emission pulse. Likewise, the beautiful
-experiments of R.W. Wood $$34$$ on resonance radiation and selective
+experiments of R.W. Wood [34] on resonance radiation and selective
 excitation of atoms, are accounted for immediately.
 
 Just before starting the mathematical development of NCT, I mentioned
 that we would proceed to do exactly what the Copenhagen school has told
 us cannot be done. That promise has now been fulfilled, for we have all
 been taught that the aforementioned phenomena cannot be accounted for by
-classical concepts at all. For example, Bohr $$35$$ has asserted that,
+classical concepts at all. For example, Bohr [35] has asserted that,
 \"Hence, in the case of atoms, we come upon a particularly glaring
 failure of the causal mode of description when accounting for the
 occurrence of radiation processes\". Similar assertions are repeated
@@ -1229,15 +1232,15 @@ and a gauge transformation, the interaction term in the Schrödinger
 equation (but not in the Maxwell equations -- this is the reason why one
 needs the vector potential in order to write the whole system of
 equations of motion in Hamiltonian form) takes the form of an electric
-dipole interaction. Details have been given before $$3,6,7$$, and we
+dipole interaction. Details have been given before [3,6,7], and we
 recall only the result. If $\omega = \omega_2-\omega_1 > 0$, the
 Schrödinger equation (39) or (53) can be written in terms of the dipole
 moment M(t) defined by (23): 
 $$
 \begin{aligned}
 \ddot{M} + \omega^2 M &= -(2\mu/\hbar)^2 W(t) E(t) \\\\
-\dot{W} &= \dot{M}E 
-\end{aligned}
+\dot{W} &= \dot{M}E
+\end{aligned} \tag{53}
 $$
  where E(t) is the electric field at the atom, and
 $$
@@ -1265,16 +1268,16 @@ $E_o(t), \theta_o(t)$ are slowly varying, and
 $$
 E_{\text{RR}}(t) = \frac{2}{3c^3} \dddot{M}(t) - \frac{4K}{3\pi c^3} \ddot{M}(t) ,
 $$
-(here K is a cutoff described before $$7$$, which is of the order of
+(here K is a cutoff described before [7], which is of the order of
 magnitude $K c/a_o$ with $a_o$ the Bohr radius; it can be calculated
-$$6$$ from the detailed current distribution within the atom), we pass
+[6] from the detailed current distribution within the atom), we pass
 to the Bloch sphere representation by introducing dimensionless
 variables x(t), y(t), z(t): 
 $$
 \begin{aligned}
 \dot{M} + i\omega M &= i\omega\mu(x+iy)\exp[i\Omega t + i\theta_o(t)] \\\\
 W &= \frac{1}{2}\hbar\omega z(t)
-\end{aligned}
+\end{aligned} \tag{61}
 $$
 
  Thus, $\mu x(t), \mu y(t)$ are respectively the
@@ -1284,13 +1287,13 @@ $\frac{1}{2}\hbar\omega$. The first integral (59) now reduces to the
 equation of the unit sphere, $x^2 + y^2 + z^2 = 1$. In this
 representation, the Schrödinger equation describing slow changes in the
 energy, and magnitude and phase of the dipole moment, of the atom, has
-the form $$7$$ of the \"secular equations\" 
+the form [7] of the \"secular equations\" 
 $$
 \begin{aligned}
 \dot{x} &= \beta zx + (\alpha-\gamma z)y \\\\
 \dot{y} &= \beta zy - (\alpha-\gamma z)x + \lambda z \\\\
 \dot{z} &= \beta(z^2-1) - \lambda y
-\end{aligned}
+\end{aligned} \tag{65}
 $$
 
  Here
@@ -1308,9 +1311,9 @@ $$
 $$
 are slowly varying measures of the amplitude and momentary frequency of
 the applied field. Many solutions of these equations have been given
-$$3-7$$, and Equations (65), although differing in detail in the terms
+[3-7], and Equations (65), although differing in detail in the terms
 containing $\gamma$ and $\beta$, are essentially equivalent to those of
-McCall and Hahn $$25$$ in the application to intense, short pulses
+McCall and Hahn [25] in the application to intense, short pulses
 (i.e., $\lambda \gg \beta, \gamma\tau \ll 1$). Equations (65) make a
 large number of detailed predictions capable of being checked by
 experiment, and we turn now to one case where new experimental evidence
@@ -1318,12 +1321,12 @@ is beginning to appear.
 ## Spontaneous Emission
 One of the most striking differences between the predictions of QED and
 NCT concerns the shape of the spontaneous emission pulse from an atom.
-As discussed in some detail previously $$6-9$$, NCT (via Eqs. (65) with
+As discussed in some detail previously [6-9], NCT (via Eqs. (65) with
 $\lambda=0$), predicts a chirped hyperbolic secant pulse, while QED
 predicts the usual exponentially damped one, with the tail of the
 hyperbolic secant pulse exp(-$\beta t$) having the same decay constant
 as the QED pulse. This has not only stimulated some correspondence
-$$8,9$$ and some experimental efforts $$36$$, but also some more careful
+[8,9] and some experimental efforts [36], but also some more careful
 thought about quantum theory. This point was first raised at the
 Coherence Conference here six years ago, but at that time, almost every
 physicist whom one asked about the shape of a spontaneous emission
@@ -1340,7 +1343,7 @@ better.
 
 Nevertheless, today several laboratories are actively performing
 experiments to answer such questions, and in theoretical work we see
-graphs like the one given by Nash and Gordon $$33$$, quite unblushingly
+graphs like the one given by Nash and Gordon [33], quite unblushingly
 comparing the QED and NCT emission rates of an atom as a function of its
 energy, varying continuously between excited and ground states. No
 thoughts about \"instantaneous quantum jumps\", no admonitions from
@@ -1431,8 +1434,8 @@ experiments of this type could provide a wealth of data checking many
 details of (65) against the corresponding QED predictions.
 
 A start on experiments of this type has been made in the interesting
-work of Gibbs $$36$$, reported at this Conference. As suggested before
-$$9$$, differences between QED and NCT can be seen if one can pump
+work of Gibbs [36], reported at this Conference. As suggested before
+[9], differences between QED and NCT can be seen if one can pump
 atoms, by laser pulses of controlled amplitude and duration, with an
 accurate $\pi$-pulse, whereupon the entire (or nearly the entire)
 hyperbolic secant envelope of (75) or (76) can be seen. With the usual
@@ -1520,7 +1523,7 @@ technical problems are in making a decisive experiment. (2) The issue of
 the reality of the dynamic Lamb shift chirp appears a very crucial one.
 In this latter connection, the relation between the two theories is
 brought out in a beautiful way in the work of Ackerhalt, Eberly, and
-Knight $$37$$ reported at this Conference. In pseudospin notation, the
+Knight [37] reported at this Conference. In pseudospin notation, the
 equations of motion of a two-level atom interacting with its self-made
 field can be written in a common form. $\sigma_3$ is the energy of the
 atom, in units of $\frac{1}{2}\hbar\omega$, and
@@ -1533,7 +1536,7 @@ $$
 \begin{aligned}
 \dot{\sigma}_- &= [-i(\omega_o+\gamma\sigma_3) + \beta\sigma_3]\sigma_- \\\\
 \dot{\sigma}_3 &= -4\beta\sigma_+\sigma_-
-\end{aligned}
+\end{aligned} \tag{81}
 $$
  in which $\beta$ and $\gamma$ are the same radiation
 constants defined in (66), $\gamma$ is identical with the \"Crisp
@@ -1648,14 +1651,14 @@ adequately covered up in QED.
 For example, if it is true that the Einstein A-coefficients are due
 physically to zero-point fluctuations of the field, then why is it that
 the derivation of the Planck law based on the A and B coefficients,
-leads $$33$$ to a result that does not include the zero-point energy? It
+leads [33] to a result that does not include the zero-point energy? It
 seems to me that we have here either a flagrant logical contradiction,
 an error in calculation, or an incorrect interpretation, quite likely
 all three. For the conventional \"derivation\" of the Planck law will
 not bear inspection; we calculate the A-coefficient as if an atom were
 emitting into field-free space instead of into thermal radiation, and
 the B-coefficients as if the spontaneous emission were turned off. In
-reality, these effects interfere with each other $$38$$ in a way that is
+reality, these effects interfere with each other [38] in a way that is
 certainly not negligible. According to either QED or NCT the
 conventional A -- and B-coefficient argument is just too crude to deal
 with the problem.
@@ -1687,7 +1690,7 @@ $2 \times 10^{20}$ megawatts; real radiation of that intensity would do
 a little more than just shift the 2S level by 4 microvolts).
 
 Now let us examine a rather milder problem, the energy fluctuations in
-thermal radiation. According to conventional QED treatments $$24$$, the
+thermal radiation. According to conventional QED treatments [24], the
 mean square energy fluctuation of the cavity modes in bandwidth
 $d\Omega$ is
 $$
@@ -1698,7 +1701,7 @@ n is the number of photons in a single mode (assumed to have the same
 probability distribution for all modes in the small frequency interval
 d$\Omega$). For any field mode in a state describable by the P($\alpha$)
 distribution, we readily find a generalization of Einstein's formula
-$$see Ref. 24, Eq. (21)$$:
+(see Ref. 24, Eq. (21)):
 $$
 \langle n^2 \rangle - \langle n \rangle^2 = [\langle |\alpha|^4 \rangle - \langle |\alpha|^2 \rangle^2] + \langle n \rangle ,
 $$
@@ -1749,7 +1752,7 @@ universally valid relation, quite independently of its above derivation
 from QED. And in turn, (98) is only a special case of a far more general
 relation giving fluctuations and covariances of any physical quantities,
 over any probability distribution derivable from the principle of
-maximum entropy $$39$$. So we will accept Einstein's relation (96) for
+maximum entropy [39]. So we will accept Einstein's relation (96) for
 thermal radiation.
 
 How, then, is semiclassical theory to account for the \"field
@@ -1853,6 +1856,7 @@ just $\langle n_k \rangle^2$, and so semiclassical theory will have accounted fo
 Einstein relation if it can be shown that, in contrast to (102),
 $$
 \sum_r^\prime [\langle n_k n_r \rangle - \langle n_k \rangle\langle n_r \rangle] = \langle n_k \rangle .
+\tag{103}
 $$
 
  Until calculations to
@@ -1963,18 +1967,18 @@ fluctuation term $\hbar\Omega\langle E \rangle$ in (96), which Einstein interpre
 giving the radiation field a \"particle\" aspect, is accounted for after
 all by classical EM theory, as the effect of small intermode
 correlations that Einstein and all subsequent writers except von Laue
-$$40$$ seem to have neglected. But in QED, the correlations are
+[40] seem to have neglected. But in QED, the correlations are
 negative, canceling out the field quantization contribution, and so QED
 fails to give the presumably correct Einstein fluctuation law.
 ## Conclusion
 We have not commented on the beautiful experiment reported here by
-Clauser $$26$$ which opens up an entirely new area of fundamental
+Clauser [26] which opens up an entirely new area of fundamental
 importance to the issues facing us. The situation is, in fact, so new
 that it will require much analysis, based on greater knowledge of the
 exact experimental conditions, before we will be in a position to make
 any constructive comments beyond the obvious suggestion that the
 experiment should be repeated with circular polarization. The
-implications of Bell's theorem $$28$$, as applied to this experiment,
+implications of Bell's theorem [28], as applied to this experiment,
 are so astonishing that it will require much deep contemplation to
 digest and understand it.
 
@@ -2077,12 +2081,3 @@ M.C. Newstein, Phys. Rev. **167**, 89 (1968); C.R. Stroud, Phys. Rev. A
 **3**, 1044 (1971). 39. E.T. Jaynes, *Statistical Physics*, Vol. 3, ed.
 K.W. Ford (W.A. Benjamin Inc., New York, 1963) Ch. 4; see particularly
 Eq.(21). 40. M. von Laue, Ann. d. Phys. **47**, 853; **48**, 668 (1915).
-[^1]: Supported by the Air Force Office of Scientific Research, Contract
-    No. F44620-60-0121.\
-    This talk was scheduled as the first of a long series devoted to
-    Quantum Electrodynamics and alternative theories. Evidently, a fully
-    up-to-date account of the topic could not be given until the other
-    speakers, presenting new evidence bearing on these matters, had been
-    heard. This final version therefore differs from the talk actually
-    given, in deletion of obsolete material and in additions to take
-    account of work reported by others at the Conference.

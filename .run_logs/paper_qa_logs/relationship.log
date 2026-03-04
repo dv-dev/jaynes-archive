@@ -1,0 +1,1070 @@
+=== STDOUT ===
+Edited [content/papers/relationship.md](/home/dave/Projects/jaynes-archive/content/papers/relationship.md) with minimal structural QA changes:
+
+- Added missing blank-line paragraph breaks where prose transitions were previously merged into long blocks.
+- Adjusted display math layout (blank lines around existing `$$...$$`) for cleaner Hugo+KaTeX rendering, without changing any equation content.
+- Normalized in-text citations to Markdown footnote citations and converted the References section entries to matching footnote definitions.
+- Kept paper meaning/content intact; no abstract duplication was present; no extraneous lecture metadata was present.
+- Equation-reference check: no in-text `Eq.`/`Eqs.` references were present, so no equation-number tagging changes were needed.
+
+Self-check passed:
+- Paragraph boundaries use blank-line separation where intended.
+- No unresolved in-text equation references to missing numbered display equations.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba58-f4a2-7843-b172-681473e67fcc
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/relationship.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/relationship.md` for paragraph-break issues, equation-reference numbering markup, duplicate abstract/body metadata, and citation formatting, then apply only minimal structural edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/relationship.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "The Relation of Bayesian and Maximum Entropy Methods"
+author: ["E.T. Jaynes"]
+year: 1988
+---
+We are all pleased at the progress that has been made, in many different
+fields, as a result of recent recognition of the power of Bayesian
+inference and the Maximum Entropy Principle (MAXENT). But this is not to
+say that further clarifications and technical developments aren't
+needed. It is a truism that every new level of understanding reached
+only reveals to us new questions of which we were unaware before.
+Therefore, in spite of present successes, this is no time for relaxing
+our efforts to develop still better pragmatic algorithms and a more
+unified theoretical structure. Indeed, because of the pressure of new
+applications opened up by these very successes, the field of scientific
+inference has never been in greater need of new creative thought. But
+before we can hope to make much further progress, some clarification of
+our present principles is needed.
+
+We have at present two principles, Bayes' theorem and MAXENT, that are
+codex
+I found the file mostly structurally sound already. I’m going to make minimal edits: improve display-equation block layout for cleaner Hugo+KaTeX rendering and normalize in-text citations to footnotes, then convert the references section into matching footnote definitions.
+exec
+/bin/bash -lc "nl -ba content/papers/relationship.md | sed -n '1,280p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "The Relation of Bayesian and Maximum Entropy Methods"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1988
+     5	---
+     6	We are all pleased at the progress that has been made, in many different
+     7	fields, as a result of recent recognition of the power of Bayesian
+     8	inference and the Maximum Entropy Principle (MAXENT). But this is not to
+     9	say that further clarifications and technical developments aren't
+    10	needed. It is a truism that every new level of understanding reached
+    11	only reveals to us new questions of which we were unaware before.
+    12	Therefore, in spite of present successes, this is no time for relaxing
+    13	our efforts to develop still better pragmatic algorithms and a more
+    14	unified theoretical structure. Indeed, because of the pressure of new
+    15	applications opened up by these very successes, the field of scientific
+    16	inference has never been in greater need of new creative thought. But
+    17	before we can hope to make much further progress, some clarification of
+    18	our present principles is needed.
+    19	
+    20	We have at present two principles, Bayes' theorem and MAXENT, that are
+codex
+I’m now applying the edits: inserting explicit blank-line paragraph breaks where prose transitions were merged, keeping equations unchanged while improving display layout, and switching citation mentions to footnotes with matching definitions.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/relationship.md
+@@ -31,3 +31,6 @@
+ theorem\" we mean calculating the probability
+-$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$ where, in our applications, H stands
++
++$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$
++
++where, in our applications, H stands
+ for some hypothesis whose truth we want to judge, D for a set of data,
+@@ -38,5 +41,9 @@
+ of a parameter $\theta$.
++
+ By \"applying MAXENT\" we mean assigning a distribution
+ $(p_1 \cdots p_n)$ on some \"hypothesis space\" by the criterion that it
+-shall maximize the information entropy $$S_I = -\sum p_i \log p_i$$
++shall maximize the information entropy
++
++$$S_I = -\sum p_i \log p_i$$
++
+ subject to constraints that express properties we wish the distribution
+@@ -45,2 +52,3 @@
+ the conditions we are aware of.
++
+ On the face of it, it is hard to imagine two procedures more different,
+@@ -61,2 +69,3 @@
+ which is Bayes' theorem.
++
+ Obviously, then, anyone who reasons in a way that conflicts with Bayes'
+@@ -71,2 +80,3 @@
+ values for $p(H|I)$, $p(D|HI)$, $p(D|I)$.
++
+ In scientific inference, therefore, before we can apply Bayes' theorem
+@@ -74,2 +84,3 @@
+ point where it has enough structure to determine $p(D|HI)$.
++
+ In contrast, MAXENT requires that we specify in advance a definite
+@@ -84,4 +95,6 @@
+ as expressed by our choice of hypothesis space and constraints.
++
+ Therefore MAXENT can be applied in -- and is indeed most useful in --
+ the exploratory phase of a problem.
++
+ In these functional respects, MAXENT does for us almost the opposite of
+@@ -89,2 +102,3 @@
+ so different could be confused? This comes from two circumstances.
++
+ In the first place they have, after all, one feature in common; the
+@@ -98,2 +112,3 @@
+ \"posterior probabilities\" -- to confuse them thoroughly.
++
+ Secondly, there is a technical circumstance which has caused trouble
+@@ -103,2 +118,3 @@
+ to nearly identical calculations.
++
+ For example, starting with Darwin & Fowler in the 1920's, many have
+@@ -109,12 +125,13 @@
+ for MAXENT, which differs from the more fundamental probabilistic one
+-noted above. Some other examples of this Bayes-MAXENT mathematical
+-correspondence are given in Jaynes (1968). In a sense, this only
++noted above. Some other examples of this Bayes-MAXENT mathematical correspondence are given in Jaynes[^jaynes1968]. In a sense, this only
+ illustrates their mutual consistency; but it can also be a rich source
+ of confusion.
++
+ The recent literature has many attempts to clarify the relation of these
+-principles. Williams (1980) sees Bayes' theorem as a special case of
+-MAXENT, while van Campenhout & Cover (1981) see MAXENT as a special case
++principles. Williams[^williams1980] sees Bayes' theorem as a special case of
++MAXENT, while van Campenhout & Cover[^vancampenhout1981] see MAXENT as a special case
+ of Bayes' theorem. In our view, both are correct as far as they go; but
+-they consider only special cases. Zellner (1987) generalizes Williams'
++they consider only special cases. Zellner[^zellner1987] generalizes Williams'
+ result.
++
+ Thus Williams considers the case where we have a set of possibilities
+@@ -127,11 +144,14 @@
+ to speak of \"trials\".
++
+ Attempts to evade Bayes' theorem have been underway unceasingly since
+ the rise of the 'sampling theory' school of thought in the early 1900's.
+-But we have already surveyed the results (Jaynes, 1983); whenever
++But we have already surveyed the results[^jaynes1983]; whenever
+ sampling theory methods have led us to different conclusions, closer
+ examination has always shown the Bayesian results to be superior.
++
+ Likewise, to the best of our knowledge, all attempts to extend Bayes'
+-theorem [such as that of Jeffrey (1983)] have proved on closer
++theorem [such as that of Jeffrey[^jeffrey1983]] have proved on closer
+ examination to be satisfactory only in the cases where they agree with
+-Bayes' theorem. Further strong evidence is given by Bretthorst (1987).
++Bayes' theorem. Further strong evidence is given by Bretthorst[^bretthorst1987].
++
+ That MAXENT is in a similar position is indicated by the fact that the
+@@ -142,2 +162,3 @@
+ MAXENT algorithm and result.
++
+ To the best of our knowledge, all attempts to evade MAXENT in problems
+@@ -149,2 +170,3 @@
+ the evidence for this conclusion in much greater detail elsewhere.
++
+ There is indeed something fundamental about these principles, although
+@@ -158,2 +180,3 @@
+ of the good performance features already accomplished.
++
+ An old adage among moralists is that \"Virtue cannot be taught; only
+@@ -165,22 +188,16 @@
+ filled soon.
++
+ ## References {#references .unnumbered}
+-Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington
+-University, St. Louis, Missouri.
+-Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci.
+-Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C.
+-Henshaw, Eds., Concepts and Applications of Modern Decision Methods
+-(Michigan State University Business Studies Series, 1976), and in Jaynes
+-(1983).
+-Jaynes, E. T. (1983), Papers on Probability, Statistics and Statistical
+-Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co.,
+-Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+-Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of
+-Chicago Press.
+-van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory
+-IT-27, 483.
+-Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle
+-of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same
+-mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and
+-Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+-Zellner, A. (1987), \"Optimal Information Processing and Bayes'
+-Theorem\" *The American Statistician* (to be published).
++[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
++
++[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
++
++[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
++
++[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
++
++[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
++
++[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
++
++[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/relationship.md
+file update:
+diff --git a/content/papers/relationship.md b/content/papers/relationship.md
+index 4277fc3bc8b81c31dd17afa80251b566be289316..a21a6cec337fe2fa2b09c9b61608c8c090ef62e2
+--- a/content/papers/relationship.md
++++ b/content/papers/relationship.md
+@@ -29,20 +29,28 @@
+ 
+ At the most fundamental level as now perceived, by \"applying Bayes'
+ theorem\" we mean calculating the probability
+-$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$ where, in our applications, H stands
++
++$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$
++
++where, in our applications, H stands
+ for some hypothesis whose truth we want to judge, D for a set of data,
+ and I for whatever \"prior information\" we have in addition to the
+ data. The prior probability $p(H|I)$ of H gets updated to the posterior
+ probability $p(H|DI)$ as a result of acquiring the data D. This includes
+ parameter estimation, since H might be a statement about some property
+ of a parameter $\theta$.
++
+ By \"applying MAXENT\" we mean assigning a distribution
+ $(p_1 \cdots p_n)$ on some \"hypothesis space\" by the criterion that it
+-shall maximize the information entropy $$S_I = -\sum p_i \log p_i$$
++shall maximize the information entropy
++
++$$S_I = -\sum p_i \log p_i$$
++
+ subject to constraints that express properties we wish the distribution
+ to have, but are not sufficient to determine it. Entropy is used as the
+ criterion for resolving the ambiguity remaining when we have stated all
+ the conditions we are aware of.
++
+ On the face of it, it is hard to imagine two procedures more different,
+ mathematically or logically. Bayes' theorem expresses nothing more than
+ that Aristotelian logic is commutative. The propositions
+@@ -59,6 +67,7 @@
+ p(DH|I) = p(D|HI)p(H|I) = p(H|DI)p(D|I)
+ $$
+ which is Bayes' theorem.
++
+ Obviously, then, anyone who reasons in a way that conflicts with Bayes'
+ theorem is violating a rather elementary principle of logic.
+ Fundamentally, a single application of Bayes' theorem gives us only a
+@@ -69,9 +78,11 @@
+ probability directly from our information; to apply it one must first
+ use some other principle to translate our information into numerical
+ values for $p(H|I)$, $p(D|HI)$, $p(D|I)$.
++
+ In scientific inference, therefore, before we can apply Bayes' theorem
+ our problem must be developed beyond the \"exploratory phase\", to the
+ point where it has enough structure to determine $p(D|HI)$.
++
+ In contrast, MAXENT requires that we specify in advance a definite
+ hypothesis space $H_1 \cdots H_n$ which sets down the possibilities to
+ be considered. It gives us necessarily a probability distribution, not
+@@ -82,11 +93,14 @@
+ space; rather it
+ assigns those numerical values for us, directly out of our information,
+ as expressed by our choice of hypothesis space and constraints.
++
+ Therefore MAXENT can be applied in -- and is indeed most useful in --
+ the exploratory phase of a problem.
++
+ In these functional respects, MAXENT does for us almost the opposite of
+ what Bayes' theorem does. How, then is it possible that two principles
+ so different could be confused? This comes from two circumstances.
++
+ In the first place they have, after all, one feature in common; the
+ updating of a state of knowledge. In MAXENT, for example, one may
+ consider a problem with constraints X and Y, and find the solution
+@@ -96,27 +110,30 @@
+ theorem; and for some it requires only a sloppy notation and terminology
+ -- calling these two MAXENT distributions \"prior probabilities\" and
+ \"posterior probabilities\" -- to confuse them thoroughly.
++
+ Secondly, there is a technical circumstance which has caused trouble
+ throughout the history of probability theory; different problems may
+ lead to the same computational procedure. In some cases application of
+ Bayes' theorem in one hypothesis space, and MAXENT in another, leads us
+ to nearly identical calculations.
++
+ For example, starting with Darwin & Fowler in the 1920's, many have
+ noted that the MAXENT procedure on the space S of a single trial, and
+ the Bayes' theorem procedure on the extension space $S^n$ of n trials
+ are asymptotically equivalent as n becomes very large; the latter
+ circumstance may be taken as the basis of the combinatorial rationale
+ for MAXENT, which differs from the more fundamental probabilistic one
+-noted above. Some other examples of this Bayes-MAXENT mathematical
+-correspondence are given in Jaynes (1968). In a sense, this only
++noted above. Some other examples of this Bayes-MAXENT mathematical correspondence are given in Jaynes[^jaynes1968]. In a sense, this only
+ illustrates their mutual consistency; but it can also be a rich source
+ of confusion.
++
+ The recent literature has many attempts to clarify the relation of these
+-principles. Williams (1980) sees Bayes' theorem as a special case of
+-MAXENT, while van Campenhout & Cover (1981) see MAXENT as a special case
++principles. Williams[^williams1980] sees Bayes' theorem as a special case of
++MAXENT, while van Campenhout & Cover[^vancampenhout1981] see MAXENT as a special case
+ of Bayes' theorem. In our view, both are correct as far as they go; but
+-they consider only special cases. Zellner (1987) generalizes Williams'
++they consider only special cases. Zellner[^zellner1987] generalizes Williams'
+ result.
++
+ Thus Williams considers the case where we have a set of possibilities
+ ($H_1 \cdots H_n$), and some new information E confines us to a subset
+ of them. Such primitive information can be digested by either Bayes'
+@@ -125,21 +142,25 @@
+ Campenhout & Cover consider only the Darwin-Fowler scenario; MAXENT is
+ designed to cover more general situations, where it does not make sense
+ to speak of \"trials\".
++
+ Attempts to evade Bayes' theorem have been underway unceasingly since
+ the rise of the 'sampling theory' school of thought in the early 1900's.
+-But we have already surveyed the results (Jaynes, 1983); whenever
++But we have already surveyed the results[^jaynes1983]; whenever
+ sampling theory methods have led us to different conclusions, closer
+ examination has always shown the Bayesian results to be superior.
++
+ Likewise, to the best of our knowledge, all attempts to extend Bayes'
+-theorem [such as that of Jeffrey (1983)] have proved on closer
++theorem [such as that of Jeffrey[^jeffrey1983]] have proved on closer
+ examination to be satisfactory only in the cases where they agree with
+-Bayes' theorem. Further strong evidence is given by Bretthorst (1987).
++Bayes' theorem. Further strong evidence is given by Bretthorst[^bretthorst1987].
++
+ That MAXENT is in a similar position is indicated by the fact that the
+ MAXENT procedure is in constant use, either as an analytical tool or as
+ a computational algorithm, in a variety of very different problems; and
+ no alternative has been found. Even those who reject the MAXENT
+ principle are often led, by long and different reasoning, to the actual
+ MAXENT algorithm and result.
++
+ To the best of our knowledge, all attempts to evade MAXENT in problems
+ where we consider it appropriate, or to extend it to new problems, have
+ been no more successful than the attempts to evade or extend Bayes'
+@@ -147,6 +168,7 @@
+ shown to be defective or incomplete, in that they either fail to use all
+ the relevant information or assume false information. We hope to discuss
+ the evidence for this conclusion in much greater detail elsewhere.
++
+ There is indeed something fundamental about these principles, although
+ we think that more unified ways of presenting them are still needed and
+ will be found in the future. But we stress that our present principles
+@@ -156,6 +178,7 @@
+ present principles, we are hardly in a position to improve on them; as
+ so much past experience has shown, we are far more likely to lose some
+ of the good performance features already accomplished.
++
+ An old adage among moralists is that \"Virtue cannot be taught; only
+ demonstrated\"; and we must admit that today more worked-out examples of
+ their analytical and numerical details, in a wider variety of real
+@@ -163,24 +186,18 @@
+ of results are to be expected. But with more and more books and
+ Bayesian/MAXENT computer programs being written, this need should be
+ filled soon.
++
+ ## References {#references .unnumbered}
+-Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington
+-University, St. Louis, Missouri.
+-Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci.
+-Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C.
+-Henshaw, Eds., Concepts and Applications of Modern Decision Methods
+-(Michigan State University Business Studies Series, 1976), and in Jaynes
+-(1983).
+-Jaynes, E. T. (1983), Papers on Probability, Statistics and Statistical
+-Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co.,
+-Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+-Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of
+-Chicago Press.
+-van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory
+-IT-27, 483.
+-Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle
+-of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same
+-mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and
+-Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+-Zellner, A. (1987), \"Optimal Information Processing and Bayes'
+-Theorem\" *The American Statistician* (to be published).
++[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
++
++[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
++
++[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
++
++[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
++
++[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
++
++[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
++
++[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+
+file update:
+diff --git a/content/papers/relationship.md b/content/papers/relationship.md
+index 4277fc3bc8b81c31dd17afa80251b566be289316..a21a6cec337fe2fa2b09c9b61608c8c090ef62e2
+--- a/content/papers/relationship.md
++++ b/content/papers/relationship.md
+@@ -29,20 +29,28 @@
+ 
+ At the most fundamental level as now perceived, by \"applying Bayes'
+ theorem\" we mean calculating the probability
+-$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$ where, in our applications, H stands
++
++$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$
++
++where, in our applications, H stands
+ for some hypothesis whose truth we want to judge, D for a set of data,
+ and I for whatever \"prior information\" we have in addition to the
+ data. The prior probability $p(H|I)$ of H gets updated to the posterior
+ probability $p(H|DI)$ as a result of acquiring the data D. This includes
+ parameter estimation, since H might be a statement about some property
+ of a parameter $\theta$.
++
+ By \"applying MAXENT\" we mean assigning a distribution
+ $(p_1 \cdots p_n)$ on some \"hypothesis space\" by the criterion that it
+-shall maximize the information entropy $$S_I = -\sum p_i \log p_i$$
++shall maximize the information entropy
++
++$$S_I = -\sum p_i \log p_i$$
++
+ subject to constraints that express properties we wish the distribution
+ to have, but are not sufficient to determine it. Entropy is used as the
+ criterion for resolving the ambiguity remaining when we have stated all
+ the conditions we are aware of.
++
+ On the face of it, it is hard to imagine two procedures more different,
+ mathematically or logically. Bayes' theorem expresses nothing more than
+ that Aristotelian logic is commutative. The propositions
+@@ -59,6 +67,7 @@
+ p(DH|I) = p(D|HI)p(H|I) = p(H|DI)p(D|I)
+ $$
+ which is Bayes' theorem.
++
+ Obviously, then, anyone who reasons in a way that conflicts with Bayes'
+ theorem is violating a rather elementary principle of logic.
+ Fundamentally, a single application of Bayes' theorem gives us only a
+@@ -69,9 +78,11 @@
+ probability directly from our information; to apply it one must first
+ use some other principle to translate our information into numerical
+ values for $p(H|I)$, $p(D|HI)$, $p(D|I)$.
++
+ In scientific inference, therefore, before we can apply Bayes' theorem
+ our problem must be developed beyond the \"exploratory phase\", to the
+ point where it has enough structure to determine $p(D|HI)$.
++
+ In contrast, MAXENT requires that we specify in advance a definite
+ hypothesis space $H_1 \cdots H_n$ which sets down the possibilities to
+ be considered. It gives us necessarily a probability distribution, not
+@@ -82,11 +93,14 @@
+ space; rather it
+ assigns those numerical values for us, directly out of our information,
+ as expressed by our choice of hypothesis space and constraints.
++
+ Therefore MAXENT can be applied in -- and is indeed most useful in --
+ the exploratory phase of a problem.
++
+ In these functional respects, MAXENT does for us almost the opposite of
+ what Bayes' theorem does. How, then is it possible that two principles
+ so different could be confused? This comes from two circumstances.
++
+ In the first place they have, after all, one feature in common; the
+ updating of a state of knowledge. In MAXENT, for example, one may
+ consider a problem with constraints X and Y, and find the solution
+@@ -96,27 +110,30 @@
+ theorem; and for some it requires only a sloppy notation and terminology
+ -- calling these two MAXENT distributions \"prior probabilities\" and
+ \"posterior probabilities\" -- to confuse them thoroughly.
++
+ Secondly, there is a technical circumstance which has caused trouble
+ throughout the history of probability theory; different problems may
+ lead to the same computational procedure. In some cases application of
+ Bayes' theorem in one hypothesis space, and MAXENT in another, leads us
+ to nearly identical calculations.
++
+ For example, starting with Darwin & Fowler in the 1920's, many have
+ noted that the MAXENT procedure on the space S of a single trial, and
+ the Bayes' theorem procedure on the extension space $S^n$ of n trials
+ are asymptotically equivalent as n becomes very large; the latter
+ circumstance may be taken as the basis of the combinatorial rationale
+ for MAXENT, which differs from the more fundamental probabilistic one
+-noted above. Some other examples of this Bayes-MAXENT mathematical
+-correspondence are given in Jaynes (1968). In a sense, this only
++noted above. Some other examples of this Bayes-MAXENT mathematical correspondence are given in Jaynes[^jaynes1968]. In a sense, this only
+ illustrates their mutual consistency; but it can also be a rich source
+ of confusion.
++
+ The recent literature has many attempts to clarify the relation of these
+-principles. Williams (1980) sees Bayes' theorem as a special case of
+-MAXENT, while van Campenhout & Cover (1981) see MAXENT as a special case
++principles. Williams[^williams1980] sees Bayes' theorem as a special case of
++MAXENT, while van Campenhout & Cover[^vancampenhout1981] see MAXENT as a special case
+ of Bayes' theorem. In our view, both are correct as far as they go; but
+-they consider only special cases. Zellner (1987) generalizes Williams'
++they consider only special cases. Zellner[^zellner1987] generalizes Williams'
+ result.
++
+ Thus Williams considers the case where we have a set of possibilities
+ ($H_1 \cdots H_n$), and some new information E confines us to a subset
+ of them. Such primitive information can be digested by either Bayes'
+@@ -125,21 +142,25 @@
+ Campenhout & Cover consider only the Darwin-Fowler scenario; MAXENT is
+ designed to cover more general situations, where it does not make sense
+ to speak of \"trials\".
++
+ Attempts to evade Bayes' theorem have been underway unceasingly since
+ the rise of the 'sampling theory' school of thought in the early 1900's.
+-But we have already surveyed the results (Jaynes, 1983); whenever
++But we have already surveyed the results[^jaynes1983]; whenever
+ sampling theory methods have led us to different conclusions, closer
+ examination has always shown the Bayesian results to be superior.
++
+ Likewise, to the best of our knowledge, all attempts to extend Bayes'
+-theorem [such as that of Jeffrey (1983)] have proved on closer
++theorem [such as that of Jeffrey[^jeffrey1983]] have proved on closer
+ examination to be satisfactory only in the cases where they agree with
+-Bayes' theorem. Further strong evidence is given by Bretthorst (1987).
++Bayes' theorem. Further strong evidence is given by Bretthorst[^bretthorst1987].
++
+ That MAXENT is in a similar position is indicated by the fact that the
+ MAXENT procedure is in constant use, either as an analytical tool or as
+ a computational algorithm, in a variety of very different problems; and
+ no alternative has been found. Even those who reject the MAXENT
+ principle are often led, by long and different reasoning, to the actual
+ MAXENT algorithm and result.
++
+ To the best of our knowledge, all attempts to evade MAXENT in problems
+ where we consider it appropriate, or to extend it to new problems, have
+ been no more successful than the attempts to evade or extend Bayes'
+@@ -147,6 +168,7 @@
+ shown to be defective or incomplete, in that they either fail to use all
+ the relevant information or assume false information. We hope to discuss
+ the evidence for this conclusion in much greater detail elsewhere.
++
+ There is indeed something fundamental about these principles, although
+ we think that more unified ways of presenting them are still needed and
+ will be found in the future. But we stress that our present principles
+@@ -156,6 +178,7 @@
+ present principles, we are hardly in a position to improve on them; as
+ so much past experience has shown, we are far more likely to lose some
+ of the good performance features already accomplished.
++
+ An old adage among moralists is that \"Virtue cannot be taught; only
+ demonstrated\"; and we must admit that today more worked-out examples of
+ their analytical and numerical details, in a wider variety of real
+@@ -163,24 +186,18 @@
+ of results are to be expected. But with more and more books and
+ Bayesian/MAXENT computer programs being written, this need should be
+ filled soon.
++
+ ## References {#references .unnumbered}
+-Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington
+-University, St. Louis, Missouri.
+-Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci.
+-Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C.
+-Henshaw, Eds., Concepts and Applications of Modern Decision Methods
+-(Michigan State University Business Studies Series, 1976), and in Jaynes
+-(1983).
+-Jaynes, E. T. (1983), Papers on Probability, Statistics and Statistical
+-Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co.,
+-Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+-Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of
+-Chicago Press.
+-van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory
+-IT-27, 483.
+-Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle
+-of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same
+-mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and
+-Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+-Zellner, A. (1987), \"Optimal Information Processing and Bayes'
+-Theorem\" *The American Statistician* (to be published).
++[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
++
++[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
++
++[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
++
++[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
++
++[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
++
++[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
++
++[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+
+codex
+I’ve applied the structural changes and am running a quick self-check for paragraph spacing and unresolved equation-reference issues before finalizing.
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|equation|\\(\\d+\\)\" content/papers/relationship.md && echo '---' && sed -n '1,280p' content/papers/relationship.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+191:[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
+193:[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
+195:[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+197:[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
+199:[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
+201:[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+203:[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+---
+---
+title: "The Relation of Bayesian and Maximum Entropy Methods"
+author: ["E.T. Jaynes"]
+year: 1988
+---
+We are all pleased at the progress that has been made, in many different
+fields, as a result of recent recognition of the power of Bayesian
+inference and the Maximum Entropy Principle (MAXENT). But this is not to
+say that further clarifications and technical developments aren't
+needed. It is a truism that every new level of understanding reached
+only reveals to us new questions of which we were unaware before.
+Therefore, in spite of present successes, this is no time for relaxing
+file update:
+diff --git a/content/papers/relationship.md b/content/papers/relationship.md
+index 4277fc3bc8b81c31dd17afa80251b566be289316..a21a6cec337fe2fa2b09c9b61608c8c090ef62e2
+--- a/content/papers/relationship.md
++++ b/content/papers/relationship.md
+@@ -29,20 +29,28 @@
+ 
+ At the most fundamental level as now perceived, by \"applying Bayes'
+ theorem\" we mean calculating the probability
+-$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$ where, in our applications, H stands
++
++$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$
++
++where, in our applications, H stands
+ for some hypothesis whose truth we want to judge, D for a set of data,
+ and I for whatever \"prior information\" we have in addition to the
+ data. The prior probability $p(H|I)$ of H gets updated to the posterior
+ probability $p(H|DI)$ as a result of acquiring the data D. This includes
+ parameter estimation, since H might be a statement about some property
+ of a parameter $\theta$.
++
+ By \"applying MAXENT\" we mean assigning a distribution
+ $(p_1 \cdots p_n)$ on some \"hypothesis space\" by the criterion that it
+-shall maximize the information entropy $$S_I = -\sum p_i \log p_i$$
++shall maximize the information entropy
++
++$$S_I = -\sum p_i \log p_i$$
++
+ subject to constraints that express properties we wish the distribution
+ to have, but are not sufficient to determine it. Entropy is used as the
+ criterion for resolving the ambiguity remaining when we have stated all
+ the conditions we are aware of.
++
+ On the face of it, it is hard to imagine two procedures more different,
+ mathematically or logically. Bayes' theorem expresses nothing more than
+ that Aristotelian logic is commutative. The propositions
+@@ -59,6 +67,7 @@
+ p(DH|I) = p(D|HI)p(H|I) = p(H|DI)p(D|I)
+ $$
+ which is Bayes' theorem.
++
+ Obviously, then, anyone who reasons in a way that conflicts with Bayes'
+ theorem is violating a rather elementary principle of logic.
+ Fundamentally, a single application of Bayes' theorem gives us only a
+@@ -69,9 +78,11 @@
+ probability directly from our information; to apply it one must first
+ use some other principle to translate our information into numerical
+ values for $p(H|I)$, $p(D|HI)$, $p(D|I)$.
++
+ In scientific inference, therefore, before we can apply Bayes' theorem
+ our problem must be developed beyond the \"exploratory phase\", to the
+ point where it has enough structure to determine $p(D|HI)$.
++
+ In contrast, MAXENT requires that we specify in advance a definite
+ hypothesis space $H_1 \cdots H_n$ which sets down the possibilities to
+ be considered. It gives us necessarily a probability distribution, not
+@@ -82,11 +93,14 @@
+ space; rather it
+ assigns those numerical values for us, directly out of our information,
+ as expressed by our choice of hypothesis space and constraints.
++
+ Therefore MAXENT can be applied in -- and is indeed most useful in --
+ the exploratory phase of a problem.
++
+ In these functional respects, MAXENT does for us almost the opposite of
+ what Bayes' theorem does. How, then is it possible that two principles
+ so different could be confused? This comes from two circumstances.
++
+ In the first place they have, after all, one feature in common; the
+ updating of a state of knowledge. In MAXENT, for example, one may
+ consider a problem with constraints X and Y, and find the solution
+@@ -96,27 +110,30 @@
+ theorem; and for some it requires only a sloppy notation and terminology
+ -- calling these two MAXENT distributions \"prior probabilities\" and
+ \"posterior probabilities\" -- to confuse them thoroughly.
++
+ Secondly, there is a technical circumstance which has caused trouble
+ throughout the history of probability theory; different problems may
+ lead to the same computational procedure. In some cases application of
+ Bayes' theorem in one hypothesis space, and MAXENT in another, leads us
+ to nearly identical calculations.
++
+ For example, starting with Darwin & Fowler in the 1920's, many have
+ noted that the MAXENT procedure on the space S of a single trial, and
+ the Bayes' theorem procedure on the extension space $S^n$ of n trials
+ are asymptotically equivalent as n becomes very large; the latter
+ circumstance may be taken as the basis of the combinatorial rationale
+ for MAXENT, which differs from the more fundamental probabilistic one
+-noted above. Some other examples of this Bayes-MAXENT mathematical
+-correspondence are given in Jaynes (1968). In a sense, this only
++noted above. Some other examples of this Bayes-MAXENT mathematical correspondence are given in Jaynes[^jaynes1968]. In a sense, this only
+ illustrates their mutual consistency; but it can also be a rich source
+ of confusion.
++
+ The recent literature has many attempts to clarify the relation of these
+-principles. Williams (1980) sees Bayes' theorem as a special case of
+-MAXENT, while van Campenhout & Cover (1981) see MAXENT as a special case
++principles. Williams[^williams1980] sees Bayes' theorem as a special case of
++MAXENT, while van Campenhout & Cover[^vancampenhout1981] see MAXENT as a special case
+ of Bayes' theorem. In our view, both are correct as far as they go; but
+-they consider only special cases. Zellner (1987) generalizes Williams'
++they consider only special cases. Zellner[^zellner1987] generalizes Williams'
+ result.
++
+ Thus Williams considers the case where we have a set of possibilities
+ ($H_1 \cdots H_n$), and some new information E confines us to a subset
+ of them. Such primitive information can be digested by either Bayes'
+@@ -125,21 +142,25 @@
+ Campenhout & Cover consider only the Darwin-Fowler scenario; MAXENT is
+ designed to cover more general situations, where it does not make sense
+ to speak of \"trials\".
++
+ Attempts to evade Bayes' theorem have been underway unceasingly since
+ the rise of the 'sampling theory' school of thought in the early 1900's.
+-But we have already surveyed the results (Jaynes, 1983); whenever
++But we have already surveyed the results[^jaynes1983]; whenever
+ sampling theory methods have led us to different conclusions, closer
+ examination has always shown the Bayesian results to be superior.
++
+ Likewise, to the best of our knowledge, all attempts to extend Bayes'
+-theorem [such as that of Jeffrey (1983)] have proved on closer
++theorem [such as that of Jeffrey[^jeffrey1983]] have proved on closer
+ examination to be satisfactory only in the cases where they agree with
+-Bayes' theorem. Further strong evidence is given by Bretthorst (1987).
++Bayes' theorem. Further strong evidence is given by Bretthorst[^bretthorst1987].
++
+ That MAXENT is in a similar position is indicated by the fact that the
+ MAXENT procedure is in constant use, either as an analytical tool or as
+ a computational algorithm, in a variety of very different problems; and
+ no alternative has been found. Even those who reject the MAXENT
+ principle are often led, by long and different reasoning, to the actual
+ MAXENT algorithm and result.
++
+ To the best of our knowledge, all attempts to evade MAXENT in problems
+ where we consider it appropriate, or to extend it to new problems, have
+ been no more successful than the attempts to evade or extend Bayes'
+@@ -147,6 +168,7 @@
+ shown to be defective or incomplete, in that they either fail to use all
+ the relevant information or assume false information. We hope to discuss
+ the evidence for this conclusion in much greater detail elsewhere.
++
+ There is indeed something fundamental about these principles, although
+ we think that more unified ways of presenting them are still needed and
+ will be found in the future. But we stress that our present principles
+@@ -156,6 +178,7 @@
+ present principles, we are hardly in a position to improve on them; as
+ so much past experience has shown, we are far more likely to lose some
+ of the good performance features already accomplished.
++
+ An old adage among moralists is that \"Virtue cannot be taught; only
+ demonstrated\"; and we must admit that today more worked-out examples of
+ their analytical and numerical details, in a wider variety of real
+@@ -163,24 +186,18 @@
+ of results are to be expected. But with more and more books and
+ Bayesian/MAXENT computer programs being written, this need should be
+ filled soon.
++
+ ## References {#references .unnumbered}
+-Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington
+-University, St. Louis, Missouri.
+-Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci.
+-Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C.
+-Henshaw, Eds., Concepts and Applications of Modern Decision Methods
+-(Michigan State University Business Studies Series, 1976), and in Jaynes
+-(1983).
+-Jaynes, E. T. (1983), Papers on Probability, Statistics and Statistical
+-Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co.,
+-Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+-Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of
+-Chicago Press.
+-van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory
+-IT-27, 483.
+-Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle
+-of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same
+-mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and
+-Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+-Zellner, A. (1987), \"Optimal Information Processing and Bayes'
+-Theorem\" *The American Statistician* (to be published).
++[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
++
++[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
++
++[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
++
++[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
++
++[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
++
++[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
++
++[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+
+codex
+Edited [content/papers/relationship.md](/home/dave/Projects/jaynes-archive/content/papers/relationship.md) with minimal structural QA changes:
+
+- Added missing blank-line paragraph breaks where prose transitions were previously merged into long blocks.
+- Adjusted display math layout (blank lines around existing `$$...$$`) for cleaner Hugo+KaTeX rendering, without changing any equation content.
+- Normalized in-text citations to Markdown footnote citations and converted the References section entries to matching footnote definitions.
+- Kept paper meaning/content intact; no abstract duplication was present; no extraneous lecture metadata was present.
+- Equation-reference check: no in-text `Eq.`/`Eqs.` references were present, so no equation-number tagging changes were needed.
+
+Self-check passed:
+- Paragraph boundaries use blank-line separation where intended.
+- No unresolved in-text equation references to missing numbered display equations.
+file update:
+diff --git a/content/papers/relationship.md b/content/papers/relationship.md
+index 4277fc3bc8b81c31dd17afa80251b566be289316..a21a6cec337fe2fa2b09c9b61608c8c090ef62e2
+--- a/content/papers/relationship.md
++++ b/content/papers/relationship.md
+@@ -29,20 +29,28 @@
+ 
+ At the most fundamental level as now perceived, by \"applying Bayes'
+ theorem\" we mean calculating the probability
+-$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$ where, in our applications, H stands
++
++$$p(H|DI) = p(H|I)p(D|HI)/p(D|I)$$
++
++where, in our applications, H stands
+ for some hypothesis whose truth we want to judge, D for a set of data,
+ and I for whatever \"prior information\" we have in addition to the
+ data. The prior probability $p(H|I)$ of H gets updated to the posterior
+ probability $p(H|DI)$ as a result of acquiring the data D. This includes
+ parameter estimation, since H might be a statement about some property
+ of a parameter $\theta$.
++
+ By \"applying MAXENT\" we mean assigning a distribution
+ $(p_1 \cdots p_n)$ on some \"hypothesis space\" by the criterion that it
+-shall maximize the information entropy $$S_I = -\sum p_i \log p_i$$
++shall maximize the information entropy
++
++$$S_I = -\sum p_i \log p_i$$
++
+ subject to constraints that express properties we wish the distribution
+ to have, but are not sufficient to determine it. Entropy is used as the
+ criterion for resolving the ambiguity remaining when we have stated all
+ the conditions we are aware of.
++
+ On the face of it, it is hard to imagine two procedures more different,
+ mathematically or logically. Bayes' theorem expresses nothing more than
+ that Aristotelian logic is commutative. The propositions
+@@ -59,6 +67,7 @@
+ p(DH|I) = p(D|HI)p(H|I) = p(H|DI)p(D|I)
+ $$
+ which is Bayes' theorem.
++
+ Obviously, then, anyone who reasons in a way that conflicts with Bayes'
+ theorem is violating a rather elementary principle of logic.
+ Fundamentally, a single application of Bayes' theorem gives us only a
+@@ -69,9 +78,11 @@
+ probability directly from our information; to apply it one must first
+ use some other principle to translate our information into numerical
+ values for $p(H|I)$, $p(D|HI)$, $p(D|I)$.
++
+ In scientific inference, therefore, before we can apply Bayes' theorem
+ our problem must be developed beyond the \"exploratory phase\", to the
+ point where it has enough structure to determine $p(D|HI)$.
++
+ In contrast, MAXENT requires that we specify in advance a definite
+ hypothesis space $H_1 \cdots H_n$ which sets down the possibilities to
+ be considered. It gives us necessarily a probability distribution, not
+@@ -82,11 +93,14 @@
+ space; rather it
+ assigns those numerical values for us, directly out of our information,
+ as expressed by our choice of hypothesis space and constraints.
++
+ Therefore MAXENT can be applied in -- and is indeed most useful in --
+ the exploratory phase of a problem.
++
+ In these functional respects, MAXENT does for us almost the opposite of
+ what Bayes' theorem does. How, then is it possible that two principles
+ so different could be confused? This comes from two circumstances.
++
+ In the first place they have, after all, one feature in common; the
+ updating of a state of knowledge. In MAXENT, for example, one may
+ consider a problem with constraints X and Y, and find the solution
+@@ -96,27 +110,30 @@
+ theorem; and for some it requires only a sloppy notation and terminology
+ -- calling these two MAXENT distributions \"prior probabilities\" and
+ \"posterior probabilities\" -- to confuse them thoroughly.
++
+ Secondly, there is a technical circumstance which has caused trouble
+ throughout the history of probability theory; different problems may
+ lead to the same computational procedure. In some cases application of
+ Bayes' theorem in one hypothesis space, and MAXENT in another, leads us
+ to nearly identical calculations.
++
+ For example, starting with Darwin & Fowler in the 1920's, many have
+ noted that the MAXENT procedure on the space S of a single trial, and
+ the Bayes' theorem procedure on the extension space $S^n$ of n trials
+ are asymptotically equivalent as n becomes very large; the latter
+ circumstance may be taken as the basis of the combinatorial rationale
+ for MAXENT, which differs from the more fundamental probabilistic one
+-noted above. Some other examples of this Bayes-MAXENT mathematical
+-correspondence are given in Jaynes (1968). In a sense, this only
++noted above. Some other examples of this Bayes-MAXENT mathematical correspondence are given in Jaynes[^jaynes1968]. In a sense, this only
+ illustrates their mutual consistency; but it can also be a rich source
+ of confusion.
++
+ The recent literature has many attempts to clarify the relation of these
+-principles. Williams (1980) sees Bayes' theorem as a special case of
+-MAXENT, while van Campenhout & Cover (1981) see MAXENT as a special case
++principles. Williams[^williams1980] sees Bayes' theorem as a special case of
++MAXENT, while van Campenhout & Cover[^vancampenhout1981] see MAXENT as a special case
+ of Bayes' theorem. In our view, both are correct as far as they go; but
+-they consider only special cases. Zellner (1987) generalizes Williams'
++they consider only special cases. Zellner[^zellner1987] generalizes Williams'
+ result.
++
+ Thus Williams considers the case where we have a set of possibilities
+ ($H_1 \cdots H_n$), and some new information E confines us to a subset
+ of them. Such primitive information can be digested by either Bayes'
+@@ -125,21 +142,25 @@
+ Campenhout & Cover consider only the Darwin-Fowler scenario; MAXENT is
+ designed to cover more general situations, where it does not make sense
+ to speak of \"trials\".
++
+ Attempts to evade Bayes' theorem have been underway unceasingly since
+ the rise of the 'sampling theory' school of thought in the early 1900's.
+-But we have already surveyed the results (Jaynes, 1983); whenever
++But we have already surveyed the results[^jaynes1983]; whenever
+ sampling theory methods have led us to different conclusions, closer
+ examination has always shown the Bayesian results to be superior.
++
+ Likewise, to the best of our knowledge, all attempts to extend Bayes'
+-theorem [such as that of Jeffrey (1983)] have proved on closer
++theorem [such as that of Jeffrey[^jeffrey1983]] have proved on closer
+ examination to be satisfactory only in the cases where they agree with
+-Bayes' theorem. Further strong evidence is given by Bretthorst (1987).
++Bayes' theorem. Further strong evidence is given by Bretthorst[^bretthorst1987].
++
+ That MAXENT is in a similar position is indicated by the fact that the
+ MAXENT procedure is in constant use, either as an analytical tool or as
+ a computational algorithm, in a variety of very different problems; and
+ no alternative has been found. Even those who reject the MAXENT
+ principle are often led, by long and different reasoning, to the actual
+ MAXENT algorithm and result.
++
+ To the best of our knowledge, all attempts to evade MAXENT in problems
+ where we consider it appropriate, or to extend it to new problems, have
+ been no more successful than the attempts to evade or extend Bayes'
+@@ -147,6 +168,7 @@
+ shown to be defective or incomplete, in that they either fail to use all
+ the relevant information or assume false information. We hope to discuss
+ the evidence for this conclusion in much greater detail elsewhere.
++
+ There is indeed something fundamental about these principles, although
+ we think that more unified ways of presenting them are still needed and
+ will be found in the future. But we stress that our present principles
+@@ -156,6 +178,7 @@
+ present principles, we are hardly in a position to improve on them; as
+ so much past experience has shown, we are far more likely to lose some
+ of the good performance features already accomplished.
++
+ An old adage among moralists is that \"Virtue cannot be taught; only
+ demonstrated\"; and we must admit that today more worked-out examples of
+ their analytical and numerical details, in a wider variety of real
+@@ -163,24 +186,18 @@
+ of results are to be expected. But with more and more books and
+ Bayesian/MAXENT computer programs being written, this need should be
+ filled soon.
++
+ ## References {#references .unnumbered}
+-Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington
+-University, St. Louis, Missouri.
+-Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci.
+-Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C.
+-Henshaw, Eds., Concepts and Applications of Modern Decision Methods
+-(Michigan State University Business Studies Series, 1976), and in Jaynes
+-(1983).
+-Jaynes, E. T. (1983), Papers on Probability, Statistics and Statistical
+-Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co.,
+-Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
+-Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of
+-Chicago Press.
+-van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory
+-IT-27, 483.
+-Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle
+-of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same
+-mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and
+-Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
+-Zellner, A. (1987), \"Optimal Information Processing and Bayes'
+-Theorem\" *The American Statistician* (to be published).
++[^bretthorst1987]: Bretthorst, L. (1987), Ph.D. Thesis, Department of Physics, Washington University, St. Louis, Missouri.
++
++[^jaynes1968]: Jaynes, E. T. (1968), \"Prior Probabilities\", IEEE Trans. Systems Sci. Cybern. SSC-4, 227-241 (1968). Reprinted in V. M. Rao Tummala and R. C. Henshaw, Eds., Concepts and Applications of Modern Decision Methods (Michigan State University Business Studies Series, 1976), and in Jaynes (1983).
++
++[^jaynes1983]: Jaynes, E. T. (1983), \"Papers on Probability, Statistics and Statistical Physics\", R. D. Rosenkrantz, Editor, D. Reidel Pub. Co., Dordrecht-Holland. Reprints of 14 papers dated 1957-1980.
++
++[^jeffrey1983]: Jeffrey, R. C. (1983), The Logic of Decision, 2nd Edition, Univ. of Chicago Press.
++
++[^vancampenhout1981]: van Campenhout, J. & Cover, T. M. (1981), IEEE Trans. Inform. Theory IT-27, 483.
++
++[^williams1980]: Williams, P.M. (1980), \"Bayesian Conditionalisation and the Principle of Minimum Information\", Brit. J. Phil. Sci, 31, 131-144. The same mathematical fact was noted by R. D. Rosenkrantz, Inference, Method and Decision, D. Reidel, Dordrecht-Holland (1977); 55-57.
++
++[^zellner1987]: Zellner, A. (1987), \"Optimal Information Processing and Bayes' Theorem\" *The American Statistician* (to be published).
+
+tokens used
+19,419
+

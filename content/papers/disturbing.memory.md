@@ -205,11 +205,13 @@ him to quantum theory -- of course, it could not because as we shall see
 presently, these mathematical relations could hardly surprise him and in
 any event his objections were not to the mathematics but to the
 Copenhagen interpretation of it).
+
 *[Note added in May 1986: On further thought, this conjecture seems
-oversimplified; it must have been not merely the relation of propagators 
-to Green's functions, but more likely the details of connectivity of 
-diagrams with many propagators, in relation to Schwinger's method, 
+oversimplified; it must have been not merely the relation of propagators
+to Green's functions, but more likely the details of connectivity of
+diagrams with many propagators, in relation to Schwinger's method,
 that Dyson saw.]*
+
 Perhaps it was already clear to both Schwinger and Feynman that they
 were not expounding different theories, but only different mathematical
 algorithms for finding solutions. If so, neither chose to stress this;
@@ -257,6 +259,7 @@ Feynman was "just another misguided attempt to patch up old ideas with
 fancy mathematics." It appears from Dyson's next few pages that it was
 Bethe who changed Oppy's mind; and then Oppy heaped praise on Dyson in
 his Presidential Address to the American Physical Society in 1949.
+
 Our conjectures on those events: Although it seems rather extreme to
 call work which has had such importance in theoretical physics
 "misguided", Schwinger at least was indeed trying to patch up old
@@ -349,7 +352,7 @@ This feeling about Oppy bothered me so much that by 1948, a year after
 arriving in Princeton, the contrast between what I saw as the flighty
 mysticism of Oppy and the sober -- but at the same time far more
 receptive -- rationality of Wigner, forced me into an agonizing
-decision; and Eugene Wigner became my thesis advisor. My main interest 
+decision; and Eugene Wigner became my thesis advisor. My main interest
 then shifted from QED to group theory and statistical mechanics.
 
 The same feeling bothered Edward Teller to the point of inducing him to

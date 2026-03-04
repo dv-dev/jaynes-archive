@@ -40,7 +40,11 @@ the Poynting vector), because the state vector of the field may leave
 the phase of those beats completely indeterminate. Rather, the
 observable spectral density of the photocurrent is an instrumental
 constant times the Fourier transform of the fourth-order correlation
-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
+function,
+$$
+\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
+$$
+at the
 photocathode. So the lesson was learned still another time and, thanks
 to Glauber, one might have thought it would now stay learned.
 
@@ -158,12 +162,16 @@ In the notation of Chow, Scully, and Stoner (hereafter referred to as
 CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
 field in vacuum state) evolves with time into lower states with emission
 of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
+$$
+\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
+$$
 where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
 photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
 transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
 is over, we may write the final state $\Psi(\infty)$ as
-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
+$$
+\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
+$$
 where $\theta$ is a phase factor determined by the equations of motion.
 This is the correlated state.
 
@@ -180,19 +188,29 @@ $\omega_\beta$ is not involved at all. On these grounds, it has been
 held that lower-state interferences do not occur in QED.
 
 But we can write the final state $\Psi(\infty)$ equally well as
-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
+$$
+\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
+$$
 where the field state $|\alpha\beta_\pm\rangle$ and atom states
 $|\Psi_\pm\rangle$ are
-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
+$$
+|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
+$$
+$$
+|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
+$$
 and $\phi$ is a phase that we may choose arbitrarily. If now measurement
 shows the atom to be in state $|\Psi_+\rangle$, then we know the field
 must be in the linear combination
-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+$$
+|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
+$$
 in which both photons are present after all!
 
 Any field observable $F$ then has expectation value
-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
+$$
+\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
+$$
 in which contributions from both photons, and interference terms between
 them, are present. So, it seems a little hasty to conclude that QED does
 not predict lower-level interference effects.
@@ -218,12 +236,14 @@ with a known relative phase. Lower-level interference effects are then
 not only observable, but predictable. And we can decide which to do
 after the emission is over and the radiation is far from the atom, so
 there can be no thought of any physical influence on the radiation!
+
 But that is not the end, because this radiation can still be recaptured
 totally and used to initiate a second experiment. Place the emitting
 atom A at one focus of a perfectly reflecting ellipsoidal cavity of
 major diameter $D$. After a time $D/c$ the radiation converges, in a
 spherical wave of just the original intensity, onto the other focus,
 where we have placed a test atom $A^\prime$
+
 Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
 state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
 $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
@@ -269,6 +289,7 @@ character of medieval necromancy than of science. It has been my hope
 that quantum optics, with its vast new technological capability, might
 be able to provide the experimental clue that will show us how to
 resolve these contradictions.
+
 ## References and Notes {#references-and-notes .unnumbered}
 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase

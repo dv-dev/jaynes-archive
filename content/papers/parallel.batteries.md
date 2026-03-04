@@ -17,7 +17,9 @@ difference in the open-circuit voltages of parallel-connected batteries
 will set up a circulating current whereby the battery with the greater
 voltage will tend to charge the one with the lesser voltage. This
 circulating current is capable of damaging both batteries.
+
 **[FIGURE: Diodes D1, D2, D3, and D4 prevent circulating current loops from being set up between batteries A and B when the batteries are connected in parallel.]**
+
 When the solid-state rectifier came along, it became practical to
 parallel storage batteries for increased ampere-hour capacity without
 setting up a circulating current loop. If, for example, diodes
@@ -44,10 +46,12 @@ amperes and have a 10-ampere drain by the load, the diodes you use would
 have minimum 25-volt PIV and 10-ampere ratings. (Radio Shack's Stock No.
 276-1060 stud-mounted diodes, with 50-PIV and 12-ampere ratings, will
 suffice for most applications. These diodes sell for 59 cents each.)
+
 When two or more batteries are to be used independently (as for mobile
 CB or ham radio) but charged from a single generator or battery charger,
 diodes D3 and D4 should be eliminated and the connections from D1
 and D2 should be used as the "hot" lines for two separate circuits.
+
 The interesting feature of the arrangement shown is that during
 recharging the weaker battery will receive the lion's share of the
 charge current. Conversely, the battery with the greater charge will

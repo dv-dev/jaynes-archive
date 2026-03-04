@@ -15,6 +15,7 @@ categories: ["Electrodynamics & Signal Processing"]
 tags: ["Kramers-Kronig", "ultrasonic attenuation", "phase velocity", "dispersion", "linear response theory", "causality"]
 ---
 PACS numbers: 43.35.Bf, 43.80.Cs, 43.20.Hq, 43.35.Fj
+
 ## INTRODUCTION
 Quantitative relationships between attenuation and the frequency
 dependence of the phase velocity (dispersion), the validity of which
@@ -60,6 +61,7 @@ the system as measured satisfy the conditions of causality (i.e., that
 effects do not precede their causes) and linearity (i.e., that to some
 approximation the response of the system is linearly proportional to the
 stimulus).[^6]
+
 ## I. THEORY
 We consider an isotropic acoustic medium described by a generalized form
 of Hooke's law, and analyze the response of this medium to an incident
@@ -214,6 +216,10 @@ C(\omega) &= 1/[\rho_0 K_1(\omega)]^{1/2}, \\
 \end{aligned} \tag{15}
 $$
 
+$$
+\alpha(\omega) = [\rho_0 C(\omega)/2] \omega K_2(\omega). \tag{15b}
+$$
+
 Equations (10), (11), and (15) represent a
 complete description of the frequency domain response of the acoustic
 system in terms of the phase velocity and the attenuation coefficient.
@@ -276,7 +282,9 @@ becomes
 $$
 K_2(\omega) = -2 \sum_{n=0}^\infty \frac{F^{(2n)}(0)}{(2n)!} \int_0^\infty x^{2n} \ln \coth \frac{|x|}{2} dx. \tag{19}
 $$
+
 **[FIGURE 1: Function ln[coth(|x|/2)] in the neighborhood of x equals zero.]**
+
 In Eq. (19) the term $F^{(2n)}(0)$ corresponds to the 2nth derivative of
 $F(x)$ evaluated at $x=0$. Expanding $\ln \coth(|x|/2)$ in powers of
 $e^x$, the integral of Eq. (19) can be evaluated:
@@ -323,7 +331,7 @@ $$
 $$
 
 The dispersion and the attenuation coefficient can now be related by
-combining Eqs. (15b), (24), and (25) with the result that
+combining Eqs. (15b), (24), and (25)[^9] with the result that
 $dC(\omega)/d\omega$ becomes
 $$
 \frac{dC(\omega)}{d\omega} = 2C^2(\omega) \alpha(\omega)/\pi\omega^2, \tag{26}
@@ -356,6 +364,7 @@ $$
 where $C(\omega)$ is written as $C_0+\Delta C(\omega)$ with $\Delta C(\omega) \ll C_0$, and only terms of order
 $\Delta C(\omega)$ are retained. In the next section, the validity of
 Eq. (30) in several different acoustic systems is discussed.
+
 ## II. VERIFICATION OF THE NEARLY LOCAL RELATIONSHIPS
 In the previous section we derived approximate forms for the
 Kramers-Kronig relations linking the attenuation coefficient at a
@@ -376,9 +385,8 @@ $$
 
 In Eq. (31), $\alpha(\omega)/\omega$ is the attenuation per cycle, $R_0$
 is a frequency independent constant, and $\omega_0$ is the relaxation
-frequency. The attenuation per cycle for a single
-**[FIGURE 2: Attenuation per cycle for a single relaxation and dispersion from approximate vs exact Kramers-Kronig relations.]**
-relaxation normalized to its value at the relaxation frequency is
+frequency. The attenuation per cycle for a single relaxation normalized
+to its value at the relaxation frequency is
 illustrated as a function of frequency in Fig. 2(a). Using the form of
 the attenuation per cycle [Eq. (31)] illustrated in Fig. 2(a), we have
 computed the dispersion according to the exact, nonlocal Kramers-Kronig
@@ -390,6 +398,8 @@ clearly indicates that both the character and the numerical magnitude of
 the dispersion associated with a single relaxation is accurately
 described by the approximate nearly local relation derived in the
 previous section.
+
+**[FIGURE 2: Attenuation per cycle for a single relaxation and dispersion from approximate vs exact Kramers-Kronig relations.]**
 
 To further test the validity of the approximate relations in describing
 the relationship between attenuation and dispersion in materials
@@ -411,7 +421,9 @@ predicted by Eq. (30) using the attenuation data of the top panel. Both
 the qualitative character and numerical value of the dispersion measured
 in solutions of CoSO$_4$ in water are accurately predicted by the
 approximate relations derived in the previous section.
+
 **[FIGURE 3: Attenuation times wavelength in CoSO₄ solution and predicted vs measured dispersion.]**
+
 We also investigated the validity of the approximate forms of the
 Kramers-Kronig relations by comparing the attenuation and dispersion
 measured from 1 to 10 MHz in polyethylene. We chose polyethylene for
@@ -432,14 +444,16 @@ Consequently, according to Eq. (30), $\Delta C$ should be a nearly
 logarithmic function of frequency over the same frequency range. In the
 bottom panel of Fig. 4, $\Delta C$ as determined experimentally is
 compared with that obtained from Eq. (30) (dashed curve) using the
-attenuation data of the upper panel. The frequency
-**[FIGURE 4: Attenuation in polyethylene plate and predicted vs measured dispersion.]**
-corresponding to $C_0$ was taken to be 1 MHz. Not only is $\Delta C$ a
+attenuation data of the upper panel. The frequency corresponding to
+$C_0$ was taken to be 1 MHz. Not only is $\Delta C$ a
 nearly logarithmic function of frequency in polyethylene, as predicted,
 but over a decade in frequency the numerical magnitude of $\Delta C$
 predicted by Eq. (30) is nearly identical to that measured. These
 results clearly indicate that the approximate nearly local relations are
 also valid in polyethylene over the range 1 to 10 MHz.
+
+**[FIGURE 4: Attenuation in polyethylene plate and predicted vs measured dispersion.]**
+
 ## III. DISCUSSION
 In this study we considered acoustic propagation in a system which
 satisfies Hooke's law in the context of linear response theory, where
@@ -458,13 +472,15 @@ responsible for the attenuation. In Sec. I we demonstrated that the
 exact, nonlocal Kramers-Kronig relations could be approximated by nearly
 local relations linking the attenuation and the dispersion in systems
 which do not exhibit rapid frequency variations. The validity of the
-**[FIGURE 5: Attenuation in normal dog myocardium and predicted dispersion.]**
 nearly local, approximate relations was tested in a number of acoustic
 systems possessing a range of loss mechanisms. The results of
 theoretical analysis and experiments presented in Figs. 2, 3, and 4
 clearly show that the approximate relations represent an accurate
 description of acoustic propagation in several systems which do not
 exhibit rapid variations with frequency over the range of interest.
+
+**[FIGURE 5: Attenuation in normal dog myocardium and predicted dispersion.]**
+
 The approximate expressions presented in Eq. (30) can be used to predict
 the ultrasonic properties of materials which may be difficult to obtain
 using currently available measurement techniques. For example, the
@@ -500,10 +516,12 @@ by general laws of physics as opposed to those features which are
 specific to the particular mechanism should prove useful in establishing
 the mechanisms responsible for the propagation of ultrasound in a
 material.
+
 ## ACKNOWLEDGMENTS
 Pranoat Suntharothok-Priesmeyer was responsible for the production of
 the text and illustrations. This research was supported in part by NASA
 grant NSG 1601 and by NIH grant HL-17646.
+
 ## REFERENCES
 [^1]: R. Kronig, "On the Theory of Dispersion of X-Rays," J. Opt. Soc. Am. **12**, 547 (1926).
 [^2]: R. Kronig and H. A. Kramers, "Absorption and Dispersion in X-Ray Spectra," Zeits f. Phys. **48**, 174 (1928).

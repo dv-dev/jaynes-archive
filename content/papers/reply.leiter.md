@@ -20,14 +20,17 @@ nonlinear density-matrix equation, for the diagonal matrix elements in a
 two-level decay, in a spontaneous transition with no applied fields can
 be written 
 $$
+\tag{1}
 \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
 $$
 $$
+\tag{2}
 \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
 $$
  where
 $\rho_{11}(t) + \rho_{22}(t) = 1$
 $$
+\tag{3}
 \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
 $$
  is
@@ -35,9 +38,8 @@ related to the initial state of the atom at $t=0$. If we temporarily
 neglect that part of the self-field which yields only a small frequency
 shift, the solution for the off-diagonal elements are given by
 $$
+\tag{4}
 \rho_{12}(t) = \rho_{21}^{*}(t)
-$$
-$$
 = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
 $$
 where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
@@ -94,7 +96,7 @@ clarify matters to a wider audience.
 
 The semiclassical or \"neoclassical\" theory (NCT) in question was
 developed by the writer and his
-colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
+colleagues[^6][^7][^8][^9][^10][^11] with the following
 motivation. Our present quantum electrodynamics (QED) has not achieved
 any satisfactory final form; it contains many important \"elements of
 truth,\" but is mixed up with clear \"elements of nonsense.\" The
@@ -130,6 +132,7 @@ probability that the atom is excited to the upper state, and each
 excited atom proceeds to radiate a spontaneous emission pulse with field
 amplitude at a given point of the form
 $$
+\tag{1}
 Ce^{-At/2} \cos(\omega t + \theta),
 $$
  where $\hbar\omega = E_2 - E_1$,
@@ -138,6 +141,7 @@ radiated in the pulse is $\hbar\omega$.
 
 In NCT, the predicted spontaneous emission pulse is of the form
 $$
+\tag{2}
 C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
 $$
  where

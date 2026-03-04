@@ -53,6 +53,7 @@ mechanics; however, the class of states for which it occurs was
 described incompletely, in terms of the average force acting on a
 particle. We obtain below a simpler description, in terms of the kinetic
 and potential energy of the system.
+
 ## Derivations
 Consider a monatomic fluid consisting of $N$ particles of mass $m$,
 confined to a box of volume $V$,
@@ -77,8 +78,10 @@ $$
  The basic variational property is
 $$
 H \ge N \left[ \ln\left(\frac{N}{V}\right) - \frac{3}{2} + \frac{3}{2} \ln\left(\frac{3Nm}{4\pi K}\right) \right],
+\tag{2.4}
 $$
- or more briefly, 
+
+or more briefly,
 $$
 H \ge A - B \ln K,
 $$
@@ -97,15 +100,20 @@ $$
 $\ln z \le (z-1)$, with equality if and only if $z=1$. Therefore,
 $$
 \int \int f \ln(f_M/f) d^3x d^3v \le \int \int [(f_M/f) - 1] d^3x d^3v = 0,
+\tag{2.7}
 $$
 with equality if and only if $f=f_M$ almost everywhere. The inequality
 (2.7) is equivalent to 
 $$
 H \ge \int \int f \ln f_M d^3x d^3v,
+\tag{2.8}
 $$
- and on
+
+and on
 evaluating the right-hand side of (2.8), we have the result (2.4).
+
 **[FIGURE: Possible states in the K-H plane, allowed by Eq. (2.4).]**
+
 The above assertions now follow from the graphical interpretation of
 (2.4). Figure 1 represents the plane whose coordinates are the Boltzmann
 H and the total kinetic energy $K$. Any microstate determines a point on
@@ -135,9 +143,8 @@ In Fig. 2, we show the locus of possible initial states corresponding to
 a given total energy $E$. The potential energy is assumed to have a
 unique minimum possible value $U_{min}$, and so the kinetic energy must
 be bounded by $0 \le K \le K_{max}$, where $K_{max} = E - U_{min}$. If
-the equilibrium kinetic energy
 **[FIGURE: Location of H-theorem-violating states.]**
-is less than $K_{max}$, there is a triangular region of
+the equilibrium kinetic energy is less than $K_{max}$, there is a triangular region of
 H-theorem-violating states, from which the approach to the equilibrium
 point necessarily requires an average increase, rather than a decrease
 in H.
@@ -185,6 +192,7 @@ volume $V$ to an infinitesimally greater one $V+\delta V$, the condition
 that H will increase in going to the new equilibrium state is thus
 $$
 \left( \frac{\partial T}{\partial V} \right)_E < -\frac{2T}{3V},
+\tag{3.2}
 $$
 from which it appears that the substances commonly used as refrigerants
 would be the best candidates; however, this condition is readily
@@ -194,6 +202,7 @@ Using well-known thermodynamic identities, the condition (3.2) may be
 written in terms of the equation of state as
 $$
 T \left( \frac{\partial P}{\partial T} \right)_V - P > \frac{2 C_v T}{3V},
+\tag{3.3}
 $$
 where $P$ is the pressure, and $C_v$ the specific heat at constant
 volume. For a gas obeying the van der Waals equation of state
@@ -204,6 +213,7 @@ pressure.
 In terms of the enthalpy, $h=E+PV$, (3.3) becomes
 $$
 \left( \frac{\partial h}{\partial T} \right)_P - \frac{PV}{T} > \frac{2}{3}C_v,
+\tag{3.4}
 $$
 in which form the left-hand side can be read off from the published
 Mollier charts for various substances.[^6] From the Mollier chart of
@@ -218,6 +228,7 @@ of oxygen gas at 160 $^\circ$K and 45 atm would produce a violation of
 the Boltzmann H theorem. (Although in Sec. II we had in mind the case of
 a monatomic gas, the analysis is valid for polyatomic ones, provided we
 interpret $K$ as representing only the translational kinetic energy.)
+
 It has, of course, been recognized from the start that the original
 derivation of the Boltzmann transport equation, from which the H theorem
 follows, is valid only for a dilute gas. This in itself does not prove

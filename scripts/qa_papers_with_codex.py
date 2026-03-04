@@ -327,6 +327,11 @@ def main() -> int:
     parser.add_argument("--retry-failed", action="store_true", help="Retry files with status=failed")
     parser.add_argument("--force", action="store_true", help="Process all files regardless of prior status")
     parser.add_argument("--max-files", type=int, default=0, help="Optional cap on files processed this run (0 = no cap)")
+    parser.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Process files in reverse order (useful for parallel split passes with --max-files)",
+    )
     parser.add_argument("--log-dir", default=DEFAULT_LOG_DIR, help=f"Per-file log dir (default: {DEFAULT_LOG_DIR})")
     parser.add_argument(
         "--only",
@@ -355,6 +360,8 @@ def main() -> int:
             for rel in files_rel
             if rel in only_set or Path(rel).name in only_set or Path(rel).stem in only_set
         ]
+    if args.reverse:
+        files_rel = list(reversed(files_rel))
     total_files = len(files_rel)
     if total_files == 0:
         print(f"No markdown files found in {content_dir}")

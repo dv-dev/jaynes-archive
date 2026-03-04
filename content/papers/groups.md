@@ -158,6 +158,7 @@ form of the prior.
 We sample from a continuous two-parameter distribution
 $$
 p(dx|\mu,\sigma) = \phi(x,\mu,\sigma) \, dx
+\tag{1}
 $$
 and consider:
 
@@ -181,6 +182,7 @@ $$
 \sigma^\prime &= a\sigma \\\\
 x^\prime- \mu^\prime &= a(x-\mu)
 \end{aligned}
+\tag{3}
 $$
  where $0 < a < \infty$, $-\infty < b < \infty$. The
 distribution (1) expressed in the new variables is
@@ -196,6 +198,7 @@ Likewise, the prior distribution is changed into a new one
 $g(\mu^\prime,\sigma^\prime)$, where from the jacobian of the transformation (3),
 $$
 g(\mu^\prime, \sigma^\prime) = a^{-1} f(\mu,\sigma).
+\tag{5}
 $$
 
  The *above* relations will
@@ -208,12 +211,14 @@ $$
  whatever the values of $a, b$. The condition for this invariance is that $\phi(x,\mu,\sigma)$ must satisfy the functional equation
 $$
 \phi(x,\mu,\sigma) = a\phi(ax-a\mu+\mu+b, \mu+b, a\sigma)
+\tag{7}
 $$
 
 Differentiating with respect to $a, b$ and solving the resulting
 differential equation, we find that the general solution of (7) is
 $$
 \phi(x,\mu,\sigma) = \frac{1}{\sigma} h\left(\frac{x-\mu}{\sigma}\right)
+\tag{8}
 $$
 where $h(q)$ is an arbitrary function. Thus the usual definition of a
 location parameter $\mu$ and a scale parameter $\sigma$ is equivalent to
@@ -250,16 +255,19 @@ probability distribution in them. Thus, f and g must be the same
 function: 
 $$
 f(\mu,\sigma) = g(\mu,\sigma)
+\tag{10}
 $$
 whatever the values of $(a,b)$. But the form of the prior distribution is now uniquely
 determined; for combining Equations (3), (5), and (10), we see that
 $f(\mu,\sigma)$ must satisfy the functional equation
 $$
 f(\mu,\sigma) = a f(\mu+b, a\sigma)
+\tag{11}
 $$
 whose general solution is
 $$
 f(\mu,\sigma) = \frac{(\text{const.})}{\sigma}
+\tag{12}
 $$
 which is the Jeffreys rule!
 

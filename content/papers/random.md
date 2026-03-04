@@ -34,8 +34,7 @@ place to develop that theme.
 It should be pointed out that my publications, starting in 1957, make a
 rather late entry into this movement. Prior to that, many important
 works - by B. de Finetti, H. Jeffreys, R. T. Cox, C.E. Shannon, I. J.
-Good, A. Wald, R. Carnap, L. J. Savage, and D. V. Lindley -- had
-[^1]
+Good, A. Wald, R. Carnap, L. J. Savage, and D. V. Lindley -- had[^1]
 started this general shift in thinking. These works had laid the basis
 of the revolution by their demonstrations that probability theory can
 deal, consistently and usefully, with much more than \"frequencies in a
@@ -124,15 +123,14 @@ Bayesians\", have scrambled the meanings of our words, producing a
 language appropriately called NEWSPEAK. To translate, we note a few
 approximate equivalences between standard terminology of the 1950's and
 NEWSPEAK:
-::: center
-  **1950'S**       **NEWSPEAK**
-  ---------------- --------------
-  objective        orthodox
-  subjective       objective
-  personalistic    subjective
-  Bayes' theorem   conditioning
-  conditioning     ancillarity
-:::
+
+| **1950'S** | **NEWSPEAK** |
+| --- | --- |
+| objective | orthodox |
+| subjective | objective |
+| personalistic | subjective |
+| Bayes' theorem | conditioning |
+| conditioning | ancillarity |
 
 To this we may add the alarming spread in use of the terms \"prior
 distribution\" and \"posterior distribution\" (which had clearly
@@ -236,6 +234,7 @@ limit theorem).
 However, many other connections exist. They are contained, for example,
 in the principle of transformation groups (Jaynes, 1971), in the PME
 formalism, and in the theory of random fluctuations (Jaynes, 1978).
+
 If anyone wished to research this matter, I think he could find a dozen
 logically distinct connections between probability and frequency, that
 have appeared in various applications of PME, transformation groups, and
@@ -565,8 +564,9 @@ quantity.\"
 B: \"Excellent. You perceive a quantity $T$, not yet incorporated into
 the problem, that would be relevant. Then let's just introduce $T$ into
 the conversation; using the sum rule, then the product rule, we have:
-$$\tag{\dag}
+$$\tag{1}
 p(f|I) = \int p(f|TI)p(T|I)dT.$$
+
 Now, then, what do you know about $T$?\"
 A: \"Nothing. That's just why\....\"
 B: \"But you must know something, else how could you know that $T$
@@ -587,7 +587,7 @@ A: But this is silly. Such vague stuff can't help me!\"
 B: \"*O ye of little faith!* How do you know such stuff can't help until
 you give it a chance? Actually, knowing that $\log_{10}T$ is confined to
 a finite interval, $(-60, +60)$, is saying quite a lot. It makes the
-integral () converge, so now we can get a definite prior $p(f|I)$, which
+integral (1) converge, so now we can get a definite prior $p(f|I)$, which
 a moment ago you thought was impossible. We have made real progress.\"
 A: \"But the result is going to depend on those ridiculous numbers,
 $10^{60}$ and so on. They don't mean anything.\"
@@ -607,7 +607,7 @@ B: \"Then, in fact, the integral will converge so well that the result,
 if we round it off to four or five significant figures, won't depend on
 what those ridiculous numbers are.\"
 A: \"Well, yes, that's right. But I have no idea what $p(T|I)$ is in the
-region where it does contribute to the integral (), so we'll still have
+region where it does contribute to the integral (1), so we'll still have
 no definite solution.\"
 B: \"But we're still not finished. You said you don't have any idea of
 what $T$ is. Now how wide is that likelihood function going to be?\"
@@ -628,19 +628,22 @@ information; merely proclaiming \"complete ignorance\" is not enough.
 But a surprisingly small amount of additional information suffices. If
 you can find any quantity $T$ that is relevant to the inference (i.e.,
 sufficiently relevant to make its likelihood integrable), then by the
-method () extremely vague information about $T$ will give you a definite
+method (1) extremely vague information about $T$ will give you a definite
 prior probability $p(f|I)$ for $f$; something that anti-Bayesians think
 is impossible to determine. Knowing the numerical value of $T$ is not
 necessary; the mere qualitative fact of its existence and finiteness is
 already sufficient.
+
 This is a very important consequence of probability theory, showing how
 with a little input $p(T|I)$ from that neglected first half, the
 Bayesian second half can, so to speak, take over the job of the first
 half and construct prior probabilities for other quantities. But it is
 something which statisticians could have learned from Harold Jeffreys in
 the 1930's, had they been willing to listen to him.
+
 At this point Mr. A, slightly put off by the above turn of events,
 overhears this and returns to the attack; our dialogue resumes;
+
 A: \"But wait a minute, we're not finished. There isn't any definite
 solution because maybe there's another quantity $U$ that is also
 relevant. If I used $U$ instead of $T$, surely I wouldn't get the same
@@ -659,7 +662,7 @@ principle, one should always take into account all the prior information
 he has. To withold pertinent information from the theory, and then blame
 the theory for giving unsatisfactory results, is intellectual
 dishonesty. If you know about both $T$ and $U$, then you should take
-them both into account by using their joint distribution in ().
+them both into account by using their joint distribution in (1).
 *Pragmatism*: In the real world, the problem we face is, necessarily, to
 do the best we can with the information we have. If someone better
 informed than I takes into account further information of which I am
@@ -676,17 +679,20 @@ in physical problems where the realities of the situation could not be
 ignored, I know very well how Hannibal felt on beholding a philosopher,
 who had never seen a battle line, discoursing on warfare. The urge to
 react as Hannibal did is overpowering.
+
 Hannibal's critic would, of course, concentrate on problems that existed
 only in his imagination, and would be quite unaware of the real
 circumstances that determine the actual course of a battle. Likewise,
 some of my critics become mired in worries about such things as the
 exact meaning of the constraints, but seem unaware of the real
 difficulties that we encounter in applying PME to new problems.
+
 The main difficulty is, almost always, how to choose the \"hypothesis
 space\" on which we define our entropies. I have been held up for years
 by unsure judgment in defining an hypothesis space, but have never yet
 seen a problem in which there was any difficulty in deciding which
 constraints should be applied.
+
 In statistical mechanics, the hypothesis space problem was solved long
 ago. Extending Liouville's theorem to quantum mechanics, the linearly
 independent \"global\" quantum states of a system define, according to
@@ -695,6 +701,7 @@ to correct predictions. But what takes their place in a problem of
 econometrics? In trying to apply PME in a new area we are sometimes in a
 situation corresponding to (if one can imagine it) statistical mechanics
 before the discovery of Liouville's theorem.
+
 In maximum-entropy image reconstruction, the most obvious hypo- thesis
 space has led to important advances; yet as a careful reading of John
 Skilling's comments may suggest, deeper problems of defining this space
@@ -706,17 +713,20 @@ nearby picture elements (probably). In trying to answer these questions,
 we should look eagerly for evidence of any systematic failure of PME
 reconstructions based on the present hypothesis space, which would give
 us a clue to a better one.
+
 In maximum-entropy spectrum analysis only one explicit solution, that of
 Burg (1967) is available thus far, and although again very important
 advances have been made with it, the problem of the hypothesis space has
 hardly been faced as yet. There is no reason to think that the proper
 space for a geophysical time series must also be right for an
 econometric one or an ecological one.
+
 These remarks may indicate how irrelevant to actual scientific practice
 are mathematical/philosophical hangups over issues that do not refer to
 any specific real problem. In Francis Perry's comments there is a good
 recognition of this, and some deep thought about it. More thinking along
 those lines, in a variety of real situations, is needed.
+
 As an interpretation of PME on a space $S$, Skyrms points out that one
 can imagine $S$ enlarged to $S^n$ on which Bayes's theorem can be
 appplied, leading asymptotically to the same mathematical solution. Of
@@ -725,9 +735,9 @@ in the 1920's, and what Schrodinger (1948) and Eyring (1965) adopted
 as the basic principle of statistical mechanics. What this shows is only
 that two problems can be conceptually different, but so similar mathe-
 matically that the same numerical algorithm can be used for both.
-::: center
-\* \* \*
-:::
+
+***
+
 Immediately after writing this last sentence, it struck me that perhaps
 I am misjudging Skyrms' intentions. It may be that Skyrms was not
 offering his work as a new contribution to the field, but wanted only to
@@ -743,23 +753,28 @@ desideratum (honesty) points to a solution that proves to be feasible to
 calculate and useful in practice. It seems to me that the important
 advance and a major virtue of PME is that it gives us this in such a
 direct way that *avoids* all the clutter that was invoked in the past.
+
 On the other hand, there are some problems in which the space $S^n$ is
 actually present, in which case application of Bayes' theorem is clearly
 the fundamentally correct procedure. But to do this exactly for finite
 $n$ proves to be very tedious mathematically, and in practice one
 quickly discovers that if $n$ is reasonably large there is an excellent
 approximation. It is, of course, just that PME solution!
+
 After going through the Bayesian analysis and extracting the asymptotic solution. Darwin-Fowler, Schrodinger, Eyring, and everybody else
 since the time of Gibbs has reverted, for their actual useful
 calculations, to the PME algorithm.
+
 The mathematical relations noted by Skyrms are, therefore, quite correct
 and well-known; but I should draw from them a very different conclusion
 from his. In the real world, even when that space $S^n$ actually exists,
 it is almost always the direct application of PME that gives us the
 pragmatically useful results.
+
 I have already deplored the use of the terms \"prior\" and \"posterior\"
 to describe two PME solutions with different constraints. Skyrms
 certainly confuses his readers by this, and perhaps also himself.
+
 It is hard to imagine a more unfortunate, ill-advised remark than his
 parting shot: \"Is it good methodology for the blind man to assume that
 the road is smooth and wide because he cannot see the ruts or the
@@ -776,22 +791,26 @@ are making new contributions to science, they have every right to do so.
 We physicists also gossip among ourselves about work in other fields --
 current developments in biology, for example -- expressing all kinds of
 opinions, without thereby pretending that we are making new contributions to biology.
+
 But a physicist, not well informed about the whole general status of the
 field, would not try to meddle in biology by injecting his own
 half-formed ideas into the biological journals; for he would almost
 surely be repeating a line of thought that professional biologists have
 long since thought of and disposed of; and would only make himself
 ridiculous in their eyes.
+
 And nothing could be more ridiculous than for a physicist to tell
 biologists how they ought to mend their ways by attacking particular
 remarks made by Crick and Watson in 1951, while ignoring everything that
 Crick proceeded to do, from that beginning, in the 1960's and 1970's.
+
 By the same token, when a philosopher takes it upon himself to move into
 the scientific journals with criticisms clearly intended to influence
 scientific practice, then I think he has an obligation to get his
 technical facts and documentation right, and to inform himself about
 current activity in the field; otherwise he will at best only make a
 clown of himself, and at worst do serious damage.
+
 This brings us, obviously, to the matter of Shimony. I am not a
 participant, but, like other readers, only a bewildered onlooker, in the
 spectacle of his epic struggles with himself. He seems to have made it
@@ -802,34 +821,39 @@ done in this field since then -- and which, to cap it all off, attack
 not my statements, but only his own misunderstandings of them. The
 conflict is not between Shimony and me, but between Shimony and the
 English language.
+
 I want to defend both myself and Shannon against Shimony's misleading
 accounts of our work. As anyone can verify, the argument that Shimony
-attributes to Shannon (1948) leading to Shimony's Eq. (1), omits the
+attributes to Shannon (1948) leading to Shimony's first equation, omits the
 appeal to consistency that gives Shannon's argument its force; indeed,
 if Shannon's derivation had no more substance than the one Shimony
 reports, the name \"Claude Shannon\" and the term \"Information Theory\"
 would be quite unknown today.
+
 Then he turns to my work. I deny that I have ever defined PME by the
 statement that Shimony attributes to me. The phrase \"The $p_i$ have
 those values \...\" is anathema, conveying the opposite of my meaning.
 Then he too commits that error of terminology and notation; maxi-
 mum-entropy probabilities are not only called \"posterior
-probabilities\" but even (Eq. 4) denoted explicitly by the symbol for a
+probabilities\" but even in his notation denoted explicitly by the symbol for a
 conditional probability! In the works of others, this only causes
 confusion; but for Shimony this sets off a chain reaction of further
 errors.
-The notation which confuses two quite different things in (4) deludes
+
+The notation which confuses two quite different things in that notation deludes
 him into failing to see the distinction between the Lagrange multiplier
 $\beta$ of a maximum-entropy problem and an estimated parameter of a
 sampling distribution. This in turn leads him to suppose that he and
 Friedman have discovered an \"anomaly\", in the fact that PME leads to
 the value $\beta = 0$ when there are no constraints other than
 normalization.
-Although the actual result (2) has been a standard part of probability
+
+Although the actual result under discussion has been a standard part of probability
 theory for 250 years, his attempts to interpret it in terms of a
 probability distribution for a Lagrange multiplier leads him to a quite
 new and startling conclusion. We are not all in hell, although we need
 not question Shimony's account of his own predicament.
+
 Errors in this argument have now been pointed out five times, by Tribus
 and Motroni (1972), Hobson (1972), Gage and Hestenes (1973), Jaynes
 (1978), and Cyranski (1979); yet he persists in publishing that same
@@ -838,6 +862,7 @@ with anything written here; but in the following remarks addressed to
 others we point out a few elementary technical facts that
 will help to avoid the pitfall in which Shimony seems permanently
 trapped.
+
 In the maximum entropy problem, the quantity $\beta$ had no previous
 existence; it is a Lagrange multiplier that is created only in the
 process of entropy maximization. But it appears only for mathematical
@@ -847,6 +872,7 @@ but *defined*, by the PME formalism. That it is defined exactly and not
 approximately, far from being cause for complaint, merely indicates that
 our maximization problem was mathematically well posed. There would be
 cause to complain were it otherwise.
+
 It does not make sense, therefore, to speak of having prior knowledge of
 $\beta$, much less of honestly representing that knowledge. A Lagrange
 multiplier does not have a probability distribution; it is no different,
@@ -854,9 +880,11 @@ in principle, from a normalization constant that also appears in a probability d
 indeed, to infinite accuracy. Would Shimony complain that this too
 violates the honesty maxim, and demand that henceforth we use inaccurate
 normalization?
+
 The question is not at all facetious; for the $\lambda_0$ in the PME
 formalism is the Lagrange multiplier that is chosen to fit the
 normalization constraint, so perhaps he has already done this.
+
 Of course, PME is different from Bayes' theorem, because it addresses
 a different problem, with a different kind of information, and for a
 different purpose. A MAXENT distribution is not a \"posterior
@@ -864,6 +892,7 @@ distribution\" and we are not making inferences about any parameters in
 a previously defined sampling distribution. My attempts to point this
 out (Jaynes, 1978) were not comprehended because of Shimony's seeming
 inability to read a simple English sentence.
+
 Shimony quotes two statements of mine, which he reports as claiming that
 a proposition used to provide a constraint in PME cannot be used as a
 conditioning statement in Bayes' theorem. But I made no such claim, as
@@ -872,11 +901,14 @@ he quotes. If someone points out a rock that is white but not round, and
 another that is round but not white, he has not thereby denied that it
 is possible for a rock to be both white and round; he has merely noted
 that the examples before him do not have that property.
+
 Indeed, it would hardly be a feat to produce such a double-action
 proposition, if one had one of type $d$ and one of type $D$. Their
 conjunction $Dd$ would seem to do the job, would it not?
+
 Since most of the rest of his discussion is a quixotic attempt to tilt
 with a claim that was never made, it does not seem worth examining here.
+
 Not satisfied with confusing PME with Bayes' theorem and with parameter
 estimation, Shimony has also confused it with the Carnap inductive
 methods and complained that it is not equivalent to any with finite
@@ -888,6 +920,7 @@ entropy spectrum analysis automatically leads us to realistic
 predictions in these problems, because it introduces only those
 correlations (autoregressive coefficients) for which there is evidence
 in the data; this is just that \"honesty maxim\" at work (Jaynes, 1982).
+
 Shimony has now published the incredible statement that, because of his
 lack of understanding, the use of PME \"ought to be curtailed\", which
 sounds more like a threat than the observation of a scholar. Those of us
@@ -901,6 +934,7 @@ causes conceptual hangups for many with conventional training. But
 begin- ning students have no difficulty with it, for it is just a
 mathematical model of the natural, common sense way in which anybody
 does conduct his inferences in problems of everyday life.
+
 The difficulties that seem so prominent in the literature today are,
 therefore, only transient phenomena that will disappear automatically in
 time. Indeed, this revolution in our attitude toward inference is
@@ -945,9 +979,5 @@ Tribus, M. and Motroni, H.: 1972, *J. Stat. Phys.* **4**, 227.
 \* These articles are reprinted in E. T. Jaynes (1983), *Papers on
 Probability, Statistics and Statistical Physics*, R. D. Rosenkrantz,
 Editor, D. Reidel Publishing Co. Dordrecht- Holland.
-Dept. of Physics\
-Washington University\
-St. Louis, Missouri 63130\
-U.S.A.
 [^1]: *Synthese* 63 (1985) 115--138. 0039-7857/85.10\
     © 1985 by D. Reidel Publishing Company

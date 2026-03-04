@@ -55,7 +55,7 @@ prior would have been met equally well had he chosen a Cauchy
 distribution with interquartile span $4\sigma$ instead of $\sigma$; but
 then all his $K$-values would have been quadrupled, leading to
 indifference at a very different value of the $t$-statistic \[see Eq.
-(5-13) below\]. We do not argue that Jeffreys made a bad choice; quite
+(5.13) below\]. We do not argue that Jeffreys made a bad choice; quite
 the contrary. Our point is rather that in his choice there were elements
 of arbitrariness, arising from a still unresolved question of principle.
 Pending that resolution, one is not in a position to say much about the
@@ -108,7 +108,8 @@ $2\sigma_1$, and we then receive data showing that it is actually within
 $\sigma/\sqrt{n}$ of the value predicted by $H_o$, -as a physicist would
 put it, "the data agree with $H_o$ to within experimental error"- that
 is indeed very strong evidence in favor of $H_o$. Such data ought to
-yield a likelihood ratio $K = \sqrt{n}\sigma_1/\sigma$
+yield a likelihood ratio
+$$K = \sqrt{n}\sigma_1/\sigma \tag{11}$$
 increasing with $\sigma_1$, just as Bernardo finds. This first result is
 clearly the correct answer to the question $Q_1$ that was being asked.
 If we find that answer disconcerting, it can be only because we had in
@@ -363,15 +364,15 @@ $\lambda_o$ be the correct value according to the null hypothesis $H_o$
 (we supposed $\lambda_o = 0$ above, but it is now best to bring it
 explicitly into view), and define the "statistic"
 
-$t = (\lambda^\prime - \lambda_o)/\delta\lambda$. Then there are three
-possible outcomes:
-::: center
-  ------------------------------------- -------------------------
-  If $|t| < 1$, retain $H_o$,           STATUS QUO
-  If $|t| >> 1$, accept $H_1$,          AWARD NOBEL PRIZES
-  If $1 < |t| < 3$, withhold judgment   SEEK BETTER EXPERIMENTS
-  ------------------------------------- -------------------------
-:::
+$$t = (\lambda^\prime - \lambda_o)/\delta\lambda$$
+
+Then there are three possible outcomes:
+
+| Outcome | Decision |
+| --- | --- |
+| If $|t| < 1$, retain $H_o$ | STATUS QUO |
+| If $|t| >> 1$, accept $H_1$ | AWARD NOBEL PRIZES |
+| If $1 < |t| < 3$, withhold judgment | SEEK BETTER EXPERIMENTS |
 
 That is, to within the usual poetic license, the reasoning format in
 which the progress of physics takes place.
@@ -495,12 +496,19 @@ $\pi(d\lambda|H_1) \sim N(\mu_1,\sigma_1)$, leading to a normal
 posterior distribution
 $p(d\lambda|D,H_1) \sim N(\lambda^\prime, \delta\lambda)$ where
 $$(δλ)^{-2} = n\sigma^{-2} + \sigma_1^{-2}$$
-$$\lambda^\prime = n(δλ/\sigma)^2 \bar{x} + (δλ/\sigma_1)^2 \mu_1$$ Laplace,
+$$\lambda^\prime = n(δλ/\sigma)^2 \bar{x} + (δλ/\sigma_1)^2 \mu_1$$
+
+Laplace,
 asking for the probability of a positive effect, would calculate
-$$P_L = p(\lambda > \lambda_o|D,H_1) = \Phi(t)$$ where $\Phi(t)$ is the
+$$P_L = p(\lambda > \lambda_o|D,H_1) = \Phi(t) \tag{5.3}$$
+
+where $\Phi(t)$ is the
 cumulative normal distribution, and as always,
 $t = (\lambda^\prime-\lambda_o)/\delta\lambda$. Bernardo (Eq. 9) finds for the
-posterior odds ratio $$K_B = p(H_o|D)/p(H_1|D) = \exp(-R/2)$$ where
+posterior odds ratio
+$$K_B = p(H_o|D)/p(H_1|D) = \exp(-R/2)$$
+
+where
 $$R = \frac{(\bar{x}-\lambda_o)^2}{\sigma^2/n} - \frac{(\bar{x}-\mu_1)^2}{\sigma_1^2 + \sigma^2/n}$$
 
 But by algebraic rearrangement, we find this is equal to
@@ -508,13 +516,17 @@ $$R = t^2 - w^2$$ where $w = (\mu_1-\lambda_o)/\sigma_1$ is independent
 of the data and drops out if $\mu_1 = \lambda_o$ or if
 $\sigma_1 \rightarrow \infty$. Bernardo would then find for the
 posterior probability of the null hypothesis
-$$P_o = p(H_o|D) = [\exp(t^2/2) + 1]^{-1}$$ and comparing with (5.3) we
+$$P_o = p(H_o|D) = [\exp(t^2/2) + 1]^{-1}$$
+
+and comparing with (5.3) we
 have, as anticipated, a functional relation $P_o = f(P_L)$. To see the
 form of it, I plotted $P_o$ against $P_L$ and was surprised to find a
 quite accurate semicircle, almost as good as one could make with a
 compass. To all the accuracy one could use in a real problem, the
 functional relation is simply
-$$P_o = [P_L(1-P_L)]^{1/2}, \quad 0 \leq P_L \leq 1$$ The error in (5.8)
+$$P_o = [P_L(1-P_L)]^{1/2}, \quad 0 \leq P_L \leq 1 \tag{5.8}$$
+
+The error in (5.8)
 vanishes at five points ($0 \leq P_L \leq 1$).
 
 Since $P_o = f(P_L)$ is single-valued while the inverse function is not,
@@ -532,7 +544,10 @@ achieves this without any elements of arbitrariness or unBayesianity.
 In Jeffreys' problem we have the same sampling distribution, with the
 standard likelihood function
 $L(\lambda,\sigma) = \sigma^{-n} \exp[-ns^2 Q^2(\lambda)/2\sigma^2]$,
-where $$Q(\lambda) = [1 + (\lambda-\bar{x})^2/s^2]^{1/2}$$ $H_o$ and
+where
+$$Q(\lambda) = [1 + (\lambda-\bar{x})^2/s^2]^{1/2}$$
+
+$H_o$ and
 $H_1$ assign common priors $d\sigma/\sigma$, but $H_o$ specifies
 $\lambda = \lambda_o$, while $H_1$ assigns the Cauchy prior
 $p(d\lambda|\sigma,H_1) = \pi(\lambda|\sigma)d\lambda$ with the density
@@ -541,9 +556,10 @@ scaled on $\sigma$ (Jeffreys takes $a = 1, \bar{x} = 0$, but we define
 the problem thus to bring out some points noted in Sec. 1). To analyze
 the import of the data, Jeffreys then calculates the likelihood ratio
 $$K_J(\bar{x},s) = \frac{p(D|H_o)}{p(D|H_1)} = M^{-1} \int_0^\infty L(\lambda_o,\sigma)d\sigma/\sigma$$
+
 while Laplace (if he used the same prior) would calculate instead the
 probability of a positive effect, given $H_1$:
-$$P_L(\bar{x},s) = p(\lambda > \lambda_o|D,H_1) = M^{-1} \int_0^\infty d\sigma \sigma^{-1} \int_{\lambda_o}^\infty d\lambda \pi(\lambda|\sigma)L(\lambda,\sigma)$$
+$$P_L(\bar{x},s) = p(\lambda > \lambda_o|D,H_1) = M^{-1} \int_0^\infty d\sigma \sigma^{-1} \int_{\lambda_o}^\infty d\lambda \pi(\lambda|\sigma)L(\lambda,\sigma) \tag{5.12}$$
 
 These expressions have a common denominator $M$, equal to the integral
 in (5.12) with $\lambda_o = -\infty$. It is straightforward but lengthy
@@ -554,12 +570,16 @@ very different, as we see on making the same approximation (large $n$)
 that Jeffreys makes. Doing the $\sigma$-integration in (5.12)
 approximately, the other integrals may be done exactly, leading to the
 approximate form
-$$K_J \approx [\pi(n-1)/2]^{1/2} a(1+q^2)/Q^{n-1}(\lambda_o)$$ where
+$$K_J \approx [\pi(n-1)/2]^{1/2} a(1+q^2)/Q^{n-1}(\lambda_o) \tag{5.13}$$
+
+where
 $q = (\bar{x}/as)$. This reduces to Jeffreys' result \[Zellner's Eq.
 (2.7) in this volume\] when $a = 1, \lambda_o = 0$. In the same
 approximation, Laplace's result is the tail area of a $t$-distribution
 with n-2 degrees of freedom:
-$$P_L = A_n \int_{\lambda_o}^{\infty} d\lambda/Q^{n-1}(\lambda)$$ where
+$$P_L = A_n \int_{\lambda_o}^{\infty} d\lambda/Q^{n-1}(\lambda) \tag{5.14}$$
+
+where
 $A_n$ is a normalization constant. Of course, if Laplace used a uniform
 prior for $\lambda$, he would find instead the usual "Student" result
 with ($n-1$) degrees of freedom.

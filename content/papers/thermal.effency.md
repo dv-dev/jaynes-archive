@@ -35,7 +35,7 @@ not yet appeared in any physics textbook, stated in a form where it is
 seen as logically independent of Carnot engines, and forming the natural
 dual theorem to the one on efficiency of Carnot engines. It seems
 appropriate that this way of looking at the result was finally pointed
-out by Robert S. Silver (1981), the James Watt Professor (now emeritus)
+out by Robert S. Silver[^silver-1981], the James Watt Professor (now emeritus)
 of the University of Glasgow.
 
 In Section 2 we give the almost trivial derivation, and in Section 3 we
@@ -47,16 +47,19 @@ Section 5 we speculate on possible nonequilibrium generalizations.
 ## Theoretical Derivation
 We have a source of heat $Q_2$ which is available at Kelvin temperature
 $T_2$. By this we mean, as was stressed long ago by J. Willard Gibbs
-(1886), that the source is capable of delivering that heat to a heat
+[^gibbs-1886], that the source is capable of delivering that heat to a heat
 reservoir which is at temperature $T_2$; and $T_2$ is the highest
 temperature to which it can deliver that heat. If there is available a
 cold reservoir at temperature $T_1 < T_2$, then according to classical
 thermodynamics we may exploit this temperature difference to obtain work
 $W$. Applying the first and second laws: $W = Q_2 - Q_1$,
 $Q_1/T_1 \ge Q_2/T_2$ and solving these for $W$ and $Q_1$ we have
-$$W \le Q_2 \left(1 - \frac{T_1}{T_2}\right), \quad Q_1 \ge Q_2 \frac{T_1}{T_2}$$
+$$W \le Q_2 \left(1 - \frac{T_1}{T_2}\right), \quad Q_1 \ge Q_2 \frac{T_1}{T_2} \tag{1}$$
 with equality if and only if the engine is reversible. In the latter
-case the \"wasted energy\" $$Q_1(\text{Carnot}) = Q_2 \frac{T_1}{T_2}$$
+case the \"wasted energy\"
+
+$$Q_1(\text{Carnot}) = Q_2 \frac{T_1}{T_2} \tag{2}$$
+
 is delivered as heat to the reservoir at temperature $T_1$. This is the
 standard result.
 
@@ -79,9 +82,14 @@ Suppose we have an ambient heat reservoir (the outside world) at
 temperature $T_0 < T_1$ and we use a perfect Carnot engine to obtain the
 heat $Q_1(\text{Carnot})$. Then we still have the work $W$ available,
 which we can use to drive a heat pump between $T_0$ and $T_1$, yielding
-the additional heat $$Q_1(\text{pump}) = \frac{T_1 W}{T_1- T_0}.$$
+the additional heat
+
+$$Q_1(\text{pump}) = \frac{T_1 W}{T_1- T_0}. \tag{3}$$
+
 Combining (2) and (3), we have now obtained the total heat
-$$Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1}{T_2} \frac{T_2 - T_0}{T_1 - T_0}$$
+
+$$Q_1 = Q_1(\text{Carnot}) + Q_1(\text{pump}) = Q_2 \frac{T_1}{T_2} \frac{T_2 - T_0}{T_1 - T_0} \tag{4}$$
+
 and there is always a net gain, since $Q_1$ is always greater than $Q_2$
 whenever $T_0 < T_1 < T_2$. But while we know that a reversible Carnot
 engine delivers the maximum attainable work, this argument does not make
@@ -91,10 +99,13 @@ Now from a theoretical standpoint it is more general and more elegant to
 apply the first and second laws directly to this process, as we did in
 (1). Since some heat $Q_0$ is removed from the outside reservoir, we
 must have
-$$Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \le \frac{Q_0}{T_0} + \frac{Q_2}{T_2}.$$
+
+$$Q_1 = Q_0 + Q_2, \quad \frac{Q_1}{T_1} \le \frac{Q_0}{T_0} + \frac{Q_2}{T_2}. \tag{5}$$
 
 Solving these equations for $Q_1$ and $Q_0$, we have
-$$Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2 - T_0}{T_1 - T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2 - T_1}{T_1 - T_0}$$
+
+$$Q_1 \le Q_2 \frac{T_1}{T_2} \frac{T_2 - T_0}{T_1 - T_0}, \quad Q_0 \le Q_2 \frac{T_0}{T_2} \frac{T_2 - T_1}{T_1 - T_0} \tag{6}$$
+
 with equality if and only if the process is reversible. Thus we obtain
 automatically the same result (4), plus the statement that it is the
 *maximum attainable heating*, without invoking Carnot engines at all. It
@@ -105,7 +116,10 @@ Consider heating from a primary temperature $T_2 = 1000$K to room
 temperature, $T_1 = 25^\circ\text{C} =$ $298$K, with an outside
 temperature $T_0 = 0^\circ\text{C} = 273$K. Comparing our ideal $Q_1$
 with the present maximum $Q_2$, we have from (7), the gain factor
-$$G = \frac{Q_1}{Q_2} = \frac{1-.273}{1-.916} = 8.66$$ This seems at
+
+$$G = \frac{Q_1}{Q_2} = \frac{1-.273}{1-.916} = 8.66 \tag{7}$$
+
+This seems at
 first glance quite startling; if we take into account that we are at
 present far from getting even $Q_2$ because of heat loss up chimneys,
 the conclusion is that it is in principle possible to heat our homes
@@ -118,10 +132,13 @@ Even in cold climates, average gains of the order of 5 are indicated.
 The reason for this high efficiency is that $T_0$ and $T_1$ are not very
 different on the Kelvin scale. With the values of inside and outside
 temperature assumed in (7), one Joule of work will pump
-$$T_0/(T_1 - T_0) = 10.9$$ Joules of heat from the outside world, and
+
+$$T_0/(T_1 - T_0) = 10.9 \tag{8}$$
+
+Joules of heat from the outside world, and
 deliver 11.9 joules to the inside. Unfortunately, presently available
 heat pumps are far from realizing this theoretical efficiency. Silver
-(1981) notes that if present engines realize only half of the
+[^silver-1981] notes that if present engines realize only half of the
 theoretical efficiency, then the heat pump component of $Q_1$ will be
 only a quarter of our calculated value.
 
@@ -157,7 +174,10 @@ $Q_2$ represent heat *extracted* from those at $T_0, T_2$. Therefore
 $Q_0, Q_1, Q_2$ are now all negative, so $(-Q_1)$ is the heat extracted
 from the room and $(-Q_2)$ is the resulting heat delivered to the oven;
 but Eqs. (6) still hold. Writing the first as
-$$(-Q_2) \le (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2},$$ we see that the
+
+$$(-Q_2) \le (-Q_1) \frac{1-T_0/T_1}{1-T_0/T_2}, \tag{9}$$
+
+we see that the
 maximum heat that can be delivered to the oven is less than that
 extracted from the room, but if the outside temperature $T_0$ is low
 enough, the efficiency can be quite high; unlike room heating, oven
@@ -188,7 +208,7 @@ Eskimos, but not free air-conditioning to hottentots because they have
 no lower temperature reservoir to take up that entropy.
 ## Speculations
 How much generality and finality do the above results have? As we
-stressed before (Jaynes, 1965), in classical thermodynamics the notions
+stressed before[^jaynes-1965], in classical thermodynamics the notions
 of temperature and entropy are defined only for states of thermal
 equilibrium; therefore the conventional second law that we considered
 above refers only to the net result of processes that begin and end in
@@ -203,7 +223,7 @@ Many have speculated about the possibility of non-biological engines
 that violate the second law. The more careful writers have refrained
 from claiming that they are absolutely impossible in principle. The
 Maxwell Demon, which is able to operate on a system directly at the
-microscopic level, is the most familiar example; but Max Planck (1917)
+microscopic level, is the most familiar example; but Max Planck[^planck-1917]
 also noted that we expect \"to make a most serviceable application\" of
 any phenomenon that is found to deviate from the second law, and
 considered it a good policy to remain alert, on the lookout for such
@@ -229,7 +249,8 @@ between such states. The maximum efficiency of a reproducible
 macroprocess is attained when the phase volume of those degrees of
 freedom that actually take part in the interactions is the same for the
 initial and final macrostates: $W(M_1) = W(M_2)$.
-Using this fact, we have shown (Jaynes, 1989) that the high efficiency
+
+Using this fact, we have shown[^jaynes-1989] that the high efficiency
 of animal muscles may be predicted from two data: the heat of reaction
 0.43 ev of hydrolysis of the ATP molecule and the value 37$^\circ$C of body
 temperature. Presumably, similar efficiencies are realizable *in vitro*,
@@ -258,3 +279,9 @@ Longmans, Green, & Co., London; undated reprint by Dover Publications,
 Inc., New York; Part III, Chapter II.
 Silver, R. S. (1981), \"Reflexions sur la puissance chaleurique du
 feu\", Heat Recovery Systems, **1**, 205-207.
+
+[^gibbs-1886]: Gibbs, J. W. (1886), "Electrochemical Thermodynamics", Report Brit. Assoc. Adv. Sci. 388; reprinted in *The Scientific Papers of J. Willard Gibbs*, Longmans, Green & Co., (1906) and by Dover Publications, Inc., New York (1961); pp 406-412.
+[^silver-1981]: Silver, R. S. (1981), "Reflexions sur la puissance chaleurique du feu", *Heat Recovery Systems*, **1**, 205-207.
+[^jaynes-1965]: Jaynes, E. T. (1965), "Gibbs vs. Boltzmann Entropies", *Am. Jour. Phys.* **33**, 391.
+[^planck-1917]: Planck, Max (1917), *Treatise on Thermodynamics*, 5th Edition, Longmans, Green, & Co., London; undated reprint by Dover Publications, Inc., New York; Part III, Chapter II.
+[^jaynes-1989]: Jaynes, E. T. (1989), "Clearing up Mysteries --- the Original Goal", in *Maximum Entropy and Bayesian Methods*, J. Skilling, Editor, Kluwer Publishing Co., Holland, pp. 1-27.

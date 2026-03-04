@@ -1,0 +1,101 @@
+=== STDOUT ===
+No changes.
+
+Self-check results on `content/papers/observation.paramagnetic.res.md`:
+- Paragraph boundaries are already separated by blank lines (no unintended single-newline paragraph joins found).
+- No in-text equation references (e.g., `Eq. (...)`) are present, so there are no unresolved display-equation numbering issues.
+- Abstract appears only in front matter metadata (no duplicate abstract block in body).
+- Citation formatting is already a proper footnote citation (`[^1]`), with no duplicate parenthetical citation pattern.
+- No extraneous metadata line like “Lecture given at …” appears in the body.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba70-8678-7a72-9216-f9fd90a84542
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/observation.paramagnetic.res.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/observation.paramagnetic.res.md` for paragraph structure, citation formatting, duplicate abstract/body metadata, and equation-reference numbering consistency, then apply only minimal structural edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/observation.paramagnetic.res.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Observation of Paramagnetic Resonances in Single Crystals of Barium Titanate"
+year: 1954
+abstract: >
+  Paramagnetic resonances consisting of several components have been observed
+  at microwave frequencies in single crystals of barium titanate containing
+  small amounts of iron. The structure of the resonance changes radically at the
+  Curie temperature, indicating the tetragonal-cubic phase transition. Signals
+  observed below 0°C also show marked changes associated with the transition to
+  orthorhombic symmetry. It is suggested that the resonances result from
+  ferrous ions probably located at the barium position in the lattice.
+author: ["A.W. Hornig", "E.T. Jaynes", "H.E. Weaver"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["paramagnetic resonance", "barium titanate", "phase transition", "Curie temperature", "ferroelectricity", "microwave spectroscopy"]
+---
+PARAMAGNETIC resonances consisting of several components have been
+observed at microwave frequencies in single crystals of barium
+titanate,[^1] which contain small amounts of iron. Figure 1 illustrates
+the nature of the observed lines obtained at room temperature from a
+single crystal polarized in a direction perpendicular to the plane of
+codex
+No changes.
+
+Self-check results on `content/papers/observation.paramagnetic.res.md`:
+- Paragraph boundaries are already separated by blank lines (no unintended single-newline paragraph joins found).
+- No in-text equation references (e.g., `Eq. (...)`) are present, so there are no unresolved display-equation numbering issues.
+- Abstract appears only in front matter metadata (no duplicate abstract block in body).
+- Citation formatting is already a proper footnote citation (`[^1]`), with no duplicate parenthetical citation pattern.
+- No extraneous metadata line like “Lecture given at …” appears in the body.
+tokens used
+2,835
+

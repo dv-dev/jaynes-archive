@@ -1,0 +1,3944 @@
+=== STDOUT ===
+Edits applied to [content/papers/unique.dicipherability.md](/home/dave/Projects/jaynes-archive/content/papers/unique.dicipherability.md).
+
+Summary of changes:
+- Added display-equation numbering tags (`\tag{...}`) to match in-text equation references, ensuring referenced Eq. numbers are visible/discoverable.
+- Inserted blank-line paragraph breaks where prose/equation/figure blocks were previously joined, improving markdown readability/rendering.
+- Normalized malformed citation markers (e.g., `^4^`, `^6,15^`, `^4-8^`) into footnote citation form.
+- Added minimal empty footnote definitions for cited but previously undefined references `[^11]`–`[^15]` to avoid unresolved footnote links.
+- Confirmed no duplicate abstract text in body and no figure-content edits (ignored missing figures as requested).
+
+Self-check completed:
+- Paragraph boundaries are blank-line separated where intended.
+- In-text Eq. references now point to display equations with visible numbers.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba3d-8552-7761-bbc4-06c18547c98b
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/unique.dicipherability.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/unique.dicipherability.md` for structural QA only, then apply minimal edits in-place for paragraph breaks, citations, abstract duplication, and equation-numbering markup consistency with in-text Eq. references. I’m starting by inspecting the file contents end-to-end.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Note on Unique Decipherability"
+author: ["E.T. Jaynes"]
+year: 1959
+abstract: >
+  We consider an alphabet of $a$ letters, used under the
+  restrictions: 1) messages uniquely decipherable into words by use of
+  one of the letters as a space mark, and 2) words limited to a maximum
+  length of L letters. Although imposing these constraints
+  simultaneously may cause a large reduction in the channel capacity of
+  the alphabet, neither by itself causes any reduction. Accordingly, in
+  the absence of constraints other than 1), an inequality of McMillan
+  pertaining to uniquely decipherable messages can be made to be an
+  equality. Defining \"semi-optimal\" transmission by the condition that
+  the mean transmission time per word is minimized for a given entropy
+  per word, we find the attainable rate of information transmission
+  under semi-optimal conditions. Transmission at full channel capacity
+  is a special case of semi-optimal transmission. Some generalizations
+  and analogies to statistical mechanics are discussed.
+---
+codex
+I’ve scanned the first section and identified several structural issues (single-newline paragraph joins, inconsistent citation markup, and equation references that need explicit numbering visibility). I’m now checking the remainder of the file before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+solution for trigrams would be of considerable interest in connection
+with the theory of ferromagnetism.
+
+The two-dimensional Ising model of ferromagnetism,^13^ the partition
+function of which was first obtained by Onsager, gives the solution to a
+problem in which a message in binary digits has strong correlations
+between adjacent symbols, and also between the $n$'th and the
+$(n+M)$'th, where $M$ is a large fixed number. Its most striking feature
+is a logarithmic singularity, signifying physically a phase transition
+(ferromagnetic Curie point). Translated into communication theory, it
+can be said that at a certain critical strength of the intersymbol
+correlations, as measured by the parameter $\lambda$, there occurs a
+sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+becoming infinite at a single point.^14^
+## Conclusion {#conclusion .unnumbered}
+Much of what we have said has already been pointed out by others.^6,15^
+However, the basic mathematical identity of these two fields has had,
+thus far, very little influence on the development of either. There is
+an inevitable difference in detail, because the applications are so
+different; but we should at least develop a certain area of common
+exec
+/bin/bash -lc "sed -n '521,780p' content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+codex
+I finished the full read. Next I’m patching the file with minimal structural edits: explicit paragraph breaks around display math, equation tags to match all in-text Eq. references, and citation syntax normalization to footnote style without touching equation content.
+exec
+/bin/bash -lc 'rg -n "unique decipherability|Schützenberger|McMillan|Onsager|Curie" -S content | head -n 40' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+content/papers/second.law.md:618:L. Onsager, Phys. Rev. **37**, 405; **38**, 2265 (1931)
+content/papers/macroscopic.prediction.md:669:relation to the work of Einstein, Fokker-Planck, and Onsager clearer.
+content/papers/macroscopic.prediction.md:698:Onsager's expansion of the entropy
+content/papers/macroscopic.prediction.md:702:about that point. Onsager
+content/papers/macroscopic.prediction.md:716:In Onsager's work there was no apparent connection with the earlier work
+content/papers/macroscopic.prediction.md:726:Fokker-Planck and Onsager ideas.
+content/papers/macroscopic.prediction.md:771:approximation, they reduce to generalized Fokker-Planck-Onsager
+content/papers/macroscopic.prediction.md:887:Onsager equation in that the local entropy gradient is present. It turns
+content/papers/macroscopic.prediction.md:889:Onsager behavior. When the entropy is a quadratic function of the $A_i$,
+content/papers/macroscopic.prediction.md:923:Equation (36) is of the familiar Onsager form, the system moving along a
+content/papers/macroscopic.prediction.md:924:trajectory defined by the local entropy gradient. In general the Onsager
+content/papers/macroscopic.prediction.md:926:$L_{ij} = k^{-1}D_{ij}$ and the Onsager symmetries $L = L^T$ reduce to
+content/papers/macroscopic.prediction.md:938:steady Onsager drift. But if $S^{\prime\prime}(q) < 0$, the spreading (38) does not
+content/papers/brandeis.md:1588:[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+content/papers/entropy.in.economics.md:120:intuitively in early work of Einstein, Fokker-Planck, and Onsager. Today
+content/papers/entropy.in.economics.md:253:temperature, $T_c$ = Curie critical temperature. The resulting
+content/papers/entropy.in.economics.md:255:Curie temperature) makes possible permanent magnets and causes the "B-H
+content/papers/unique.dicipherability.md:12:  the absence of constraints other than 1), an inequality of McMillan
+content/papers/unique.dicipherability.md:23:inequality of McMillan pertaining to unique decipherability, and 2) to
+content/papers/unique.dicipherability.md:52:condition for unique decipherability into words (UD) is given by
+exec
+/bin/bash -lc "nl -ba content/papers/unique.dicipherability.md | sed -n '1,240p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Note on Unique Decipherability"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1959
+     5	abstract: >
+     6	  We consider an alphabet of $a$ letters, used under the
+     7	  restrictions: 1) messages uniquely decipherable into words by use of
+     8	  one of the letters as a space mark, and 2) words limited to a maximum
+     9	  length of L letters. Although imposing these constraints
+    10	  simultaneously may cause a large reduction in the channel capacity of
+    11	  the alphabet, neither by itself causes any reduction. Accordingly, in
+    12	  the absence of constraints other than 1), an inequality of McMillan
+    13	  pertaining to uniquely decipherable messages can be made to be an
+    14	  equality. Defining \"semi-optimal\" transmission by the condition that
+    15	  the mean transmission time per word is minimized for a given entropy
+    16	  per word, we find the attainable rate of information transmission
+    17	  under semi-optimal conditions. Transmission at full channel capacity
+    18	  is a special case of semi-optimal transmission. Some generalizations
+    19	  and analogies to statistical mechanics are discussed.
+    20	---
+exec
+/bin/bash -lc "nl -ba content/papers/unique.dicipherability.md | sed -n '241,420p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   241	It is interesting that such a fundamental notion as channel capacity has
+   242	no thermodynamic analog. In thermodynamics the absolute value of the
+   243	entropy has no meaning; only entropy differences can be measured in
+   244	experiments. Consequently the condition that $H$ is maximized,
+   245	equivalent to the statement that the Helmholz free energy function
+   246	vanishes ($A = E - TS = 0$), corresponds to no condition which could be
+   247	detected experimentally.
+   248	
+   249	Generalization of the above analysis to the case where the different
+   250	words are no longer statistically independent is also straightforward,
+   251	and corresponds to the transition in statistical mechanics from the
+   252	Maxwell-Boltzman \"molecular\" viewpoint, to the Gibbsian \"global\"
+   253	viewpoint. We mention two examples of the correspondence which then
+   254	exists.
+   255	
+   256	The partition function of the linear Ising chain,^13^ with an easy
+   257	generalization, provides also an explicit solution to the problem of
+   258	encoding a message into binary digits, in a way which is optimal from
+   259	the standpoint of a person who knows the digram frequencies of the
+   260	source, but has no other statistical information. The corresponding
+codex
+I’m applying a focused patch now: add `\\tag{}` to display equations so Eq. references resolve visibly, clean malformed footnote markers, and insert blank lines where prose and equations were merged into single blocks. I’ll keep all wording and math expressions unchanged.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/unique.dicipherability.md
+@@ -40,3 +40,6 @@
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+@@ -45,2 +48,3 @@
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+@@ -50,12 +54,21 @@
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+@@ -69,3 +82,4 @@
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+@@ -73,2 +87,3 @@
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+@@ -82,3 +97,4 @@
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+@@ -87,2 +103,3 @@
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+@@ -96,4 +113,9 @@
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+@@ -102,4 +124,5 @@
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+@@ -108,3 +131,6 @@
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+@@ -118,3 +144,6 @@
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+@@ -142,3 +171,6 @@
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+@@ -147,9 +179,16 @@
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+@@ -157,3 +196,6 @@
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+@@ -163,4 +205,5 @@
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+@@ -169,3 +212,5 @@
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+@@ -173,3 +218,4 @@
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+@@ -182,3 +228,3 @@
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+@@ -191,3 +237,3 @@
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+@@ -207,4 +253,10 @@
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+@@ -235,3 +287,3 @@
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+@@ -255,3 +307,3 @@
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+@@ -263,3 +315,3 @@
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+@@ -273,5 +325,5 @@
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+apply_patch(auto_approved=true) exited 0 in 9ms:
+Success. Updated the following files:
+M content/papers/unique.dicipherability.md
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..4881e7537a40d52a6d3fbea96e7b460574c880c7
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..4881e7537a40d52a6d3fbea96e7b460574c880c7
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+
+codex
+Patch applied. I’m running a quick consistency check now for unresolved footnote references and Eq. number coverage against in-text references, then I’ll do a final minimal cleanup if needed.
+exec
+/bin/bash -lc "rg -n \"Eq\\. \\([0-9]+\\)|\\([0-9]+\\)\" content/papers/unique.dicipherability.md | sed -n '1,120p'" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc 'rg -n "''^'"\\[\\"'^[0-9]+'"\\]:\" content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -o \"\\[\\"'^[0-9]+'"\\]\" content/papers/unique.dicipherability.md | sort -u" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+363:[^1]: E. Schrödinger, \"Statistical Thermodynamics,\" Cambridge
+366:[^2]: C. E. Shannon, \"The Mathematical Theory of Communication,\"
+369:[^3]: A. A. Sardinas and G. W. Patterson, \"A necessary and sufficient
+373:[^4]: B. McMillan, \"Two inequalities implied by unique
+377:[^5]: L. G. Kraft, \"A device for quantizing, grouping and coding
+381:[^6]: B. Mandelbrot, \"On recurrent noise limiting coding,\" Proc. Symp.
+385:[^7]: Given also in A. Feinstein, \"Foundations of Information Theory,\"
+388:[^8]: S. W. Golomb, Basil Gordon, and L. R. Welch, \"Comma-free codes,\"
+391:[^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+ succeeded in 51ms:
+[^11]
+[^12]
+[^13]
+[^14]
+[^15]
+[^1]
+[^2]
+[^3]
+[^4]
+[^5]
+[^6]
+[^7]
+[^8]
+[^9]
+ succeeded in 51ms:
+76:and defines a particular channel. Eq. (3) expresses the fact that
+78:capacity than the value (2), which corresponds to complete freedom of
+79:choice. Thus we conjecture that (3) will be fundamental not only for UD,
+103:does not reduce capacity below the value (2).
+124:$1 \le l \le L$, and the partition function (1) becomes
+131:$C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+135:The latter inequality in (5) is identical
+136:to (3), and it goes into an equality in the limit $L \to \infty$. But
+139:proved. Stated differently, since (3) must hold for any method of
+144:If $L < (a-1)$, then (4) leads to the inequalities
+151:Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+195:characteristics, computed from (4) in the case of no restriction on
+211:$H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+217:$H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+221:In the case of the partition function (11), operation at full channel
+222:capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+251:time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+277:The partition function (11), with the number 2 replaced by $e$, is
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..4881e7537a40d52a6d3fbea96e7b460574c880c7
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/unique.dicipherability.md
+@@ -393 +393,11 @@
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/unique.dicipherability.md
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..727dc50180a0a7e2d00c21348b104f03fbd94c39
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +391,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..727dc50180a0a7e2d00c21348b104f03fbd94c39
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +391,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+codex
+I added minimal placeholder footnote definitions for citations that were referenced but had no definition, to avoid broken markdown footnote rendering. I’m doing one final self-check pass for paragraph spacing and equation reference coverage now.
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{[0-9]+\\}\" content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+exec
+/bin/bash -lc "sed -n '35,235p' content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[\\"'^[0-9]+'"\\]\" content/papers/unique.dicipherability.md | tail -n 40" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+40:and define the partition function[^1]
+47:Shannon,[^2] the capacity of this channel is the largest (actually the
+61:Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+62:implied by UD, which had been noted before[^5][^6][^7] under more
+70:shown,[^4]-[^8] this inequality can be derived without any reference to
+84:McMillan[^4] considers also a strong sufficient condition for UD, called
+90:applications to communication systems and to genetics,[^8] the most
+99:Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+176:(entropy per word) is maximized[^9]
+180:given by[^11]
+219:capacity.[^2]
+229:fundamental paper[^2] had a mean length (including the space) of 5.9
+238:estimate[^12] of the redundancy of English as about 50 per cent, the
+288:by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+308:The partition function of the linear Ising chain,[^13] with an easy
+316:The two-dimensional Ising model of ferromagnetism,[^13] the partition
+326:becoming infinite at a single point.[^14]
+328:Much of what we have said has already been pointed out by others.[^6][^15]
+363:[^1]: E. Schrödinger, \"Statistical Thermodynamics,\" Cambridge
+366:[^2]: C. E. Shannon, \"The Mathematical Theory of Communication,\"
+ succeeded in 51ms:
+a wider class of problems, in which we find the transmission rate under
+what are termed \"semi-optimal\" conditions.
+## Channel Capacity Under Constraints {#channel-capacity-under-constraints .unnumbered}
+We have an alphabet of $a$ symbols, each of which can be transmitted in
+unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+and define the partition function[^1]
+
+$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
+
+where the sum is over all words in
+our vocabulary. A given vocabulary (i.e., a specific set of possible
+words) may be regarded as defining a channel. By a theorem of
+Shannon,[^2] the capacity of this channel is the largest (actually the
+only) real root of $Z(\lambda) = 1$.
+
+The notion of a \"word\" is meaningful only if there exists some rule by
+which a sequence of letters can be uniquely deciphered into words. If no
+such rule exists, then effectively each letter is a word. The partition
+function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+theorem gives the well-known channel capacity (all logarithms are to the
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..727dc50180a0a7e2d00c21348b104f03fbd94c39
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4]-[^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -140,38 +169,55 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +226,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +235,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +251,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +285,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +305,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +313,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +323,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +391,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/unique.dicipherability.md
+@@ -69,3 +69,3 @@
+ Although, as several authors have
+-shown,[^4]-[^8] this inequality can be derived without any reference to
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+@@ -156,3 +156,5 @@
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+@@ -202,3 +204,5 @@
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/unique.dicipherability.md
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+exec
+/bin/bash -lc "git diff -- content/papers/unique.dicipherability.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b..fe7fbbc 100644
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@ what are termed \"semi-optimal\" conditions.
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+exec
+/bin/bash -lc "git diff -- content/papers/unique.dicipherability.md | sed -n '260,520p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@ is a logarithmic singularity, signifying physically a phase transition
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@ with very little effect on attainable transmission rate.
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+exec
+/bin/bash -lc "rg -n \"tag\\{\" content/papers/unique.dicipherability.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+42:$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
+57:$$C = \log a \text{ bits/symbol}.\tag{2}$$
+67:$$Z(\log a) \leq 1.\tag{3}$$
+126:$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
+133:$$\log (a-1) < C < \log a.\tag{5}$$
+146:$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
+175:$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
+187:\end{aligned}\tag{8}$$
+193:$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
+200:$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
+211:$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
+218:$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
+259:$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
+263:$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+codex
+Edits applied to [content/papers/unique.dicipherability.md](/home/dave/Projects/jaynes-archive/content/papers/unique.dicipherability.md).
+
+Summary of changes:
+- Added display-equation numbering tags (`\tag{...}`) to match in-text equation references, ensuring referenced Eq. numbers are visible/discoverable.
+- Inserted blank-line paragraph breaks where prose/equation/figure blocks were previously joined, improving markdown readability/rendering.
+- Normalized malformed citation markers (e.g., `^4^`, `^6,15^`, `^4-8^`) into footnote citation form.
+- Added minimal empty footnote definitions for cited but previously undefined references `[^11]`–`[^15]` to avoid unresolved footnote links.
+- Confirmed no duplicate abstract text in body and no figure-content edits (ignored missing figures as requested).
+
+Self-check completed:
+- Paragraph boundaries are blank-line separated where intended.
+- In-text Eq. references now point to display equations with visible numbers.
+file update:
+diff --git a/content/papers/unique.dicipherability.md b/content/papers/unique.dicipherability.md
+index 53dd94b041d1a4923b0e1ef17a5a065266961d97..fe7fbbcb359d7e7ad89241d1b3c2f29eb47a2195
+--- a/content/papers/unique.dicipherability.md
++++ b/content/papers/unique.dicipherability.md
+@@ -38,26 +38,39 @@
+ We have an alphabet of $a$ symbols, each of which can be transmitted in
+ unit time. Let $l_i$ be the length (number of letters) of word $w_i$,
+ and define the partition function[^1]
+-$$Z(\lambda) = \sum \lambda^{l_i}$$ where the sum is over all words in
++
++$$Z(\lambda) = \sum \lambda^{l_i}\tag{1}$$
++
++where the sum is over all words in
+ our vocabulary. A given vocabulary (i.e., a specific set of possible
+ words) may be regarded as defining a channel. By a theorem of
+ Shannon,[^2] the capacity of this channel is the largest (actually the
+ only) real root of $Z(\lambda) = 1$.
++
+ The notion of a \"word\" is meaningful only if there exists some rule by
+ which a sequence of letters can be uniquely deciphered into words. If no
+ such rule exists, then effectively each letter is a word. The partition
+ function then reduces to $Z(\lambda) = a\lambda^1$, and Shannon's
+ theorem gives the well-known channel capacity (all logarithms are to the
+-base 2) $$C = \log a \text{ bits/symbol}.$$ A necessary and sufficient
++base 2)
++
++$$C = \log a \text{ bits/symbol}.\tag{2}$$
++
++A necessary and sufficient
+ condition for unique decipherability into words (UD) is given by
+ Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
+-implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
++implied by UD, which had been noted before[^5][^6][^7] under more
+ restrictive conditions. The first, which perhaps deserves to be called
+ the fundamental inequality of noiseless coding theory, is in our
+-notation $$Z(\log a) \leq 1.$$ Although, as several authors have
+-shown,^4-8^ this inequality can be derived without any reference to
++notation
++
++$$Z(\log a) \leq 1.\tag{3}$$
++
++Although, as several authors have
++shown,[^4][^5][^6][^7][^8] this inequality can be derived without any reference to
+ information theory, the concepts introduced by Shannon give it a simple
+ intuitive meaning.
++
+ Any UD coding method is a system of constraints which in some way
+ restricts our freedom in choosing the successive letters of a message,
+ and defines a particular channel. Eq. (3) expresses the fact that
+@@ -67,10 +80,12 @@
+ but also for coding systems designed for any other objective. In
+ general, a constraint will reduce channel capacity, and a reasonable
+ measure of the efficiency of a code is the amount of this decrease.
+-McMillan^4^ considers also a strong sufficient condition for UD, called
++
++McMillan[^4] considers also a strong sufficient condition for UD, called
+ irreducibility, and shows that for fixed word lengths the strong
+ constraint of irreducibility does not reduce channel capacity below that
+ set by the general constraint of UD.
++
+ Irreducibility ensures UD only if the entire message is available. In
+ applications to communication systems and to genetics,[^8] the most
+ common transmission defect is the one wherein certain parts of the
+@@ -80,11 +95,13 @@
+ Without attempting a precise definition of this term, we use it in the
+ rough sense that any reasonably long fragment of a message will still be
+ uniquely decipherable, except for possible end-effects.
+-Golomb, Gordon, and Welch^9^ consider channels with fixed word length
++
++Golomb, Gordon, and Welch[^9] consider channels with fixed word length
+ $k$, and a structure constraint much stronger than UD, which ensures UD
+ in the small. Among their results, they show (theorems 6 and 7) that for
+ given $k$, in the limit of large alphabets even their strong constraint
+ does not reduce capacity below the value (2).
++
+ Suppose we achieve UD by the usual method of choosing one of the
+ letters, which we call the \"space,\" and using it only as the
+ terminating letter of each word; call this \"spacing.\" Spacing is a
+@@ -94,19 +111,28 @@
+ reduced by spacing, and to show that this reduction is in fact zero,
+ independently of the size of the alphabet, if spacing is the only
+ constraint.
++
+ Due to the spacing constraint, the maximum number of different words of
+-length $l$ is not $a^l$, but only $$(a-1)^{l-1}.$$ Evidently, any
++length $l$ is not $a^l$, but only
++
++$$(a-1)^{l-1}.$$
++
++Evidently, any
+ failure to include all of the short words in our vocabulary will have a
+ further adverse effect on channel capacity, in addition to that imposed
+ by spacing. Therefore we use all possible words of total length
+ $1 \le l \le L$, and the partition function (1) becomes
+-$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.$$
+ 
++$$Z(\lambda) = \sum_{l=1}^{L} (a-1)^{l-1} \lambda^l = \lambda \frac{1-(a-1)^L\lambda^L}{\lambda-a+1}.\tag{4}$$
++
+ Noting that for all real $\lambda$, $Z(\lambda)$ is a decreasing
+ function, and that $Z(\lambda) \to L/(a-1)$ as $\lambda \to \log(a-1)$,
+ it follows that if $L = (a-1)$, the exact channel capacity is
+ $C = \log(a-1)$. If $L > (a-1)$, we find from (4) the inequalities
+-$$\log (a-1) < C < \log a.$$ The latter inequality in (5) is identical
++
++$$\log (a-1) < C < \log a.\tag{5}$$
++
++The latter inequality in (5) is identical
+ to (3), and it goes into an equality in the limit $L \to \infty$. But
+ since $\log a$ is just the channel capacity we would have with an
+ alphabet of $a$ letters without any constraints, our assertion is
+@@ -116,7 +142,10 @@
+ than spacing.
+ 
+ If $L < (a-1)$, then (4) leads to the inequalities
+-$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,$$ the
++
++$$\left(1 - \frac{1}{a}\right) \le \frac{C}{\log(a-1)} < 1,\tag{6}$$
++
++the
+ equality sign holding in the limit $a \to \infty$.
+ 
+ Numerical values of $C$ obtained from (4) are given in Fig. 1. The trend
+@@ -125,7 +154,9 @@
+ channel capacity could never exceed that due to removal of a single
+ letter from the alphabet. However, the loss in capacity is in fact
+ greatest for the large alphabets.
++
+ **[FIGURE: Reduction in channel capacity due to restriction on maximum word length, for various alphabet sizes.]**
++
+ This situation may be understood as follows. Under no restrictions on
+ word length, $L \to \infty$, we show in the next section that operation
+ at full channel capacity requires a mean word length
+@@ -140,38 +171,57 @@
+ position, in Fig. 1, of the curves for large $a$.
+ ## Semi-Optimal Transmission {#semi-optimal-transmission .unnumbered}
+ If the word $w_i$ occurs with probability,
+-$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},$$ the rate of transmission
++
++$$p_i = \frac{\lambda^{-l_i}}{Z(\lambda)},\tag{7}$$
++
++the rate of transmission
+ (entropy per word) is maximized[^9]
+ for a given mean length of word; equivalently, the average transmission
+ time per word is minimized for a given entropy per word. The average
+ length and entropy per word, under these semi-optimal conditions, are
+-given by^11^ $$\begin{aligned}
++given by[^11]
++
++$$\begin{aligned}
+ \langle l \rangle &= -\frac{\partial}{\partial \lambda} \log Z(\lambda) \\\\
+ S &= \log Z(\lambda) + \lambda\langle l \rangle,
+-\end{aligned}$$ which are parametric equations connecting the quantities
++\end{aligned}\tag{8}$$
++
++which are parametric equations connecting the quantities
+ of interest. From them we can construct the \"operating characteristic\"
+ of the channel, in which we plot the time rate of transmission,
+-$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}$$ as a function
++
++$$H = \frac{S}{\langle l \rangle} \text{ bits/symbol,}\tag{9}$$
++
++as a function
+ of the average word length $\langle l \rangle$. A family of operating
+ characteristics, computed from (4) in the case of no restriction on
+ maximum word length, i.e., from the partition function
+-$$Z(\lambda) = (2^\lambda - a + 1)^{-1},$$ is given in Fig. 2 for
++
++$$Z(\lambda) = (2^\lambda - a + 1)^{-1},\tag{11}$$
++
++is given in Fig. 2 for
+ various alphabet sizes. The range of attainable operating conditions
+ consists of all points lying below the curve.
++
+ **[FIGURE: Maximum attainable transmission rate as a function of average word length, for various alphabet sizes. For each curve, operation at full channel capacity occurs at the intersection with the dotted line.]**
++
+ The equation represented in Fig. 2 is found by eliminating $\lambda$
+ from the above equations:
+-$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}$$
+ 
++$$H = \log \langle l \rangle + \frac{\langle l \rangle - 1}{\langle l \rangle} \log \frac{a-1}{\langle l \rangle-1}\tag{10}$$
++
+ It is in the limit $\langle l \rangle \to \infty$ that we are
+ effectively removing one letter from the alphabet, and so
+ $H \to \log (a-1)$. From (8), (9), and (10) the condition for maximum
+ transmission rate is
+-$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,$$
++
++$$\frac{dH}{d\langle l \rangle} = -\frac{\log Z}{\langle l \rangle^2} = 0,\tag{12}$$
++
+ or $\log Z(\lambda) = 0$. Under these conditions, we find
+ $H = \lambda = C$, the channel capacity; thus (8) and (9) provide a
+ simple alternative derivation of Shannon's rule for calculating channel
+-capacity.^2^
++capacity.[^2]
++
+ In the case of the partition function (11), operation at full channel
+ capacity occurs when $H = \lambda = C = \log a$; and (8) then gives
+ $\langle l \rangle = a$, as previously noted.
+@@ -180,7 +230,7 @@
+ space and any five punctuation marks as included in the alphabet. The
+ average word length in English is far less than 32 symbols, and varies
+ with the source. One thousand consecutive words from Shannon's
+-fundamental paper^2^ had a mean length (including the space) of 5.9
++fundamental paper[^2] had a mean length (including the space) of 5.9
+ symbols; while a similar analysis of James Michener's \"Sayonara\" gave
+ a mean length of only 5.4. From Fig. 2, we find that because of
+ Michener's tendency to use short words, unique decipherability by
+@@ -189,7 +239,7 @@
+ 
+ The many additional constraints in English cause the actual transmission
+ rate to fall considerably below the semi-optimal rate. Taking Shannon's
+-estimate^12^ of the redundancy of English as about 50 per cent, the
++estimate[^12] of the redundancy of English as about 50 per cent, the
+ actual operating region of English text would be given roughly by the
+ circle in Fig. 2. From this we see that 1) only about 15 per cent of the
+ redundancy is due to use of short words, and 2) the same rate of
+@@ -205,8 +255,14 @@
+ time $t_k$, and denote the space by the $a$'th letter. Then in (1) we
+ interpret $l_i$ as the total transmission time of word $w_i$, and its
+ evaluation is again elementary, with the result
+-$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},$$ where
+-$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.$$ From this the
++
++$$Z(\lambda) = \frac{2^{-\lambda t_a}}{1-Q(\lambda)},\tag{13}$$
++
++where
++
++$$Q(\lambda) = \sum_{k=1}^{a-1} 2^{-\lambda t_k}.\tag{14}$$
++
++From this the
+ channel capacity and transmission rate under semi-optimal conditions may
+ be found. Constraints of the form that certain combinations of letters
+ do not occur may lead to involved mathematical problems, but not to any
+@@ -233,7 +289,7 @@
+ solution to a certain problem of information transmission under
+ constraints, and the mathematical analogy may be set up in other ways
+ than the one indicated here. In the above type of analogy, noted before
+-by Mandelbrot,^6^ the mean word length corresponds to the thermodynamic
++by Mandelbrot,[^6] the mean word length corresponds to the thermodynamic
+ energy function, the parameter $\lambda$ to the reciprocal temperature.
+ Thus the transmission rate $H$ corresponds, not to the thermodynamic
+ entropy function, but to the ratio (entropy)/(energy).
+@@ -253,7 +309,7 @@
+ viewpoint. We mention two examples of the correspondence which then
+ exists.
+ 
+-The partition function of the linear Ising chain,^13^ with an easy
++The partition function of the linear Ising chain,[^13] with an easy
+ generalization, provides also an explicit solution to the problem of
+ encoding a message into binary digits, in a way which is optimal from
+ the standpoint of a person who knows the digram frequencies of the
+@@ -261,7 +317,7 @@
+ solution for trigrams would be of considerable interest in connection
+ with the theory of ferromagnetism.
+ 
+-The two-dimensional Ising model of ferromagnetism,^13^ the partition
++The two-dimensional Ising model of ferromagnetism,[^13] the partition
+ function of which was first obtained by Onsager, gives the solution to a
+ problem in which a message in binary digits has strong correlations
+ between adjacent symbols, and also between the $n$'th and the
+@@ -271,9 +327,9 @@
+ can be said that at a certain critical strength of the intersymbol
+ correlations, as measured by the parameter $\lambda$, there occurs a
+ sudden collapse of transmission rate to a very low value, $dH/d\lambda$
+-becoming infinite at a single point.^14^
++becoming infinite at a single point.[^14]
+ ## Conclusion {#conclusion .unnumbered}
+-Much of what we have said has already been pointed out by others.^6,15^
++Much of what we have said has already been pointed out by others.[^6][^15]
+ However, the basic mathematical identity of these two fields has had,
+ thus far, very little influence on the development of either. There is
+ an inevitable difference in detail, because the applications are so
+@@ -339,3 +395,13 @@
+ [^9]: M. P. Schützenberger, \"On an application of semi-group methods to
+     some problems in coding,\" IRE TRANS. ON INFORMATION THEORY, vol.
+     IT-2, pp. 47-60; September, 1956.
++
++[^11]:
++
++[^12]:
++
++[^13]:
++
++[^14]:
++
++[^15]:
+
+tokens used
+64,717
+

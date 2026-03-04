@@ -29,9 +29,6 @@ author: ["E.T. Jaynes"]
 categories: ["Foundations of Probability & Bayesian Inference"]
 tags: ["straight line fitting", "linear regression", "Bayesian inference", "nuisance parameters", "priors", "least squares", "parameterization"]
 ---
-Presented at the Tenth Annual MAXENT Workshop, University of Wyoming,
-July 1990. To appear in the Proceedings Volume, W. T. Grandy & L.
-Schick, Editors, Kluwer Academic Publishers, Holland.
 ## INTRODUCTION
 The following discussion is an instructive case history showing how
 nontrivial Bayesian results evolve. It illustrates three very important
@@ -41,7 +38,9 @@ In estimating $\alpha, \beta$, we have potentially $n+2$ nuisance
 parameters, {$X_1 \dots X_n, \sigma_x, \sigma_y$}. Denoting prior
 information by $I$, the most general solution will then have a joint
 prior pdf for $n+4$ parameters:
-$$p(\alpha, \beta, X_1 \dots X_n, \sigma_x, \sigma_y | I) = p(\alpha, \beta|I) p(X_1 \dots X_n, \sigma_x, \sigma_y | \alpha, \beta, I) \tag{1}$$and an unending variety of different kinds of prior information $I$
+$$p(\alpha, \beta, X_1 \dots X_n, \sigma_x, \sigma_y | I) = p(\alpha, \beta|I) p(X_1 \dots X_n, \sigma_x, \sigma_y | \alpha, \beta, I) \tag{1}$$
+
+and an unending variety of different kinds of prior information $I$
 might be expressed by this function, which we understand is to be
 properly normalized to unit integral.
 By the product rule, $p(\alpha, \beta|I)$ can always be factored as
@@ -49,7 +48,9 @@ shown, although the possibility of a Borel-Kolmogorov paradox should be
 kept in mind. That is, by a probability $p(A|\alpha, \beta, I)$
 conditional on point values of $\alpha, \beta$, we must understand the
 limit of the well-defined
-$$P(A|d\alpha d\beta I) = \frac{P(A, d\alpha d\beta|I)}{P(d\alpha d\beta|I)} \tag{2}$$as $d\alpha \to 0, d\beta \to 0$. To avoid ambiguity it is necessary to
+$$P(A|d\alpha d\beta I) = \frac{P(A, d\alpha d\beta|I)}{P(d\alpha d\beta|I)} \tag{2}$$
+
+as $d\alpha \to 0, d\beta \to 0$. To avoid ambiguity it is necessary to
 prescribe the exact way in which the limit is to be approached.
 
 For example, if we set $d\alpha = \epsilon g(\beta)$ and pass first to
@@ -73,16 +74,27 @@ probabilities conditional on any propositions of probability zero, are
 undefined.
 
 In the following we use the abbreviations
-$$x = \{x_1 \dots x_n\}, \quad Y = \{Y_1 \dots Y_n\}, \quad \text{etc.,} \tag{3}$$so that our data are denoted by $D=x,y$. Then the most general sampling
+$$x = \{x_1 \dots x_n\}, \quad Y = \{Y_1 \dots Y_n\}, \quad \text{etc.,} \tag{3}$$
+
+so that our data are denoted by $D=x,y$. Then the most general sampling
 pdf would have the functional form
-$$p(x, y | \alpha, \beta, X, \sigma_x, \sigma_y, I) \tag{4}$$ and the most
+$$p(x, y | \alpha, \beta, X, \sigma_x, \sigma_y, I) \tag{4}$$
+
+and the most
 general solution we contemplate here would have the form
-$$p(\alpha, \beta|x, y, I) = p(\alpha, \beta|I) \frac{p(x, y|\alpha, \beta, I)}{p(x, y|I)} \tag{5}$$in which
+$$p(\alpha, \beta|x, y, I) = p(\alpha, \beta|I) \frac{p(x, y|\alpha, \beta, I)}{p(x, y|I)} \tag{5}$$
+
+in which
 $$p(x, y|\alpha, \beta, I) = \int d^n X d\sigma_x d\sigma_y \, p(x, y|\alpha, \beta, X, \sigma_x, \sigma_y, I) p(X, \sigma_x, \sigma_y|\alpha, \beta, I) \tag{6}$$  
-$$p(x,y|I) = \int d\alpha d\beta \, p(x, y|\alpha, \beta, I) p(\alpha, \beta|I) \tag{7}$$and, writing
+
+$$p(x,y|I) = \int d\alpha d\beta \, p(x, y|\alpha, \beta, I) p(\alpha, \beta|I) \tag{7}$$
+
+and, writing
 $x^{*}, y^{*} = \{(x_{m+1}, y_{m+1}) \dots (x_{m+n}, y_{m+n})\}$, our most
 general predictive distribution is
-$$p(y^{*}|x^{*}, x, y, I) = \int p(y^{*}|x^{*}, \alpha, \beta, I) p(\alpha, \beta|x, y, I) d\alpha d\beta \tag{8}$$This defines our present horizon (but having found this solution, its
+$$p(y^{*}|x^{*}, x, y, I) = \int p(y^{*}|x^{*}, \alpha, \beta, I) p(\alpha, \beta|x, y, I) d\alpha d\beta \tag{8}$$
+
+This defines our present horizon (but having found this solution, its
 extension to such details as more than two variables, correlated noise,
 noise known to vary with $x$, etc. is an easy homework problem,
 involving little more than promoting some of our symbols from numbers to
@@ -91,15 +103,24 @@ matrices).
 Note first how the standard solutions are contained in this as special
 cases. If, as is almost universally supposed, the prior pdf for the
 errors factors completely:
-$$p(e, f|I) = \prod_{i=1}^n p(e_i|I)p(f_i|I) \tag{9}$$with common Gaussian distributions
-$$p(e_i|I) = \frac{1}{\sqrt{2\pi}\sigma_x} \exp\left(-\frac{e_i^2}{2\sigma_x^2}\right), \quad p(f_i|I) = \frac{1}{\sqrt{2\pi}\sigma_y} \exp\left(-\frac{f_i^2}{2\sigma_y^2}\right) \tag{10}$$Now, dropping the prior information symbol $I$, which we suppose
+$$p(e, f|I) = \prod_{i=1}^n p(e_i|I)p(f_i|I) \tag{9}$$
+
+with common Gaussian distributions
+
+$$p(e_i|I) = \frac{1}{\sqrt{2\pi}\sigma_x} \exp\left(-\frac{e_i^2}{2\sigma_x^2}\right), \quad p(f_i|I) = \frac{1}{\sqrt{2\pi}\sigma_y} \exp\left(-\frac{f_i^2}{2\sigma_y^2}\right) \tag{10}$$
+
+Now, dropping the prior information symbol $I$, which we suppose
 henceforth to be hidden in the right-hand side of all our probabilities,
 our sampling pdf is
 $$p(x, y | \alpha, \beta, \sigma_x, \sigma_y, X) = \prod_{i=1}^n \frac{1}{2\pi \sigma_x \sigma_y} \exp\left\{-\frac{(y_i - \alpha - \beta X_i)^2}{2\sigma_y^2} - \frac{(x_i - X_i)^2}{2\sigma_x^2}\right\}
-= p(y|\alpha, \beta, X, \sigma_y)p(x|X, \sigma_x) \tag{11}$$ which we note
+= p(y|\alpha, \beta, X, \sigma_y)p(x|X, \sigma_x) \tag{11}$$
+
+which we note
 factors as shown. By Bayes' theorem,
 $$p(\alpha, \beta | x, y, \sigma_x, \sigma_y) = \int d^n X p(\alpha, \beta, X | x, y, \sigma_x, \sigma_y)
-= \int d^n X p(\alpha, \beta, X | \sigma_x, \sigma_y) \frac{p(x, y|\alpha, \beta, \sigma_x, \sigma_y)}{p(x, y|\sigma_x, \sigma_y)} \tag{12}$$and whether $\sigma_x, \sigma_y$ are known or unkwown, the solutions
+= \int d^n X p(\alpha, \beta, X | \sigma_x, \sigma_y) \frac{p(x, y|\alpha, \beta, \sigma_x, \sigma_y)}{p(x, y|\sigma_x, \sigma_y)} \tag{12}$$
+
+and whether $\sigma_x, \sigma_y$ are known or unkwown, the solutions
 will depend on the data only through their first and second moments,
 which are sufficient statistics for $\alpha, \beta$. Introducing the
 standard notations for the observed sample first and second moments,
@@ -110,9 +131,15 @@ $$s_{xx} = \overline{x^2} - \bar{x}^2, \quad s_{xy} = \overline{xy} - \bar{x}\ba
 we note for later purposes that eventually all solutions involve the
 fundamental quadratic form determined by the data
 $$Q(\alpha, \beta) \equiv \frac{1}{n} \sum_{i=1}^n (y_i - \alpha - \beta x_i)^2
-= C_{11}(\alpha - \hat{\alpha})^2 + 2C_{12}(\alpha - \hat{\alpha})(\beta - \hat{\beta}) + C_{22}(\beta - \hat{\beta})^2 + C_0 \tag{16}$$where the matrix $C$ is
-$$C = \begin{pmatrix} 1 & \bar{x} \\\\ \bar{x} & \overline{x^2} \end{pmatrix} \tag{17}$$and the requirement that (16) be an identity in $\alpha, \beta$ uniquely
-determines the coefficients: $$\begin{aligned}
+= C_{11}(\alpha - \hat{\alpha})^2 + 2C_{12}(\alpha - \hat{\alpha})(\beta - \hat{\beta}) + C_{22}(\beta - \hat{\beta})^2 + C_0 \tag{16}$$
+
+where the matrix $C$ is
+$$C = \begin{pmatrix} 1 & \bar{x} \\\\ \bar{x} & \overline{x^2} \end{pmatrix} \tag{17}$$
+
+and the requirement that (16) be an identity in $\alpha, \beta$ uniquely
+determines the coefficients:
+
+$$\begin{aligned}
 \hat{\beta} &= s_{xy}/s_{xx} \\\\ 
 \hat{\alpha} &= \bar{y} - \hat{\beta}\bar{x} \\\\ 
 C_0 &= s_{yy} - s_{xy}^2/s_{xx} = s_{yy}(1-r^2). 
@@ -127,16 +154,31 @@ To orient our thinking about this, consider first the 'baby' problem of
 estimating $X_1$ given only the datum $x_1$. If $\sigma_x^2$ were known
 and we had only the data component $x_1$, from (11) we would have
 immediately for the posterior pdf for $X_1$:
-$$p(X_1 | x_1, I) = A p(X_1|I) \exp\left[-\frac{(x_1 - X_1)^2}{2\sigma_x^2}\right] \tag{19}$$where here and what follows, $A$ always stands for a normalizing
+$$p(X_1 | x_1, I) = A p(X_1|I) \exp\left[-\frac{(x_1 - X_1)^2}{2\sigma_x^2}\right] \tag{19}$$
+
+where here and what follows, $A$ always stands for a normalizing
 constant, not necessarily the same in all equations. Suppose our prior
 information had led us to estimate $X_1$ as about $x_0 \pm \delta$; we
 could indicate this by the prior pdf
-$$p(X_1|I) = \frac{1}{\sqrt{2\pi}\delta^2} \exp\left[-\frac{(X_1 - x_0)^2}{2\delta^2}\right] \tag{20}$$But we note that
-$$\frac{(X_1 - x_0)^2}{\delta^2} + \frac{(x_1 - X_1)^2}{\sigma_x^2} = \frac{(X_1 - \bar{X}_1)^2}{\sigma^2} + (\text{const.}) \tag{21}$$where the (const.) is independent of $X_1$, and
+$$p(X_1|I) = \frac{1}{\sqrt{2\pi}\delta^2} \exp\left[-\frac{(X_1 - x_0)^2}{2\delta^2}\right] \tag{20}$$
+
+But we note that
+
+$$\frac{(X_1 - x_0)^2}{\delta^2} + \frac{(x_1 - X_1)^2}{\sigma_x^2} = \frac{(X_1 - \bar{X}_1)^2}{\sigma^2} + (\text{const.}) \tag{21}$$
+
+where the (const.) is independent of $X_1$, and
 $$\bar{X}_1 = \frac{x_0/\delta^2 + x_1/\sigma_x^2}{1/\delta^2 + 1/\sigma_x^2} \tag{22}$$
-$$\frac{1}{\sigma^2} = \frac{1}{\delta^2} + \frac{1}{\sigma_x^2} \tag{23}$$whereupon (19) becomes
-$$p(X_1|x_1,I) = \frac{1}{\sqrt{2\pi}\sigma^2} \exp\left[-\frac{(X_1 - \bar{X}_1)^2}{2\sigma^2}\right] \tag{24}$$We would estimate $X_1$ as (mean $\pm$ standard deviation)
-$$(X_1)_{\text{est}} = \bar{X}_1 \pm \sigma \tag{25}$$ a weighted average of
+
+$$\frac{1}{\sigma^2} = \frac{1}{\delta^2} + \frac{1}{\sigma_x^2} \tag{23}$$
+
+whereupon (19) becomes
+
+$$p(X_1|x_1,I) = \frac{1}{\sqrt{2\pi}\sigma^2} \exp\left[-\frac{(X_1 - \bar{X}_1)^2}{2\sigma^2}\right] \tag{24}$$
+
+We would estimate $X_1$ as (mean $\pm$ standard deviation)
+$$(X_1)_{\text{est}} = \bar{X}_1 \pm \sigma \tag{25}$$
+
+a weighted average of
 the prior estimate $x_0$ and the datum $x_1$, weighted according to the
 respective variances.
 
@@ -200,7 +242,9 @@ uniform priors to the $X_i$ on the above grounds, and the Jeffreys
 priors $d\sigma/\sigma$ to $\sigma_x, \sigma_y$, we may as noted
 integrate $X_1 \dots X_n$ out of (11) without disaster, and this
 constructs for us the quadratic form $Q(\alpha, \beta)$:
-$$p(\alpha, \beta, \sigma_x, \sigma_y|x, y, I) = \frac{A}{(\sigma_x\sigma_y)(\sigma_y^2 + \beta^2\sigma_x^2)^{n/2}} \exp\left\{-\frac{nQ(\alpha,\beta)}{2(\sigma_y^2 + \beta^2\sigma_x^2)}\right\} \tag{26}$$and now we face the mathematical subtlety that is the real point of all
+$$p(\alpha, \beta, \sigma_x, \sigma_y|x, y, I) = \frac{A}{(\sigma_x\sigma_y)(\sigma_y^2 + \beta^2\sigma_x^2)^{n/2}} \exp\left\{-\frac{nQ(\alpha,\beta)}{2(\sigma_y^2 + \beta^2\sigma_x^2)}\right\} \tag{26}$$
+
+and now we face the mathematical subtlety that is the real point of all
 this discussion. If we try to get $p(\alpha, \beta|x, y, I)$ by
 integrating out $\sigma_x, \sigma_y$ from this, the result diverges due
 to the factor $(\sigma_x\sigma_y)^{-1}$, which expresses the Jeffreys
@@ -225,15 +269,21 @@ measurement. Then supposing Deming's parameter $\lambda = \sigma_y/\sigma_x$
 known, we can see whether this enables us to get a Bayesian solution;
 instead of writing the joint prior proportional to $1/(\sigma_x\sigma_y)$, we
 use
-$$p(\sigma_x, \sigma_y|I) \propto \frac{\delta(\sigma_y - \lambda\sigma_x)}{\sigma_x} \tag{27}$$then integration over $\sigma_y$ merely makes the substitution
+$$p(\sigma_x, \sigma_y|I) \propto \frac{\delta(\sigma_y - \lambda\sigma_x)}{\sigma_x} \tag{27}$$
+
+then integration over $\sigma_y$ merely makes the substitution
 $\sigma_y = \lambda\sigma_x$, and it reduces to a convergent integral:
 $$p(\alpha, \beta|x, y, I) = \frac{A}{(\lambda^2 + \beta^2)^{n/2}} \int_0^\infty \frac{d\sigma_x}{\sigma_x^{n+1}} \exp\left\{-\frac{nQ(\alpha, \beta)}{2(\lambda^2+\beta^2)}\right\}
-= \frac{A}{Q(\alpha, \beta)^{n/2}} \tag{28}$$ which is just the bivariate
+= \frac{A}{Q(\alpha, \beta)^{n/2}} \tag{28}$$
+
+which is just the bivariate
 t-distribution that we would have had for the simpler regression problem
 in which the errors are only in the y-measurement and $\sigma_y$ is
 completely unknown. Then, for example, we can integrate out $\alpha$ to
 get the posterior marginal pdf for $\beta$:
-$$p(\beta|x, y, I) \propto [\gamma^2 + (\beta - \hat{\beta})^2]^{-(n-1)/2} \tag{29}$$where $\gamma^2 = s_{yy}(1-r^2)/s_{xx}$. As the initial pleasure at this
+$$p(\beta|x, y, I) \propto [\gamma^2 + (\beta - \hat{\beta})^2]^{-(n-1)/2} \tag{29}$$
+
+where $\gamma^2 = s_{yy}(1-r^2)/s_{xx}$. As the initial pleasure at this
 nice result wore off, a little warning bell started ringing in my mind
 as it dawned on me that, unlike Deming's least squares result, (29) is
 independent of $\lambda$. How can it be that the problem is
@@ -243,12 +293,25 @@ known does not depend on $\lambda$?
 A few years later, the answer suddenly seemed intuitively obvious.
 Instead of supposing $\lambda$ known, make the change of variables
 $(\sigma_x, \sigma_y) \to (\sigma, \lambda)$ in (26):
-$$\sigma = \sqrt{\sigma_y^2 + \beta^2\sigma_x^2}, \quad \lambda = \sigma_y/\sigma_x \tag{30}$$The jacobian is
-$$\frac{\partial(\sigma_x, \sigma_y)}{\partial(\sigma, \lambda)} = \frac{\sigma}{\lambda^2 + \beta^2} \tag{31}$$from which we find that the element of prior probability transforms as
-$$\frac{d\sigma_x d\sigma_y}{\sigma_x \sigma_y} = \frac{d\lambda d\sigma}{\lambda \sigma} \tag{32}$$and (26) becomes
-$$p(\alpha, \beta, \sigma, \lambda|x, y, I) = A \cdot \frac{d\lambda}{\lambda} \frac{d\sigma}{\sigma^{n+1}} \exp\left\{-\frac{nQ(\alpha, \beta)}{2\sigma^2}\right\} \tag{33}$$At the time, I drew the conclusion that $\lambda$ is completely
+$$\sigma = \sqrt{\sigma_y^2 + \beta^2\sigma_x^2}, \quad \lambda = \sigma_y/\sigma_x \tag{30}$$
+
+The jacobian is
+
+$$\frac{\partial(\sigma_x, \sigma_y)}{\partial(\sigma, \lambda)} = \frac{\sigma}{\lambda^2 + \beta^2} \tag{31}$$
+
+from which we find that the element of prior probability transforms as
+
+$$\frac{d\sigma_x d\sigma_y}{\sigma_x \sigma_y} = \frac{d\lambda d\sigma}{\lambda \sigma} \tag{32}$$
+
+and (26) becomes
+
+$$p(\alpha, \beta, \sigma, \lambda|x, y, I) = A \cdot \frac{d\lambda}{\lambda} \frac{d\sigma}{\sigma^{n+1}} \exp\left\{-\frac{nQ(\alpha, \beta)}{2\sigma^2}\right\} \tag{33}$$
+
+At the time, I drew the conclusion that $\lambda$ is completely
 decoupled from the problem:
-$$p(\alpha, \beta, \sigma, \lambda|x, y, I) = p(\lambda|x, y, I) p(\alpha, \beta, \sigma|x, y, I) \tag{34}$$so whatever prior we had assigned to $\lambda$ would just integrate out
+$$p(\alpha, \beta, \sigma, \lambda|x, y, I) = p(\lambda|x, y, I) p(\alpha, \beta, \sigma|x, y, I) \tag{34}$$
+
+so whatever prior we had assigned to $\lambda$ would just integrate out
 again into a normalization constant, and contribute nothing to the final
 result. The algebra now seems to tell us that, far from being
 essential to make a determinate problem, $\lambda$ is completely
@@ -258,7 +321,9 @@ $\lambda$ known leads to a result independent of $\lambda$.
 
 The 'solution' which I offered at the 1973 Waterloo, Ontario meeting
 (Jaynes, 1976) is then
-$$p(\alpha, \beta|x, y, I) = \int_0^\infty p(\alpha, \beta, \sigma|I) d\sigma \propto Q(\alpha, \beta)^{-n/2}, \tag{35}$$the same as (28). But as the pleasure at this nice result wore off for
+$$p(\alpha, \beta|x, y, I) = \int_0^\infty p(\alpha, \beta, \sigma|I) d\sigma \propto Q(\alpha, \beta)^{-n/2}, \tag{35}$$
+
+the same as (28). But as the pleasure at this nice result wore off for
 the second time, it dawned on me that $\lambda$ ought to be relevant to
 the problem after all. The result (35) is identical with what everybody,
 from Gauss on, had found for the case that $\sigma_x$ is known to be
@@ -280,8 +345,13 @@ same error of interpretation generated the "marginalization paradox"
 that was about to burst upon us (Dawid, et al, 1973; Jaynes, 1980). But
 for a general prior $f(\sigma_x, \sigma_y)d\sigma_x d\sigma_y$ the
 transformation would be, in place of (31),
-$$f(\sigma_x, \sigma_y) d\sigma_x d\sigma_y = f(\sigma_x, \sigma_y) \frac{\sigma}{\lambda^2+\beta^2} d\lambda d\sigma \tag{36}$$Now the joint prior for $\lambda$ and $\sigma$ is
-$$g(\lambda, \sigma) = \frac{\sigma}{\lambda^2 + \beta^2} f\left(\frac{\sigma}{\sqrt{\lambda^2 + \beta^2}}, \frac{\sigma\lambda}{\sqrt{\lambda^2 + \beta^2}}\right) \tag{37}$$which is in general very far from being decoupled!
+$$f(\sigma_x, \sigma_y) d\sigma_x d\sigma_y = f(\sigma_x, \sigma_y) \frac{\sigma}{\lambda^2+\beta^2} d\lambda d\sigma \tag{36}$$
+
+Now the joint prior for $\lambda$ and $\sigma$ is
+
+$$g(\lambda, \sigma) = \frac{\sigma}{\lambda^2 + \beta^2} f\left(\frac{\sigma}{\sqrt{\lambda^2 + \beta^2}}, \frac{\sigma\lambda}{\sqrt{\lambda^2 + \beta^2}}\right) \tag{37}$$
+
+which is in general very far from being decoupled!
 
 But there is still another error in what we have done, which Steve Gull
 recognized. We integrated out the $X_i$ with respect to independent
@@ -302,7 +372,6 @@ clearly, suppose that instead of integrating out the $X_i$ we had
 integrated out the $Y_i$ with respect to independent uniform priors. A
 short calculation shows the surprising fact that we get a different
 posterior pdf for $\alpha, \beta$:
-**
 But this is just the original Gauss solution for the case that
 $\sigma_y = 0$; the errors are only in $x_i$. Merely by changing from a
 prior uniform in $X_i$ to one uniform in $Y_i$ the roles of $x_i, y_i$
@@ -312,6 +381,7 @@ not matter as long as the prior uncertainty is large compared to the
 width of the likelihood function, is surely true in the conventional
 situations one had in mind before; but now we see that the principle
 needs to be stated more carefully in problems with many parameters.
+
 The reasoning here is much like that for location parameters: our prior
 information need not be translationally invariant, yet the likelihood
 function for a location parameter will have an obvious translational
@@ -345,43 +415,57 @@ This being the case, a rotationally invariant prior will lead to the
 (analytically) simplest solution, so unless we have cogent prior
 information which is not rotationally invariant, it will be prudent,
 both for pragmatic and philosophical reasons, to use an invariant prior.
-**
 ## REDUCTION OF THE RESULT
 Examine the modified quadratic form that the mathematics led us to:
-$$F(\alpha, \beta) \equiv \frac{Q(\alpha, \beta)}{1+\beta^2} = \frac{(s_{yy} - \beta^2 s_{xx}) + (\alpha - \hat{\alpha})^2 + 2\bar{x}(\alpha - \hat{\alpha})(\beta - \hat{\beta}) + \overline{x^2}(\beta - \hat{\beta})^2}{1+\beta^2} \tag{38}$$It is evident by inspection that this has a single unique minimum with
+$$F(\alpha, \beta) \equiv \frac{Q(\alpha, \beta)}{1+\beta^2} = \frac{(s_{yy} - \beta^2 s_{xx}) + (\alpha - \hat{\alpha})^2 + 2\bar{x}(\alpha - \hat{\alpha})(\beta - \hat{\beta}) + \overline{x^2}(\beta - \hat{\beta})^2}{1+\beta^2} \tag{38}$$
+
+It is evident by inspection that this has a single unique minimum with
 respect to $\alpha$; by differentiation we find this is reached when
 $\alpha - \hat{\alpha} = -\bar{x}(\beta - \hat{\beta})$. So, keeping
 $\alpha$ constantly fixed at this value, (38) reduces to
-$$F(\beta) = \frac{(s_{xx} - \beta^2 s_{xx}) + s_{xx}(\beta - \hat{\beta})^2}{1+\beta^2} \tag{39}$$which looks quite complicated and unsymmetrical in terms of the
+$$F(\beta) = \frac{(s_{xx} - \beta^2 s_{xx}) + s_{xx}(\beta - \hat{\beta})^2}{1+\beta^2} \tag{39}$$
+
+which looks quite complicated and unsymmetrical in terms of the
 parameter $\beta$. But $\beta$ is a very unsymmetrical parameter; the
 real sense of the modified quadratic form appears if we set
 $\beta = \tan\theta$ and rewrite this in terms of the parameter
 $\theta$. All the complications cancel out, and it reduces magically to
 the standard form
-$$F(\beta) = S(\theta) = s_{xx} \sin^2\theta - 2s_{xy} \sin\theta \cos\theta + s_{yy} \cos^2\theta \tag{40}$$which we recognize as a second rank tensor element $s^\prime_{yy}$ in a
+$$F(\beta) = S(\theta) = s_{xx} \sin^2\theta - 2s_{xy} \sin\theta \cos\theta + s_{yy} \cos^2\theta \tag{40}$$
+
+which we recognize as a second rank tensor element $s^\prime_{yy}$ in a
 coordinate system (x', y') rotated an angle $\theta$ from the original one.
 Separating off the rotationally invariant part, this becomes
-$$S(\theta) = \frac{1}{2}(s_{xx} + s_{yy}) + \frac{1}{2}(s_{xx} - s_{yy}) \cos 2\theta - s_{xy} \sin 2\theta \tag{41}$$To find the maxima and minima of this, define an angle $\phi$ by
+$$S(\theta) = \frac{1}{2}(s_{xx} + s_{yy}) + \frac{1}{2}(s_{xx} - s_{yy}) \cos 2\theta - s_{xy} \sin 2\theta \tag{41}$$
+
+To find the maxima and minima of this, define an angle $\phi$ by
 $$\left\{ \begin{aligned}
  s_{xy} &= R \sin\phi \\\\ 
 \frac{1}{2}(s_{xx} - s_{yy}) &= R \cos\phi
-\end{aligned} \right. \quad (-\pi < \phi \le \pi) \tag{42}$$ or,
+\end{aligned} \right. \quad (-\pi < \phi \le \pi) \tag{42}$$
+
+or,
 $$\begin{aligned}
 \tan\phi &= \frac{2s_{xy}}{s_{xx}-s_{yy}} \\\\ 
 2R &= \sqrt{(s_{xx}-s_{yy})^2 + 4s_{xy}^2} \ge 0
-\end{aligned} \tag{43}$$ Note that this defines the branch of the function so
+\end{aligned} \tag{43}$$
+
+Note that this defines the branch of the function so
 that $\phi$ has the same sign as $s_{xy}$, and if $s_{xx} > s_{yy}$, then
 $|\phi| < \pi/2$, otherwise $\pi/2 \le |\phi| \le \pi$. Now we have
 simply
-$$S(\theta) = \frac{1}{2}(s_{xx}+s_{yy}) - R \cos(2\theta - \phi) \tag{44}$$ so
+$$S(\theta) = \frac{1}{2}(s_{xx}+s_{yy}) - R \cos(2\theta - \phi) \tag{44}$$
+
+so
 the minimum is reached at $\theta = \theta_0 = \phi/2$, the maximum at
 right angles, $\theta = \theta_0 \pm \pi/2$. If the prior for $\alpha, \beta$
 is rotationally invariant, we shall then estimate $\beta$ as $\tan(\phi/2)$;
 now let us determine the accuracy of that estimate. Whatever the prior, the
 quasi-likelihood function, which contains all the information the
 data have to give us about $\theta$, is now
-$$L(\theta) = \left[\frac{1}{S(\theta)}\right]^{n/2} \tag{45}$$ 
-**
+
+$$L(\theta) = \left[\frac{1}{S(\theta)}\right]^{n/2} \tag{45}$$
+
 But although the algebra tells us this, can we understand it intuitively
 in a way that makes it obvious from the start? Yes, and in fact the
 solution to a more general problem than the one just discussed is
@@ -394,8 +478,14 @@ estimated line matters.
 
 Now an error vector $(e_i, f_i)$ has components parallel and
 perpendicular to a regression line of slope $\beta = \tan\theta$ of
-$$e_i \cos\theta + f_i \sin\theta = \frac{e_i + \beta f_i}{\sqrt{1+\beta^2}}, \quad -e_i\sin\theta + f_i\cos\theta = \frac{-\beta e_i + f_i}{\sqrt{1+\beta^2}} \tag{46}$$respectively. But these have mean square values of
-$$\frac{\sigma_x^2 + \beta^2\sigma_y^2}{1+\beta^2}, \quad \frac{\sigma_y^2 + \beta^2\sigma_x^2}{1+\beta^2} \tag{47}$$respectively. Therefore the quantity $\sigma^2 = \sigma_y^2 + \beta^2\sigma_x^2$
+
+$$e_i \cos\theta + f_i \sin\theta = \frac{e_i + \beta f_i}{\sqrt{1+\beta^2}}, \quad -e_i\sin\theta + f_i\cos\theta = \frac{-\beta e_i + f_i}{\sqrt{1+\beta^2}} \tag{46}$$
+
+respectively. But these have mean square values of
+
+$$\frac{\sigma_x^2 + \beta^2\sigma_y^2}{1+\beta^2}, \quad \frac{\sigma_y^2 + \beta^2\sigma_x^2}{1+\beta^2} \tag{47}$$
+
+respectively. Therefore the quantity $\sigma^2 = \sigma_y^2 + \beta^2\sigma_x^2$
 generated by our integration over the $X_i$ was, essentially, just the
 mean square value of the perpendicular component of error.
 
@@ -410,16 +500,30 @@ like magic.
 The transformation group principle for assigning priors in the
 regression problem is quite simple. Given the straight line equation
 $y = \alpha + \beta x$ with a prior probability element
-$$f(\alpha, \beta) d\alpha d\beta \tag{48}$$we formulate Problem P:
+$$f(\alpha, \beta) d\alpha d\beta \tag{48}$$
+
+we formulate Problem P:
 Given a data set $D = \{(x_1, y_1) \dots (x_n, y_n)\}$, estimate $\alpha$
 and $\beta$. Now consider a related problem: carry out a linear
 coordinate transformation $(x, y) \to (x^\prime, y^\prime)$ such that in the new
-variables (48) takes the form $$y^\prime = \alpha^\prime + \beta^\prime x^\prime \tag{49}$$with a
-prior probability element $$g(\alpha^\prime, \beta^\prime) d\alpha^\prime d\beta^\prime \tag{50}$$and consider Problem P':
+variables (48) takes the form
+
+$$y^\prime = \alpha^\prime + \beta^\prime x^\prime \tag{49}$$
+
+with a prior probability element
+
+$$g(\alpha^\prime, \beta^\prime) d\alpha^\prime d\beta^\prime \tag{50}$$
+
+and consider Problem P':
 Given a data set $D^\prime = \{(x^\prime_1, y^\prime_1) \dots (x^\prime_n, y^\prime_n)\}$, estimate $\alpha^\prime$ and $\beta^\prime$. Now if the two priors (48), (50) express
 the same prior information, it must be true that
-$$f(\alpha, \beta) d\alpha d\beta = g(\alpha^\prime, \beta^\prime) d\alpha^\prime d\beta^\prime \tag{51}$$or,
-$$f(\alpha, \beta) = g(\alpha^\prime, \beta^\prime) \frac{\partial(\alpha^\prime, \beta^\prime)}{\partial(\alpha, \beta)} \tag{52}$$This transformation equation tells how the two problems are related to
+$$f(\alpha, \beta) d\alpha d\beta = g(\alpha^\prime, \beta^\prime) d\alpha^\prime d\beta^\prime \tag{51}$$
+
+or,
+
+$$f(\alpha, \beta) = g(\alpha^\prime, \beta^\prime) \frac{\partial(\alpha^\prime, \beta^\prime)}{\partial(\alpha, \beta)} \tag{52}$$
+
+This transformation equation tells how the two problems are related to
 each other, and it will hold whatever linear transformation we carry
 out, and whether or not we consider the problems P, P' to be equivalent.
 But now suppose that our prior information is invariant under the
@@ -428,6 +532,7 @@ location to some origin of whose location we know nothing, then after
 the transformation x' = x+a, of walking a distance a, we are in the
 same state of ignorance; ignorance of one's location is a state of
 knowledge which is not changed by a small change in that location.
+
 **[TRUNCATED: The original draft contains multiple place-holders and ends abruptly.]**
 ## REFERENCES
 Bretthorst, G. L. (1988), *Bayesian Spectrum Analysis and Parameter

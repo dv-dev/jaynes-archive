@@ -1,0 +1,1113 @@
+=== STDOUT ===
+Edited `content/papers/quantum.beats.md` with minimal structural QA changes only.
+
+Summary of changes:
+- Added visible KaTeX equation numbering tags `\tag{1}` through `\tag{8}` to the existing display equations, without changing any equation content.
+- Ensured in-text references to equation `(5)` are now resolvable to a visible numbered display equation.
+- Inserted missing blank-line paragraph breaks at clear paragraph boundaries (including before `## References and Notes` and around the long EPR/cavity transition section).
+- Kept paper meaning/content unchanged; no figure handling changes; no abstract duplication found to remove.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba4e-8243-71d2-9ac5-46250110af7c
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/quantum.beats.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll QA `content/papers/quantum.beats.md` for structure, equation-number visibility, duplicate abstract/citations, and then apply only minimal markdown edits in that file. First I’m reading the file to locate paragraph, table, and equation-reference issues.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Quantum Beats"
+author: ["E.T. Jaynes"]
+year: 1980
+---
+As noted before,$^{(1)}$ one of the most durable of all beliefs about
+QED is that it endows light with "granular" properties that somehow wipe
+out the interference effects of classical electromagnetic theory.
+In 1954, Forrester, Gudmundsen, and Johnson$^{(2)}$ proposed to observe
+microwave beats between Zeeman components of a spectral line. The
+existence of the effect was promptly denied by some on grounds of
+quantum theory---as everybody knows, "a given photon interferes only
+with itself." Yet the photoelectric klystron worked, the beats were
+seen, and an important lesson was learned about the meaning and correct
+application of quantum theory.
+
+But not for long. In 1956, Hanbury Brown and Twiss$^{(3)}$ proposed to
+measure stellar diameters by interference measurements involving
+fourth-order spatial correlation functions of the field. Again, quantum
+theorists denied the existence of the effect. I myself, at a seminar
+codex
+I’ve identified multiple long wrapped paragraphs and several in-text equation references; next I’m scanning the remainder of the file to ensure numbering and citation cleanup are complete across the full document.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+not use---it does not even dare to mention---the notion of a "real
+physical situation." Defenders of the theory say that this notion is
+philosophically naive, a throwback to outmoded ways of thinking, and
+that recognition of this constitutes deep new wisdom about the nature of
+human knowledge. I say that it constitutes a violent irrationality, that
+somewhere in this theory the distinction between reality and our
+knowledge of reality has become lost, and the result has more the
+character of medieval necromancy than of science. It has been my hope
+that quantum optics, with its vast new technological capability, might
+be able to provide the experimental clue that will show us how to
+resolve these contradictions.
+## References and Notes {#references-and-notes .unnumbered}
+1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+    and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+    $\theta_p$ of the pumping signal controls the phase $\phi$ of
+    equation (5) above is shown in equations (61) and (63) of this
+    reference and in more detail in C. R. Stroud and E. T. Jaynes,
+    *Phys. Rev. A* **1**, 106 (1979); Sec. 4.
+2.  A. T. Forrester, R. A. Gudmundsen, and P. O. Johnson, *Phys. Rev.*
+    **99**, 1691 (1955); A. T. Forrester, *Am. J. Phys.* **24**, 192
+codex
+I found the main actionable issues: equation references mention “(5)” but display equations are currently unnumbered, and there are a couple of clear paragraph-boundary spots missing blank lines. I’ll now apply minimal edits: add KaTeX-visible equation tags and only structural paragraph breaks.
+exec
+/bin/bash -lc "nl -ba content/papers/quantum.beats.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+     1	---
+     2	title: "Quantum Beats"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1980
+     5	---
+     6	As noted before,$^{(1)}$ one of the most durable of all beliefs about
+     7	QED is that it endows light with "granular" properties that somehow wipe
+     8	out the interference effects of classical electromagnetic theory.
+     9	In 1954, Forrester, Gudmundsen, and Johnson$^{(2)}$ proposed to observe
+    10	microwave beats between Zeeman components of a spectral line. The
+    11	existence of the effect was promptly denied by some on grounds of
+    12	quantum theory---as everybody knows, "a given photon interferes only
+    13	with itself." Yet the photoelectric klystron worked, the beats were
+    14	seen, and an important lesson was learned about the meaning and correct
+    15	application of quantum theory.
+    16	
+    17	But not for long. In 1956, Hanbury Brown and Twiss$^{(3)}$ proposed to
+    18	measure stellar diameters by interference measurements involving
+    19	fourth-order spatial correlation functions of the field. Again, quantum
+    20	theorists denied the existence of the effect. I myself, at a seminar
+exec
+/bin/bash -lc "nl -ba content/papers/quantum.beats.md | sed -n '260,420p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   260	From this, it is pretty clear why present quantum theory not only does
+   261	not use---it does not even dare to mention---the notion of a "real
+   262	physical situation." Defenders of the theory say that this notion is
+   263	philosophically naive, a throwback to outmoded ways of thinking, and
+   264	that recognition of this constitutes deep new wisdom about the nature of
+   265	human knowledge. I say that it constitutes a violent irrationality, that
+   266	somewhere in this theory the distinction between reality and our
+   267	knowledge of reality has become lost, and the result has more the
+   268	character of medieval necromancy than of science. It has been my hope
+   269	that quantum optics, with its vast new technological capability, might
+   270	be able to provide the experimental clue that will show us how to
+   271	resolve these contradictions.
+   272	## References and Notes {#references-and-notes .unnumbered}
+   273	1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+   274	    and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+   275	    $\theta_p$ of the pumping signal controls the phase $\phi$ of
+   276	    equation (5) above is shown in equations (61) and (63) of this
+   277	    reference and in more detail in C. R. Stroud and E. T. Jaynes,
+   278	    *Phys. Rev. A* **1**, 106 (1979); Sec. 4.
+   279	2.  A. T. Forrester, R. A. Gudmundsen, and P. O. Johnson, *Phys. Rev.*
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/quantum.beats.md
+@@ -42,3 +42,7 @@
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+@@ -160,3 +164,5 @@
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+@@ -165,3 +171,5 @@
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+@@ -182,7 +190,13 @@
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+@@ -190,3 +204,5 @@
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+@@ -194,3 +210,5 @@
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+@@ -220,2 +238,3 @@
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+@@ -226,2 +245,3 @@
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+@@ -271,2 +291,3 @@
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/quantum.beats.md
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+codex
+Edits are in place. I’m running a quick self-check on equation-reference consistency and final markdown structure (especially around the newly split paragraphs and display blocks).
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|equation \\(|analog of \\(|\\([0-9]+\\)\" content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+6:As noted before,$^{(1)}$ one of the most durable of all beliefs about
+9:In 1954, Forrester, Gudmundsen, and Johnson$^{(2)}$ proposed to observe
+17:But not for long. In 1956, Hanbury Brown and Twiss$^{(3)}$ proposed to
+32:But this time Roy Glauber$^{(4)}$ produced a detailed theoretical
+53:article of Gordon, Louisell, and Walker$^{(5)}$ on "Quantum Fluctuations
+71:calculation. However, this work$^{(6)}$ calculated only the expectation
+77:and Stoner,$^{(7)}$ and a still more realistic treatment was given by
+78:Senitzky,$^{(8)}$ whose conclusions are, I think, a reliable guide to
+140:classical terms, although Wigner$^{(10)}$ asked, plaintively, "But why
+162:CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+231:at will, force the radiation field into either: (1) a state with a known
+234:(2) a state with both $\hbar\omega_\alpha, \hbar\omega_\beta$ present
+271:And bear in mind that all this holds even though, by the analog of (5),
+274:arbitrarily by us. That is, by choosing$^{(1)}$ fine details of how the
+295:    and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+297:    equation (5) above is shown in equations (61) and (63) of this
+299:    *Phys. Rev. A* **1**, 106 (1979); Sec. 4.
+301:    **99**, 1691 (1955); A. T. Forrester, *Am. J. Phys.* **24**, 192
+302:    (1956).
+303:3.  R. Hanbury Brown and R. Q. Twiss, *Nature* **178**, 1447 (1956); and
+ exited 1 in 50ms:
+
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+exec
+/bin/bash -lc "rg -n '\\\\tag\\{' content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+45:\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
+166:\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
+173:\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
+192:\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
+197:|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
+200:|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
+206:|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
+212:\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+exec
+/bin/bash -lc "sed -n '36,80p;154,230p;226,312p' content/papers/quantum.beats.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+cannot be
+seen in the photocurrent induced by the light is not determined by any
+two-point correlation function of the field (such as the expectation of
+the Poynting vector), because the state vector of the field may leave
+the phase of those beats completely indeterminate. Rather, the
+observable spectral density of the photocurrent is an instrumental
+constant times the Fourier transform of the fourth-order correlation
+function,
+$$
+\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
+$$
+at the
+photocathode. So the lesson was learned still another time and, thanks
+to Glauber, one might have thought it would now stay learned.
+
+This lesson was learned, independently, at about the same time by many
+others. One of the most interesting documents recording this fact is the
+article of Gordon, Louisell, and Walker$^{(5)}$ on "Quantum Fluctuations
+and Noise in Parametric Processes." They state in the abstract:
+> We find that a classical description of the input fields and of the
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+codex
+I’m doing one final targeted read around the edited region to confirm there wasn’t any accidental duplication from patching and that paragraph breaks are clean.
+exec
+/bin/bash -lc "nl -ba content/papers/quantum.beats.md | sed -n '188,252p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   188	held that lower-state interferences do not occur in QED.
+   189	
+   190	But we can write the final state $\Psi(\infty)$ equally well as
+   191	$$
+   192	\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
+   193	$$
+   194	where the field state $|\alpha\beta_\pm\rangle$ and atom states
+   195	$|\Psi_\pm\rangle$ are
+   196	$$
+   197	|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
+   198	$$
+   199	$$
+   200	|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
+   201	$$
+   202	and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+   203	shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+   204	must be in the linear combination
+   205	$$
+   206	|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
+   207	$$
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+exec
+/bin/bash -lc "nl -ba content/papers/quantum.beats.md | sed -n '284,316p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+   284	that recognition of this constitutes deep new wisdom about the nature of
+   285	human knowledge. I say that it constitutes a violent irrationality, that
+   286	somewhere in this theory the distinction between reality and our
+   287	knowledge of reality has become lost, and the result has more the
+   288	character of medieval necromancy than of science. It has been my hope
+   289	that quantum optics, with its vast new technological capability, might
+   290	be able to provide the experimental clue that will show us how to
+   291	resolve these contradictions.
+   292	
+   293	## References and Notes {#references-and-notes .unnumbered}
+   294	1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+   295	    and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+   296	    $\theta_p$ of the pumping signal controls the phase $\phi$ of
+   297	    equation (5) above is shown in equations (61) and (63) of this
+   298	    reference and in more detail in C. R. Stroud and E. T. Jaynes,
+   299	    *Phys. Rev. A* **1**, 106 (1979); Sec. 4.
+   300	2.  A. T. Forrester, R. A. Gudmundsen, and P. O. Johnson, *Phys. Rev.*
+   301	    **99**, 1691 (1955); A. T. Forrester, *Am. J. Phys.* **24**, 192
+   302	    (1956).
+   303	3.  R. Hanbury Brown and R. Q. Twiss, *Nature* **178**, 1447 (1956); and
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+codex
+Edited `content/papers/quantum.beats.md` with minimal structural QA changes only.
+
+Summary of changes:
+- Added visible KaTeX equation numbering tags `\tag{1}` through `\tag{8}` to the existing display equations, without changing any equation content.
+- Ensured in-text references to equation `(5)` are now resolvable to a visible numbered display equation.
+- Inserted missing blank-line paragraph breaks at clear paragraph boundaries (including before `## References and Notes` and around the long EPR/cavity transition section).
+- Kept paper meaning/content unchanged; no figure handling changes; no abstract duplication found to remove.
+file update:
+diff --git a/content/papers/quantum.beats.md b/content/papers/quantum.beats.md
+index e24b6c509074b5a95624d049376972adbe8a7d31..376921f33461932f38edbed5fe7dd9edad8001a0
+--- a/content/papers/quantum.beats.md
++++ b/content/papers/quantum.beats.md
+@@ -40,7 +40,11 @@
+ the phase of those beats completely indeterminate. Rather, the
+ observable spectral density of the photocurrent is an instrumental
+ constant times the Fourier transform of the fourth-order correlation
+-function, $$\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle$$ at the
++function,
++$$
++\phi(\tau) = \langle E^2(t)E^2(t + \tau) \rangle \tag{1}
++$$
++at the
+ photocathode. So the lesson was learned still another time and, thanks
+ to Glauber, one might have thought it would now stay learned.
+ 
+@@ -158,12 +162,16 @@
+ CSS), an initial state $\Psi(0) = |a0\rangle$ (i.e., atom in state $a$,
+ field in vacuum state) evolves with time into lower states with emission
+ of two photons, $\hbar\omega_\alpha, \hbar\omega_\beta$:
+-$$\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle$$
++$$
++\Psi(t) = A_0(t)|a0\rangle + A_1(t)|b1_\alpha\rangle + A_2(t)|c1_\beta\rangle \tag{2}
++$$
+ where $|b1_\alpha\rangle$ denotes an atom in state $|b\rangle$, one
+ photon $\hbar\omega_\alpha$ in the field, etc. Suppose the two
+ transitions are equally rapid: $|A_1| = |A_2|$. Then, after the emission
+ is over, we may write the final state $\Psi(\infty)$ as
+-$$\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|b1_\alpha\rangle + e^{i\theta}|c1_\beta\rangle)/\sqrt{2} \tag{3}
++$$
+ where $\theta$ is a phase factor determined by the equations of motion.
+ This is the correlated state.
+ 
+@@ -180,19 +188,29 @@
+ held that lower-state interferences do not occur in QED.
+ 
+ But we can write the final state $\Psi(\infty)$ equally well as
+-$$\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2}$$
++$$
++\Psi(\infty) = (|\Psi_+\rangle|\alpha\beta_+\rangle + |\Psi_-\rangle|\alpha\beta_-\rangle)/\sqrt{2} \tag{4}
++$$
+ where the field state $|\alpha\beta_\pm\rangle$ and atom states
+ $|\Psi_\pm\rangle$ are
+-$$|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
+-$$|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta_\pm\rangle = (|1_\alpha\rangle \pm e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{5}
++$$
++$$
++|\Psi_\pm\rangle = (|b\rangle \pm e^{i(\theta-\phi)}|c\rangle)/\sqrt{2} \tag{6}
++$$
+ and $\phi$ is a phase that we may choose arbitrarily. If now measurement
+ shows the atom to be in state $|\Psi_+\rangle$, then we know the field
+ must be in the linear combination
+-$$|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2}$$
++$$
++|\alpha\beta\rangle = (|1_\alpha\rangle + e^{i\phi}|1_\beta\rangle)/\sqrt{2} \tag{7}
++$$
+ in which both photons are present after all!
+ 
+ Any field observable $F$ then has expectation value
+-$$\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle)$$
++$$
++\langle F \rangle = \frac{1}{2}(\langle\alpha|F|\alpha\rangle + \langle\beta|F|\beta\rangle + e^{i\phi}\langle\alpha|F|\beta\rangle + e^{-i\phi}\langle\beta|F|\alpha\rangle) \tag{8}
++$$
+ in which contributions from both photons, and interference terms between
+ them, are present. So, it seems a little hasty to conclude that QED does
+ not predict lower-level interference effects.
+@@ -218,12 +236,14 @@
+ not only observable, but predictable. And we can decide which to do
+ after the emission is over and the radiation is far from the atom, so
+ there can be no thought of any physical influence on the radiation!
++
+ But that is not the end, because this radiation can still be recaptured
+ totally and used to initiate a second experiment. Place the emitting
+ atom A at one focus of a perfectly reflecting ellipsoidal cavity of
+ major diameter $D$. After a time $D/c$ the radiation converges, in a
+ spherical wave of just the original intensity, onto the other focus,
+ where we have placed a test atom $A^\prime$
++
+ Let $A^\prime$ have the inverted level scheme, i.e., it waits in its ground
+ state $|a^\prime\rangle$ from which it can be excited to $|b^\prime\rangle$ or
+ $|c^\prime\rangle$ by absorption of $\hbar\omega_\alpha, \hbar\omega_\beta$,
+@@ -269,6 +289,7 @@
+ that quantum optics, with its vast new technological capability, might
+ be able to provide the experimental clue that will show us how to
+ resolve these contradictions.
++
+ ## References and Notes {#references-and-notes .unnumbered}
+ 1.  E. T. Jaynes, in *Coherence and Quantum Optics*, Eds. L. Mandel
+     and E. Wolf, Plenum, New York (1972); pp. 35--81. How the phase
+
+tokens used
+33,540
+

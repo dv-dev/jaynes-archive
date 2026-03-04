@@ -26,6 +26,7 @@ faith by acknowledging an ambiguity in my own notation. In the following
 (m), \[n\], (Rk) denote respectively the mth equation in my
 presentation, the nth paragraph of the DSZ commentary on it, and the kth
 equation of this reply.
+
 \[10\]. I had thought that if a function f(y, z) is found to be
 independent of y, then it would be permissible to express that fact by
 writing f(y, z)=f(z), as in the DSZ eq. (1.2). But DSZ now point out,
@@ -34,6 +35,7 @@ interpretation. So, will the reader please replace (1) by
 $$\frac{\partial}{\partial y} p(\zeta|y, z, I_1)=0. \tag{R1}$$
 
 In fact, nothing else in my presentation will be changed by this.
+
 It is regrettable that DSZ were not equally quick to accept my
 suggestion, i.e. that we follow Jeffreys's example by indicating
 explicitly, in a posterior probability symbol, the prior information I on which it is conditional; for

@@ -1,0 +1,160 @@
+=== STDOUT ===
+QA completed on `content/papers/optical.amplifier.md`.
+
+Self-check results:
+- Paragraph boundaries are already blank-line separated where paragraphs change.
+- No duplicate abstract text appears in body (abstract is only in front matter).
+- No markdown tables to repair.
+- In-text equation references are resolved:
+  - `signals (9 and 10)` matches display equations tagged `\tag{9}` and `\tag{10}`
+  - `Eq. (11)` matches display equation tagged `\tag{11}`
+- Citation style is already footnote-based; no duplicate inline citation patterns found.
+- No extraneous metadata line like “Lecture given at ...” found.
+
+Summary: **no changes**.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba70-c9b8-76a2-9c13-631ec44b8743
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/optical.amplifier.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/optical.amplifier.md` for structural markdown issues, equation-reference numbering, duplicate abstract text, citation formatting, and stray metadata, then apply only minimal edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/optical.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Phase-Sensitive Optical Amplifier"
+year: 1980
+abstract: >
+  The application of Armstrong's super-regenerative principle to a laser
+  amplifier shows that it is possible to control the phase of even a
+  low-gain He-Ne laser amplifier by injecting as few as four or five
+  photons just after the laser is turned on and while it goes through
+  threshold. Estimation of the uncertainties in determining the level of
+  the injected signal and the phase of the laser output indi- cates that
+  measurements approaching the limit ΔnΔϕ = 1/2 may be possible.
+author: ["D.R. Matthys", "E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["optical amplifier", "super-regenerative principle", "laser amplifier", "He-Ne laser", "phase sensitivity", "Heisenberg uncertainty principle", "quantum noise"]
+---
+## INTRODUCTION
+
+A high-gain linear (i.e., phase-sensitive) amplifier at optical
+frequencies would have many applications in communications and as a
+research tool. Previous efforts[^1] to use a laser amplifier as a
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/optical.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+from the interferometer outputs allows a determination of the minimum
+signal required to control the laser amplifier and also an estimation of
+the uncertainty $\Delta n \Delta\phi$ in these measurements.
+
+The attenuator used between the lasers as shown in Fig. 1 reduced the
+incident laser intensity by an order of magnitude, but much larger
+attenuation resulted from not matching the parameters of beam size and
+curvature for the two lasers. Since only minimal coupling was desired, the
+first laser was simply pointed down the cavity of the second laser.
+Aside from avoiding any direct reflections back into the pulsed laser
+cavity no effort was made to prevent the possibility of scattered light
+by the use of optical isolators. The pulsed laser, operating as a
+super-regenerative amplifier for any signal coupled in, is at the limit
+of turn-on time pulsed at 4 kHz and the signals from the interferometer
+outputs and the timing signal marking time after turn-on of the laser
+amplifier were all recorded on tape. Since the available recorder was an
+incremental digital recorder, only short samples per second, or about 1%
+of the signals, could be recorded.
+
+It was found that there were three types of interferogram, shown in Fig.
+codex
+I’ve reviewed the full file; next I’m doing a strict reference pass (`Eq.`/numbered equation mentions) plus a quick structure sanity check before deciding whether any minimal edits are actually needed.
+exec
+/bin/bash -lc "rg -n \"Eq\\.|equation|\\([0-9]+ and [0-9]+\\)|\\([0-9]+\\)\" content/papers/optical.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+198:These equations for $I_{D1} - I_{D2}$ and $I_{D1} + I_{D2} - I_{D3}$
+201:is, by inserting proper gain factors, the signals (9 and 10) become
+209:The two equations involve integrals relating the effect of the beam-size
+218:form of the equation of Sargent et al.[^11] for the buildup of laser
+227:number within the cavity. This equation predicts that a logarithmic plot
+326:earlier in reference to Eq. (11) the buildup of energy in the laser
+383:[^1]: H. Gerhardt, H. Welling, and D. Frölich, "Ideal laser amplifier as a phase measuring system of a microscopic radiation field," Appl. Phys. **2**, 91--93 (1973).
+384:[^2]: E. Armstrong, "Some Recent Developments of Regenerative Circuits," Proc. IRE **10**, 244--260 (1922).
+386:[^4]: E. T. Jaynes, unpublished (1945). A 1-kW pulsed triode oscillator using a "lighthouse" tube at 1050 MHz was readily phase controlled by an injected cw signal at a level corresponding to energy $\approx kT$ in the tank circuit. This device proved to be the most sensitive microwave receiver available at the Naval Research Laboratory (Combined Research Group).
+390:[^8]: K. Manes and A. Siegman, "Observation of quantum phase fluctuations in infrared gas lasers," Phys. Rev. A **4**, 373--386 (1971).
+391:[^9]: L. Susskind and J. Glogower, "Quantum Mechanical Phase and Time Operator," Physics **1**, 49--61 (1964).
+392:[^10]: P. Carruthers and M. Nieto, "Coherent states and the number-phase uncertainty relation," Phys. Rev. Lett. **14**, 387--389 (1965).
+393:[^11]: M. Sargent, M. Scully, and W. Lamb, "Buildup of laser oscillations from quantum noise," Appl. Opt. **9**, 2423--2427 (1970).
+396:[^14]: L. Ballentine, "Statistical Interpretation of Quantum Mechanics," Rev. Mod. Phys. **42**, 358--381 (1970).
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{9\\}|\\\\tag\\{10\\}|\\\\tag\\{11\\}|signals \\(9 and 10\\)|Eq\\. \\(11\\)\" content/papers/optical.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+201:is, by inserting proper gain factors, the signals (9 and 10) become
+326:earlier in reference to Eq. (11) the buildup of energy in the laser
+exec
+/bin/bash -lc "rg -n \"tag\\{(9|10|11)\\}\" content/papers/optical.amplifier.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+187:\tag{9}
+196:\tag{10}
+222:\tag{11}
+codex
+QA completed on `content/papers/optical.amplifier.md`.
+
+Self-check results:
+- Paragraph boundaries are already blank-line separated where paragraphs change.
+- No duplicate abstract text appears in body (abstract is only in front matter).
+- No markdown tables to repair.
+- In-text equation references are resolved:
+  - `signals (9 and 10)` matches display equations tagged `\tag{9}` and `\tag{10}`
+  - `Eq. (11)` matches display equation tagged `\tag{11}`
+- Citation style is already footnote-based; no duplicate inline citation patterns found.
+- No extraneous metadata line like “Lecture given at ...” found.
+
+Summary: **no changes**.
+tokens used
+10,233
+

@@ -15,6 +15,7 @@ author: ["E.T. Jaynes"]
 categories: ["Quantum Mechanics & Advanced Physics"]
 tags: ["entropy production", "nonequilibrium thermodynamics", "Onsager relations", "predictive statistical mechanics", "Maximum Entropy", "Minimum Entropy Production", "Gibbs variational principle", "caliber"]
 ---
+
 ## INTRODUCTION
 It seems intuitively reasonable that Gibbs' variational principle
 determining the conditions of heterogeneous equilibrium can be
@@ -34,20 +35,27 @@ to simple rules immediately useful in practice, in the way that the
 Gibbs phase rule is useful. For this, we need more experience in the
 technique of applying them to particular cases, and more data to test
 some conjectures.
+
 ## EARLY HISTORY
 In 1848, Kirchhoff (1) generalized Ohm's law to three dimensions, and
 noted an interesting fact. If the electric field is $E = -\nabla\phi$,
 the conductivity $\sigma(\mathbf{x})$, then when a steady state is
 reached the potential $\phi(\mathbf{x})$ must cause no accumulation of
-electric charge at any point: $$\nabla \cdot (\sigma \nabla \phi) = 0. \tag{1}$$ 
+electric charge at any point:
+
+$$\nabla \cdot (\sigma \nabla \phi) = 0. \tag{1}$$
+
 But this is just the Euler-Lagrange equation stating that the rate of
 production of Joule heat in a volume V
-$$\int_V \sigma(\nabla\phi)^2 dV \tag{2}$$ is stationary with respect to
+$$\int_V \sigma(\nabla\phi)^2 dV \tag{2}$$
+
+is stationary with respect to
 variations $\delta\phi(\mathbf{x})$ that vanish on the boundary of V.
 Thus the current distributes itself so as to dissipate the least
 possible heat for given voltages applied on its boundary. This is
 probably the first example of a steady nonequilibrium state determined
 by a variational principle.
+
 In this respect, quantitative nonequilibrium thermodynamics may claim an
 earlier origin even than our conventional equilibrium theory, for
 Kirchhoff's discovery antedated by 27 years Gibbs' announcement (2) of
@@ -57,12 +65,14 @@ years. Yet 125 years after Kirchhoff's result, Girardeau & Mazo (4)
 state: "Variational methods for nonequilibrium statistical mechanics
 are virtually nonexistent." Why, after such a promising head start, has
 nonequilibrium theory lagged so far behind thermostatics?
+
 It was evident that Kirchhoff's result could be generalized, and quickly
 other laws of "least dissipation of energy" and the almost equivalent
 reciprocal relations were found. In particular, an 1859 work of
 Helmholtz (5), which contained some of his greatest mathematical
 achievements, gave the acoustical reciprocity theorem, later extended by
 Rayleigh (6) and Lorentz (7) to mechanics and electrodynamics.
+
 These first applications (where the thermal aspect, although in the
 picture, was not in the foreground) all involved variational principles
 for energy dissipation. Gibbs surely had first-hand knowledge of them,
@@ -70,17 +80,20 @@ for he had spent a post-doctoral year (1868-1869) with Kirchhoff and
 Helmholtz in Heidelberg. But in Gibbs' own work, which began to appear
 four years later, the thermal aspect was the primary thing, and he gave
 instead a variational principle for entropy.
+
 Gibbs lived another 25 years after completing his monumental work on
 heterogeneous equilibrium. Why then, with his seemingly perfect
 background for it, did not Gibbs himself generalize the
 Kirchhoff-Helmholtz results, and announce the principle of minimum
 entropy production 100 years ago? Perhaps Gibbs saw at once the
 difficulty.
+
 Anyone familiar with Kirchhoff's work might simplify the arrangement to
 this: two resistors $R_1, R_2$ are in thermal contact with two heat
 reservoirs at temperatures $T_1, T_2$. Connecting the resistors in
 parallel, we send a total current $I=I_1+I_2$ through them. How does it
 divide?
+
 When a steady state is reached, the rates of production of heat and
 entropy are $\dot{Q}=R_1I_1^2+R_2I_2^2$,
 $\dot{S}=(R_1/T_1)I_1^2+(R_2/T_2)I_2^2$. The entropy
@@ -88,6 +101,7 @@ production is a minimum when the current distribution satisfies
 $R_1I_1/T_1=R_2I_2/T_2$. We know, of course, that the actual
 distribution will satisfy $R_1I_1=R_2I_2$, which is the condition for
 minimum heat production.
+
 The example is admittedly oversimplified; but one can invent arbitrarily
 complicated networks with the resistors at different temperatures and
 again, given the existence of a potential field $\phi(x)$ and the
@@ -96,6 +110,7 @@ potential difference for the individual elements, the steady-state
 current distribution for any applied voltages or currents is completely
 determined by Kirchhoff's condition of charge conservation at the nodes;
 there is logically no room for any further principle.
+
 Now there is nothing special about electric current; what is true for
 fluxes of electrons is surely true for fluxes of any kind of stable
 particles, or of anything else that is conserved (energy, momentum,
@@ -103,6 +118,7 @@ etc). Given the phenomenological relations connecting fluxes and forces,
 the steady state is determined by the conservation laws, leaving no room
 for any other principle; but then, what are we to make of the recent
 discussions of it?
+
 Prigogine (8) postulates the existence of fluxes $J_i$ and forces $X_i$,
 connected by the phenomenological relations $J_i=L_{ij}X_j$ (summation
 over repeated indices understood), so defined that the rate of entropy
@@ -113,6 +129,7 @@ $\partial S/\partial X_m=(L_{mj}+L_{jm})X_j=0$, if the $L_{ij}$ are
 constants. But if the reciprocal relations $L_{ij}=L_{ji}$ hold, this is
 the same as $J_m=0$, which is considered synonymous with "stationary
 state." This is the entire content of his theorem.
+
 de Groot & Mazur (9) generalize Prigogine's treatment by taking spatial
 variations (but not convection currents) into account. They undertake to
 show that in heat conduction, "the stationary state is characterized by
@@ -123,6 +140,7 @@ phenomenological coefficient $L_{qq}$ defined by the heat current
 expression $J_q=L_{qq}\nabla(T^{-1})$ is independent of temperature;
 i.e. that the thermal conductivity $\lambda$ defined by
 $J_q = -\lambda\nabla T$ varies with temperature as $T^{-2}$.
+
 Since there is no known substance obeying this relation, there is no
 real situation involving heat conduction where the stationary state
 would be predicted quantitatively by minimizing entropy production. If
@@ -132,11 +150,13 @@ steady state is predicted correctly by energy conservation,
 $\nabla \cdot J_q = \nabla \cdot (\lambda T^b \nabla T)=0$. The same
 difficulty would have invalidated Kirchhoff's theorem if the electric
 conductivity $\sigma$ varied with the potential $\phi$.
+
 de Groot & Mazur then give a more general example involving simultaneous
 heat conduction, diffusion, and chemical reactions. Their argument must
 now assume all the phenomenological coefficients $L_{ij}$ involved to be
 independent of both temperature and the concentrations of the
 participating substances.
+
 In all the examples given in (8,9), after these restrictive assumptions
 are made the final Euler-Lagrange equations expressing minimum entropy
 production reduce simply to the conservation laws, which were valid
@@ -144,13 +164,16 @@ exactly without any restrictive assumptions. So if we have enough
 information to apply the principle with any confidence, then we have
 more than enough information to solve the steady-state problem without
 it. This same criticism was made by Klein (10).
+
 Gibbs surely would not have given any principle unless it met his
 standards of logical precision and was of some constructive use; so we
 are no longer surprised at his failure to give this one.
+
 Yet after all criticisms, there remains a feeling that the principle
 does at least hint at an important truth, however imperfectly expressed.
 If the principle had nothing in it but misdirection, there would be no
 reason to write a review article about it.
+
 ## REORIENTATION
 There is a major part missing from our theoretical structure: On the one
 hand, the Kirchhoff-Helmholtz principles call out for generalization to
@@ -162,6 +185,7 @@ case and be also (a) precise and general, requiring no restrictive
 assumptions like the above, and (b) constructive, yielding useful
 information that we would not have without it. But to find such a
 principle we must reorient our thinking in two respects.
+
 First, we note the backward direction of the logic in the aforementioned
 examples. One assumed phenomenological forms which were only
 approximate; then stated a principle which could be only an approximate
@@ -170,12 +194,14 @@ conservation laws as exact and given, and seek a principle which gives
 the correct phenomenological relations without our having to
 assume them. It is reasoning in this direction that might lead to a
 precise, constructive principle.
+
 But reversing the direction of the logic ought to reverse the principle.
 If the conservation laws represent the approximate condition of minimum
 entropy production for prescribed approximate phenomenological laws, then
 perhaps the exact phenomenology is the one that has maximum entropy
 production for prescribed exact conservation laws. Indeed, such a
 reversed principle would be much closer to the spirit of Gibbs' work.
+
 Second, we need a verbal reorientation. The main difficulties that have
 retarded progress for a century are not mathematical, but conceptual; and
 these in turn are mainly artifacts of semantics. The words
@@ -189,6 +215,7 @@ the term "reversible" being used with two entirely different meanings.
 It is impossible to think and communicate rationally about these
 problems unless we use different words and symbols to convey different
 ideas.
+
 By far the most abused word in science is "entropy." Confusion over
 the different meanings of this word, already serious 35 years ago, reached
 disaster proportions with the 1948 advent of Shannon's
@@ -196,6 +223,7 @@ information theory, which not only appropriated the same word for a new
 set of meanings; but even worse, proved to be highly relevant to
 statistical mechanics. So it is necessary to insert at this point a
 short lexicon.
+
 ## ENTROPY
 As befits a word with many mutually contradictory meanings, "entropy"
 has also a rich and varied folklore concerning its etymology. According
@@ -210,11 +238,13 @@ dictionaries and two Greek friends) means "to turn one's head aside,"
 rather neatly expresses the one-sided character of S that he had
 discovered. Because every German noun is required to have a gender he
 also determined, by means unexplained, that "Die Entropie" is feminine.
+
 Prigogine & Mayné (11) consider a quantity $S_{PM}$ which they call
 "entropy," so defined that only near equilibrium can one express it in
 terms of macroscopic quantities. Their "second law"
 $\dot{S}_{PM} \ge 0$ is then to be a theorem in dynamics, and not in
 phenomenological physics.
+
 The "entropies" with which we shall be concerned here are of a totally
 different nature. First is the experimental entropy $S_E$ of Clausius,
 Gibbs, and G. N. Lewis, which is by construction a function
@@ -224,10 +254,12 @@ in laboratory experiments. It is therefore, by definition, a proposition
 of macroscopic phenomenology. Whether it might be also a theorem in
 dynamics was answered in the negative already by Gibbs (2) with a very
 vivid example of gas diffusion.
+
 Second, we use the information entropy $S_I = -\sum p_i \log p_i$, a
 property of any probability distribution. In quantum theory, the
 {p_i} are eigenvalues of a density matrix $\rho$, and
 $S_I(\rho) = - \text{Tr}(\rho \log \rho)$.
+
 If $S_I$ is maximized subject to certain constraints {$A_1...A_n$},
 the maximum attained defines a third entropy
 $S(A_1...A_n) = (S_I)_{\text{max}}$, which is a function of those
@@ -238,17 +270,20 @@ variables are to be used, one must also indicate in each case which
 constraints are used---and therefore become the independent
 variables---in defining S(A). In our applications, the {$A_i$} may
 be any macroscopic quantities about which we have some information.
+
 To keep the distinctions clear, our $S_E$ is, as in conventional
 thermodynamics, a numerical multiple of Boltzmann's constant k, while
 $S_I$ and S(A) are dimensionless, following Shannon. Being defined as
 the maximum in a constrained variational problem, S(A) will have, like
 $S_E$, a tendency to increase whenever a constraint is removed, thus
 paralleling in our mathematics what is observed in the laboratory (12).
+
 Many other entropies appear in the literature, among which we note the
 Boltzmann and Gibbs $S_B, S_G$ defined from the single-particle and
 N-particle distribution functions, and the quantity $S_{BEP}=k\log W$ of
 Boltzmann, Einstein, and Planck. The relations between these have been
 discussed in detail elsewhere (13a, b).
+
 As should be evident, there is no possibility of finding the correct
 relations for irreversible processes unless one understands clearly the
 distinctions in meaning and the different properties of
@@ -256,10 +291,13 @@ $S_E, S_I, S(A), S_B, S_G$, and $S_{BEP}$. We can hardly expect that the
 variational principle we seek can hold for all of them. While the
 properties of $S_I$ and S(A) are mathematical theorems, those of $S_E$ are
 summaries of experimental facts.
+
 For a closed system, Clausius defined $S_E$ by the integral of dQ/T
 over a reversible path and stated that, in an adiabatic process from an
 initial equilibrium state $(T_1, V_1)$ to a final one $(T_2, V_2)$,
-$$S_E(2) \ge S_E(1) \tag{3}$$ with equality if and only if the process is
+$$S_E(2) \ge S_E(1) \tag{3}$$
+
+with equality if and only if the process is
 reversible. Of all the statements of the second law made by Clausius and
 Planck, only Eq. 3 meets our requirements of logical precision; given
 certain provisos that we have stressed before (13), its truth or falsity
@@ -290,6 +328,7 @@ Lagrangian, which can by its variational properties generate our
 "equations of motion," telling us how fast, and along what path, an
 irreversible process will take place. The first general attack on this
 problem was made by Onsager (14a, b), whose work we now survey.
+
 ## ONSAGER'S THEORY
 Irreversible thermodynamics had its historical origins in Thomson's
 analysis of the thermocouple in 1854. For the effect of transporting a
@@ -314,23 +353,33 @@ to the square brackets.
 A closed system is characterized by certain parameters {$a_1...a_n$},
 so defined that they vanish in the equilibrium state of maximum entropy.
 Then in a neighborhood of equilibrium we may expand:
-$$S = S_0 - (1/2)\sum G_{ij}a_ia_j + ... \tag{4}$$ where G is a positive
+$$S = S_0 - (1/2)\sum G_{ij}a_ia_j + ... \tag{4}$$
+
+where G is a positive
 definite, symmetric matrix, $G=G^T$. The system is displaced from
 equilibrium by means unspecified, then released to find its way back to
 equilibrium. The derivatives
-$$X_i = \partial S / \partial a_i = -\sum G_{ij}a_j \tag{5}$$ are thought of as
+$$X_i = \partial S / \partial a_i = -\sum G_{ij}a_j \tag{5}$$
+
+are thought of as
 the "forces" which drive the system back according to
-$$\text{I. } \quad \dot{a}_i = \sum_j L_{ij}X_j \tag{6}$$ where the $L_{ij}$ are
+$$\text{I. } \quad \dot{a}_i = \sum_j L_{ij}X_j \tag{6}$$
+
+where the $L_{ij}$ are
 the "Onsager phenomenological coefficients." Thus the a's relax to
 zero along a trajectory given in matrix notation by $\dot{a} = -LGa$, or
-$$a(t+\tau) = \exp(-LG\tau)a(t), \quad \tau > 0. \tag{7}$$ Now we turn to
+$$a(t+\tau) = \exp(-LG\tau)a(t), \quad \tau > 0. \tag{7}$$
+
+Now we turn to
 situations very close to equilibrium and examine the small thermal
 fluctuations in the a's (which were neglected above). We postulate
 that the same entropy function S(a) that supplied the forces $X_i$ is
 also to supply the probability distribution of these fluctuations, i.e.
 the equilibrium distribution of the a's at equal times is given by a
 density function
-$$\text{II. } \quad f(a_1...a_n) \propto \exp[k^{-1}S(a_i)] \tag{8}$$ where k
+$$\text{II. } \quad f(a_1...a_n) \propto \exp[k^{-1}S(a_i)] \tag{8}$$
+
+where k
 is Boltzmann's constant [at this point it appears that Onsager's
 entropy is most closely related to the $S_{BEP}$ noted above]. Denoting
 averages over this distribution by angular brackets, we have
@@ -344,7 +393,7 @@ these spontaneous fluctuations follows the same law, Eq. 7, as that
 assumed for forced deviations from equilibrium. That is, given the event
 a(t), the conditional average of $a(t+\tau)$ at a later time, over
 many repetitions of the event, shall be
-$$\text{III. } \quad \langle a(t+\tau) \rangle = \exp(-LG\tau)a(t), \quad \tau > 0. \tag{9}$$ 
+$$\text{III. } \quad \langle a(t+\tau) \rangle = \exp(-LG\tau)a(t), \quad \tau > 0. \tag{9}$$
 
 [This step is characteristic of the logic of stochastic theories; instead
 of asking what the microscopic equations of motion have to say about the
@@ -352,23 +401,35 @@ matter, one simply ignores them and introduces intuitive
 "stochastic assumptions" at the macroscopic level.]
 
 With this assumption we can define a time-dependent covariance matrix:
-$$K_{ij}(\tau) = \langle\langle a_i(t+\tau)a_j(t) \rangle\rangle \tag{10}$$ in
+$$K_{ij}(\tau) = \langle\langle a_i(t+\tau)a_j(t) \rangle\rangle \tag{10}$$
+
+in
 which the double average is over the different motions averaged in Eq.
 9, and then over the distribution, Eq. 8. Inserting Eq. 9 into Eq. 10,
 this means that the covariance matrix must also decay according to the
 macroscopic law, Eq. 7:
-$$K(\tau) = \exp(-LG\tau)K(0) = K(0)\exp(-GL\tau), \quad \tau > 0 \tag{11}$$ where
+$$K(\tau) = \exp(-LG\tau)K(0) = K(0)\exp(-GL\tau), \quad \tau > 0 \tag{11}$$
+
+where
 $K(0)=kG^{-1}$ is the same matrix that we denoted by K above, and we
 used an identity of any matrix function:
 
 $f(LG)G^{-1}=G^{-1}f(GL)$. $K(\tau)$ as defined by Eq. 10 is independent
 of t; $K(-\tau)=K^T(\tau)$; or from Eq. 11,
-$$K(-\tau) = K(0)\exp(-GL^T\tau), \quad \tau > 0 \tag{12}$$ since the transposed
+$$K(-\tau) = K(0)\exp(-GL^T\tau), \quad \tau > 0 \tag{12}$$
+
+since the transposed
 matrix function is $f^T(LG)=f(G^TL^T)=f(GL^T)$.
 
 Finally, we invoke the famous assumption that Onsager called
-"microscopic reversibility": $$\text{IV. } \quad K(-\tau) = K(\tau). \tag{13}$$ 
-Comparing Eq. 11 and 12 we have the grand result $$L=L^T. \tag{14}$$ 
+"microscopic reversibility":
+
+$$\text{IV. } \quad K(-\tau) = K(\tau). \tag{13}$$
+
+Comparing Eq. 11 and 12 we have the grand result
+
+$$L=L^T. \tag{14}$$
+
 Onsager's argument showed a remarkable instinct for sensing the right
 formal relations, which have stood the test of fifty years. But he chose a
 thorny path to them, ignoring the smooth path made by his predecessor at
@@ -388,11 +449,13 @@ macroscopic process is given by a covariance function $K(x,t; x^\prime,t^\prime)
 For example, in acoustics the sound pressure $\delta P(x,t)$ due to a
 source distribution $s(x^\prime,t^\prime) \text{sec}^{-1}$ (i.e. $\text{cm}^3 \text{sec}^{-1} \text{per cm}^3$) is
 given by a linear superposition
-$$\delta P(x,t) = \int d^3x^\prime \int_{-\infty}^t dt^\prime G(x,t; x^\prime,t^\prime) s(x^\prime,t^\prime). \tag{15}$$ 
+$$\delta P(x,t) = \int d^3x^\prime \int_{-\infty}^t dt^\prime G(x,t; x^\prime,t^\prime) s(x^\prime,t^\prime). \tag{15}$$
 
 At thermal equilibrium, Gibbsian statistical theory gives for the
 Green's function
-$$G(x,t;x^\prime,t^\prime) = (1/kT)\langle \delta P(x,t) \delta P(x^\prime,t^\prime) \rangle, \tag{16}$$ i.e. just
+$$G(x,t;x^\prime,t^\prime) = (1/kT)\langle \delta P(x,t) \delta P(x^\prime,t^\prime) \rangle, \tag{16}$$
+
+i.e. just
 $(kT)^{-1}$ times the covariance of the thermal pressure fluctuations.
 This linear response kernel contains all memory effects, including
 propagation time delays, reflection from walls, "ringing" due to
@@ -433,18 +496,21 @@ enough experimental data to check the relation $LG=GL$. If this
 conjecture should be confirmed, irreversible thermodynamics would become
 more useful, since one could predict considerably more about
 irreversible processes from equilibrium data.
+
 ## INTERLUDE
 In the 1940s and 1950s some attempts were made to generalize Onsager's
 treatment to a macroscopic continuum theory based on the notions of
 local equilibrium and local rate of entropy production. In 1962 this
 approach was summarized in the book of de Groot & Mazur (9), where
 references to the vast literature it generated can be found.
+
 This approach postulates the existence of a local entropy density
 s(x, t) which plays the role of a field variable. It is to have also a
 flow rate $J_s$ and source strength $\sigma(x,t)>0$, so as to obey the
 field equation $\dot{s}+\nabla\cdot J_s = \sigma(x,t)$. Entropy is thus
 conceived of as a kind of fluid which, once created, is conserved
 forever after.
+
 Mathematically, the notion of entropy can be generalized to
 non-equilibrium conditions in many different ways. Basically, the issue
 is not which is "correct," but which ones have demonstrable and useful
@@ -457,18 +523,21 @@ $S[A_1(x, t)... A_n(x, t)]$ over the thermokinetic history of the field
 variables so that it can retain those properties, while acquiring a new
 generating power like a Lagrangian; only thus do we see the possibility
 of reaching our goal.
+
 In any event, de Groot & Mazur use, without defining, a local entropy
 density in an inhomogeneous nonequilibrium state. In addition they
 suppose that the equilibrium expressions for temperature and chemical
 potentials can be used as local field variables, obeying the
 Gibbs equilibrium relation $TdS = dU + PdV - \sum\mu_i dn_i$, even when
 gradients and irreversible fluxes are present.
+
 Now one expects that procedures of this kind should, like Thomson's,
 meet with some success very close to equilibrium; and of course de Groot
 and Mazur did not claim any more than this. But a "local equilibrium"
 approach has no criterion for judging its range of validity and provides
 no basis for further development, since it contains scarcely any
 quantity that has a precise meaning in a nonequilibrium state.
+
 This approach, therefore, reached a dead end. The logic of using
 equilibrium relations in nonequilibrium situations was hardly an advance
 over that used by Thomson in 1854; indeed, we are unable to see wherein
@@ -476,6 +545,7 @@ they differ at all. To make further progress beyond this point, it was
 necessary to go back to first principles and reason things out all over
 again, much more carefully. The coup de grace and final benedictions
 were administered by Wei (15) and Truesdell (16).
+
 ## RESURRECTION
 In 1967, Tykodi (17) showed how entropy production theories might be not
 only salvaged, but made in a sense exact, using logic so simple and
@@ -483,6 +553,7 @@ direct that one could not question any part of it without at the same
 time questioning a considerable part of established equilibrium theory.
 He simply abandoned altogether the notions of local equilibrium and
 local entropy production, and reasoned as follows.
+
 There is one case where logically impeccable inferences about an
 irreversible process were drawn from the relations of equilibrium
 theory: the Joule-Thomson porous plug experiment of 1852. The inflowing
@@ -498,6 +569,7 @@ world, so it does no work and all the heat generated must be carried off
 by the effluent gas, then when a steady state is reached, the
 (enthalpy + kinetic energy of mass flow) of the incoming and outgoing
 gases must be the same.
+
 In other words, established equilibrium theory does enable us to draw
 rigorous inferences about steady irreversible processes that begin and
 end in states of complete thermal equilibrium. This is just the
@@ -505,11 +577,13 @@ conclusion we noted already in Eq. 3, and which had been stressed in the
 writer's pedagogical article (13). But as soon as we recognize this the
 road is straight and we can see for miles, for the Joule-Thomson example
 can be generalized endlessly.
+
 In the first place, the barrier need not be a simple "plug." It may
 contain apparatus of any complexity, and even if conditions in it never
 come to a steady state, but go into limit-cycle oscillations, if the
 apparatus contains suitable "mufflers" so that there is eventually
 uniform inflow and outflow, the conclusion still holds.
+
 Furthermore, nothing restricts us to a system with only two channels,
 one for inflow and one for outflow. We can have any number of inflow
 channels, containing different chemical substances, or mixtures of them,
@@ -520,6 +594,7 @@ radiation, etc. There need not be a single reaction region; the plumbing
 might be arranged to carry any number of substances to any number of
 reaction vessels in any sequence. In short, we may imagine an arbitrary
 continuous-flow processing plant.
+
 For any such arrangement we can define an energy flux
 $H^\prime_i = (\text{enthalpy} + \text{kinetic energy of mass flow})$
 transported from the reaction region per unit time or per oscillation
@@ -529,6 +604,7 @@ work W per unit time or per oscillation cycle. Under these conditions
 the energy balance requirement gives rigorously $\sum H^\prime_i + W=0$, while
 at the same time the total rate of entropy production $\sum \dot{S}_i$
 is now unambiguously defined by equilibrium theory.
+
 Only at this point is one in a position to discuss entropy production
 principles in a meaningful way. All ambiguities about the definition of
 temperature and entropy in a nonequilibrium state have been eliminated,
@@ -536,9 +612,12 @@ since however such notions may or may not be defined eventually, at
 least in a steady state they are not changing. And we are not limited to
 near-equilibrium regimes with linear phenomenological laws; nor have we
 neglected fading memory effects.
+
 If $J_i$ is the flux in the i'th channel in moles (grams) per second,
 then the rate of entropy production is
-$$\dot{S}_E = k\sum_i \lambda_i J_i \tag{17}$$ where $k\lambda_i$ is the
+$$\dot{S}_E = k\sum_i \lambda_i J_i \tag{17}$$
+
+where $k\lambda_i$ is the
 entropy per mole (gram) of the i'th substance. If it is a pure chemical
 substance, then $\lambda_i = -\mu_i/kT$ is essentially the chemical
 potential. The quantities $\lambda_i$, which we call simply the
@@ -571,6 +650,7 @@ only if there exists a function $f(X_1...X_m)$ such that
 $J_k=\partial f/\partial X_k$. Because it appears that this form may be
 obtained from a Gibbsian statistical theory, experiments to check the
 symmetry of $L^\prime_{kj}$ far from equilibrium would be of great interest.
+
 In summary, progress to this point consists of some conjectured
 principles that, thanks to Tykodi, can at least be stated in precise and
 experimentally meaningful terms so that their correctness or
@@ -591,6 +671,7 @@ term, that we need to coin a new name for Gibbs' program if we are not
 to propagate still more semantic confusion. We now explain briefly an
 extension of Gibbs' work currently underway, set apart by a new
 descriptive word.
+
 ## PREDICTIVE STATISTICAL MECHANICS
 Predictive statistical mechanics is not a physical theory, but a form of
 statistical inference. As such, it is equally applicable in other fields
@@ -645,7 +726,9 @@ quantum theory or any other microscopic theory that we might consider.
 Choosing some set of macroscopic variables {$A_1...A_n, n \ll N$}, the
 set of their possible values defines a macrospace $\Omega$. The mapping
 of $\Gamma$ onto $\Omega$ defines a measure on $\Omega$ by projection:
-$$d\Omega = W(A_1...A_n)dA_1...dA_n = \int_R d\Gamma \tag{18}$$ where the
+$$d\Omega = W(A_1...A_n)dA_1...dA_n = \int_R d\Gamma \tag{18}$$
+
+where the
 region R of integration is all microstates for which $A_i$ is in
 $dA_i, 1 \le i \le n$.
 Microscopic properties are relevant to macroscopic predictions only to the
@@ -679,12 +762,16 @@ that the functions of Gibbs are promoted to functionals.
 Any probability distribution $w(q_1...p_N)$ over microstates defines a
 macroscopic distribution $P(A_1...A_n)$ on $\Omega$ by $w d\Gamma = P dA$.
 Its information entropy is then
-$$S_I = - \int w \log w d\Gamma = - \int dA P(A)\log[P(A)/W(A)] \tag{19}$$ and so, given
+$$S_I = - \int w \log w d\Gamma = - \int dA P(A)\log[P(A)/W(A)] \tag{19}$$
+
+and so, given
 the measure W(A), we may carry out the maximization in either space.
 Direct evaluation of W would be very difficult; much more manageable and
 equally informative is its n-fold Laplace transform, called the
 partition function:
-$$Z(\lambda_1...\lambda_n) = \int_\Omega W e^{-\lambda \cdot A} dA = \int_\Gamma e^{-\lambda \cdot A} d\Gamma \tag{20}$$ where we
+$$Z(\lambda_1...\lambda_n) = \int_\Omega W e^{-\lambda \cdot A} dA = \int_\Gamma e^{-\lambda \cdot A} d\Gamma \tag{20}$$
+
+where we
 used the abbreviations
 $dA = dA_1...dA_n, \lambda\cdot A = \sum \lambda_i A_i$. When the integral
 converges, it is because the rapidly increasing factor W is
@@ -702,14 +789,18 @@ and mean $\langle A_i \rangle$ are the same. Therefore we need only choose
 the {$\lambda_i$} so as to place that peak at the experimentally
 observed values {$A^\prime_1...A^\prime_n$}. The simplest way of doing this is to
 note that the first moments of P(A) are given by
-$$\langle A_i \rangle = -\frac{\partial \log Z}{\partial \lambda_i}, \quad 1 \le i \le n \tag{21}$$ so setting
+$$\langle A_i \rangle = -\frac{\partial \log Z}{\partial \lambda_i}, \quad 1 \le i \le n \tag{21}$$
+
+so setting
 these equal to the experimental values $\langle A_i \rangle = A^\prime_i$, gives n
 simultaneous equations for the n unknown $\lambda_i$.
 
 In fact, all moments of P(A) are determined by derivatives of log Z;
 differentiating Eq. 21 with respect to $\lambda_j$, we find a combined
 reciprocity-covariance law:
-$$\langle A_i A_j \rangle - \langle A_i \rangle \langle A_j \rangle = -\frac{\partial \langle A_i \rangle}{\partial \lambda_j} = -\frac{\partial \langle A_j \rangle}{\partial \lambda_i} \tag{22}$$ and we
+$$\langle A_i A_j \rangle - \langle A_i \rangle \langle A_j \rangle = -\frac{\partial \langle A_i \rangle}{\partial \lambda_j} = -\frac{\partial \langle A_j \rangle}{\partial \lambda_i} \tag{22}$$
+
+and we
 suspect already that reciprocal relations are going to appear rather
 trivial in this theory.
 Note that these relations are perfectly general, whatever microscopic
@@ -800,7 +891,9 @@ add information about their values at various times $t_j$. Each of these
 will now acquire its Lagrange multiplier $\lambda_{ij}(\mathbf{x})$, and
 again in the limit of dense $t_j$ we have an integral over time. The dot
 product now goes into
-$$\lambda\cdot A \to \sum_i \int_{R_i} d^3x dt \lambda_i(\mathbf{x}, t)A_i(\mathbf{x}, t) \tag{23}$$ in which
+$$\lambda\cdot A \to \sum_i \int_{R_i} d^3x dt \lambda_i(\mathbf{x}, t)A_i(\mathbf{x}, t) \tag{23}$$
+
+in which
 $R_i$ is the space-time region in which we have information about
 $A_i(\mathbf{x}, t)$. The new entropy functional $S[A^\prime(\mathbf{x}, t)]$ is
 over all the known thermokinetic history of the system, and it measures
@@ -870,14 +963,18 @@ $I_A$ will be given by an expansion
 $S_A = S_0 - (1/2)\delta A \cdot G_{AA} \cdot \delta A$, generalizing
 Onsager's Eq. 4. However, this is compact notation; we remind ourselves
 that $\delta A \cdot G_{AA} \cdot \delta A$ actually stands for
-$$\sum_{jk} \int_{R_j} d^3x dt \int_{R_k} d^3x^\prime dt^\prime \delta A^\prime_j(\mathbf{x},t)G_{jk}(\mathbf{x},t;\mathbf{x}^\prime,t^\prime)\delta A^\prime_k(\mathbf{x}^\prime,t^\prime). \tag{24}$$ 
+$$\sum_{jk} \int_{R_j} d^3x dt \int_{R_k} d^3x^\prime dt^\prime \delta A^\prime_j(\mathbf{x},t)G_{jk}(\mathbf{x},t;\mathbf{x}^\prime,t^\prime)\delta A^\prime_k(\mathbf{x}^\prime,t^\prime). \tag{24}$$
 
 Now if we add a small variation $\delta B$, the caliber acquires more
 terms:
 
 $S=S_A - (1/2)\delta B \cdot G_{BB} \cdot \delta B - \delta B \cdot G_{BA} \cdot \delta A$,
 where we have used $G_{AB}=G_{BA}^T$. For fixed $\delta A$, the caliber
-is maximum when $$G_{BB} \cdot \delta B + G_{BA} \cdot \delta A = 0 \tag{25}$$ which is a
+is maximum when
+
+$$G_{BB} \cdot \delta B + G_{BA} \cdot \delta A = 0 \tag{25}$$
+
+which is a
 set of simultaneous linear integral equations determining the $\delta B$.
 Had we been given $\delta B$ and predicted $\delta A$, the result would have
 been $G_{AA} \cdot \delta A + G_{AB} \cdot \delta B = 0$, and
@@ -895,6 +992,7 @@ covariance functions generalizing Onsager's Eq. 10, of which the acoustic
 Green's function Eq. 16 is an example. When the convexity fails, the
 theory predicts bifurcations or other instabilities, a generalization of
 Gibbs' condition for phase transitions.
+
 ## CONCLUSION
 As the reader will have sensed, our title is a play on words; logical
 economy minimizes the principles, not the entropy production. We started
@@ -924,12 +1022,14 @@ which many other desired results will follow [Reference (16), pp. 22,
 43]. There is, evidently a close correspondence between these approaches;
 but to understand it fully and combine them into a single unified theory
 is a task for the future.
+
 ## ACKNOWLEDGMENT
 It is a pleasure to thank Professor W. Güttinger, Director, for the
 hospitality of the Institut für Informationsverarbeitung, Universität
 Tübingen, where a part of this article was written---and where it
 finally became possible to unravel the mystery about the historical
 origin of the word "entropy."
+
 ## LITERATURE CITED
 1. Kirchhoff, G. D. 1848. *Ann. Phys.* 75:189
 2. Gibbs, J. W. 1876-1878. In *The Scientific Papers of J. Willard Gibbs.* New York: Longmans, Green, 1906; New York: Dover, 1961

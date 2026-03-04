@@ -52,36 +52,37 @@ period (1/w) of blue light.
 Recently, those of us with mode-locked lasers were proud of having
 produced picosecond light pulses. In fact, the synchrotron was producing
 light pulses a thousand times shorter than that, thirty years ago!
+
 In any problem involving the wave equation and the geometry of a circle,
 Bessel functions are bound to show up; and Schwinger obtained the
 following quantitative result. An electron in uniform circular motion at
 orbital frequency $\omega_0$, velocity $v = \beta c = \omega_0 R$,
 radiates power into the n'th harmonic of
 $$
-P_n = \frac{n \omega_0 e^2}{R \gamma^2} \left[ 2\beta^2 \gamma^2 J^\prime_{2n}(2n\beta) - \int_0^{2n\beta} J_{2n}(x)dx \right]
+P_n = \frac{n \omega_0 e^2}{R \gamma^2} \left[ 2\beta^2 \gamma^2 J^\prime_{2n}(2n\beta) - \int_0^{2n\beta} J_{2n}(x)dx \right] \tag{1}
 $$
 where, as always, $\gamma = E/mc^2 = (1 - \beta^2)^{-1/2}$. This is the
 exact formula for a point charge. In the nonrelativistic limit
 $\beta \ll 1$, it goes into
 $$
-P_n = \frac{2\omega_0^2 e^2}{R} \frac{n+1}{(2n+1)!} (n\beta)^{2n+1}
+P_n = \frac{2\omega_0^2 e^2}{R} \frac{n+1}{(2n+1)!} (n\beta)^{2n+1} \tag{2}
 $$
 which for n=1 reproduces the elementary textbook result. In the extreme
 relativistic limit $\gamma \gg 1$, various approximate forms exist,
 depending on how n compares to a critical harmonic number
 $n_c = 3\gamma^3/2$. For example, if $n \ll n_c$, we have
 $$
-P_n \approx \frac{3^{1/6}\Gamma(2/3)\omega_0 e^2}{\pi R} n^{1/3}
+P_n \approx \frac{3^{1/6}\Gamma(2/3)\omega_0 e^2}{\pi R} n^{1/3} \tag{3}
 $$
 slowly increasing with n, while if $n \gg n_c$,
 $$
-P_n \approx \frac{\omega_0 e^2}{R \gamma} \left( \frac{3n}{2\pi n_c} \right)^{1/2} \exp(-n/n_c)
+P_n \approx \frac{\omega_0 e^2}{R \gamma} \left( \frac{3n}{2\pi n_c} \right)^{1/2} \exp(-n/n_c) \tag{4}
 $$
 rapidly decreasing with n.
 
 The total power radiated is
 $$
-P = \sum_{n=1}^\infty P_n = \frac{2\omega_0 e^2}{3R} \beta^3 \gamma^4
+P = \sum_{n=1}^\infty P_n = \frac{2\omega_0 e^2}{3R} \beta^3 \gamma^4 \tag{5}
 $$
 which places the ultimate limit on attainable energy, as noted by
 Iwanenko and Pomeranchuk; although for the aforementioned synchrotron at
@@ -152,10 +153,10 @@ Now consider an electron moving in the (+z) direction with energy
 $E = \gamma mc^2$. In the electron's reference frame F', this reflected
 wave appears as one of frequency and Poynting vector
 $$
-\begin{aligned}
-\omega^\prime &= \gamma(1 + \beta)\omega_0 \approx 2\gamma \omega_0 \\
-S^\prime &= \gamma^2(1+\beta)^2 S_0 \approx 4\gamma^2 S_0
-\end{aligned}
+\begin{align}
+\omega^\prime &= \gamma(1 + \beta)\omega_0 \approx 2\gamma \omega_0 \tag{6} \\
+S^\prime &= \gamma^2(1+\beta)^2 S_0 \approx 4\gamma^2 S_0 \tag{7}
+\end{align}
 $$
 
 For example, at 100 Mev,
@@ -182,11 +183,11 @@ That an oscillating charge will in general radiate harmonics of its
 orbital frequency is clear from the fourier expansion of the charge
 distribution;
 $$
-\delta(x-a \cos \omega t) = \frac{1}{2\pi} \sum_{n=-\infty}^\infty \frac{2 T_n(x/a)}{\sqrt{a^2-x^2}} e^{-in\omega t}, \quad |x|\lt a
+\delta(x-a \cos \omega t) = \frac{1}{2\pi} \sum_{n=-\infty}^\infty \frac{2 T_n(x/a)}{\sqrt{a^2-x^2}} e^{-in\omega t}, \quad |x|\lt a \tag{8}
 $$
 where $T_n(z)$ are the Tchebycheff Polynomials:
 $$
-T_n(z) = \cos(n \cos^{-1} z) = T_{-n}(z)
+T_n(z) = \cos(n \cos^{-1} z) = T_{-n}(z) \tag{9}
 $$
 
 All harmonics are present,
@@ -197,17 +198,17 @@ resulting distant field the Bessel functions must inexorably reappear. For
 example, in Lorentz gauge the potential $\phi$ from the retarded
 solution of $\Box\phi + 4\pi\rho = 0$ is
 $$
-\phi(R) = \frac{e}{2\pi} \sum_n e^{-in\omega t} \int_{-a}^a \frac{T_n(x/a)}{\sqrt{a^2-x^2}} \frac{e^{inkr}}{r} dx
+\phi(R) = \frac{e}{2\pi} \sum_n e^{-in\omega t} \int_{-a}^a \frac{T_n(x/a)}{\sqrt{a^2-x^2}} \frac{e^{inkr}}{r} dx \tag{10}
 $$
 where $k=\omega/c$, and r is the distance from the point of integration
 to the point of observation R; a similar expression holds for the vector
 potential. But when R >> a, these integrals go into the form
 $$
-\frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+\frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q) \tag{11}
 $$
 and (10) reduces to
 $$
-\phi(R) = e \sum_n i^{-n} J_n(nka \cos\alpha) e^{-in\omega t} \frac{e^{inkR}}{R}
+\phi(R) = e \sum_n i^{-n} J_n(nka \cos\alpha) e^{-in\omega t} \frac{e^{inkR}}{R} \tag{12}
 $$
 where $\alpha$ is the angle between the direction of observation and the
 direction of motion. Already, this looks very much like some of
@@ -217,17 +218,17 @@ The rest of the solution is straightforward, and we find for the power
 radiated, in the n'th harmonic, into the element of solid angle
 $d\Omega$:
 $$
-\frac{dP_n}{d\Omega} d\Omega = \frac{e^2 \omega^2 n^2}{2\pi c} J_n^2(nka \cos\alpha) \tan^2\alpha d\Omega
+\frac{dP_n}{d\Omega} d\Omega = \frac{e^2 \omega^2 n^2}{2\pi c} J_n^2(nka \cos\alpha) \tan^2\alpha d\Omega \tag{13}
 $$
 and the total power in the n'th harmonic is
 $$
-P_n = \frac{2e^2 n^2 \omega^2}{c} \int_0^1 J_n^2(nkaq) (q^{-2} - 1) dq
+P_n = \frac{2e^2 n^2 \omega^2}{c} \int_0^1 J_n^2(nkaq) (q^{-2} - 1) dq \tag{14}
 $$
 
 These are the exact results for a point charge following the orbit (8).
 If $nka \ll 1$, (14) goes into
 $$
-P_n = \frac{4e^2 n^2 \omega^2 (nka/2)^{2n}}{c(n!)^2(4n^2-1)}
+P_n = \frac{4e^2 n^2 \omega^2 (nka/2)^{2n}}{c(n!)^2(4n^2-1)} \tag{15}
 $$
 which again, for n=1 yields the elementary textbook result
 $P_1 = e^2 a^2 \omega^4 / 3c^3$ (half of Schwinger's $P_1$, since his
@@ -237,7 +238,7 @@ independently).
 At other electron energies than 100 Mev, we see from (6), (7) that the
 transverse displacement, a, will vary as $\gamma^{-1}$, while
 $$
-ka = \frac{e}{mc\omega_0} \left( \frac{4\pi S_0}{c} \right)^{1/2}
+ka = \frac{e}{mc\omega_0} \left( \frac{4\pi S_0}{c} \right)^{1/2} \tag{16}
 $$
 is independent of $\gamma$. In the Stanford LINAC, $ka \sim 0.02$, and
 harmonic production is always small. A machine operating at higher power
@@ -251,7 +252,7 @@ enormous intensity S' of the incident wave. In the electron's reference
 frame, it scatters a dipole wave of frequency $\omega^\prime$ and intensity
 given from (13) as
 $$
-\frac{dP_1}{d\Omega} d\Omega = \frac{e^2 c}{8\pi a^2} (ka)^4 \sin^2\alpha d\Omega
+\frac{dP_1}{d\Omega} d\Omega = \frac{e^2 c}{8\pi a^2} (ka)^4 \sin^2\alpha d\Omega \tag{17}
 $$
 
 To find how this appears in the laboratory frame, we introduce an
@@ -260,7 +261,7 @@ polarization, and the angle $\theta^\prime$ between some propagation direction
 and the z-axis, as seen in the electron's reference frame. From
 spherical trigonometry, we can replace in (17)
 $$
-\sin^2\alpha = 1 - \cos^2\phi \sin^2\theta^\prime
+\sin^2\alpha = 1 - \cos^2\phi \sin^2\theta^\prime \tag{18}
 $$
 
 Applying the relativistic abberation and Doppler effect formulas,
@@ -268,10 +269,10 @@ radiation which in the electron's reference frame is emitted at an angle
 $\theta^\prime$ to the z-axis with frequency $\omega^\prime$, will appear in the
 laboratory frame to have direction $\theta$, frequency $\omega$, where
 $$
-\begin{aligned}
-\cos\theta &= \frac{\beta + \cos\theta^\prime}{1+\beta\cos\theta^\prime} \\
-\omega &= \gamma(1 + \beta\cos\theta^\prime)\omega^\prime = 2\gamma^2(1 + \beta\cos\theta^\prime)\omega_0
-\end{aligned}
+\begin{align}
+\cos\theta &= \frac{\beta + \cos\theta^\prime}{1+\beta\cos\theta^\prime} \tag{19} \\
+\omega &= \gamma(1 + \beta\cos\theta^\prime)\omega^\prime = 2\gamma^2(1 + \beta\cos\theta^\prime)\omega_0 \tag{20}
+\end{align}
 $$
 
 In the electron's frame half the energy is emitted in the forward
@@ -286,7 +287,7 @@ the "photons" are emitted into this cone.
 Eliminating $\theta^\prime$ between (19) and (20), we have the variation of
 frequency with angle as seen in the laboratory system:
 $$
-\omega = \frac{(1+\beta)\omega_0}{1-\beta\cos\theta} = \frac{4\gamma^2\omega_0}{1+\gamma^2\theta^2}
+\omega = \frac{(1+\beta)\omega_0}{1-\beta\cos\theta} = \frac{4\gamma^2\omega_0}{1+\gamma^2\theta^2} \tag{21}
 $$
 
 The observed frequency is a maximum in the forward direction, and drops
@@ -312,7 +313,7 @@ electron's frame this will be contracted to $t^\prime = t_0/2\gamma$, during
 which time it is scattering the power $P_1 = e^2 c(ka)^4/3a^2$. Crudely,
 then, we can say that during a pulse an electron shakes off about
 $$
-N = \frac{P_1 t^\prime}{\hbar\omega^\prime} = \frac{e^2}{\hbar c}(ka)^2 \frac{\omega_0 t_0}{3}
+N = \frac{P_1 t^\prime}{\hbar\omega^\prime} = \frac{e^2}{\hbar c}(ka)^2 \frac{\omega_0 t_0}{3} \tag{22}
 $$
 photons. Being invariant, this same number will appear in the laboratory
 system, transformed to various frequencies. [In fact, as we see from
@@ -325,7 +326,7 @@ Integrating (18) over the azimuth angle $\phi$, the number of photons
 emitted into the solid angle $d\Omega^\prime = 2\pi d\cos\theta^\prime$ of an
 annular ring $d\theta^\prime$, is
 $$
-dN = \frac{3N}{4}(1+\cos^2\theta^\prime) d\cos\theta^\prime
+dN = \frac{3N}{4}(1+\cos^2\theta^\prime) d\cos\theta^\prime \tag{23}
 $$
 
 In the laboratory
@@ -333,11 +334,11 @@ frame, these same photons will appear in the annulus of solid angle
 $d\Omega = 2\pi d\cos\theta = 2\pi\theta d\theta$. From (21) they have
 frequencies in the range given by
 $$
-\frac{d\omega}{\omega} = - \frac{2\gamma^2\theta d\theta}{(1+\gamma^2\theta^2)}
+\frac{d\omega}{\omega} = - \frac{2\gamma^2\theta d\theta}{(1+\gamma^2\theta^2)} \tag{24}
 $$
 while in the relativistic limit, the abberation law (19) goes into
 $$
-\cos\theta^\prime = \frac{1-\gamma^2\theta^2}{1+\gamma^2\theta^2}
+\cos\theta^\prime = \frac{1-\gamma^2\theta^2}{1+\gamma^2\theta^2} \tag{25}
 $$
 
 In the
@@ -345,7 +346,7 @@ laboratory frame, therefore, we obtain an energy in the range $d\omega$
 of $I(\omega)d\omega = \hbar\omega dN$; i.e., the spectral energy
 density is from (23)-(25):
 $$
-I(\omega) = \frac{\hbar\omega dN}{d\omega} = 3\hbar N \left[\frac{\omega}{\omega_{\text{max}}}\right] \left[ 1 + \left(\frac{\omega_{\text{max}}}{\omega} - 1\right)^2 \right]
+I(\omega) = \frac{\hbar\omega dN}{d\omega} = 3\hbar N \left[\frac{\omega}{\omega_{\text{max}}}\right] \left[ 1 + \left(\frac{\omega_{\text{max}}}{\omega} - 1\right)^2 \right] \tag{26}
 $$
 where from (21), $\omega_{\text{max}} = 4\gamma^2\omega_0$ is the
 highest frequency obtained.
@@ -353,7 +354,7 @@ highest frequency obtained.
 The light energy per electron per pulse that is emitted into the forward
 cone $\theta = \gamma^{-1}$ is then
 $$
-\int_{1/2 \omega_{\text{max}}}^{\omega_{\text{max}}} I(\omega) d\omega = \frac{25}{32} N \hbar \omega_{\text{max}}
+\int_{1/2 \omega_{\text{max}}}^{\omega_{\text{max}}} I(\omega) d\omega = \frac{25}{32} N \hbar \omega_{\text{max}} \tag{27}
 $$
 
 From (22) and the numerical values discussed above, we find N = 0.04. If
@@ -428,6 +429,7 @@ $$
 i\hbar \dot{a}_1 &= E_1 a_1 - \mu E(t)a_2 \\
 i\hbar \dot{a}_2 &= E_2 a_2 - \mu E(t)a_1
 \end{aligned}
+\tag{28}
 $$
 
 If we introduce the quantities
@@ -436,6 +438,7 @@ $$
 W(t) &= E_1|a_1|^2 + E_2|a_2|^2 - \frac{1}{2}(E_1 + E_2) \\
 M(t) &= 2\mu \text{Re}(a_1 a_2^*)
 \end{aligned}
+\tag{29}
 $$
 usually interpreted as expectations of energy and dipole
 moment, then Equations (28) can be rewritten in the suggestive form
@@ -444,6 +447,7 @@ $$
 \ddot{M} + \omega^2 M &= -K^2 W E(t) \\
 \dot{W} &= E(t)\dot{M}
 \end{aligned}
+\tag{31}
 $$
 where $\omega = (E_2-E_1)/\hbar$, $K=2\mu/\hbar$. We see
 that the Schrödinger equation has a simple physical content that cannot
@@ -457,7 +461,7 @@ That a two-level system can be given a Bloch sphere representation is
 seen at once from the fact that Equations (31) possess the first
 integral
 $$
-\dot{M}^2 + \omega^2 M^2 + K^2 W^2 = \text{const} = \omega^2 \mu^2
+\dot{M}^2 + \omega^2 M^2 + K^2 W^2 = \text{const} = \omega^2 \mu^2 \tag{32}
 $$
 which, in suitable coordinates (x,y,z) proportional to $(\dot{M},M,W)$,
 is the unit sphere, $x^2 + y^2 + z^2 = 1$.
@@ -482,16 +486,16 @@ Although that idea has been pretty well exploited and extended in the
 magnetrons that today cook our food, let us look at the equation of
 motion of a nonrelativistic electron
 $$
-m\dot{\mathbf{v}} = e \left[ \mathbf{E} + \frac{1}{c}(\mathbf{v} \times \mathbf{H}) \right]
+m\dot{\mathbf{v}} = e \left[ \mathbf{E} + \frac{1}{c}(\mathbf{v} \times \mathbf{H}) \right] \tag{33}
 $$
 in which $H_z = H_0 = \text{const.}$, while other field components may
 be time dependent. If we have only oscillating electric fields,
 $H_x = H_y = 0$, (33) yields
 $$
-\begin{aligned}
-\dot{v}_x - \omega_0 v_y &= \frac{e}{m}E_x \\
-\dot{v}_y + \omega_0 v_x &= \frac{e}{m}E_y
-\end{aligned}
+\begin{align}
+\dot{v}_x - \omega_0 v_y &= \frac{e}{m}E_x \tag{34a} \\
+\dot{v}_y + \omega_0 v_x &= \frac{e}{m}E_y \tag{34b}
+\end{align}
 $$
 where $\omega_0 = (e/mc)H_0$ is the cyclotron frequency. If $E_y = 0$, we
 can write
@@ -500,7 +504,7 @@ time integration and suitable choice of the origin, (34a) becomes a
 driven harmonic oscillator equation for the x coordinate of the
 electron:
 $$
-\ddot{x} + \omega_0^2 x = \frac{e}{m}E_x(t)
+\ddot{x} + \omega_0^2 x = \frac{e}{m}E_x(t) \tag{35}
 $$
 
 This is the usual result, and is not of particular interest for present
@@ -510,11 +514,11 @@ allowed by (31) in the maser do not appear.
 Now let's introduce a variable magnetic field $H_x(t)$. If $H_y$ and the
 electric field are zero, the equations of motion are
 $$
-\begin{aligned}
-\dot{v}_x - \omega_0 v_y &= 0 \\
-\dot{v}_y + \omega_0 v_x &= \frac{e}{mc} v_z H_x \\
-\dot{v}_z &= -\frac{e}{mc} v_y H_x
-\end{aligned}
+\begin{align}
+\dot{v}_x - \omega_0 v_y &= 0 \tag{36a} \\
+\dot{v}_y + \omega_0 v_x &= \frac{e}{mc} v_z H_x \tag{36b} \\
+\dot{v}_z &= -\frac{e}{mc} v_y H_x \tag{36c}
+\end{align}
 $$
 
 By a time integration of (36a) and proper choice of the
@@ -524,6 +528,7 @@ $$
 \ddot{y} + \omega_0^2 y &= \frac{e}{mc} H_x v_z \\
 \dot{v}_z &= -\frac{e}{mc} H_x \dot{y}
 \end{aligned}
+\tag{37}
 $$
 
 It is apparent at once that these have the same
@@ -535,14 +540,15 @@ $$
 M(t) &= ey(t) \\
 W(t) &= -mc v_z(t)
 \end{aligned}
+\tag{39}
 $$
 
 Equations (37) then reduce to
 $$
-\begin{aligned}
-\ddot{M} + \omega_0^2 M &= -K^2 W H_x(t) \\
-\dot{W} &= H_x(t)\dot{M}
-\end{aligned}
+\begin{align}
+\ddot{M} + \omega_0^2 M &= -K^2 W H_x(t) \tag{40a} \\
+\dot{W} &= H_x(t)\dot{M} \tag{40}
+\end{align}
 $$
 with $K=(e/mc)$.
 
@@ -567,7 +573,7 @@ structure $\alpha$ measures the wave impedance, and can be either
 greater or less than unity.] We must then add a term $(e^2/m)E_y$ to
 the right-hand side of (40a), and it becomes
 $$
-\ddot{M} + \omega_0^2 M = \frac{e^2}{mc}(v_z - \alpha c) H_x
+\ddot{M} + \omega_0^2 M = \frac{e^2}{mc}(v_z - \alpha c) H_x \tag{41}
 $$
 
 Suppose
@@ -578,7 +584,7 @@ a time interval many cycles of $\omega_0$ but short enough so that $v_z$
 has not changed appreciably. At time t, the electron then sees the field
 at position $z=v_z t$, so its transverse motion is given by
 $$
-\ddot{M} + \omega_0^2 M = A \cos(\omega^\prime t + \phi)
+\ddot{M} + \omega_0^2 M = A \cos(\omega^\prime t + \phi) \tag{42}
 $$
 where
 $$
@@ -586,27 +592,28 @@ $$
 \omega^\prime &\equiv \omega - kv_z \\
 A &\equiv \frac{e^2}{mc}(v_z - \alpha c) H_1
 \end{aligned}
+\tag{43}
 $$
 
 The solution is
 $$
-M(t) = A \int_0^t \cos\omega_0(t-t^\prime) \cos(\omega^\prime t^\prime+\phi) dt^\prime = \frac{A}{2} \frac{\sin(\omega^\prime t+\phi) - \sin(\omega_0 t+\phi)}{\omega^\prime-\omega_0}
+M(t) = A \int_0^t \cos\omega_0(t-t^\prime) \cos(\omega^\prime t^\prime+\phi) dt^\prime = \frac{A}{2} \frac{\sin(\omega^\prime t+\phi) - \sin(\omega_0 t+\phi)}{\omega^\prime-\omega_0} \tag{44}
 $$
 and at time t the electron has transferred energy to the field of
 $$
-E(t) = -\int_0^t E_y(t^\prime) \dot{M}(t^\prime) dt
+E(t) = -\int_0^t E_y(t^\prime) \dot{M}(t^\prime) dt \tag{45}
 $$
 $$
-= \frac{\alpha A H_1}{4} \left[ \frac{1-\cos((\omega^\prime-\omega_0)t)}{(\omega^\prime-\omega_0)^2} \right]
+= \frac{\alpha A H_1}{4} \left[ \frac{1-\cos((\omega^\prime-\omega_0)t)}{(\omega^\prime-\omega_0)^2} \right] \tag{46}
 $$
 independent of the initial phase $\phi$. This is a maximum at resonance,
 $\omega^\prime = \omega_0$, for which
 $$
-E(t) = \frac{e^2 H_1^2}{8mc}(v_z - \alpha c)^2 t^2
+E(t) = \frac{e^2 H_1^2}{8mc}(v_z - \alpha c)^2 t^2 \tag{47}
 $$
 and the criterion for amplification is
 $$
-v_z > \alpha c
+v_z > \alpha c \tag{48}
 $$
 
 We then need $\alpha<1$, which
@@ -615,14 +622,14 @@ is the case for a TM waveguide mode.
 From waveguide theory, the wave impedance and propagation constant for a
 TM wave mode of cutoff frequency $\omega_c$ are given by
 $$
-ck = \omega\alpha = (\omega^2-\omega_c^2)^{1/2}
+ck = \omega\alpha = (\omega^2-\omega_c^2)^{1/2} \tag{49}
 $$
 
 The system will therefore amplify and oscillate, delivering the kinetic energy
 $mv_z^2/2$ to the radiation field, at a frequency $\omega$ given by the
 root of
 $$
-\omega - \frac{v_z}{c}\sqrt{\omega^2-\omega_c^2} = \omega_0
+\omega - \frac{v_z}{c}\sqrt{\omega^2-\omega_c^2} = \omega_0 \tag{50}
 $$
 provided that (48) is also satisfied at this value of $\omega$.
 
@@ -634,6 +641,7 @@ $$
 \omega &= \frac{8}{7}\omega_0 = 1.143 \omega_0 \\
 \omega_c &= \frac{2}{\sqrt{7}}\sqrt{15} \omega_0 = 1.107 \omega_0
 \end{aligned}
+\tag{51}
 $$
 
 The stimulation from Kittel's talk carried me this far by late 1959. Clearly,
@@ -694,18 +702,18 @@ at time $t_k$. If the average current is n electrons per second, the
 $n_k$ are random variables with expectations $\langle n_k \rangle = n\tau$, and the
 net current is then the random function
 $$
-J(t) = e \sum_{k=-\infty}^\infty n_k \delta(t-t_k).
+J(t) = e \sum_{k=-\infty}^\infty n_k \delta(t-t_k). \tag{52}
 $$
 
- With independent
+With independent
 Poisson distributions for the $n_k$, the second moments are
 $\langle n_k n_{k^\prime} \rangle = n^2 \tau^2 + n\tau\delta_{kk^\prime}$, which yields the
 spectral density
 $$
-I(\nu) = \lim_{T\to\infty} \frac{1}{2T} \int_{-T}^T dt \int_{-T}^T dt^\prime \langle J(t)J(t^\prime) \rangle e^{i\nu(t-t^\prime)}
+I(\nu) = \lim_{T\to\infty} \frac{1}{2T} \int_{-T}^T dt \int_{-T}^T dt^\prime \langle J(t)J(t^\prime) \rangle e^{i\nu(t-t^\prime)} \tag{53}
 $$
 $$
-= e^2 \left[ n + 2\pi n^2 \sum_{r=-\infty}^{\infty} \delta(\nu-r\omega) \right]
+= e^2 \left[ n + 2\pi n^2 \sum_{r=-\infty}^{\infty} \delta(\nu-r\omega) \right] \tag{54}
 $$
 of which the first term was given long ago by Schottky. The radiation
 from this current thus consists of a continuous spectrum of amplitude
@@ -731,20 +739,20 @@ essentially quantum-mechanical one.
 We indicate such a mechanism by a crude calculation. An incident
 electron is represented by a wave packet
 $$
-\psi_0(\mathbf{x}, t) = (2\pi)^{-3}\int d^3k \, \psi_0(\mathbf{k}, t) \exp(i\mathbf{k}\cdot\mathbf{x})
+\psi_0(\mathbf{x}, t) = (2\pi)^{-3}\int d^3k \, \psi_0(\mathbf{k}, t) \exp(i\mathbf{k}\cdot\mathbf{x}) \tag{55}
 $$
 where
 $$
-\psi_0(\mathbf{k}, t) = \psi_0(\mathbf{k}) \exp(-i\omega_k t)
+\psi_0(\mathbf{k}, t) = \psi_0(\mathbf{k}) \exp(-i\omega_k t) \tag{56}
 $$
 with
 $$
-\omega_k = \hbar k^2/2m,
+\omega_k = \hbar k^2/2m, \tag{57}
 $$
 and the light wave by the vector
 potential
 $$
-\mathbf{A}(\mathbf{x},t) = \mathbf{A}_0 \epsilon \cos(\omega t - \mathbf{q}\cdot\mathbf{x} + \phi)
+\mathbf{A}(\mathbf{x},t) = \mathbf{A}_0 \epsilon \cos(\omega t - \mathbf{q}\cdot\mathbf{x} + \phi) \tag{58}
 $$
 where $\epsilon$ is a unit polarization vector,
 $\epsilon\cdot\mathbf{q}=0$, and $\omega = cq$. Since the electron
@@ -756,7 +764,7 @@ justified.
 
 The perturbed wave packet is $\psi(\mathbf{x},t) = \psi_0 + \psi_1 + \dots$, where the first-order term is the solution of
 $$
-i\hbar\dot{\psi}_1 - p^2/2m \psi_1 = -(e/mc)\mathbf{A}\cdot\mathbf{p} \psi_0(\mathbf{x},t)
+i\hbar\dot{\psi}_1 - p^2/2m \psi_1 = -(e/mc)\mathbf{A}\cdot\mathbf{p} \psi_0(\mathbf{x},t) \tag{59}
 $$
 which vanishes in the remote past. In the experiment, the electrons
 drifted through a narrow light beam, spending of the order of 40 to 400
@@ -766,7 +774,7 @@ edges of the crystal provide this switching, which prevents the solution
 from following adiabatically in the fringing field at the edge of the
 light beam). The solution of (59) for $t > \tau$ is then
 $$
-\psi_1(\mathbf{k},t) = \frac{eA_0}{2mc}(\epsilon\cdot\mathbf{k}) \left[ e^{i\phi} \psi_0(\mathbf{k}+\mathbf{q}) \frac{e^{i\omega_+ \tau}-1}{\omega_+} + e^{-i\phi} \psi_0(\mathbf{k}-\mathbf{q}) \frac{e^{i\omega_- \tau}-1}{\omega_-} \right] e^{-i\omega_k t}
+\psi_1(\mathbf{k},t) = \frac{eA_0}{2mc}(\epsilon\cdot\mathbf{k}) \left[ e^{i\phi} \psi_0(\mathbf{k}+\mathbf{q}) \frac{e^{i\omega_+ \tau}-1}{\omega_+} + e^{-i\phi} \psi_0(\mathbf{k}-\mathbf{q}) \frac{e^{i\omega_- \tau}-1}{\omega_-} \right] e^{-i\omega_k t} \tag{60}
 $$
 where $\omega_\pm = \omega_k - \omega_{k\pm q} \mp \omega$. From this
 one sees that there is no secular buildup of either term, since from the
@@ -799,7 +807,7 @@ Noting that the factor $r_0 = eA_0/mc\omega$ is just the displacement of
 a classical point electron in the field $A_0$ and transforming back to
 ordinary space, the first-order change in the wave function becomes
 $$
-\psi_1(\mathbf{x},t) = k_0 r_0 [e^{i(\mathbf{q}\cdot\mathbf{x}-\phi)} \psi_0(\mathbf{x}-\mathbf{v}t,t) - e^{-i(\mathbf{q}\cdot\mathbf{x}-\phi)} \psi_0(\mathbf{x}+\mathbf{v}t,t)] e^{-i\omega_q t}
+\psi_1(\mathbf{x},t) = k_0 r_0 [e^{i(\mathbf{q}\cdot\mathbf{x}-\phi)} \psi_0(\mathbf{x}-\mathbf{v}t,t) - e^{-i(\mathbf{q}\cdot\mathbf{x}-\phi)} \psi_0(\mathbf{x}+\mathbf{v}t,t)] e^{-i\omega_q t} \tag{61}
 $$
 where
 $\mathbf{v} = \hbar\mathbf{q}/m = 1.5 \times 10^5 \text{ cm sec}^{-1}$
@@ -823,7 +831,7 @@ size and shape. We readily verify that if $\omega_0 = \hbar k_0^2/2m$,
 and $\mathbf{v}_0 = \hbar\mathbf{k}_0/m$, the group velocity, the
 function
 $$
-\psi_0(x,y,z,t) = f(x,y,z-v_0t) \exp(ik_0 z - i\omega_0 t)
+\psi_0(x,y,z,t) = f(x,y,z-v_0t) \exp(ik_0 z - i\omega_0 t) \tag{62}
 $$
 is an accurate solution of the free-space Schrödinger equation if
 $\nabla^2 f$ can be neglected in comparison with $k_0^2 f$. In the
@@ -832,7 +840,7 @@ microns width leads to $|\nabla^2 f/k_0^2 f| \sim 10^{-12}$. We have
 chosen the hyperbolic secant function, taken for ease of calculation in
 product form:
 $$
-f(x,y,z) = (8a^3)^{-1/2} \text{sech}(x/a)\text{sech}(y/a)\text{sech}(z/a)
+f(x,y,z) = (8a^3)^{-1/2} \text{sech}(x/a)\text{sech}(y/a)\text{sech}(z/a) \tag{63}
 $$
 
 The choice a=1.70 microns yields a wave packet of width 3 microns
@@ -841,17 +849,17 @@ between "half-way down" points of $|\psi|^2$.
 After irradiation, the perturbed wave function corresponds to an
 effective charge density
 $$
-\rho = e|\psi_0 + \psi_1 + \dots|^2 = e|\psi_0|^2 + 2e\text{Re}(\psi_0^* \psi_1) + \dots
+\rho = e|\psi_0 + \psi_1 + \dots|^2 = e|\psi_0|^2 + 2e\text{Re}(\psi_0^* \psi_1) + \dots \tag{64}
 $$
 in which the second term, arising from interference between the parent
 and daughter wave packets, contains terms oscillating in space with the
 wavelength of the light: from (61), (62), and (63) we have
 $$
-2e\text{Re}(\psi_0^*\psi_1) = \frac{ek_0r_0}{4a^3}[g_-(x)-g_+(x)]\text{sech}^2(y/a)\text{sech}^2((z-v_0t)/a)
+2e\text{Re}(\psi_0^*\psi_1) = \frac{ek_0r_0}{4a^3}[g_-(x)-g_+(x)]\text{sech}^2(y/a)\text{sech}^2((z-v_0t)/a) \tag{65}
 $$
 where
 $$
-g_\pm(x) = \cos[q(x\pm vt/2)-\phi] \text{sech}(x/a) \text{sech}[(x\pm vt)/a]
+g_\pm(x) = \cos[q(x\pm vt/2)-\phi] \text{sech}(x/a) \text{sech}[(x\pm vt)/a] \tag{66}
 $$
 in which we have used the relation $\omega_q = qv/2$ and chosen the
 x-axis along the direction of the light propagation vector q.
@@ -861,14 +869,14 @@ Now the meaty part of the calculation begins. We use the charge density
 $J_z(\mathbf{x},t) = \rho(\mathbf{x},t)v_0$. To calculate the radiation
 we need the fourier transform
 $$
-J_z(\mathbf{k},\omega) = \int_{z\lt d} d^3x \int dt \, J_z(\mathbf{x},t) e^{i(\mathbf{k}\cdot\mathbf{x}-\omega t)},
+J_z(\mathbf{k},\omega) = \int_{z\lt d} d^3x \int dt \, J_z(\mathbf{x},t) e^{i(\mathbf{k}\cdot\mathbf{x}-\omega t)}, \tag{67}
 $$
 the constraint z<d expressing the fact that the current is suddenly
 decelerated to zero at the screen, which we suppose to be the source of
 the radiation. For radiation in the x-direction we find the analytical
 result
 $$
-I(\omega) \sim \left| \frac{\sin(kvt/2)}{\sinh(vt/a)} \frac{\sin[(k-q)vt/2]}{\sinh[\pi(k-q)a/2]} \right|^2
+I(\omega) \sim \left| \frac{\sin(kvt/2)}{\sinh(vt/a)} \frac{\sin[(k-q)vt/2]}{\sinh[\pi(k-q)a/2]} \right|^2 \tag{68}
 $$
 
 This yields an asymmetric spectrum in general; computer evaluations of

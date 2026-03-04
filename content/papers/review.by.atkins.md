@@ -3,7 +3,7 @@ title: "Comment on a Review by P. W. Atkins"
 author: ["E.T. Jaynes"]
 year: 1986
 ---
-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
+A recent essay review[^atkins], ostensibly of a book by K. G.
 Denbigh and J. S. Denbigh, seems more concerned with quoting from
 another work, and commenting on it in phrases not ordinarily seen in
 scientific journals. Yet this other work is not identified.
@@ -11,7 +11,7 @@ scientific journals. Yet this other work is not identified.
 In the belief that the interested reader will wish to put the quoted
 remarks back into the context in which they were made and judge the
 issue for himself on the level of technical fact, we supply the missing
-reference (Jaynes, 1965). We note also that in the 22 years since that
+reference[^jaynes1965]. We note also that in the 22 years since that
 article appeared, the writer has published 19 other articles on the same
 general topic, part of a much larger literature in which the properties
 of entropy have been developed further, leading to new applications of
@@ -47,6 +47,10 @@ In our view, far from attacking J. W. Gibbs, J. C. Maxwell and G. N.
 Lewis for their observations on the nature of entropy, we should applaud
 their insight in perceiving it so early. That today some have not yet
 comprehended their message only adds lustre to their accomplishments.
+
+[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
+[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
+
 ## References {#references .unnumbered}
 P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
 *Contemp. Phys.*, **27**, 257.
@@ -78,6 +82,7 @@ E. T. Jaynes, 1986, \"Predictive Statistical Mechanics\", in *Frontiers
 of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
 Scully, (Plenum Press, New York), pp 33-56. Cites many recent
 applications of entropy in astronomy, geophysics, and molecular biology.
+
 W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
 Dordrecht-Holland). A comprehensive review of this approach. All the
 same ideas are expressed, in slightly different words, with massive

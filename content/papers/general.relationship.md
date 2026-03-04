@@ -12,6 +12,7 @@ abstract: >
 author: ["M. O'Donnell[^100]", "E.T. Jaynes", "J.G. Miller[^100]"]
 ---
 PACS numbers: 43.80.Cs, 43.35.Bf
+
 The purposes of this letter are twofold: (1) to explore the implications
 of the existence of general relationships between the ultrasonic
 attenuation and the frequency dependence of the ultrasonic phase
@@ -28,9 +29,11 @@ useful in several areas of physics.[^1][^2] Expressed in a form
 appropriate to ultrasonic studies, these relationships take the form
 $$
 K_I(\omega) = C_0 - \frac{2}{\pi} \int_0^\infty \frac{\omega^\prime \alpha(\omega^\prime)}{(\omega^\prime)^2 - \omega^2} d\omega^\prime  ,
+\tag{1}
 $$
 $$
 K_R(\omega) = \frac{2\omega^2}{\pi} \int_0^\infty \frac{\alpha(\omega^\prime)}{\omega^\prime((\omega^\prime)^2 - \omega^2)} d\omega^\prime  ,
+\tag{2}
 $$
 where $K_I(\omega)$ and $K_R(\omega)$ are the real and imaginary parts,
 respectively, of the dynamic compressibility (inverse of the bulk
@@ -58,9 +61,11 @@ imaginary parts of the compressibility can be directly related to the
 attenuation coefficient and phase velocity such that
 $$
 C(\omega) = [\rho_0 K_R(\omega)]^{-1/2},
+\tag{3}
 $$
 $$
 \alpha(\omega) = \frac{1}{2}\rho_0 C(\omega) K_I(\omega).
+\tag{4}
 $$
 
 Using Eqs. (1) and (3) the dispersion at a specified frequency can be
@@ -104,9 +109,11 @@ be presented in a subsequent publication.[^8] The nearly local
 relationships are
 $$
 \alpha(\omega) \simeq (\pi\omega^2 / 2C_0^2) dC(\omega)/d\omega,
+\tag{5}
 $$
 $$
 \Delta C(\omega) = C(\omega) - C_0 \simeq \frac{2C_0^2}{\pi} \int_{\omega_0}^{\omega} \frac{\alpha(\omega^\prime)}{(\omega^\prime)^2}d\omega^\prime  ,
+\tag{6}
 $$
 where $\omega_0$ is some convenient reference frequency and
 $C_0=C(\omega_0)$ is the phase velocity at this reference frequency.

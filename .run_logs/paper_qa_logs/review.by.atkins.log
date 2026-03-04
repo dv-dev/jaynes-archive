@@ -1,0 +1,333 @@
+=== STDOUT ===
+Applied minimal structural QA edits to [content/papers/review.by.atkins.md](/home/dave/Projects/jaynes-archive/content/papers/review.by.atkins.md):
+
+- Normalized two inline parenthetical citations to footnote citations:
+  - `(Atkins, 1986)` -> `[^atkins]`
+  - `(Jaynes, 1965)` -> `[^jaynes1965]`
+- Added corresponding footnote definitions (proper markdown footnote format).
+- Inserted a blank line before `## References` for cleaner markdown structure.
+- Split one merged reference block by adding a blank line between the 1986 Jaynes entry and the 1987 Grandy entry.
+
+Self-check completed:
+- Paragraph boundaries use blank-line separation where intended.
+- No in-text `Eq.` references exist, so there are no unresolved equation-number mappings.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba64-0ebe-7db2-a2e3-e7e11b2899ec
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/review.by.atkins.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/review.by.atkins.md` for structural QA only, then apply minimal markdown edits in place (paragraph breaks, citation formatting, abstract/body duplication, and equation-numbering tags tied to in-text Eq. references). I’m opening the file now.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/review.by.atkins.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Comment on a Review by P. W. Atkins"
+author: ["E.T. Jaynes"]
+year: 1986
+---
+A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
+Denbigh and J. S. Denbigh, seems more concerned with quoting from
+another work, and commenting on it in phrases not ordinarily seen in
+scientific journals. Yet this other work is not identified.
+
+In the belief that the interested reader will wish to put the quoted
+remarks back into the context in which they were made and judge the
+issue for himself on the level of technical fact, we supply the missing
+reference (Jaynes, 1965). We note also that in the 22 years since that
+article appeared, the writer has published 19 other articles on the same
+general topic, part of a much larger literature in which the properties
+of entropy have been developed further, leading to new applications of
+the Gibbs formalism. Therefore we supply five key references which will
+afford entry into this currently active field.
+
+codex
+I found only a few needed fixes: one missing blank line before the `## References` heading, one merged reference paragraph, and two inline parenthetical citations that I can normalize to footnotes without changing meaning. I’m applying just those structural edits now.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/review.by.atkins.md
+@@ -5,3 +5,3 @@
+ ---
+-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
++A recent essay review[^atkins], ostensibly of a book by K. G.
+ Denbigh and J. S. Denbigh, seems more concerned with quoting from
+@@ -13,3 +13,3 @@
+ issue for himself on the level of technical fact, we supply the missing
+-reference (Jaynes, 1965). We note also that in the 22 years since that
++reference[^jaynes1965]. We note also that in the 22 years since that
+ article appeared, the writer has published 19 other articles on the same
+@@ -49,2 +49,6 @@
+ comprehended their message only adds lustre to their accomplishments.
++
++[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
++[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
++
+ ## References {#references .unnumbered}
+@@ -80,2 +84,3 @@
+ applications of entropy in astronomy, geophysics, and molecular biology.
++
+ W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+apply_patch(auto_approved=true) exited 0 in 12ms:
+Success. Updated the following files:
+M content/papers/review.by.atkins.md
+file update:
+diff --git a/content/papers/review.by.atkins.md b/content/papers/review.by.atkins.md
+index 1bf07ebe88daf43bf658a917814107b7d6adecf8..633e6dd0667862f590e4550834f06e0361ae54bc
+--- a/content/papers/review.by.atkins.md
++++ b/content/papers/review.by.atkins.md
+@@ -3,7 +3,7 @@
+ author: ["E.T. Jaynes"]
+ year: 1986
+ ---
+-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
++A recent essay review[^atkins], ostensibly of a book by K. G.
+ Denbigh and J. S. Denbigh, seems more concerned with quoting from
+ another work, and commenting on it in phrases not ordinarily seen in
+ scientific journals. Yet this other work is not identified.
+@@ -11,7 +11,7 @@
+ In the belief that the interested reader will wish to put the quoted
+ remarks back into the context in which they were made and judge the
+ issue for himself on the level of technical fact, we supply the missing
+-reference (Jaynes, 1965). We note also that in the 22 years since that
++reference[^jaynes1965]. We note also that in the 22 years since that
+ article appeared, the writer has published 19 other articles on the same
+ general topic, part of a much larger literature in which the properties
+ of entropy have been developed further, leading to new applications of
+@@ -47,6 +47,10 @@
+ Lewis for their observations on the nature of entropy, we should applaud
+ their insight in perceiving it so early. That today some have not yet
+ comprehended their message only adds lustre to their accomplishments.
++
++[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
++[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
++
+ ## References {#references .unnumbered}
+ P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
+ *Contemp. Phys.*, **27**, 257.
+@@ -78,6 +82,7 @@
+ of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
+ Scully, (Plenum Press, New York), pp 33-56. Cites many recent
+ applications of entropy in astronomy, geophysics, and molecular biology.
++
+ W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+ Dordrecht-Holland). A comprehensive review of this approach. All the
+ same ideas are expressed, in slightly different words, with massive
+
+file update:
+diff --git a/content/papers/review.by.atkins.md b/content/papers/review.by.atkins.md
+index 1bf07ebe88daf43bf658a917814107b7d6adecf8..633e6dd0667862f590e4550834f06e0361ae54bc
+--- a/content/papers/review.by.atkins.md
++++ b/content/papers/review.by.atkins.md
+@@ -3,7 +3,7 @@
+ author: ["E.T. Jaynes"]
+ year: 1986
+ ---
+-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
++A recent essay review[^atkins], ostensibly of a book by K. G.
+ Denbigh and J. S. Denbigh, seems more concerned with quoting from
+ another work, and commenting on it in phrases not ordinarily seen in
+ scientific journals. Yet this other work is not identified.
+@@ -11,7 +11,7 @@
+ In the belief that the interested reader will wish to put the quoted
+ remarks back into the context in which they were made and judge the
+ issue for himself on the level of technical fact, we supply the missing
+-reference (Jaynes, 1965). We note also that in the 22 years since that
++reference[^jaynes1965]. We note also that in the 22 years since that
+ article appeared, the writer has published 19 other articles on the same
+ general topic, part of a much larger literature in which the properties
+ of entropy have been developed further, leading to new applications of
+@@ -47,6 +47,10 @@
+ Lewis for their observations on the nature of entropy, we should applaud
+ their insight in perceiving it so early. That today some have not yet
+ comprehended their message only adds lustre to their accomplishments.
++
++[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
++[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
++
+ ## References {#references .unnumbered}
+ P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
+ *Contemp. Phys.*, **27**, 257.
+@@ -78,6 +82,7 @@
+ of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
+ Scully, (Plenum Press, New York), pp 33-56. Cites many recent
+ applications of entropy in astronomy, geophysics, and molecular biology.
++
+ W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+ Dordrecht-Holland). A comprehensive review of this approach. All the
+ same ideas are expressed, in slightly different words, with massive
+
+codex
+Edits are in; I’m doing a quick self-check pass for blank-line paragraph boundaries and unresolved equation references before I finish.
+exec
+/bin/bash -lc "sed -n '1,280p' content/papers/review.by.atkins.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Comment on a Review by P. W. Atkins"
+author: ["E.T. Jaynes"]
+year: 1986
+---
+A recent essay review[^atkins], ostensibly of a book by K. G.
+Denbigh and J. S. Denbigh, seems more concerned with quoting from
+another work, and commenting on it in phrases not ordinarily seen in
+scientific journals. Yet this other work is not identified.
+
+In the belief that the interested reader will wish to put the quoted
+remarks back into the context in which they were made and judge the
+issue for himself on the level of technical fact, we supply the missing
+reference[^jaynes1965]. We note also that in the 22 years since that
+article appeared, the writer has published 19 other articles on the same
+general topic, part of a much larger literature in which the properties
+of entropy have been developed further, leading to new applications of
+the Gibbs formalism. Therefore we supply five key references which will
+afford entry into this currently active field.
+
+file update:
+diff --git a/content/papers/review.by.atkins.md b/content/papers/review.by.atkins.md
+index 1bf07ebe88daf43bf658a917814107b7d6adecf8..633e6dd0667862f590e4550834f06e0361ae54bc
+--- a/content/papers/review.by.atkins.md
++++ b/content/papers/review.by.atkins.md
+@@ -3,7 +3,7 @@
+ author: ["E.T. Jaynes"]
+ year: 1986
+ ---
+-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
++A recent essay review[^atkins], ostensibly of a book by K. G.
+ Denbigh and J. S. Denbigh, seems more concerned with quoting from
+ another work, and commenting on it in phrases not ordinarily seen in
+ scientific journals. Yet this other work is not identified.
+@@ -11,7 +11,7 @@
+ In the belief that the interested reader will wish to put the quoted
+ remarks back into the context in which they were made and judge the
+ issue for himself on the level of technical fact, we supply the missing
+-reference (Jaynes, 1965). We note also that in the 22 years since that
++reference[^jaynes1965]. We note also that in the 22 years since that
+ article appeared, the writer has published 19 other articles on the same
+ general topic, part of a much larger literature in which the properties
+ of entropy have been developed further, leading to new applications of
+@@ -47,6 +47,10 @@
+ Lewis for their observations on the nature of entropy, we should applaud
+ their insight in perceiving it so early. That today some have not yet
+ comprehended their message only adds lustre to their accomplishments.
++
++[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
++[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
++
+ ## References {#references .unnumbered}
+ P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
+ *Contemp. Phys.*, **27**, 257.
+@@ -78,6 +82,7 @@
+ of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
+ Scully, (Plenum Press, New York), pp 33-56. Cites many recent
+ applications of entropy in astronomy, geophysics, and molecular biology.
++
+ W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+ Dordrecht-Holland). A comprehensive review of this approach. All the
+ same ideas are expressed, in slightly different words, with massive
+
+codex
+Applied minimal structural QA edits to [content/papers/review.by.atkins.md](/home/dave/Projects/jaynes-archive/content/papers/review.by.atkins.md):
+
+- Normalized two inline parenthetical citations to footnote citations:
+  - `(Atkins, 1986)` -> `[^atkins]`
+  - `(Jaynes, 1965)` -> `[^jaynes1965]`
+- Added corresponding footnote definitions (proper markdown footnote format).
+- Inserted a blank line before `## References` for cleaner markdown structure.
+- Split one merged reference block by adding a blank line between the 1986 Jaynes entry and the 1987 Grandy entry.
+
+Self-check completed:
+- Paragraph boundaries use blank-line separation where intended.
+- No in-text `Eq.` references exist, so there are no unresolved equation-number mappings.
+file update:
+diff --git a/content/papers/review.by.atkins.md b/content/papers/review.by.atkins.md
+index 1bf07ebe88daf43bf658a917814107b7d6adecf8..633e6dd0667862f590e4550834f06e0361ae54bc
+--- a/content/papers/review.by.atkins.md
++++ b/content/papers/review.by.atkins.md
+@@ -3,7 +3,7 @@
+ author: ["E.T. Jaynes"]
+ year: 1986
+ ---
+-A recent essay review (Atkins, 1986), ostensibly of a book by K. G.
++A recent essay review[^atkins], ostensibly of a book by K. G.
+ Denbigh and J. S. Denbigh, seems more concerned with quoting from
+ another work, and commenting on it in phrases not ordinarily seen in
+ scientific journals. Yet this other work is not identified.
+@@ -11,7 +11,7 @@
+ In the belief that the interested reader will wish to put the quoted
+ remarks back into the context in which they were made and judge the
+ issue for himself on the level of technical fact, we supply the missing
+-reference (Jaynes, 1965). We note also that in the 22 years since that
++reference[^jaynes1965]. We note also that in the 22 years since that
+ article appeared, the writer has published 19 other articles on the same
+ general topic, part of a much larger literature in which the properties
+ of entropy have been developed further, leading to new applications of
+@@ -47,6 +47,10 @@
+ Lewis for their observations on the nature of entropy, we should applaud
+ their insight in perceiving it so early. That today some have not yet
+ comprehended their message only adds lustre to their accomplishments.
++
++[^atkins]: P. W. Atkins, 1986, "Entropy in relation to complete knowledge", *Contemp. Phys.*, **27**, 257.
++[^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
++
+ ## References {#references .unnumbered}
+ P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
+ *Contemp. Phys.*, **27**, 257.
+@@ -78,6 +82,7 @@
+ of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
+ Scully, (Plenum Press, New York), pp 33-56. Cites many recent
+ applications of entropy in astronomy, geophysics, and molecular biology.
++
+ W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+ Dordrecht-Holland). A comprehensive review of this approach. All the
+ same ideas are expressed, in slightly different words, with massive
+
+tokens used
+8,675
+

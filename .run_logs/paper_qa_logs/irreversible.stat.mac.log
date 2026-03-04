@@ -1,0 +1,369 @@
+=== STDOUT ===
+Edits applied to [content/papers/irreversible.stat.mac.md](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md).
+
+Summary of changes:
+- Inserted 2 missing blank-line paragraph breaks to fix prose paragraphs that were unintentionally joined by a single newline:
+  - after “This point is discussed further in Appendix B.” ([line 211](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md:211))
+  - after the sentence ending “total angular momentum.” ([line 276](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md:276))
+- No paper content, meaning, math expressions, symbols, operators, variables, or equation bodies were changed.
+- Equation-reference self-check passed: all in-text equation numbers have corresponding tagged display equations.
+- No duplicate abstract body text found (abstract remains in front matter only).
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba0e-74c8-70c2-88d7-69c95c68786a
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/irreversible.stat.mac.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/irreversible.stat.mac.md` for structure, equation-reference numbering, duplicate abstract/body metadata, and citation formatting, then apply only minimal structural fixes in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/irreversible.stat.mac.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Irreversible Statistical Mechanics"
+year: 1963
+abstract: >
+  A general formalism for calculation of irreversible processes,
+  analogous to the partition sum algorithm of equilibrium theory, is
+  presented. Mathematically, it is a generalization of the procedure by
+  which Gibbs constructed his canonical and grand canonical ensembles,
+  in which the partition function is extended to a partition functional.
+  Conceptually, it has a simple interpretation in terms of Information
+  Theory. By this means, ensembles can be constructed in which
+  macroscopic quantities have any space-time dependence compatible with
+  the Hamiltonian of the system. We illustrate its use by developing a
+  theory of transport phenomena, in which the following features emerge:
+  (1) Dissipative effects are obtained by direct quadratures over the
+  new ensembles, with no need for the forward integration and
+  coarse-graining operations characteristic of previous treatments. In
+  consequence, the theory is not restricted to the quasi-stationary,
+  long-wavelength limit; it applies equally well to phenomena such as
+  ultrasonic attenuation. (2) The formalism leads to a nonlocal theory,
+codex
+I’ve reviewed the first part and will now scan the rest of the file to catch equation-reference consistency, paragraph breaks, and any duplicate abstract/citation issues before editing.
+exec
+/bin/bash -lc "sed -n '261,620p' content/papers/irreversible.stat.mac.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+appreciated; until recently it was scarcely possible to understand the
+process by which he constructed his ensembles. This was (*loc. cit.*, p.
+143) to assign that probability distribution which, while agreeing with
+what is known, "gives the least value of the average index of
+probability of phase," or as we would describe it today, *maximizes the
+entropy*. This process led Gibbs to his canonical ensemble for
+describing closed systems in thermal equilibrium, the grand canonical
+ensemble for open systems, and (*loc. cit.*, p. 38), an ensemble to
+represent a system rotating at angular velocity $\omega$, in which the
+probability density is proportional to
+$$
+\exp [-\beta(H - \omega \cdot M)] \tag{3.1}
+$$
+where H, M are the
+phase functions representing Hamiltonian and total angular momentum.
+A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+"analytical tricks", devoid of any real significance, and stressed the
+physical superiority of Boltzmann's methods, thereby initiating a school
+of thought in statistical mechanics which persists to this day. The
+mathematical superiority of the canonical and grand canonical ensembles
+codex
+I’m continuing through the remaining sections now; after that I’ll do a focused pass on inline Eq. references versus tagged display equations and then patch only structural issues.
+exec
+/bin/bash -lc "sed -n '621,980p' content/papers/irreversible.stat.mac.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+The expansion of $\langle C \rangle$ to all orders in $\epsilon$ has
+been derived in Ref. 18, Appendix B. The n'th order contribution is the
+covariance, in the unperturbed ensemble, of C with an operator $Q_n$:
+$$
+\langle C \rangle - \langle C \rangle_0 = \sum_{n=1}^\infty \epsilon^n [\langle Q_n C \rangle_0 - \langle Q_n \rangle_0 \langle C \rangle_0] \tag{5.4}
+$$
+
+Here, $Q_n$ is defined by $Q_1 \equiv S_1$, and
+$$
+Q_n = S_n - \sum_{k=1}^{n-1} \langle Q_k \rangle_0 S_{n-k}, \quad n>1. \tag{5.5}
+$$
+in which $S_n$ are the operators appearing in the well-known expansion
+$$
+e^{A+\epsilon B} = e^A \left[1 + \sum_{n=1}^\infty \epsilon^n S_n \right] \tag{5.6}
+$$
+
+More explicitly,
+$$
+S_n = \int_0^1 dx_1 \int_0^{x_1} dx_2 \dots \int_0^{x_{n-1}} dx_n \, B(x_1) \dots B(x_n) \tag{5.7}
+codex
+I found a few likely missing paragraph breaks (single newline where a new prose paragraph starts). I’ll patch only those structural boundaries and then re-check Eq. reference coverage.
+exec
+/bin/bash -lc "nl -ba content/papers/irreversible.stat.mac.md | sed -n '120,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   120	related to our work, and in Sec. 3 the generalization of Gibbs'
+   121	algorithm is given. The special case of dynamical perturbations is
+   122	discussed briefly in Sec. 4, while Sec. 5 is a mathematical digression
+   123	to collect the basic formulas needed for applications. In Sections 6, 7
+   124	the general prediction formulas are obtained in linear approximation and
+   125	the relation to the Wiener prediction theory established. Sections 8, 9,
+   126	10 apply the resulting theory to the problems of diffusion, thermal
+   127	conductivity, and ultrasonic attentuation; and in the final Sec. 11
+   128	nonlinear problems are discussed. A number of points essential for
+   129	understanding of the theory, but not needed for the actual
+   130	manipulations, are relegated to Appendices.
+   131	## 2. BACKGROUND OF THE PROBLEM
+   132	Because of the great diversity of possible nonequilibrium states, a full
+   133	microscopic theory seems[^1] at first glance hopelessly complicated; yet
+   134	from an experimental standpoint irreversible processes are basically
+   135	simple, in the sense that controlling only a few macroscopic quantities
+   136	suffices to determine a reproducible outcome. Thus, most of the
+   137	microscopic details must be irrelevant for the predictions of interest,
+   138	and with proper understanding we should be able to eliminate them
+   139	mathematically.
+exec
+/bin/bash -lc "nl -ba content/papers/irreversible.stat.mac.md | sed -n '260,380p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   260	power and generality of the methods he introduced have not yet been
+   261	appreciated; until recently it was scarcely possible to understand the
+   262	process by which he constructed his ensembles. This was (*loc. cit.*, p.
+   263	143) to assign that probability distribution which, while agreeing with
+   264	what is known, "gives the least value of the average index of
+   265	probability of phase," or as we would describe it today, *maximizes the
+   266	entropy*. This process led Gibbs to his canonical ensemble for
+   267	describing closed systems in thermal equilibrium, the grand canonical
+   268	ensemble for open systems, and (*loc. cit.*, p. 38), an ensemble to
+   269	represent a system rotating at angular velocity $\omega$, in which the
+   270	probability density is proportional to
+   271	$$
+   272	\exp [-\beta(H - \omega \cdot M)] \tag{3.1}
+   273	$$
+   274	where H, M are the
+   275	phase functions representing Hamiltonian and total angular momentum.
+   276	A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+   277	"analytical tricks", devoid of any real significance, and stressed the
+   278	physical superiority of Boltzmann's methods, thereby initiating a school
+   279	of thought in statistical mechanics which persists to this day. The
+exec
+/bin/bash -lc "rg -o '\\(([0-9]+\\.[0-9]+)\\)' content/papers/irreversible.stat.mac.md | sed 's/.*(//;s/)//' | sort -u > /tmp/refs.txt; rg -o '\\\\tag\\{([0-9]+\\.[0-9]+)\\}' content/papers/irreversible.stat.mac.md | sed 's/.*{//;s/}//' | sort -u > /tmp/tags.txt; echo 'Referenced not tagged:'; comm -23 /tmp/refs.txt /tmp/tags.txt; echo 'Tagged not referenced (ok):'; comm -13 /tmp/refs.txt /tmp/tags.txt | head" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Referenced not tagged:
+Tagged not referenced (ok):
+3.11
+3.12
+3.16
+3.18
+3.8
+3.9
+4.1
+5.1
+5.12
+5.13
+codex
+I confirmed all in-text equation numbers have corresponding `\tag{...}` display equations. I’m now applying a minimal patch for the two clear missing paragraph breaks only.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md
+@@ -211,2 +211,3 @@
+ effects of interest. This point is discussed further in Appendix B.
++
+ It appears, therefore, that the real nature of the forward integration
+@@ -275,2 +276,3 @@
+ phase functions representing Hamiltonian and total angular momentum.
++
+ A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+@@ -869,2 +871,2 @@
+ [^34]: Y. Nambu, *Phys. Rev.* 117, 648 (1960).
+-[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+\ No newline at end of file
++[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+apply_patch(auto_approved=true) exited 0 in 13ms:
+Success. Updated the following files:
+M content/papers/irreversible.stat.mac.md
+file update:
+diff --git a/content/papers/irreversible.stat.mac.md b/content/papers/irreversible.stat.mac.md
+index e664ef6b895caebfa5921b62c83e74691d67cc30..7f59c939d014a3bcb5190378771e30c1d12c4c5d
+--- a/content/papers/irreversible.stat.mac.md
++++ b/content/papers/irreversible.stat.mac.md
+@@ -209,6 +209,7 @@
+ and position; and thus not affected by coarse-graining. In cases where
+ this is not true, coarse-graining would result in loss of the physical
+ effects of interest. This point is discussed further in Appendix B.
++
+ It appears, therefore, that the real nature of the forward integration
+ and coarse-graining operations has not yet been explained; in a
+ correctly formulated theory neither should be required. We are led to
+@@ -273,6 +274,7 @@
+ $$
+ where H, M are the
+ phase functions representing Hamiltonian and total angular momentum.
++
+ A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+ "analytical tricks", devoid of any real significance, and stressed the
+ physical superiority of Boltzmann's methods, thereby initiating a school
+@@ -867,4 +869,4 @@
+ [^32]: J. S. Langer, *Phys. Rev.* 127, 5 (1962).
+ [^33]: D. C. Mattis and J. Bardeen, *Phys. Rev.* 111, 412 (1958).
+ [^34]: Y. Nambu, *Phys. Rev.* 117, 648 (1960).
+-[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+\ No newline at end of file
++[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+
+file update:
+diff --git a/content/papers/irreversible.stat.mac.md b/content/papers/irreversible.stat.mac.md
+index e664ef6b895caebfa5921b62c83e74691d67cc30..7f59c939d014a3bcb5190378771e30c1d12c4c5d
+--- a/content/papers/irreversible.stat.mac.md
++++ b/content/papers/irreversible.stat.mac.md
+@@ -209,6 +209,7 @@
+ and position; and thus not affected by coarse-graining. In cases where
+ this is not true, coarse-graining would result in loss of the physical
+ effects of interest. This point is discussed further in Appendix B.
++
+ It appears, therefore, that the real nature of the forward integration
+ and coarse-graining operations has not yet been explained; in a
+ correctly formulated theory neither should be required. We are led to
+@@ -273,6 +274,7 @@
+ $$
+ where H, M are the
+ phase functions representing Hamiltonian and total angular momentum.
++
+ A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+ "analytical tricks", devoid of any real significance, and stressed the
+ physical superiority of Boltzmann's methods, thereby initiating a school
+@@ -867,4 +869,4 @@
+ [^32]: J. S. Langer, *Phys. Rev.* 127, 5 (1962).
+ [^33]: D. C. Mattis and J. Bardeen, *Phys. Rev.* 111, 412 (1958).
+ [^34]: Y. Nambu, *Phys. Rev.* 117, 648 (1960).
+-[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+\ No newline at end of file
++[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+
+exec
+/bin/bash -lc "rg -n 'A general formalism for calculation of irreversible processes|Lecture given at|\\(Smith 2018\\)|\\(.*[0-9]{4}.*\\)\\s*\\[\\"'^'"' content/papers/irreversible.stat.mac.md; nl -ba content/papers/irreversible.stat.mac.md | sed -n '204,218p;270,282p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+5:  A general formalism for calculation of irreversible processes,
+   204	operations is needed; for one can argue that, in most experimentally
+   205	realizable cases, dissipative effects (A) are already "in progress" at
+   206	the time the experiment is started, and (B) take place slowly, so that
+   207	the low-order distribution functions and expectation values of
+   208	measurable quantities must already be slowly-varying functions of time
+   209	and position; and thus not affected by coarse-graining. In cases where
+   210	this is not true, coarse-graining would result in loss of the physical
+   211	effects of interest. This point is discussed further in Appendix B.
+   212	
+   213	It appears, therefore, that the real nature of the forward integration
+   214	and coarse-graining operations has not yet been explained; in a
+   215	correctly formulated theory neither should be required. We are led to
+   216	suspect the choice of initial ensemble; i.e. that ensembles such as
+   217	(2.1) and (2.2) do not fully describe the conditions under which
+   218	irreversible phenomena are observed, and therefore do not represent the
+   270	represent a system rotating at angular velocity $\omega$, in which the
+   271	probability density is proportional to
+   272	$$
+   273	\exp [-\beta(H - \omega \cdot M)] \tag{3.1}
+file update:
+diff --git a/content/papers/irreversible.stat.mac.md b/content/papers/irreversible.stat.mac.md
+index e664ef6b895caebfa5921b62c83e74691d67cc30..7f59c939d014a3bcb5190378771e30c1d12c4c5d
+--- a/content/papers/irreversible.stat.mac.md
++++ b/content/papers/irreversible.stat.mac.md
+@@ -209,6 +209,7 @@
+ and position; and thus not affected by coarse-graining. In cases where
+ this is not true, coarse-graining would result in loss of the physical
+ effects of interest. This point is discussed further in Appendix B.
++
+ It appears, therefore, that the real nature of the forward integration
+ and coarse-graining operations has not yet been explained; in a
+ correctly formulated theory neither should be required. We are led to
+@@ -273,6 +274,7 @@
+ $$
+ where H, M are the
+ phase functions representing Hamiltonian and total angular momentum.
++
+ A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+ "analytical tricks", devoid of any real significance, and stressed the
+ physical superiority of Boltzmann's methods, thereby initiating a school
+@@ -867,4 +869,4 @@
+ [^32]: J. S. Langer, *Phys. Rev.* 127, 5 (1962).
+ [^33]: D. C. Mattis and J. Bardeen, *Phys. Rev.* 111, 412 (1958).
+ [^34]: Y. Nambu, *Phys. Rev.* 117, 648 (1960).
+-[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+\ No newline at end of file
++[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+
+codex
+Edits applied to [content/papers/irreversible.stat.mac.md](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md).
+
+Summary of changes:
+- Inserted 2 missing blank-line paragraph breaks to fix prose paragraphs that were unintentionally joined by a single newline:
+  - after “This point is discussed further in Appendix B.” ([line 211](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md:211))
+  - after the sentence ending “total angular momentum.” ([line 276](/home/dave/Projects/jaynes-archive/content/papers/irreversible.stat.mac.md:276))
+- No paper content, meaning, math expressions, symbols, operators, variables, or equation bodies were changed.
+- Equation-reference self-check passed: all in-text equation numbers have corresponding tagged display equations.
+- No duplicate abstract body text found (abstract remains in front matter only).
+file update:
+diff --git a/content/papers/irreversible.stat.mac.md b/content/papers/irreversible.stat.mac.md
+index e664ef6b895caebfa5921b62c83e74691d67cc30..7f59c939d014a3bcb5190378771e30c1d12c4c5d
+--- a/content/papers/irreversible.stat.mac.md
++++ b/content/papers/irreversible.stat.mac.md
+@@ -209,6 +209,7 @@
+ and position; and thus not affected by coarse-graining. In cases where
+ this is not true, coarse-graining would result in loss of the physical
+ effects of interest. This point is discussed further in Appendix B.
++
+ It appears, therefore, that the real nature of the forward integration
+ and coarse-graining operations has not yet been explained; in a
+ correctly formulated theory neither should be required. We are led to
+@@ -273,6 +274,7 @@
+ $$
+ where H, M are the
+ phase functions representing Hamiltonian and total angular momentum.
++
+ A few years later, the Ehrenfests[^17] dismissed these ensembles as mere
+ "analytical tricks", devoid of any real significance, and stressed the
+ physical superiority of Boltzmann's methods, thereby initiating a school
+@@ -867,4 +869,4 @@
+ [^32]: J. S. Langer, *Phys. Rev.* 127, 5 (1962).
+ [^33]: D. C. Mattis and J. Bardeen, *Phys. Rev.* 111, 412 (1958).
+ [^34]: Y. Nambu, *Phys. Rev.* 117, 648 (1960).
+-[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+\ No newline at end of file
++[^35]: R. P. Feynman and E. W. Montroll (unpublished).
+
+tokens used
+24,136
+

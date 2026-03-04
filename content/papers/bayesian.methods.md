@@ -17,32 +17,59 @@ Sometimes, in our perplexity, it has seemed to us that there are two fundamental
 Barnard defined the term "statistics" as follows: (A) It is not concerned with decision making; and it is not concerned with scientific inference in general. (B) Rather, statistics is "that part of inference where experiments are repeatable, their results only partially so". (C) Any models we use must be verifiable --- or at least criticizable --- and the probabilities we use must be frequencies.
 
 He then complained that Bayesian methods of parameter estimation, which express the result as a posterior distribution, are illogical; for how could the distribution of a parameter possibly become known from data which were taken with only one value of the parameter actually present? Assignment of prior probabilities was dismissed as an "uncriticizable assumption about a chance distribution".
+
 ## The Bayesian Reaction
+
 Let us note the instinctive first reaction that a Bayesian has to Barnard's arguments. His definition of "Statistics" seems to cut it off from most of the problems where we had been led to believe that "Statistics" was the appropriate tool. For it is simply a fact of life that in most of the real problems faced by scientists, engineers, economists, and administrators:
+
 (A) we are concerned with decision making, and with inference in general.
+
 (B) There is no repeatable experiment involved; the reason why inference is needed is not "random errors" but incomplete information.
+
 (C) Officially, Bayesians do not know what it means to "verify" a model or "criticize" a prior probability, because our models and prior probabilities are only summaries of what we know about the phenomenon being observed, and about the possible values of the parameters. The evidence in support of them has already been taken into account when we propose them.
+
 Unofficially, of course, we may wish like anybody else to make a "trial run" experiment with some model or prior that does not represent actual knowledge, but only a whimsy, to see what happens. This might, for example, help us to decide whether it would be worth the effort to get a certain kind of prior information.
+
 Barnard's subsequent complaint appears to us as an example of a semantic trap caused by habitual use of the phrase "distribution of the parameter" when one should have said "distribution of the probability". Our communication problems arise in large part from the difficulty that orthodox terminology is not adapted to expressing Bayesian ideas (in this respect it reminds one of the Orwellian NEWSPEAK, a language within whose vocabulary and grammar it was not possible to express dissenting views).
+
 In Bayesian inference, both the prior and posterior distributions represent, not any measurable property of the parameter, but only our own state of knowledge about it. The width of the distribution indicates not the range of variability of the true values of the parameter, but rather the range of values that are consistent with (i.e. not ruled out by) our prior information and data. Honesty therefore compels us to admit them as possible values.
+
 What is "distributed" is not the parameter, but the probability. A terminology which always makes this clear is much needed. The phraseology "probability distribution function (pdf) for a parameter" is a step in the right direction, but perhaps we might find something more brief and explicit.
+
 Barnard's argument is then absolutely mind-boggling to a Bayesian; for to try to "verify" a distribution which expresses only a state of knowledge about a parameter by performing random experiments on the parameter, is the logical equivalent of trying to verify a boy's love for his dog by performing experiments on the dog. But just to have our differences appear in such acute form suggests a plausible --- and at least to the writer, new and startling --- hypothesis about where our communication has failed.
+
 Is it possible that, for all these years, those who have seemed immune to all Bayesian explanation have just been misunderstanding our purpose? All this time, we had thought it clear from our subject-matter context that we are trying to estimate the value that the parameter had when the data were taken. Put differently, we are trying to draw inferences about what actually did happen; not about what might have happened but did not.
+
 Nothing could be further from our purpose than to make statements about how our parameter might be "distributed" in other situations that we are not reasoning about. Indeed, our posterior distribution for a parameter is not necessarily a predictive distribution for values that it might have in future experiments; this depends on further details of our prior knowledge, that were not relevant in the problem we had addressed.
+
 But now it appears that our critics may have been trying to interpret our work in a different way, imposed on them by their habits of terminology, as an attempt to solve a very different problem. If so, our past communication difficulties would become understandable: the problem they impute to us has --- as they correctly see --- no solution from the information at hand. The fact that we nevertheless get a solution then seems miraculous to them, and we are accused of trying to get something for nothing.
+
 "Statistics" as defined by Barnard and "Scientific Inference" as defined by Jeffreys are concerned with different problems; and so, far from having reason to argue the merits of our different methods, we have no reason to compare them at all. We can restore peace in both fields simply by going our separate ways.
+
 Yet it is clear that neither George Barnard nor I wants to do this; for we both see that, in spite of the above, our different problems are closely related mathematically. Rising above past criticisms --- which now appear to have been only misunderstandings of our purpose --- Bayesians are in a position to help orthodox statistics in some of its most serious current difficulties. For the Bayesian procedure is flexible enough to apply to many different problems, including both those of Barnard and Jeffreys.
+
 ## Let's Not Confuse Two Different Problems
+
 In the following it is essential that we understand clearly what the two problems are and which problem we are talking about.
+
 In the Jeffreys scenario we are estimating, from our prior information and data, the unknown constant value that the parameter had when the data were taken.
+
 In Barnard's we are deducing, from prior knowledge of the frequency distribution of the parameter over some large class C of repetitions of the whole experiment, the frequency distribution that it has in the subclass C(D) of cases that yield the same data D. The problems are so different that one would expect them to be solved by different procedures.
+
 But Bayesian inference need not adhere constantly to the Jeffreys problem, for nothing prohibits us from estimating a frequency distribution instead of a fixed value, if that happens to be the thing of interest. But instead of saying that the probability is the frequency, we would calculate the probability that the frequency lies in various intervals, enabling us to make statements about the accuracy of the estimate.
+
 Likewise, orthodox statistics could in principle switch back and forth between the problems of deducing conditional frequency distributions of a parameter, and inferring fixed values of a parameter, depending on whether the parameter is or is not considered "random". However, we are not sure that this switching has ever occurred, for we know of no real problem in which anyone has actually used Bayes' theorem for the purpose that Barnard supposed.
+
 In the case where the parameter is considered to be a fixed constant, application of Bayes' theorem for Barnard's purpose would indeed be illogical; or rather idle, for it presupposes that we already know, in the singular prior, the frequency distribution of the parameter in every subclass C(D), and so there is nothing more to be learned from the data.
+
 But we never know that singular frequency distribution in advance (if we did know it, we would not be considering the problem). Orthodox statistics then reverts necessarily to inference concerning a fixed value of the parameter rather than a distribution of values. Then the orthodoxian and Bayesian are trying to solve the same problem if neither has any prior information about the parameter; and it makes sense to argue our different philosophies and compare our different methods.
+
 ## What Happens if We Consider the Same Problem?
+
 Since orthodoxy sees no meaning in a probability which is not also a frequency, it is obliged to seek other tools than probability theory. Lacking guiding theoretical principles, Neymannian orthodoxy is reduced to inventing *ad hoc* procedures like confidence intervals or significance tests based on some statistic chosen by intuition.
+
 Fisherian orthodoxy is in a better position because it recognizes that such inference is valid only when we are using sufficient statistics or conditioning on ancillary statistics. Thus it avoids the wild anomalies that can arise in Neymannian inference, some of which were noted by Barnard.
+
 For the Bayesian, who does see meaning in a probability that is not a frequency, all the needed theoretical principles are contained in the product and sum rules of probability theory. He views them, not merely as rules for calculating frequencies (which they are, but trivially); but also rules for conducting inference --- a nontrivial property requiring mathematical demonstration. But that demonstration is a long since accomplished fact, as noted below, and the result is: those rules tell us to use Bayes' theorem in the manner of Laplace and Jeffreys. So how do the pragmatic results compare?
 
 An early indication of things to come was the demonstration by Jeffreys[^jeffreys1939] that the orthodox t-test follows exactly from a few lines of Bayesian analysis, using the Jeffreys uninformative priors for the location and scale parameters. The same is easily shown to be true for the F-test and the orthodox test for the parameter of a Poisson distribution.
@@ -72,17 +99,29 @@ For example, confidence intervals not based on sufficient statistics and not con
 On the other hand, whenever someone has claimed to exhibit an anomaly in Bayesian results, it has turned out that there was an error in the calculation or the Bayesian method was misapplied. Typically, the user has extra information, highly relevant for the inference, that he failed to take into account in the calculation. Venn's polemical attack on Laplace's Rule of Succession, answered by Fisher[^fisher1956], is perhaps the classic example.
 
 For Jeffreys' problem of inferring a fixed value, then, it seems to us a long since demonstrated fact --- on both the theoretical and pragmatic level --- that the orthodox statistician has a great deal to gain in useful results (and as far as we can see, nothing to lose but his ideological chains) by joining the Bayesian camp and finally taking advantage of the powerful tool that Harold Jeffreys created and offered to him 45 years ago. Failing to do this, he faces rapid obsolescence as the new applications of Jeffreys' principles pass far beyond his domain.
+
 ## Now Let's Consider Barnard's Problem
+
 But suppose we do want to infer a frequency distribution for a parameter according to Barnard's scenario; how do our methods compare? The orthodoxian will then allow the use of Bayes' theorem in principle, because he can interpret every probability in it as a frequency. The prior probability can stand only for a frequency in the large class C. But this is almost always unknown in the real problem, and so he can almost never use Bayes' theorem in practice. We do not know of any case where Barnard's scenario has actually been enacted.
+
 The orthodoxian also has a difficulty of principle. For, even if we did know the frequency distribution of the parameter on the large class C, we might not want to use it as a prior. Suppose we also happened to know something more, that did not involve frequencies, pertaining to the present experiment (for example, that because of special circumstances extreme values cannot occur). It appears to us that neither the orthodoxian's ideology nor his procedures would permit him to use that additional information to improve his estimates. Indeed, we suspect that he would not wish to consider the problem at all, because in this particular experiment the parameter would be, in his view, "not randomly selected".
+
 The difficulty applies equally well to the sampling distribution. Even if we knew the frequency distribution of samples for all values of the parameter, we might not want to use it as a sampling distribution. We might have knowledge of special circumstances that affect the possible values of data that can be observed in the present experiment (for example, that because of rotation of our spacecraft every third datum is subject to additional error not in the others, but we do not know which ones are thus affected). Surely, common sense will tell us that it would be wrong to analyze the problem as if we did not know this; yet what orthodox principles would determine, or even justify using, a procedure that takes this into account? To do so would be to admit, with Jeffreys, that in inference a probability stands for more than just a frequency.
+
 We do not contend that such difficulties will arise very often, but only want to point out that attempts to uphold frequency definitions of probability can lead to difficulties of principle whenever we have relevant information that does not consist of frequencies. Bayesian methods can take such information into account easily; such cases make the interesting homework problems for our students.
+
 In our view, orthodox principles could deal with Barnard's scenario satisfactorily only when we have perfect knowledge of frequencies, and no other relevant information (i.e., just the case where Bayesian probabilities are equal to frequencies). That is, when we have the frequency information that the orthodoxian must have but the Bayesian can get along without, but lack the extra information that the Bayesian can use but the orthodoxian cannot. So again, as in the case of confidence intervals, the orthodox procedure will be satisfactory only when our information is such that the orthodox results agree with the Bayesian ones.
+
 In contrast, the Bayesian is prepared to consider this problem in far greater generality and depth, because he can take into account any prior information that can be expressed by a prior distribution, and for this he is prepared to go into deeper and deeper hypothesis spaces. If he lacks knowledge of the frequency distribution of the parameter $\theta$ in class C, he can still assign, perhaps by maximum entropy, a prior that represents whatever partial information he has. If he has additional information about $\theta$ beyond frequencies, he can take this into account equally well.
+
 Most important of all, the Bayesian has a technical flexibility in that he can solve Barnard's problem, not on the parameter space B consisting of the possible values of $\theta$, but on the extension space $B(n) = B \times B \times \dots \times B$ comprising the jointly possible values $[	heta_1 \dots 	heta_n]$ of $\theta$ in each of any number of repetitions of the experiment. On this space it is possible to express information about the variability and correlations of $\theta$ in different experiments --- out to and including the limit of perfect correlation where he knows that $\theta$ is an unknown constant, and the results on $B(n)$ reduce to those of the previous elementary Bayesian analysis on B.
+
 By this means, we can transcend the crudity of supposing that the probability is the frequency, and develop the probability functional giving the relative probabilities of different frequency distributions, in the light of whatever information we have. In image reconstruction, physical chemistry, and geophysics we are now beginning to attack real problems where we have important prior information that can be expressed only on such an extension space.
+
 Failure to appreciate the work of Jeffreys has been very costly to the field of statistics for decades --- nearly fatal as far as the ability to participate in new developments is concerned. The nonBayesian area is being left far behind, as the new applications are taken over instead by younger scientists, who would never dream of consulting a statistician for advice, because they understand and use Bayesian analysis as naturally as they use Fourier analysis.
+
 Of course, the field is open-ended, and many more technical advances will be needed in the future as problems become more sophisticated. Yet the Bayesian remedy for the elementary shortcomings of orthodoxy is already highly developed, and is available to anyone.
+
 ## References
 [^cox1946]: Cox, R. T. (1946), "Probability, Frequency and Reasonable Expectation", *Am. J. Phys.* **14**, 1-13.
 [^fisher1956]: Fisher, R. A. (1956), *Statistical Methods and Scientific Inference*, Oliver & Boyd, London.

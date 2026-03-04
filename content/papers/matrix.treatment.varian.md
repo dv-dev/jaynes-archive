@@ -17,9 +17,9 @@ tags: ["Bloch equations", "nuclear induction", "matrix theory", "spin echoes", "
 
 ## SECTION I: BASIC CONSIDERATIONS
 
-I. Introduction
+### I. Introduction
 
-The following is an exposition of a method of finding solutions of the Bloch$^1$ equations for the case that the applied signal has a constant frequency and a stepwise constant amplitude. It has the advantage that formal solutions are carried out in matrix notation, where one can keep equations in reasonably neat form. Details are worked out only at the end of a calculation. Although it is probably true that no solutions can be found by matrix methods that could not have been found without them, the saving of labor due to the condensed notation makes a wider range of calculations feasible. In addition, the matrices have geometrical meanings that can be followed intuitively, so that one does not lose sight of the physical meaning of terms in the equations. In the analysis to follow we have in mind principally the elucidation of echo phenomena$^2$ resulting from applied pulses.
+The following is an exposition of a method of finding solutions of the Bloch[^1] equations for the case that the applied signal has a constant frequency and a stepwise constant amplitude. It has the advantage that formal solutions are carried out in matrix notation, where one can keep equations in reasonably neat form. Details are worked out only at the end of a calculation. Although it is probably true that no solutions can be found by matrix methods that could not have been found without them, the saving of labor due to the condensed notation makes a wider range of calculations feasible. In addition, the matrices have geometrical meanings that can be followed intuitively, so that one does not lose sight of the physical meaning of terms in the equations. In the analysis to follow we have in mind principally the elucidation of echo phenomena[^2] resulting from applied pulses.
 
 The Bloch equations will be taken in the form
 
@@ -29,23 +29,19 @@ in which we have assumed $T_1 = T_2$. Choose a coordinate system rotating about 
 
 $$ \frac{dA}{dt} = \frac{\partial A}{\partial t} + \omega \times A \quad (2) $$
 
-
-
 where the partial derivative is the rate of change as seen in the rotating system. In the rotating system the equation of motion is therefore
 
 $$ \frac{\partial M}{\partial t} + \frac{M - \chi H_o}{T} = M \times (\gamma H_o + \omega) + \gamma (M \times H_1) \quad (3) $$
 
 where $H_1$ is a vector at right angles to $H_o$, which is constant during a pulse, zero between pulses. In other words, $H_1$ is the component of the applied field rotating with the coordinate system. The component rotating in the other direction is neglected.
 
-II. Steady-state Solution
+### II. Steady-state Solution
 
 For the steady state we have $\frac{\partial M}{\partial t} = 0$, and (3) is a linear algebraic equation for M. If we write out the components it is readily solved by determinants, and the result summarized by the following lemma. The solution of $M + (B \times M) = A$, can be written in the two forms:
 
 $$ M = \frac{A + B(B \cdot A) + A \times B}{1 + B^2} \quad (4) $$
 
 $$ = \frac{(A \times B) + (A \times B) \times B}{1 + B^2} + A $$
-
-
 
 In our case,
 
@@ -68,8 +64,6 @@ $$ \left. \begin{aligned} \frac{\partial M}{\partial t} + \frac{M}{T} + B \times
 which is a system of three coupled linear equations with constant coefficients if the amplitude of the signal is unchanging. If M were a simple scalar this would be easily soluble, and in fact would be so even if the "driving-force" A were an arbitrary function of time. If all quantities are scalars and $\beta$ = constant, the equation
 
 $$ \frac{\partial M}{\partial t} + \beta M = A \quad (8) $$
-
-
 
 has the solution
 
@@ -96,8 +90,6 @@ $$ \beta = \begin{pmatrix} 0 & -B_z & B_y \\ B_z & 0 & -B_x \\ -B_y & B_x & 0 \e
 instead of (10). It is now easy to evaluate $\exp(-\beta t)$ by making use of the Cayley-Hamilton theorem according to which every matrix satisfies its own characteristic equation. This is
 
 $$ \det(\beta_{mn} - \lambda \delta_{mn}) = \sum_{k=0}^N C_k \lambda^k = 0 $$
-
-
 
 and in our case it reduces to
 
@@ -146,8 +138,6 @@ $$ \lambda(t) = e^{-(\frac{1}{T} + \beta)t} \quad (21) $$
 
 $$ \mu(t) = \int_0^t \lambda(t-t') dt' = \int_0^t \lambda(t') dt' $$
 
-
-
 $\lambda$ is the product of the rotation matrix (18) already discussed and an exponential damping factor $\exp(-t/T)$. Therefore $\lambda(t)$ operating on any fixed vector results in a vector that rotates about $\vec{B}$ with angular velocity $b = [(\gamma H_o - \omega)^2 + \omega_1^2]^{1/2}$, at the same time shrinking in magnitude so that its tip describes a spiral on a cone, as illustrated in Figure 1. This will be called the $\lambda$-cone.
 
 [**FIGURE 1**]
@@ -160,8 +150,6 @@ Formal evaluation of $\mu(t)$ by substituting (17) into (21) and performing the 
 $$ \mu(t) = \int_0^t e^{-(\frac{1}{T} + \beta)t'} dt' = (\frac{1}{T} + \beta)^{-1} \left[ 1 - e^{-(\frac{1}{T} + \beta)t} \right] \quad (22) $$
 
 $$ = (\frac{1}{T} + \beta)^{-1} [1 - \lambda(t)] = [1 - \lambda(t)] (\frac{1}{T} + \beta)^{-1} $$
-
-
 
 In the last step we have noted that since $\lambda(t)$ and $(\frac{1}{T} + \beta)^{-1}$ are both functions of the same matrix $(\frac{1}{T} + \beta)$, they must commute with each other.
 
@@ -177,8 +165,6 @@ $$ M(\infty) = (\frac{1}{T} + \beta)^{-1} A \quad (24) $$
 
 As a check on the calculation thus far, we note that (24) should agree with the steady-state solution already found directly in Equation (6). To verify this we need to evaluate the inverse of the matrix $(\frac{1}{T} + \beta)$. Since it is only a 3 x 3 matrix, this is not too difficult to do by determinants; The result is
 
-
-
 $$ (\frac{1}{T} + \beta)^{-1} = \frac{T^3}{1+b^2T^2} \begin{pmatrix} \left( \frac{1}{T^2} + B_x^2 \right) & \left( \frac{B_z}{T} + B_x B_y \right) & \left( B_x B_z - \frac{B_y}{T} \right) \\ \left( B_x B_y - \frac{B_z}{T} \right) & \left( \frac{1}{T^2} + B_y^2 \right) & \left( B_y B_z + \frac{B_x}{T} \right) \\ \left( B_x B_z + \frac{B_y}{T} \right) & \left( B_y B_z - \frac{B_x}{T} \right) & \left( \frac{1}{T^2} + B_z^2 \right) \end{pmatrix} \quad (25) $$
 
 From (7) we find that A is
@@ -191,8 +177,6 @@ $$ M(\infty) = \frac{\chi H_o T^2}{1+b^2 T^2} \begin{pmatrix} B_x B_z - \frac{B_
 
 or, returning to the usual notation,
 
-
-
 $$ M_x(\infty) = \chi H_o \frac{\gamma H_1 (\gamma H_o - \omega) T^2}{1 + T^2 \left[ (\gamma H_o - \omega)^2 + \gamma^2 H_1^2 \right]} $$
 
 $$ M_y(\infty) = \chi H_o \frac{\gamma H_1 T}{1 + T^2 \left[ (\gamma H_o - \omega)^2 + \gamma^2 H_1^2 \right]} \quad (28) $$
@@ -204,8 +188,6 @@ This agrees with Equation (6) and with Equation (57) of Reference 1 for the case
 The initial value of the transient term in (23) is just the departure of the initial polarization from the steady-state value, and since $\lambda(t)$ is a sort of matrix analogue of an exponential damping factor, the general form of the solution is unexpectedly simple; in matrix notation it is exactly like the formula for exponential build-up of voltage in a simple RC circuit.
 
 We now work out the explicit expression for the transient term $\lambda(t) [M(0) - M(\infty)]$. This can be done algebraically using the expression (17) for $\lambda(t)$; or it may be reasoned out geometrically from the picture of the $\lambda$-cone in Figure 1. Putting $[M(0) - M(\infty)] = M'$ for brevity, the result in vector notation, is
-
-
 
 $$ \lambda(t)M' = e^{-t/T} \left\{ \frac{B(B \cdot M')}{b^2} + \left[ M' - \frac{B(B \cdot M')}{b^2} \right] \cos bt + \frac{M' \times B}{b} \sin bt \right\} \quad (29) $$
 
@@ -220,8 +202,6 @@ $$ \lambda(t) M' = e^{-t/T} \left\{ M' \cos bt + \frac{M' \times B}{b} \sin bt \
 Intermediate results needed in evaluation of (31) are
 
 $$ M' = \frac{\chi H_o \omega_1 T}{1+b^2T^2} \begin{pmatrix} - \Delta \omega T \\ -1 \\ \omega_1 T \end{pmatrix} \quad (32) $$
-
-
 
 $$ M' \times B = \frac{\chi H_o \omega_1 T}{1+b^2T^2} \begin{pmatrix} - \Delta \omega \\ b^2 T \\ \omega_1 \end{pmatrix} \quad (33) $$
 
@@ -239,8 +219,6 @@ $$ (\lambda M')_{\text{lab}} = \Omega(t) (\lambda M')_{\text{rotating}} \quad (3
 
 where $\Omega(t)$ is the matrix
 
-
-
 $$ \Omega(t) = \begin{pmatrix} \cos \omega t & + \sin \omega t & 0 \\ - \sin \omega t & \cos \omega t & 0 \\ 0 & 0 & 1 \end{pmatrix} \quad (37) $$
 
 which represents a rotation about the z-axis through an angle $\omega t$. Thus, the transient in the laboratory system is
@@ -248,8 +226,6 @@ which represents a rotation about the z-axis through an angle $\omega t$. Thus, 
 $$ (\lambda M')_{\text{lab}} = \frac{\chi H_o \omega_1 T e^{-t/T}}{b(1+b^2T^2)^{1/2}} \begin{pmatrix} - \Delta \omega \sin(bt + \theta) \cos \omega t - b \cos(bt + \theta) \sin \omega t \\ \Delta \omega \sin(bt + \theta) \sin \omega t - b \cos(bt + \theta) \cos \omega t \\ \omega_1 \sin(bt + \theta) \end{pmatrix} \quad (38) $$
 
 Remembering that $\omega \gg b$, we see that the output signal, proportional to the y-component of (38) can be described as a signal of frequency $\omega$ whose amplitude varies at the nutation frequency b, the ripples also dying out according to $\exp(-t/T)$. To get our final expression for the signal amplitude as a function of time, we must convert the expression (28) for $M(\infty)$ to the laboratory system with the $\Omega$ matrix and then add the y-components of (38) and the resulting vector. The steady-state solution in the laboratory system is
-
-
 
 $$ [M(\infty)]_{\text{lab}} = \Omega(t) [M(\infty)]_{\text{rot}} = \frac{\chi H_o}{1+b^2 T^2} \begin{pmatrix} \omega_1 \Delta \omega T^2 \cos \omega t + \omega_1 T \sin \omega t \\ - \omega_1 \Delta \omega T^2 \sin \omega t + \omega_1 T \cos \omega t \\ (1 + \Delta \omega^2 T^2) \end{pmatrix} \quad (39) $$
 
@@ -265,8 +241,6 @@ $$ M_y = \chi H_o \left[ \frac{1}{\omega_1 T} - e^{-t/T} \cos(\omega_1 t + \thet
 
 In this case, although the final amplitude is small, the time required for saturation to develop is many relaxation periods.
 
-
-
 ### V. General Formalism for Coherent Pulses
 
 With the Solution (20) we can construct the response to a train of pulses as follows (see Figure 2). Initially, the polarization has some arbitrary value M(0). Then a pulse is turned on for a time $t_1$. At the end of the pulse, the polarization is given as $M(t_1)$ by (20). For the next period $t_2$ between pulses, this value of M is used as the initial condition, and the Solution (20) gives $M(t_1 + t_2) = M(\tau)$, the polarization just at the beginning of the second pulse. This value of initial polarization is then used as the initial condition for the third period, giving the value of $M(t_1 + \tau)$ just at the end of the second pulse. This can be carried on indefinitely, and one sees that by repeated application of (20) we can get the response to any signal whose frequency is constant and whose amplitude varies as a step-function.
@@ -275,8 +249,6 @@ With the Solution (20) we can construct the response to a train of pulses as fol
 
 FIGURE 2
 Train of Coherent Pulses
-
-
 
 Clearly, however, if this process were carried out in such a direct manner, the amount of labor involved would be enormous, and the results so complicated that one could not understand them. In order to get the answer at all, a more elegant method is needed. First let us work out from (20) the relation between polarization at times separated by one repetition period of the pulses. This will provide a difference equation which we might hope to solve.
 
@@ -291,8 +263,6 @@ and eliminating $M_n'$, we have
 $$ M_{n+1} = \lambda_2 \lambda_1 M_n + (\lambda_2 \mu_1 + \mu_2) A \quad (43) $$
 
 $$ = \alpha M_n + Q $$
-
-
 
 The important thing is that the matrix
 
@@ -312,14 +282,10 @@ $$ M_\infty = \frac{1}{1 - \alpha} Q \quad (47) $$
 
 for the polarization just at the beginning of a pulse. (Since all the eigenvalues of $\alpha$ are less than unity, we have $\lim_{n \to \infty} \alpha^n = 0$). Equation (46) gives one a good over-all picture of the situation. The quantity in brackets is the departure of the initial polarization from its steady-state value, and each succeeding pulse reduces this "error" by the same factor $\alpha$.
 
-
-
 The Solution (46) may be interpreted geometrically in a manner analogous to the picutre of the $\lambda$-cone in Figure 1. According to Equation (44) the matrix $\alpha$ is the product of an exponential damping factor and the two rotation matrices $\exp(-\beta_2 t_2)$ and $\exp(-\beta_1 t_1)$. Now since all rigid rotations form a group, the product of any two rotations about different axes is equivalent to some rotation about a third axis. Therefore the matrix $\alpha$ is itself a $\lambda$-matrix; that is, it represents a rigid rotation with accompanying exponential decrease of length, and thus any power of $\alpha$ converts a given vector into one lying on the surface of a cone, as in Figure 3. The operator $\alpha^n$ converts the vector A into one whose tip is at the point indicated. This is a discrete version of a $\lambda$-cone.
 
 [**FIGURE 3: The $\alpha$-cone**]
 FIGURE 3. The $\alpha$-cone
-
-
 
 We note that any transient in the presence of coherent pulses has the following property. If we look at the polarization only at the same instant in each repetition period, we see the difference between present value and final value decaying to zero by discrete jumps along the $\alpha$-cone. At other times during the repetition period the polarization does not lie on the spiral curve connecting the points in Figure 3, but it describes a more complicated path from one point to the next.
 
@@ -336,8 +302,6 @@ $$ M(n \tau + t_1 + t) = \lambda_2(t) \lambda_1(t_1) M_n \quad (49) $$
 $$ + \left[ \lambda_2(t) \mu_1(t_1) + \mu_2(t) \right] A, \quad (0 \leq t \leq t_2) $$
 
 If the train of pulses is stopped after the n'th, then the subsequent behavior is given by (49) in which t is not bounded.
-
-
 
 ### VI. Steady State Under Action of Coherent Pulses
 
@@ -358,8 +322,6 @@ Here we have recognized the vectors
 $$ M_1(\infty) = (\frac{1}{T} + \beta_1)^{-1} A \quad (51) $$
 
 $$ M_2(\infty) = (\frac{1}{T} + \beta_2)^{-1} A = \chi H_o $$
-
-
 
 as the steady-state values from (24), which would be reached if the signal were left on and off respectively (the latter being of course just the static polarization produced by the magnet). $M_1(\infty)$ has been given explicitly in Equations (27) and (28). We may now write the pulsed steady-state polarization (47) in the form:
 
@@ -389,8 +351,6 @@ or
 
 $$ \begin{pmatrix} n_z & n_x - i n_y \\ n_x + i n_y & -n_z \end{pmatrix} \begin{pmatrix} \psi_+ \\ \psi_- \end{pmatrix} = \begin{pmatrix} \psi_+ \\ \psi_- \end{pmatrix} \quad (54) $$
 
-
-
 Writing out the first row of (54), we have
 
 $$ \frac{\psi_+}{\psi_-} = \frac{n_x - i n_y}{1 - n_z} = \cot \frac{\theta}{2} e^{-i\phi} \quad (55) $$
@@ -406,8 +366,6 @@ Thus the direction of the spin axis depends only on the ratio of the components 
 $$ |\psi|^2 \equiv |\psi_+|^2 + |\psi_-|^2 = M \quad (57) $$
 
 (in quantum mechanics this quantity would be interpreted as the probability density for finding the particle with either sign of spin). Now
-
-
 
 $$ M_x = M \sin \theta \cos \phi $$
 $$ M_y = M \sin \theta \sin \phi \quad (58) $$
@@ -427,8 +385,6 @@ Some ambiguity in $\psi$ remains; $\psi_+$ and $\psi_-$ may be changed to $\psi_
 $$ \psi_+ = M^{1/2} \cos \frac{\theta}{2} e^{-i \frac{\phi}{2}} \quad (60) $$
 $$ \psi_- = M^{1/2} \sin \frac{\theta}{2} e^{i \frac{\phi}{2}} $$
 
-
-
 and now only one ambiguity in the correspondence between $\psi$ and M remains; the spinors $\psi$ and $-\psi$ both correspond to the same M. This last ambiguity cannot be removed, as we will show presently. It arises fundamentally from the topological properties of the rotation group, and all representations corresponding to half-odd integer spin are double-valued.
 
 Now for any real number $\xi$, consider the matrix $\exp(-i \sigma_z \frac{\xi}{2})$, defined by its power series. Since $\sigma_z^2 = 1$, it is equal to
@@ -442,8 +398,6 @@ $$ e^{-i \sigma_z \frac{\xi}{2}} \psi(\theta, \phi) = \begin{pmatrix} M^{1/2} \c
 Therefore, $\exp(-i \sigma_z \xi/2)$ represents a rotation about the z-axis through an angle $\xi$. Similarly, it may be shown that the matrix
 
 $$ e^{-i \sigma_x \frac{\eta}{2}} = 1 \cos \left( \frac{\eta}{2} \right) - i \sigma_x \sin \left( \frac{\eta}{2} \right) = \begin{pmatrix} \cos \frac{\eta}{2} & -i \sin \frac{\eta}{2} \\ -i \sin \frac{\eta}{2} & \cos \frac{\eta}{2} \end{pmatrix} \quad (63) $$
-
-
 
 represents a rotation about the x-axis through an angle $\eta$, etc.
 
@@ -461,8 +415,6 @@ $$ \alpha = \cos \frac{\eta}{2} e^{-i \left( \frac{\xi + \zeta}{2} \right)} \qua
 $$ \beta = -i \sin \frac{\eta}{2} e^{-i \frac{\xi - \zeta}{2}} $$
 
 To find the axis and magnitude of the resulting rotation, we need the law of composition of rotations. This is easily derived from (64): The axis and angle (n, $\theta$) of the resultant of the rotation ($n_1, \theta_1$) followed by
-
-
 
 ($n_2, \theta_2$), are determined by the relation
 
@@ -484,8 +436,6 @@ Equating real and imaginary parts of (68) then gives the desired composition law
 
 $$ w = \frac{w_1 + w_2 + (w_2 \times w_1)}{1 - (w_2 \cdot w_1)} \quad (70) $$
 
-
-
 This rule is applied twice to find the resultant of the three successive rotations
 
 $$ w_1 = \tan \frac{\xi}{2} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}, \quad w_2 = \tan \frac{\eta}{2} \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad w_3 = \tan \frac{\zeta}{2} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \quad (71) $$
@@ -502,8 +452,6 @@ But the rotation during a pulse is given by the vector
 
 $$ w = \begin{pmatrix} \cos \phi \tan \frac{bt}{2} \\ 0 \\ \sin \phi \tan \frac{bt}{2} \end{pmatrix} \quad (74) $$
 
-
-
 Comparing (73), (74), we get
 
 $$ \tan \xi = \sin \phi \tan \frac{bt}{2} \quad (75) $$
@@ -516,20 +464,11 @@ $$ \beta = -i \sin \frac{\eta}{2} = -i \cos \phi \sin \frac{bt}{2} $$
 
 These relations are the same as Equation (13) of the following section.
 
-
-
-BIBLIOGRAPHY
-
-1. F. Bloch, Phys. Rev. 70, 460 (1946)
-2. E. Hahn, Phys. Rev. 80, 580 (1950)
-
-
-
 ## SECTION II: THEORY OF SPIN ECHO
 
 ### I. Introduction
 
-Some of the most interesting solutions of Bloch's$^1$ equations are those that have to do with spin echoes. Spin echoes were first discovered by Hahn$^2$, who in his original paper derived solutions for simple two- and three-pulse echoes using long notation. In this paper, we shall rederive Hahn's original results using matrix methods and we will extend the results to problems considerably more complicated than those handled in Hahn's original derivations. We shall also derive an approximate solution for nuclear induction in an amplitude-modulated r-f field.
+Some of the most interesting solutions of Bloch's[^1] equations are those that have to do with spin echoes. Spin echoes were first discovered by Hahn[^2], who in his original paper derived solutions for simple two- and three-pulse echoes using long notation. In this paper, we shall rederive Hahn's original results using matrix methods and we will extend the results to problems considerably more complicated than those handled in Hahn's original derivations. We shall also derive an approximate solution for nuclear induction in an amplitude-modulated r-f field.
 
 Our purpose in carrying out these derivations and studying the solutions is to see how we can use the spin echo analysis to predict all the signals that may be expected out of a nuclear resonance probe in a very inhomogeneous field. If one derives solutions for the net polarization directly from Bloch's equations, it is then necessary to integrate over all values of field $\Delta \omega$ in order to obtain a solution which corresponds to an observable signal. In the spin echo analysis, however, the integration is done implicitly and we merely look for characteristic terms in the solution which predict a signal. Our approach will be to expect that, in general, polarizations corresponding to different values of $\Delta \omega$ will at any instant point in different directions in the xy-plane so that on the average they cancel out and produce no net signal. The exception to this rule which will produce a signal is as follows: if the term corresponding to the polarization in the xy-plane contains a factor of the form $e^{i \Delta \omega (t - t_1)}$, we shall expect a signal, or coherence as we shall sometimes call it, at time $t_1$. We shall find that this type of analysis is capable of predicting not only the times at which signals occur, but can also give considerable information about the amplitudes and shapes of signals.
 
@@ -543,7 +482,7 @@ $$ \frac{d\vec{M}}{dt} + \frac{\vec{M}}{T} + \vec{B} \times \vec{M} = \frac{M_o 
 
 where $B = \gamma H - \omega_o$.
 
-For simplicity we shall refer to B as the effective field, although it is actually written in frequency units. The general solution of Equation (2) for r-f fields of fixed frequency and variable amplitude has been derived by Section I$^3$. The solution during a steady step or pulse of r-f can be described by
+For simplicity we shall refer to B as the effective field, although it is actually written in frequency units. The general solution of Equation (2) for r-f fields of fixed frequency and variable amplitude has been derived by Section I[^3]. The solution during a steady step or pulse of r-f can be described by
 
 $$ \vec{M}(t) = e^{-t/T} e^{-\beta t} \vec{M}_1 + (1 - e^{-t/T} e^{-\beta t}) \vec{M}_2, \quad (3) $$
 
@@ -554,8 +493,6 @@ $$ \vec{M} = M_x \sigma_x + M_y \sigma_y + M_z \sigma_z \quad (4) $$
 where the $\sigma$ are the Pauli spin operators for particles of spin one-half. In such a notation, the polarization vector M can be written as
 
 $$ \vec{M} = \begin{pmatrix} M_z & M_x - i M_y \\ M_x + i M_y & -M_z \end{pmatrix} \quad (5) $$
-
-
 
 For simplicity, we shall hereafter denote M only by its subscripts, thus
 
@@ -569,11 +506,9 @@ where Q* is the hermitean adjoint. In detail the matrix, Q, can be written as
 
 $$ Q = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}, \quad (8) $$
 
-where $\alpha, \beta, \gamma$, and $\delta$ are known as the Cayley-Klein parameters$^4$. If on the other hand, M is written as a simple three-component vector
+where $\alpha, \beta, \gamma$, and $\delta$ are known as the Cayley-Klein parameters[^4]. If on the other hand, M is written as a simple three-component vector
 
 $$ \vec{M} = \begin{pmatrix} x_+ \\ x_- \\ z \end{pmatrix}, \quad (9) $$
-
-
 
 then we can write
 
@@ -590,8 +525,6 @@ We shall describe the precessional motion in terms of the Cayley-Klein parameter
 $$ \left. \begin{aligned} b = |B| \\ \\ \phi = \tan^{-1} \frac{\gamma H_o - \omega}{\gamma H_1} \end{aligned} \right\} \quad (12) $$
 
 then $Q = e^{-\beta t}$ is described as
-
-
 
 $$ \alpha = \cos \frac{bt}{2} - i \sin \phi \sin \frac{bt}{2} $$
 
@@ -611,8 +544,6 @@ In order to show in a simple manner how our analysis will work, we shall conside
 
 3. The effect of the second pulse, in Hahn's experiments where all moments are fairly near resonance, is to rotate the entire moment distribution about the x-axis. In this analysis, we shall accomplish the same thing by transforming x+ (t) into x- (t) thus x+ $e^{i \Delta \omega t}$ transforms into x- $e^{-i \Delta \omega t_1}$, and vice versa.
 
-
-
 4. At the end of the second pulse, the new x+ can be written as x- $e^{-i \Delta \omega t_1}$; after a time t this becomes (x- $e^{-i \Delta \omega t_1}$) $e^{i \Delta \omega t}$ which can be written as x- $e^{i \Delta \omega (t - t_1)}$.
 
 We see by this simple means that we can predict the presence of an echo at a time $t_1$ following the second pulse. We can obtain the amplitude of the echo, neglecting relaxation and diffusion effects, directly from the matrix elements of the transformations described in steps 1 through 4. Thus, looking at the R matrix in Equation (11), we see that the matrix element for step 1 is $(2 \gamma \delta)$, for step 2 it is unity since the transformation is already described by the term $e^{i \Delta \omega t}$, for step 3 the matrix element is $-\beta^2$, and for step 4 it is again unity. Thus, the amplitude of the echo is proportional to $-2 \gamma \delta \beta^2$. If both pulses are identical and if we consider the nuclear moments very close to resonance so that $\phi \approx 0$, then
@@ -621,29 +552,23 @@ $$ -2 \gamma \delta \beta^2 = \sin bt \sin^2 \frac{bt}{2}. \quad (14) $$
 
 This is identical to the expression for the echo amplitude derived in a relatively laborious way by Hahn. However, our analysis is not only more direct but can also be applied to any arbitrary value of $\Delta \omega$ as well as for two arbitrary unequal pulses having different r-f amplitudes and lengths. A more general equation for this echo amplitude will be given in Equation (22).
 
-
-
 ### III. General Analysis
 
-A. Introduction
+#### A. Introduction
 
 In this section we shall calculate the amplitudes and shapes of signals in an idealized situation in which both $T_1$ and $T_2$ (if they are not equal) are very long compared to the times required to do the experiments, and in which self-diffusion effects are absent. For each instant of time we must solve the corresponding Equation (3):
 
 $$ M(t) = e^{-t/T} e^{-\beta t} \vec{M}_1 + (1 - e^{-t/T} e^{-\beta t}) \vec{M}_2. \quad (3) $$
 
-It is customary in treatments of spin echo$^{2, 5}$ to assume an initial polarization $\vec{M} = M_o \vec{z}$ prior to the first pulse, and to solve only for the first term in (3), ignorning the effect of $M_2$. The neglect of this second term during the time between pulses, when it corresponds to a recovery of initial polarization, is justifiable only for long relaxation times; actually the recovery is quite useful for the measurement of $T_1$. Neglect of $(1 - e^{-t/T} e^{-\beta t}) M_2$ during a pulse is not so easily justified. In most spin echo experiments, however, the r-f level, if left on continuously, would correspond to a high degree of saturation; in such cases it can be shown that $\vec{M}_2$ is either very small or is nearly parallel to $\vec{B}$, so that the total effect of the term is small. It is nevertheless clear that there are circumstances under which one cannot neglect $M_2$, even for relatively short pulses and intense radio frequency.
-
-
+It is customary in treatments of spin echo[^2][^5] to assume an initial polarization $\vec{M} = M_o \vec{z}$ prior to the first pulse, and to solve only for the first term in (3), ignorning the effect of $M_2$. The neglect of this second term during the time between pulses, when it corresponds to a recovery of initial polarization, is justifiable only for long relaxation times; actually the recovery is quite useful for the measurement of $T_1$. Neglect of $(1 - e^{-t/T} e^{-\beta t}) M_2$ during a pulse is not so easily justified. In most spin echo experiments, however, the r-f level, if left on continuously, would correspond to a high degree of saturation; in such cases it can be shown that $\vec{M}_2$ is either very small or is nearly parallel to $\vec{B}$, so that the total effect of the term is small. It is nevertheless clear that there are circumstances under which one cannot neglect $M_2$, even for relatively short pulses and intense radio frequency.
 
 The conditions of our experiment are such that we need to calculate only the term in $\vec{M}_1$. Since we start out with only a z component of polarization and wish to know the component in the xy plane after a given elapsed time, it is sufficient to calculate the corresponding matrix element, $(- 2 \alpha \beta)$ in (11), connecting z and (x - iy). [We could just as well use its complex conjugate, $(2 \gamma \delta)$, connecting z with $(x + iy)$]. It is necessary to multiply together the matrices corresponding to the pulses and the intervals between pulses, but rather than multiply 3 x 3 matrices it is far simpler to multiply the corresponding 2 x 2 Q-matrices and then multiply together the final $\alpha$ and $\beta$. Analysis will then consist of inspection of the product $(- 2 \alpha \beta)$.
 
-When the matrices are displayed it is fairly evident how one may modify them to include the effects of relaxation and self-diffusion. These effects have already been calculated in detail for two- and three-pulse systems$^{2, 5}$, and it does not appear that their applications to more complex systems will produce much that is physically new or interesting. Exceptions to this latter statement will be discussed qualitatively.
+When the matrices are displayed it is fairly evident how one may modify them to include the effects of relaxation and self-diffusion. These effects have already been calculated in detail for two- and three-pulse systems[^2][^5], and it does not appear that their applications to more complex systems will produce much that is physically new or interesting. Exceptions to this latter statement will be discussed qualitatively.
 
-B. Events Following a Single Pulse
+#### B. Events Following a Single Pulse
 
 All events occurring during the first pulse will be referred to by subscript 1, those following the pulse by subscript 2 (Figure 2). The Q matrix for the transformations involved is given by
-
-
 
 $$ Q = \begin{pmatrix} e^{-i \frac{\Delta \omega t'_2}{2}} & 0 \\ 0 & e^{i \frac{\Delta \omega t'_2}{2}} \end{pmatrix} \begin{pmatrix} \alpha_1 & \beta_1 \\ \gamma_1 & \delta_1 \end{pmatrix} \quad (15) $$
 
@@ -657,7 +582,7 @@ $$ -2 \alpha \beta = (\sin 2 \phi \sin^2 \frac{b t_1}{2} + i \cos \phi \sin b t_
 
 In studying (17), we first observe that the formula predicts a coherence immediately after the end of the pulse, at $t'_2 = 0$. This is usually known as the free decay following the pulse, and has been observed by Torrey, Hahn and others. We shall have more to say about the detailed shape of this free decay later. In addition to the free decay, however, (17) also predicts a small signal at a time following the pulse equal to the length of the pulse, i.e., when $t'_2 = t_1$. To see why this is so, we observe that for very large values of $\Delta \omega$, b is very nearly equal to $\Delta \omega$. If we then substitute $\Delta \omega$ for b in (17), we observe terms of the form $e^{i \Delta \omega (t'_2 - t_1)}$. This coherence, which we shall call an "edge echo" is of relatively small amplitude and is produced only by the nuclear moments that are far from resonance. An experimental example of edge echos is shown in Figure 3.
 
-C. Events Following Second Pulse
+#### C. Events Following Second Pulse
 
 The Q matrix corresponding to all the transformations up to time interval 4 is
 
@@ -685,9 +610,7 @@ This reduces to Equation (14) for the special case considered there.
 
 In addition to the free decay and the echo following the second pulse, there is an "edge echo" following the second pulse and both preceding and following the echo. These may be deduced by an examination of the corresponding matrix elements. We will not discuss them further.
 
-
-
-D. Three Pulses with Unequal Spacing*
+#### D. Three Pulses with Unequal Spacing*
 
 We will assume initially that $t_4 > t_2$, thus the two-pulse echo has had time to occur before the onset of the third pulse (see Figure 4). Corresponding to this situation, we can write a Q matrix which will be a product of six matrices corresponding to the six time intervals after the third pulse. We shall not be concerned at the moment with the coefficients of these matrix elements but shall look only at the exponents in the matrix elements $\alpha, \beta$. Both $\alpha$ and $\beta$ consist of four terms with the following exponents:
 
@@ -695,13 +618,9 @@ $$ e^{-2 -4 -6'}, \quad e^{-2 +4 -6'}, \quad e^{+2 -4 -6'}, \quad e^{+2 +4 -6'} 
 
 When we multiply these together to obtain $(-2 \alpha \beta)$ we obtain ten terms corresponding to the combinations of the terms in (23) taken two at a time. Of these ten terms, two of them occur at $t'_6 = 0$ and represent the free decay following the third pulse. Of the remaining eight terms, four must occur at negative time $t_6$ and four at positive time. We temporarily disregard those at negative time and consider those at positive time, which predict echoes. What are the coherences for which these terms in $t_6$ are the echoes? Prior to the third pulse, the only coherences are the free decay following each of the first two pulses plus the echo. These coherences are reflected in inverted order in $t_6$ at their appropriate times. They form the only possible two-pulse echoes which can occur in $t_6$; however, we have just found that there must be four echoes instead of three in the time $t_6$ following the third
 
-
-
 * We shall neglect the edge echoes from here on.
 
-
-
-pulse. There is therefore one echo which cannot be explained in terms of two pulses. This echo which occurs at $t'_6 = t_2$ is called by Hahn the "stimulated echo". In terms of Hahn's vector diagrams$^2$ the moment distribution, after fanning out during the time $t_2$, is turned only $90^\circ$; the distribution is then stacked in different positions in the z direction which remain unchanged during time $t_4$. After the third pulse the distribution is returned to the xy plane. From the term $(-2 \alpha \beta)$ corresponding to the situation in Figure 4, we find that the coefficient of $e^{-i \Delta \omega (t'_6 - t_2)}$ is
+pulse. There is therefore one echo which cannot be explained in terms of two pulses. This echo which occurs at $t'_6 = t_2$ is called by Hahn the "stimulated echo". In terms of Hahn's vector diagrams[^2] the moment distribution, after fanning out during the time $t_2$, is turned only $90^\circ$; the distribution is then stacked in different positions in the z direction which remain unchanged during time $t_4$. After the third pulse the distribution is returned to the xy plane. From the term $(-2 \alpha \beta)$ corresponding to the situation in Figure 4, we find that the coefficient of $e^{-i \Delta \omega (t'_6 - t_2)}$ is
 
 $$ (-2 \alpha \beta)_{t'_6 = t_2} = -4 \gamma_1 \delta_1 \beta_3 \delta_3 \alpha_5 \beta_5 \quad (24) $$
 
@@ -711,9 +630,9 @@ $$ (-2 \alpha \beta)_{t'_6 = t_2} = 1/2 \sin^3 bt \quad (25) $$
 
 in agreement with the result calculated by Hahn.
 
-E. Three Equally Spaced Pulses
+#### E. Three Equally Spaced Pulses
 
-The numbers of echoes and their amplitudes is also a function of the positions of the pulses. In section D above we were careful to state that the third pulse should occur after the simple echo following the first two pulses. Obviously, if the third pulse occurs too soon, certain "echoes of echoes" cannot occur and the amplitudes and the numbers of the echoes following the third pulses will be different. This has been briefly mentioned by Hahn$^2$. Here we will discuss an interesting special case, that of three equally spaced pulses ($t_2 = t_4$). In this particular case, there will be only two echoes following the third pulse and these echoes will be spaced so as to continue the original pulse train.
+The numbers of echoes and their amplitudes is also a function of the positions of the pulses. In section D above we were careful to state that the third pulse should occur after the simple echo following the first two pulses. Obviously, if the third pulse occurs too soon, certain "echoes of echoes" cannot occur and the amplitudes and the numbers of the echoes following the third pulses will be different. This has been briefly mentioned by Hahn[^2]. Here we will discuss an interesting special case, that of three equally spaced pulses ($t_2 = t_4$). In this particular case, there will be only two echoes following the third pulse and these echoes will be spaced so as to continue the original pulse train.
 
 The details of the calculations are the same as in the preceding cases, and we shall merely state the result for the coefficient of the echo which occurs at a time $t_2$ (or $t_4$) following the third pulse, i.e., the first of the two echoes. This coefficient is given by
 
@@ -721,11 +640,9 @@ $$ (-2 \alpha \beta)_{t'_6 = t_2} = -2 \left[ 2 \gamma_1 \delta_1 \beta_3 \delta
 
 Although one would expect a phenomenon such as this to be complicated, a description of what is happening in (26) is really quite simple. The first term we recognize from (24) to be the formula for the three-pulse "stimulated" echo. In the second term, the first section $(\alpha_1 \delta_1 + \beta_1 \gamma_1)$ we recognize from (11) to be the matrix element in R which leaves the Z component unchanged; the rest of this term is the formula for the two-pulse echo produced by the second and third pulses. We thus get the rather amusing result that the echo is merely the direct sum of two echoes, one of which is the stimulated echo produced by the three pulses, the other is the two-pulse echo of the free decay following the second pulse. One might think that such a direct sum of echoes would be likely under certain conditions to give an amplitude greater than the original polarization; however, an analysis of the coefficients shows that this is not so.
 
+#### F. More Than Three Pulses
 
-
-F. More Than Three Pulses
-
-In his original article, Hahn$^2$ pointed out the existence of two- and three-pulse echoes. It was of interest in connection with this project to find out if these were the only types of echoes that could be produced, or if there were also echoes that could be understood only in terms of four pulses, five pulses, or n pulses. In this discussion, we shall not try to prove the existence of n-pulse echoes for any n but we shall investigate the possibility that there exist four-pulse echoes, which will imply that if such things exist there may also exist echoes that could be formed only with n > 4 pulses.
+In his original article, Hahn[^2] pointed out the existence of two- and three-pulse echoes. It was of interest in connection with this project to find out if these were the only types of echoes that could be produced, or if there were also echoes that could be understood only in terms of four pulses, five pulses, or n pulses. In this discussion, we shall not try to prove the existence of n-pulse echoes for any n but we shall investigate the possibility that there exist four-pulse echoes, which will imply that if such things exist there may also exist echoes that could be formed only with n > 4 pulses.
 
 We suppose that we apply four pulses spaced so that all echoes which can be produced by any one set of pulses occur before the next pulse is applied (Figure 4). The calculation proceeds in exactly the same way as for the case of three unequally spaced pulses; it is somewhat laborious and there is no point in showing the details. We will point out, however, that the matrix elements $\alpha \beta$ each consist of eight terms which, taken two at a time and combining similar exponents, gives a total of 36 terms in the product $-2 \alpha \beta$. Of these 36 terms, four occur at $t'_8 = 0$ and represent the free decay following the fourth pulse. The remaining terms are symmetrically located about $t'_8 = 0$ giving 16 terms prior to the fourth pulse, which we disregard, and 16 positive corresponding to echoes. Now if we look at all possible combinations of coherences which can produce two- and three-pulse echoes following the fourth pulse, we find on first count that there are only 12 such echoes. Before going any further, let us return for a moment to the case of three unequally spaced pulses. We note that there must be four coherence terms for $t_6 < 0$, symmetric about the third pulse with respect to the four echoes in $t_6$. However, there are only three actual coherences in the time prior to the third pulse. The extra term, shown by a dotted line in Figure 4, is therefore a "virtual" echo that does not exist until the third pulse is applied, but following the third pulse the nuclear system behaves in every way as if the virtual echo had actually occurred.
 
@@ -733,7 +650,7 @@ If we include the virtual echo among the source of two- and three-pulse echoes f
 
 The analysis can be extended readily to n pulses. If all pulse spacings are unequal, and if $t_{2n-2} > \sum_{k=2}^{2n-4} t_k$ as before, then, following the nth pulse there will be $2^{2n-4}$ echoes. Since the total number of coherences, real and virtual, due to the (n-1)st pulse is $2(2^{2n-6}) + 1$ the nth pulse must create $(2^{2n-5} - 1)$ new virtual coherences.
 
-G. Sets of Double Pulses
+#### G. Sets of Double Pulses
 
 A special case of four pulses which is of particular interest is that of a two-pulse spin-echo experiment repeated in a time $\lesssim T_1$, so that the sample still has some memory of the previous set of two pulses. In this case one usually observes at least one additional echo, marked S in Figure 5, following the primary echo. The origin of this echo is as follows: Pulse 3, Figure 5, creates a virtual echo, V, which is mathematically similar to the stimulated echo which would occur at the position occupied by pulse 4. Pulse 4, however, transforms V into a two-pulse echo at S. That this analysis is essentially correct can be seen by calculating the matrix element for this echo. The calculation gives
 
@@ -751,9 +668,9 @@ which has its maximum at $\cos bt = (-\frac{1}{4})$. If the experimental repetit
 
 ### IV. Coherence Detail
 
-A. Introduction
+#### A. Introduction
 
-In the original spin echo experiments$^2$ performed in fields that were only slightly inhomogeneous, it was shown that:
+In the original spin echo experiments[^2] performed in fields that were only slightly inhomogeneous, it was shown that:
 
 1. The spacing between second pulse and echo was approximately the same as between lst and second pulse.
 
@@ -763,9 +680,7 @@ In the original spin echo experiments$^2$ performed in fields that were only sli
 
 In this section we shall consider a somewhat different case, that of a magnetic field so inhomogeneous that the total inhomogeneity, $\gamma \Delta H$, is very much greater than the frequency spectrum of the pulses. We shall assume an "infinite flat-topped" distribution $[M_o(\Delta \omega) = \text{constant for all } \Delta \omega]$, and we shall calculate the exact location and the shape of the free decay and the two-pulse echo.
 
-
-
-B. Free Decay
+#### B. Free Decay
 
 The shape of the free decay can be deduced from the matrix element for this coherence (Equation 17). Before proceeding any further, we may remark that only the component in the y direction, corresponding to the imaginary part of the matrix element, is effective in producing a signal. This result, which is true for all the phenomena considered in this paper, follows from the fact that the two vectors for each value of $|\Delta \omega|$ are at all times symmetrically located about the yz plane. We thus consider the imaginary part of Equation (17):
 
@@ -781,8 +696,6 @@ where the maximum coherence presumably occurs at $t'_2 = t$. A little algebra gi
 
 $$ \tan \Delta \omega t = - \sin \phi \tan \frac{b t_1}{2} \quad (31) $$
 
-
-
 From (31) we see that there is no one instant of time when all components are exactly in phase. However, we can determine a time (prior to the end of the pulse) when the free decay, projected back to this time, would have had its maximum value. If $\gamma H_1 t_1$ is small ($\le 1$) and we consider only the components about resonance, we can approximate (31) by
 
 $$ \Delta \omega t = - \frac{b t_1}{2} \sin \phi \quad (32) $$
@@ -793,15 +706,13 @@ $$ t = - \frac{1}{2} t_1 \quad (33) $$
 
 so the free decay behaves as if it had started from the midpoint of the pulse. When $\gamma H_1 t_1 > 1$, t is different for different groups of values of $\Delta \omega$, with the result that the free decay may show considerable structure. An example of such a free decay is shown in Figure 6.
 
-C. Edge Echo
+#### C. Edge Echo
 
 The edge echo, produced only by nuclei that are far from resonance, is contained primarily in the second term of Equation (29). In the vicinity of maximum coherence the amplitude is approximately proportional to $\int \sin \Delta \omega (t_2 - t_1) d(\Delta \omega)$. The shape of this signal is not the single lobe usually associated with an echo. Instead, if detected by a phase-sensitive detector, it reaches a maximum, goes sharply through zero at $t'_2 = t_1$,
 
-
-
 and goes through a maximum in the opposite direction. If the edge echo is viewed only in absolute value, it appears as two maxima separated by a sharp minimum. An example of this characteristic shape is shown in Figure 3.
 
-D. Two-Pulse Echo
+#### D. Two-Pulse Echo
 
 The two-pulse echo signal is given by the imaginary part of (22):
 
@@ -811,32 +722,23 @@ $$ - \sin 2 \phi \cos^2 \phi \sin^2 \frac{b t_1}{2} \sin^2 \frac{b t_3}{2} \sin 
 
 This differs considerably from (29) and the echo is therefore not the same as two free decays placed back-to-back. The common factor $\cos^2 \phi$ in (30) cuts down the high frequency terms in the echo, with the result that the echo is a considerably rounded-off version of the original square pulse. If we write (34) in the form $\cos \Delta \omega (t'_4 - t_2 - t)$ we again get (32) and (33) as expressions for t. In other words, if we sweep the oscilloscope with repetition rate $\tau$, where $\tau$ is the time between pulses, and if $\gamma H_1 t_1 = \gamma H_1 t_3 \le 1$, we will find the echo superimposed on the pulse traces with the echo maximum exactly at the center of the pulse (see Figure 7). For $\gamma H_1 t_1 > 1$, the echo shape can get quite complicated (Figure 6).
 
-
-
 ### V. Continuous Pulse Trains
 
-A. Introduction
+#### A. Introduction
 
 In the previous sections, we discussed solutions of Bloch's equations which were applicable to spin echo for the case of a small or at least finite number of pulses. In this and the following subsection (V and VI) we will attempt to do the same thing for continuous trains of pulses. We can assume that the pulse trains start at some initial time $t = 0$ and then continue for a time very much longer than the relaxation time T of the substance so that the sample has essentially forgotten when the beginning of the pulse train occurred. In general, the same assumptions hold here as held in the previous sections with regard to equality of relaxation times and negligible self-diffusion, except that from now on we shall include the relaxation effects explicitly in our equations. This is necessary, because we will be working with infinite series which must converge and may not do so unless we include the relaxation terms.
 
 In what follows, we shall call the repetition time between successive cycles of pulses $\tau$ and other definitions shall be as in preceding paragraphs. We shall, in general, assume that pulse widths are short compared to $\tau$ and that $\tau$ is short compared to the relaxation time T.
 
-B. Symmetry with Respect to Time Inversions
+#### B. Symmetry with Respect to Time Inversions
 
 One of the most important properties of the nuclear system when subjected to continuous pulse trains is the property of time symmetry. Consider the basic equation for the motion of the polarization
 
 $$ \frac{d\vec{M}}{dt} + \frac{\vec{M}}{T} + \gamma \vec{H} \times \vec{M} = \frac{M_o \vec{z}}{T} \quad (1) $$
 
-Suppose in Equation (1) we make T large so that the relaxation term is small compared with the other terms in the equation. We see that, in this case, reversal of the sign of t is equivalent to a reversal of the sign of the gyromagnetic ratio $\gamma$. Thus, if we go backward in time, any solutions which we obtain must also be solutions of Bloch's equations, except for the sign of $\gamma$, which will make no difference in a system which does not detect phase*. Now, if we have a driving function which is an even function of time, then after the system has settled down to steady state, so that it has forgotten the beginning of the train of pulses, it will make no difference to the system whether we take time in the backward or forward direction since the driving function is equivalent in each case. The symmetry argument then states that except for 180 degree change in phase the solutions of our equations must be symmetrical on both sides of the axis of time symmetry of the original pulse train. Thus the system must not only produce free decays and edge echoes following the pulses but must anticipate the pulses in exactly the same way. If the driving function consists of double pulses there will be echoes preceding and following the pulses. This property of anticipating
+Suppose in Equation (1) we make T large so that the relaxation term is small compared with the other terms in the equation. We see that, in this case, reversal of the sign of t is equivalent to a reversal of the sign of the gyromagnetic ratio $\gamma$. Thus, if we go backward in time, any solutions which we obtain must also be solutions of Bloch's equations, except for the sign of $\gamma$, which will make no difference in a system which does not detect phase[^6-note]. Now, if we have a driving function which is an even function of time, then after the system has settled down to steady state, so that it has forgotten the beginning of the train of pulses, it will make no difference to the system whether we take time in the backward or forward direction since the driving function is equivalent in each case. The symmetry argument then states that except for 180 degree change in phase the solutions of our equations must be symmetrical on both sides of the axis of time symmetry of the original pulse train. Thus the system must not only produce free decays and edge echoes following the pulses but must anticipate the pulses in exactly the same way. If the driving function consists of double pulses there will be echoes preceding and following the pulses. This property of anticipating the driving function is shown in Figure 8. Actually, the signal shown in this figure is not perfectly symmetrical owing to self-diffusion effects.
 
-
-* This argument is similar to the symmetry property discussed in reference (6). The argument shown there, valid for a weak, frequency modulated r-f signal, requires no assumptions about the magnitude of $T_1$, however.
-
-
-
-the driving function is shown in Figure 8. Actually, the signal shown in this figure is not perfectly symmetrical owing to self-diffusion effects.
-
-C. End of a Train of Single Pulses
+#### C. End of a Train of Single Pulses
 
 We have just shown that the nuclear system, exposed to a train of single pulses, will eventually set up a configuration in which it will anticipate the onset of the pulses. It is also of interest to see what will happen if the pulse train is suddenly stopped.
 
@@ -858,15 +760,13 @@ From (36), (37) and Subsection IV D (showing that the center of an echo is relat
 
 It is well-known that the response of a nuclear resonance system to a "weak" r-f driving field, ($\gamma^2 H_1^2 T_1 T_2 \ll 1$), is a simple linear function of the radio frequency. The bulk of this paper, on the other hand, is concerned with the nonlinear effects that arise when the r-f field is strong. In this section we shall take an intermediate approach and derive an approximate solution for the response of the nuclear system to a periodic, moderately strong r-f driving function. The approximation to be taken is that the z component of polarization is constant in time, although not necessarily equal to the weak r-f polarization, $M_o$. Such a condition, in which we neglect higher order nonlinear effects due to changes in $M_z$, can be approximated if the period of the driving function, $\tau$, is short compared to $T_2$ so that $M_z$ cannot change by more than 10 per cent during the time $\tau$. If, in addition, the r-f signal is only strong enough so that $\gamma H_1 t_1 \le 0.1$ during a pulse, then the approximate solution will be valid at all times; if the r-f signal is stronger the solution will be valid between pulses but not during a pulse.
 
-In the notation of Bloch$^1$ and of Jacobsohn and Wangness$^6$, Bloch's equations can be written
+In the notation of Bloch[^1] and of Jacobsohn and Wangness[^6], Bloch's equations can be written
 
 $$ \left. \begin{aligned} \frac{dF}{dt} + (\frac{1}{T_2} + i \Delta \omega) F = - \gamma H_1 M_z \\ \\ \frac{dM_z}{dt} + \frac{M_z - M_o}{T_1} = \gamma H_1 v \end{aligned} \right\} \quad (38) $$
 
 $$ F = v + iu $$
 
-
-
-The integral solution of these equations can be written$^6$ as
+The integral solution of these equations can be written[^6] as
 
 $$ M_z = M_o + \int_{-\infty}^t \gamma H_1 v e^{-\frac{t-t'}{T_1}} dt' \quad (39) $$
 
@@ -879,8 +779,6 @@ $$ F = - \int_{-\infty}^t \gamma H_1 M_z e^{(-\frac{1}{T_2} - i \Delta \omega)(t
 Let us return to Equation (39). After steady state has been reached $H_1$ and v will both be periodic with period $\tau$. We can then split the integral in (39) into units each of duration $\tau$. From the periodicity, we have
 
 $$ \int_{t-(n+2)\tau}^{t-(n+1)\tau} \gamma H_1 v \exp(-\frac{t-t'}{T_1}) dt' = e^{-\tau/T_2} \int_{t-(n+1)\tau}^{t-n\tau} \gamma H_1 v \exp(-\frac{t-t'}{T_1}) dt' \quad (42) $$
-
-
 
 As a result, (39) can be written as an infinite series which, when summed, gives us
 
@@ -900,8 +798,6 @@ To solve Equation (41), let us first expand $H_1$ in a Fourier series. Let $(\Om
 
 $$ H_1 = \sum_n A_n e^{in \Omega t} \quad (46) $$
 
-
-
 Let us now substitute (46) into (41), considering $M_z$ as constant, and integrate termwise. We thus get
 
 $$ F = - \gamma M_z \sum_n \frac{A_n e^{in \Omega t}}{\frac{1}{T_2} + i \Delta \omega + i n \Omega} \quad (47) $$
@@ -918,8 +814,6 @@ which can be written
 
 $$ \overline{v H_1} = - C M_z \quad (50) $$
 
-
-
 In Equation (50), C is a function only of the driving field and is defined by Equation (49). We can now substitute (50) into (45), and obtain an explicit expression for $M_z$ as follows:
 
 $$ M_z = \frac{M_o}{1 + \gamma T_1 C} \quad (51) $$
@@ -932,36 +826,19 @@ Equation (52) is our semi-linear solution. The term in brackets is the linear pa
 
 $$ C = \frac{\gamma}{T_2} \sum_k \frac{A_k^2}{\frac{1}{T_2^2} + (\Delta \omega + k \Omega)^2} \quad (53) $$
 
-
-
 Inspection of Equation (53) shows that C becomes appreciably large only if $\Delta \omega$ is at or very close to a sideband of the driving radio frequency. Thus, if $\Delta \omega + k \Omega \approx 0$, we have $C \approx T_2 \gamma A_k^2$, otherwise we have $C \approx 0$. The effect of Equation (53) on $M_z$ and therefore also on F is that $M_z \approx M_o$ in between sidebands; but at a sideband we have
 
 $$ M_z \approx \frac{M_o}{1 + \gamma^2 T_1 T_2 A_k^2} \quad (54) $$
 
-Thus, in this approximation, the response of the nuclear resonance to an amplitude-modulated r-f signal can be described as behaving like a saturable Lorentzian filter, the amount of saturation obeying Bloch's slow-passage equations$^1$ for the Fourier components of $H_1$ which are in the vicinity of resonance.
+Thus, in this approximation, the response of the nuclear resonance to an amplitude-modulated r-f signal can be described as behaving like a saturable Lorentzian filter, the amount of saturation obeying Bloch's slow-passage equations[^1] for the Fourier components of $H_1$ which are in the vicinity of resonance.
 
-If the sample is in an inhomogeneous magnetic field, then the semilinear approximation predicts that a strong r-f signal will "burn holes" in the net polarization at each sideband of the r-f signal. This is identical to an effect described by Bloembergen, Purcell and Pound$^7$ for slow-passage (i.e., single frequency) r-f signal; the analysis presented here shows that the same effect is produced by amplitude-modulated r-f signal.
+If the sample is in an inhomogeneous magnetic field, then the semilinear approximation predicts that a strong r-f signal will "burn holes" in the net polarization at each sideband of the r-f signal. This is identical to an effect described by Bloembergen, Purcell and Pound[^7] for slow-passage (i.e., single frequency) r-f signal; the analysis presented here shows that the same effect is produced by amplitude-modulated r-f signal.
 
 ### VII. Experimental Apparatus
 
-Although the spin echo apparatus used in making the traces shown in Figures 3, 6, 7-9 and in testing the theory generally was of fairly conventional design, a few words will be said concerning the characteristics and performance of this particular instrument. The apparatus employed a coherent source of 30 megacycles, consisting of a free-running crystal oscillator whose output was keyed after it had passed through several doubler and buffer stages. The r-f pulses had a rise time of 10 microseconds and produced a maximum field, $2 H_1$, at the sample, of about 10 gauss. Both r-f intensity and pulse length were variable. The probe used crossed coils$^8$. The proton sample, about 25 cc in volume, was placed in a permanent magnet whose pole faces were shimmed in such a way that the field inhomogeneity across the sample was approximately 25 gauss, corresponding to a "bandwidth" of 100 kc. The distribution of nuclei in this field was such that the polarization was approximately constant over more than half of the total bandwidth. The bandwidths of the transmitter and receiver circuits were likewise about 100 kc. Although the direct coupling between transmitter and receiver in a crossed-coil probe tends to be frequency dependent, it was found possible to reduce the overall coupling to the point where the r-f pulses would not overload the receiver amplifiers.
+Although the spin echo apparatus used in making the traces shown in Figures 3, 6, 7-9 and in testing the theory generally was of fairly conventional design, a few words will be said concerning the characteristics and performance of this particular instrument. The apparatus employed a coherent source of 30 megacycles, consisting of a free-running crystal oscillator whose output was keyed after it had passed through several doubler and buffer stages. The r-f pulses had a rise time of 10 microseconds and produced a maximum field, $2 H_1$, at the sample, of about 10 gauss. Both r-f intensity and pulse length were variable. The probe used crossed coils[^8]. The proton sample, about 25 cc in volume, was placed in a permanent magnet whose pole faces were shimmed in such a way that the field inhomogeneity across the sample was approximately 25 gauss, corresponding to a "bandwidth" of 100 kc. The distribution of nuclei in this field was such that the polarization was approximately constant over more than half of the total bandwidth. The bandwidths of the transmitter and receiver circuits were likewise about 100 kc. Although the direct coupling between transmitter and receiver in a crossed-coil probe tends to be frequency dependent, it was found possible to reduce the overall coupling to the point where the r-f pulses would not overload the receiver amplifiers.
 
 In a magnetic field as inhomogeneous as the one used here, the effects of self-diffusion severly limit the time in which one can do echo and pulse-train experiments. Experiments involving only a few pulses can be done in ten milliseconds or less; for this a fairly viscous material, such as glycerine or SAE-30 motor oil, is useful. Experiments involving repeated pulses require longer times; for these the best sample material is a non-viscous liquid in a fairly viscous emulsion. Most of the photographs shown here were taken with a sample of water mixed in lanolin, of the type used in cosmetic-cream preparations. Even so, the lifetime for two-pulse echoes before disappearance under self-diffusion effects was only about 60 milliseconds.
-
-
-
-BIBLIOGRAPHY
-
-1. F. Bloch, Phys. Rev. 70, 460 (1946)
-2. E. L. Hahn, Phys. Rev. 80, 580 (1950)
-3. E. T. Jaynes, "Basic Considerations", hereinafter referred to as I.
-4. H. Goldstein, Classical Mechanics (Addison-Wesley Press, Cambridge, Mass., 1951)
-5. T. Das and A. Saha, Phys. Rev. 93, 749 (1954)
-6. B. Jacobsohn and R. K. Wangsness, Phys. Rev. 73, 942 (1948)
-7. Bloembergen, Purcell and Pound, Phys. Rev. 73, 679 (1948)
-8. Bloch, Hansen and Packard, Phys. Rev. 70, 474, (1946)
-
-
 
 [**FIGURE 1**]
 FIGURE 1
@@ -1000,3 +877,13 @@ FIGURE 9
 EFFECTS AT END OF A PULSE TRAIN SHOWING TWO DIFFERENT REPETITION RATES
 (a) $\tau = 1$ millisecond
 (b) $\tau = 2.5$ milliseconds
+
+[^1]: F. Bloch, *Phys. Rev.* **70**, 460 (1946).
+[^2]: E. L. Hahn, *Phys. Rev.* **80**, 580 (1950).
+[^3]: E. T. Jaynes, "Basic Considerations," hereinafter referred to as I.
+[^4]: H. Goldstein, *Classical Mechanics* (Addison-Wesley Press, Cambridge, Mass., 1951).
+[^5]: T. Das and A. Saha, *Phys. Rev.* **93**, 749 (1954).
+[^6]: B. Jacobsohn and R. K. Wangsness, *Phys. Rev.* **73**, 942 (1948).
+[^6-note]: This symmetry argument is similar to the property discussed in reference [^6]; there it is valid for a weak, frequency-modulated r-f signal and requires no assumptions about the magnitude of $T_1$.
+[^7]: N. Bloembergen, E. M. Purcell, and R. V. Pound, *Phys. Rev.* **73**, 679 (1948).
+[^8]: F. Bloch, W. W. Hansen, and M. Packard, *Phys. Rev.* **70**, 474 (1946).

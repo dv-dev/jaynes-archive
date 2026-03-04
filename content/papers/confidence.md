@@ -28,6 +28,7 @@ abstract: >
   use of orthodox methods that is in need of justification and defense.
 author: ["E.T. Jaynes"]
 ---
+
 ## INTRODUCTION
 The theme of our meeting has been stated in rather innocuous terms: how
 should probability theory be (1) formulated, (2) applied to statistical
@@ -79,6 +80,7 @@ statistics soon dominated the field so completely that its methods are
 now known as 'orthodox statistics'. For these historical reasons, I ask
 you to think with me, that for a physicist to turn his attention now to
 statistics, is more of a homecoming than an invasion.
+
 (B) Today, a physicist revisiting statistics to see how it has fared
 in our absence, sees quickly that something has gone wrong. For over
 fifteen years now, statistics has been in a state of growing ideological
@@ -145,6 +147,7 @@ since learned how to live with it. Today, when a physicist says, "Theory
 A is better than theory B", he does not have in mind any ideological
 considerations; he means simply, "There is at least one specific
 application where theory A leads to a better result than theory B".
+
 I suggest that we apply the same criterion in statistics: *the merits of
 any statistical method are determined by the results it gives when
 applied to specific problems*. The Court of Last Resort in statistics is
@@ -159,11 +162,13 @@ magnified to a large one, or if possible to a qualitative difference in
 the conclusions. Our common sense will then tell us which method is
 preferable, in a way that transcends all ideological quibbling over
 'subjectivity', 'objectivity', the 'true meaning of probability', etc.
+
 I have been carrying out just this program, as a hobby, for many years,
 and have quite a mass of results covering most areas of statistical
 practice. They all lead to the same conclusion, and I have yet to find
 one exception to it. So let me give you just a few samples from my
 collection.
+
 ### INTERVAL ESTIMATION
 Time not permitting even a hurried glimpse at the entire field of
 statistical inference, it is better to pick out a small piece of it for
@@ -253,6 +258,7 @@ We first consider three significance tests appearing in the recent
 literature of reliability theory. The first two, which turn out to be so 
 clear that no magnification is needed, will also bring out an important 
 point concerning orthodox methods of reporting results.
+
 ## SIGNIFICANCE TESTS
 > Significance tests, in their usual form, are not compatible with a
 > Bayesian attitude.
@@ -261,6 +267,7 @@ point concerning orthodox methods of reporting results.
 > simple illustration of the new [i.e., Bayesian] notions on real,
 > everyday statistical problems.
 > E. S. Pearson (1962)
+
 ### (a) EXAMPLE 1. DIFFERENCE OF MEANS
 One of the most common of the 'everyday statistical problems' concerns
 the difference of the means of two normal distributions. A good example,
@@ -303,12 +310,14 @@ issue is whether $b>a$, the way to answer it is to calculate the
 probability that $b>a$, conditional on all the available data. This is
 $$
 \text{Prob}(b > a) = \int_{-\infty}^{\infty} da \int_a^{\infty} db \, P_n(a) P_m(b)
+\tag{1}
 $$
 where $P_n(a)$ is the posterior distribution of $a$, based on the sample
 of $n=9$ items supplied by *A*, etc. When the variance is unknown, we
 find that these are of the form of the 'Student' $t$-distribution:
 $$
 P_n(a) \sim [s_A^2 + (a-\bar{t}_A)^2]^{-n/2}
+\tag{2}
 $$
 where
 $\bar{t}_A, s_A^2$ are the mean and variance of sample *A*. Carrying out
@@ -329,6 +338,7 @@ distribution being proportional to
 $$
 P(a, b) \sim \{n[s_A^2 + (a - \bar{t}_A)^2] + m[s_B^2 + (b - \bar{t}_B)^2]
 \}^{-1/2(n+m)}
+\tag{3}
 $$
 
 Integrating this over the same range as in (1) -- which can be done
@@ -368,6 +378,7 @@ not use -- or even mention -- the Behrens-Fisher distribution, which is
 clearly the correct solution to the problem, has been available for over
 forty years (Fisher, 1956; p. 95), and follows immediately from Bayes' 
 theorem with the Jeffreys prior (Jeffreys, 1939; p. 115).
+
 ### (b) EXAMPLE 2. SCALE PARAMETERS
 A recent Statistics Manual (Crow et al., 1960) proposes the following
 problem: 31 rockets of type 1 yield a dispersion in angle of 2237
@@ -446,6 +457,7 @@ these cases where we have the opportunity to carry out our
 difference is magnified sufficiently, the issue cannot really be in
 doubt. We find this situation, and a number of other interesting points
 of comparison, in one of the most common examples of acceptance tests.
+
 ### (c) EXAMPLE 3. AN ACCEPTANCE TEST
 The probability that a certain machine will operate without failure for
 a time $t$ is, by hypothesis, $\exp(-\lambda t)$, $0 \lt t \lt \infty$. We test
@@ -461,6 +473,7 @@ $\lambda_0 = \theta_0^{-1}$, the probability that we shall see $r$ or
 fewer failures is the binomial sum
 $$
 W(n,r) = \sum_{k=0}^{r} \binom{n}{k} e^{-(n-k)\lambda_0 t} (1-e^{-\lambda_0 t})^k
+\tag{4}
 $$
 and so, setting $W(n,C) \le 1-P$ gives us the sample size $n$ required
 in order that this test will assure $\theta \ge \theta_0$ at the 100 $P$
@@ -532,6 +545,7 @@ the failure rate is $\lambda$, the probability that exactly $r$ units
 fail in time $t$ is
 $$
 p(r|n, \lambda, t) = \binom{n}{r} e^{-(n-r)\lambda t} (1 - e^{-\lambda t})^r.
+\tag{5}
 $$
 
 I want to defer discussion of nonuniform priors; for the time being
@@ -542,12 +556,14 @@ it will be of interest to see the result of using this prior. The
 posterior distribution of $\lambda$ is then
 $$
 p(d\lambda|n, r, t) = \frac{n!}{(n-r-1)!r!} e^{-(n-r)\lambda t} (1 - e^{-\lambda t})^r d(\lambda t).
+\tag{6}
 $$
 
 The Bayesian acceptance criterion, which ensures $\theta \ge \lambda_0^{-1}$
 with 100 P percent probability, is then
 $$
 \int_{\lambda_0}^{\infty} p(d\lambda | n, r, t) \le 1-P.
+\tag{7}
 $$
 
 But the
@@ -571,6 +587,7 @@ respectively, and the remaining $(n-r)$ units do not fail in time $t$,
 is
 $$
 p(dt_1...dt_r | n, \lambda, t) = [\lambda^r e^{-\lambda r \bar{t}} dt_1...dt_r][e^{-(n-r)\lambda t}]
+\tag{8}
 $$
 where $\bar{t} = r^{-1} \sum t_i$ is the mean life of the units which
 failed. There is no single 'statistic' which conveys all the relevant
@@ -594,16 +611,19 @@ pessimistic uniform prior to $\lambda$; from (8), the posterior
 distribution of $\lambda$ is then
 $$
 p(d\lambda | n, t, t_1 ... t_r) = \frac{(\lambda T)^r}{r!} e^{-\lambda T} d(\lambda T)
+\tag{9}
 $$
 where 
 $$
 T = r\bar{t} + (n-r)t
+\tag{10}
 $$
 is the total unit-hours of failure-free
 operation observed. The posterior probability that $\theta \ge \theta_0$
 is now
 $$
 B(n,r) = \frac{1}{r!} \int_{\lambda_0 T}^{\infty} x^r e^{-x} dx = e^{-\lambda_0 T} \sum_{k=0}^{r} \frac{(\lambda_0 T)^k}{k!}
+\tag{11}
 $$
 and so, $B(n,r) \le 1-P$ is the new Bayesian acceptance criterion at the
 100 P percent level; the test can terminate with acceptance as soon as
@@ -647,6 +667,7 @@ original hypothesis the probability that the lifetime $\theta$ of a
 given unit is at least $\theta_0$, is
 $$
 p(\theta \ge \theta_0 | \lambda) = e^{-\lambda \theta_0}.
+\tag{12}
 $$
 
  The
@@ -654,6 +675,7 @@ probability that $\theta \ge \theta_0$, conditional on the evidence of
 the test, is therefore
 $$
 p(\theta \ge \theta_0 | n, t_1...t_r) = \int_0^{\infty} e^{-\lambda\theta_0} p(d\lambda|n,t_1...t_r) = \left(\frac{T}{T+\theta_0}\right)^{r+1}.
+\tag{13}
 $$
 
 Thus, the Bayesian test which ensures, with 100 P percent probability,
@@ -690,6 +712,7 @@ consequences (11)-(13) still hold, but that Equation (11) is now to be
 replaced by 
 $$
 T = r\bar{t} + (n-r)t + t_1.
+\tag{14}
 $$
 
 Subjecting the resulting
@@ -751,6 +774,7 @@ the possibility of completely unexpected modes of failure; once a given
 failure mode is recognized and its mechanism understood, no sane
 engineer would dream of judging its chances of occurring merely from a
 random experiment.
+
 ### (d) SUMMARY
 In the article of Bross (1963) -- and in other places throughout the
 orthodox literature -- one finds the claim that orthodox significance
@@ -783,12 +807,14 @@ $\lambda = \lambda_0$ against $\lambda>\lambda_0$ is exactly equivalent
 to the Bayesian test because of the identity
 $$
 \frac{1}{n!} \int_{\lambda_0}^{\infty} x^n e^{-x} dx = \sum_{k=0}^{n} \frac{e^{-\lambda_0} \lambda_0^k}{k!}
+\tag{15}
 $$
 and the orthodox $F$-test for $\sigma_1 = \sigma_2$ against
 $\sigma_1 > \sigma_2$ is exactly Bayes-equivalent because of the
 identity
 $$
 \frac{(n+m+1)!}{n!m!} \int_0^P x^n (1-x)^m dx = \sum_{k=0}^{m} \frac{(n+k)!}{n!k!} P^{n+1}(1-P)^k.
+\tag{16}
 $$
 
 In these cases, two opposed ideologies lead to just the same final
@@ -815,6 +841,7 @@ account can be considered a full treatment of the problem; it will be
 evident from our previous work (Jaynes, 1968) and the above example, 
 that Bayesian significance tests are extended just as readily to 
 incorporate any testable prior information.
+
 ## TWO-SIDED CONFIDENCE INTERVALS
 > The merit of the estimator is judged by the distribution of estimates
 > to which it gives rise, i.e., by the properties of its sampling
@@ -829,6 +856,7 @@ and nuisance parameters; but they were not well adapted to studying the
 principle of reasoning behind them. When we turn to the general
 principle of two-sided confidence intervals some interesting new
 features appear.
+
 ### (a) EXAMPLE 4. BINOMIAL DISTRIBUTION
 Consider Bernoulli trials $B_n$ (i.e., two possible outcomes at each
 trial, independence of different trials). We observe $r$ successes in
@@ -902,6 +930,7 @@ Since, as noted, published confidence intervals are 'conservative' -- a
 common euphemism -- he can even improve his results by this procedure.
 Let us now seek another problem, where differences can be magnified to
 the point where the equations speak very clearly to our common sense.
+
 ### (b) EXAMPLE 5. TRUNCATED EXPONENTIAL DISTRIBUTION
 The following problem has occurred in several industrial quality control
 situations. A device will operate without failure for a time $\theta$
@@ -916,6 +945,7 @@ location parameter $\theta$, from the sample values {$x_1...x_N$},
 distributed according to the law
 $$
 p(dx|\theta) = \begin{cases} \exp(\theta-x)dx, & x > \theta \\\\ 0, & x < \theta \end{cases}.
+\tag{17}
 $$
 
 Let us compare the confidence intervals obtained from two different
@@ -923,6 +953,7 @@ estimators with the Bayesian intervals. The population mean is
 $E(x) = \theta+1$, and so
 $$
 \theta^*(x_1...x_N) = \frac{1}{N} \sum_{i=1}^N (x_i) - 1
+\tag{18}
 $$
 is an
 unbiased estimator of $\theta$. By a well-known theorem, it has variance
@@ -943,11 +974,13 @@ find the shortest one, we impose in addition the constraint
 $F^\prime(y_1)=F^\prime(y_2)$. By computer, this yields the interval
 $$
 \theta^* - 0.8529 < \theta < \theta^* + 0.8264
+\tag{19}
 $$
 or, with the above
 sample values, the shortest 90% confidence interval is
 $$
 12.1471 < \theta < 13.8264.
+\tag{20}
 $$
 
 The Bayesian solution is obtained from
@@ -957,6 +990,7 @@ ignorance of location parameter], the posterior density of $\theta$
 will be
 $$
 p(\theta | x_1...x_N) = \begin{cases} N \exp N(\theta-x_1), & \theta < x_1 \\\\ 0, & \theta > x_1 \end{cases}
+\tag{21}
 $$
 where we have ordered the sample values so that $x_1$ denotes the least
 one observed. The shortest posterior probability belt that contains 100
@@ -966,6 +1000,7 @@ slide-rule) that, with 90% probability, the true value of $\theta$ is
 contained in the interval 
 $$
 11.23 < \theta < 12.0.
+\tag{22}
 $$
 
 Now what is the
@@ -1001,6 +1036,7 @@ everything I've done for years".
 This incident makes an interesting commentary on the kind of
 indoctrination that teachers of orthodox statistics have been giving
 their students for two generations now.
+
 ### (c) WHAT WENT WRONG?
 Let us try to understand what is happening here. It is perfectly true
 that, if the distribution (15) is indeed identical with the limiting
@@ -1122,10 +1158,12 @@ looked into these matters.
 So, let us turn to another example, in which the above assertions are
 demonstrated explicitly, and so simple that all calculations can be
 carried through analytically.
+
 ### (d) EXAMPLE 6. THE CAUCHY DISTRIBUTION
 We sample two members {$x_1, x_2$} from the Cauchy population
 $$
 p(dx|\theta) = \frac{1}{\pi} \frac{dx}{1+(x-\theta)^2}
+\tag{23}
 $$
 and from them
 we are to estimate the location parameter $\theta$. The translational
@@ -1133,6 +1171,7 @@ and permutation symmetry of this problem suggests that we use the
 estimator 
 $$
 \theta^*(x_1, x_2) = \frac{1}{2}(x_1+x_2)
+\tag{24}
 $$
 which has a
 sampling distribution $p(d\theta^*|\theta)$ identical with the original
@@ -1169,14 +1208,17 @@ The confidence interval for this problem is easily found. The cumulative
 distribution of the estimator (22) is
 $$
 p(\theta^* < \theta^\prime | \theta) = \frac{1}{2} + \frac{1}{\pi} \tan^{-1}(\theta^\prime-\theta)
+\tag{25}
 $$
 and so the shortest 100 P percent confidence interval is
 $$
 (\theta^* - q) < \theta < (\theta^* + q)
+\tag{26}
 $$
 where
 $$
 q = \tan(\pi P/2).
+\tag{27}
 $$
 
  At the 90% level, $P=0.9$, we find
@@ -1189,6 +1231,7 @@ information from the individual sample can help us. Denote the sample
 half-range by 
 $$
 y = \frac{1}{2}(x_1-x_2).
+\tag{28}
 $$
 
  The sampling distribution
@@ -1201,6 +1244,7 @@ variables $(\theta^*, y)$. The jacobian of the transformation is just 2,
 and so the joint distribution is
 $$
 p(d\theta^*, dy|\theta) = \frac{2}{\pi^2} \frac{d\theta^* dy}{[1+(\theta^*-\theta+y)^2][1+(\theta^*-\theta-y)^2]}
+\tag{29}
 $$
 
 While $(x_1, x_2)$ are independent, $(\theta^*, y)$ are not. The
@@ -1208,12 +1252,14 @@ conditional cumulative distribution of $\theta^*$, when $y$ is known, is
 therefore not (23), but
 $$
 p(\theta^* < \theta^\prime | \theta, y) = \frac{1}{2} + \frac{1}{2\pi} [\tan^{-1}(\theta^\prime-\theta+y) + \tan^{-1}(\theta^\prime-\theta-y)] + \frac{1}{4\pi y} \log\left[\frac{1+(\theta^\prime-\theta+y)^2}{1+(\theta^\prime-\theta-y)^2}\right]
+\tag{30}
 $$
 and so, in the subclass of samples with given $(x_1-x_2)$, the
 probability that the confidence interval (24) will yield a correct
 statement is not $P=(2/\pi)\tan^{-1}q$, but
 $$
 w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+\tag{31}
 $$
 
 Numerical values computed from this equation are given in Table I:
@@ -1288,11 +1334,13 @@ distribution of $\theta$ is, from (21) in the case of a uniform prior
 density,
 $$
 p(d\theta|x_1, x_2) = \frac{2}{\pi} \frac{(1+y^2)d\theta}{[1+(\theta-x_1)^2][1+(\theta-x_2)^2]}
+\tag{32}
 $$
 and, to find the shortest 90% posterior probability interval, we compute
 the cumulative distribution:
 $$
 p(\theta < \theta^\prime|x_1, x_2) = \frac{1}{2} + \frac{1}{2\pi}[\tan^{-1}(\theta^\prime-x_1) + \tan^{-1}(\theta^\prime-x_2)] + \frac{1}{4\pi y} \log \left[ \frac{1+(\theta^\prime-x_2)^2}{1+(\theta^\prime-x_1)^2} \right]
+\tag{33}
 $$
 and so, -- but there is no need to go further. At this point, simply by 
 comparing (31) with (28), the horrible truth appears: the uniformly 
@@ -1300,18 +1348,21 @@ reliable rule is precisely the Bayesian one! And yet, if I had simply
 introduced the Bayesian solution *ab initio*, the orthodox statistician 
 would have rejected it instantly on grounds that have nothing to do with 
 its performance.
+
 ### (e) GENERAL PROOF
 The phenomenon just illustrated is not peculiar to the Cauchy
 distribution or to small samples; it holds for any distribution with a
 location parameter. For, let the sampling distribution be
 $$
 p(dx_1...dx_n|\theta) = f(x_1...x_n; \theta)dx_1...dx_n.
+\tag{34}
 $$
 
 The
 statement that $\theta$ is a location parameter means that
 $$
 f(x_1+a, x_2+a, ... x_n+a; \theta+a) = f(x_1...x_n; \theta), \quad -\infty < a < \infty.
+\tag{35}
 $$
 
 Now transform the sample variables {$x_1...x_n$} to a new set
@@ -1319,12 +1370,14 @@ Now transform the sample variables {$x_1...x_n$} to a new set
 $$
 \begin{aligned} y_1 &= \bar{x} = n^{-1} \sum x_i \\\\ y_i &= x_i - \bar{x}, \quad i=2,3,...n. 
 \end{aligned}
+\tag{36}
 $$
 
 From (33), (34), (35), the sampling distribution of the {$y_1...y_n$} 
 has the form
 $$
 p(dy_1...dy_n|\theta) = g(y_1-\theta; y_2...y_n)dy_1...dy_n.
+\tag{37}
 $$
 
 If
@@ -1338,6 +1391,7 @@ interval, we must use instead the distribution conditional on all the
 'ancillary statistics' {$y_2...y_n$}. This is
 $$
 p(dy_1|y_2...y_n; \theta) = K g(y_1-\theta; y_2...y_n)dy_1
+\tag{38}
 $$
 where K
 is a normalizing constant. But the Bayesian posterior distribution of
@@ -1355,6 +1409,7 @@ With a scale parameter $\sigma$, data {$q_1...q_n$}, set
 $\theta = \log\sigma$, $x_i = \log q_i$, and the above argument still
 holds; the UR confidence interval for any scale parameter is identical
 with the Bayesian interval based on the Jeffreys prior $d\sigma/\sigma$.
+
 ## POLEMICS
 Seeing the above comparisons, one naturally asks: on what grounds was it
 ever supposed that confidence intervals represent an advance over the 
@@ -1647,7 +1702,9 @@ Sobel, M. and Tischendorf, J. A., Proc. Fifth Nat'l Symposium on
 Reliability and Quality Control, I.R.E., pp. 108--118 (1959).
 
 Smith, C. A. B., Discussion in Savage (1962); p. 60.
+
 ## DISCUSSION
+
 ### INTERFACES BETWEEN STATISTICS AND CONTENT
 (Remarks on the paper 'Confidence Intervals vs Bayesian Intervals' by E.
 T. Jaynes by Margaret W. Maxfield)
@@ -1683,6 +1740,7 @@ $$
 pooled variance to yield a conclusion of no significant difference in
 means at the 90% level, with an equal-tails $t$-test. With the correct 
 estimate, the difference in sample means proves significant.
+
 #### (a) POOLING VARIANCES AS AN INTERFACE
 Neither Roberts nor Jaynes mentions the use of the problem context in
 the decision whether to pool variance estimates. The reason for pooling
@@ -1707,6 +1765,7 @@ may observe that the components from manufacturer *B* have both the
 better (longer) mean component life and the smaller estimate of
 variance, which would fit a rationale of better quality control by
 manufacturer *B* -- better and less variable product.
+
 #### (b) ALTERNATIVE HYPOTHESES AS AN INTERFACE
 Jaynes' second objection to Roberts' solution is to his use of an
 equal-tails test, of which Jaynes says: "But this is surely absurd; it
@@ -1740,6 +1799,7 @@ table. There is no surrounding information offered. The $F$ statistic is
 calculated as 1.66, for a ratio of standard deviations of 1.3 to 1. The
 finding that the $F$ statistic in this case is not significant at the 5%
 level violates Jaynes' common sense.
+
 #### (c) SIGNIFICANCE AS AN INTERFACE
 Upon learning that an $F$ statistic is not especially improbable, we are
 surprised at what different variance estimates can arise from the same
@@ -1756,6 +1816,7 @@ curse from significance testing for us. However, it must be emphasized
 that results in a critical region are improbable *in the aggregate*, not
 as individuals, every single one of which has zero probability, wherever
 it lies.
+
 #### (d) PRIMITIVE NOTIONS
 People use common nontechnical connotative understanding to draw
 commonsense conclusions about points, lines, sets, and so on -- the 
@@ -1763,6 +1824,7 @@ primitive undefined terms in mathematics. Until 'random' and 'probable',
 or their successors as basic terms in statistics, are understood and 
 used in nontechnical language, we must slowly develop common sense about 
 statistics from experience.
+
 ### COMMON SENSE AS AN INTERFACE
 (Reply of E. T. Jaynes to comments of Margaret Maxfield)
 
@@ -1844,6 +1906,7 @@ Finally, I call the readers' attention to the devastating criticisms of
 orthodox hypothesis testing theory by Pratt (1961) and L. J. Savage
 (1962) which, to the best of my knowledge, remain unanswered to this
 day.
+
 ### COMMENTS ON PAPER BY DR E. T. JAYNES
 Oscar Kempthorne
 (1) The paper by Jaynes is clearly a very seriously developed
@@ -2164,6 +2227,7 @@ this is, is not clear. But the lesson of all human thought is not to
 dismiss a vague but pervasive idea because one cannot formulate it
 tightly.
 *Statistical Laboratory, Iowa State University*
+
 ## REFERENCES
 Cornfield, J., 1969, 'The Bayesian Outlook and its Applications',
 *Biometrics* **25**, 617-642, for a good listing of background material.
@@ -2210,6 +2274,7 @@ Iowa State Univ. Press, Ames.
 Stone, M. and A. P. Dawid, 1972, 'Un-Bayesian Implications of Improper
 Bayes Inference in Routine Statistical Problems', *Biometrika* **59**,
 369-375.
+
 ## JAYNES' REPLY TO KEMPTHORNE'S COMMENTS
 I am most grateful to Professor Kempthorne for this lengthy commentary. 
 Such a magnificent confirmation of my main thesis could hardly have been
@@ -2309,6 +2374,7 @@ reply must be confined to a brief summary of the situation, followed by
 specific comments only on those points of fact which are of general
 interest, and which would propagate confusion if they were allowed to go
 unanswered.
+
 ### SUMMARY
 My presentation was concerned with examining the relative merits of
 orthodox and Bayesian statistical methods by considering specific real
@@ -2926,7 +2992,9 @@ confidence interval.
 Unfortunately, there is a serious wandering of the mind in connection
 with the test according to which the Bayesian will 'lose his shirt'. 
 First we are told that the confidence interval advocate will assert at 19 to 1 that the interval contains the unknown parameter value. Now, is the Bayesian required to accept this in every case? For which confidence level is this asserted? Does the width of that interval enter into the judging of the game? It is not a matter of mathematics that an undefined claim can be sustained.
+
 Then the game appears to change suddenly; we now learn that it is the Bayesian who is making the probability statements. It is averred that the Bayesian will lose his shirt and be consistently wrong -- excuse me, coherently wrong -- in a case where some individual $C$ challenges the assertions. But now is this individual $C$ to challenge all assertions wherever they may be? At what odds? I suggest that if Professor Kempthorne will try to back up his position by producing a specific, well defined situation instead of making assertions about undefined generalities, the mathematical situation will force him to see that his claim simply is not true.
+
 Indeed, the contest proposed by Kempthorne has already been carried out
 in the Monte Carlo experiments of A. Zellner (1965) and H. Thornber
 (1965). The results were, in the words of H. V. Roberts (1965); "Using
@@ -2945,20 +3013,15 @@ statistical procedure is *not* the proper criterion of its usefulness.
 But Professor Kempthorne simply ignores this, and continues to argue
 long-run performance as the criterion ('The Bayesian will lose his
 shirt', etc). So contemplate this example, given by David Forney (1972):
+
 ### THE WEATHERMAN'S JOB
 In a certain city, the joint frequencies of the actual weather and the
 weatherman's predictions are given by:
-::: center
-+--------------------+-------------------------------+
-|                    | Actual                        |
-+--------------------+---------------+---------------+
+
 |                    | Rain          | Shine         |
-+--------------------+---------------+---------------+
+| :----------------- | :------------ | :------------ |
 | 2-3 Predicted Rain | $\frac{1}{4}$ | $\frac{1}{4}$ |
-+--------------------+---------------+---------------+
 | Shine              | 0             | $\frac{1}{2}$ |
-+--------------------+---------------+---------------+
-:::
 
 An enterprising fellow trained in orthodox statistics (but not in
 meteorology) notices that, while the weatherman is right only 50% of the
@@ -3358,6 +3421,7 @@ distributed with roughly uniform density along the line. As will be
 shown elsewhere, the above results can be improved a bit more by use of
 the invariant prior $d\alpha d\sin\theta$, and a similar invariant prior
 for $X_i, Y_i$.
+
 # CONCLUSION
 I suppose it is possible, without actual logical contradiction, to
 maintain that Bayesian methods are utterly wrong, but that through a
@@ -3385,6 +3449,7 @@ mathematical talent in pursuit of false goals. If this talent had been
 directed toward understanding Laplace's contributions and learning how
 to use them properly, statistical practice would be far more advanced
 today than it is.
+
 ## REFERENCES
 Note: The following list includes only those works not already cited in
 my main presentation or Kempthorne's reply.

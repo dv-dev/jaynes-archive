@@ -1,16 +1,18 @@
 === STDOUT ===
-Edited `content/papers/gibbs.vs.boltzmann.md` with minimal structural QA only.
+Updated [content/papers/gibbs.vs.boltzmann.md](/home/dave/Projects/jaynes-archive/content/papers/gibbs.vs.boltzmann.md) with minimal structural QA edits only.
 
-Changes made:
-- Added missing blank lines around section headers for cleaner Markdown/Hugo rendering.
-- Split a few oversized paragraphs into smaller readable blocks (no wording changes).
-- Normalized one malformed citation sequence: `spin echos,[^7]$^,$[^8]` -> `spin echos,[^7][^8]`.
-- Removed extraneous non-body metadata footnote: `[^100]: Department of Physics, Washington University, St. Louis, Missouri`.
+Summary of changes:
+- Added display-equation tags so all in-text referenced equations are discoverable: `\tag{1}`, `\tag{2}`, `\tag{3}`, `\tag{4}`, `\tag{7}`, `\tag{9}` through `\tag{18}`.
+- Kept all mathematical expressions/content unchanged; only numbering markup was added.
+- Fixed a few markdown structure/readability issues:
+  - Removed stray leading-space paragraph continuations after display equations.
+  - Inserted a missing blank-line paragraph break after the italicized second-law statement.
+  - Cleaned minor trailing/odd spacing in prose lines.
 
-Checks:
-- No paper meaning/content changed.
-- No LaTeX/KaTeX/math text was modified.
-- No figures were touched.
+Self-check:
+- Paragraph breaks that were clearly intended as separate are now blank-line separated.
+- No unresolved in-text Eq. references to missing display-equation numbers remain.
+- No abstract duplication found in body; no citation duplication cleanup was needed.
 
 
 === STDERR ===
@@ -23,21 +25,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb9a7-82e2-7003-accf-3b2476b5a0ca
+session id: 019cb9fd-cda3-7683-b429-9f99a7eb779a
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/gibbs.vs.boltzmann.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -49,11 +63,14 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’ll review `content/papers/gibbs.vs.boltzmann.md` for structural QA only, then make minimal markdown-only fixes while preserving all meaning and all math exactly as written. I’m opening the file now.
+I’ll inspect `content/papers/gibbs.vs.boltzmann.md` for structural markdown issues, equation-reference numbering markup, duplicate abstract/body content, and citation formatting, then apply only minimal edits within that file.
 exec
 /bin/bash -lc "sed -n '1,260p' content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 ---
@@ -77,9 +94,12 @@ abstract: >
   phenomenological levels, is stressed.
 author:
 codex
-I’ve reviewed the first part and will scan the rest now for duplicate abstract text, citation formatting issues, and markdown/table structure problems before editing.
+I’ve reviewed the first half and found mostly formatting issues (single-line paragraph joins, equation references without numbered display tags). I’m now scanning the rest to map all Eq. references before patching.
 exec
-/bin/bash -lc "sed -n '261,620p' content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '261,520p' content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
+$$
 
 Equations (14), (15) are the main results sought. From them it is clear
 that (a) the "Boltzmann entropy" is the entropy of a fluid with the same
@@ -94,100 +114,1838 @@ observable effect on the thermodynamic properties. If the system
 exhibits an equation of state or heat capacity different from those of
 an ideal gas, the Boltzmann entropy will be in error by a corresponding
 amount.
+
 ## THE SECOND LAW
 We can now demonstrate the second law very easily, for the specialized
-case usually considered. The following argument can be greatly
-generalized, although we do not do so here.
+codex
+I mapped many in-text equation references up to Sec. V; next I’ll inspect the tail section and then patch paragraph breaks/citation style and add minimal equation tags so every cited Eq. number is present on a display equation.
+exec
+/bin/bash -lc "sed -n '521,760p' content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+entropy of the crystal?" unless we first specify the set of parameters
+which define its thermodynamic state.
 
-It is well known[^4] that the canonical distribution (7) is uniquely
+One might reply that in each of the experiments cited, we have used only
+part of the degrees of freedom of the system, and there is a "true"
+entropy which is a function of all these parameters simultaneously. 
+However, we can always introduce as many new degrees of freedom as we 
+please. For example, we might expand each element of the strain tensor 
+in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+$$
+e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+$$
+and by a sufficiently 
+complicated system of levels, we could vary each of the first 1000 
+expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+thermodynamic system of over 1000 degrees of freedom; but we still 
+believe that the laws of thermodynamics would hold. So, the entropy 
+must be a function of over 1000 independent variables. There is no end 
+to this search for the ultimate "true" entropy until we have reached 
+the point where we control the location of each atom independently. But 
+exec
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|\\([0-9]{1,2}\\)\" content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+6:  a matter of some confusion in the literature. We show that: (1) the
+8:  phenomenological thermodynamics; (2) the Boltzmann $H$ yields an
+10:  interparticle forces affect thermodynamic properties; (3) Boltzmann's
+12:  the Gibbs $H$, and derivable from it; (4) the Boltzmann $H$ theorem
+14:  gases; (5) the dynamical invariance of the Gibbs $H$ gives a simple
+15:  proof of the second law for arbitrary interparticle forces; (6) the
+96:between Gibbs' $H$ and the experimental entropy, Eq. (17) below, it is
+153:Using (3) and the fact that $W_N$ is symmetric under permutations of
+156:H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+160:H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
+166:H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+177:W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+207:final integration supplies only a factor $\Omega$. From (3), the
+216:[w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+218: and (4) reduces to
+230: where $P$ is the pressure; Eq. (11) are well-known
+231:identities of the canonical ensemble. From (10), (11), we thus find that
+238:integrating (12) over a reversible path (i.e., a locus of equilibrium
+244: Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+255:kinetic energy. Over the reversible path (13) the Boltzmann entropy
 codex
-I found no tables and no duplicate abstract block in the body, but there are a few rendering/citation artifacts and several oversized paragraphs. I’m now making minimal structural edits: paragraph splits, citation cleanup, and removal of non-body metadata.
+I’ve identified the Eq-number map: references rely on equations (3), (4), (7), (9)–(18). I’m now applying a minimal patch to add matching `\\tag{}` markers and clean a few malformed paragraph/equation transitions without changing any math content.
 exec
-/bin/bash -lc "nl -ba content/papers/gibbs.vs.boltzmann.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-     1	---
-     2	title: "Gibbs vs Boltzmann Entropies"
-     3	year: 1965
-     4	abstract: >
-     5	  The status of the Gibbs and Boltzmann expressions for entropy has been
-     6	  a matter of some confusion in the literature. We show that: (1) the
-     7	  Gibbs $H$ function yields the correct entropy as defined in
-     8	  phenomenological thermodynamics; (2) the Boltzmann $H$ yields an
-     9	  "entropy" that is in error by a nonnegligible amount whenever
-    10	  interparticle forces affect thermodynamic properties; (3) Boltzmann's
-    11	  other interpretation of entropy, $S = k \ \textrm{log} W$, is consistent with
-    12	  the Gibbs $H$, and derivable from it; (4) the Boltzmann $H$ theorem
-    13	  does not constitute a demonstration of the second law for dilute
-    14	  gases; (5) the dynamical invariance of the Gibbs $H$ gives a simple
-    15	  proof of the second law for arbitrary interparticle forces; (6) the
-    16	  second law is a special case of a general requirement for any
-    17	  macroscopic process to be experimentally reproducible. Finally, the
-    18	  "anthropomorphic" nature of entropy, on both the statistical and
-    19	  phenomenological levels, is stressed.
-    20	author:
+/bin/bash -lc "nl -ba content/papers/gibbs.vs.boltzmann.md | sed -n '130,360p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   130	$$
+   131	 where $w_1(x_1, p_1; t)$ is the
+   132	single-particle probability density
+   133	$$
+   134	w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
+   135	$$
+   136	
+   137	 Here and in the following,
+   138	we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+   139	$d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+   140	phase-volume elements in the full phase space, the space of one
+   141	particle, and the space of all particles except one, respectively.
+   142	Both the Gibbs and Boltzmann $H$ functions are often defined in slightly
+   143	different ways, in which one uses distribution functions with different
+   144	normalizations. This changes the numerical values by additive constants
+   145	which, for fixed $N$, are independent of the thermodynamic state and
+   146	therefore not relevant to the present discussion. These additive
+   147	constants are important, however, in connection with the "Gibbs paradox"
+   148	about entropy of mixing, and the resolution of this paradox by quantum
+   149	statistics is well known. The distribution functions used above are
 exec
-/bin/bash -lc "nl -ba content/papers/gibbs.vs.boltzmann.md | sed -n '261,680p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-   261	
-   262	Equations (14), (15) are the main results sought. From them it is clear
-   263	that (a) the "Boltzmann entropy" is the entropy of a fluid with the same
-   264	density and temperature, but without interparticle forces; it completely
-   265	neglects both the potential energy and the effect of interparticle
-   266	forces on the pressure; (b) the Gibbs entropy is the correct entropy as
-   267	defined in phenomenological thermodynamics, which takes into account all
-   268	the energy and the total pressure, and is therefore equally valid for
-   269	the gas or condensed phases; (c) the difference between them is not
-   270	negligible for any system in which interparticle forces have any
-   271	observable effect on the thermodynamic properties. If the system
-   272	exhibits an equation of state or heat capacity different from those of
-   273	an ideal gas, the Boltzmann entropy will be in error by a corresponding
-   274	amount.
-   275	## THE SECOND LAW
-   276	We can now demonstrate the second law very easily, for the specialized
-   277	case usually considered. The following argument can be greatly
-   278	generalized, although we do not do so here.
-   279	
-   280	It is well known[^4] that the canonical distribution (7) is uniquely
-codex
-I’m applying a focused patch now: clean heading spacing, split a few of the largest paragraph blocks, normalize one malformed citation, and remove the non-paper affiliation footnote entry.
+/bin/bash -lc "nl -ba content/papers/gibbs.vs.boltzmann.md | sed -n '360,540p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   360	Theory.[^6] We suppose that the distribution function $W_N$ from which
+   361	$H_G$ and $W(\epsilon)$ are computed is either a canonical distribution
+   362	or a time-developed version of one resulting from some dynamical
+   363	perturbation; and that the system is such that the canonical ensemble
+   364	predicts relative fluctuations in energy which tend to zero as
+   365	$N^{-1/2}$ in the "thermodynamic limit" as $N \to \infty$ at constant
+   366	density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+   367	limit, and 
+   368	$$
+   369	\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
+   370	$$
+   371	 provided $\epsilon$ is not zero or unity. The principal feature of this
+   372	theorem, at first sight astonishing, is that the result is independent
+   373	of $\epsilon$. Changing $\epsilon$ does, of course, change
+   374	$W(\epsilon)$; and generally by an enormous factor. But the change in
+   375	$\log W(\epsilon)$ grows less rapidly than $N$, and in the limit it
+   376	makes no difference.
+   377	
+   378	The intuitive meaning of this theorem is that the Gibbs $H$ does measure
+   379	the logarithm of phase volume of reasonably probable microstates and, remarkably, for a large system the amount per particle,
 exec
-/bin/bash -lc "perl -0777 -i -pe 's/spin echos,\\[\\"'^7'"\\]\\"'$'"\\"'^,'"\\"'$'"\\[\\"'^8'"\\]/spin echos,["'^7][''^8]/g; s/'"\\n\\[\\"'^100'"\\]: Department of Physics, Washington University, St\\. Louis, Missouri\\s*\\z/\\n/s; s/\\n(## )/\\n\\n"'$1/g; s/using the canonical distribution to describe partial information'"\\.\\nOn the \"subjective\"/using the canonical distribution to describe partial information.\\n\\nOn the \"subjective\"/g; s/from a state of complete thermal equilibrium\\.\\nThe necessity/from a state of complete thermal equilibrium.\\n\\nThe necessity/g; s/degrees of interest; otherwise one could easily produce/degrees of interest;\\notherwise one could easily produce/g; s/field was not inadvertently varied from one measurement to the next\\.\\nRecognition/field was not inadvertently varied from one measurement to the next.\\n\\nRecognition/g; s/no definite question has been asked"'!'"\\nIt seems apparent,/no definite question has been asked"'!'"\\n\\nIt seems apparent,/g; s/microstate in \\"'$R_0'"\\"'$ uniquely determines a possible final one in '"\\"'$R_1'"\\"'$, and on successive repetitions/microstate in '"\\"'$R_0'"\\"'$ uniquely determines a possible final one in '"\\"'$R_1'"\\"'$,'"\\nand on successive repetitions/g;' content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+/bin/bash -lc "nl -ba content/papers/gibbs.vs.boltzmann.md | sed -n '108,150p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   108	there are still many complications and unsolved problems.
+   109	
+   110	Inspection of several statistical mechanics textbooks showed that, while
+   111	most state the formal relations correctly, their full implications are
+   112	never noted. Indeed, while all textbooks give extensive discussions of
+   113	Boltzmann's $H$, some recent ones fail to mention even the existence of
+   114	the Gibbs $H$.[^3] I was unable to find any explicit mathematical
+   115	demonstration of their difference. It appeared, therefore, that the
+   116	following note might be pedagogically useful.
+   117	
+   118	## THE BASIC INEQUALITY
+   119	We consider, as usual, a monoatomic fluid of $N$ particles. The ensemble
+   120	is defined by the $N$-particle distribution function, or Liouville
+   121	function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+   122	probability density in the full phase space of the system. The Gibbs $H$ is then 
+   123	$$
+   124	H_G = \int W_N \log W_N d\tau
+   125	$$
+   126	 and
+   127	the corresponding Boltzmann $H$ is
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/gibbs.vs.boltzmann.md
+@@ -123,16 +123,18 @@
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+@@ -157,5 +159,6 @@
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+@@ -167,3 +170,4 @@
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+@@ -173,3 +177,4 @@
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+@@ -194,5 +199,6 @@
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+@@ -202,3 +208,4 @@
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+@@ -209,6 +216,6 @@
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+@@ -217,7 +224,9 @@
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+@@ -226,3 +235,3 @@
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+@@ -233,3 +242,3 @@
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+@@ -240,6 +249,6 @@
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+@@ -247,3 +256,4 @@
+ $$
+- from which 
++
++from which
+ $$
+@@ -257,7 +267,8 @@
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+@@ -288,6 +299,8 @@
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+@@ -299,5 +312,6 @@
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+@@ -368,5 +382,6 @@
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+@@ -461,2 +476,3 @@
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+@@ -526,4 +542,4 @@
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+@@ -532,10 +548,10 @@
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+apply_patch(auto_approved=true) exited 0 in 15ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/gibbs.vs.boltzmann.md
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
+
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
 
 codex
-The patch is in; I’m verifying the exact diff now to ensure only structural markdown/citation cleanup was changed and all math stayed untouched.
+I’ve applied the structural patch. I’m now running a quick consistency pass to verify all cited equation numbers are now visibly tagged and that paragraph boundaries use blank lines where needed.
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{|Eq\\.|Eqs\\.|\\([0-9]{1,2}\\)\" content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+6:  a matter of some confusion in the literature. We show that: (1) the
+8:  phenomenological thermodynamics; (2) the Boltzmann $H$ yields an
+10:  interparticle forces affect thermodynamic properties; (3) Boltzmann's
+12:  the Gibbs $H$, and derivable from it; (4) the Boltzmann $H$ theorem
+14:  gases; (5) the dynamical invariance of the Gibbs $H$ gives a simple
+15:  proof of the second law for arbitrary interparticle forces; (6) the
+96:between Gibbs' $H$ and the experimental entropy, Eq. (17) below, it is
+155:Using (3) and the fact that $W_N$ is symmetric under permutations of
+158:H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+163:H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+169:H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+182:W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+214:final integration supplies only a factor $\Omega$. From (3), the
+223:[w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+226:and (4) reduces to
+239: where $P$ is the pressure; Eq. (11) are well-known
+240:identities of the canonical ensemble. From (10), (11), we thus find that
+247:integrating (12) over a reversible path (i.e., a locus of equilibrium
+253:Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+265:kinetic energy. Over the reversible path (13) the Boltzmann entropy
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
+
+exec
+/bin/bash -lc "rg -n \"tag\\{\" content/papers/gibbs.vs.boltzmann.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+124:H_G = \int W_N \log W_N d\tau \tag{1}
+130:H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+136:w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+163:H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+200:W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+217:w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+228:H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+236:\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+243:d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+250:(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+268:(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+273:(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+300:\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+313:S_G \leq S_e \tag{17}
+383:\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
+
 exec
 /bin/bash -lc 'git diff -- content/papers/gibbs.vs.boltzmann.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
-index 3806d8b..fb1a7cf 100644
+index fb1a7cf..f0ef7a6 100644
 --- a/content/papers/gibbs.vs.boltzmann.md
 +++ b/content/papers/gibbs.vs.boltzmann.md
-@@ -20,6 +20,7 @@ abstract: >
- author:
-   ["E.T. Jaynes"]
- ---
+@@ -121,20 +121,22 @@ is defined by the $N$-particle distribution function, or Liouville
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
 +
- ## INTRODUCTION
- IN the writer's 1962 Brandeis lectures on statistical mechanics, the
- Gibbs and Boltzmann expressions for entropy were compared briefly, and
-@@ -113,6 +114,7 @@ Boltzmann's $H$, some recent ones fail to mention even the existence of
- the Gibbs $H$.[^3] I was unable to find any explicit mathematical
- demonstration of their difference. It appeared, therefore, that the
- following note might be pedagogically useful.
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
 +
- ## THE BASIC INEQUALITY
- We consider, as usual, a monoatomic fluid of $N$ particles. The ensemble
- is defined by the $N$-particle distribution function, or Liouville
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
+
 codex
-Edited `content/papers/gibbs.vs.boltzmann.md` with minimal structural QA only.
+Updated [content/papers/gibbs.vs.boltzmann.md](/home/dave/Projects/jaynes-archive/content/papers/gibbs.vs.boltzmann.md) with minimal structural QA edits only.
 
-Changes made:
-- Added missing blank lines around section headers for cleaner Markdown/Hugo rendering.
-- Split a few oversized paragraphs into smaller readable blocks (no wording changes).
-- Normalized one malformed citation sequence: `spin echos,[^7]$^,$[^8]` -> `spin echos,[^7][^8]`.
-- Removed extraneous non-body metadata footnote: `[^100]: Department of Physics, Washington University, St. Louis, Missouri`.
+Summary of changes:
+- Added display-equation tags so all in-text referenced equations are discoverable: `\tag{1}`, `\tag{2}`, `\tag{3}`, `\tag{4}`, `\tag{7}`, `\tag{9}` through `\tag{18}`.
+- Kept all mathematical expressions/content unchanged; only numbering markup was added.
+- Fixed a few markdown structure/readability issues:
+  - Removed stray leading-space paragraph continuations after display equations.
+  - Inserted a missing blank-line paragraph break after the italicized second-law statement.
+  - Cleaned minor trailing/odd spacing in prose lines.
 
-Checks:
-- No paper meaning/content changed.
-- No LaTeX/KaTeX/math text was modified.
-- No figures were touched.
+Self-check:
+- Paragraph breaks that were clearly intended as separate are now blank-line separated.
+- No unresolved in-text Eq. references to missing display-equation numbers remain.
+- No abstract duplication found in body; no citation duplication cleanup was needed.
+file update:
+diff --git a/content/papers/gibbs.vs.boltzmann.md b/content/papers/gibbs.vs.boltzmann.md
+index fb1a7cfdfc8d72e629c3cf4bc579581a869fb3b0..f0ef7a623a2d91f7cf78c6b5084ff1eae4df2b78
+--- a/content/papers/gibbs.vs.boltzmann.md
++++ b/content/papers/gibbs.vs.boltzmann.md
+@@ -121,20 +121,22 @@
+ function, $W_N(x_1, p_1; x_2, p_2; \dots; x_N, p_N; t)$ which gives the
+ probability density in the full phase space of the system. The Gibbs $H$ is then 
+ $$
+-H_G = \int W_N \log W_N d\tau
++H_G = \int W_N \log W_N d\tau \tag{1}
+ $$
+- and
++
++and
+ the corresponding Boltzmann $H$ is
+ $$
+-H_B = N \int w_1 \log w_1 d\tau_1,
++H_B = N \int w_1 \log w_1 d\tau_1, \tag{2}
+ $$
+- where $w_1(x_1, p_1; t)$ is the
++
++where $w_1(x_1, p_1; t)$ is the
+ single-particle probability density
+ $$
+-w_1(x_1, p_1; t) = \int W_N d\tau_{-1}.
++w_1(x_1, p_1; t) = \int W_N d\tau_{-1}. \tag{3}
+ $$
+ 
+- Here and in the following,
++Here and in the following,
+ we use the notation: $d\tau = d^3x_1 d^3p_1 \dots d^3x_N d^3p_N$,
+ $d\tau_1=d^3x_1 d^3p_1$, $d\tau_{-1}=d^3x_2 \dots d^3p_N$ to stand for
+ phase-volume elements in the full phase space, the space of one
+@@ -155,9 +157,10 @@
+ $$
+ H_B = N \int W_N \log w_1(x_1, p_1) d\tau = \int W_N \log[w_1(1) \ \cdots w_1(N)] d\tau,
+ $$
+- where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
++
++where we use the abbreviation: $(i) \equiv (x_i, p_i)$. We have, then,
+ $$
+-H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau.
++H_B - H_G = \int W_N \log \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} \right] d\tau. \tag{4}
+ $$
+ 
+ Now on the positive real axis, $\log x \leq (x-1)$, with equality if and
+@@ -165,13 +168,15 @@
+ $$
+ H_B - H_G \leq \int W_N \left[ \frac{w_1(1) \cdots w_1(N)}{W_N(1 \cdots N)} - 1 \right] d\tau = 0,
+ $$
+- and we have proved
++
++and we have proved
+ **Theorem 1:** The Gibbs and Boltzmann $H$ functions satisfy the
+ inequality 
+ $$
+ H_B \leq H_G,
+ $$
+- with equality if and only if $W_N$ factors
++
++with equality if and only if $W_N$ factors
+ "almost everywhere" into a product of single-particle functions
+ $$
+ W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
+@@ -192,60 +197,65 @@
+ gravitational potential energy leads to a number of interesting results,
+ but does not change the conclusions of this section). More explicitly, we have
+ $$
+-W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \},
++W_N = \left( \frac{\beta}{2\pi m} \right)^{3N/2} Q^{-1} \times \exp \left \{ -\beta V(x_1 \cdots x_N) - \beta \sum_i \frac{p_i^2}{2m} \right \}, \tag{7}
+ $$
+- where 
++
++where
+ $$
+ \begin{split}
+ Q(\beta, \Omega) &= \int_\Omega \exp(-\beta V) d^3x_1 \cdots d^3x_N \\\\ &= \Omega \int_\Omega \exp(-\beta V) d^3x_2 \cdots d^3x_N
+ \end{split}
+ $$
+- is the "configuration integral," and in the last
++
++is the "configuration integral," and in the last
+ expression we have made use of the fact that $V$ depends only on
+ relative coordinates, and supposed the range of interparticle forces
+ negligibly small compared to the size of the container, so that the
+ final integration supplies only a factor $\Omega$. From (3), the
+ corresponding single-particle function is then
+ $$
+-w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m).
++w_1(x,p) = (\beta/2\pi m)^{3/2} \Omega^{-1} \exp(-\beta p^2/2m). \tag{9}
+ $$
+ 
+- We
++We
+ therefore have
+ $$
+ [w_1(1) \cdots w_1(N)] / W_N(1 \cdots N) = Q \Omega^{-N} e^{\beta V},
+ $$
+- and (4) reduces to
++
++and (4) reduces to
+ $$
+-H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle,
++H_B - H_G = \log Q - N \log \Omega + \beta \langle V \rangle, \tag{10}
+ $$
+- where
++
++where
+ the angular brackets $\langle \ \rangle$ denote the canonical ensemble
+ average. It is also true that 
+ $$
+ \begin{aligned}
+-\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega,
++\langle V \rangle &= -\partial \log Q / \partial \beta, \\\\ \beta \langle P \rangle &= \partial \log Q / \partial \Omega, \tag{11}
+ \end{aligned}
+ $$
+  where $P$ is the pressure; Eq. (11) are well-known
+ identities of the canonical ensemble. From (10), (11), we thus find that
+ on an infinitesimal change of state,
+ $$
+-d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega,
++d(H_B - H_G) = \beta d\langle V \rangle + \beta[\langle P \rangle - P_0] d\Omega, \tag{12}
+ $$
+  where $P_0 = NkT/\Omega$ is the pressure of an ideal gas with the same
+ temperature and density. Introducing the "entropies" $S_i = -kH_i$ and
+ integrating (12) over a reversible path (i.e., a locus of equilibrium
+ states), we see that the difference varies according to
+ $$
+-(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}.
++(S_G - S_B)_2 - (S_G - S_B)_1 = \int_1^2 \frac{d\langle V \rangle + [\langle P \rangle - P_0]d\Omega}{T}. \tag{13}
+ $$
+ 
+- Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
++Now from (9), using $\langle p^2 \rangle = 3mkT$, we find that
+ $$
+ S_B = \frac{3}{2}Nk \log(2\pi mkT) + Nk \log \Omega + \frac{3}{2}Nk,
+ $$
+- from which 
++
++from which
+ $$
+ \begin{aligned}
+ \left(\frac{\partial S_B}{\partial T}\right)_\Omega dT &= \frac{3}{2} \frac{NkdT}{T} = \frac{d\langle K \rangle}{T} \\\\ \left(\frac{\partial S_B}{\partial \Omega}\right)_T d\Omega &= \frac{Nk}{\Omega}d\Omega = \frac{P_0 d\Omega}{T},
+@@ -255,11 +265,12 @@
+ kinetic energy. Over the reversible path (13) the Boltzmann entropy
+ therefore varies according to
+ $$
+-(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T},
++(S_B)_2 - (S_B)_1 = \int_1^2 \frac{d\langle K \rangle + P_0 d\Omega}{T}, \tag{14}
+ $$
+- and from (13), (14) we finally have for the Gibbs entropy
++
++and from (13), (14) we finally have for the Gibbs entropy
+ $$
+-(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T}
++(S_G)_2 - (S_G)_1 = \int_1^2 \frac{d\langle K+V \rangle + \langle P \rangle d\Omega}{T} = \int_1^2 \frac{dQ}{T} \tag{15}
+ $$
+ 
+ Equations (14), (15) are the main results sought. From them it is clear
+@@ -286,10 +297,12 @@
+ agree with the experimental energy $U$, in the sense that the mean value
+ of the Hamiltonian is 
+ $$
+-\langle H \rangle = \int W_N H d\tau = U,
++\langle H \rangle = \int W_N H d\tau = U, \tag{16}
+ $$
+- the
+-Gibbs $H$ attains an absolute minimum for the canonical distribution. For this case, we have
++
++the Gibbs $H$ attains an absolute minimum for the canonical distribution.
++
++For this case, we have
+ just shown that, if the arbitrary additive constant is properly adjusted
+ at a single point, then the Gibbs entropy $S_G = -kH_G$ will be the same
+ as the experimental entropy at all points. Therefore, the general
+@@ -297,9 +310,10 @@
+ distributions $W_N$ that agree with the experimental energy in the sense
+ of (16), we have 
+ $$
+-S_G \leq S_e
++S_G \leq S_e \tag{17}
+ $$
+- with equality if, and only if, $S_G$
++
++with equality if, and only if, $S_G$
+ is computed from the canonical distribution (7).
+ 
+ At time $t=0$, let our system be in complete thermal equilibrium so that
+@@ -366,9 +380,10 @@
+ density. The Gibbs $H$ per particle, $H_G/N$, then approaches a definite
+ limit, and 
+ $$
+-\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0
++\lim_{N \to \infty} \{ [H_G + \log W(\epsilon)]/N \} = 0 \tag{18}
+ $$
+- provided $\epsilon$ is not zero or unity. The principal feature of this
++
++provided $\epsilon$ is not zero or unity. The principal feature of this
+ theorem, at first sight astonishing, is that the result is independent
+ of $\epsilon$. Changing $\epsilon$ does, of course, change
+ $W(\epsilon)$; and generally by an enormous factor. But the change in
+@@ -459,6 +474,7 @@
+ to state the conventional second law in the form: *The experimental
+ entropy cannot decrease in a reproducible adiabatic process that starts
+ from a state of complete thermal equilibrium.*
++
+ The necessity of the last proviso is clear from a logical standpoint in
+ our derivation of the second law in Sec. IV; for if the preparation of
+ the system just before $t=0$ imposes any constraints other than those
+@@ -524,20 +540,20 @@
+ One might reply that in each of the experiments cited, we have used only
+ part of the degrees of freedom of the system, and there is a "true"
+ entropy which is a function of all these parameters simultaneously. 
+-However, we can always introduce as many new degrees of freedom as we 
+-please. For example, we might expand each element of the strain tensor 
++However, we can always introduce as many new degrees of freedom as we
++please. For example, we might expand each element of the strain tensor
+ in a complete orthogonal set of functions $\phi_k(x,y,z)$ 
+ $$
+ e_{ij}(x,y,z) = \sum_k A_{ijk} \phi_k(x,y,z)
+ $$
+-and by a sufficiently 
+-complicated system of levels, we could vary each of the first 1000 
+-expansion coefficients $a_{ijk}$ independently. Our crystal is now a 
+-thermodynamic system of over 1000 degrees of freedom; but we still 
+-believe that the laws of thermodynamics would hold. So, the entropy 
+-must be a function of over 1000 independent variables. There is no end 
+-to this search for the ultimate "true" entropy until we have reached 
+-the point where we control the location of each atom independently. But 
++and by a sufficiently
++complicated system of levels, we could vary each of the first 1000
++expansion coefficients $a_{ijk}$ independently. Our crystal is now a
++thermodynamic system of over 1000 degrees of freedom; but we still
++believe that the laws of thermodynamics would hold. So, the entropy
++must be a function of over 1000 independent variables. There is no end
++to this search for the ultimate "true" entropy until we have reached
++the point where we control the location of each atom independently. But
+ just at that point the notion of entropy collapses, and we are no 
+ longer talking thermodynamics!
+ 
+
 tokens used
-27,601
+34,062
 

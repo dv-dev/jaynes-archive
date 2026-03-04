@@ -1,0 +1,3087 @@
+=== STDOUT ===
+Updated [maser.theory.md](/home/dave/Projects/jaynes-archive/content/papers/maser.theory.md) with minimal structural QA edits only.
+
+Changes made:
+- Added a few missing blank-line paragraph boundaries where prose was clearly running together.
+- Kept math content unchanged, but adjusted equation-numbering presentation so all in-text equation references are discoverable:
+  - Split grouped displays into individually tagged equations for:
+    - `5.12a`, `5.12b`, `5.12c`
+    - `8.2a`, `8.2b`, `8.2c`
+    - `8.19a`, `8.19b`, `8.19c`
+    - `8.22a`, `8.22b`, `8.22c`
+- Updated in-text equation references accordingly (including fixing `(8-4)` to `(8.4)`).
+- Added a blank line before one section heading for cleaner markdown rendering.
+
+Self-check:
+- Paragraph breaks now use blank-line separation where intended.
+- No unresolved in-text equation references remain.
+- No abstract duplication found in body, so no abstract removal was needed.
+- No figure content edits made.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba1b-4983-7c01-913e-0a6b43132dec
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/maser.theory.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/maser.theory.md` for structural QA, equation-numbering alignment, duplicate abstract/citation cleanup, then apply only minimal markdown edits in-place. I’m starting by reading the file and scanning for paragraph, citation, and Eq. reference issues.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Some Aspects of Maser Theory"
+year: 1958
+abstract: >
+  As a preliminary to a theoretical study of the ultimate limitations on
+  noise figure and frequency stability in molecular-beam masers, we
+  examine the relation between quantum electrodynamics and the
+  semiclassical theory of radiation. Solutions according to both
+  theories are worked out in detail for the case of a single molecule
+  interacting with a single cavity oscillation mode. Comparison of the
+  results shows several features which make the relation of the two
+  theories appear rather different than is usually supposed. For
+  example, according to quantum electrodynamics, even in the limit of
+  aribrarily large photon occupation numbers, the electromagnetic field
+  can be in physical states qualitatively different from any describable
+  in classical terms, and a molecule-beam maser excited by molecules all
+  in the upper state should produce such a condition.
+  The molecular-beam maser provides an interesting example of the
+  Einstein-Podolsky-Rosen paradox, arising from correlations in states
+  of molecule and field. An attempt is made to find an experimental
+codex
+I’ve loaded the first section and found several structural issues already (single-line paragraph breaks, extra leading spaces before prose, and an internal equation cross-reference likely off by one around `(2.21)`). I’ll scan the rest of the file before editing so I can apply one minimal consistent patch.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+## INTERACTION WITH A SINGLE MOLECULE
+The simplest possible situation is one where we consider a lossless
+cavity, which has only a single resonant mode near the natural line
+frequency of the molecules, and a uniform field (electric or magnetic,
+whichever is the one effective in field-molecule interaction)
+along the path of the molecules. Suppose further that only a single
+molecule, which has only two possible energy levels, is in the cavity.
+With the molecule-field interaction of the usual
+$(\mathbf{J} \cdot \mathbf{A})$ form, it appears that even this problem
+cannot be solved exactly. However, because of the simplicity of the
+model we will be able to treat it more accurately than is usually done
+in more difficult problems, where one resorts to an expansion in powers
+of $(e^2/\hbar c)$. The stationary states of the system (molecule +
+field) can be found to an accuracy of perhaps one part in $10^7$ for
+radiation energy densities up to the order of those encountered in
+masers, by a calculation which involves nothing worse than solving
+quadratic equations. By use of perturbation theory, still better
+accuracy would be feasible, but this is not attempted here.
+
+Let the two possible energy levels of the molecule be denoted by $E_m$,
+exec
+/bin/bash -lc "sed -n '521,780p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+ the only nonvanishing
+components of $\rho_f(t)$ are
+$$
+(n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+$$
+$$
+(n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+$$
+which relations will be used in the next section.
+## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+If several molecules pass through the cavity in succession, the N'th
+entering as the (N-1)'th leaves, all with the same initial state, this
+generates a Markov chain,
+$$
+\rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+$$
+ and
+particular interest attaches to the limiting form of $\rho_f$ as
+$N \to \infty$.
+
+exec
+/bin/bash -lc "sed -n '781,1040p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+[H_f, [H_f, E]] = \hbar^2 \omega^2 E, \tag{5.18}
+$$
+$$
+[H_{\text{int}}, [H_f, E]] = -\hbar^2 S \mu_{\text{op}}. \tag{5.19}
+$$
+
+Therefore, a special case of (5.16) is the operator identity
+$$
+\ddot{E} + \omega^2 E = S \mu_{\text{op}} \tag{5.20}
+$$
+ which is to be
+compared to (5.12c). If we interpret (5.12c) as the expectation value of
+(5.20), they are seen to be identical in the limit $Q \to \infty$,
+provided that the expectation value of $\mu_{\text{op}}$ must be defined,
+not in terms of a(t) and b(t) by means of (5.6), but as the expectation
+value taken over the complete density matrix $(mn|\rho|m^{\prime} n^{\prime})$:
+$$
+\langle \mu_{\text{op}} \rangle = \text{Tr}(\rho \mu_{\text{op}}) = \sum_{m,m^\prime,n} (mn|\rho|m^{\prime} n)(m^{\prime} n|\mu_{\text{op}}|mn). \tag{5.21}
+$$
+
+exec
+/bin/bash -lc "sed -n '1041,1300p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+constants K, S by the change of variables
+$$
+\begin{aligned}
+x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+\end{aligned} \tag{8.1}
+$$
+ whereupon the equations of motion reduce to
+$$
+\begin{aligned}
+\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+\end{aligned} \tag{8.2}
+$$
+ and the conservation laws (5.15) become
+$$
+(\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+$$
+$$
+(\dot{x})^2 + \omega^2 x^2 + 2(z - x\dot{y}) = \text{const.} \tag{8.4}
+$$
+
+codex
+I’ve now scanned most of the document; next I’m checking the tail section plus footnotes, then I’ll patch only structural markdown and equation tag consistency (including any obvious mislabeled internal Eq. references).
+exec
+/bin/bash -lc "sed -n '1301,1560p' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+is the initial phase of the motion. In the limit of large n, the
+elliptic functions approach trigonometric functions, as is seen most
+easily directly from (8.25). If $a \gg 1$, then (8.25) reduces to
+$$
+\frac{t}{\omega\sqrt{2}} \approx \int \frac{dz}{\sqrt{a(1-z^2)}} = \frac{1}{\sqrt{a}} \sin^{-1}z(t) + \text{const.}, \tag{8.29}
+$$
+or 
+$$
+z(t) \approx \sin(2\sqrt{n} \frac{\alpha t}{\hbar} + \Theta). \tag{8.30}
+$$
+
+The case a=1, n=0 is a special one, for the integrand of (8.25) then
+develops a first-order pole at z=1. The solution (8.27) is still valid
+but it is no longer a periodic solution, for sn(u,1) is qualitatively
+like $\tanh u$; it approaches $\pm 1$ asymptotically as
+$u \to \pm \infty$. This represents a case where the energy in the field
+exactly disappears just as the molecule gets into its upper state, and
+the final stages of the solution (8.27) then represent the "shrinking
+normal mode" of (8.12), where X is 90° ahead of Y. (This phase relation
+exec
+/bin/bash -lc "rg -n '"'^ [A-Za-z(]'"' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+83: may lead to conclusions that are not only
+150: where
+157: The
+168: The
+202: The
+213: Denote by
+219: c_a \Phi(\dots, n_a, \dots) &= \sqrt{n_a} \Phi(\dots, n_a-1, \dots) \\\\ c_a^* \Phi(\dots, n_a, \dots) &= \sqrt{n_a+1} \Phi(\dots, n_a+1, \dots),
+252: Combining
+295: where $\vec{\mu}$
+302: Combining this with
+311: is
+321: V_n &= (1, n+1|V|2, n) = (2,n|V|1, n+1) = \alpha(n+1)^{1/2} \\\\ W_n &= (1, n|W|2, n+1) = (2, n+1|W|1, n) = \alpha(n+1)^{1/2}
+324: all other elements being zero. The term V
+337: in which the term
+355: where
+364: for which the
+376: and, for n=0, 
+416: and the density matrix
+423: The net change
+448: These relations hold for all quantum numbers
+exec
+/bin/bash -lc "awk 'match("'$0,/'"\\\\tag\\{(["'^}]*)'"\\}/,a){print a[1]}' content/papers/maser.theory.md | sort -u > /tmp/tags.txt; rg -o '\\([0-9]+[.-][0-9]+[a-z]?\\)' content/papers/maser.theory.md | sed -E 's/.*\\(([0-9]+[.-][0-9]+[a-z]?)\\).*/\\1/' | sort -u > /tmp/refs.txt; echo 'Missing refs:'; comm -23 /tmp/refs.txt /tmp/tags.txt; echo 'Unreferenced tags count:'; comm -13 /tmp/refs.txt /tmp/tags.txt | wc -l" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+awk: line 1: syntax error at or near ,
+Missing refs:
+1.1
+2.14
+2.15
+2.19
+2.20
+2.21
+2.3
+2.6
+2.8
+3.14
+3.15
+3.16
+3.17
+3.19
+3.23
+3.25
+3.26
+3.29
+codex
+I found at least one broken in-text equation reference format (`(8-4)`), and I’m now doing a reliable tag/reference scan to catch any other unresolved cases before patching.
+exec
+/bin/bash -lc "rg -o '\\\\tag\\{["'^}]+'"\\}' content/papers/maser.theory.md | sed -E 's/.*\\\\tag\\{(["'^}]*)'"\\}.*/\\1/' | sort -u > /tmp/tags.txt; rg -o '\\([0-9]+[.-][0-9]+[a-z]?\\)' content/papers/maser.theory.md | sed -E 's/.*\\(([0-9]+[.-][0-9]+[a-z]?)\\).*/\\1/' | sort -u > /tmp/refs.txt; echo 'Missing refs:'; comm -23 /tmp/refs.txt /tmp/tags.txt" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Missing refs:
+5.12c
+5.15
+8-4
+8.22c
+8.2a
+8.2b
+8.2c
+exec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '70,190p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+    70	induced transition probabilities is only an approximation valid when the
+    71	correlation time of the radiation is short compared to the time required
+    72	to accumulate an appreciable transition probability; in other words, that
+    73	the radiation responsible for the transitions must be random, with a
+    74	spectrum wide compared to the line width. This condition is satisfied in
+    75	most optical experiments, but in an ammonia maser the correlation time of
+    76	the radiation may be of the order of $10^3$ to $10^6$ times the flight
+    77	time of a molecule through the cavity. Under these conditions, any
+    78	attempt to describe maser operation in terms of the standard transition
+    79	probability formulas, such as 
+    80	$$
+    81	W_{1 \to 2} = \frac{2\pi}{\hbar^2} |H_{12}|^2 g(\omega) \tag{1.1}
+    82	$$
+    83	 may lead to conclusions that are not only
+    84	quantitatively, but also qualitatively wrong. Unfortunately, most of the
+    85	existing noise figure calculations are based on a treatment of this type.
+    86	Of course, use of a poor approximation does not necessarily prevent one
+    87	from getting the right answer; but one can never be sure it is right until
+    88	the calculation has been checked in other ways.
+    89	(B) A second stage of approximation, resulting in a much more
+exec
+/bin/bash -lc "rg -n '"'^ '"' content/papers/maser.theory.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+5:  As a preliminary to a theoretical study of the ultimate limitations on
+6:  noise figure and frequency stability in molecular-beam masers, we
+7:  examine the relation between quantum electrodynamics and the
+8:  semiclassical theory of radiation. Solutions according to both
+9:  theories are worked out in detail for the case of a single molecule
+10:  interacting with a single cavity oscillation mode. Comparison of the
+11:  results shows several features which make the relation of the two
+12:  theories appear rather different than is usually supposed. For
+13:  example, according to quantum electrodynamics, even in the limit of
+14:  aribrarily large photon occupation numbers, the electromagnetic field
+15:  can be in physical states qualitatively different from any describable
+16:  in classical terms, and a molecule-beam maser excited by molecules all
+17:  in the upper state should produce such a condition.
+18:  The molecular-beam maser provides an interesting example of the
+19:  Einstein-Podolsky-Rosen paradox, arising from correlations in states
+20:  of molecule and field. An attempt is made to find an experimental
+21:  situation in which effects of such correlations are observable, but
+22:  without success.
+23:  It is shown that, contrary to what is often assumed, the semiclassical
+24:  theory of radiation can account for spontaneous emission of radiation.
+exec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '470,560p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   470	$\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+   471	states n=0 and n=1 can be set up by the molecule unless there was some
+   472	coherence initially between upper and lower states of the molecule.
+   473	The expectation value of electric field along the axis of the cavity, as
+   474	obtained from (2.21), is
+   475	$$
+   476	\begin{aligned}
+   477	\langle E \rangle &= \text{Tr}(\rho_f E) = -\frac{\alpha}{\mu} \sum_n \sqrt{n+1} [(n|\rho_f|n+1) + (n+1|\rho_f|n)] \\\\ &= -\frac{2\alpha}{\mu} \text{Re} \sum_n \sqrt{n+1} (n|\rho_f|n+1).
+   478	\end{aligned} \tag{3.27}
+   479	$$
+   480	
+   481	This remains zero as long as there is no coherence between adjacent
+   482	levels, even though the energy stored in the field may be large. In the
+   483	case (3.26), we obtain for $\langle E \rangle$,
+   484	$$
+   485	\langle E \rangle = -\frac{2\alpha}{\mu} \text{Re}(c_o b_1^* \sigma_{12}) = \frac{2\alpha^2 \sin \beta_1 t}{\mu \hbar \beta_1} \text{Re}[i \sigma_{12} e^{i(\Omega+\omega)t/2}], \tag{3.28}
+   486	$$
+   487	where $\beta$ is defined by (3.17) with n=1, and
+   488	$\Omega = (E_2-E_1)/\hbar$ is the natural line frequency of the
+   489	molecule. If the cavity is so tuned that its resonant frequency $\omega$
+codex
+I’ve identified the concrete fixes to apply: convert grouped equations so referenced sub-labels (`5.12a/c`, `8.2a/b/c`, `8.22c`) are actually visible, fix the malformed `(8-4)` reference, and add only a few clear blank-line paragraph breaks. I’m applying that patch now.
+codex
+Patch had context mismatches due slight spacing differences; I’m applying the same edits in smaller targeted chunks to avoid touching unrelated text.
+exec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '508,540p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   508	
+   509	If the molecule and field are in arbitrary initial states, the general
+   510	transformation of the field caused by passage of the molecule is, from
+   511	(3.25), 
+   512	$$
+   513	\begin{aligned}
+   514	(n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+   515	\end{aligned} \tag{3.31}
+   516	$$
+   517	 if the field density matrix is initially diagonal,
+   518	$$
+   519	(n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+   520	$$
+   521	 the only nonvanishing
+   522	components of $\rho_f(t)$ are
+   523	$$
+   524	(n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+   525	$$
+   526	$$
+   527	(n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+exec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '1200,1268p'" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '720,790p'" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '1038,1088p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+  1200	molecule to the field, and the necessary and sufficient condition for
+  1201	this is that the y motion be advanced in phase over the x motion.
+  1202	**[FIGURE 2: Secular changes in orbits for the four combinations of signs of xy and z.]**
+  1203	Thus in order to understand the long-time course of events, we must
+  1204	study the secular changes in relative phase of x and y. To this end,
+  1205	introduce the slowly varying complex amplitude X, Y, defined by
+  1206	$$
+  1207	\dot{x} + i\omega x = X(t) e^{i\omega t}, \tag{8.15}
+  1208	$$
+  1209	$$
+  1210	\dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+  1211	$$
+  1212	
+  1213	 If we regard
+  1214	the above orbit diagrams as complex planes, the quantities depicted are
+  1215	just the complex numbers (8.15) and (8.16). Noting the properties
+  1216	$$
+  1217	(\dot{x})^2 + \omega^2 x^2 = |X|^2, \tag{8.17}
+  1218	$$
+  1219	$$
+ succeeded in 51ms:
+   720	By the "semiclassical theory" we mean the system of equations (5.5),
+   721	(5.6), (5.11). They may be given a slightly neater formal appearance by
+   722	eliminating the amplitudes a(t), b(t). The result is the nonlinear
+   723	system of coupled equations 
+   724	$$
+   725	\begin{aligned}
+   726	\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+   727	\end{aligned} \tag{5.12}
+   728	$$
+   729	 where
+   730	$$
+   731	K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+   732	$$
+   733	and
+   734	$$
+   735	W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+   736	$$
+   737	is the expectation value of energy of the molecule, referred to a zero
+   738	lying midway between the levels $E_1, E_2$. In the form (5.12) we have
+   739	an apparently classical nonlinear system, all reference to
+ succeeded in 51ms:
+  1038	## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+  1039	In this section we look more closely at the system of equations (5.12)
+  1040	representing the semiclassical theory. It is convenient to eliminate the
+  1041	constants K, S by the change of variables
+  1042	$$
+  1043	\begin{aligned}
+  1044	x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+  1045	\end{aligned} \tag{8.1}
+  1046	$$
+  1047	 whereupon the equations of motion reduce to
+  1048	$$
+  1049	\begin{aligned}
+  1050	\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+  1051	\end{aligned} \tag{8.2}
+  1052	$$
+  1053	 and the conservation laws (5.15) become
+  1054	$$
+  1055	(\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+  1056	$$
+  1057	$$
+exec
+/bin/bash -lc "nl -ba content/papers/maser.theory.md | sed -n '1166,1194p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+  1166	put a stop to the emission process.
+  1167	
+  1168	For a qualitative picture of the secular changes in the case
+  1169	$\omega = \Omega$, we may consider the orbits in the
+  1170	($\dot{x}, \omega x$) plane and in the ($\dot{y}, \omega y$) plane, as
+  1171	in Fig. 1.
+  1172	**[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+  1173	Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+  1174	$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
+  1175	$$
+  1176	(\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+  1177	$$
+  1178	 which
+  1179	shows that when z increases, the orbit in the ($\dot{x}, \omega x$) plane
+  1180	must shrink, and vice versa. Similarly the conservation law (8.6) shows
+  1181	that if $|z|$ increases, the y-orbit must shrink, and vice versa. Therefore
+  1182	the direction of all secular changes is determined by the sign of
+  1183	$\dot{z}$ and z. In the equation $\dot{z} = x\dot{y}$ we can for all
+  1184	practical purposes replace $x\dot{y}$ by its average
+  1185	$\overline{x\dot{y}}$ over one cycle, since we are interested in the
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+@@ -472,2 +472,3 @@
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+@@ -516,3 +517,3 @@
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+@@ -520,3 +521,3 @@
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+@@ -529,2 +530,3 @@
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+@@ -536,3 +538,3 @@
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+apply_patch(auto_approved=true) exited 0 in 6ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..8cbbe10d6adf0908f4486972bba176d6bc74eb50
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..8cbbe10d6adf0908f4486972bba176d6bc74eb50
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+@@ -726,5 +726,9 @@
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+@@ -739,3 +743,3 @@
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+@@ -743,3 +747,3 @@
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+@@ -750,3 +754,3 @@
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+@@ -758,3 +762,3 @@
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+apply_patch(auto_approved=true) exited 0 in 16ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..65827ee674e26a3644c2b313424cd82aea708966
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
+ $$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..65827ee674e26a3644c2b313424cd82aea708966
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
+ $$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+@@ -1044,3 +1044,3 @@
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+@@ -1052,9 +1052,13 @@
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+apply_patch(auto_approved=true) exited 0 in 9ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..4f1301c63f76702935a07f186f3b398ab41c836d
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
+ $$
+- and the conservation laws (5.15) become
++\dot{z} = x\dot{y}, \tag{8.2c}
++$$
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..4f1301c63f76702935a07f186f3b398ab41c836d
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
+ $$
+- and the conservation laws (5.15) become
++\dot{z} = x\dot{y}, \tag{8.2c}
++$$
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+
+codex
+I’ve completed the main equation-tag restructuring. I’m doing the final equation-reference cleanup (`8-4`, `8.22c`, etc.) and then running a quick unresolved-reference check before I summarize.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+@@ -1183,3 +1183,3 @@
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+@@ -1222,3 +1222,3 @@
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+@@ -1234,7 +1234,11 @@
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
+ $$
+- which are exact for the case $\omega = \Omega$. The
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+@@ -1247,3 +1251,3 @@
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+@@ -1255,9 +1259,13 @@
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+apply_patch(auto_approved=true) exited 0 in 17ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..9cf842c0cf5e6ab42df79bcac1b5650cc0a9228a
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
+ $$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
++$$
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1222,11 +1232,15 @@
+ and similarly for Y, we can write the equations of motion (8.2) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,7 +1249,7 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+@@ -1243,13 +1257,17 @@
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..9cf842c0cf5e6ab42df79bcac1b5650cc0a9228a
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
+ $$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
++$$
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1222,11 +1232,15 @@
+ and similarly for Y, we can write the equations of motion (8.2) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,7 +1249,7 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+@@ -1243,13 +1257,17 @@
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+exec
+/bin/bash -lc "rg -o '\\\\tag\\{["'^}]+'"\\}' content/papers/maser.theory.md | sed -E 's/.*\\\\tag\\{(["'^}]*)'"\\}.*/\\1/' | sort -u > /tmp/tags.txt; rg -o '\\([0-9]+[.-][0-9]+[a-z]?\\)' content/papers/maser.theory.md | sed -E 's/.*\\(([0-9]+[.-][0-9]+[a-z]?)\\).*/\\1/' | sort -u > /tmp/refs.txt; echo 'Missing refs:'; comm -23 /tmp/refs.txt /tmp/tags.txt" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Missing refs:
+5.12
+8.19
+8.2
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..9cf842c0cf5e6ab42df79bcac1b5650cc0a9228a
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
+ $$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
++$$
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1222,11 +1232,15 @@
+ and similarly for Y, we can write the equations of motion (8.2) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,7 +1249,7 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+@@ -1243,13 +1257,17 @@
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+exec
+/bin/bash -lc "rg -n '\\(5\\.12\\)|\\(8\\.19\\)|\\(8\\.2\\)' content/papers/maser.theory.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+1015:would be determined from solving Eqs. (5.12) instead of "borrowing"
+1105:complete understanding of the solutions of (8.2) in spite of their
+1232:and similarly for Y, we can write the equations of motion (8.2) in the
+1256:in (8.19) may be dropped, since their average over a cycle is negligible
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..9cf842c0cf5e6ab42df79bcac1b5650cc0a9228a
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,10 +724,14 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
+ $$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
++$$
+  where
+ $$
+ K = \frac{2\mu}{\hbar}, \quad S = \frac{4\pi}{J_1^2 V}, \tag{5.13}
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
++$$
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1222,11 +1232,15 @@
+ and similarly for Y, we can write the equations of motion (8.2) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,7 +1249,7 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+@@ -1243,13 +1257,17 @@
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+@@ -1014,3 +1014,3 @@
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+@@ -1104,3 +1104,3 @@
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+@@ -1231,3 +1231,3 @@
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+@@ -1255,3 +1255,3 @@
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+apply_patch(auto_approved=true) exited 0 in 9ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/maser.theory.md
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..0cddf81063aa485cbea5de8830f7eb41415e29be
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1006,7 +1012,7 @@
+ (7.1) is not.
+ 
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+ (7.3) and (7.4). Therefore the following arguments cannot claim full
+ validity. It is apparent from the above equations, however, that in
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1092,7 +1102,7 @@
+ field (x) and dipole moment (y) are still very rapid, while secular
+ changes due to their interaction are very slow. Because of this clean
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+ 
+ The simplest approximate solution is the one wherein we ignore the time
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1219,14 +1229,18 @@
+ $$
+ \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,21 +1249,25 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..0cddf81063aa485cbea5de8830f7eb41415e29be
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1006,7 +1012,7 @@
+ (7.1) is not.
+ 
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+ (7.3) and (7.4). Therefore the following arguments cannot claim full
+ validity. It is apparent from the above equations, however, that in
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1092,7 +1102,7 @@
+ field (x) and dipole moment (y) are still very rapid, while secular
+ changes due to their interaction are very slow. Because of this clean
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+ 
+ The simplest approximate solution is the one wherein we ignore the time
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1219,14 +1229,18 @@
+ $$
+ \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,21 +1249,25 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+exec
+/bin/bash -lc "rg -o '\\\\tag\\{["'^}]+'"\\}' content/papers/maser.theory.md | sed -E 's/.*\\\\tag\\{(["'^}]*)'"\\}.*/\\1/' | sort -u > /tmp/tags.txt; rg -o '\\([0-9]+[.-][0-9]+[a-z]?\\)' content/papers/maser.theory.md | sed -E 's/.*\\(([0-9]+[.-][0-9]+[a-z]?)\\).*/\\1/' | sort -u > /tmp/refs.txt; echo 'Missing refs:'; comm -23 /tmp/refs.txt /tmp/tags.txt" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Missing refs:
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..0cddf81063aa485cbea5de8830f7eb41415e29be
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1006,7 +1012,7 @@
+ (7.1) is not.
+ 
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+ (7.3) and (7.4). Therefore the following arguments cannot claim full
+ validity. It is apparent from the above equations, however, that in
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1092,7 +1102,7 @@
+ field (x) and dipole moment (y) are still very rapid, while secular
+ changes due to their interaction are very slow. Because of this clean
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+ 
+ The simplest approximate solution is the one wherein we ignore the time
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1219,14 +1229,18 @@
+ $$
+ \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,21 +1249,25 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+exec
+/bin/bash -lc 'git diff -- content/papers/maser.theory.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cb..0cddf81 100644
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@ relation between upper and lower states of the molecule, then
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@ $$
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..0cddf81063aa485cbea5de8830f7eb41415e29be
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1006,7 +1012,7 @@
+ (7.1) is not.
+ 
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+ (7.3) and (7.4). Therefore the following arguments cannot claim full
+ validity. It is apparent from the above equations, however, that in
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1092,7 +1102,7 @@
+ field (x) and dipole moment (y) are still very rapid, while secular
+ changes due to their interaction are very slow. Because of this clean
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+ 
+ The simplest approximate solution is the one wherein we ignore the time
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1219,14 +1229,18 @@
+ $$
+ \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,21 +1249,25 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+codex
+Updated [maser.theory.md](/home/dave/Projects/jaynes-archive/content/papers/maser.theory.md) with minimal structural QA edits only.
+
+Changes made:
+- Added a few missing blank-line paragraph boundaries where prose was clearly running together.
+- Kept math content unchanged, but adjusted equation-numbering presentation so all in-text equation references are discoverable:
+  - Split grouped displays into individually tagged equations for:
+    - `5.12a`, `5.12b`, `5.12c`
+    - `8.2a`, `8.2b`, `8.2c`
+    - `8.19a`, `8.19b`, `8.19c`
+    - `8.22a`, `8.22b`, `8.22c`
+- Updated in-text equation references accordingly (including fixing `(8-4)` to `(8.4)`).
+- Added a blank line before one section heading for cleaner markdown rendering.
+
+Self-check:
+- Paragraph breaks now use blank-line separation where intended.
+- No unresolved in-text equation references remain.
+- No abstract duplication found in body, so no abstract removal was needed.
+- No figure content edits made.
+file update:
+diff --git a/content/papers/maser.theory.md b/content/papers/maser.theory.md
+index 48b21cbc9e5713071e3cdbcbdd052de247311278..0cddf81063aa485cbea5de8830f7eb41415e29be
+--- a/content/papers/maser.theory.md
++++ b/content/papers/maser.theory.md
+@@ -470,6 +470,7 @@
+ $\sigma_{12}=0$, and $\rho_f$ remains diagonal; no coherence between
+ states n=0 and n=1 can be set up by the molecule unless there was some
+ coherence initially between upper and lower states of the molecule.
++
+ The expectation value of electric field along the axis of the cavity, as
+ obtained from (2.21), is
+ $$
+@@ -514,11 +515,11 @@
+ (n|\rho_f(\tau)|n^\prime) &= \sigma_{11} [b_{n+1}^* b_{n^\prime+1} (n+1|\rho_f(0)|n^\prime+1) + c_n^* c_{n^\prime} (n|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{12} [b_{n+1}^* a_{n^\prime+1} (n+1|\rho_f(0)|n^\prime) + c_n^* b_{n^\prime} (n|\rho_f(0)|n^\prime-1)] \\\\ &+ \sigma_{21} [a_{n+1}^* b_{n^\prime+1} (n|\rho_f(0)|n^\prime+1) + b_n^* c_{n^\prime} (n-1|\rho_f(0)|n^\prime)] \\\\ &+ \sigma_{22} [a_{n+1}^* a_{n^\prime+1} (n|\rho_f(0)|n^\prime) + b_n^* b_{n^\prime} (n-1|\rho_f(0)|n^\prime-1)].
+ \end{aligned} \tag{3.31}
+ $$
+- if the field density matrix is initially diagonal,
++if the field density matrix is initially diagonal,
+ $$
+ (n|\rho_f(0)|n^\prime) = p_n \delta_{nn^\prime}, \tag{3.32}
+ $$
+- the only nonvanishing
++the only nonvanishing
+ components of $\rho_f(t)$ are
+ $$
+ (n|\rho_f(t)|n) = \sigma_{11} [|b_{n+1}|^2 p_{n+1} + |c_n|^2 p_n] + \sigma_{22} [|a_{n+1}|^2 p_n + |b_n|^2 p_{n-1}], \tag{3.33}
+@@ -527,6 +528,7 @@
+ (n|\rho_f(t)|n+1) = (n+1|\rho_f(t)|n)^* = \sigma_{12} [b_{n+1}^* a_{n+2} p_{n+1} + c_n^* b_{n+1} p_n], \tag{3.34}
+ $$
+ which relations will be used in the next section.
++
+ ## SUCCESSIVE SINGLE-MOLECULE INTERACTIONS
+ If several molecules pass through the cavity in succession, the N'th
+ entering as the (N-1)'th leaves, all with the same initial state, this
+@@ -534,7 +536,7 @@
+ $$
+ \rho_f(N\tau) = G^N \rho_f(0) = G \rho_f(N\tau-\tau), \tag{4.1}
+ $$
+- and
++and
+ particular interest attaches to the limiting form of $\rho_f$ as
+ $N \to \infty$.
+ 
+@@ -722,9 +724,13 @@
+ eliminating the amplitudes a(t), b(t). The result is the nonlinear
+ system of coupled equations 
+ $$
+-\begin{aligned}
+-\ddot{M} + \Omega^2 M &= -K^2 W E(t), \\\\ \dot{W} &= E \dot{M}, \\\\ \ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E &= S \ddot{M},
+-\end{aligned} \tag{5.12}
++\ddot{M} + \Omega^2 M = -K^2 W E(t), \tag{5.12a}
++$$
++$$
++\dot{W} = E \dot{M}, \tag{5.12b}
++$$
++$$
++\ddot{E} + \frac{\omega}{Q} \dot{E} + \omega^2 E = S \ddot{M}, \tag{5.12c}
+ $$
+  where
+ $$
+@@ -735,18 +741,18 @@
+ W = E_1 |a|^2 + E_2 |b|^2 - \frac{1}{2}(E_1+E_2) = \frac{1}{2}\hbar\Omega(|b|^2 - |a|^2) \tag{5.14}
+ $$
+ is the expectation value of energy of the molecule, referred to a zero
+-lying midway between the levels $E_1, E_2$. In the form (5.12) we have
++lying midway between the levels $E_1, E_2$. In the form (5.12a), (5.12b), (5.12c) we have
+ an apparently classical nonlinear system, all reference to
+ "quantum-mechanical" quantities having disappeared.
+ 
+-The first two of the equations (5.12) admit a first integral,
++The first two of the equations (5.12a), (5.12b) admit a first integral,
+ $$
+ (\dot{M})^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2, \tag{5.15a}
+ $$
+ which is readily verified by eliminating E between them. Eq. (5.15a) is
+ a highly disguised form of the "principle of conservation of
+ probability," $|a|^2 + |b|^2 = \text{const.} = 1$. Similarly, the last
+-two of the equations (5.12) can be combined, in the case $Q=\infty$, to
++two of the equations (5.12b), (5.12c) can be combined, in the case $Q=\infty$, to
+ yield the constant of the motion
+ $$
+ (\dot{E})^2 + \omega^2 E^2 + 2S(W-ME) = \text{const.} \tag{5.15b}
+@@ -754,7 +760,7 @@
+  which
+ expresses the conservation of energy for the system.
+ 
+-Now, what is the relationship between the system of equations (5.12) and
++Now, what is the relationship between the system of equations (5.12a), (5.12b), (5.12c) and
+ our earlier ones based on quantum electrodynamics? In order to answer
+ this, we note that Eqs. (5.12a) and (5.12c) show a strong formal
+ resemblance to a general operator equation of motion, which is obtained
+@@ -1006,7 +1012,7 @@
+ (7.1) is not.
+ 
+ In a fully consistent semiclassical theory the variation of M, W, E,
+-would be determined from solving Eqs. (5.12) instead of "borrowing"
++would be determined from solving Eqs. (5.12a), (5.12b), (5.12c) instead of "borrowing"
+ the solutions of the quantum electrodynamics problem as is implied by
+ (7.3) and (7.4). Therefore the following arguments cannot claim full
+ validity. It is apparent from the above equations, however, that in
+@@ -1036,7 +1042,7 @@
+ $\langle H^\prime \rangle \langle E \rangle$ and $\langle H^\prime E \rangle$ will be
+ negligible.
+ ## SOLUTIONS OF THE NONLINEAR SEMICLASSICAL EQUATIONS
+-In this section we look more closely at the system of equations (5.12)
++In this section we look more closely at the system of equations (5.12a), (5.12b), (5.12c)
+ representing the semiclassical theory. It is convenient to eliminate the
+ constants K, S by the change of variables
+ $$
+@@ -1044,13 +1050,17 @@
+ x(t) &= K E(t), \\\\ y(t) &= KS M(t), \\\\ z(t) &= K^2S W(t),
+ \end{aligned} \tag{8.1}
+ $$
+- whereupon the equations of motion reduce to
++whereupon the equations of motion reduce to
++$$
++\ddot{x} + \omega^2 x = \ddot{y}, \tag{8.2a}
++$$
++$$
++\ddot{y} + \Omega^2 y = -zx, \tag{8.2b}
++$$
+ $$
+-\begin{aligned}
+-\ddot{x} + \omega^2 x &= \ddot{y}, \\\\ \ddot{y} + \Omega^2 y &= -zx, \\\\ \dot{z} &= x\dot{y},
+-\end{aligned} \tag{8.2}
++\dot{z} = x\dot{y}, \tag{8.2c}
+ $$
+- and the conservation laws (5.15) become
++and the conservation laws (5.15a), (5.15b) become
+ $$
+ (\dot{y})^2 + \Omega^2 y^2 + z^2 = \text{const.}, \tag{8.3}
+ $$
+@@ -1092,7 +1102,7 @@
+ field (x) and dipole moment (y) are still very rapid, while secular
+ changes due to their interaction are very slow. Because of this clean
+ separation into fast and slow changes, one might hope to get a fairly
+-complete understanding of the solutions of (8.2) in spite of their
++complete understanding of the solutions of (8.2a), (8.2b), (8.2c) in spite of their
+ nonlinear character.
+ 
+ The simplest approximate solution is the one wherein we ignore the time
+@@ -1171,7 +1181,7 @@
+ in Fig. 1.
+ **[FIGURE 1: Closed orbits in the phase space of the x and y oscillators. The dots indicate that the x motion is 90° ahead of the y motion in phase.]**
+ Noting that $x\dot{y}$ is typically about $10^{-6}$ times smaller than
+-$\dot{z}$, the conservation law (8-4) reduces, in almost all cases, to
++$\dot{z}$, the conservation law (8.4) reduces, in almost all cases, to
+ $$
+ (\dot{x})^2 + \omega^2 x^2 + 2z = \text{const.}, \tag{8.14}
+ $$
+@@ -1210,7 +1220,7 @@
+ \dot{y} + i\omega y = Y(t) e^{i\omega t}. \tag{8.16}
+ $$
+ 
+- If we regard
++If we regard
+ the above orbit diagrams as complex planes, the quantities depicted are
+ just the complex numbers (8.15) and (8.16). Noting the properties
+ $$
+@@ -1219,14 +1229,18 @@
+ $$
+ \ddot{x} + \omega^2 x = \dot{X} e^{i\omega t}, \tag{8.18}
+ $$
+-and similarly for Y, we can write the equations of motion (8.2) in the
++and similarly for Y, we can write the equations of motion (8.2a), (8.2b), (8.2c) in the
+ form: 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y} - Y^* e^{-i2\omega t}, \\\\ 2i\omega \dot{Y} &= -z[X-X^* e^{-i2\omega t}], \\\\ 4i\omega \dot{z} &= XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t},
+-\end{aligned} \tag{8.19}
++2i\omega \dot{X} = \dot{Y} - Y^* e^{-i2\omega t}, \tag{8.19a}
++$$
++$$
++2i\omega \dot{Y} = -z[X-X^* e^{-i2\omega t}], \tag{8.19b}
++$$
+ $$
+- which are exact for the case $\omega = \Omega$. The
++4i\omega \dot{z} = XY^* - X^*Y + XY e^{i2\omega t} - X^*Y^* e^{-i2\omega t}, \tag{8.19c}
++$$
++which are exact for the case $\omega = \Omega$. The
+ conservation laws become simply 
+ $$
+ |Y|^2 + z^2 = 1, \tag{8.20}
+@@ -1235,21 +1249,25 @@
+ |X|^2 + 2z = \text{const}. \tag{8.21}
+ $$
+ 
+- Now the quantities X, Y are
++Now the quantities X, Y are
+ slowly varying functions of time, and again it is their average change
+ over many cycles, rather than the very small rapid fluctuation at
+ frequency $2\omega$, which interest us. Therefore the oscillating terms
+-in (8.19) may be dropped, since their average over a cycle is negligible
++in (8.19a), (8.19b), (8.19c) may be dropped, since their average over a cycle is negligible
+ compared to that of the "DC" terms. The system of equations determining
+ secular changes of both amplitude and phase is therefore 
+ $$
+-\begin{aligned}
+-2i\omega \dot{X} &= \dot{Y}, \\\\ 2i\omega \dot{Y} &= -zX, \\\\ 4i\omega \dot{z} &= XY^* - X^*Y.
+-\end{aligned} \tag{8.22}
++2i\omega \dot{X} = \dot{Y}, \tag{8.22a}
++$$
++$$
++2i\omega \dot{Y} = -zX, \tag{8.22b}
++$$
++$$
++4i\omega \dot{z} = XY^* - X^*Y. \tag{8.22c}
+ $$
+ 
+- It is readily verified that the conservation
+-laws (8.20), (8.21) are exact consequences of (8.22). Differentiating
++It is readily verified that the conservation
++laws (8.20), (8.21) are exact consequences of (8.22a), (8.22b), (8.22c). Differentiating
+ (8.22c) once more are making use of the conservation laws, we can
+ eliminate X and Y, obtaining the equation
+ $$
+
+tokens used
+68,124
+

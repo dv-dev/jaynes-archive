@@ -974,6 +974,7 @@ But had we asked a different question, such as:
 **Question B:** What is your estimate of the product of the energy
 transports in the two non-overlapping frequency bands $(a < \omega < b)$
 and $(c < \omega < d)$?
+
 the answer would be zero; a single fixed frequency $\omega$ cannot be in
 two different bands simultaneously. If our prior information $I$ tells
 us that only one frequency can be present, then the joint posterior
@@ -983,9 +984,7 @@ is zero; one with orthodox indoctrination might be tempted to say that
 the \"fluctuations\" in non-overlapping frequency bands must be
 perfectly negatively correlated in our posterior distribution. Of
 course, in the present problem there are no such fluctuations; they are
-creations only of the Mind
-
-Projection Fallacy which presupposes that probabilities are physically
+creations only of the Mind Projection Fallacy which presupposes that probabilities are physically
 real things. The greater adaptability of Bayesian analysis arises in
 part from our recognition that probabilities are only indications of our
 own incomplete information; therefore we are free to change them
@@ -1007,6 +1006,7 @@ probabilities for three different frequency bands; for example,
 **Question C:** What is your estimate of the power carried in the
 frequency band $(a < \omega < b)$, given the powers carried in
 $(c < \omega < d)$ and $(e < \omega < f)$?
+
 and so on! In conventional spectrum estimation one asks only question
 (A); and for that our one-signal solution (27) requires no change,
 however many signals may be present. Our seemingly unrealistic
@@ -1202,6 +1202,7 @@ correlations between different signals.
 Although the theory presented here is only the first step of the
 development that is visualized, we have thought it useful to give an
 extensive exposition of the Bayesian part of the theory.
+
 No connection with AR models has yet appeared;[^10] but we expect this
 to happen when additional prior information is put in by entropy
 factors. In a full theory of spectrum estimation in the presence of
@@ -1209,6 +1210,7 @@ noise, in the limit as the noise goes to zero the solution should reduce
 to something like the original Burg pure Maximum Entropy solution (it
 will not be exactly the same, because we are assuming a different kind
 of data).
+
 For understanding and appreciating Bayesian inference, no theorems
 giving its theoretical foundations can be quite as effective as seeing
 it in operation on a real problem. Every new Bayesian solution like the
@@ -1217,6 +1219,7 @@ of Bayes' theorem as the true logic of science. It seeks out every
 factor in the model that has any relevance to the question being asked,
 tells us quantitatively how relevant it is -- and relentlessly exposes
 how crude and primitive other methods were.
+
 We could expand the example studied here to many volumes without
 exhausting all the interesting and useful detail contained in the
 general solution - almost none of which was anticipated by sampling
@@ -1338,11 +1341,13 @@ differs from the probability distribution that we assigned, then all
 sorts of terrible things will happen to us; we shall be misled into
 drawing all sorts of erroneous conclusions. We wish to comment on both
 of these beliefs.
+
 We are aware of no real problem in which we have the detailed
 information that could justify such a strong interpretation of our noise
 distribution at the beginning of a problem; nor do we ever acquire
 information that could verify such an interpretation at the end of the
 problem.
+
 As noted in the text, an assigned noise distribution is a joint
 distribution for all the errors; i.e. a probability $p(e|I)$ assigned to
 the total noise vector $e = (e_1 \dots e_n)$ in an $n$-dimensional
@@ -1384,6 +1389,7 @@ the text we shall, indeed, pay the penalty of seeing things that are not
 there. The goal of stating, by our prior distribution, what we honestly
 do know -- and nothing more -- is the means by which we protect
 ourselves against this danger.
+
 Tukey et al (1980) comment: \"Trying to think of data analysis in terms
 of hypotheses is dangerous and misleading. Its most natural consequences
 are (a) hesitation to use tools that would be useful because 'we do not
@@ -1392,6 +1398,7 @@ world is as simple and neat as these hypotheses would suggest. Either
 consequence can be very costly\.... A procedure does not have
 hypotheses - rather there are circumstances where it does better and
 others where it does worse.\"
+
 We are in complete agreement with this observation; and indeed would put
 it more strongly. While some hypotheses about the nature of the
 phenomenon may suggest a procedure -- or even uniquely determine a
@@ -1404,12 +1411,14 @@ nothing prevents one from applying the procedure itself to any set of
 data whatsoever, whether or not 'their hypotheses hold'. And indeed,
 there are \"circumstances where it does better and others where it does
 worse\".
+
 But we believe also that probability theory incorporating
 Bayesian/Maximum Entropy principles is the proper tool - and a very
 powerful one -- for (a) determining those circumstances for a given
 procedure; and (b) determining the optimal procedure, given what we know
 about the circumstances. This belief is supported by decades of
 theoretical and practical demonstrations of that power.
+
 Clearly, while striving to avoid gratuitous assumption of information
 that we do not have, we ought at the same time to use all the relevant
 information that we actually do have; and so Tukey has also wisely
@@ -1418,12 +1427,14 @@ so that we can recognize those special circumstances that matter and
 take them into account. As a general statement of policy, we could ask
 for nothing better; so our question is: how can we implement that policy
 in practice?
+
 The original motivation for the Principle of Maximum Entropy (Jaynes,
 1957) was precisely the avoidance of gratuitous hypotheses, while taking
 account of what is known. It appears to us that in many real problems
 the procedure of the Maximum Entropy Principle meets both of these
 requirements, and thus represents the explicit realization of Tukey's
 goal.
+
 If we are so fortunate as to have additional information about the noise
 beyond the mean-square value supposed in the text, we can exploit this
 to make the signal more visible, because it reduces the measure $W$, or
@@ -1437,6 +1448,7 @@ the joint distribution of noise values -- essentially, the logarithm of
 the ratio $W^\prime/W$ by which that measure is reduced. The Maximum Entropy
 formalism is the mathematical tool that enables us to locate the new
 contracted support set on which the likely noise vectors lie.
+
 It appears to us that the evidence for the superior power of
 Bayesian/Maximum Entropy methods over both intuition and \"orthodox\"
 methods is now so overwhelming that nobody concerned with data analysis

@@ -1,0 +1,1182 @@
+=== STDOUT ===
+Edits applied to `content/papers/rational.md` only.
+
+Concise summary of changes:
+- Added KaTeX equation-number tags to display equations so in-text references are discoverable and consistent: `\tag{1}`…`\tag{51}` and `\tag{A1}`…`\tag{A12}`.
+- Removed non-body publication metadata footnote (`[^1]` marker in the introduction and its footnote text at the end).
+- Added a small number of missing blank-line paragraph breaks at clear paragraph boundaries to improve markdown readability/rendering.
+- Left paper meaning/content and all mathematical expressions unchanged (only numbering markup and structure adjustments).
+- No duplicate abstract text in body found; no table fixes were needed; no double-citation pattern requiring cleanup was found.
+
+Self-check:
+- Paragraph boundaries adjusted are blank-line separated.
+- No unresolved in-text equation references to missing display-equation numbers were found.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba56-4c55-74e0-a582-d1002c0bdcfd
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/rational.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/rational.md` for paragraph structure, citation formatting, abstract duplication, and Eq. reference/numbering consistency, then apply only minimal structural edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "On the Rationale of Maximum-Entropy Methods"
+author: ["E.T. Jaynes"]
+year: 1982
+abstract: >
+  We discuss the relations between maximum-entropy (MAXENT) and other
+  methods of spectral analysis such as the Schuster, Blackman-Tukey,
+  maximum-likelihood, Bayesian, and Autoregressive (AR, ARMA, or ARIMA)
+  models, emphasizing that they are not in conflict, but rather are
+  appropriate in different problems. We conclude that: 1) \"Orthodox\"
+  sampling theory methods are useful in problems where we have a known
+  model (sampling distribution) for the properties of the noise, but no
+  appreciable prior information about the quantities being estimated. 2)
+  MAXENT is optimal in problems where we have prior information about
+  multiplicities, but no noise. 3) The full Bayesian solution includes
+  both of these as special cases and is needed in problems where we have
+  both prior information and noise. 4) AR models are in one sense a
+  special case of MAXENT, but in another sense they are ubiquitous in
+  all spectral analysis problems with discrete time series. 5) Empirical
+  methods such as Blackman-Tukey, which do not invoke even a likelihood
+codex
+I’ve reviewed the first half and found likely formatting issues: single-line paragraph joins, inline footnote break placement, and unnumbered display equations that are referenced as numbered equations. I’ll scan the rest of the file before patching.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+invoking either empirical evidence, or any probability model of
+Bernoulli trials we know, as an elementary combinatorial theorem, that
+the vast majority of all possible outcomes have frequencies close to
+uniform.
+
+Once aware of this, therefore, unless we had additional evidence of
+systematic influences that are keeping the frequencies away from
+uniformity---and indicating in what specific way they depart from
+uniformity---it would seem highly irrational to make any other estimate
+than the uniform one. The entropy concentration theorem provides a
+quantitative justification for that intuitive predilection that we all
+feel for the uniform distribution.
+
+In fact, this rationale was well understood by Jacob Bernoulli and
+Laplace, although they did not use the logarithmic form that we now call
+\"entropy.\" They calculated multiplicities, such as
+$$W = \frac{N!}{N_1! N_2! \dots N_n!}$$ but today we prefer to invoke
+the Stirling approximation to derive
+$$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N)$$ the
+
+exec
+/bin/bash -lc "sed -n '521,900p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$R_k(y_0 \dots y_T) = \frac{1}{T+1} \sum_{j=0}^{T-k} y_j y_{j+k}^*, \quad 0 \le k \le m$$
+for $m+1$ lags, where $m < T$. Put, for formal reasons, $R_{-k}=R_k^*$,
+although these quantities are real in most applications. If we have no
+other information, then the probability density that has maximum entropy
+while yielding the correct autocovariance will contain the Lagrange
+multipliers $\{\lambda_{-m} \dots \lambda_0 \dots \lambda_m\}$.
+The quantities $A_k(y_0 \dots y_T)$ in the general formalism may be
+defined with any coefficients we please, and the scalar product
+$\lambda \cdot A$ and final conclusion will, of course, be independent
+of our choice. The choice $$A_k = \frac{T+1}{2} R_k, \quad -m < k < m$$
+will be convenient, making the Lagrange multipliers $\lambda_k$
+independent of $T$.
+The maximum-entropy distribution is then
+$$p(y_0 \dots y_T) = Z^{-1} \exp\left[-\sum_k \lambda_k A_k(y_0 \dots y_T)\right]$$
+which is a Gibbsian generalized canonical ensemble. But in this case,
+the exponent is a quadratic form in the $y_i$; from (24) and (25) we
+have
+$$p(y_0 \dots y_T) \propto \exp\left[-\frac{1}{2}(y^\dagger A y)\right]$$
+where y is the column vector $(y_0 \dots y_T)$, $y^\dagger$ its
+Hermitian conjugate row vector $(y_0^* \dots y_T^*)$, and A is the
+codex
+I’m now checking the final section and appendices, then I’ll do one minimal patch that fixes only structure/citation/equation-number markup without changing expressions.
+exec
+/bin/bash -lc "sed -n '901,1260p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+problem and the exact solution for the circular time series problem,
+reveals to us the cause of the \"line-splitting\" phenomenon. If our
+computer is programmed to evaluate the Burg solution (38) which
+presupposes that the data $\{R_0' \dots R_m^\prime\}$ are from an arbitrarily
+long time series, but we feed it data obtained from only a finite run
+$\{y_0 \dots y_T\}$, then the computer can return to us only an
+approximate solution to the Burg problem---but the approximate solution
+to that problem happens also to be the exact solution to a different
+problem, that of the circular time series.
+
+Therefore, if the autocovariance data $R_k$ are obtained from a finite
+sample $\{y_0 \dots y_T\}$ and there is a sinusoidal component in $y_t$
+that does not go through an integer number of cycles in the sampled
+interval ($0 \le t \le T$), then (38) is the optimal estimate of the
+spectrum of a process that is circular in time but has a phase jump at
+regular intervals $(T+1)$. Of course, a sine wave whose phase jumps
+suddenly by 10 degrees every 50 cycles does not have a single line
+spectrum; it is more complicated with two strong lines close to the
+\"nominal\" frequency and the computer program, not knowing any better,
+will dutifully report those two lines back to us.
+exec
+/bin/bash -lc "sed -n '1261,1640p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+to the constraint $Q=Q_0$. This property, the modus operandi of Lagrange
+multipliers, is used here in the opposite direction to show that the
+unconditional Bayesian maximum may be interpreted also as a constrained
+maximum.
+
+Therefore it appears that, if one had a pure MAXENT computer program
+already running, it could be used also to generate full Bayes solution
+by feeding it \"preadjusted\" data which amounts to fixing $Q$ at a
+nonzero value to allow for noise. Indeed, this is just what Gull and
+Daniell \[4\] did in a beautiful early example of MAXENT in radio
+astronomy.
+## Periodograms and Lag Windows
+Historically, spectrum estimation started in the last century with the
+Schuster periodogram. Nobody seemed to like it, and the proposal of
+Blackman and Tukey (1958) to use lag windows was an easily implemented,
+empirical approach to correct its shortcomings.
+
+Yet in defense of the periodogram one could note that it is, by
+definition, the exact power spectrum of the one real-world time series
+that actually exists before us, in the form of our data. Why then should
+exec
+/bin/bash -lc "rg -n \"\\([0-9]{1,2}\\)|\\(A[0-9]{1,2}\\)\" content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+191:which $n$ different sequences $\{y^{(1)} \dots y^{(n)}\}$ are possible.
+208:use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
+307:$$\sum_{i=1}^6 i f_i = 4.5$$ which is a special case of (2). Given this
+316:constraint (9) is found by the method of Appendix I with
+325:below the range (6), indicating that the new constraint is very strong,
+331:outcomes allowed by the constraint (9) have entropy in a range of width
+338:outside the interval (12).
+357:000 tosses agreeing with (9), 95 percent of the possible outcomes have
+370:as an alternative solution in place of (10) the binomial distribution
+372:also satisfies the constraint (9) if $p = 0.7$. But the distribution
+373:(16) has entropy $H^\prime = 1.4136 = H_{\text{max}} - 0.200$, far below the
+374:limit (15). We now have $2N\Delta H = 400 = \chi_4^2(1 - F)$; or from
+375:(A12) $$1 - F \approx 2.94 \times 10^{-84}.$$ This indicates that in
+377:the constraint (9) have entropy as low as $H^\prime$.
+380:the approximation (A8) made in its derivation; and even for $N=1000$ we
+382:distribution. However, we can check the magnitude of (17) by direct
+387:coefficient (A5). The asymptotic formula (A7) for the ratio $W/W^\prime$
+390:distribution (16) can be realized, there are about
+392:maximum-entropy distribution (10) can be realized (about $10^{62}$ ways
+395:the full concentration theorem, it does indicate that (17) did not
+exec
+/bin/bash -lc "awk 'BEGIN{n=0} /\\"'$'"\\"'$/{line=$0; gsub(/''^ +| +$/,"",line); n++; printf("%3d:%5d: %s'"\\n\",n,NR,line)}' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+  1:  180: entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i.$$ This
+  2:  198: $$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m.$$ The conceptual
+  3:  211: $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}}$$
+  4:  220: upper tail area ($1-F$) by $$2N\Delta H = \chi_k^2(1-F).$$ The proof is
+  5:  257: $2N\Delta H = 11.07$, or $$1.786 \le H \le 1.792.$$ Likewise,
+  6:  259: have entropy in the interval $$1.783 \le H \le 1.792.$$ It is,
+  7:  277: $$W = \frac{N!}{N_1! N_2! \dots N_n!}$$ but today we prefer to invoke
+  8:  279: $$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N)$$ the
+  9:  307: $$\sum_{i=1}^6 i f_i = 4.5$$ which is a special case of (2). Given this
+ 10:  322: $$\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}.$$
+ 11:  324: This distribution has entropy $$H_{\text{max}} \approx 1.61358$$ far
+ 12:  333: accuracy, $$1.609 \le H \le 1.614.$$ Thus on the \"null hypothesis\"
+ 13:  341: $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}}$$ is valid
+ 14:  349: this is $$1.602 \le H \le 1.614$$ and only one in $10^8$ of the possible
+ 15:  350: outcomes has entropy outside $$1.592 \le H \le 1.614.$$ Thus given
+ 16:  371: $$f_i = \binom{5}{i-1} p^{i-1}(1-p)^{6-i}, \quad 1 \le i \le 6$$ which
+ 17:  375: (A12) $$1 - F \approx 2.94 \times 10^{-84}.$$ This indicates that in
+ 18:  493: $$H = -\int dy_0 \dots \int dy_T p(y_0 \dots y_T) \log p(y_0 \dots y_T)$$
+ 19:  498: $$A_k^\prime = \int dy_0 \dots \int dy_T p(y_0 \dots y_T) A_k(y_0 \dots y_T), \quad 1 \le k \le m$$
+ 20:  506: $$Z(\lambda_1 \dots \lambda_m) = \int dy e^{-\lambda \cdot A}$$ and the
+codex
+I identified 63 display equations; the numbering references in prose align with equation order. I’m adding `\\tag{...}` markup to those equations (1–51, A1–A12) so Eq. references resolve in Hugo+KaTeX without changing math content.
+exec
+/bin/bash -lc "cp content/papers/rational.md /tmp/rational.md.bak && perl -0pi -e 'my @tags = (map {\""'$_"} (1..51), map {"A$_"} (1..12)); my $i=0; s/'"\\"'$'"\\"'$(.*?)'"\\"'$'"\\"'$/do { my $body=$1; my $tag=$tags[$i++]; "$$".$body." '"\\\\tag{\"."'$tag."}$$" }/gse; die "eq count mismatch: $i" unless $i==63;'"' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "git diff -- content/papers/rational.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 37d353d..1c1c574 100644
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -177,7 +177,7 @@ for a single trial, while \"outcome\" refers to the experiment as a
+ whole; thus one outcome consists of an enumeration of $N$ results,
+ including their order). Each outcome yields a set of sample numbers
+ $\{N_i\}$ and frequencies $\{f_i = N_i/N, 1 \le i \le n\}$, with an
+-entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i.$$ This
++entropy 171546H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i. \tag{1}171546 This
+ encompasses many different scenarios, for example: 1) *Generalized
+ Loaded Dice*: A die with $n$ faces is tossed $N$ times, the $i$th face
+ turning up $N_i$ times. 2) *Statistical Mechanics*: A system contains
+@@ -195,7 +195,7 @@ $N_i$ times.
+ Consider the subclass $C$ of all possible outcomes that could be
+ observed in $N$ trials, compatible with $m$ linearly independent
+ constraints ($m < n$) of the form
+-$$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m.$$ The conceptual
++171546\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m. \tag{2}171546 The conceptual
+ interpretation is that $m$ different \"physical quantities\" have been
+codex
+I hit a formatting bug while auto-inserting tags (`$$` was interpreted by Perl as PID). I’m restoring the file from backup now and reapplying the equation tags safely.
+exec
+/bin/bash -lc "cp /tmp/rational.md.bak content/papers/rational.md && perl -0pi -e 'my @tags = (map {\""'$_"} (1..51), map {"A$_"} (1..12)); my $i=0; s/'"\\"'$'"\\"'$(.*?)'"\\"'$'"\\"'$/do { my $body=$1; my $tag=$tags[$i++]; q($$).$body." '"\\\\tag{\"."'$tag."}".q($$) }/gse; die "eq count mismatch: $i" unless $i==63;'"' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "sed -n '170,235p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+establishes the fundamental status of entropy as a criterion for testing
+hypotheses about systematic effects in experiments where frequency data
+are available.
+## Entropy Concentration Theorem
+A random experiment has $n$ possible results at each trial; thus in $N$
+trials there are $n^N$ conceivable outcomes (we use the word \"result\"
+for a single trial, while \"outcome\" refers to the experiment as a
+whole; thus one outcome consists of an enumeration of $N$ results,
+including their order). Each outcome yields a set of sample numbers
+$\{N_i\}$ and frequencies $\{f_i = N_i/N, 1 \le i \le n\}$, with an
+entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i. \tag{1}$$ This
+encompasses many different scenarios, for example: 1) *Generalized
+Loaded Dice*: A die with $n$ faces is tossed $N$ times, the $i$th face
+turning up $N_i$ times. 2) *Statistical Mechanics*: A system contains
+$N$ molecules, $N_i$ of which are in the $i$th quantum state. 3)
+*Communication*: We receive a message of $N$ symbols, chosen from an
+alphabet of $n$ letters, the $i$th letter occurring $N_i$ times.
+4\) *Image Reconstruction*: $N$ elements of luminance are distributed
+over $n$ pixels to form a scene, the $i$th pixel receiving a fraction
+$f_i = N_i/N$ of the total luminance. 5) *Time Series*: Nature generates
+exec
+/bin/bash -lc "sed -n '1,120p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "On the Rationale of Maximum-Entropy Methods"
+author: ["E.T. Jaynes"]
+year: 1982
+abstract: >
+  We discuss the relations between maximum-entropy (MAXENT) and other
+  methods of spectral analysis such as the Schuster, Blackman-Tukey,
+  maximum-likelihood, Bayesian, and Autoregressive (AR, ARMA, or ARIMA)
+  models, emphasizing that they are not in conflict, but rather are
+  appropriate in different problems. We conclude that: 1) \"Orthodox\"
+  sampling theory methods are useful in problems where we have a known
+  model (sampling distribution) for the properties of the noise, but no
+  appreciable prior information about the quantities being estimated. 2)
+  MAXENT is optimal in problems where we have prior information about
+  multiplicities, but no noise. 3) The full Bayesian solution includes
+  both of these as special cases and is needed in problems where we have
+  both prior information and noise. 4) AR models are in one sense a
+  special case of MAXENT, but in another sense they are ubiquitous in
+  all spectral analysis problems with discrete time series. 5) Empirical
+  methods such as Blackman-Tukey, which do not invoke even a likelihood
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^1'"\\]|A certain fraction|More interesting numerical|asymptotic optimality property|dispersion and attenuation|cannot show any details|adding a redundant constraint|\\*These papers are reprinted\" content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+65:[^1]
+209:A certain fraction $F$ of the outcomes in class $C$ will yield an
+344:More interesting numerical results are found at more extreme
+362:asymptotic optimality property.
+618:dispersion and attenuation \[7\], \[8\].
+641:cannot show any details for which there is no evidence in the data.
+669:problem, adding a redundant constraint cannot change the solution.
+1515:\*These papers are reprinted in \[9\].
+1517:[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+codex
+I’m applying the structural cleanup in smaller targeted edits now (footnote metadata removal and explicit paragraph breaks at clear transitions), then I’ll re-run a quick Eq-reference self-check.
+exec
+/bin/bash -lc "sed -n '54,85p;200,218p;338,372p;610,676p;1508,1525p' content/papers/rational.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+respect, because its rationale is so different from that of \"orthodox\"
+statistics that it seems new and mysterious to many (although
+historically it dates back to Boltzmann, 1877). To compound the
+confusion, the MAXENT spectral estimate is, for one particular kind of
+data, identical in analytical form with that of an AR model, as found by
+Burg \[1\].
+
+If that were not enough, any MAXENT solution also defines a particular
+model for which the predictive distribution using the maximum-likelihood
+estimates of the parameters, is identical with the MAXENT distribution.
+This is essentially the
+[^1]
+
+Pitman-Koopman theorem used backwards; given any data, the MAXENT
+distribution, having exponential form, in effect creates a model for
+which those data would have been sufficient statistics. This can give
+one a deeper understanding of the terms \"information\" and
+\"sufficiency\" in statistics, but only after some deep thought. As a
+result, almost every conceivable opinion about the relation between
+maximum entropy, maximum likelihood, and autoregression can be found
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/rational.md
+@@ -64,4 +64,2 @@
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+@@ -208,2 +206,3 @@
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+@@ -343,2 +342,3 @@
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+@@ -362,2 +362,3 @@
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+@@ -367,2 +368,3 @@
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+@@ -641,2 +643,3 @@
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+@@ -669,2 +672,3 @@
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+@@ -1515,5 +1519 @@
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+apply_patch(auto_approved=true) exited 0 in 9ms:
+Success. Updated the following files:
+M content/papers/rational.md
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^1'"\\]|Manuscript received|Lecture given\" content/papers/rational.md" in /home/dave/Projects/jaynes-archive exited 1 in 50ms:
+
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+codex
+I’ve removed the non-body publication footnote metadata and inserted explicit blank-line paragraph breaks at clear transitions. I’m doing a final automated self-check for equation-reference coverage before finishing.
+exec
+/bin/bash -lc "python - <<'PY'
+import re, pathlib
+p=pathlib.Path('content/papers/rational.md').read_text()
+# collect displayed tags
+num_tags=set(int(x) for x in re.findall(r'\\\\tag\\{([0-9]+)\\}',p))
+A_tags=set('A'+x for x in re.findall(r'\\\\tag\\{A([0-9]+)\\}',p))
+# collect refs like (12), (A8)
+num_refs=set(int(x) for x in re.findall(r'\\(([0-9]{1,2})\\)',p))
+A_refs=set('A'+x for x in re.findall(r'\\((A[0-9]{1,2})\\)',p))
+# likely non-eq numeric refs (years etc) filtered to <=51 already by regex len2
+missing_num=sorted(n for n in num_refs if n not in num_tags)
+missing_A=sorted(a for a in A_refs if a not in A_tags)
+print('num_tags_range',min(num_tags),max(num_tags),len(num_tags))
+print('A_tags',sorted(A_tags)[:3],sorted(A_tags)[-3:],len(A_tags))
+print('missing_num',missing_num)
+print('missing_A',missing_A)
+PY" in /home/dave/Projects/jaynes-archive exited 127 in 51ms:
+/bin/bash: line 1: python: command not found
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc 'num_refs=$(rg -o "'"\\([0-9]{1,2}\\)\" content/papers/rational.md | tr -d '()' | sort -n -u); num_tags="'$(rg -o "'"\\\\\\\\tag\\{[0-9]{1,2}\\}\" content/papers/rational.md | rg -o \"[0-9]{1,2}\" | sort -n -u); echo \"Numeric refs:\"; echo \""'$num_refs"; echo "Missing numeric refs:"; comm -23 <(echo "$num_refs") <(echo "$num_tags"); echo "A-refs:"; a_refs=$(rg -o "'"\\(A[0-9]{1,2}\\)\" content/papers/rational.md | tr -d '()' | sort -u); echo \""'$a_refs"; echo "Missing A-refs:"; a_tags=$(rg -o "'"\\\\\\\\tag\\{A[0-9]{1,2}\\}\" content/papers/rational.md | sed -E 's/.*\\{(A[0-9]{1,2})\\}.*/\\1/' | sort -u); comm -23 <(echo \""'$a_refs") <(echo "$a_tags")' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Numeric refs:
+1
+2
+3
+4
+6
+9
+10
+12
+15
+16
+17
+19
+20
+23
+24
+25
+26
+27
+28
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc 'for n in $(rg -o "'"\\([0-9]{1,2}\\)\" content/papers/rational.md | tr -d '()' | sort -n -u); do rg -q \"\\\\\\\\tag\\\\{"'$n'"\\\\}\" content/papers/rational.md || echo \"missing ("'$n)"; done; for a in $(rg -o "'"\\(A[0-9]{1,2}\\)\" content/papers/rational.md | tr -d '()' | sort -u); do rg -q \"\\\\\\\\tag\\\\{"'$a'"\\\\}\" content/papers/rational.md || echo \"missing ("'$a)"; done' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc 'tail -n 25 content/papers/rational.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+(Michigan State Univ. Business Studies Series), 1976.
+---, \"Where do we stand on maximum entropy?\" in *The Maximum Entropy
+Formalism*, R. D. Levine and M. Tribus, Eds. Cambridge, MA: MIT Press,
+1978, pp. 15-118.
+---, \"The minimum entropy production principle,\" in *Annual Review of
+Physical Chemistry*, vol. 31 (Annual Reviews, Inc., Palo Alto, CA,
+1980), pp. 579-601.
+---, *Papers on Probability, Statistics, and Statistical Physics*, a
+reprint collection, Dordrecht, The Netherlands: D. Reidel, 1982.
+
+S. Kay and S. L. Marple, Jr., in *Rec. IEEE ICASSP*, pp. 151-154, 1979.
+J. S. Rowlinson, *Nature*, vol. 225, pp. 1196-1200, 1970.
+
+E. Schrödinger, *Statistical Thermodynamics*. Cambridge, England:
+Cambridge Univ. Press, 1948.
+
+A. van den Bos, *IEEE Trans. Inform. Theory*, vol. IT-17, pp. 493-494,
+1971.
+J. Van Campenhout and T. M. Cover, \"Maximum entropy and conditional
+probability,\" *IEEE Trans. Inform. Theory*, vol. IT-27, pp. 483-489,
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc "git diff --stat -- content/papers/rational.md && git diff -- content/papers/rational.md | sed -n '1,120p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+ content/papers/rational.md | 138 ++++++++++++++++++++++-----------------------
+ 1 file changed, 69 insertions(+), 69 deletions(-)
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 37d353d..c295ec5 100644
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@ If that were not enough, any MAXENT solution also defines a particular
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -177,7 +175,7 @@ for a single trial, while \"outcome\" refers to the experiment as a
+ whole; thus one outcome consists of an enumeration of $N$ results,
+ including their order). Each outcome yields a set of sample numbers
+ $\{N_i\}$ and frequencies $\{f_i = N_i/N, 1 \le i \le n\}$, with an
+-entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i.$$ This
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+exec
+/bin/bash -lc 'eq_count=$(rg -o "'"\\\\\\\\tag\\{\" content/papers/rational.md | wc -l); echo \"tag_count="'$eq_count"' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+tag_count=63
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+codex
+Edits applied to `content/papers/rational.md` only.
+
+Concise summary of changes:
+- Added KaTeX equation-number tags to display equations so in-text references are discoverable and consistent: `\tag{1}`…`\tag{51}` and `\tag{A1}`…`\tag{A12}`.
+- Removed non-body publication metadata footnote (`[^1]` marker in the introduction and its footnote text at the end).
+- Added a small number of missing blank-line paragraph breaks at clear paragraph boundaries to improve markdown readability/rendering.
+- Left paper meaning/content and all mathematical expressions unchanged (only numbering markup and structure adjustments).
+- No duplicate abstract text in body found; no table fixes were needed; no double-citation pattern requiring cleanup was found.
+
+Self-check:
+- Paragraph boundaries adjusted are blank-line separated.
+- No unresolved in-text equation references to missing display-equation numbers were found.
+file update:
+diff --git a/content/papers/rational.md b/content/papers/rational.md
+index 8b31b1f797005f06004424b1fd70a7f3c7bd3b1e..c295ec5987d2653ccebac1de9a8f816896950fdc
+--- a/content/papers/rational.md
++++ b/content/papers/rational.md
+@@ -62,8 +62,6 @@
+ model for which the predictive distribution using the maximum-likelihood
+ estimates of the parameters, is identical with the MAXENT distribution.
+ This is essentially the
+-[^1]
+-
+ Pitman-Koopman theorem used backwards; given any data, the MAXENT
+ distribution, having exponential form, in effect creates a model for
+ which those data would have been sufficient statistics. This can give
+@@ -206,6 +204,7 @@
+ $C$, but do not determine the frequencies $\{f_i\}$. We examine the
+ combinatorial basis for using---and the consequences of failing to
+ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
++
+ A certain fraction $F$ of the outcomes in class $C$ will yield an
+ entropy in the range
+ $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+@@ -341,6 +340,7 @@
+ $$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+ asymptotically for any experiment with four degrees of freedom, although
+ the value of $H_{\text{max}}$ may vary widely with other details.
++
+ More interesting numerical results are found at more extreme
+ significance levels. Thus in an experiment with 1000 trials and four
+ degrees of freedom, 99.99 percent of all outcomes allowed by the
+@@ -360,11 +360,13 @@
+ frequency distribution other than the one of maximum entropy thus
+ becomes highly atypical of those allowed by the constraints. This is the
+ asymptotic optimality property.
++
+ In view of this result, we can now appreciate the prophetic wisdom in
+ the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+ single function, $P(f)$, which will be representative of the class of
+ all possible spectra.\" This is precisely what he did accomplish; and
+ indeed in a deeper sense than he may have realized at the time.
++
+ Even more interesting numbers are readily found. Rowlinson \[11\]
+ rejected the principle of maximum entropy for this problem, and proposed
+ as an alternative solution in place of (10) the binomial distribution
+@@ -639,6 +641,7 @@
+ $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
+ therefore \"fail-safe\" in the sense that the MAXENT predictor (38)
+ cannot show any details for which there is no evidence in the data.
++
+ It is interesting to note the manner in which (38) strives constantly
+ for all the uniformity that the data will allow. Consider two problems:
+ *Problem (I)*: We have data $D = \{R_0', R_1', \dots, R_9'\}$. Then in
+@@ -667,6 +670,7 @@
+ the different pieces of information used are independent. Any redundant
+ information will drop out automatically---for in any variational
+ problem, adding a redundant constraint cannot change the solution.
++
+ Consider now *Problem (III)*: Same as (I) except that $R_8'$, $R_9'$ are
+ missing and must be estimated as $\hat{R}_8, \hat{R}_9$ by extrapolation
+ from $\{R_0' \dots R_7'\}$. Again, if the data $R_8'$, $R_9'$ are
+@@ -1513,7 +1517,3 @@
+ Plenum, 1974.
+ :::
+ \*These papers are reprinted in \[9\].
+-
+-[^1]: Manuscript received March 1, 1982; revised May 21, 1982. The
+-    author is with Arthur Holly Compton Laboratory of Physics,
+-    Washington University, St. Louis, MO 63130.
+
+tokens used
+79,180
+

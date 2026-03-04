@@ -35,24 +35,28 @@ Gamo[^4] and Kales[^5] have investigated the case of the longitudinally
 magnetized filled cylindrical waveguide. Van Trier[^6] has solved the
 case of the TE~10~ mode in the transversely magnetized waveguide and
 found that the new mode is a TE mode with a distorted transverse field
-dependence. Mikaelyan[^7] and recently Chevalier,
+dependence. Mikaelyan[^7] and recently Chevalier[^8].
+
 The problem
 then, is that of propagation in an infinitely long rectangular waveguide
 shown in Fig. 1, which is filled with ferrite and transversely
 magnetized along the x direction. The solutions to the problem will be
 expressed in terms of four rigorous nonlinear algebraic equations which
 characterize the problem and are ready for numerical solution.
+
 **[FIGURE: Coordinate system.]**
+
 Eqs. (1) and (2) are Maxwell's equations written in a form to show the
 tensor permeability. All field quantities vary as exp
 ($j\omega t-\gamma z$).
 $$\begin{pmatrix} 0 & \gamma & \frac{\partial}{\partial y} \\\\ -\gamma & 0 & \frac{\partial}{\partial x} \\\\ \frac{\partial}{\partial y} & -\frac{\partial}{\partial x} & 0 \end{pmatrix}
     \begin{pmatrix} E_x \\\\ E_y \\\\ E_z \end{pmatrix}
     = -j\omega\mu_0 \begin{pmatrix} 1 & 0 & 0 \\\\ 0 & \mu & -jK \\\\ 0 & jK & \mu \end{pmatrix}
-    \begin{pmatrix} H_x \\\\ H_y \\\\ H_z \end{pmatrix}$$
+    \begin{pmatrix} H_x \\\\ H_y \\\\ H_z \end{pmatrix}\tag{1}$$
 $$\begin{pmatrix} 0 & \gamma & \frac{\partial}{\partial y} \\\\ -\gamma & 0 & \frac{\partial}{\partial x} \\\\ \frac{\partial}{\partial y} & -\frac{\partial}{\partial x} & 0 \end{pmatrix}
     \begin{pmatrix} H_x \\\\ H_y \\\\ H_z \end{pmatrix}
-    = j\omega\epsilon \begin{pmatrix} E_x \\\\ E_y \\\\ E_z \end{pmatrix}$$
+    = j\omega\epsilon \begin{pmatrix} E_x \\\\ E_y \\\\ E_z \end{pmatrix}\tag{2}$$
+
 The elements in the permeability tensor are known,[^9] given the applied
 magnetic field and frequency. For zero applied field, $\mu$ becomes
 unity and $K$ zero. It is important to note that the tensor properties
@@ -92,14 +96,14 @@ the general one, of all the other higher order modes.
 
 The fact that the tensor properties are limited to the y-z plane
 suggests the form of the solutions shown in (9).
-$$E_z = f(y) \sin \frac{m\pi x}{a} \qquad H_z = g(y) \cos \frac{m\pi x}{a}$$
+$$E_z = f(y) \sin \frac{m\pi x}{a} \qquad H_z = g(y) \cos \frac{m\pi x}{a}\tag{9}$$
 
 Hence the x dependence of the fields remains unaltered by the ferrite.
 Substituting this form of fields into the differential equations, the x
 dependence drops out and we are left with two second order linear
 differential equations in $f$ and $g$. The determinantal equation for
 these two equations is
-$$\left[ \frac{\partial^4}{\partial y^4} + B \frac{\partial^2}{\partial y^2} + C \right] \begin{Bmatrix} f \\\\ g \end{Bmatrix} = 0$$
+$$\left[ \frac{\partial^4}{\partial y^4} + B \frac{\partial^2}{\partial y^2} + C \right] \begin{Bmatrix} f \\\\ g \end{Bmatrix} = 0\tag{10}$$
 where B and C depend on the propagation constant, frequency, and applied
 field. Thus the functions f and g may be represented as a sum of four
 independent trigonometric or exponential functions. We will choose
@@ -115,6 +119,7 @@ $\sin ry \cos qy$ is shown in Fig. 2. It is seen that fields described by
 this function are distorted towards one side of the waveguide
 as the magnetic field is applied.
 **[FIGURE: Distortion of transverse fields described by $\sin ry \cos qy$ for small $q$.]**
+
 As in the case of the TE~n0~ modes
 this may result in a Poynting vector which on one side of the guide is
 opposite to the direction of propagation. This may be thought of as a
@@ -122,9 +127,10 @@ uniform Poynting vector with a superimposed circulating energy.
 
 Substituting any of these four solutions in (10) yields two relations
 which must be satisfied by the unknowns $r$ and $q$.
-$$\gamma^2 = -k_{t}^2\left[ \frac{1}{2}\left(1+\frac{\mu}{\mu_e}\right) \right] + \left[ \left(\frac{m\pi}{a}\right)^2 \frac{1}{2\mu} \right] + r^2+q^2$$
+$$\gamma^2 = -k_{t}^2\left[ \frac{1}{2}\left(1+\frac{\mu}{\mu_e}\right) \right] + \left[ \left(\frac{m\pi}{a}\right)^2 \frac{1}{2\mu} \right] + r^2+q^2\tag{11}$$
 $$r^2 q^2 = \frac{k_t^4(\mu_e-1)^2}{16} - \frac{(\frac{m\pi}{a})^2 k_t^2}{2} \left[1 - \frac{1}{4\mu_e}(1+\mu)(1+\mu_e) \right]
-\times \left( \frac{X\mu}{4\mu} \right)^2 = k_t^2$$ and
+\times \left( \frac{X\mu}{4\mu} \right)^2 = k_t^2\tag{12}$$
+and
 $$\mu_e = \frac{\mu^2-K^2}{\mu}$$ For zero applied field the propagation
 constant shown in (11) goes to the usual form since the $\mu$ and
 $\mu_e$ become unity, $r$ goes to ($n\pi/b$) and $q$ vanishes, as we
@@ -134,15 +140,19 @@ function only of the applied magnetic field and frequency. Hence $q$ is
 known as a function of $r$, and only $r$ must be determined in order to
 find the propagation constant.
 
-The $E_z$ and $H_z$ fields are shown in (13) and (14): $$\begin{split}
+The $E_z$ and $H_z$ fields are shown in (13) and (14):
+$$\begin{split}
 E_z = R[S \sin ry \sin qy + T \cos ry \sin qy \\\\ + \sin ry \cos qy] \sin \frac{m\pi x}{a}
-\end{split}$$ $$\begin{split}
+\end{split}\tag{13}$$
+$$\begin{split}
 H_z = L[M \sin ry \cos qy + N \cos ry \sin qy \\\\ + P \sin ry \sin qy + \cos ry \cos qy] \cos \frac{m\pi x}{a}
-\end{split}$$ The boundary condition on the $E_z$ field at $y=0$
+\end{split}\tag{14}$$
+
+The boundary condition on the $E_z$ field at $y=0$
 required the cos cos term to be identically zero. At $y=b$ the boundary
 conditions require the quantity in the bracket in (13) to be zero.
 The $H_z$ field in (14) must satisfy the boundary condition specified by
-$$\left( \frac{\partial H_z}{\partial y} + \frac{j\gamma K H_x}{\mu} \right)_{y=0,b} = 0.$$
+$$\left( \frac{\partial H_z}{\partial y} + \frac{j\gamma K H_x}{\mu} \right)_{y=0,b} = 0.\tag{15}$$
 
 This magnetic boundary condition is most easily found by requiring that
 $E_x$ be zero at the walls. Note that this boundary condition is
@@ -188,14 +198,6 @@ expressed in the form of products of two trigonometric functions with
 arguments which are asymptotic to $n\pi y/b$ and 0 in the limit of zero
 applied field. The product of these arguments is dependent only on the
 magnetic field and frequency.
-
-[^1]: Electronic Defense Lab., Mountain View, Calif.
-[^2]: Stanford Univ., Stanford, Calif.
-[^3]: This paper was presented orally at URSI Symposium on
-    Electromagnetic Wave Theory, University of Michigan, Ann Arbor,
-    Mich., June 22, 1955. The work was done at the Electronic Defense
-    Lab., of Sylvania Electric Products, Inc., under Signal Corps
-    Contract No. DA-36-039-sc-31435, and at Stanford University.
 
 [^4]: H. Gamo, \"The Faraday rotation of waves in a circular
     waveguide,\" *J. Phys. Soc. Jap.*, vol. 8, p. 176; March, 1953.

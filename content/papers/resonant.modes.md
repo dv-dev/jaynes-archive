@@ -31,6 +31,7 @@ using conventional transmission-line theory.
 wave impedance
 $$
 Z_{wn} = Z_0 \left\{ \begin{array}{l} k/k_{an} \\\\ k_{an}/k \end{array} \right. ,
+\tag{1}
 $$
 where the upper and lower expressions within curly brackets relate to TE
 and TM modes, respectively. The quantities $Z_0$ and $k$ are the
@@ -42,12 +43,14 @@ the real, positive quantity $k^\prime_{an} = \sqrt{k_{cn}^2 - k^2}$ in all
 expressions. The wave impedance, for example, becomes
 $$
 Z^\prime_{wn} = jZ_0 \left\{ \begin{array}{l} k/k^\prime_{an} \\\\ -k^\prime_{an}/k \end{array} \right.
+\tag{2}
 $$
 
 In the guide completely filled with material of dielectric constant
 $\epsilon$, one has
 $$
 Z_{wn}^{(\epsilon)} = Z_0 \left\{ \begin{array}{l} k/\beta_n \\\\ \beta_n/\epsilon k \end{array} \right.
+\tag{3}
 $$
 where $\beta_n = \sqrt{\epsilon k^2 - k_{cn}^2}$ is the propagation
 constant of the nth mode in the dielectric filled guide.
@@ -62,38 +65,56 @@ Under this condition, the impedance at the dielectric-air interface
 ($z=L/2$) is 
 $$
 Z_{wn}(L/2) = jZ_{wn}^{(\epsilon)} \tan \beta_n L/2.
+\tag{4}
 $$
 
 Continuity of tangential field components at the dielectric-air
 interface requires continuity of wave impedance,
 $$
 Z_{wn}(L/2) = Z^\prime_{wn}.
+\tag{5}
 $$
 
- Substituting (2)-(4) into (5) yields
+Substituting (2)-(4) into (5) yields
 $$
-\begin{align}
-\tan \beta_n L/2 &= -\beta_n/k^\prime_{an} \\\\
+\begin{aligned}
+\tan \beta_n L/2 &= -\beta_n/k^\prime_{an} \\
 \tan \beta_n L/2 &= \epsilon k^\prime_{an}/\beta_n
-\end{align}
+\end{aligned}
+\tag{6}
 $$
 
- Frequencies that satisfy this equation are the ghost-mode
+$$
+\tan \beta_n L/2 = -\beta_n/k^\prime_{an}
+\tag{6a}
+$$
+
+$$
+\tan \beta_n L/2 = \epsilon k^\prime_{an}/\beta_n
+\tag{6b}
+$$
+
+Frequencies that satisfy this equation are the ghost-mode
 resonant frequencies. The impedance at the dielectric-air interface
 becomes 
 $$
 Z_{wn}(L/2) = jZ_{wn}^{(\epsilon)} \cot \beta_n L/2,
-$$
- and the
-continuity condition of tangential fields at $z=L/2$ leads to
-$$
-\begin{align}
-\cot \beta_n L/2 &= \beta_n/k^\prime_{an} \\\\
-\cot \beta_n L/2 &= -\epsilon k^\prime_{an}/\beta_n
-\end{align}
+\tag{7}
 $$
 
- Eqs. (6b) and (8a) always have at least one real
+and the
+continuity condition of tangential fields at $z=L/2$ leads to
+$$
+\cot \beta_n L/2 = \beta_n/k^\prime_{an}
+\tag{8a}
+$$
+
+$$
+\cot \beta_n L/2 = -\epsilon k^\prime_{an}/\beta_n
+\tag{8b}
+$$
+
+Eqs. (6b) and (8a) always have at least one real
 solution.[^5] A field analysis shows that these solutions are
 characterized by *even* symmetry of their longitudinal field component.
 They will be called even modes, and the number $N_e$ of such solutions
@@ -102,7 +123,7 @@ $$
 N_e - 1 < \sqrt{\epsilon-1} \frac{k_{cn}L}{2\pi} < N_e.
 $$
 
- On the other
+On the other
 hand, (6a) and (8b) have real solutions only when $\epsilon$ and $L$
 exceed certain minimum values. Solutions obtained in such cases exhibit
 *odd* symmetry of their longitudinal field component, and will be called
@@ -135,8 +156,10 @@ approximately two-foot long section were left open, since the modes of
 interest are below waveguide cutoff and have substantially decayed when
 reaching the open
 ends.
+
 **[FIGURE: Sketch of the lowest TE and TM ghost-mode field patterns of an even and an odd symmetry. (The transverse field variations shown apply to TE$_{1\phi}$ and TM$_{11}$ in rectangular guide or TE$_{11}$ and TM$_{01}$ in circular guide.)]**
 **[FIGURE: Ghost-mode experiment.]**
+
 Microwave energy was loosely coupled to the guide through an
 electric probe at the guide wall, approximately four inches away from
 the dielectric. A similar probe, located on the opposite side of the
@@ -169,11 +192,13 @@ for a slab of $\frac{1}{8}$-inch thickness (neglecting geometrical
 errors). Considering the precision attainable in frequency measurements,
 this appears encouraging. If the dielectric constant of the slab is
 large, a possible air gap $\delta$ between the dielectric and the
-waveguide wall may be-
+waveguide wall may be troublesome.
+
 **[FIGURE: Universal curves showing TE ghost-mode resonant frequencies of a transverse dielectric slab.]**
 **[FIGURE: Universal curves showing TM ghost-mode resonant frequencies of a transverse dielectric slab.]**
 **[FIGURE: Ghost-mode resonant frequencies of ceramic discs ($\epsilon = 8.79$) of various thickness L. Curves are computed, dots are measured.]**
-come troublesome. It may introduce an error of the following order of
+
+It may introduce an error of the following order of
 magnitude:
 $$
 \left( \frac{\Delta f}{f} \right)_{res} = \frac{1}{2} \frac{\epsilon(\delta/a)}{1+\epsilon(\delta/a)},

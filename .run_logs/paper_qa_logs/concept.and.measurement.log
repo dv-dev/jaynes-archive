@@ -1,12 +1,13 @@
 === STDOUT ===
-Updated [content/papers/concept.and.measurement.md](/home/dave/Projects/jaynes-archive/content/papers/concept.and.measurement.md) with minimal structural QA only:
+No changes.
 
-- Added a blank line before `## NODAL SHIFT THEORY` so heading separation renders cleanly.
-- Removed trailing whitespace on three prose lines before the equation block.
+I reviewed `content/papers/concept.and.measurement.md` against your constraints and QA scope:
 
-No paper meaning/content was changed.  
-No LaTeX/KaTeX/math text was modified.  
-No duplicate abstract or extraneous metadata was present, so none removed.
+- Paragraph boundaries are already separated by blank lines.
+- No duplicate abstract appears in the body (abstract exists only in front matter).
+- No malformed tables are present.
+- No in-text equation-number references (e.g., “Eq. (n)”) are present, so no equation-numbering markup changes were needed.
+- No double-citation prose patterns like `(Smith 2018)` were found to normalize.
 
 
 === STDERR ===
@@ -19,21 +20,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb993-b499-7563-bc33-a59b91075d04
+session id: 019cb9e4-7194-79c3-9baf-fc7340557024
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/concept.and.measurement.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -45,11 +58,14 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’m going to inspect `content/papers/concept.and.measurement.md` for structural markdown QA only, then apply minimal edits that preserve meaning and leave all math untouched. I’ll report exactly what I changed at the end.
+I’m going to inspect `content/papers/concept.and.measurement.md`, run a focused QA pass for structure/citations/equation numbering consistency, then apply only minimal structural edits directly in that file.
 exec
 /bin/bash -lc "sed -n '1,260p' content/papers/concept.and.measurement.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 ---
@@ -72,13 +88,14 @@ reflected through the coupling system as a match in the input
 transmission line. The obvious way to test for this is to install a
 matched load and then measure the input SWR. However, an accurate match
 may be very difficult to obtain; or if the output transmission line
-codex
-I’ve loaded the first section and front matter. Next I’m scanning the remainder of the file for duplicated abstract text, citation style issues, and any markdown formatting problems before editing.
 exec
-/bin/bash -lc "sed -n '261,520p' content/papers/concept.and.measurement.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '261,520p' content/papers/concept.and.measurement.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
 
+codex
+I’ve loaded the file and it appears very short, ending right after the first displayed equations. I’ll verify full file length and then apply only structural fixes if anything is needed.
 exec
-/bin/bash -lc "nl -ba content/papers/concept.and.measurement.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc 'wc -l content/papers/concept.and.measurement.md && nl -ba content/papers/concept.and.measurement.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+61 content/papers/concept.and.measurement.md
      1	---
      2	title: "The Concept and Measurement of Impedance in Periodically Loaded Wave Guides"
      3	year: 1952
@@ -98,213 +115,16 @@ exec
     17	reflected through the coupling system as a match in the input
     18	transmission line. The obvious way to test for this is to install a
     19	matched load and then measure the input SWR. However, an accurate match
-    20	may be very difficult to obtain; or if the output transmission line
-exec
-/bin/bash -lc 'wc -l content/papers/concept.and.measurement.md && tail -n 40 content/papers/concept.and.measurement.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-60 content/papers/concept.and.measurement.md
-happens to be of some special construction, such as the periodically
-disk-loaded wave guides used in particle accelerators, there may be no
-independent method of determining when the load line is matched, other
-than looking at it through some coupling system.
-
-It is always easy, however, to produce a pure reactance (i.e.,
-completely reflecting) termination of the load line, and if the coupling
-system is lossless, its input impedance must also be a pure reactance.
-This reactance is determined merely by locating the position of the
-extremely sharp node on the input transmission line, so that if we can
-find a way of determining the coupling system parameters from the
-relation of load reactance to input reactance, we can expect this method
-to give us a more convenient as well as more accurate determination of
-the coupling system performance. Once the parameters of the coupling
-system are known, the relations between its input and output impedance
-may be used backwards to measure impedances in the load transmission
-system.
-
-In Sec. II we review the well-known theory of the nodal shift method as
 codex
-I found the file is only 60 lines and currently ends mid-paper, with citation markers `[^2]` and `[^3]` but no footnote definitions in this file. I’ll quickly check nearby papers for citation/footnote formatting conventions, then make minimal structural fixes here.
-exec
-/bin/bash -lc 'rg --files content/papers | head -n 20' in /home/dave/Projects/jaynes-archiveexec
-/bin/bash -lc "rg -n \"\\[\\"'^'"\\d+\\]:|\\[\\"'^'"\\d+\\]\" content/papers | head -n 80" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-content/papers/predictive.md
-content/papers/relationship.md
-content/papers/unique.dicipherability.md
-content/papers/microwaves.md
-content/papers/gibbs.paradox.md
-content/papers/maser.theory.md
-content/papers/min.ent.prod.md
-content/papers/kramers-kronig.md
-content/papers/random.md
-content/papers/cgap.md
-content/papers/general.background.md
-content/papers/propagation.in.waveguides.md
-content/papers/displacement.md
-content/papers/circuit.analysis.md
-content/papers/prior.md
-content/papers/theory.2.md
-content/papers/bayesian.methods.md
-content/papers/parametric.amplifier.md
-content/papers/cmonkeys.md
-content/papers/radiative.effects.md
- succeeded in 51ms:
-content/papers/unique.dicipherability.md:40:and define the partition function[^1]
-content/papers/unique.dicipherability.md:44:Shannon,[^2] the capacity of this channel is the largest (actually the
-content/papers/unique.dicipherability.md:53:Sardinas and Patterson.[^3] McMillan[^4] has given two inequalities
-content/papers/unique.dicipherability.md:54:implied by UD, which had been noted before[^5]^,^[^6]^,^[^7] under more
-content/papers/unique.dicipherability.md:75:applications to communication systems and to genetics,[^8] the most
-content/papers/unique.dicipherability.md:144:(entropy per word) is maximized[^9]
-content/papers/unique.dicipherability.md:311:[^1]: E. Schrödinger, \"Statistical Thermodynamics,\" Cambridge
-content/papers/unique.dicipherability.md:314:[^2]: C. E. Shannon, \"The Mathematical Theory of Communication,\"
-content/papers/unique.dicipherability.md:317:[^3]: A. A. Sardinas and G. W. Patterson, \"A necessary and sufficient
-content/papers/unique.dicipherability.md:321:[^4]: B. McMillan, \"Two inequalities implied by unique
-content/papers/unique.dicipherability.md:325:[^5]: L. G. Kraft, \"A device for quantizing, grouping and coding
-content/papers/unique.dicipherability.md:329:[^6]: B. Mandelbrot, \"On recurrent noise limiting coding,\" Proc. Symp.
-content/papers/unique.dicipherability.md:333:[^7]: Given also in A. Feinstein, \"Foundations of Information Theory,\"
-content/papers/unique.dicipherability.md:336:[^8]: S. W. Golomb, Basil Gordon, and L. R. Welch, \"Comma-free codes,\"
-content/papers/unique.dicipherability.md:339:[^9]: M. P. Schützenberger, \"On an application of semi-group methods to
-content/papers/resonant.modes.md:11:authors.[^4] The present paper presents a quantitative analysis and
-content/papers/resonant.modes.md:97:solution.[^5] A field analysis shows that these solutions are
-content/papers/resonant.modes.md:213:yields approximate results.[^6] Such windows of increased complexity
-content/papers/resonant.modes.md:251:[^1]: General Electric Microwave Lab., Palo Alto, Calif.
-content/papers/resonant.modes.md:252:[^2]: Microwave Lab., W. W. Hansen Labs. of Physics, Stanford
-codex
-I don’t see duplicated abstract text, tables, or extra metadata to strip in this file. I’m applying only minimal structural cleanup (spacing and markdown hygiene) while keeping all prose and math unchanged.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/concept.and.measurement.md
-@@ -45,7 +45,8 @@
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
-apply_patch(auto_approved=true) exited 0 in 7ms:
-Success. Updated the following files:
-M content/papers/concept.and.measurement.md
-file update:
-diff --git a/content/papers/concept.and.measurement.md b/content/papers/concept.and.measurement.md
-index f4db34dcc7725817e96aeeb70be8e5a23304cfb5..86b1ddb6315b1db7577ab65b55f7066026ecfe76
---- a/content/papers/concept.and.measurement.md
-+++ b/content/papers/concept.and.measurement.md
-@@ -43,11 +43,12 @@
- extended to such guides. The resulting measurement technique was
- developed and used by the writer in 1949 in connection with the design
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
- \begin{aligned}
- V_1 &= AV_2 + BI_2, \\
+No changes.
 
-file update:
-diff --git a/content/papers/concept.and.measurement.md b/content/papers/concept.and.measurement.md
-index f4db34dcc7725817e96aeeb70be8e5a23304cfb5..86b1ddb6315b1db7577ab65b55f7066026ecfe76
---- a/content/papers/concept.and.measurement.md
-+++ b/content/papers/concept.and.measurement.md
-@@ -43,11 +43,12 @@
- extended to such guides. The resulting measurement technique was
- developed and used by the writer in 1949 in connection with the design
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
- \begin{aligned}
- V_1 &= AV_2 + BI_2, \\
+I reviewed `content/papers/concept.and.measurement.md` against your constraints and QA scope:
 
-exec
-/bin/bash -lc 'git diff -- content/papers/concept.and.measurement.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-diff --git a/content/papers/concept.and.measurement.md b/content/papers/concept.and.measurement.md
-index f4db34d..86b1ddb 100644
---- a/content/papers/concept.and.measurement.md
-+++ b/content/papers/concept.and.measurement.md
-@@ -43,11 +43,12 @@ wave guides, and in Sec. VI the theory of the nodal shift method is
- extended to such guides. The resulting measurement technique was
- developed and used by the writer in 1949 in connection with the design
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
- \begin{aligned}
- V_1 &= AV_2 + BI_2, \\
-file update:
-diff --git a/content/papers/concept.and.measurement.md b/content/papers/concept.and.measurement.md
-index f4db34dcc7725817e96aeeb70be8e5a23304cfb5..86b1ddb6315b1db7577ab65b55f7066026ecfe76
---- a/content/papers/concept.and.measurement.md
-+++ b/content/papers/concept.and.measurement.md
-@@ -43,11 +43,12 @@
- extended to such guides. The resulting measurement technique was
- developed and used by the writer in 1949 in connection with the design
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
- \begin{aligned}
- V_1 &= AV_2 + BI_2, \\
-
-codex
-Updated [content/papers/concept.and.measurement.md](/home/dave/Projects/jaynes-archive/content/papers/concept.and.measurement.md) with minimal structural QA only:
-
-- Added a blank line before `## NODAL SHIFT THEORY` so heading separation renders cleanly.
-- Removed trailing whitespace on three prose lines before the equation block.
-
-No paper meaning/content was changed.  
-No LaTeX/KaTeX/math text was modified.  
-No duplicate abstract or extraneous metadata was present, so none removed.
-file update:
-diff --git a/content/papers/concept.and.measurement.md b/content/papers/concept.and.measurement.md
-index f4db34dcc7725817e96aeeb70be8e5a23304cfb5..86b1ddb6315b1db7577ab65b55f7066026ecfe76
---- a/content/papers/concept.and.measurement.md
-+++ b/content/papers/concept.and.measurement.md
-@@ -43,11 +43,12 @@
- extended to such guides. The resulting measurement technique was
- developed and used by the writer in 1949 in connection with the design
- of coupling systems for the Stanford linear accelerator tubes.[^3]
-+
- ## NODAL SHIFT THEORY
- First, we note the familiar fact that the voltage-current relationships
--of any linear, passive, four-terminal network may be expressed in terms 
--of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
--notation) 
-+of any linear, passive, four-terminal network may be expressed in terms
-+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
-+notation)
- $$
- \begin{aligned}
- V_1 &= AV_2 + BI_2, \\
-
+- Paragraph boundaries are already separated by blank lines.
+- No duplicate abstract appears in the body (abstract exists only in front matter).
+- No malformed tables are present.
+- No in-text equation-number references (e.g., “Eq. (n)”) are present, so no equation-numbering markup changes were needed.
+- No double-citation prose patterns like `(Smith 2018)` were found to normalize.
 tokens used
-12,016
+5,322
 

@@ -1,0 +1,840 @@
+=== STDOUT ===
+Edits applied to `content/papers/muscle.md` (minimal, structural only).
+
+### What changed
+- Moved embedded display equations to standalone math blocks for cleaner Hugo+KaTeX rendering:
+  - `\tag{1}`, `\tag{3}` blocks were pulled out of prose lines.
+- Added missing blank-line paragraph boundaries where clear paragraph/section breaks existed:
+  - before section headers
+  - between the `(A)`, `(B)`, `(C)` conclusion items
+- Removed extraneous trailing affiliation footnote metadata at the end (`[^1]: Visiting Fellow...`), which was not part of the paper body.
+
+### Self-check
+- Paragraph boundaries now use blank-line separation where intended.
+- All in-text referenced equation numbers are present and discoverable as tagged display equations:
+  - `(1)`, `(2)`, `(3)`, `(4)` all exist as display equations.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba31-a4d1-7901-be81-0568497e4db5
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/muscle.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/muscle.md` for structure issues, duplicate abstract text, citation formatting, and equation-reference numbering consistency, then apply only minimal structural edits in place.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/muscle.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "The Muscle as an Engine"
+year: 1983
+abstract: >
+  Jaynes speculates on the principles governing energy conversion efficiency,
+  arguing that muscles achieve higher efficiency than conventional
+  interpretations of the Second Law of Thermodynamics (Kelvin's formula)
+  suggest. He proposes that by reinterpreting Kelvin's formula in terms of
+  energy per degree of freedom rather than temperature, the formula becomes
+  general enough to include heat engines, muscles, and pure mechanisms. This
+  perspective suggests that capture of primary chemical energy before it
+  degrades into heat can lead to man-made engines with efficiencies far
+  exceeding those of traditional Carnot engines.
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["muscle efficiency", "Carnot engine", "second law of thermodynamics", "energy conversion", "statistical mechanics", "molecular biology", "Gibbs", "Kelvin formula"]
+---
+## INTRODUCTION
+We sometimes encounter statements of the genre: "Kelvin's formula for
+the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
+codex
+I’ve reviewed the file and found mostly structural issues: several display equations are embedded inside prose lines, headings are not consistently separated by blank lines, and there’s a dangling affiliation footnote at the end that looks like non-body metadata. I’ll apply minimal formatting-only fixes now.
+exec
+/bin/bash -lc "nl -ba content/papers/muscle.md | sed -n '1,320p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "The Muscle as an Engine"
+     3	year: 1983
+     4	abstract: >
+     5	  Jaynes speculates on the principles governing energy conversion efficiency,
+     6	  arguing that muscles achieve higher efficiency than conventional
+     7	  interpretations of the Second Law of Thermodynamics (Kelvin's formula)
+     8	  suggest. He proposes that by reinterpreting Kelvin's formula in terms of
+     9	  energy per degree of freedom rather than temperature, the formula becomes
+    10	  general enough to include heat engines, muscles, and pure mechanisms. This
+    11	  perspective suggests that capture of primary chemical energy before it
+    12	  degrades into heat can lead to man-made engines with efficiencies far
+    13	  exceeding those of traditional Carnot engines.
+    14	author: ["E.T. Jaynes"]
+    15	categories: ["Quantum Mechanics & Advanced Physics"]
+    16	tags: ["muscle efficiency", "Carnot engine", "second law of thermodynamics", "energy conversion", "statistical mechanics", "molecular biology", "Gibbs", "Kelvin formula"]
+    17	---
+    18	## INTRODUCTION
+    19	We sometimes encounter statements of the genre: "Kelvin's formula for
+    20	the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
+codex
+I’m now applying the structural patch: moving inline display equations onto standalone math blocks, adding missing blank-line paragraph boundaries (including section transitions and A/B/C list separation), and removing the non-body affiliation footnote.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/muscle.md
+@@ -19,3 +19,6 @@
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+@@ -54,2 +57,3 @@
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+@@ -82,3 +86,7 @@
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+@@ -168,2 +176,3 @@
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+@@ -198,2 +207,3 @@
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+@@ -204,2 +214,3 @@
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+@@ -211,2 +222,3 @@
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+@@ -221,2 +233,3 @@
+ impossible.
++
+ ## REFERENCES
+@@ -241,4 +254 @@
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/muscle.md
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+exec
+/bin/bash -lc "rg -n \"\\([1-9][0-9]*\\)|Eq\\.|Eqs\\.\" content/papers/muscle.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+30:But there is no reason why (1) should apply to engines that deliver work
+37:and a naive application of (1) would lead us to predict zero, or even
+38:negative efficiency. But according to Lehninger (1965), under these
+41:According to Alberts, *et al.* (1983), under favorable conditions the
+51:does the Kelvin efficiency formula (1) apply. If we can learn how to
+54:achieve higher efficiency than one would suppose from (1) in a man-made
+63:theoretical maximum efficiency, it can always be written in the form (1)
+85:If in the Kelvin formula (1) we replace temperature by what it amounts
+87:explanation and generalization of (1):
+100:(1) is valid. We may, however, reason as follows. Although conventional
+109:Therefore, since (3) is unquestionably valid when both reservoirs are in
+112:the engine actually interacts. But then (3) has a simple intuitive
+125:(1) for the maximum theoretical efficiency of a muscle. It is not a real
+128:activated molecules themselves as the heat reservoir of (2), so f = 1
+145:volume -- that places the limitation (3) on how much concentration of
+161:delivered to it. The generalized efficiency (3) then reduces to
+168:thermodynamics. But a little further thought makes it clear that (4) is
+175:The simple generalization (3) of Kelvin's formula thus appears to have a
+200:In the attempts of L. A. Blumenfeld (1983) to relate efficiency of
+205:remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/muscle.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+exec
+/bin/bash -lc "rg -n \"tag\\{\" content/papers/muscle.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+22:$$e = 1 - T/T^\prime \tag{1}$$
+80:$$f(1 - T/T^{\prime\prime}) \tag{2}$$
+89:$$e = 1 - W/W^\prime \tag{3}$$
+163:$$(\text{Work out}) = (\text{Work in}) - (1/2) kT \tag{4}$$
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+codex
+I’ve completed the patch and I’m doing a final pass to verify blank-line paragraph boundaries and that every referenced equation number `(1)–(4)` has a matching visible tagged display equation.
+exec
+/bin/bash -lc "sed -n '1,300p' content/papers/muscle.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "The Muscle as an Engine"
+year: 1983
+abstract: >
+  Jaynes speculates on the principles governing energy conversion efficiency,
+  arguing that muscles achieve higher efficiency than conventional
+  interpretations of the Second Law of Thermodynamics (Kelvin's formula)
+  suggest. He proposes that by reinterpreting Kelvin's formula in terms of
+  energy per degree of freedom rather than temperature, the formula becomes
+  general enough to include heat engines, muscles, and pure mechanisms. This
+  perspective suggests that capture of primary chemical energy before it
+  degrades into heat can lead to man-made engines with efficiencies far
+  exceeding those of traditional Carnot engines.
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["muscle efficiency", "Carnot engine", "second law of thermodynamics", "energy conversion", "statistical mechanics", "molecular biology", "Gibbs", "Kelvin formula"]
+---
+## INTRODUCTION
+We sometimes encounter statements of the genre: "Kelvin's formula for
+the efficiency of a reversible Carnot engine
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+codex
+Edits applied to `content/papers/muscle.md` (minimal, structural only).
+
+### What changed
+- Moved embedded display equations to standalone math blocks for cleaner Hugo+KaTeX rendering:
+  - `\tag{1}`, `\tag{3}` blocks were pulled out of prose lines.
+- Added missing blank-line paragraph boundaries where clear paragraph/section breaks existed:
+  - before section headers
+  - between the `(A)`, `(B)`, `(C)` conclusion items
+- Removed extraneous trailing affiliation footnote metadata at the end (`[^1]: Visiting Fellow...`), which was not part of the paper body.
+
+### Self-check
+- Paragraph boundaries now use blank-line separation where intended.
+- All in-text referenced equation numbers are present and discoverable as tagged display equations:
+  - `(1)`, `(2)`, `(3)`, `(4)` all exist as display equations.
+file update:
+diff --git a/content/papers/muscle.md b/content/papers/muscle.md
+index 4aed1c883ba756daa8429934234302aafb76d1fd..4e4f428af5a840bb8a1d9486c1108287d12e00e7
+--- a/content/papers/muscle.md
++++ b/content/papers/muscle.md
+@@ -17,7 +17,10 @@
+ ---
+ ## INTRODUCTION
+ We sometimes encounter statements of the genre: "Kelvin's formula for
+-the efficiency of a reversible Carnot engine $$e = 1 - T/T^\prime \tag{1}$$
++the efficiency of a reversible Carnot engine
++
++$$e = 1 - T/T^\prime \tag{1}$$
++
+ shows that the efficiency of every type of energy converter has a
+ theoretical upper limit that cannot be exceeded." We wish to point out
+ that Kelvin's result applies, not to every type of energy converter, but
+@@ -52,6 +55,7 @@
+ engine. Of course, this would not be a violation of the second law;
+ rather, to achieve it will require a very clear understanding of what
+ the second law really is.
++
+ ## THE ANTI-CARNOT EFFICIENCY
+ What efficiency might one hope for in such an anti-Carnot engine? There
+ is no reason to doubt that, with proper understanding, the performance
+@@ -80,7 +84,11 @@
+ 
+ If in the Kelvin formula (1) we replace temperature by what it amounts
+ to -- energy per degree of freedom $W = (1/2)kT$, we see before us an
+-explanation and generalization of (1): $$e = 1 - W/W^\prime \tag{3}$$ which does not
++explanation and generalization of (1):
++
++$$e = 1 - W/W^\prime \tag{3}$$
++
++which does not
+ look very different at first; but now we have removed the limitation of
+ thermal equilibrium on our energy source and sink. For "temperature" 
+ is defined only for a system in thermal equilibrium, while "energy per
+@@ -166,6 +174,7 @@
+ perpetual motion machine that the Second Law holds to be impossible.
+ The simple generalization (3) of Kelvin's formula thus appears to have a
+ rather wide range of application.
++
+ ## TENTATIVE CONCLUSIONS
+ What do the known facts of biology tell us about these questions? The
+ currently popular myosin bridge mechanism for striated muscle
+@@ -196,12 +205,14 @@
+ remarks (C), Elsasser (1966) invokes the uncertainty principle to place
+ fundamental limits on mechanistic analysis in biology. Our thinking has
+ led us to just the opposite conclusions:
++
+ (A) The Carnot principle and low "second law" efficiency of present
+ engines are only consequences of the thermalization process (the primary
+ chemical energy is allowed to degrade into heat before being used). If
+ we can avoid the thermalization, Carnot engine lore must be modified as
+ noted above. It is satisfying that the same formula holds, only
+ reinterpreted.
++
+ (B) For efficient conversion of chemical energy into mechanical energy
+ the conversion must proceed directly and quickly. Far from being
+ impossible in systems of molecular size, this almost requires that the
+@@ -209,6 +220,7 @@
+ the useful output energy must be delivered to a single degree of
+ freedom. We speculate that this is just the reason why biological
+ systems have accomplished it, and human engineers have not.
++
+ (C) Instead of present quantum theory placing limits on the
+ possibilities of mechanistic analysis in biology, the continued success
+ of mechanistic analysis in biology may some day show us the limits of
+@@ -219,6 +231,7 @@
+ chemical energy to mechanical work; the field is wide open for clever
+ inventors, who may at any time do what we have all been taught is
+ impossible.
++
+ ## REFERENCES
+ B. Alberts et al., (1983), *Molecular Biology of the Cell*, Garland
+ Publishing Co., New York; pp. 550-609.
+@@ -239,6 +252,3 @@
+ A. L. Lehninger (1975), *Biochemistry, The Molecular Basis of Cell
+ Structure and Function*, Worth Publishers, Inc., 444 Park Ave. South,
+ New York.
+-
+-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
+-    Physics, Washington University. St. Louis, Missouri 63130, U.S.A.
+
+tokens used
+23,183
+

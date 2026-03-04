@@ -1,16 +1,17 @@
 === STDOUT ===
-Changes applied to `content/papers/foundations.of.prob.st.md`.
+Updated `content/papers/foundations.of.prob.st.md` with minimal structural QA edits.
 
-Concise summary of what changed:
-- Kept paper content and all math/LaTeX unchanged.
-- Fixed markdown structure/readability only:
-  - added missing blank lines around major headings and one figure placeholder marker
-  - fixed a couple malformed paragraph breaks near display equations (`After some physical arguments`, `can only decrease`)
-  - improved section separation where headings were stuck to preceding text
-- Normalized citations from bracket style `[n]` to markdown footnote markers `[^n]`.
-- Added corresponding footnote definitions at the end (pointing readers to the numbered References section).
-- Removed extraneous trailing metadata footnote (`[^100]: Department of Physics...`).
-- No duplicate abstract text was found in the body, so no abstract-body removal was needed.
+Changes made:
+- Added KaTeX equation-number tags to display equations so all in-text references are resolvable and visible:
+  - `\tag{1}` through `\tag{15}` on the corresponding display equations.
+- No prose meaning, mathematical expressions, symbols, operators, variables, or equation content was changed.
+- No figure handling changes were made.
+- No abstract/body duplicate removal was needed.
+- No citation text normalization changes were required (no duplicate parenthetical+footnote pattern found).
+
+Self-check completed:
+- In-text equation references now map to discoverable numbered display equations.
+- Paragraph boundaries were reviewed; no additional blank-line paragraph split was clearly required.
 
 
 === STDERR ===
@@ -23,21 +24,33 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cb9a0-0104-7ad1-a5f7-574e2d253022
+session id: 019cb9f7-9128-7323-8b99-642c3574f4ed
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/foundations.of.prob.st.md`.
 
 Hard constraints (must follow exactly):
 1. Do NOT change any paper content/meaning.
-2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
-3. Ignore missing figures.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
 
 Allowed/required QA scope:
 - Fix markdown structure/readability only:
   - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
   - repair odd markdown table formatting
   - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
 - Ensure abstract is not duplicated:
   - abstract should exist in metadata/front matter only
   - remove duplicate abstract text from body if present
@@ -49,11 +62,14 @@ Allowed/required QA scope:
 Output requirements:
 - Apply edits directly to the file if needed.
 - Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
 - At the end, print a concise summary of what changed (or 'no changes').
 
 mcp startup: no servers
 codex
-I’ll inspect `content/papers/foundations.of.prob.st.md` for structural markdown QA issues (paragraphing, table formatting, duplicate abstract/citations, and extraneous metadata) and then apply only minimal edits in place.
+I’m going to inspect `content/papers/foundations.of.prob.st.md` for structure, equation-reference numbering tags, duplicate abstract/body metadata, and citation formatting, then apply minimal in-place markdown-only fixes.
 exec
 /bin/bash -lc "sed -n '1,260p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 ---
@@ -73,14 +89,19 @@ abstract: >
   approved or deprecated by the scientific community as a whole.
 author: ["E.T. Jaynes"]
 ---
+
 ## WHAT MAKES THEORIES GROW?
 However much the "pure" scientist may deplore it, the fact remains that
-military or engineering applications of science have, over and over
 codex
-I’ve reviewed the first section and found large paragraph blocks plus inline bracket citations that may need footnote normalization. I’ll scan the rest of the file before editing so changes stay minimal and consistent.
+I’ve read the first large section and next I’ll scan the remainder to catch equation references, citation patterns, and any duplicated abstract/body material before editing.
 exec
 /bin/bash -lc "sed -n '261,520p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+years. And I think we can predict with confidence that some of the clues
+which will lead to the next round of advances are to be found in the
+many suggestions already made by dissenters from the Copenhagen theory 
+--- suggestions which have, thus far, been met only by sneers and 
 attacks, which no attempt to study their real potentialities.
+
 ## STATISTICAL MECHANICS
 At this point, I see that you are looking about anxiously and wondering
 if you are in the right room; for the announced title of this talk was,
@@ -95,15 +116,19 @@ periodic fluctuations, but they are not in phase with the fluctuations
 taking place in physics (they are right now at a deep pressure minimum);
 and so the history of statistical mechanics is more complicated.
 
-In particular, statistical mechanics missed out on the latest pressure
-minimum in physics, because it coincided with a pressure maximum in
-statistics; the transition to quantum statistics took place quietly and
-uneventfully without any real change in the basic formalism of GIBBS,
-and without any extension of the range of applicability of the theory.
+codex
+I’m continuing through the rest of the file now; after that I’ll make only minimal structural fixes plus equation-number tags where references require them.
 exec
-/bin/bash -lc "sed -n '521,780p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+/bin/bash -lc "sed -n '521,860p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+canonical and grand canonical ensembles, as well as the ensemble
+canonical in the angular momenta which was presented in Chapter 4 but
+not applied to any problem [^7]. However, he devotes only two sentences
+to this; and the principle he states is what we would recognize today as
+the principle of maximum entropy! To the best of my knowledge, this
+passage has never been noted or quoted by any other author (it is rather
+well hidden among discussions of other topics); and I discovered it
 myself only by accident, three years after I had written some papers
-[8] advocating this principle as a general foundation for statistical
+[^8] advocating this principle as a general foundation for statistical
 mechanics. This discovery convinced me that there was much more to the
 history of this subject than one finds in any textbook, and induced me
 to study it from the original sources; some of the resulting conclusions
@@ -115,926 +140,1172 @@ ink in water; and this forms the basis for another of the EHRENFEST'S
 criticisms of his work. I think that, had GIBBS been granted a few more
 years of vigorous health, this would have been replaced by a simple and
 rigorous demonstration of the second law based on other ideas. For it
-turns out that all the clues necessary to point the way to this, and all
-the mathematical material needed for the proof, were already present in
-the first eleven chapters of his book; it requires only a little more 
-physical reasoning to see that introduction of coarse-grained
-distributions does not advance our understanding of irreversibility and
-the second law, for the simple reason that the latter are experimentally
-observed macroscopic properties; and the fine-grained and coarse-grained
 codex
-I’m now checking the final section and references/footnotes to normalize citations without touching math or substantive wording.
+I’m at the final stretch of the document and then I’ll patch only the required markdown structure and equation-numbering/citation normalization issues.
 exec
-/bin/bash -lc "sed -n '781,1040p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-the experiments which verify GIBBS' rules measure time averages only
-over *finite* times. Thus, a further mathematical demonstration would in
-any event be necessary, to show that these finite time averages have
-sufficiently approximated their limits for infinite times.
+/bin/bash -lc "sed -n '861,1180p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
 
-Now we can give simple and general counter-examples proving that such an
-additional demonstration cannot be given; and indeed that any
-macroscopic system, given a time millions of times the age of the
-universe, still could not "sample" more than an infinitesimal fraction
-of all the microscopic states which have high probability in the
-canonical ensemble; and thus any assertion about the *frequencies* with
-which different microscopic states are realized in an individual system,
-is completely devoid of operational meaning.
+Furthermore, the methods of LAPLACE and JEFFREYS (which were, of course,
+based on BAYES' theorem as the fundamental tool of statistics) were
+applied with equal ease to many problems which, according to the
+frequentist, did not belong to the field of probability theory at all;
+and they still yielded perfectly reasonable, and scientifically useful,
+results!
 
-The easiest way of seeing this is just to note that, if a macroscopic
-system could sample all microscopic states in the time in which
-measurements are made, so that the measured time averages would be equal
-to ensemble averages, then the measured values would necessarily always
-be the equilibrium values; we would not even know about irreversible
-processes! *The fact that we can measure the rate of an irreversible
-exec
-/bin/bash -lc "sed -n '1041,1320p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-out these steps explicitly for any nontrivial problem! If GIBBS'
-original formalism was somewhat deceptive, in that its formal simplicity
-conceals an enormous amount of intricate detail, the same is true with a
-vengeance for this generalization. Nevertheless, it is still only
-mathematics; and if it were important enough to get a certain result,
-one could always hire a building full of mathematicians and computers to
-grind it out; there are no further questions of principle to worry
-about.
+I don't want to dwell at length on the situation in probability theory,
+because time is running short and a rather large exposition of this,
+with full mathematical details, is being readied for publication
+elsewhere. But let me just mention one example of what one finds if he
+takes the trouble to go beyond polemics and study the mathematical facts
+of the matter.
 
-For the past three years, my students and I have been exploring these
-mathematical problems, and we have a large mass of results that will be
-reported in due course. Without going into further details, let me just
-say that all the previously known results in theory of irreversible
-processes can be derived easily from this algorithm. Dissipative effects
-such as viscosity, diffusion, heat conductivity are obtained by direct
-quadratures using (15), with no need for the forward integration and
-coarse-graining operations characteristic of previous treatments. For
-static transport coefficients we obtain formulas essentially equivalent
-to those of KUBO; we can exhibit certain ensembles for which KUBO'S
-results, originally obtained by perturbation theory, are in fact exact.
+In problems of interval estimation of unknown parameters, the
+frequentist has rejected the method of LAPLACE and JEFFREYS, on grounds
+that I can only describe as ideological, and has advocated vigorously
+the method of confidence intervals. Now it is a matter of
+straightforward mathematics to show that, whenever the frequentist's
 codex
-I found no duplicated abstract text, but there are structural rendering issues (missing blank lines before headings, some malformed paragraph breaks) and citation style is numeric brackets rather than markdown footnotes. I’m going to apply minimal structural fixes and citation-format normalization next.
-exec
-/bin/bash -lc "rg -n \"\\[[0-9]+\\]\" content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-130:particularly that of EPSTEIN [1]. This period of hostility toward free 
-148:explained by E. T. BELL [2] in these words: "He had the misfortune to 
-183:experiment; this time, a few individual cases can be documented [3].
-398:examine a recent review article on transport theory [4]. On page 271,
-456:review article [5], which has had a dominating influence on thought in
-474:fact that the "official" commentary on GIBBS' work [6] devotes a
-516:not applied to any problem [7]. However, he devotes only two sentences
-522:[8] advocating this principle as a general foundation for statistical
-550:recently pointed this out [9] and supplied the very simple proof,
-561:[10]. Finally, until recently the situation in probability theory
-655:Theoretical Physics, L. VAN HOVE [11] remarked, "In contrast to the
-954:ensemble [8]. If we specify the expectations of energy and angular
-955:momentum, it uniquely determines GIBBS' rotational ensemble [7]. Thus,
-exec
-/bin/bash -lc "perl -0pi -e 's/\\[(\\d+)\\]/["'^$1]/g'"' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-
-codex
-I’ve converted bracketed numeric citations to markdown footnote-style markers and will now fix spacing/paragraph structure and add minimal footnote definitions that preserve the existing References list without changing content.
-exec
-/bin/bash -lc "sed -n '118,220p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-reached a pressure minimum, in which nobody feels very sure where the
-truth lies and new suggestions are again given a fair hearing, so that
-creation of new theories is again socially possible.
-
-Let us trace a few cycles of this pressure fluctuation (see Fig. 1). The
-pressure minimum that occurred at the end of the eighteenth century is
-now known as the "Age of Reason".
-
-During a fairly short period many important advances in physical theory
-were made by such persons as LAPLACE, LAGRANGE, LAVOISIER, and FOURIER.
-Then a pressure maximum occurred in the first half of the nineteenth 
-century, which is well described in some thermodynamics textbooks, 
-particularly that of EPSTEIN [^1]. This period of hostility toward free 
-speculation seems to have been brought about, in part, by the collapse 
-of SCHELLING'S *Naturphilosophie*, and its chief effect was to delay 
-recognition of the first law of thermodynamics for several decades. As 
-already noted, FRESNEL was one of the very few physicists who escaped 
-this influence sufficiently to make important advances in theory.
-Another pressure minimum was reached during the third quarter of the
-nineteenth century, when a new spurt of advances took place in a period
-exec
-/bin/bash -lc "sed -n '240,360p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-barring the way to more detailed descriptions of nature; and yet, with
-the lesson of parity still fresh in our minds, how can anyone be quite
-so sure of its universal validity when we note that, to this day, it has
-never been subjected to even one direct experimental test?
-
-Today, elementary particle theorists are busily questioning and
-re-examining all the foundations of quantum field theory, in a way that
-would have been regarded as utter heresy ten years ago; and some have
-suggested that perhaps the whole apparatus of fields and Hamiltonians
-ought to be simply abandoned in favor of more abstract approaches. It
-would be quite inconsistent with the present mood of theoretical physics
-if we failed to question and re-examine all of the supposedly sacred
-principles of quantum theory.
-
-For all these reasons, I think we are going to see a rapid decrease in
-pressure in the immediate future, and another period of great
-theoretical advances will again be socially possible in perhaps ten
-years. And I think we can predict with confidence that some of the clues
-which will lead to the next round of advances are to be found in the
-many suggestions already made by dissenters from the Copenhagen theory 
-codex
-I’m applying a targeted patch now: blank-line fixes around headings/figure markers, cleanup of a few malformed paragraph breaks around display equations, removal of the stray metadata footnote, and adding footnote definitions for the converted citations.
-codex
-The patch failed on one context mismatch, so I’m reapplying in smaller chunks to keep the same intended minimal edits without touching content.
-exec
-/bin/bash -lc 'rg -n "''^## |''^### |'"\\*\\*\\[FIGURE|"'^'"\\[\\"'^100'"\\]|After some physical arguments|can only decrease|surface of any real treatment|subjective probabilities\\.\" content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-18:## WHAT MAKES THEORIES GROW?
-158:**[FIGURE: Some recent fluctuations in social pressure in science]**
-262:## STATISTICAL MECHANICS
-328:### BOLTZMANN'S Collision Equation
-339: After some physical arguments
-354: can only decrease 
-440:surface of any real treatment of irreversible processes!
-441:### Method of GIBBS
-696:### Conceptual Problems of the Ensemble
-928:subjective probabilities.
-929:## THE GENERAL MAXIMUM-ENTROPY FORMALISM
-1101:## REFERENCES
-1113:[^100]: Department of Physics, Washington University, St. Louis, Missouri
-exec
-/bin/bash -lc 'tail -n 40 content/papers/foundations.of.prob.st.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-theory "means" is absolutely essential. The philosophy which led me to
-this generalization was, as already indicated, my conviction that the
-"subjective" theory of probability has been subjected to grossly
-unfair attacks from people who have never made the slightest attempt to
-examine its potentialities; and that if one does take the trouble to
-rise above ideology and study the facts, he will find that
-"subjective" probability is not only perfectly sound philosophically;
-it is a far more powerful tool for solving practical problems than the
-frequency theory. I am, moreover, not alone in thinking this, as those
-familiar with the rise of the "neo-Bayesian" school of thought in
-statistics are well aware.
-
-Nevertheless, that philosophy of mine was only scaffolding, which served
-the purpose of telling me in what *specific* way the formalism of GIBBS
-was to be generalized. Once a philosophy has led to a definite,
-unambiguous mathematical formalism by which practical calculations may
-be carried out, then the issue is no longer one of philosophy; but of
-fact. The formalism either will or will not prove adequate in practice;
-and it will be judged, quite properly, not by the philosophy which led
-to it, but by the results which its gives. If you do not like my
-exec
-/bin/bash -lc "perl -0pi -e 's/this influence sufficiently to make important advances in theory\\.\\nAnother/this influence sufficiently to make important advances in theory.\\n\\nAnother/s; s/more and more Ptolemaic epicycles\\.\\n\\*\\*\\[FIGURE: Some recent fluctuations in social pressure in science\\]\\*\\*\\nAn interesting manifestation/more and more Ptolemaic epicycles.\\n\\n**[FIGURE: Some recent fluctuations in social pressure in science]**\\n\\nAn interesting manifestation/s; s/attacks, which no attempt to study their real potentialities\\.\\n## STATISTICAL MECHANICS/attacks, which no attempt to study their real potentialities.\\n\\n## STATISTICAL MECHANICS/s; s/this remark applies with equal force to physics and to statistics\\.\\n### BOLTZMANN\\x27S Collision Equation/this remark applies with equal force to physics and to statistics.\\n\\n### BOLTZMANN\\x27S Collision Equation/s; s/surface of any real treatment of irreversible processes"'!'"\\n### Method of GIBBS/surface of any real treatment of irreversible processes"'!'"\\n\\n### Method of GIBBS/s; s/subjective probabilities\\.\\n## THE GENERAL MAXIMUM-ENTROPY FORMALISM/subjective probabilities.\\n\\n## THE GENERAL MAXIMUM-ENTROPY FORMALISM/s; s/\\n After some physical arguments/\\nAfter some physical arguments/s; s/\\n can only decrease /\\ncan only decrease /s' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-
-codex
-I’ve completed the spacing and heading-break cleanup. I’ll now finalize citations by replacing the stray trailing metadata footnote with explicit citation footnote definitions.
-exec
-/bin/bash -lc "perl -0pi -e 's/\\n\\[\\"'^100'"\\]: Department of Physics, Washington University, St\\. Louis, Missouri\\n/\\n["'^1]: See Reference 1.'"\\n["'^2]: See Reference 2.'"\\n["'^3]: See Reference 3.'"\\n["'^4]: See Reference 4.'"\\n["'^5]: See Reference 5.'"\\n["'^6]: See Reference 6.'"\\n["'^7]: See Reference 7.'"\\n["'^8]: See Reference 8.'"\\n["'^9]: See Reference 9.'"\\n["'^10]: See Reference 10.'"\\n["'^11]: See Reference 10.'"\\n/' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-
-exec
-/bin/bash -lc "git diff -- content/papers/foundations.of.prob.st.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7c5b35a..7e136ae 100644
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -127,12 +127,13 @@ During a fairly short period many important advances in physical theory
- were made by such persons as LAPLACE, LAGRANGE, LAVOISIER, and FOURIER.
- Then a pressure maximum occurred in the first half of the nineteenth 
- century, which is well described in some thermodynamics textbooks, 
--particularly that of EPSTEIN [1]. This period of hostility toward free 
-+particularly that of EPSTEIN [^1]. This period of hostility toward free 
- speculation seems to have been brought about, in part, by the collapse 
- of SCHELLING'S *Naturphilosophie*, and its chief effect was to delay 
- recognition of the first law of thermodynamics for several decades. As 
- already noted, FRESNEL was one of the very few physicists who escaped 
- this influence sufficiently to make important advances in theory.
-+
- Another pressure minimum was reached during the third quarter of the
- nineteenth century, when a new spurt of advances took place in a period
- of only fifteen years (1855--1870), in the hands of MAXWELL, KELVIN,
-@@ -145,7 +146,7 @@ the tragedies (at least from the standpoint of physics) caused by this
-exec
-/bin/bash -lc "git diff -- content/papers/foundations.of.prob.st.md | sed -n '260,420p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-
-exec
-/bin/bash -lc 'tail -n 30 content/papers/foundations.of.prob.st.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-statistics are well aware.
-
-Nevertheless, that philosophy of mine was only scaffolding, which served
-the purpose of telling me in what *specific* way the formalism of GIBBS
-was to be generalized. Once a philosophy has led to a definite,
-unambiguous mathematical formalism by which practical calculations may
-be carried out, then the issue is no longer one of philosophy; but of
-fact. The formalism either will or will not prove adequate in practice;
-and it will be judged, quite properly, not by the philosophy which led
-to it, but by the results which its gives. If you do not like my
-philosophy, but you find that the formalism, nevertheless, does give
-useful results, then I am quite sure that you will be able to invent
-some *other* philosophy by which that formalism can be justified! And,
-perhaps, that other philosophy will lead to still further
-generalizations and extensions, to which my own philosophy makes me
-blind. That is, after all, just the process by which all progress in
-theoretical physics has been made.
-## REFERENCES
-1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
-2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
+I found the main concrete QA issue: many in-text equation references `(1)…(15)` but display equations lacked explicit numbering markup. I’m now adding only `\tag{...}` labels to the relevant display equations so all referenced Eq numbers are visible and consistent, without changing equation content.
 file update
 M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-@@ -1119,2 +1119,12 @@
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-apply_patch(auto_approved=true) exited 0 in 8ms:
-Success. Updated the following files:
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..32def38bd90c29d8429136d88263636a878eb4e8
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -1117,4 +1117,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..32def38bd90c29d8429136d88263636a878eb4e8
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -1117,4 +1117,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-exec
-/bin/bash -lc "awk 'NR==1{prev=\"\"} {if("'$0 ~ /''^##|''^###/){if(prev!="") print NR ": no blank before -> " $0} prev=$0}'"' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-18: no blank before -> ## WHAT MAKES THEORIES GROW?
-702: no blank before -> ### Conceptual Problems of the Ensemble
-1108: no blank before -> ## REFERENCES
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..32def38bd90c29d8429136d88263636a878eb4e8
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -1117,4 +1117,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-codex
-I found two remaining heading transitions without blank-line separators (`### Conceptual Problems...` and `## REFERENCES`). I’m adding only those spacing fixes now for cleaner markdown rendering.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-@@ -701,2 +701,3 @@
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
-@@ -1107,2 +1108,3 @@
- theoretical physics has been made.
-+
- ## REFERENCES
-apply_patch(auto_approved=true) exited 0 in 8ms:
-Success. Updated the following files:
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..db8f0cd735fac3a4500d676f8f79efe5cf46fc43
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -699,6 +699,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1106,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1119,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..db8f0cd735fac3a4500d676f8f79efe5cf46fc43
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -699,6 +699,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1106,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1119,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-exec
-/bin/bash -lc "awk 'NR==1{prev=\"\"} {if("'$0 ~ /''^##|''^###/){if(prev!="") print NR ": no blank before -> " $0} prev=$0}'"' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-18: no blank before -> ## WHAT MAKES THEORIES GROW?
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..db8f0cd735fac3a4500d676f8f79efe5cf46fc43
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -699,6 +699,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1106,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1119,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
-
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-@@ -17,2 +17,3 @@
- ---
-+
- ## WHAT MAKES THEORIES GROW?
+@@ -342,2 +342,3 @@
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
+@@ -350,2 +351,3 @@
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+@@ -358,2 +360,3 @@
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+@@ -364,2 +367,3 @@
+ S_B = -k H_B
++\tag{4}
+ $$
+@@ -581,2 +585,3 @@
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+@@ -590,2 +595,3 @@
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+@@ -595,2 +601,3 @@
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+@@ -943,2 +950,3 @@
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+@@ -994,2 +1002,3 @@
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+@@ -1001,2 +1010,3 @@
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+@@ -1008,2 +1018,3 @@
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+@@ -1014,2 +1025,3 @@
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+@@ -1022,2 +1034,3 @@
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+@@ -1028,2 +1041,3 @@
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+@@ -1041,2 +1055,3 @@
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
 apply_patch(auto_approved=true) exited 0 in 6ms:
 Success. Updated the following files:
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
+M content/papers/foundations.of.prob.st.md
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..4328408b147765f1cdf77b1f79036dc73b7a91cd
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..4328408b147765f1cdf77b1f79036dc73b7a91cd
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 exec
-/bin/bash -lc "git diff -- content/papers/foundations.of.prob.st.md | sed -n '1,300p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7c5b35a..4328408 100644
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@ abstract: >
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -127,12 +128,13 @@ During a fairly short period many important advances in physical theory
- were made by such persons as LAPLACE, LAGRANGE, LAVOISIER, and FOURIER.
- Then a pressure maximum occurred in the first half of the nineteenth 
- century, which is well described in some thermodynamics textbooks, 
--particularly that of EPSTEIN [1]. This period of hostility toward free 
-+particularly that of EPSTEIN [^1]. This period of hostility toward free 
- speculation seems to have been brought about, in part, by the collapse 
- of SCHELLING'S *Naturphilosophie*, and its chief effect was to delay 
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|\\([0-9]{1,2}\\)\" content/papers/foundations.of.prob.st.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+372:dynamical laws, as expressed by (2). As we know, this was challenged by
+374:time-reversal and on the POINCARÉ recurrence theorem, showing that Eq.
+375:(2) could not possibly be an exact expression of the dynamical equations
+383:that the only function $f$ which has exactly the property of Eq. (1) is
+423:Suppose we try to assess the validity of BOLTZMANN'S equation (2) for
+426:to the binary ones that are taken into account, in some sense, in (2).
+432:to carry different implications about the range of validity of (2), and
+436:average over something, then the left-hand side of (2) is also an
+447:range of validity of Eq. (2), and we cannot say how it should be
+615:replacement of the integral in (5) by the corresponding discrete sum;
+724:averages*; that is what we are doing in Eqs. (6) and (7). And yet, our
+1008:(9) must agree with the experimental information:
+1022:generalization of (8), as found many years ago by VON NEUMANN. The
+1038:The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+1045:generalization of GIBBS' equation (6); where $\delta$ denotes the
+1046:functional derivative. Mathematical analysis shows that (14) is just
+1047:sufficient to determine uniquely the integrals in the exponent of (12);
+1059: In Eqs. (12) to
+1060:(15) we have the generalization of GIBBS' algorithm to arbitrary
+1080:quadratures using (15), with no need for the forward integration and
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..4328408b147765f1cdf77b1f79036dc73b7a91cd
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See Reference 1.
-+[^2]: See Reference 2.
-+[^3]: See Reference 3.
-+[^4]: See Reference 4.
-+[^5]: See Reference 5.
-+[^6]: See Reference 6.
-+[^7]: See Reference 7.
-+[^8]: See Reference 8.
-+[^9]: See Reference 9.
-+[^10]: See Reference 10.
-+[^11]: See Reference 10.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-@@ -1122,12 +1122,12 @@
- 
--[^1]: See Reference 1.
--[^2]: See Reference 2.
--[^3]: See Reference 3.
--[^4]: See Reference 4.
--[^5]: See Reference 5.
--[^6]: See Reference 6.
--[^7]: See Reference 7.
--[^8]: See Reference 8.
--[^9]: See Reference 9.
--[^10]: See Reference 10.
--[^11]: See Reference 10.
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
-apply_patch(auto_approved=true) exited 0 in 8ms:
-Success. Updated the following files:
-M /home/dave/Projects/jaynes-archive/content/papers/foundations.of.prob.st.md
-file update:
-diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..0e255fea0dbe5efeba13b35b96adc9e89d0f8317
---- a/content/papers/foundations.of.prob.st.md
-+++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
- 
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
+exec
+/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
 
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..0e255fea0dbe5efeba13b35b96adc9e89d0f8317
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 codex
-I’ve finished edits and am doing a final QA pass for leftover bracket citations, stray metadata footnotes, and markdown-rendering issues before summarizing changes.
+I’ve applied the numbering tags; I’m running a quick validation pass now to confirm they’re present and that all in-text equation references resolve to visible numbered display equations.
 exec
-/bin/bash -lc "rg -n \"\\[[0-9]+\\]|\\[\\"'^100'"\\]|"'^'"\\|\" content/papers/foundations.of.prob.st.md && echo '---' && rg -n \"\\[\\"'^[0-9]+'"\\]\" content/papers/foundations.of.prob.st.md | sed -n '1,40p'" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+/bin/bash -lc "sed -n '340,420p' content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+phase space, the number of particles in $R$ is to be computed from
+$$
+n_R = \int_R f(x, p, t) d^3 x d^3 p.
+\tag{1}
+$$
 
+After some physical arguments
+which need not concern us here, BOLTZMANN concluded that the time
+evolution of the gas should be described by his famous "collision
+equation",
+$$
+\frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
+\tag{2}
+$$
+where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+a particle; and the right-hand side represents the effects of collisions
+in redistributing particles in phase space, in a way familiar to 
+physicists. As a consequence of this equation, it is easily shown that 
+the quantity 
+$$
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..0e255fea0dbe5efeba13b35b96adc9e89d0f8317
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 exec
-/bin/bash -lc "(rg -n \"\\[[0-9]+\\]|\\[\\"'^100'"\\]|"'^'"\\|\" content/papers/foundations.of.prob.st.md || true); echo '---'; rg -n \"\\[\\"'^[0-9]+'"\\]\" content/papers/foundations.of.prob.st.md | sed -n '1,80p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
----
-131:particularly that of EPSTEIN [^1]. This period of hostility toward free 
-150:explained by E. T. BELL [^2] in these words: "He had the misfortune to 
-187:experiment; this time, a few individual cases can be documented [^3].
-404:examine a recent review article on transport theory [^4]. On page 271,
-463:review article [^5], which has had a dominating influence on thought in
-481:fact that the "official" commentary on GIBBS' work [^6] devotes a
-523:not applied to any problem [^7]. However, he devotes only two sentences
-529:[^8] advocating this principle as a general foundation for statistical
-557:recently pointed this out [^9] and supplied the very simple proof,
-568:[^10]. Finally, until recently the situation in probability theory
-662:Theoretical Physics, L. VAN HOVE [^11] remarked, "In contrast to the
-963:ensemble [^8]. If we specify the expectations of energy and angular
-964:momentum, it uniquely determines GIBBS' rotational ensemble [^7]. Thus,
-1123:[^1]: See the numbered References section.
-1124:[^2]: See the numbered References section.
-1125:[^3]: See the numbered References section.
-1126:[^4]: See the numbered References section.
-1127:[^5]: See the numbered References section.
-1128:[^6]: See the numbered References section.
+/bin/bash -lc "rg -n -F \"\\tag{\" content/papers/foundations.of.prob.st.md && rg -n \"\\(1\\)|\\(2\\)|\\(5\\)|\\(6\\)|\\(7\\)|\\(8\\)|\\(9\\)|\\(10\\)|\\(12\\)|\\(14\\)|\\(15\\)\" content/papers/foundations.of.prob.st.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+343:\tag{1}
+352:\tag{2}
+361:\tag{3}
+368:\tag{4}
+586:\tag{5}
+596:\tag{6}
+602:\tag{7}
+951:\tag{8}
+1003:\tag{9}
+1011:\tag{10}
+1019:\tag{11}
+1026:\tag{12}
+1035:\tag{13}
+1042:\tag{14}
+1056:\tag{15}
+372:dynamical laws, as expressed by (2). As we know, this was challenged by
+375:(2) could not possibly be an exact expression of the dynamical equations
+383:that the only function $f$ which has exactly the property of Eq. (1) is
+423:Suppose we try to assess the validity of BOLTZMANN'S equation (2) for
+426:to the binary ones that are taken into account, in some sense, in (2).
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..0e255fea0dbe5efeba13b35b96adc9e89d0f8317
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
+
+exec
+/bin/bash -lc "git diff -- content/papers/foundations.of.prob.st.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
+index 0e255fe..5708dfd 100644
+--- a/content/papers/foundations.of.prob.st.md
++++ b/content/papers/foundations.of.prob.st.md
+@@ -340,6 +340,7 @@ $R$ denotes the set of points comprising a region of six-dimensional
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
+ 
+ After some physical arguments
+@@ -348,6 +349,7 @@ evolution of the gas should be described by his famous "collision
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+file update:
+diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
+--- a/content/papers/foundations.of.prob.st.md
++++ b/content/papers/foundations.of.prob.st.md
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
+ 
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 codex
-Changes applied to `content/papers/foundations.of.prob.st.md`.
+Updated `content/papers/foundations.of.prob.st.md` with minimal structural QA edits.
 
-Concise summary of what changed:
-- Kept paper content and all math/LaTeX unchanged.
-- Fixed markdown structure/readability only:
-  - added missing blank lines around major headings and one figure placeholder marker
-  - fixed a couple malformed paragraph breaks near display equations (`After some physical arguments`, `can only decrease`)
-  - improved section separation where headings were stuck to preceding text
-- Normalized citations from bracket style `[n]` to markdown footnote markers `[^n]`.
-- Added corresponding footnote definitions at the end (pointing readers to the numbered References section).
-- Removed extraneous trailing metadata footnote (`[^100]: Department of Physics...`).
-- No duplicate abstract text was found in the body, so no abstract-body removal was needed.
+Changes made:
+- Added KaTeX equation-number tags to display equations so all in-text references are resolvable and visible:
+  - `\tag{1}` through `\tag{15}` on the corresponding display equations.
+- No prose meaning, mathematical expressions, symbols, operators, variables, or equation content was changed.
+- No figure handling changes were made.
+- No abstract/body duplicate removal was needed.
+- No citation text normalization changes were required (no duplicate parenthetical+footnote pattern found).
+
+Self-check completed:
+- In-text equation references now map to discoverable numbered display equations.
+- Paragraph boundaries were reviewed; no additional blank-line paragraph split was clearly required.
 file update:
 diff --git a/content/papers/foundations.of.prob.st.md b/content/papers/foundations.of.prob.st.md
-index 7e136ae9bd7a79434855039b684b266a624e07a8..0e255fea0dbe5efeba13b35b96adc9e89d0f8317
+index 0e255fea0dbe5efeba13b35b96adc9e89d0f8317..5708dfd3369ff28297b4b912dee38b04c9a2d74b
 --- a/content/papers/foundations.of.prob.st.md
 +++ b/content/papers/foundations.of.prob.st.md
-@@ -15,6 +15,7 @@
-   approved or deprecated by the scientific community as a whole.
- author: ["E.T. Jaynes"]
- ---
-+
- ## WHAT MAKES THEORIES GROW?
- However much the "pure" scientist may deplore it, the fact remains that
- military or engineering applications of science have, over and over
-@@ -699,6 +700,7 @@
- *conceptual basis has not been precisely defined, the theory dissolves
- in ambiguities which have prevented us, for sixty years, from extending
- it to new domains.*
-+
- ### Conceptual Problems of the Ensemble
- The fact that two different camps exist, with diametrically opposed
- views as to the justification of GIBBS' methods, is simply the
-@@ -1105,6 +1107,7 @@
- generalizations and extensions, to which my own philosophy makes me
- blind. That is, after all, just the process by which all progress in
- theoretical physics has been made.
-+
- ## REFERENCES
- 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
- 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
-@@ -1117,4 +1120,14 @@
- 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
- 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
+@@ -340,6 +340,7 @@
+ phase space, the number of particles in $R$ is to be computed from
+ $$
+ n_R = \int_R f(x, p, t) d^3 x d^3 p.
++\tag{1}
+ $$
  
--[^100]: Department of Physics, Washington University, St. Louis, Missouri
-\ No newline at end of file
-+[^1]: See the numbered References section.
-+[^2]: See the numbered References section.
-+[^3]: See the numbered References section.
-+[^4]: See the numbered References section.
-+[^5]: See the numbered References section.
-+[^6]: See the numbered References section.
-+[^7]: See the numbered References section.
-+[^8]: See the numbered References section.
-+[^9]: See the numbered References section.
-+[^10]: See the numbered References section.
-+[^11]: See the numbered References section.
+ After some physical arguments
+@@ -348,6 +349,7 @@
+ equation",
+ $$
+ \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
++\tag{2}
+ $$
+ where $F_{\alpha}$ is the $\alpha$-component of external force acting on
+ a particle; and the right-hand side represents the effects of collisions
+@@ -356,12 +358,14 @@
+ the quantity 
+ $$
+ H_B = \int f \log f \, d^3 x \, d^3 p
++\tag{3}
+ $$
+ can only decrease 
+ (in this equation we integrate over all the accessible phase space); and 
+ so BOLTZMANN sought to identify the quantity 
+ $$
+ S_B = -k H_B
++\tag{4}
+ $$
+  with the
+ entropy, making the second law of thermodynamics a consequence of the
+@@ -579,6 +583,7 @@
+ follows. First, we define the *partition function*
+ $$
+ Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
++\tag{5}
+ $$
+  where
+ we integrate over all the accessible phase space, and the dependence on
+@@ -588,11 +593,13 @@
+ function (which determines the thermal properties) is given by
+ $$
+ U = - \frac{\partial}{\partial\beta} \log Z
++\tag{6}
+ $$
+ in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
+ constant and $T$ the KELVIN temperature; and the equation of state is
+ $$
+ P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
++\tag{7}
+ $$
+ 
+  Now, isn't
+@@ -941,6 +948,7 @@
+ SHANNON) that the quantity 
+ $$
+ H = -\sum_i p_i \log p_i
++\tag{8}
+ $$
+  is an
+ "information measure" for any probability distribution $p_i$; i.e.
+@@ -992,6 +1000,7 @@
+ prediction; i.e. calculate the expectation values
+ $$
+ \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
++\tag{9}
+ $$
+  we must be
+ able to recover this information from the density matrix. Thus, the
+@@ -999,6 +1008,7 @@
+ (9) must agree with the experimental information:
+ $$
+ f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
++\tag{10}
+ $$
+ where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
+ space-time region in which we have information about $f_k$; in general
+@@ -1006,12 +1016,14 @@
+ are to maximize the "information entropy"
+ $$
+ S_I = -\text{Tr}(\rho \log \rho)
++\tag{11}
+ $$
+  which is the appropriate
+ generalization of (8), as found many years ago by VON NEUMANN. The
+ solution of this variational problem is:
+ $$
+ \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
++\tag{12}
+ $$
+ where the $\lambda_k(x, t)$ are a set of real functions to be determined
+ presently (they arise mathematically as Lagrange multipliers in solving
+@@ -1020,12 +1032,14 @@
+ functional*:
+ $$
+ Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
++\tag{13}
+ $$
+ 
+ The $\lambda_k(x, t)$ are now to be found from the conditions (10),
+ which reduce to
+ $$
+ f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
++\tag{14}
+ $$
+  which is a
+ generalization of GIBBS' equation (6); where $\delta$ denotes the
+@@ -1039,6 +1053,7 @@
+ applying the usual rule:
+ $$
+ \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
++\tag{15}
+ $$
+ 
+  In Eqs. (12) to
 
 tokens used
-49,131
+24,951
 

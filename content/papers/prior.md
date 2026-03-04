@@ -262,6 +262,7 @@ sites at which $\cos(kx_j) > 0$, the specific datum being that in many
 previous instances the average value of $\cos(kx_j)$ was
 $$
 \langle\cos(kx_j)\rangle = 0.3.
+\tag{1}
 $$
 
 This is clearly testable information, and it is desired to find a
@@ -274,39 +275,47 @@ The mathematical problem is then to find the $p(j|I)$ which will
 maximize the entropy 
 $$
 H = - \sum_{j=1}^{n} p(j|I) \log p(j|I)
+\tag{2}
 $$
  subject
 to the constraints $p(j|I) \ge 0$ and 
 $$
 \sum_{j=1}^{n} p(j|I) = 1
+\tag{3}
 $$
 $$
 \sum_{j=1}^{n} p(j|I) \cos(kx_j) = 0.3.
+\tag{4}
 $$
 
  The solution is well known,
 and in this case takes the form
 $$
 p(j|I) = \frac{1}{Z(\lambda)} \exp\{\lambda \cos(kx_j)\}
+\tag{5}
 $$
  where
 $Z(\lambda)$ is the partition function
 $$
 Z(\lambda) = \sum_{j=1}^{n} \exp\{\lambda \cos(kx_j)\}
+\tag{6}
 $$
  and the value
 of $\lambda$ is to be determined from (4):
 $$
 \langle\cos(kx)\rangle = \frac{\partial}{\partial\lambda} \log Z(\lambda) = 0.3.
+\tag{7}
 $$
 
 In the case where $ka \ll 1$, $nka \gg 1$, we may approximate the
 discrete sums sufficiently well by integrals, leading to
 $$
 Z(\lambda) \approx nI_0(\lambda)
+\tag{8}
 $$
 $$
 \langle\cos(mkx)\rangle \approx \frac{I_m(\lambda)}{I_0(\lambda)}
+\tag{9}
 $$
 where $I_m(\lambda)$ are the modified Bessel functions. From (1), and
 (9) in the case $m=1$, we find $\lambda = 0.63$.
@@ -323,6 +332,7 @@ $$
 p(j|nr) &= Ap(j|I)p(r|nj) \\\\
 &= B\exp\{\lambda \cos(kx_j)\} [\sin^2(kx_j)]^r [\cos^2(kx_j)]^{n-r} \notag
 \end{aligned}
+\tag{10}
 $$
  where A, B are normalizing constants.
 
@@ -335,12 +345,14 @@ incident. Conditional only on the prior information (1), this
 probability is
 $$
 p(r|n) = \sum_{j=1}^n p(r|n,j)p(j|I) = \binom{n}{r} \langle [\sin^2(kx_j)]^r [\cos^2(kx_j)]^{n-r} \rangle
+\tag{11}
 $$
 the expectation value being taken over the prior distribution (5). In
 the case $n=r=1$, it reduces to the probability of reflection at a
 single trial; using (9) we find
 $$
 \langle\sin^2(kx)\rangle = \frac{I_0 - I_2}{2I_0} = \lambda^{-1}\langle\cos(kx)\rangle = 0.48
+\tag{12}
 $$
 which is only slightly below the value 0.50 corresponding to a uniform
 prior distribution $p(j|I)$; thus in agreement with our intuition, the
@@ -365,6 +377,7 @@ expected \"loss function,\" which in this case is just the variance of
 $\sin^2(kx)$ over the maximum-entropy distribution
 $$
 \sigma^2 = \langle(\sin^4(kx))\rangle - \langle\sin^2(kx)\rangle^2 = \frac{I_0^2 - 2I_2^2 + I_0I_4}{8I_0^2}
+\tag{13}
 $$
 from which we find, in the cases $\langle\cos(kx)\rangle=0.3$, $0.95$,
 the values $\sigma=0.35$, $\sigma=0.12$, respectively. Thus, if
@@ -423,29 +436,35 @@ probability distribution $p(x_i|I)$ which incorporates this information,
 but is free from all other assumptions, is then the one which maximizes
 $$
 H = - \sum_{i=1}^{n} p(x_i|I) \log p(x_i|I)
+\tag{14}
 $$
  subject to the
 constraints 
 $$
 \sum_{i=1}^{n} p(x_i|I) = 1
+\tag{15}
 $$
 $$
 \sum_{i=1}^{n} p(x_i|I)f_k(x_i) = F_k, \quad k = 1,2,\dots,m
+\tag{16}
 $$
  where
 the $F_k$ are the prescribed mean values. Again, the well-known solution
 is
 $$
 p(x_i|I) = \frac{1}{Z(\lambda_1 \dots \lambda_m)} \exp \{\lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)\}
+\tag{17}
 $$
 with partition function
 $$
 Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp \{\lambda_1 f_1(x_i) + \dots + \lambda_m f_m(x_i)\}
+\tag{18}
 $$
 in which the real constants $\lambda_k$ are to be determined from the
 constraints (16), which reduce to the relations
 $$
 F_k = \frac{\partial}{\partial\lambda_k} \log Z(\lambda_1 \dots \lambda_m).
+\tag{19}
 $$
 
 The distribution (17) is the one which is, in a certain sense, spread
@@ -475,11 +494,13 @@ repetitions of the experiment, the results $x_1$ will be obtained $m_1$
 times, $x_2$ will be obtained $m_2$ times, etc. Of course,
 $$
 \sum_{i=1}^n m_i = M
+\tag{20}
 $$
  and if the specified mean values are in fact
 verified, we have the additional relations
 $$
 \sum_{i=1}^n m_i f_k(x_i) = MF_k, \quad k = 1,\dots,m.
+\tag{21}
 $$
 
  If $m < n-1$,
@@ -491,6 +512,7 @@ numbers $\{m_1 \dots m_n\}$? The answer is, of course, the multinomial
 coefficient
 $$
 W = \frac{M!}{m_1! \dots m_n!} = \frac{M!}{(Mf_1)! \dots (Mf_n)!}
+\tag{22}
 $$
 and so the set of frequencies $\{f_1 \dots f_n\}$ which can be realized
 in the greatest number of ways is the one which maximizes (22) subject
@@ -499,6 +521,7 @@ monotonic increasing function of $W$, in particular $M^{-1} \log W$, but
 as $M \to \infty$ we have immediately from the Stirling approximation,
 $$
 M^{-1} \log W \to - \sum_{i=1}^n f_i \log f_i = H_f.
+\tag{23}
 $$
 
  It is now
@@ -517,6 +540,7 @@ realized) / (number of ways in which $\{f_i^\prime\}$ could be realized)\]
 grows asymptotically as 
 $$
 \frac{W}{W^\prime} \sim \exp\{M(H_f - H_f^\prime)\}
+\tag{24}
 $$
  and
 passes all bounds as $M \to \infty$. Therefore, the distribution
@@ -537,6 +561,7 @@ conditional on his information, and since Mr. B's entropy $H_B$ is
 maximized subject to one further constraint, we will have
 $$
 H_B \le H_A.
+\tag{25}
 $$
 
  We note two properties, easily verified from the
@@ -621,6 +646,7 @@ seem appropriate here. Gibbs (1902) wrote his probability density in
 phase space in the form
 $$
 w(q_1 \dots q_n; p_1 \dots p_n) = \exp\{\eta(q_1 \dots q_n; p_1 \dots p_n)\}
+\tag{26}
 $$
 and called his function $\eta$ the \"index of probability of phase.\" He
 derived his canonical and grand canonical ensembles (Gibbs 1902 ch. 11)
@@ -676,6 +702,7 @@ In the theory of Bernoulli trials, we calculate the probability that we
 shall obtain $r$ successes in $n$ trials as
 $$
 p(r|n) = \binom{n}{r} p^r (1-p)^{n-r}
+\tag{27}
 $$
  in which $p$ is regarded as a
 given number $0 < p < 1$. For finite $n$, there is no $r$ in
@@ -726,22 +753,26 @@ are concerned with a message on a binary alphabet. Define the \"random
 variables\"
 $$
 y_i = \begin{cases} 1, & \text{if the } i\text{th trial yields success} \\\\ 0, & \text{if the } i\text{th trial yields failure} \end{cases}.
+\tag{28}
 $$
 
 On $n$ repetitions of the experiment, we receive the message
 $$
 M = \{y_1, y_2, \dots, y_n\}
+\tag{29}
 $$
  and the total number of successes
 obtained is 
 $$
 r(M) = \sum_{i=1}^n y_i.
+\tag{30}
 $$
 
  From (27) we find that, for any
 $n$, the expected number of successes is 
 $$
 \langle r \rangle = np.
+\tag{31}
 $$
 
 Suppose now that we reverse our viewpoint, regard (31) as the primary
@@ -751,22 +782,26 @@ requires that we consider, not just the probabilities on the 2-point
 sample space of a single trial, but rather the probabilities
 $$
 P_M \equiv p\{y_0 \dots y_n\}
+\tag{32}
 $$
  on the $2^n$-point sample space of all
 possible messages. The problem is then to find the distribution $P_M$
 which maximizes the entropy 
 $$
 H = - \sum_M P_M \log P_M
+\tag{33}
 $$
  subject to the
 constraint (31). The result is
 $$
 P_M = \frac{1}{Z(\lambda)} \exp\{\lambda r(M)\}
+\tag{34}
 $$
  with the partition
 function
 $$
 Z(\lambda) = \sum_M \exp\{\lambda r(M)\} = (\exp\{\lambda\} + 1)^n.
+\tag{35}
 $$
 
 The value of $\lambda$ is determined, as always, by (19):
@@ -774,15 +809,18 @@ $$
 \begin{aligned}
 \langle r \rangle = \frac{\partial}{\partial\lambda} \log Z = n(\exp\{-\lambda\}+1)^{-1}
 \end{aligned}
+\tag{36}
 $$
  or
 $$
 \lambda = \log \frac{\langle r \rangle}{n - \langle r \rangle} = \log \frac{p}{1-p}.
+\tag{37}
 $$
 
 Using (35) and (36), the maximum-entropy distribution (34) reduces to
 $$
 P_M = p^r (1-p)^{n-r}.
+\tag{38}
 $$
 
  This is the probability of obtaining a
@@ -835,6 +873,7 @@ also the \"digram frequencies\" $\langle f_{ij} \rangle$. The
 maximum-entropy distribution over messages will then take the form
 $$
 P_M = \frac{1}{Z} \exp \left\{ \sum_i \lambda_i f_i(M) + \sum_{ij} \lambda_{ij} f_{ij}(M) \right\}
+\tag{39}
 $$
 where $nf_i(M)$ is the number of times the letter $A_i$ occurs in the
 message $M$, and $(n-1)f_{ij}(M)$ is the number of times the digram
@@ -926,6 +965,7 @@ results appear to depend on the choice of parameters. We do not refer
 here to the well-known fact that the quantity
 $$
 H^\prime = - \int p(x) \log p(x) dx
+\tag{40}
 $$
  lacks invariance under a change of
 variables $x \to y(x)$, for (39) is not the result of any derivation,
@@ -938,6 +978,7 @@ discrete distribution. As shown previously (Jaynes 1963b), this leads
 instead to the quantity 
 $$
 H_c = - \int p(x) \log \frac{p(x)}{m(x)} dx
+\tag{41}
 $$
 where $m(x)$ is an \"invariant measure\" function, proportional to the
 limiting density of discrete points. (In all applications so far
@@ -953,28 +994,33 @@ one-dimensional or multidimensional parameter.
 We seek a probability density $p(x)$ which is to be normalized:
 $$
 \int p(x)dx = 1
+\tag{42}
 $$
  (we understand the range of integration to be the
 full parameter space); and we have information fixing the mean values of
 m different functions $f_k(x)$:
 $$
 F_k = \int p(x) f_k(x)dx, \quad k = 1,2,\dots,m
+\tag{43}
 $$
  where the $F_k$ are
 the given numerical values. Subject to these constraints, we are to
 maximize (40). The solution is again elementary:
 $$
 p(x) = Z^{-1}m(x) \exp\{\lambda_1 f_1(x) + \dots + \lambda_m f_m(x)\}
+\tag{44}
 $$
 with the partition function
 $$
 Z(\lambda_1, \dots, \lambda_m) \equiv \int m(x) \exp\{\lambda_1 f_1(x) + \dots + \lambda_m f_m(x)\}dx
+\tag{45}
 $$
 and the Lagrange multipliers $\lambda_k$ are determined once again by
 (19). Our \"best\" estimate (by quadratic loss function) of any other
 quantity $q(x)$ is then 
 $$
 \langle q \rangle = \int q(x)p(x)dx.
+\tag{46}
 $$
 
  It is
@@ -996,6 +1042,7 @@ have no other prior information. Then there are no Lagrange multipliers
 $\lambda_k$ and (43) reduces to
 $$
 p(x) = \left[ \int_a^b m(x) dx \right]^{-1} m(x), \quad a < x < b.
+\tag{47}
 $$
 
 Except for a constant factor, the measure $m(x)$ is also the prior
@@ -1078,6 +1125,7 @@ also happens to be one of the most important in practice. We sample from
 a continuous two-parameter distribution
 $$
 p(dx|\mu, \sigma) = h\left(\frac{x-\mu}{\sigma}\right) \frac{dx}{\sigma}
+\tag{48}
 $$
 where $h(y)$ is a non-negative and normalized function, and consider the
 following problem.
@@ -1087,6 +1135,7 @@ $\sigma$. The problem is indeterminate, both mathematically and
 conceptually, until we introduce a definite prior distribution
 $$
 f(\mu, \sigma) d\mu d\sigma
+\tag{49}
 $$
  but if we merely specify \"complete
 initial ignorance,\" this does not seem to tell us which function
@@ -1113,16 +1162,19 @@ $$
 \sigma^\prime &= a\sigma \\\\
 x^\prime - \mu^\prime &= a(x-\mu) \notag
 \end{aligned}
+\tag{50}
 $$
  where $(0 < a < \infty)$, $(-\infty < b < \infty)$. The
 distribution (47) expressed in the new variables is unchanged:
 $$
 p(dx^\prime|\mu^\prime, \sigma^\prime) = h\left(\frac{x^\prime-\mu^\prime}{\sigma^\prime}\right) \frac{dx^\prime}{\sigma^\prime}
+\tag{51}
 $$
 but the prior distribution is changed to $g(\mu^\prime, \sigma^\prime)d\mu^\prime d\sigma^\prime$
 where from the Jacobian of the transformation (49)
 $$
 g(\mu^\prime, \sigma^\prime) = a^{-1} f(\mu, \sigma).
+\tag{52}
 $$
 
  Now let us consider a
@@ -1139,6 +1191,7 @@ assign the same prior probabilities. Therefore, $f$ and $g$ must be the
 same function: 
 $$
 f(\mu, \sigma) = g(\mu, \sigma)
+\tag{53}
 $$
  whatever the values
 of $(a,b)$. But the form of the prior is now uniquely determined, for
@@ -1146,11 +1199,13 @@ combining (49), (51), and (52), we see that $f(\mu,\sigma)$ must satisfy
 the functional equation 
 $$
 f(\mu, \sigma) = a f(\mu+b, a\sigma)
+\tag{54}
 $$
  whose
 general solution is 
 $$
 f(\mu, \sigma) = \frac{\text{(const)}}{\sigma}
+\tag{55}
 $$
 which is the Jeffreys rule.
 
@@ -1159,6 +1214,7 @@ verbalized, consider a Poisson process. The probability that exactly $n$
 events will occur in a time interval $t$ is
 $$
 p(n|\lambda t) = \exp\{-\lambda t\} \frac{(\lambda t)^n}{n!}
+\tag{56}
 $$
  and by
 observing the number of events we wish to estimate the rate constant
@@ -1175,9 +1231,11 @@ $\lambda^\prime t^\prime = \lambda t$, or $\lambda^\prime = q\lambda$. They assi
 distributions 
 $$
 p(d\lambda|X) = f(\lambda)d\lambda
+\tag{57}
 $$
 $$
 p(d\lambda^\prime|X^\prime) = g(\lambda^\prime)d\lambda^\prime
+\tag{58}
 $$
  and if these are mutually
 consistent (i.e., they have the same content), it must be that
@@ -1189,6 +1247,7 @@ those relations gives the functional equation
 $f(\lambda) = qf(q\lambda)$ or
 $$
 p(d\lambda|X) \sim \lambda^{-1}d\lambda.
+\tag{59}
 $$
 
  To use any other prior than
@@ -1204,6 +1263,7 @@ $\theta$ to be estimated. Given $\theta$, the probability that we shall
 observe $r$ successes in $n$ trials is
 $$
 p(r|n\theta) = \binom{n}{r} \theta^r(1-\theta)^{n-r}
+\tag{60}
 $$
 and again the question is: What prior distribution $f(\theta)d\theta$
 describes \"complete initial ignorance\" of $\theta$?
@@ -1257,20 +1317,24 @@ individual will change his state of belief according to Bayes' theorem;
 Mr. X, who had previously held the probability of success to be
 $$
 \theta = p(S|X)
+\tag{61}
 $$
  will change it to
 $$
 \theta^\prime = p(S|EX) = \frac{p(S|X)p(E|SX)}{p(E|SX)p(S|X) + p(E|FX)p(F|X)}
+\tag{62}
 $$
 where $p(F|X) = 1-p(S|X)$ is his prior belief in probability of failure.
 This new evidence thus generates a mapping of the parameter space
 $0 \le \theta \le 1$ onto itself, given from (61) by
 $$
 \theta^\prime = \frac{a\theta}{1-\theta+a\theta}
+\tag{63}
 $$
  where
 $$
 a = \frac{p(E|SX)}{p(E|FX)}
+\tag{64}
 $$
 
 If the population as a whole can learn nothing from this new evidence,
@@ -1286,17 +1350,20 @@ distribution of beliefs $f(\theta)$ is shifted by the transformation
 (62) to a new distribution $g(\theta^\prime)$ with
 $$
 f(\theta)d\theta = g(\theta^\prime)d\theta^\prime
+\tag{65}
 $$
  and, if the population as a
 whole learned nothing, then $f$ and $g$ must be the same function:
 $$
 f(\theta) = g(\theta).
+\tag{66}
 $$
 
  Combining (62), (64), and (65), we find that
 $f(\theta)$ must satisfy the functional equation
 $$
 a f\left(\frac{a\theta}{1-\theta+a\theta}\right) = (1-\theta+a\theta)^2 f(\theta).
+\tag{67}
 $$
 
 This may be solved directly by eliminating $a$ between (62) and (66) or,
@@ -1304,11 +1371,13 @@ in the more usual manner, by differentiating with respect to $a$ and
 setting $a = 1$. This leads to the differential equation
 $$
 \theta(1-\theta)f^\prime(\theta) = (2\theta - 1)f(\theta)
+\tag{68}
 $$
  whose solution
 is 
 $$
 f(\theta) = \frac{\text{(const)}}{\theta(1-\theta)}
+\tag{69}
 $$
  which has the
 qualitative property anticipated by Jeffreys. Now that the imaginary
@@ -1323,14 +1392,17 @@ the posterior distribution of $\theta$ is (provided that
 $r \ge 1, n-r \ge 1$)
 $$
 p(d\theta|rn) = \frac{(n-1)!}{(r-1)!(n-r-1)!} \theta^{r-1}(1-\theta)^{n-r-1}d\theta.
+\tag{70}
 $$
 
 This distribution has expectation value and variance
 $$
 \langle\theta\rangle = \frac{r}{n} = f
+\tag{71}
 $$
 $$
 \sigma^2 = \frac{f(1-f)}{n+1}.
+\tag{72}
 $$
 
  Thus the \"best\" estimate of the

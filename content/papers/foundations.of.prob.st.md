@@ -340,6 +340,7 @@ $R$ denotes the set of points comprising a region of six-dimensional
 phase space, the number of particles in $R$ is to be computed from
 $$
 n_R = \int_R f(x, p, t) d^3 x d^3 p.
+\tag{1}
 $$
 
 After some physical arguments
@@ -348,6 +349,7 @@ evolution of the gas should be described by his famous "collision
 equation",
 $$
 \frac{\partial f}{\partial t} + \sum_{\alpha} \frac{p_{\alpha}}{m} \frac{\partial f}{\partial x_{\alpha}} + \sum_{\alpha} F_{\alpha} \frac{\partial f}{\partial p_{\alpha}} = \int d^3 p^\prime \int d\Omega \, \sigma | \vec{v} - \vec{v}^\prime | (f^\prime f_1' - f f_1)
+\tag{2}
 $$
 where $F_{\alpha}$ is the $\alpha$-component of external force acting on
 a particle; and the right-hand side represents the effects of collisions
@@ -356,12 +358,14 @@ physicists. As a consequence of this equation, it is easily shown that
 the quantity 
 $$
 H_B = \int f \log f \, d^3 x \, d^3 p
+\tag{3}
 $$
 can only decrease 
 (in this equation we integrate over all the accessible phase space); and 
 so BOLTZMANN sought to identify the quantity 
 $$
 S_B = -k H_B
+\tag{4}
 $$
  with the
 entropy, making the second law of thermodynamics a consequence of the
@@ -579,6 +583,7 @@ properties are to be calculated from the Hamiltonian $H(q_i, p_i)$ as
 follows. First, we define the *partition function*
 $$
 Z(\beta, V) = \int \exp(-\beta H) dq_1 dp_1 \dots dq_n dp_n,
+\tag{5}
 $$
  where
 we integrate over all the accessible phase space, and the dependence on
@@ -588,11 +593,13 @@ function, then all thermodynamic properties are known; for the energy
 function (which determines the thermal properties) is given by
 $$
 U = - \frac{\partial}{\partial\beta} \log Z
+\tag{6}
 $$
 in which we interpret $\beta$ as $(kT)^{-1}$, where $k$ is BOLTZMANN'S
 constant and $T$ the KELVIN temperature; and the equation of state is
 $$
 P = \frac{1}{\beta} \frac{\partial}{\partial V} \log Z.
+\tag{7}
 $$
 
  Now, isn't
@@ -941,6 +948,7 @@ mathematical arguments entirely independent of the ones given by
 SHANNON) that the quantity 
 $$
 H = -\sum_i p_i \log p_i
+\tag{8}
 $$
  is an
 "information measure" for any probability distribution $p_i$; i.e.
@@ -992,6 +1000,7 @@ information, I mean by this simply that, if we apply the usual rule for
 prediction; i.e. calculate the expectation values
 $$
 \langle F_k(x, t) \rangle = \text{Tr}[\rho F_k(x, t)]
+\tag{9}
 $$
  we must be
 able to recover this information from the density matrix. Thus, the
@@ -999,6 +1008,7 @@ mathematical constraints on the problem are that the expectation values
 (9) must agree with the experimental information:
 $$
 f_k(x, t) = \text{Tr}[\rho F_k(x, t)], \quad x,t \text{ in } R_k
+\tag{10}
 $$
 where $f_k(x, t)$ represent the experimental values, and $R_k$ is the
 space-time region in which we have information about $f_k$; in general
@@ -1006,12 +1016,14 @@ it may be different for different $k$. Subject to these constraints, we
 are to maximize the "information entropy"
 $$
 S_I = -\text{Tr}(\rho \log \rho)
+\tag{11}
 $$
  which is the appropriate
 generalization of (8), as found many years ago by VON NEUMANN. The
 solution of this variational problem is:
 $$
 \rho = \frac{1}{Z} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}
+\tag{12}
 $$
 where the $\lambda_k(x, t)$ are a set of real functions to be determined
 presently (they arise mathematically as Lagrange multipliers in solving
@@ -1020,12 +1032,14 @@ partition function of GIBBS has been generalized to the *partition
 functional*:
 $$
 Z[\lambda_k(x, t)] = \text{Tr} \exp \left \{ \sum_{k=1}^m \int_{R_k} d^3x \, dt \, \lambda_k(x, t) F_k(x, t) \right \}.
+\tag{13}
 $$
 
 The $\lambda_k(x, t)$ are now to be found from the conditions (10),
 which reduce to
 $$
 f_k(x, t) = \frac{\delta \log Z}{\delta \lambda_k(x, t)}
+\tag{14}
 $$
  which is a
 generalization of GIBBS' equation (6); where $\delta$ denotes the
@@ -1039,6 +1053,7 @@ quantity $J(x, t)$ in its space-time dependence is then found by
 applying the usual rule:
 $$
 \langle J(x, t) \rangle = \text{Tr}[\rho J(x, t)].
+\tag{15}
 $$
 
  In Eqs. (12) to

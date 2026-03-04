@@ -109,9 +109,11 @@ results, and eventually the truth will be recognized. As we keep
 emphasizing, one can argue with a philosophy or even a theorem; it is
 not so easy to argue with a computer printout, which displays the facts
 of actual performance, independently of all philosophy and all theorems.
+
 New ideas face other difficulties. We note the comments of Hermann
 Helmholtz, Max Planck, and Sigmund Freud, respectively, on the reception
 which their ideas got:
+
 > \"The discoverer of a new scientific truth finds it much harder to
 > make out why others fail to understand him than it was to find the
 > truth in the first place.\"
@@ -122,6 +124,7 @@ which their ideas got:
 > everybody says the man is crazy and the idea is all wrong. In Phase 2
 > they say that the idea is correct but of no importance. In Phase 3
 > they say that it is correct and important, but we knew it all along.\"
+
 Many other such quotations could be offered; Louis Pasteur made one
 almost identical to that of Helmholtz. When our first Maxent workshop
 was held here in 1981 we were just moving into Freud's Phase 2; now
@@ -175,6 +178,7 @@ mention; but however obvious something may be, if we fail to state it
 explicitly, it may be missed. Or, the printout may make one aware that
 the measure chosen was inappropriate, perhaps from failure to include a
 volume element factor $4\pi r^2$ in a radial distribution $p(r)dr$.
+
 It seems that no worker in probability theory is omniscient enough to
 think of every contingency and find the exactly right formulation of a
 problem on the first try; just as no computer programmer is able to
@@ -313,6 +317,7 @@ numerical values of probabilities. We use it because no other way seems
 to be known; but perhaps this signifies only our lack of imagination.
 Are there other ways of assigning numerical values of probabilities
 directly out of our information without setting up any sample space?
+
 The status of sample spaces becomes more puzzling when we acquire new
 information $B$. This will in general change (update) the probability of
 other propositions according to the basic product and sum rules of
@@ -495,11 +500,16 @@ reply and explain more things about Maxent spectrum analysis in Jaynes
 (1982), but let us recall briefly what Maxent actually does here. The
 problem we are concerned with is that of reasoning from $m + 1$ given
 autocovariance values $\{R_0, R_1, \dots R_m\}$, to a power spectrum
-$P(f)$ satisfying $$R_k = \int_{-1/2}^{1/2} P(f) \exp(2\pi ik f) df$$
+$P(f)$ satisfying
+
+$$R_k = \int_{-1/2}^{1/2} P(f) \exp(2\pi ik f) df$$
+
 With $m < \infty$ this is not enough to determine $P(f)$ uniquely, so
 Maxent is used to resolve the ambiguity, with the result that we make
 the estimate
+
 $$\hat{P}(f) = \left[ \sum_{k=-m}^{m} \lambda_k \exp(-2\pi i fk) \right]^{-1}$$
+
 where the $\lambda_k$ are the Maxent Lagrange multipliers. In Burg's
 thesis one can find a proof that this does, after all, correspond to the
 shortest minimum phase prediction error filter that agrees with the
@@ -544,7 +554,9 @@ brilliant and respected experimental physicist R. W. Wood (1911) did not
 understand the meaning of the Fourier theorem any better, and proposed
 optical experiments to determine whether the sidebands of frequencies
 $(\omega \pm \nu)$ in an amplitude modulated wave
+
 $$(1+m \cos \nu t) \cos \omega t = \cos \omega t + \frac{m}{2}\cos(\omega + \nu)t + \frac{m}{2}\cos(\omega - \nu)t$$
+
 are 'physically real frequencies actually present'; or whether 'there is
 in reality only one frequency $\omega$, but with varying amplitude.'
 Today, all of our students are sophisticated enough to understand that
@@ -610,6 +622,7 @@ progress in fundamental knowledge about quantum theory. We may sum it up
 thus: \"Show me a field where theoreticians have been fumbling about for
 forty years without producing any really significant advance; and I will
 show you a field where the thinking is aimed in the wrong direction.\"
+
 What is the mechanism at work here? Darwin's principle of \"Survival of
 the Fittest\" was a good beginning, but it seems to us faulty in its
 expression because the species which survives is not necessarily the one
@@ -625,6 +638,7 @@ vigorous externally, because it is occupied internally with more worthy
 pursuits than fighting its neighbors (education, art, literature,
 science, medicine, engineering). The very quality which makes it more
 fit to survive is also the one that makes it less likely to survive.
+
 In the intellectual sphere, the ideas which survive and grow are not
 necessarily the ones most deserving of this; they are the ones which are
 taught most aggressively to the next generation of students. For forty
@@ -649,6 +663,7 @@ actually accomplishing. The hype on AI and Fuzzy Sets, mass-produced
 like sausages for twenty years, would now fill many library shelves; to
 the best of our knowledge, not a single such
 work has ever been written on Bayesian or Maximum Entropy principles.
+
 This does not mean that we should join in the hype; in the long run we
 will look much better because we did not stoop to that. But it does mean
 that, unless we ourselves take the education of the next generation very
@@ -677,6 +692,7 @@ Artificial Intelligence*, Harper & Row Publishers, New York.
 
 Goetz, P. (1985), "Calculating Probabilities\", *BYTE magazine*,
 November, p. 14
+
 Graubard, S. R. (1988), *The Artificial Intelligence Debate: False
 Starts, Real Foundations*, MIT Press, Cambridge MA.
 
@@ -697,11 +713,13 @@ Jaynes, E. T. (1991), "Commentary on Two Articles by C. A. Los\", to be
 published in Vol. 3 of special issues, *On System-theoretic Methods in
 Economic Modelling*, S. Mittnik, Editor, in *Computers and Mathematics
 with Applications*; and subsequently as a monograph by Pergamon Press.
+
 Kalman, R. E. (1981), \"Realization of Covariance Sequences\", in
 Proceedings of the Toeplitz Memorial Conference, Tel Aviv University;
 pp. 331-342.
 
 Los, C. A. (1989), *Computers Math. Applic.* **17**, 1269 -- 1304.
+
 Michaelsen, R., Michie, D. & Boulanger, A. (1985), *BYTE magazine*,
 April, p. 111.
 
@@ -734,10 +752,12 @@ Roy Stat. Soc. (B)*, **147**, 35-77.
 Spiegelhalter, D. J. (1985), \"A statistical view of uncertainty in
 expert systems\", in *Proceedings of the Workshop on Artificial
 Intelligence and Statistics*, AT&T Bell Laboratories, Princeton NJ.
+
 Tversky, A. & Kahneman, D. (1981), "The Framing of Decisions and the
 Psychology of Choice\", *Science* **211**, 453-458.
 
 Wigner, E. (1949) Remarks made in an evening informal Commons Room
 discussion at the Graduate College, Princeton, attended by the writer.
+
 Wood, R. W. (1911), *Physical Optics*, Mac Millan, N. Y.; 3rd edition,
 1934.

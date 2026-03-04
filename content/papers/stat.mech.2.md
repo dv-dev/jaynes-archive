@@ -25,6 +25,7 @@ transformation from one constant quantity to another involves the
 relation
 $$
 \left(\frac{\partial A}{\partial B}\right)_C = \left(\frac{\partial A}{\partial B}\right)_D + \left(\frac{\partial A}{\partial D}\right)_B \left(\frac{\partial D}{\partial B}\right)_C
+\tag{2-1}
 $$
 which, although it expresses a fact that is mathematically trivial,
 assumes such a complicated form in the usual notation that few people
@@ -53,10 +54,10 @@ quantities. Since dQ is not an exact differential, $D_{xy}$ is not
 identically zero. It is understandable that this notation, used in his
 published works, involved Clausius in many controversies, which in
 retrospect appear highly amusing. An account of some of them may be
-found in his book (Clausius, 1875). On the other hand, it is unfortunate
+found in his book[^clausius1875]. On the other hand, it is unfortunate
 that this occurred, because it is probably for this reason that the
 quantities $D_{xy}$ went out of general use for many years, with only
-few exceptions (See comments at the end of this chapter). In a footnote in Chapter II of Planck's famous treatise (Planck, 1897), he
+few exceptions (See comments at the end of this chapter). In a footnote in Chapter II of Planck's famous treatise[^planck1897], he
 explains that he avoids using dQ to represent an infinitesimal quantity
 of heat, because that would imply that it is the differential of some
 quantity Q. This in turn leads to the possibility of many fallacious
@@ -116,6 +117,7 @@ $$
 [A,[BC]] + [B,[CA]] + [C,[AB]] = 0 \\\\
 [AB][CX] + [BC][AX] + [CA][BX] = 0
 \end{gathered}
+\tag{2-9,2-10,2-11}
 $$
 
 The final fundamental property is the \"theorem\"
@@ -126,6 +128,7 @@ $$
  Then, for all X,
 $$
 [AX] = b[BX] + c[CX].
+\tag{2-13}
 $$
 
 These relations are not all independent; for example, (2-11) follows
@@ -134,6 +137,7 @@ from (2-9) and (2-13).
 Putting $dC = 0$ in (2-9), we obtain the rule
 $$
 \left(\frac{\partial A}{\partial B}\right)_C = \frac{[AC]}{[BC]} = \frac{[CA]}{[CB]}
+\tag{2-14}
 $$
 by means of which equations are translated from one language to the
 other.
@@ -157,23 +161,33 @@ $$
 \relax [FX] &= -S[TX] - P[VX] \\\\
 \relax [GX] &= -S[TX] + V[PX]
 \end{aligned}
+\tag{2-16}
 $$
 
 The advantages of this notation is shown particularly when we consider
 the four Maxwell equations 
 $$
-\begin{aligned}
-\left(\frac{\partial T}{\partial V}\right)_S &= - \left(\frac{\partial P}{\partial S}\right)_V \\\\
-\left(\frac{\partial T}{\partial P}\right)_S &= \left(\frac{\partial V}{\partial S}\right)_P \\\\
-\left(\frac{\partial P}{\partial T}\right)_V &= \left(\frac{\partial S}{\partial V}\right)_T \\\\
-\left(\frac{\partial V}{\partial T}\right)_P &= - \left(\frac{\partial S}{\partial P}\right)_T
-\end{aligned}
+\left(\frac{\partial T}{\partial V}\right)_S = - \left(\frac{\partial P}{\partial S}\right)_V
+\tag{2-17,2-17a}
+$$
+$$
+\left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P
+\tag{2-17b}
+$$
+$$
+\left(\frac{\partial P}{\partial T}\right)_V = \left(\frac{\partial S}{\partial V}\right)_T
+\tag{2-17c}
+$$
+$$
+\left(\frac{\partial V}{\partial T}\right)_P = - \left(\frac{\partial S}{\partial P}\right)_T
+\tag{2-17d}
 $$
 
  Applying (2-14), we see that each reduces to the single
 identity 
 $$
 [TS] = [PV]
+\tag{2-18}
 $$
 
 Thus, all of the Maxwell equations are expressions in different
@@ -193,12 +207,13 @@ $$
 (2-14) we obtain the identity 
 $$
 [SX] = \frac{C_X}{T}[TX]
+\tag{2-20}
 $$
 
 In the simplest derivations, application of (2-18) or (2-20) is the
 essential step.
 
-In his well-known textbook, Zemansky (1943) shows that many of the
+In his well-known textbook, Zemansky[^zemansky1943] shows that many of the
 elementary derivations in thermodynamics may be reduced to application
 of the \"T dS equations\"
 $$
@@ -254,31 +269,52 @@ isothermal compressibility, thermal expansion coefficient, and ratio of
 specific heats by K, $\beta$, $\gamma$, respectively:
 $$
 K = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T = \frac{[TV]}{V[PT]}
+\tag{2-27}
 $$
 $$
 \beta = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P = \frac{[PV]}{V[PT]}
+\tag{2-28}
 $$
 $$
 \gamma = \frac{C_p}{C_V}
+\tag{2-29}
 $$
  and note that from (2-27) and (2-28) we
 have
 $$
 \frac{K}{\beta} = \frac{[TV]}{[PV]} = \left(\frac{\partial T}{\partial P}\right)_V
+\tag{2-30}
 $$
 
 Several derivatives, chosen at random, are now evaluated in terms of
 these quantities: 
 $$
-\begin{aligned}
-\left(\frac{\partial U}{\partial P}\right)_S &= \frac{[US]}{[PS]} = \frac{T[SS]-P[VS]}{[PS]} = -P\frac{C_V}{C_p}\frac{[TV]}{[TP]} = -\frac{PVK}{\gamma} \\\\
-\left(\frac{\partial U}{\partial T}\right)_S &= \frac{[US]}{[TS]} = \frac{T[SS]-P[VS]}{[PV]} = P\frac{C_V}{T}\frac{[TV]}{[PV]} = \frac{PC_V K}{T\beta} \\\\
-\left(\frac{\partial T}{\partial S}\right)_U &= \frac{[TU]}{[SU]} = \frac{T[ST]-P[VT]}{T[SS]-P[VS]} = \frac{T[VP]-P[VT]}{P\ C_V[TV]} = \frac{T}{C_V}\left[1-\frac{T\beta}{PK}\right] \\\\
-\left(\frac{\partial H}{\partial V}\right)_P &= \frac{[HP]}{[VP]} = \frac{T[SP]+V[PP]}{[VP]} = C_p \frac{[TP]}{[VP]} = \frac{C_p}{\beta V} \\\\
-\left(\frac{\partial T}{\partial P}\right)_H &= \frac{[TH]}{[PH]} = \frac{T[ST]+V[PT]}{T[SP]+V[PP]} = \frac{T[VP]+V[PT]}{C_p[TP]} = \frac{V}{C_p}(\beta T - 1) \\\\
-\left(\frac{\partial F}{\partial S}\right)_T &= \frac{[FT]}{[ST]} = \frac{-S[TT]-P[VT]}{[VT]} = -\frac{PK}{\beta} \\\\
-\left(\frac{\partial G}{\partial V}\right)_T &= \frac{[GT]}{[VT]} = \frac{-S[TT]+V[PT]}{[VT]} = -\frac{1}{K}
-\end{aligned}
+\left(\frac{\partial U}{\partial P}\right)_S = \frac{[US]}{[PS]} = \frac{T[SS]-P[VS]}{[PS]} = -P\frac{C_V}{C_p}\frac{[TV]}{[TP]} = -\frac{PVK}{\gamma}
+\tag{2-31}
+$$
+$$
+\left(\frac{\partial U}{\partial T}\right)_S = \frac{[US]}{[TS]} = \frac{T[SS]-P[VS]}{[PV]} = P\frac{C_V}{T}\frac{[TV]}{[PV]} = \frac{PC_V K}{T\beta}
+\tag{2-32}
+$$
+$$
+\left(\frac{\partial T}{\partial S}\right)_U = \frac{[TU]}{[SU]} = \frac{T[ST]-P[VT]}{T[SS]-P[VS]} = \frac{T[VP]-P[VT]}{P\ C_V[TV]} = \frac{T}{C_V}\left[1-\frac{T\beta}{PK}\right]
+\tag{2-33}
+$$
+$$
+\left(\frac{\partial H}{\partial V}\right)_P = \frac{[HP]}{[VP]} = \frac{T[SP]+V[PP]}{[VP]} = C_p \frac{[TP]}{[VP]} = \frac{C_p}{\beta V}
+\tag{2-34}
+$$
+$$
+\left(\frac{\partial T}{\partial P}\right)_H = \frac{[TH]}{[PH]} = \frac{T[ST]+V[PT]}{T[SP]+V[PP]} = \frac{T[VP]+V[PT]}{C_p[TP]} = \frac{V}{C_p}(\beta T - 1)
+\tag{2-35}
+$$
+$$
+\left(\frac{\partial F}{\partial S}\right)_T = \frac{[FT]}{[ST]} = \frac{-S[TT]-P[VT]}{[VT]} = -\frac{PK}{\beta}
+\tag{2-36}
+$$
+$$
+\left(\frac{\partial G}{\partial V}\right)_T = \frac{[GT]}{[VT]} = \frac{-S[TT]+V[PT]}{[VT]} = -\frac{1}{K}
+\tag{2-37}
 $$
 
 A more difficult type of problem is the following: We have given a
@@ -330,16 +366,18 @@ occurs more often than any other jacobian, we adopt x = T, y = P as the
 independent variables; thus $[TP] = 1$. We can now solve for the
 remaining jacobians: 
 $$
-[SP] = \frac{C_p}{T}, \qquad [VP] = \beta V
-$$
-$$
-[VS] = \frac{C_V KV}{T}, \qquad [VT] = KV
+\begin{aligned}
+[SP] &= \frac{C_p}{T}, \qquad [VP] = \beta V \\\\
+[VS] &= \frac{C_V KV}{T}, \qquad [VT] = KV
+\end{aligned}
+\tag{2-39}
 $$
 
  The variables in jacobians
 are P, V, T, S, for which (2-11) gives
 $$
 [PV][TS] + [VT][PS] + [TP][VS] = 0
+\tag{2-40}
 $$
  or, in this case
 $$
@@ -355,6 +393,7 @@ $$
 rearranging, we have the well-known law
 $$
 C_p - C_V = \frac{TV\beta^2}{K}
+\tag{2-42}
 $$
  which is now seen as a special case
 of (2-11).
@@ -375,8 +414,8 @@ while $C_p$ is most easily measured in the laboratory. Equation (2-42)
 is therefore much used (often in approximate forms known as the
 Eucken-Grüneisen relation, or the Nernst-Lindemann equation) for the
 correction of experimental specific heat data before comparison with
-theory. For further details, see Zemansky (1943), Chap. 13; or Callen
-(1960), Appendix E.
+theory. For further details, see Zemansky[^zemansky1943], Chap. 13; or Callen[^callen1960],
+Appendix E.
 
 As a second example, consider again the problem of the Joule-Thomson
 coefficient; find a relation between $\{\mu, \beta, C_p\}$ and any other
@@ -411,6 +450,7 @@ $\alpha \equiv (\partial U / \partial T)_S$. The calculation goes
 through exactly as in the first example, with the result
 $$
 \alpha = P \left[ \frac{K C_p}{T} - \beta V \right].
+\tag{2-44}
 $$
 
 We have already found a simpler formula for $\alpha$ in (2-32). By use
@@ -444,6 +484,7 @@ $$
 into (2-40) we have
 $$
 [SV] = \frac{\beta^2 V^2 T}{C_p^2} + \frac{C_p}{P} - \frac{\beta V T}{P}.
+\tag{2-45}
 $$
 
 We do not yet have the desired result because there is nothing which
@@ -452,6 +493,7 @@ not enough to determine $\delta$; but we can determine the missing
 quantity as follows. The extra jacobian (2-45) is, from (2-20),
 $$
 [SV] = \frac{C_V}{T}[TV] = \frac{C_V}{P}\left[\delta - \frac{\beta V T}{C_p}\right]
+\tag{2-46}
 $$
 
 Thus, it would be sufficient to measure also $C_V$. Equating (2-45) and
@@ -525,6 +567,7 @@ $\oint T\ dS = \oint P\ dV$.
 The content of the identity (2-11):
 $$
 [PV][TS] + [VT][PS] + [TP][VS] = 0
+\tag{2-40}
 $$
  is that, given the ratios
 $[TS]:[PS]:[VS]$ of the areas of the top three diagrams, one linear
@@ -562,3 +605,8 @@ $$
 
 This appears as a singular point in the mapping of the P-V plane onto
 the H-T plane.
+
+[^clausius1875]: Clausius, R. (1875).
+[^planck1897]: Planck, M. (1897).
+[^zemansky1943]: Zemansky, M. W. (1943).
+[^callen1960]: Callen, H. B. (1960).

@@ -1,0 +1,105 @@
+=== STDOUT ===
+no changes
+
+Self-check completed on `content/papers/parallel.batteries.md`:
+
+- Paragraphs are already separated by blank lines (no prose paragraph joined by single newlines where a paragraph break is intended).
+- No markdown tables present to repair.
+- No in-text equation references or display equations present, so no equation-numbering edits are needed.
+- Abstract appears only in front matter and is not duplicated in body text.
+- No citation-format issues or duplicate citation patterns found.
+- No extraneous metadata like “Lecture given at ...” found in the body.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba71-614e-7803-bf46-5480836bdfd9
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/parallel.batteries.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/parallel.batteries.md` for structural markdown issues, equation-reference numbering tags, duplicate abstract/body metadata, and citation formatting, then apply only minimal structural edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/parallel.batteries.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "You CAN Parallel Storage Batteries"
+year: 1968
+abstract: >
+  Jaynes explains how high-amperage solid-state rectifiers make it practical to
+  parallel wet cell storage batteries for increased ampere-hour capacity. He
+  describes a diode bridge circuit that prevents damaging circulating currents
+  between batteries while allowing them to be charged simultaneously and to
+  supply current to a common load.
+author: ["E.T. Jaynes"]
+categories: ["Electrodynamics & Signal Processing"]
+tags: ["storage batteries", "diodes", "circulating current", "parallel connection", "battery charging"]
+---
+UNTIL high-amperage solid-state rectifiers became commonly available, it
+was not practical to parallel wet cell storage batteries. The slightest
+difference in the open-circuit voltages of parallel-connected batteries
+will set up a circulating current whereby the battery with the greater
+voltage will tend to charge the one with the lesser voltage. This
+circulating current is capable of damaging both batteries.
+
+codex
+no changes
+
+Self-check completed on `content/papers/parallel.batteries.md`:
+
+- Paragraphs are already separated by blank lines (no prose paragraph joined by single newlines where a paragraph break is intended).
+- No markdown tables present to repair.
+- No in-text equation references or display equations present, so no equation-numbering edits are needed.
+- Abstract appears only in front matter and is not duplicated in body text.
+- No citation-format issues or duplicate citation patterns found.
+- No extraneous metadata like “Lecture given at ...” found in the body.
+tokens used
+4,118
+

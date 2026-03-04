@@ -1,0 +1,669 @@
+=== STDOUT ===
+Edited `content/papers/natural.resources.md` with minimal, structural-only QA fixes.
+
+Summary of changes:
+- Added blank lines to enforce paragraph boundaries between section headings and body content.
+- Added blank lines between consecutive `**p. xx.**` blocks in technical/economic sections where they were previously run together.
+- Added a blank line between the first and second reference entries in `## REFERENCES` for clean markdown rendering.
+- Did not change paper meaning, prose content, or any math expressions.
+- No equation markup changes were made: the only in-text `Eq (24)` appears to reference an external equation from the discussed work, not a missing display equation in this document.
+- No duplicate abstract text found in body; no extraneous metadata like lecture-note lines found.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba32-9c20-7092-9ea6-8bcc8c757b62
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/natural.resources.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/natural.resources.md` for paragraph breaks, citation formatting, duplicate abstract/body metadata, and equation-reference numbering, then apply only minimal structural edits in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/natural.resources.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Comments on 'Natural Resources: The Laws of Their Scarcity'"
+year: 1982
+abstract: >
+  Jaynes critiques the thermodynamic arguments presented by Nicholas
+  Georgescu-Roegen (NGR) in his work on the economic implications of the Second
+  Law of Thermodynamics. He argues that NGR's technical analysis is flawed due
+  to a fundamental misunderstanding of the distinction between thermodynamic
+  and mechanical reversibility, and that his "entropic predicament" is
+  illusory. Jaynes provides a more optimistic outlook on long-range resource
+  availability, energy, and food production, emphasizing the role of
+  technological advancement and the earth's natural entropy-flushing
+  mechanism through radiation into the night sky.
+author: ["E.T. Jaynes"]
+categories: ["Foundations of Probability & Bayesian Inference"]
+tags: ["entropy", "reversibility", "second law of thermodynamics", "economics", "natural resources", "Gibbs", "Planck", "resource scarcity"]
+---
+## INTRODUCTION -- MORAL EXHORTATIONS
+On the moral side, our general evaluation of this work must be harsh. As
+Francis Crick has emphasized in biology, crying "WOLF!" over imagined -
+codex
+I’ve reviewed the first portion and now I’m checking the remainder of the file for formatting issues, duplicate abstract/body text, and any unresolved equation references before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/natural.resources.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+limestone, air, and water (and smaller amounts of phosphorus, iron,
+potassium, etc.). We could make it in whatever varieties of color,
+taste, texture, nutritional content and quantity we please.
+
+But the fusion program still faces major technical problems; what if it
+never succeeds? Don't worry; we have another equally inexhaustible
+backup system of free available energy that is already running. It is
+called the sun. We now have silicon solar cells that convert the sun's
+radiation into useful work at efficiencies in the 10%--20% range. If
+mass-production industrial technology can reduce their cost by a factor
+of the order of 100 to 1000, this alone would obviate the need for any
+more coal-burning power plants or gasoline engines, except for aircraft.
+This backup system can, of course, also provide our food; and indeed far
+more than it does now. We shall probably learn, within the next Century,
+how to use sunlight to drive photosynthetic reactions in vitro, more
+efficiently than plants do it. With that technology, closed recycling
+ecosystems operating indefinitely in space will become feasible, and
+mankind could survive even the destruction of the earth.
+
+Of course, we are not saying that the future can bring us no serious
+codex
+I found structural-only issues: several `**p. xx.**` blocks are run together without blank-line paragraph separation, and the first two references are merged visually. I’m applying minimal spacing fixes now; no wording, math, or meaning changes.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/natural.resources.md
+@@ -48,2 +48,3 @@
+ comments on NGR's work.
++
+ ## THE TECHNICAL ARGUMENTS
+@@ -52,2 +53,3 @@
+ work for over a Century.
++
+ **p. 13.** The archaic sources of the work are revealed again when we
+@@ -58,2 +60,3 @@
+ definition.
++
+ **p. 14.** Here and throughout the work, NGR accuses others of
+@@ -61,2 +64,3 @@
+ present in these passages.
++
+ **p. 15.** Here we meet NGR's fundamental problem -- his
+@@ -90,2 +94,3 @@
+ that he is completely ignorant of Gibbs' work.
++
+ **p. 16.** Another elementary error appears here. The work available in
+@@ -109,2 +114,3 @@
+ Velikovsky or Lysenko ever committed bloopers this bad.
++
+ **p. 20.** Here we are back to that confusion of thermal and mechanical
+@@ -119,2 +125,3 @@
+ the second law.
++
+ **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+@@ -137,2 +144,3 @@
+ mechanical reversibility.
++
+ **p. 26.** Still another time, an argument is rendered senseless by that
+@@ -145,2 +153,3 @@
+ non-law that has been violated by every heat engine ever made.
++
+ **p. 27--32.** We need not dwell on this material. The technical level
+@@ -156,2 +165,3 @@
+ student against it.
++
+ ## THE ECONOMIC CONCLUSIONS
+@@ -194,2 +204,3 @@
+ to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
++
+ **p. 36.** NGR seems to think it now demonstrated that "mankind's
+@@ -231,2 +242,3 @@
+ world.
++
+ ## WHAT IS OUR LONG--RANGE OUTLOOK?
+@@ -299,2 +311,3 @@
+ justifiably high -- "rational expectations".
++
+ ## REFERENCES
+@@ -302,2 +315,3 @@
+ K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
++
+ A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
+@@ -323,2 +337,2 @@
+ M. Planck (1949), *Scientific Autobiography*, Philosophical Library, N.
+-Y.; pp. 17--18.
+\ No newline at end of file
++Y.; pp. 17--18.
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M content/papers/natural.resources.md
+file update:
+diff --git a/content/papers/natural.resources.md b/content/papers/natural.resources.md
+index 8e5367b556c27aff77735be95f6e6f11766e81dc..494e5eadc1bb605d36a5a9004a7f3d0ee08bd7d9
+--- a/content/papers/natural.resources.md
++++ b/content/papers/natural.resources.md
+@@ -46,19 +46,23 @@
+ It takes a long time for the understanding of the Masters to trickle
+ down into the elementary textbooks. Now we turn to some specific
+ comments on NGR's work.
++
+ ## THE TECHNICAL ARGUMENTS
+ **p. 12.** The concept of open systems was introduced, not by Prigogine
+ (1967), but by Gibbs (1875). Physical chemistry has been based on Gibbs'
+ work for over a Century.
++
+ **p. 13.** The archaic sources of the work are revealed again when we
+ are told that the calorie is defined by the specific heat of water, and
+ its "present value" is 4.1858 joules. This is ancient history; later
+ measurements in this Century reduced that number and since 1954 the
+ calorie has been defined to be 4.1840 joules, this number being exact by
+ definition.
++
+ **p. 14.** Here and throughout the work, NGR accuses others of
+ misunderstanding elementary technical facts. Misunderstanding is indeed
+ present in these passages.
++
+ **p. 15.** Here we meet NGR's fundamental problem -- his
+ misunderstanding of the term "reversible" -- that will invalidate almost
+ everything he says from this point on. In confusing thermodynamic
+@@ -88,6 +92,7 @@
+ 
+ NGR indicates, by unfortunate remarks scattered throughout his writings,
+ that he is completely ignorant of Gibbs' work.
++
+ **p. 16.** Another elementary error appears here. The work available in
+ an isothermal process is equal to the change in the Helmholtz function
+ $F = U-TS$; but this does not imply any interpretation of TS alone,
+@@ -107,6 +112,7 @@
+ show, in a later communication, that even the available matter is
+ shrinking because of its entropy. This is pure crackpot stuff; not even
+ Velikovsky or Lysenko ever committed bloopers this bad.
++
+ **p. 20.** Here we are back to that confusion of thermal and mechanical
+ reversibility, which now leads NGR into a quixotic attack on a
+ "mechanistic dogma" which he attributes to Laplace. If NGR can
+@@ -117,6 +123,7 @@
+ Ehrenfest theorem demonstrates (see D. Otero, et al, 1982). The facts of
+ mechanics, recognized by Laplace, cannot be changed by misinterpreting
+ the second law.
++
+ **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+ There is no "incompatibility between thermodynamic irreversibility and
+ the reversibility of mechanical laws" because that phrase does not make
+@@ -135,6 +142,7 @@
+ by everybody. The point is that thermal irreversibility is easily
+ explained as a phenomenological fact that has nothing to do with
+ mechanical reversibility.
++
+ **p. 26.** Still another time, an argument is rendered senseless by that
+ fundamental misunderstanding. What NGR tells us that Planck "obviously
+ had in mind" is just the opposite of what Planck had in mind, as our
+@@ -143,6 +151,7 @@
+ amendment of it. If we strike out "no effect except" then, far from
+ having a nonredundant statement of a law, we have a statement of a
+ non-law that has been violated by every heat engine ever made.
++
+ **p. 27--32.** We need not dwell on this material. The technical level
+ of the work is now established sufficiently, and this long, tedious
+ discussion is irrelevant to the purpose of the work. We do, however,
+@@ -154,6 +163,7 @@
+ could have picked up such a false notion, because nearly all textbooks
+ on thermodynamics stress the error of NGR's statement, and warn the
+ student against it.
++
+ ## THE ECONOMIC CONCLUSIONS
+ **p. 33.** We now encounter the statement: "Eq (24) proves that the
+ efficiency of every type of energy converter has a theoretical upper
+@@ -192,6 +202,7 @@
+ which the activated molecules could deliver heat; close to 100%. In this
+ we are only paraphrasing a penetrating remark made by Gibbs in a letter
+ to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
++
+ **p. 36.** NGR seems to think it now demonstrated that "mankind's
+ existence is beset by an entropic predicament". WHAT predicament? Are
+ there some pages missing here? We find no such demonstration on the
+@@ -229,6 +240,7 @@
+ NGR's attempted entropy scare is based on egregious technical errors and
+ fallacious logic, and it is irrelevant to the real problems of this
+ world.
++
+ ## WHAT IS OUR LONG--RANGE OUTLOOK?
+ It is true -- although it has nothing to do with entropy -- that the
+ world has only finite amounts of copper, cobalt, zinc, mercury,
+@@ -297,9 +309,11 @@
+ store for us, if we can somehow make it through this Century. Then let's
+ get back to our present real problems, motivated by high -- and
+ justifiably high -- "rational expectations".
++
+ ## REFERENCES
+ P. L. Auer (1977), "Does Entropy Production Limit Economic Growth?" in
+ K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
++
+ A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
+ Reading MA.
+ 
+@@ -321,4 +335,4 @@
+ Phys. Rev. A, Vol. 26, pp. 1209--1217.
+ 
+ M. Planck (1949), *Scientific Autobiography*, Philosophical Library, N.
+-Y.; pp. 17--18.
+\ No newline at end of file
++Y.; pp. 17--18.
+
+file update:
+diff --git a/content/papers/natural.resources.md b/content/papers/natural.resources.md
+index 8e5367b556c27aff77735be95f6e6f11766e81dc..494e5eadc1bb605d36a5a9004a7f3d0ee08bd7d9
+--- a/content/papers/natural.resources.md
++++ b/content/papers/natural.resources.md
+@@ -46,19 +46,23 @@
+ It takes a long time for the understanding of the Masters to trickle
+ down into the elementary textbooks. Now we turn to some specific
+ comments on NGR's work.
++
+ ## THE TECHNICAL ARGUMENTS
+ **p. 12.** The concept of open systems was introduced, not by Prigogine
+ (1967), but by Gibbs (1875). Physical chemistry has been based on Gibbs'
+ work for over a Century.
++
+ **p. 13.** The archaic sources of the work are revealed again when we
+ are told that the calorie is defined by the specific heat of water, and
+ its "present value" is 4.1858 joules. This is ancient history; later
+ measurements in this Century reduced that number and since 1954 the
+ calorie has been defined to be 4.1840 joules, this number being exact by
+ definition.
++
+ **p. 14.** Here and throughout the work, NGR accuses others of
+ misunderstanding elementary technical facts. Misunderstanding is indeed
+ present in these passages.
++
+ **p. 15.** Here we meet NGR's fundamental problem -- his
+ misunderstanding of the term "reversible" -- that will invalidate almost
+ everything he says from this point on. In confusing thermodynamic
+@@ -88,6 +92,7 @@
+ 
+ NGR indicates, by unfortunate remarks scattered throughout his writings,
+ that he is completely ignorant of Gibbs' work.
++
+ **p. 16.** Another elementary error appears here. The work available in
+ an isothermal process is equal to the change in the Helmholtz function
+ $F = U-TS$; but this does not imply any interpretation of TS alone,
+@@ -107,6 +112,7 @@
+ show, in a later communication, that even the available matter is
+ shrinking because of its entropy. This is pure crackpot stuff; not even
+ Velikovsky or Lysenko ever committed bloopers this bad.
++
+ **p. 20.** Here we are back to that confusion of thermal and mechanical
+ reversibility, which now leads NGR into a quixotic attack on a
+ "mechanistic dogma" which he attributes to Laplace. If NGR can
+@@ -117,6 +123,7 @@
+ Ehrenfest theorem demonstrates (see D. Otero, et al, 1982). The facts of
+ mechanics, recognized by Laplace, cannot be changed by misinterpreting
+ the second law.
++
+ **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+ There is no "incompatibility between thermodynamic irreversibility and
+ the reversibility of mechanical laws" because that phrase does not make
+@@ -135,6 +142,7 @@
+ by everybody. The point is that thermal irreversibility is easily
+ explained as a phenomenological fact that has nothing to do with
+ mechanical reversibility.
++
+ **p. 26.** Still another time, an argument is rendered senseless by that
+ fundamental misunderstanding. What NGR tells us that Planck "obviously
+ had in mind" is just the opposite of what Planck had in mind, as our
+@@ -143,6 +151,7 @@
+ amendment of it. If we strike out "no effect except" then, far from
+ having a nonredundant statement of a law, we have a statement of a
+ non-law that has been violated by every heat engine ever made.
++
+ **p. 27--32.** We need not dwell on this material. The technical level
+ of the work is now established sufficiently, and this long, tedious
+ discussion is irrelevant to the purpose of the work. We do, however,
+@@ -154,6 +163,7 @@
+ could have picked up such a false notion, because nearly all textbooks
+ on thermodynamics stress the error of NGR's statement, and warn the
+ student against it.
++
+ ## THE ECONOMIC CONCLUSIONS
+ **p. 33.** We now encounter the statement: "Eq (24) proves that the
+ efficiency of every type of energy converter has a theoretical upper
+@@ -192,6 +202,7 @@
+ which the activated molecules could deliver heat; close to 100%. In this
+ we are only paraphrasing a penetrating remark made by Gibbs in a letter
+ to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
++
+ **p. 36.** NGR seems to think it now demonstrated that "mankind's
+ existence is beset by an entropic predicament". WHAT predicament? Are
+ there some pages missing here? We find no such demonstration on the
+@@ -229,6 +240,7 @@
+ NGR's attempted entropy scare is based on egregious technical errors and
+ fallacious logic, and it is irrelevant to the real problems of this
+ world.
++
+ ## WHAT IS OUR LONG--RANGE OUTLOOK?
+ It is true -- although it has nothing to do with entropy -- that the
+ world has only finite amounts of copper, cobalt, zinc, mercury,
+@@ -297,9 +309,11 @@
+ store for us, if we can somehow make it through this Century. Then let's
+ get back to our present real problems, motivated by high -- and
+ justifiably high -- "rational expectations".
++
+ ## REFERENCES
+ P. L. Auer (1977), "Does Entropy Production Limit Economic Growth?" in
+ K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
++
+ A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
+ Reading MA.
+ 
+@@ -321,4 +335,4 @@
+ Phys. Rev. A, Vol. 26, pp. 1209--1217.
+ 
+ M. Planck (1949), *Scientific Autobiography*, Philosophical Library, N.
+-Y.; pp. 17--18.
+\ No newline at end of file
++Y.; pp. 17--18.
+
+codex
+I’ve made the structural spacing pass and am running a quick self-check for equation-reference patterns and paragraph-boundary consistency in the same file.
+exec
+/bin/bash -lc "rg -n \"Eq\\.?\\s*\\(|Eqs\\.?\\s*\\(\" content/papers/natural.resources.md && echo '---' && rg -n \""'^## |''^'"\\*\\*p\\.\" content/papers/natural.resources.md | sed -n '1,120p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+168:**p. 33.** We now encounter the statement: "Eq (24) proves that the
+---
+18:## INTRODUCTION -- MORAL EXHORTATIONS
+50:## THE TECHNICAL ARGUMENTS
+51:**p. 12.** The concept of open systems was introduced, not by Prigogine
+55:**p. 13.** The archaic sources of the work are revealed again when we
+62:**p. 14.** Here and throughout the work, NGR accuses others of
+66:**p. 15.** Here we meet NGR's fundamental problem -- his
+96:**p. 16.** Another elementary error appears here. The work available in
+116:**p. 20.** Here we are back to that confusion of thermal and mechanical
+127:**p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+146:**p. 26.** Still another time, an argument is rendered senseless by that
+155:**p. 27--32.** We need not dwell on this material. The technical level
+167:## THE ECONOMIC CONCLUSIONS
+168:**p. 33.** We now encounter the statement: "Eq (24) proves that the
+206:**p. 36.** NGR seems to think it now demonstrated that "mankind's
+244:## WHAT IS OUR LONG--RANGE OUTLOOK?
+313:## REFERENCES
+file update:
+diff --git a/content/papers/natural.resources.md b/content/papers/natural.resources.md
+index 8e5367b556c27aff77735be95f6e6f11766e81dc..494e5eadc1bb605d36a5a9004a7f3d0ee08bd7d9
+--- a/content/papers/natural.resources.md
++++ b/content/papers/natural.resources.md
+@@ -46,19 +46,23 @@
+ It takes a long time for the understanding of the Masters to trickle
+ down into the elementary textbooks. Now we turn to some specific
+ comments on NGR's work.
++
+ ## THE TECHNICAL ARGUMENTS
+ **p. 12.** The concept of open systems was introduced, not by Prigogine
+ (1967), but by Gibbs (1875). Physical chemistry has been based on Gibbs'
+ work for over a Century.
++
+ **p. 13.** The archaic sources of the work are revealed again when we
+ are told that the calorie is defined by the specific heat of water, and
+ its "present value" is 4.1858 joules. This is ancient history; later
+ measurements in this Century reduced that number and since 1954 the
+ calorie has been defined to be 4.1840 joules, this number being exact by
+ definition.
++
+ **p. 14.** Here and throughout the work, NGR accuses others of
+ misunderstanding elementary technical facts. Misunderstanding is indeed
+ present in these passages.
++
+ **p. 15.** Here we meet NGR's fundamental problem -- his
+ misunderstanding of the term "reversible" -- that will invalidate almost
+ everything he says from this point on. In confusing thermodynamic
+@@ -88,6 +92,7 @@
+ 
+ NGR indicates, by unfortunate remarks scattered throughout his writings,
+ that he is completely ignorant of Gibbs' work.
++
+ **p. 16.** Another elementary error appears here. The work available in
+ an isothermal process is equal to the change in the Helmholtz function
+ $F = U-TS$; but this does not imply any interpretation of TS alone,
+@@ -107,6 +112,7 @@
+ show, in a later communication, that even the available matter is
+ shrinking because of its entropy. This is pure crackpot stuff; not even
+ Velikovsky or Lysenko ever committed bloopers this bad.
++
+ **p. 20.** Here we are back to that confusion of thermal and mechanical
+ reversibility, which now leads NGR into a quixotic attack on a
+ "mechanistic dogma" which he attributes to Laplace. If NGR can
+@@ -117,6 +123,7 @@
+ Ehrenfest theorem demonstrates (see D. Otero, et al, 1982). The facts of
+ mechanics, recognized by Laplace, cannot be changed by misinterpreting
+ the second law.
++
+ **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+ There is no "incompatibility between thermodynamic irreversibility and
+ the reversibility of mechanical laws" because that phrase does not make
+@@ -135,6 +142,7 @@
+ by everybody. The point is that thermal irreversibility is easily
+ explained as a phenomenological fact that has nothing to do with
+ mechanical reversibility.
++
+ **p. 26.** Still another time, an argument is rendered senseless by that
+ fundamental misunderstanding. What NGR tells us that Planck "obviously
+ had in mind" is just the opposite of what Planck had in mind, as our
+@@ -143,6 +151,7 @@
+ amendment of it. If we strike out "no effect except" then, far from
+ having a nonredundant statement of a law, we have a statement of a
+ non-law that has been violated by every heat engine ever made.
++
+ **p. 27--32.** We need not dwell on this material. The technical level
+ of the work is now established sufficiently, and this long, tedious
+ discussion is irrelevant to the purpose of the work. We do, however,
+@@ -154,6 +163,7 @@
+ could have picked up such a false notion, because nearly all textbooks
+ on thermodynamics stress the error of NGR's statement, and warn the
+ student against it.
++
+ ## THE ECONOMIC CONCLUSIONS
+ **p. 33.** We now encounter the statement: "Eq (24) proves that the
+ efficiency of every type of energy converter has a theoretical upper
+@@ -192,6 +202,7 @@
+ which the activated molecules could deliver heat; close to 100%. In this
+ we are only paraphrasing a penetrating remark made by Gibbs in a letter
+ to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
++
+ **p. 36.** NGR seems to think it now demonstrated that "mankind's
+ existence is beset by an entropic predicament". WHAT predicament? Are
+ there some pages missing here? We find no such demonstration on the
+@@ -229,6 +240,7 @@
+ NGR's attempted entropy scare is based on egregious technical errors and
+ fallacious logic, and it is irrelevant to the real problems of this
+ world.
++
+ ## WHAT IS OUR LONG--RANGE OUTLOOK?
+ It is true -- although it has nothing to do with entropy -- that the
+ world has only finite amounts of copper, cobalt, zinc, mercury,
+@@ -297,9 +309,11 @@
+ store for us, if we can somehow make it through this Century. Then let's
+ get back to our present real problems, motivated by high -- and
+ justifiably high -- "rational expectations".
++
+ ## REFERENCES
+ P. L. Auer (1977), "Does Entropy Production Limit Economic Growth?" in
+ K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
++
+ A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
+ Reading MA.
+ 
+@@ -321,4 +335,4 @@
+ Phys. Rev. A, Vol. 26, pp. 1209--1217.
+ 
+ M. Planck (1949), *Scientific Autobiography*, Philosophical Library, N.
+-Y.; pp. 17--18.
+\ No newline at end of file
++Y.; pp. 17--18.
+
+codex
+Edited `content/papers/natural.resources.md` with minimal, structural-only QA fixes.
+
+Summary of changes:
+- Added blank lines to enforce paragraph boundaries between section headings and body content.
+- Added blank lines between consecutive `**p. xx.**` blocks in technical/economic sections where they were previously run together.
+- Added a blank line between the first and second reference entries in `## REFERENCES` for clean markdown rendering.
+- Did not change paper meaning, prose content, or any math expressions.
+- No equation markup changes were made: the only in-text `Eq (24)` appears to reference an external equation from the discussed work, not a missing display equation in this document.
+- No duplicate abstract text found in body; no extraneous metadata like lecture-note lines found.
+file update:
+diff --git a/content/papers/natural.resources.md b/content/papers/natural.resources.md
+index 8e5367b556c27aff77735be95f6e6f11766e81dc..494e5eadc1bb605d36a5a9004a7f3d0ee08bd7d9
+--- a/content/papers/natural.resources.md
++++ b/content/papers/natural.resources.md
+@@ -46,19 +46,23 @@
+ It takes a long time for the understanding of the Masters to trickle
+ down into the elementary textbooks. Now we turn to some specific
+ comments on NGR's work.
++
+ ## THE TECHNICAL ARGUMENTS
+ **p. 12.** The concept of open systems was introduced, not by Prigogine
+ (1967), but by Gibbs (1875). Physical chemistry has been based on Gibbs'
+ work for over a Century.
++
+ **p. 13.** The archaic sources of the work are revealed again when we
+ are told that the calorie is defined by the specific heat of water, and
+ its "present value" is 4.1858 joules. This is ancient history; later
+ measurements in this Century reduced that number and since 1954 the
+ calorie has been defined to be 4.1840 joules, this number being exact by
+ definition.
++
+ **p. 14.** Here and throughout the work, NGR accuses others of
+ misunderstanding elementary technical facts. Misunderstanding is indeed
+ present in these passages.
++
+ **p. 15.** Here we meet NGR's fundamental problem -- his
+ misunderstanding of the term "reversible" -- that will invalidate almost
+ everything he says from this point on. In confusing thermodynamic
+@@ -88,6 +92,7 @@
+ 
+ NGR indicates, by unfortunate remarks scattered throughout his writings,
+ that he is completely ignorant of Gibbs' work.
++
+ **p. 16.** Another elementary error appears here. The work available in
+ an isothermal process is equal to the change in the Helmholtz function
+ $F = U-TS$; but this does not imply any interpretation of TS alone,
+@@ -107,6 +112,7 @@
+ show, in a later communication, that even the available matter is
+ shrinking because of its entropy. This is pure crackpot stuff; not even
+ Velikovsky or Lysenko ever committed bloopers this bad.
++
+ **p. 20.** Here we are back to that confusion of thermal and mechanical
+ reversibility, which now leads NGR into a quixotic attack on a
+ "mechanistic dogma" which he attributes to Laplace. If NGR can
+@@ -117,6 +123,7 @@
+ Ehrenfest theorem demonstrates (see D. Otero, et al, 1982). The facts of
+ mechanics, recognized by Laplace, cannot be changed by misinterpreting
+ the second law.
++
+ **p. 22.** Here NGR is still stuck on that fundamental misunderstanding.
+ There is no "incompatibility between thermodynamic irreversibility and
+ the reversibility of mechanical laws" because that phrase does not make
+@@ -135,6 +142,7 @@
+ by everybody. The point is that thermal irreversibility is easily
+ explained as a phenomenological fact that has nothing to do with
+ mechanical reversibility.
++
+ **p. 26.** Still another time, an argument is rendered senseless by that
+ fundamental misunderstanding. What NGR tells us that Planck "obviously
+ had in mind" is just the opposite of what Planck had in mind, as our
+@@ -143,6 +151,7 @@
+ amendment of it. If we strike out "no effect except" then, far from
+ having a nonredundant statement of a law, we have a statement of a
+ non-law that has been violated by every heat engine ever made.
++
+ **p. 27--32.** We need not dwell on this material. The technical level
+ of the work is now established sufficiently, and this long, tedious
+ discussion is irrelevant to the purpose of the work. We do, however,
+@@ -154,6 +163,7 @@
+ could have picked up such a false notion, because nearly all textbooks
+ on thermodynamics stress the error of NGR's statement, and warn the
+ student against it.
++
+ ## THE ECONOMIC CONCLUSIONS
+ **p. 33.** We now encounter the statement: "Eq (24) proves that the
+ efficiency of every type of energy converter has a theoretical upper
+@@ -192,6 +202,7 @@
+ which the activated molecules could deliver heat; close to 100%. In this
+ we are only paraphrasing a penetrating remark made by Gibbs in a letter
+ to Sir Oliver Lodge, in 1887. We still have much to learn from Gibbs.
++
+ **p. 36.** NGR seems to think it now demonstrated that "mankind's
+ existence is beset by an entropic predicament". WHAT predicament? Are
+ there some pages missing here? We find no such demonstration on the
+@@ -229,6 +240,7 @@
+ NGR's attempted entropy scare is based on egregious technical errors and
+ fallacious logic, and it is irrelevant to the real problems of this
+ world.
++
+ ## WHAT IS OUR LONG--RANGE OUTLOOK?
+ It is true -- although it has nothing to do with entropy -- that the
+ world has only finite amounts of copper, cobalt, zinc, mercury,
+@@ -297,9 +309,11 @@
+ store for us, if we can somehow make it through this Century. Then let's
+ get back to our present real problems, motivated by high -- and
+ justifiably high -- "rational expectations".
++
+ ## REFERENCES
+ P. L. Auer (1977), "Does Entropy Production Limit Economic Growth?" in
+ K. D. Wilson, ed., *Prospects for Growth*, Praeger, N. Y.; pp. 314--334.
++
+ A. S. Bishop (1958), *Project Sherwood*, Addison--Wesley Pub. Co.,
+ Reading MA.
+ 
+@@ -321,4 +335,4 @@
+ Phys. Rev. A, Vol. 26, pp. 1209--1217.
+ 
+ M. Planck (1949), *Scientific Autobiography*, Philosophical Library, N.
+-Y.; pp. 17--18.
+\ No newline at end of file
++Y.; pp. 17--18.
+
+tokens used
+10,801
+

@@ -15,6 +15,7 @@ abstract: >
 categories: ["Statistical Mechanics & Thermodynamics"]
 tags: ["Carnot's principle", "second law of thermodynamics", "maximum entropy", "scientific inference", "Gibbs"]
 ---
+
 # INTRODUCTION
 The first reaction of nearly everybody, on hearing of a mysterious
 principle called \"maximum entropy\" with a seemingly magical power of
@@ -108,17 +109,18 @@ Since entropy maximizers are sometimes accused of trying to \"get
 something for nothing\", we note that the method expresses, and has
 evolved from, an explicit statement of the opposite; that you cannot get
 something for nothing.
+
 # CARNOT'S PRINCIPLE
 In the revolutionary years 1791-1797 an army engineer named Lazare
 Carnot found himself suddenly catapulted into the ruling bodies of
 France. As a member of the Legislative Assembly, the Committee of Public
 Safety, and the Directoire, he participated in voting for the execution
 of Louis XVI, the appointment of Napoleon to his Italian command; and in
-so many other things that his biography (Reinhard, 1950) fills two
+so many other things that his biography[^reinhard1950] fills two
 volumes.
 
-But before and after that period, Lazare Carnot published articles
-(Gillispie, 1971) on his true lifelong interest, the most general
+But before and after that period, Lazare Carnot published articles[^gillispie1971]
+on his true lifelong interest, the most general
 statement of the principles of mechanics and inferring from them the
 impossibility of a perpetual motion machine. His son Sadi then turned
 that idea neatly around, inferring a new principle from the assumed
@@ -188,6 +190,7 @@ But Carnot solved the problem only implicitly; while he made it clear
 that one should strive to make an engine more nearly reversible, he did
 not find the explicit formula for the reversible efficiency that would
 result.
+
 # FIRST METAMORPHOSIS: KELVIN
 Wm. Thomson (later Lord Kelvin) was collaborating with James Prescott
 Joule, who in a private laboratory in Manchester was doing the
@@ -196,7 +199,11 @@ Law. This gave him the essential fact that Carnot had lacked.
 
 Recognizing a universal \"mechanical equivalent of heat\" $h$, we can
 express heat $Q = hq$ and work $W$ in the same units; then we have the
-relation $$W = Q_1 - Q_2$$ and deduction of the quantitative
+relation
+
+$$W = Q_1 - Q_2 \tag{1}$$
+
+and deduction of the quantitative
 consequences of Carnot's principle can begin (the prime will be
 explained presently).
 
@@ -204,22 +211,33 @@ Consider two reversible engines connected in series; engine A receives
 the heat $Q_1$ at temperature $t_1$, delivers work $W_A$, and discharges
 heat $Q^\prime_2$. Engine B receives the heat $Q^\prime_2$, delivers work $W_B$, and
 discharges heat $Q_3$ to a reservoir at temperature $t_3 < t_2$. Their
-efficiencies are $$\begin{aligned}
-e(t_1, t_2) &= W_A/Q_1, \\\\
+efficiencies are
+
+$$\begin{aligned}
+e(t_1, t_2) &= W_A/Q_1 \tag{2a}, \\\\
 e(t_2, t_3) &= W_B/Q^\prime_2 \notag
-\end{aligned}$$ But by a simple mechanical linkage, A and B can be
+\end{aligned}$$
+
+But by a simple mechanical linkage, A and B can be
 combined into a single reversible engine C, which receives heat $Q_1$
 and delivers work $W_C = W_A + W_B$. So we must have also
-$$e(t_1, t_3) = (W_A + W_B)/Q_1$$ From (1), (2), (3) we find that
+
+$$e(t_1, t_3) = (W_A + W_B)/Q_1 \tag{3}$$
+
+From (1), (2a), (3) we find that
 Carnot's principle requires that [using the abbreviation
 $e_{13} = e(t_1, t_3)$, etc.], the reversible efficiency must satisfy
 the functional equation
-$$e_{13} = e_{12} + e_{23} - e_{12} e_{23}, \quad t_1 > t_2 > t_3.$$
+
+$$e_{13} = e_{12} + e_{23} - e_{12} e_{23}, \quad t_1 > t_2 > t_3. \tag{4}$$
 
 This is a condition of consistency, and it reminds us of a relation of
 probability theory. The change of variables $x = \log(1-e)$ makes the
 general solution obvious: the reversible efficiency must have the
-functional form $$e_{12} \equiv e_r(t_1, t_2) = 1 - f(t_2)/f(t_1).$$
+functional form
+
+$$e_{12} \equiv e_r(t_1, t_2) = 1 - f(t_2)/f(t_1). \tag{5}$$
+
 From (2a) and (3), $f(t)$ is a monotonic increasing function. By
 Carnot's principle the ratio $f(t_1)/f(t_2)$ must be the same function
 of $t_1, t_2$ for all reversible engines.
@@ -231,12 +249,20 @@ perceived that Carnot's principle resolves another ambiguity; if the
 reversible efficiency is a universal function of the temperatures, then
 it in effect defines a universal temperature scale that is independent
 of the properties of any particular substance like mercury. We define
-the *Kelvin temperature scale* by $$T(t) = C f(t)$$ and now only one
+the *Kelvin temperature scale* by
+
+$$T(t) = C f(t) \tag{6}$$
+
+and now only one
 free choice is left to us; we may choose the arbitrary multiplicative
 factor $C$, as a convention, to indicate the size of the units in which
 we measure temperature.
 
-Carnot's reversible efficiency is then $$e_r = 1 - T_2/T_1$$ from which
+Carnot's reversible efficiency is then
+
+$$e_r = 1 - T_2/T_1 \tag{7}$$
+
+from which
 one readily determines the measurements by which one can calibrate his
 thermometer to read $T$. All such thermometers, however constructed, and
 independently calibrated, will then agree in their readings at all
@@ -247,18 +273,27 @@ all).
 
 With this, Carnot's principle starts its metamorphosis. It now says that
 the efficiency $e$ of a real heat engine must satisfy the inequality
-$e \le e_r$; or from (1), (2), (7),
-$$e = 1 - Q^\prime_2/Q_1 \le 1 - T_2/T_1.$$ Writing now $Q^\prime_2 = -Q_2$ so that
+$e \le e_r$; or from (1), (2a), (7),
+
+$$e = 1 - Q^\prime_2/Q_1 \le 1 - T_2/T_1. \tag{8}$$
+
+Writing now $Q^\prime_2 = -Q_2$ so that
 $Q_1, Q_2$ are both quantities of heat delivered from a heat reservoir
 to the engine, it takes the more suggestive form
-$$Q_1/T_1 + Q_2/T_2 \le 0$$ with equality if and only if the engine is
+
+$$Q_1/T_1 + Q_2/T_2 \le 0 \tag{9}$$
+
+with equality if and only if the engine is
 reversible.
 
 A simple generalization is then obvious; we may consider a more
 complicated heat engine that runs cyclically, making contact
 successively with $n$ reservoirs at temperatures $(T_1 \dots T_n)$. Then
 the first law is $W = \sum Q_i$, and Carnot's principle becomes
-$$\sum Q_i/T_i \le 0.$$ This is the form that Kelvin used in his work of
+
+$$\sum Q_i/T_i \le 0. \tag{10}$$
+
+This is the form that Kelvin used in his work of
 1854 on the thermocouple, in which the Seebeck potential and the
 Peltier, Joule, and Thomson heat effects were all analyzed correctly,
 leading to the thermoelectric equations still in use.
@@ -268,27 +303,38 @@ starting point for two very different extensions. Some comments on its
 meaning and generality are given in Appendix A. In Appendix B we note
 some important limitations on the applicability of the reversible
 efficiency formula (7), and speculate about further generalizations.
+
 # SECOND METAMORPHOSIS: CLAUSIUS
 It is curious that, having perceived such an important consequence of
 Carnot's principle as the temperature scale (6), Kelvin does not seem to
 have perceived the still more important fact that was now staring him in
 the face in (10). This was left for Rudolph Clausius. Imagine (10)
 extended to arbitrarily large $n$, the sum going into a cyclic integral:
-$$\oint dQ/T \le 0.$$ In the limit of a reversible process, where the
+
+$$\oint dQ/T \le 0. \tag{11}$$
+
+In the limit of a reversible process, where the
 equality applies, $T$ is also the temperature of the system. But then
 (11), holding for any cycle, is the condition that the line integral
 over any part of a cycle is independent of the path.
 
 Thus was discovered a new function $S$ of the thermodynamic state of the
 system, defined to within an additive constant by the difference
-$$S_A - S_B = \int_B^A dQ/T$$ where we integrate over a reversible path
+
+$$S_A - S_B = \int_B^A dQ/T \tag{12}$$
+
+where we integrate over a reversible path
 $R$; i.e., a locus of equilibrium states. As we know, in 1865 Clausius
 coined the name \"entropy\" for this quantity.
 
 The integral (12) is over a reversible path, but only part of a cycle.
 Then complete the cycle by adding to it a return from state A to state B
 over any path P, reversible or irreversible. With this choice of cycle,
-(11) becomes $$\int_A^B dQ/T \le S_B - S_A$$ with equality if and only
+(11) becomes
+
+$$\int_A^B dQ/T \le S_B - S_A \tag{13}$$
+
+with equality if and only
 if the process $A \to B$ is reversible (the meaning of the word
 \"reversible\" may now be extended beyond what Carnot had in mind, as
 explained in Appendix C).
@@ -302,7 +348,10 @@ system, the \"rest of the universe\". So Carnot's principle has now
 become: in the change from one thermal equilibrium state to another, the
 total entropy of all bodies involved cannot decrease; if it increases,
 the process is therefore irreversible:
-$$S(\text{final}) \ge S(\text{initial}) \ .$$ Note also that (14)
+
+$$S(\text{final}) \ge S(\text{initial}) \ . \tag{14}$$
+
+Note also that (14)
 describes only the net result of a process that begins and ends in
 thermal equilibrium. Carnot's principle does not permit us to draw any
 conclusion about time dependence, such as $dS/dt > 0$ at intermediate
@@ -316,6 +365,7 @@ negative spin temperatures where some others failed. However, from the
 standpoint of logic (14) only restates Carnot's principle in a more
 useful form; it adds nothing to its actual content. In particular,
 Clausius could still see it as a law of physics.
+
 # THIRD METAMORPHOSIS: GIBBS
 The above statements of the Second Law are the ones traditionally taught
 to physicists, although they have severe limitations. Equation (14)
@@ -457,10 +507,15 @@ nature and usefulness were recognized and exploited, the question:
 answer was first revealed to Ludwig Boltzmann, when he calculated the
 phase volume of an ideal gas of N atoms
 in volume $V$, for which the energy lies in $(E, E + dE)$:
-$$W = \int_R d^3x_1 \dots d^3x_N d^3p_1 \dots d^3p_N = C V^N E^{3N/2-1} dE$$
+
+$$W = \int_R d^3x_1 \dots d^3x_N d^3p_1 \dots d^3p_N = C V^N E^{3N/2-1} dE \tag{15}$$
+
 where the region $R$ of integration is those points for which all
 coordinates are within a volume $V$, and the momenta satisfy
-$$E < \sum p_i^2/2m < E + dE.$$ The constant $C$ is independent of $V$
+
+$$E < \sum p_i^2/2m < E + dE. \tag{16}$$
+
+The constant $C$ is independent of $V$
 and $E$.
 
 Now from elementary thermodynamics it was known that the entropy of any
@@ -472,7 +527,11 @@ monoatomic gas, $C_v = (3/2)R$ and the resulting internal energy
 function $E = (3/2)RT$, it was evident that $\log W$ has the same volume
 and energy dependence as the entropy of that gas, calculated from (12).
 That is, to within an additive constant independent of $T$ and $V$, it
-was true that $$S = k \log W.$$ This is such a strikingly simple
+was true that
+
+$$S = k \log W. \tag{17}$$
+
+This is such a strikingly simple
 relation that one can hardly avoid jumping to the conclusion that it
 must be true in general; i.e., the entropy of any macroscopic
 thermodynamic state A is a measure of the phase volume $W_A$ occupied by
@@ -507,14 +566,19 @@ matter of probability.
 Let us see the light that this casts on Gibbs' method, by examining a
 simple application. We have two systems of one degree of freedom (i.e.,
 their energy and temperature can vary when in contact with other
-systems). Then their entropy functions are $$\begin{aligned}
-S_1(E_1) &= k \log W_1(E_1), \notag \\\\
+systems). Then their entropy functions are
+
+$$\begin{aligned}
+S_1(E_1) &= k \log W_1(E_1) \tag{18a}, \notag \\\\
 S_2(E_2) &= k \log W_2(E_2),
-\end{aligned}$$ The systems start out in thermal equilibrium with
+\end{aligned}$$
+
+The systems start out in thermal equilibrium with
 arbitrary initial energies $E_{1i}, E_{2i}$. Then they are placed in
 contact so they can exchange energy in such a way that the total amount
 is conserved:
-$$E = E_1 + E_2 = \text{const.}, \quad E_1 > 0, \quad E_2 > 0.$$
+
+$$E = E_1 + E_2 = \text{const.}, \quad E_1 > 0, \quad E_2 > 0. \tag{19}$$
 
 Required: to predict the final energies $E_{1f}, E_{2f}$ that they will
 reach when they come into equilibrium with each other.
@@ -527,7 +591,10 @@ Gibbs' algorithm was: predict that energy distribution that maximizes
 the total entropy $S_1 + S_2$ subject to the constraint (19). At first
 this seems arbitrary; but now if (17) is correct we can see why this
 guess is \"best\". We are maximizing the product
-$$M(E_1) = W_1(E_1) W_2(E - E_1)$$ with respect to $E_1$; but that
+
+$$M(E_1) = W_1(E_1) W_2(E - E_1) \tag{20}$$
+
+with respect to $E_1$; but that
 product is just the multiplicity, or number of ways in which the energy
 distribution $(E_1, E_2)$ can be realized. So in the light of (17)
 Gibbs' rule now says, merely: \"Predict that energy distribution that
@@ -538,7 +605,11 @@ Experimentally, one says that equilibrium is reached when the systems
 have equal temperature. Differentiating (20), we find that the maximum
 is reached when $d \log W_1/dE_1 = d \log W_2/dE_2$. But the general
 thermodynamic relation $T^{-1} = dS/dE$ that follows from (12) becomes,
-in the light of (17) $$\frac{1}{kT} = \frac{d \log W}{dE}$$ So the
+in the light of (17)
+
+$$\frac{1}{kT} = \frac{d \log W}{dE} \tag{21}$$
+
+So the
 general interpretation of entropy by (17) not only predicts equal
 temperature as the condition for equilibrium; it gives a simple
 explanation of why this is true.
@@ -550,15 +621,23 @@ multiplicity (20) had a broad maximum, or many local maxima, one would
 not expect Gibbs' rule to be very reliable in practice. This raises the
 question: How sharp is the maximum in the multiplicity (20)? Note that
 differentiating (21) once more gives the heat capacity:
-$$\frac{d^2 \log W}{dE^2} = -\frac{1}{kT^2 C_v}$$ But, as (15) shows for
+
+$$\frac{d^2 \log W}{dE^2} = -\frac{1}{kT^2 C_v} \tag{22}$$
+
+But, as (15) shows for
 an ideal gas and is true in general, $C_v$ may be interpreted as
 $C_v = nk/2$, where $n$ is the effective number of degrees of freedom of
 the system (in quantum theory, the number excited at the temperature
 $T$), of the order of Avogadro's number for a macroscopic system.
 Therefore, expanding $\log M(E_1)$ about its peak at $E^\prime$ we have
-$$M(E_1) = M(E^\prime) \exp \left\{ -\frac{(E_1 - E^\prime)^2}{2\sigma^2} \right\}$$
+
+$$M(E_1) = M(E^\prime) \exp \left\{ -\frac{(E_1 - E^\prime)^2}{2\sigma^2} \right\} \tag{23}$$
+
 with the RMS deviation
-$$\sigma = kT \left( \frac{n_1 n_2}{n_1 + n_2} \right)^{1/2}$$ which is
+
+$$\sigma = kT \left( \frac{n_1 n_2}{n_1 + n_2} \right)^{1/2} \tag{24}$$
+
+which is
 of the order of $kTn^{1/2} = E^\prime/n^{1/2} = 10^{-12}E^\prime$. Therefore, not
 only is $E^\prime$ the value of $E_1$ that can happen in the greatest number
 of ways for given total energy $E$; the vast majority of all *possible*
@@ -569,17 +648,28 @@ then, we understand also why Gibbs' method succeeds.
 
 But there is still more to be learned from Boltzmann's discovery (17).
 Imagine $n_2$ to become very large; then we may expand using (21):
-$$\log W_2(E - E_1) = \log W_2(E) - \frac{E_1}{kT} + \dots$$ and from
+
+$$\log W_2(E - E_1) = \log W_2(E) - \frac{E_1}{kT} + \dots \tag{25}$$
+
+and from
 (22) the next term is negligible. But then the fraction of the
 multiplicity (23) in the interval $(E_1, E_1 + dE_1)$ becomes
-$$f(E_1)dE_1 = Z^{-1} W_1(E_1) \exp(-E_1/kT) dE_1$$ which is the
+
+$$f(E_1)dE_1 = Z^{-1} W_1(E_1) \exp(-E_1/kT) dE_1 \tag{26}$$
+
+which is the
 distribution of Gibbs' \"Canonical Ensemble\", the basis of his later
 work on Statistical Mechanics. The normalization constant
-$$Z(\beta) = \int W_1(E_1) \exp(-\beta E_1) dE_1 \ , \quad \beta = 1/kT$$
+
+$$Z(\beta) = \int W_1(E_1) \exp(-\beta E_1) dE_1 \ , \quad \beta = 1/kT \tag{27}$$
+
 is Gibbs' partition function, and if we refine the inference procedure
 by taking as our prediction the mean value over the distribution (26)
 instead of the peak $E^\prime$, our prediction reduces to
-$$\langle E_1 \rangle = -\frac{d\log Z}{d\beta} \ ,$$ the basic
+
+$$\langle E_1 \rangle = -\frac{d\log Z}{d\beta} \ , \tag{28}$$
+
+the basic
 predictive rule of statistical mechanics.
 
 All these relations generalize effortlessly to systems with more
@@ -598,6 +688,7 @@ nearly forgotten detail of the history of science; but a thousand years
 from now, the relation $S = k \log W$ will still be the foundation stone
 of this subject. A more appropriate inscription for his gravestone can
 hardly be imagined.
+
 # CONCLUSION
 We have followed the evolution of Carnot's principle, via Kelvin's
 perception that it defines a universal temperature scale, Clausius'
@@ -720,10 +811,17 @@ state of each molecule. If we wanted to predict the number $n_k$ of
 molecules in the k'th energy level, subject to some incomplete data $D$
 that partially restricts the possibilities, we would want to maximize
 the number of ways a certain set $\{n_1 \cdots n_r\}$ of occupation
-numbers could be realized: $$W(n_1 \dots n_r)$$ But when these numbers
+numbers could be realized:
+
+$$W(n_1 \dots n_r) \tag{29}$$
+
+But when these numbers
 become large we may use the Stirling approximation, and the entropy
 corresponding to $W$ is given by
-$$(1/N) \log W \to -\sum_i f_i \log f_i$$ where $f_i = n_i/N$ is the
+
+$$(1/N) \log W \to -\sum_i f_i \log f_i \tag{30}$$
+
+where $f_i = n_i/N$ is the
 fraction of molecules in the i'th energy level. Maximization of the
 expression (30) gives the familiar mathematical form of the principle
 [the right-hand side of (30) is often called the \"Shannon entropy\"
@@ -827,6 +925,7 @@ coefficients; the first example of an \"Onsager Reciprocal Relation\".
 Thus both the Clausius-Gibbs entropy developments in equilibrium theory,
 and Onsager's irreversible thermodynamics (1931), had their origins in
 Kelvin's use of (A1).
+
 # ANTI-CARNOT ENGINES
 It is important that we understand some limitations on the applicability
 of the reversible efficiency formula (7):
@@ -894,11 +993,12 @@ vibrational degrees of freedom, we should in principle be able to
 achieve a conversion efficiency approaching 15/16. Thus there is no
 reason to think that muscle performance is in violation of the second
 law.
+
 # REVERSIBILITY
 Thermodynamics is notoriously a field which encourages confusion and
 illogic by a terminology which may use a common technical term with
 several different meanings, and fails to distinguish between them. We
-have noted before (Jaynes, 1980) some of the many different, mutually
+have noted before[^jaynes1980] some of the many different, mutually
 inconsistent meanings that have been attached to the word \"entropy\".
 An equally serious confusion arises from the fact that the word
 \"reversible\" is used with different meanings; and few writers since
@@ -1022,3 +1122,7 @@ M. Planck, Scientific Autobiography, Philosophical Library, N. Y.
 (1949); pp.17-18.
 
 M. Reinhard, Le Grand Carnot, 2 vols., Paris, 1950-52.
+
+[^reinhard1950]: M. Reinhard, *Le Grand Carnot*, 2 vols., Paris, 1950-52.
+[^gillispie1971]: C. C. Gillispie, *Lazare Carnot, Savant*, Princeton University Press (1971).
+[^jaynes1980]: E. T. Jaynes, "The Minimum Entropy Production Principle", in *Annual Review of Physical Chemistry*, Vol. 31, 579-601 (1980).

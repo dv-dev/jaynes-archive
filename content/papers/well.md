@@ -185,7 +185,7 @@ density $f(r, \theta)dA = f(r, \theta) r dr d\theta$ should we assign
 over the interior area of the circle? The dependence on $\theta$ is
 actually irrelevant to Bertrand's question, since the distribution of
 chord lengths depends only on the radial distribution
-$$g(r) = \int_0^{2\pi} f(r, \theta)d\theta.$$
+$$g(r) = \int_0^{2\pi} f(r, \theta)d\theta. \tag{1}$$
 
 However, intuition
 suggests that $f(r, \theta)$ should be independent of $\theta$, and the
@@ -201,7 +201,7 @@ system oriented along his line of sight. Mr. X assigns the probability
 density $f(r,\theta)$ in his coordinate system S; and Mr. Y assigns
 $g(r,\theta)$ in his system $S_\alpha$. Evidently, if they are
 describing the same situation, then it must be true that
-$$f(r, \theta) = g(r, \theta - \alpha)$$
+$$f(r, \theta) = g(r, \theta - \alpha) \tag{2}$$
 which expresses a simple change
 of variables, transforming a fixed distribution $f$ to a new coordinate
 system; this relation will hold whether or not the problem has
@@ -212,7 +212,9 @@ problem appears exactly the same to Mr. X in his coordinate system as it
 does to Mr. Y in his. Since they are in the same state of knowledge, our
 desideratum of consistency demands that they assign the same probability
 distribution; and so $f$ and $g$ must be the same function:
-$$f(r, \theta) = g(r, \theta).$$ These relations must hold for all
+$$f(r, \theta) = g(r, \theta).$$
+
+These relations must hold for all
 $\alpha$ in $0 \le \alpha \le 2\pi$; and so the only possibility is
 $f(r, \theta) = f(r)$.
 This formal argument may appear cumbersome when compared to our obvious
@@ -229,7 +231,7 @@ the distribution.
 ## Scale Invariance
 The problem is reduced, by rotational symmetry, to determining a
 function $f(r)$, normalized according to
-$$\int_0^{2\pi} \int_0^R f(r) r dr d\theta = 1.$$
+$$\int_0^{2\pi} \int_0^R f(r) r dr d\theta = 1. \tag{3}$$
 
 Again, we consider two
 different problems; concentric with a circle of radius $R$, there is a
@@ -243,10 +245,11 @@ the larger one; and so, within the small circle $f(r)$ must be
 proportional to $h(r)$. This proportionality is, of course, given by the
 standard formula for a conditional probability, which in this case takes
 the form
-$$f(r) = 2\pi h(r) \int_0^{aR} f(r)rdr, \quad 0 < a \le 1, \quad 0 \le r \le aR.$$
+$$f(r) = 2\pi h(r) \int_0^{aR} f(r)rdr, \quad 0 < a \le 1, \quad 0 \le r \le aR. \tag{4}$$
 
 This transformation equation will hold whether or not the problem has
 scale invariance.
+
 But we now invoke scale invariance; to two different observers with
 different size eyeballs, the problems of the large and small circles
 would appear exactly the same. If there is any unique solution
@@ -257,17 +260,18 @@ $r dr d\theta$ and $(ar)d(ar)d\theta$ are related to the large and small
 circles respectively in
 the same way; and so they must be assigned the same probabilities by the
 distributions $f(r)$ and $h(r)$, respectively:
-$$h(ar) (ar) d(ar) d\theta = f(r) r dr d\theta$$
+$$h(ar) (ar) d(ar) d\theta = f(r) r dr d\theta \tag{5}$$
+
 or $$a^2 h(ar) = f(r)$$
 which is the symmetry equation. Combining (4) and (5), we see that
 invariance under change of scale requires that the probability density
 satisfy the functional equation
-$$a^2 f(ar) = 2\pi f(r) \int_0^{aR} f(u)u du, \quad 0 < a \le 1, \quad 0 \le r \le R.$$
+$$a^2 f(ar) = 2\pi f(r) \int_0^{aR} f(u)u du, \quad 0 < a \le 1, \quad 0 \le r \le R. \tag{6}$$
 
 Differentiating with respect to $a$, setting $a=1$, and solving the
 resulting differential equation, we find that the most general solution
 of (6) satisfying the normalization condition (3) is
-$$f(r) = \frac{qr^{q-2}}{2\pi R^q}$$
+$$f(r) = \frac{qr^{q-2}}{2\pi R^q} \tag{7}$$
 where $q$ is a constant in the
 range $0 < q < \infty$, not further determined by scale invariance.
 We note that the proposed solution B in the introduction has now been
@@ -287,18 +291,20 @@ chord with respect to circle $C$ is the point $P$, with coordinates
 $(r, \theta)$; while the same straw defines a midpoint of the chord with
 respect to $C^\prime$ at the point $P^\prime$ whose coordinates are $(r^\prime, \theta^\prime)$.
 From Fig. 1 the coordinate transformation
-$(r, \theta) \to (r^\prime, \theta^\prime)$ is given by $$r^\prime = |r - b \cos\theta|$$
-$$\theta^\prime = \begin{cases} \theta, & r > b\cos\theta \\\\ \theta + \pi, & r < b\cos\theta \end{cases}$$
+$(r, \theta) \to (r^\prime, \theta^\prime)$ is given by $$r^\prime = |r - b \cos\theta| \tag{8}$$
+$$\theta^\prime = \begin{cases} \theta, & r > b\cos\theta \\\\ \theta + \pi, & r < b\cos\theta \end{cases} \tag{9}$$
 
 As $P$ varies over the region $\Gamma$, $P^\prime$ varies over $\Gamma^\prime$, and
 vice versa; thus the straws define a 1:1 mapping of $\Gamma$ onto
 $\Gamma^\prime$.
+
 Now we note the translational symmetry; since the statement of the
 problem gave no information about the location of the circle, the
 problems of $C$ and $C^\prime$ appear exactly the same to two slightly
 displaced observers $O$ and $O^\prime$. Our desideratum of consistency then
 demands that they assign probability density $C$ and $C^\prime$ respectively
 which have the same form (7) with the same value of $q$.
+
 It is further necessary that these two observers assign equal
 probabilities to the regions $\Gamma$ and $\Gamma^\prime$, respectively, since
 (a) they are probabilities of the same event, and (b) the probability
@@ -309,11 +315,11 @@ setting up this correspondence, is also the same in the two problems.
 Let us see whether these two requirements are compatible. The
 probability that a chord intersecting $C$ will have its midpoint in
 $\Gamma$ is
-$$\int_\Gamma f(r) r dr d\theta = \frac{q}{2\pi R^q} \int_\Gamma r^{q-1} dr d\theta.$$
+$$\int_\Gamma f(r) r dr d\theta = \frac{q}{2\pi R^q} \int_\Gamma r^{q-1} dr d\theta. \tag{10}$$
 
 The probability that a chord intersecting $C^\prime$ will have its midpoint in
 $\Gamma^\prime$ is
-$$\frac{q}{2\pi R^q} \int_{\Gamma^\prime} (r^\prime)^{q-1} dr^\prime d\theta^\prime = \frac{q}{2\pi R^q} \int_\Gamma |r - b \cos\theta|^{q-1} dr d\theta$$
+$$\frac{q}{2\pi R^q} \int_{\Gamma^\prime} (r^\prime)^{q-1} dr^\prime d\theta^\prime = \frac{q}{2\pi R^q} \int_\Gamma |r - b \cos\theta|^{q-1} dr d\theta \tag{11}$$
 where we have transformed the integral back to the variables
 $(r,\theta)$ by use of (8) and (9), noting that the Jacobian is unity.
 Evidently, (10) and (11) will be equal for arbitrary $\Gamma$ if and
@@ -326,7 +332,7 @@ with respect to a slightly displaced one.
 ## Final Results
 We have found the invariance requirements determine the probability
 density
-$$f(r, \theta) = \frac{1}{2\pi Rr}, \quad 0 \le r \le R, \quad 0 \le \theta \le 2\pi$$
+$$f(r, \theta) = \frac{1}{2\pi Rr}, \quad 0 \le r \le R, \quad 0 \le \theta \le 2\pi \tag{12}$$
 corresponding to solution A in the introduction. It is interesting that
 this has a singularity at the center, the need for which can be
 understood as follows. The condition that the midpoint $(r, \theta)$
@@ -353,7 +359,7 @@ The distribution of chord lengths follows at once from (12). A chord
 whose midpoint is at $(r, \theta)$ has a length $L=2(R^2 - r^2)^{1/2}$.
 In terms of the reduced chord lengths, $x \equiv L/2R$, we obtain the
 universal distribution law
-$$p(x)dx = \frac{x dx}{(1-x^2)^{1/2}}, \quad 0 \le x \le 1$$
+$$p(x)dx = \frac{x dx}{(1-x^2)^{1/2}}, \quad 0 \le x \le 1 \tag{13}$$
 in agreement with Borel's conjecture (1909).
 ## Frequency Correspondence
 From the manner of its derivation, the distribution (13) would appear to
@@ -369,11 +375,13 @@ argument, whether based on transformation groups or any other principle, can pre
 can easily imagine a very precise machine which tosses straws in such a
 way as to produce any distribution of chord lengths we please on a given
 circle.
+
 Nevertheless, we are entitled to claim a definite frequency
 correspondence for the result (13). For there is one "objective fact"
 which has been proved by the above derivation: Any rain of straws which
 does *not* produce a frequency distribution agreeing with (13) will
 necessarily produce different distributions on different circles.
+
 But this is all we need in order to predict with confidence that the
 distribution (13) *will* be observed in any experiment where the
 "region of uncertainty" is large compared to the circle. For, if we
@@ -381,16 +389,19 @@ lack the skill to toss straws so that, with certainty, they intersect a
 given circle, then surely we lack *a fortiori* the skill consistently to
 produce different distributions on different circles *within* this
 region of uncertainty!
+
 It is for this reason that distributions predicted by the method of
 transformation groups turn out to have a frequency correspondence after
 all. Strictly speaking, this result holds only in the limiting case of
 "zero skill," but as a moment's thought will show, the skill required
 to produce any appreciable deviation from (13) is so great that in
 practice it would be difficult to achieve even with a machine.
+
 Of course, the above arguments have demonstrated this frequency
 correspondence in only one case. In the following section we adduce
 arguments indicating that it is a general property of the transformation
 group method.
+
 These conclusions seem to be in direct contradiction to those of von
 Mises (1957, 1964), who denied that such problems belong to the field of
 probability theory at all. It appears to us that if we were to adopt von
@@ -401,6 +412,7 @@ unequivocal prediction, this issue has now been removed from
 the realm of philosophy into that of verifiable fact. The predictive
 power of the transformation group method can be put to the test quite
 easily in this and other problems by performing the experiments.
+
 The Bertrand experiment has, in fact, been performed by the writer and
 Dr. Charles E. Tyler, tossing broom straws from a standing position onto
 a 5-in.-diameter circle drawn on the floor. Grouping the range of chord
@@ -416,6 +428,7 @@ interest in probability terms we find almost always that a statement
 emerges which, like Bertrand's, appears too vague to determine any
 definite solution, because apparently essential things are left
 unspecified.
+
 We elaborate the example noted in the introduction: Given a gas of $N$
 molecules in a volume $V$, with known intermolecular forces, total
 energy $E$, predict from this its molecular velocity distribution,
@@ -429,6 +442,7 @@ indifference, and insist that the only valid basis for assigning
 probabilities is frequency in some random experiment, it would again
 appear that the only way of determining these quantities is to perform
 the experiment.
+
 It is, however, a matter of record that over a century ago, without
 benefit of any frequency data on positions and velocity of molecules,
 James Clark Maxwell was able to predict all these quantities correctly
@@ -439,6 +453,7 @@ casting doubt on Maxwell's analysis. But when the experiments were
 performed they confirmed Maxwell's prediction, leading to the first
 great triumph of kinetic theory. These are solid, positive accomplishments; and they cannot be made to appear otherwise merely by
 deploring his use of the principle of indifference.
+
 Likewise, we calculate the probability of obtaining various hands at
 poker; and we are so confident of the results that we are willing to
 risk money on bets which the calculations indicate are favorable to us.
@@ -449,6 +464,7 @@ predicting definite, verifiable facts by "pure thought" arguments
 based ultimately on recognizing the "equally possible" cases; and yet
 present statistical doctrine, both orthodox and personalistic, denies
 that this is a valid basis for assigning probabilities!
+
 The dilemma is thus apparent; on the one hand, one cannot deny the force
 of arguments which, by pointing to such things as Bertrand's paradox,
 demonstrate the ambiguities and dangers in the principle of
@@ -458,6 +474,7 @@ and useful predictions. Thus it appears that while we cannot wholly
 accept the principle of indifference, we cannot wholly reject it either;
 to do so would be to cast out some of the most important and successful
 applications of probability theory.
+
 The transformation group method grew out of the writer's conviction,
 based on pondering this situation, that the principle of indifference
 has been unjustly maligned in the past; what it has
@@ -466,6 +483,7 @@ to apply it. We agree with most other writers on probability theory that
 it is dangerous to apply this principle at the level of indifference
 between *events*, because our intuition is a very unreliable guide in
 such matters, as Bertrand's paradox illustrates.
+
 However, the principle of indifference may, in our view, be applied
 legitimately at the more abstract level of indifference between
 *problems*; because that is a matter that is definitely determined by
@@ -475,6 +493,7 @@ invariance property which the solution must have if there is to be any
 definite solution at all. The transformation group, which expresses
 these invariances mathematically, imposes definite restrictions on the
 form of the solution, and in many cases fully determines it.
+
 Of course, not all invariances are useful. For example, the statement of
 Bertrand's problem does not specify the time of day at which the straws
 are tossed, the color of the circle, the luminosity of Betelgeuse, or
@@ -482,6 +501,7 @@ the number of oysters in Chesapeake Bay; from which we infer, correctly,
 that if the problem as stated is to have a unique solution, it must not
 depend on these circumstances. But this would not help us unless we had
 previously thought that these things might be germane.
+
 Study of a number of cases makes it appear that the aforementioned
 dilemma can now be resolved as follows. We suggest that the cases in
 which the principle of indifference has been applied successfully in the
@@ -498,6 +518,7 @@ that all distributions of cards in the final hands are "equally
 likely," or by saying that the solution shall have this invariance
 property, we shall evidently do just the same calculation and obtain the
 same final result.
+
 There remains, however, a difference in the logical situation. After
 having applied the transformation group argument in this way we are not
 entitled to assert that the predicted distribution of poker hands *must*
@@ -508,17 +529,20 @@ different for different initial orders of cards; or, as we would state
 it colloquially, the cards are not being "properly" shuffled. This is,
 of course, just the conclusion we do draw in practice, whatever our
 philosophy about the "meaning of probability."
+
 Once again it is clear that the invariant solution is overwhelmingly the
 most likely one to be produced by a person of ordinary skill; to shuffle
 cards in such a way that one particular aspect of the initial order is
 retained consistently in the final order requires a "microscopic"
 degree of control over the exact details of shuffling (in this case, however, the possession of such skill is generally regarded as
 dishonest, rather than impossible).
+
 We have not found any general proof that the method of transformation
 groups will always lead to solutions which this frequency correspondence
 property; however, analysis of some dozen problems like the above has
 failed to produce any counterexample, and its general validity is
 rendered plausible as follows.
+
 In the first place, we recognize that every circumstance which our
 common sense tells us may exert some influence on the result of an
 experiment ought to be given explicitly in the statement of a problem.
@@ -532,6 +556,7 @@ some lack of control over the conditions of the experiment, which makes
 it impossible for us to state them. But invariance under the
 corresponding transformation group is just the formal expression of this
 lack of control, or lack of skill.
+
 One has the feeling that this situation can be formalized more
 completely; perhaps one can define some "space" corresponding to all
 possible degrees of skill and define a measure in this space, which
@@ -551,6 +576,7 @@ uniformly distributed. However, from the standpoint of the invariance
 group, it may be more useful to regard such problems as
 *overdetermined*; so many things are left unspecified that the
 invariance group is too large, and no solution can conform to it.
+
 It thus appears that the "higher-level problem" of how to formulate
 statistical problems in such a way that they are neither underdetermined
 nor overdetermined may itself be capable of mathematical analysis. In
@@ -563,6 +589,7 @@ was specified to determine any unique solution, but from the viewpoint
 which recognizes the full invariance group implied by the above
 statement of the problem, it now appears that it was well posed after
 all.
+
 In many cases, evidently, the difficulty has been simply that we have
 not been reading out all that is implied by the statement of a problem;
 the things left unspecified must be taken into account just as carefully
@@ -579,62 +606,30 @@ The question whether a problem is well posed is thus more subtle in
 probability theory than in other branches of mathematics, and any
 results which could be obtained by study of the "higher-level problem"
 might be of immediate use in applied statistics.
+
 ## Appendix: Comments on Bertrand's Problem {#appendix-comments-on-bertrands-problem .unnumbered}
-Bertrand (1889, pp. 4-5); "Aucune de trois n'est fausse, aucune n'est
-exacte, la question est mal posée."
-Borel (1909, pp. 110-113): "... il est aisé de voir que la plupart des
-procédés naturels que l'on peut imaginer conduiser à la première."
-Poincaré (1912, pp. 118-130): "...nous avons definie la probabilité de
-deux manières différentes."
-Uspensky (1937, p. 251): "... we are really dealing with two different
-Northrup (1944, pp. 181-183): "One guess is as good as another."
-Gnedenko (1962, pp. 40-41): The three results "would be appropriate"
-in three different experiments.
-Kendall and Moran (1963, p. 10): "All three solutions are correct, but
-they really refer to different problems."
-Weaver (1963, pp. 356-357): "... you have to watch your step."
-Von Mises (1964, pp. 160-166): "Which one of these or many other
-assumptions should be made is a question of fact and depends on how the
-needles are thrown. It is not a problem of probability calculus to
-decide which distribution prevails..." Von Mises, in the preface to
-(1957), also charges that, "Neither Laplace nor any of his followers,
-including Poincaré, ever reveals how, starting with *a priori* premises
-concerning equally possible cases, the sudden transition to the
-description of real statistical events is to be made." It appears to us
-that this had already been accomplished in large part by James Bernoulli
-(1703) in his demonstration of the weak law of large numbers, the first
-theorem establishing a connection between probability and frequency,
-Jaynes (1968), and the present article may be regarded as further
-contributions toward answering von Mises' objections.
-Mosteller (1965, p. 40): "Until the expression 'at random' is made more
-specific, the question does not have a definite answer ... We cannot
-guarantee that any of these results would agree with those obtained from
-some physical process …."
+- Bertrand (1889, pp. 4-5); "Aucune de trois n'est fausse, aucune n'est exacte, la question est mal posée."
+- Borel (1909, pp. 110-113): "... il est aisé de voir que la plupart des procédés naturels que l'on peut imaginer conduiser à la première."
+- Poincaré (1912, pp. 118-130): "...nous avons definie la probabilité de deux manières différentes."
+- Uspensky (1937, p. 251): "... we are really dealing with two different
+- Northrup (1944, pp. 181-183): "One guess is as good as another."
+- Gnedenko (1962, pp. 40-41): The three results "would be appropriate" in three different experiments.
+- Kendall and Moran (1963, p. 10): "All three solutions are correct, but they really refer to different problems."
+- Weaver (1963, pp. 356-357): "... you have to watch your step."
+- Von Mises (1964, pp. 160-166): "Which one of these or many other assumptions should be made is a question of fact and depends on how the needles are thrown. It is not a problem of probability calculus to decide which distribution prevails..." Von Mises, in the preface to (1957), also charges that, "Neither Laplace nor any of his followers, including Poincaré, ever reveals how, starting with *a priori* premises concerning equally possible cases, the sudden transition to the description of real statistical events is to be made." It appears to us that this had already been accomplished in large part by James Bernoulli (1703) in his demonstration of the weak law of large numbers, the first theorem establishing a connection between probability and frequency, Jaynes (1968), and the present article may be regarded as further contributions toward answering von Mises' objections.
+- Mosteller (1965, p. 40): "Until the expression 'at random' is made more specific, the question does not have a definite answer ... We cannot guarantee that any of these results would agree with those obtained from some physical process …."
 ## References {#references .unnumbered}
-Bertrand, J. (1889), *Calcul des probabilités*, Gauthier-Villars, Paris,
-pp. 4-5.
-Borel, E. (1909), *"Éléments de la théorie des probabilités*, Hermann
-et Fils, Paris, pp. 110-113.
-Gnedenko, B. V. (1962), *The Theory of Probability*, Chelsea Publ. Co.,
-New York, pp. 40-41.
-Jaynes, E. T. (1968), "Prior Probabilities," *IEEE Trans. Systems Sci.
-Cybernetics*, SSC-4, (3), pp. 227-241.
-Kendall, M. G. and Moran, P. A. P. (1963), *Geometrical Probability*,
-Hafner Publ. Co., New York, p. 10.
-von Mises, R. (1957), *Probability, Statistics and Truth*, Macmillan,
-New York.
-von Mises, R. (1964), in *Mathematical Theory of Probability and
-Statistics*, H. Geiringer ed., Academic Press, New York, pp. 160-166.
-Mosteller, F. (1965), *Fifty Challenging Problems in Probability*,
-Addison-Wesley, Reading, Massachusetts, p. 40.
-Northrup, E. P. (1944), *Riddles in mathematics*, van Nostrand, New
-York, pp.181-183.
-Poincaré H. (1912), *Calcul des probabilitiés*, Paris, pp. 118-130.
-Uspensky, J. V. (1937), *Introduction to Mathematical Probability*,
-McGraw-Hill, New York, p. 251.
-Weaver, W. (1963), *Lady Luck: the Theory of Probability*,
-Doubleday-Anchor, Garden City, New York, pp. 356-357.
-Weyl, H. (1946), *The Classical Groups*, Princeton University Press,
-Princeton, New Jersey.
-Wigner, E. P. (1931), *Gruppentheorie und ihre Anwendung auf die
-Quantenmechanik der Atomspektren*, Fr. Vieweg, Braunschweig.
+- Bertrand, J. (1889), *Calcul des probabilités*, Gauthier-Villars, Paris, pp. 4-5.
+- Borel, E. (1909), *"Éléments de la théorie des probabilités*, Hermann et Fils, Paris, pp. 110-113.
+- Gnedenko, B. V. (1962), *The Theory of Probability*, Chelsea Publ. Co., New York, pp. 40-41.
+- Jaynes, E. T. (1968), "Prior Probabilities," *IEEE Trans. Systems Sci. Cybernetics*, SSC-4, (3), pp. 227-241.
+- Kendall, M. G. and Moran, P. A. P. (1963), *Geometrical Probability*, Hafner Publ. Co., New York, p. 10.
+- von Mises, R. (1957), *Probability, Statistics and Truth*, Macmillan, New York.
+- von Mises, R. (1964), in *Mathematical Theory of Probability and Statistics*, H. Geiringer ed., Academic Press, New York, pp. 160-166.
+- Mosteller, F. (1965), *Fifty Challenging Problems in Probability*, Addison-Wesley, Reading, Massachusetts, p. 40.
+- Northrup, E. P. (1944), *Riddles in mathematics*, van Nostrand, New York, pp.181-183.
+- Poincaré H. (1912), *Calcul des probabilitiés*, Paris, pp. 118-130.
+- Uspensky, J. V. (1937), *Introduction to Mathematical Probability*, McGraw-Hill, New York, p. 251.
+- Weaver, W. (1963), *Lady Luck: the Theory of Probability*, Doubleday-Anchor, Garden City, New York, pp. 356-357.
+- Weyl, H. (1946), *The Classical Groups*, Princeton University Press, Princeton, New Jersey.
+- Wigner, E. P. (1931), *Gruppentheorie und ihre Anwendung auf die Quantenmechanik der Atomspektren*, Fr. Vieweg, Braunschweig.

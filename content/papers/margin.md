@@ -31,6 +31,7 @@ an inconsistency in Bayesian methods, shows that to violate them in
 seemingly harmless ways, can generate paradoxes; i.e., it is only by
 strict adherence to the Bayesian principles expounded by Jeffreys in
 1939, that one can avoid inconsistencies in statistical reasoning.
+
 The marginalization process is then turned to advantage by showing that
 it leads to a new means for defining what is meant by "uninformative"
 and for constructing noninformative priors, as the solution of an
@@ -126,13 +127,13 @@ $$
 p(\zeta|xI_1) = p(\zeta|zI_1) \tag{1}
 $$
 
- Now the rules of probability
+Now the rules of probability
 theory tell us that
 $$
 p(\zeta|xI_1) = \int d\eta \, p(\zeta|\eta xI_1)p(\eta|xI_1) \tag{2}
 $$
 
- If, given
+If, given
 $I_1$ and all the data x, additional knowledge of $\eta$ would be
 irrelevant for inference about $\zeta$; i.e., if
 $$
@@ -273,11 +274,12 @@ $\mu$, for which (15) is independent of y:
 $$
 p(\zeta|xI_1) \propto \pi(\zeta|I_1) \int_0^\infty \omega^{\nu-1} d\omega e^{-R} \pi(\sigma) \tag{18}
 $$
- From this we confirm Eq. (1.3) of DSZ (with k=1) and comparing with
+From this we confirm Eq. (1.3) of DSZ (with k=1) and comparing with
 (12) it is seen that $B_1$ and $B_2$ will agree if k=2. Once again it
 is clear from (15), (18) that in general their conclusions will differ
 because $B_1$ is taking into account relevant prior information about
 $\eta = (\mu,\sigma)$ that $B_2$ is ignoring.
+
 Rather than continuing with a rather tedious, but still superficial,
 inspection of more examples, which would only reconfirm the mechanism
 already established, we can get a better understanding by returning to a
@@ -338,12 +340,14 @@ virtually no y-dependence, even though the prior is still proper. There
 is no discontinuous change; as t becomes smaller and the prior (23)
 becomes more nearly nullifying, the y-statistic just becomes less and
 less informative.
+
 If then $B_1$, having noted that $t \ll yQ$, decides to simplify (24) by
 setting t=0, this now appears, not as a paradox-creating transgression
 into the realm of improper priors, but rather as a perfectly harmless
 and reasonable approximation--indeed, an approximation far better
 justified than many that are accepted without question in non-Bayesian
 statistics.
+
 If $B_1$ has very little prior information about $\eta$ [i.e., if
 (t,k) are small], then there is virtually no difference between his
 conclusions and $B_2$'s, whether his prior is proper or improper. If, on
@@ -359,6 +363,7 @@ in the ensuing discussion--almost to the exclusion of all else--and
 subsequent attempts to use this as an argument against all Bayesian
 methods, some further exegesis defending the use of improper priors is
 needed.
+
 A sequence {$\pi_i$} of proper priors defines a corresponding sequence
 {P_i} of posterior distributions. Often, even though the limit of
 {$\pi_i$} is improper, the limit of {P_i} is a proper,
@@ -1862,6 +1867,7 @@ Since statistical theory is returning to the original viewpoint of
 Laplace on the relation of inference and probability, we follow
 Laplace's example also in concluding with two remarks on the background
 of the marginalization problem, in addition to those noted by DSZ.
+
 The mathematical facts underlying marginalization were fully
 recognized-- and in the writer's view correctly interpreted--by Geisser
 and Cornfield (1963). Their equations (3.10) and (3.26) are just what we

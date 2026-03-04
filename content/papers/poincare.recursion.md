@@ -19,6 +19,7 @@ author: ["E.T. Jaynes"]
 categories: ["Quantum Mechanics & Advanced Physics"]
 tags: ["Poincaré recurrence", "statistical mechanics", "ergodic theory", "almost-periodic functions", "thermodynamics", "irreversible processes", "quantum theory"]
 ---
+
 ## INTRODUCTION
 One of the most serious objections[^1][^2][^3] to the ergodic approach in
 statistical mechanics is the fact that, even if the equality of time
@@ -59,6 +60,7 @@ analog of recurrence in phase space will be taken as a recurrence of the
 expectation values of all observables. The problem then reduces to a
 transcription of known results in the theory of almost-periodic
 functions.[^8]
+
 ## ALMOST-PERIODIC FUNCTIONS
 A set of real numbers $\{\tau_i\}$ is called relatively dense if there
 exists a number $T$ such that every interval $t < \tau < t + T$ of length
@@ -73,20 +75,30 @@ number corresponding to $\epsilon$.
 
 It may be shown[^8] that the class of almost-periodic functions is
 identical with the class of functions consisting of all finite sums
-$$f_N(t) = \sum_{n=1}^{N} a_n e^{i\omega_n t} \tag{2.1}$$ when "closed" by the
+
+$$f_N(t) = \sum_{n=1}^{N} a_n e^{i\omega_n t} \tag{2.1}$$
+
+when "closed" by the
 addition of all functions f(t) which can be uniformly approximated by
 the f_N: $|f(t) - f_N(t)| \le \epsilon$ for all $t$. In (2.1) the
 $a_n$ are arbitrary complex numbers and the $\omega_n$ are arbitrary
 real numbers.
+
 In our physical problem, the density matrix at time t is given by
-$$\rho_{nm}(t) = \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.2}$$ where the
+
+$$\rho_{nm}(t) = \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.2}$$
+
+where the
 stationary states are defined by $H\Psi_n = E_n\Psi_n$ and
 $\hbar \omega_{mn} = E_m - E_n$. Only a finite number of the $\rho_{nm}$
 are different from zero, and therefore any expectation value
-$$f(t) = \langle F \rangle = \text{Tr}(\rho F) = \sum_{m,n} F_{mn} \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.3}$$ 
+
+$$f(t) = \langle F \rangle = \text{Tr}(\rho F) = \sum_{m,n} F_{mn} \rho_{nm}(0) e^{i\omega_{mn} t} \tag{2.3}$$
+
 is an almost-periodic function of t. Recurrence times then correspond
 to the simultaneous translation numbers of all functions of the form
 (2.3).
+
 ## TIME AVERAGES
 In classical theory, the statement that recurrence times are related to
 the period over which time averages must be taken in order to
@@ -94,11 +106,18 @@ approximate their limiting values (henceforth called the averaging
 times), seems to be only a reasonable conjecture. In quantum theory,
 however, this becomes a theorem with surprising content. For every
 almost-periodic function, not only does there exist a mean value
-$$Mf(t) = \lim_{T\to\infty} \frac{1}{T} \int_{\alpha}^{\alpha+T} f(t) dt \tag{3.1}$$ 
+
+$$Mf(t) = \lim_{T\to\infty} \frac{1}{T} \int_{\alpha}^{\alpha+T} f(t) dt \tag{3.1}$$
+
 independent of $\alpha$, but it is also true[^8] that for any
 $\epsilon > 0$ we have
-$$\left| Mf(t) - \frac{1}{T} \int_{0}^{T} f(t) dt \right| \le \epsilon \tag{3.2}$$ 
-whenever $$T \ge \frac{4}{3\epsilon} T_0(\epsilon/2) f_{\text{max}} \tag{3.3}$$ 
+
+$$\left| Mf(t) - \frac{1}{T} \int_{0}^{T} f(t) dt \right| \le \epsilon \tag{3.2}$$
+
+whenever
+
+$$T \ge \frac{4}{3\epsilon} T_0(\epsilon/2) f_{\text{max}} \tag{3.3}$$
+
 where $f_{\text{max}}$ is an upper bound of $|f(t)|$ in
 $-\infty < t < \infty$. This result is surprisingly weak, since one
 might expect intuitively a much stronger statement, that the average
@@ -132,6 +151,7 @@ every new energy level taken into account, will increase this by a large
 factor. When we have reached any realistic model, the averaging time
 will again be enormous compared to the age of the universe. It seems
 hardly worthwhile to work out a typical numerical value.
+
 ## PHYSICAL INTERPRETATION
 The times involved in experiments are shorter, by perhaps 10^10
 orders of magnitude, than the times required for a full exploration of
@@ -186,11 +206,14 @@ the possibility that the system of interest O_1 and a heat-bath O_2
 which have been in interaction in the past, but are now completely
 isolated from each other and from the rest of the universe, may be
 jointly in a pure state 
-$$\psi(1,2) = \sum_{n,m} a_{nm} u_n(1) v_m(2) \tag{4.1}$$ 
+
+$$\psi(1,2) = \sum_{n,m} a_{nm} u_n(1) v_m(2) \tag{4.1}$$
+
 where u_n(1) and v_m(2) are possible state vectors of systems O_1
 and O_2 respectively. This implies that system 1 is in some sense in
 each of the states u_n(1), with a density matrix
-$$\rho_{nk}(1) = \sum_m a_{nm} a_{km}^{*} \tag{4.2}$$ 
+
+$$\rho_{nk}(1) = \sum_m a_{nm} a_{km}^{*} \tag{4.2}$$
 
 There is clearly no possibility of interpreting this density matrix as giving the relative
 frequencies with which system O_1 occupies the various states
@@ -212,6 +235,7 @@ compatible with that assumption, and which does not make use of
 ergodicity. We do not, however, attempt to answer the question whether
 "microscopic state" is to be interpreted as a pure state of quantum
 theory.
+
 ## MACROSCOPIC UNIFORMITY
 Consider any experiment performed on a macroscopic system. It might be
 anything from a nuclear induction measurement to throwing a baseball.
@@ -254,6 +278,7 @@ temperature and other parameters, and it assumes nothing beyond
 that.[^11] This remark carries many implications. In particular, if we
 adopt the view just expressed, it becomes necessary to discuss anew the
 meaning of experimentally measured temperature and entropy.
+
 ## EXPERIMENTAL TEMPERATURE AND ENTROPY
 In a thermodynamic experiment, a few degrees of freedom of a system are
 fixed by the experimental conditions, and a few others are observed,
@@ -269,6 +294,7 @@ between them. *Since these are the only criteria used in experiments to
 measure temperature and heat, they must, according to the operational
 view of physics, be the only ones involved in the corresponding
 concepts.*
+
 We may say that the temperature of a system is known if we can predict
 correctly which one of a set of thermometers, showing different
 readings, will not exchange appreciable energy with it if brought into
@@ -316,6 +342,7 @@ information is usually irrelevant for macroscopic predictions. If this
 were not the case, macroscopic information would not suffice for
 predicting macroscopic behavior, and there could be no science of
 thermodynamics.
+
 ## CONCLUSION
 Although the assumption of realism implies that the principle of
 macroscopic uniformity must be true, the converse does not hold. Indeed,
@@ -331,6 +358,7 @@ realism carries many implications for current unsolved problems in
 statistical mechanics.[^17] In the following we point out two examples
 of the manner in which these problems change if we now interpret
 "microscopic state" as meaning a pure state of quantum theory.
+
 ### A. Irreversible Processes.
 One of the fundamental problems of the theory of irreversible processes
 is how to find the ensemble which correctly represents a system in a
@@ -356,6 +384,7 @@ are permissible regardless of what they do to $\operatorname{Tr}(\rho \log \rho)
 density" is not something required by philosophical principles[^7]
 concerning the accuracy of measurements; it represents simply the
 process of discarding, voluntarily, irrelevant information.
+
 ### B. Condensation.
 In attempts to understand condensation since the time of van der Waals,
 the underlying idea has been that the phenomenon is basically a
@@ -372,6 +401,7 @@ the energy of a gas, we must reach a point where practically all of the
 possible stationary states correspond to a greater density of matter
 along the bottom portion of the container. Thus the problem of
 condensation becomes primarily one of physics rather than statistics.
+
 We see that if we abandon the attempt to utilize ergodicity, and at the
 same time retain the assumption of realism, the fact that statistical
 mechanics is successful carries far-reaching implications which are
@@ -380,6 +410,7 @@ that any of these implications, such as (A) or (B) above, is false, then
 it would appear that we must either abandon the association
 "microscopic state = pure state," or else return to the interpretation
 of Sec. 4.
+
 ## REFERENCES
 [^1]: P. and T. Ehrenfest, *Encykl. Math. Wiss.* **4**, No. 32 (1911).
 [^2]: R. H. Fowler, *Statistical Mechanics* (Cambridge, 1936), 1.4.
