@@ -108,6 +108,39 @@
         .paper-content p {
             margin-bottom: 1.25rem;
         }
+        /* Tailwind preflight removes default list markers; restore them for markdown content */
+        .paper-content ul,
+        .paper-content ol {
+            margin: 0 0 1.25rem 1.5rem;
+            padding-left: 1.25rem;
+            list-style-position: outside;
+        }
+        .paper-content ul {
+            list-style-type: disc;
+        }
+        .paper-content ol {
+            list-style-type: decimal;
+        }
+        .paper-content ul ul {
+            list-style-type: circle;
+        }
+        .paper-content ul ul ul {
+            list-style-type: square;
+        }
+        .paper-content ol ol {
+            list-style-type: lower-alpha;
+        }
+        .paper-content ol ol ol {
+            list-style-type: lower-roman;
+        }
+        .paper-content li {
+            margin-bottom: 0.35rem;
+        }
+        .paper-content li > ul,
+        .paper-content li > ol {
+            margin-top: 0.35rem;
+            margin-bottom: 0.35rem;
+        }
         .paper-content a {
             color: #007bff; /* blue */
             text-decoration: underline;
