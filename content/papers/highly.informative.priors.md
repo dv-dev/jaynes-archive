@@ -16,6 +16,7 @@ author: ["E.T. Jaynes"]
 ---
 
 ## INTRODUCTION
+
 The statistical problems envisaged in our pedagogy are almost always
 ones in which we acquire new data D that give evidence concerning some
 hypotheses H, H',... (this includes parameter estimation, since H might
@@ -54,7 +55,9 @@ history of the prior information issue, with its controversies still not
 entirely resolved, and to note some other new applications of
 informative priors. Our seasonal adjustment calculation starts in
 Section 4.
+
 ## NECESSARIANS
+
 There is a surprisingly wide range of philosophical views about the role
 of prior information. Since the 1930's a common view has been that it
 is just plain wrong to take prior information into account. As a student
@@ -190,7 +193,9 @@ there was specific prior information that needed to be taken into
 account. So it appeared to him that those of us who were seeking a
 formal apparatus by which one can construct informative priors, were
 "necessarians" - doing things that seemed to him unnecessary.
+
 ## NEW APPLICATIONS
+
 Coming back to the present, it seems to us that if Bayesian theory is
 ever to lay any claims of full logical consistency, a high priority
 research problem must be the development of the formal apparatus that
@@ -303,7 +308,9 @@ apply here the same idea to seasonal adjustment, showing how similar
 common-sense judgments about the harmonic content of the seasonal
 component can improve our estimates of the irregular component. It
 appears that in the seasonal adjustment case the effect may be greater.
+
 ## BAYESIAN SEASONAL ADJUSTMENT
+
 We have a discrete time y series of length N; think of it as a monthly
 economic report over N/12 years:
 $$y_t = s_t + e_t, \quad 1 \le t \le N$$ composed of a periodic seasonal
@@ -496,7 +503,9 @@ those few; the Bayesian estimates in (23) appear so totally different
 from (27) that it is not clear whether there is any case in which they
 would agree. We shall try to understand this difference, which arises
 entirely from prior information that brute stacking ignores.
+
 ## SIMPLE PRIOR INFORMATION - EXAMPLE 1
+
 *Example 1.* Let the prior information be: $I_1$ = "There is no
 oscillating seasonal component, but there may be a DC offset $A_0$".
 Although this seems too trivial to be worth analyzing, let us do it
@@ -602,7 +611,9 @@ since that common sense is using prior information that formalism of
 sampling theory does not recognize. In the more subtle cases to be
 considered next these effects of prior information are still present and
 just as cogent; but they are no longer obvious.
+
 ## SIMPLE PRIOR INFORMATION - EXAMPLE 2
+
 *Example 2.* Now consider the prior information: $I_2$ = "The seasonal
 component is purely sinusoidal of period 12, with no DC offset". We are
 to pass to the limit $a_0 \rightarrow 0, \sigma_0 \rightarrow 0$, and
@@ -716,7 +727,9 @@ jumping directly into that limit would have led to nonsense, the cause
 of which cannot be seen by looking only at the limit. We think that most 
 of the recent paradoxing in statistics could have been averted by 
 following this "cautious approach" policy.
+
 ## EFFECT OF NEW PARAMETERS
+
 We have seen the cases in which the prior information $I_1$ tells us
 that only the DC offset $A_0$ is present, and $I_2$ that only the first
 harmonic component is present. Suppose now $I_3$ = "Both are present".
@@ -810,7 +823,9 @@ application of that folk- theorem might suggest -- accommodates
 detrending easily. Of course, estimates of the irregulars are corrected
 if there is evidence for a strong trend; but there is very little change
 in their posterior correlations or accuracy.
+
 ## RANK OF THE COVARIANCE MATRIX
+
 The (N X N) matrix R defined in (25) is real and symmetric; therefore it
 has a full set of N orthonormal eigenvectors $h_i = (h_{1i}...h_{Ni})$
 and eigenvalues $\beta_i$:
@@ -869,7 +884,9 @@ $v_0 = v_6 = 0$. Every nonzero $M_k^{-1}$ contributes 1 or 2 to the
 rank, and when all are nonzero the maximum possible rank of R is 12.
 Stated differently, every seasonal parameter in the set $(A_0...B_5)$
 that is initially unknown contributes one to the rank of R.
+
 ## CONCLUSION
+
 Our analysis has shown how prior information about the seasonal
 parameters can have a major effect on our estimates of the irregulars or
 functions of them. In the extreme case where we know that a particular
@@ -931,7 +948,9 @@ economist, feels the need of help in choosing samples of data that
 appear to be promising for this purpose. Cases where hindsight was able 
 to make a significant correction of the first seasonal adjustment would 
 be particularly valuable.
+
 ## APPENDIX A: WHY A GAUSSIAN ERROR DISTRIBUTION?
+
 Stigler's Law of Eponymy (1980), illustrated by its name, states that
 "No scientific discovery is named after its original discoverer". Thus
 we find that the distribution $f(x) = \exp(-x^2/2)$ was used by Laplace
@@ -1118,7 +1137,9 @@ every case, but it is useful and computationally feasible -- a kind of
 Bayesian jackknife -- to reason as follows: if we did know $\sigma$, the
 Gaussian assignment would be indicated, so $\sigma$ is a relevant
 hyperparameter and the problem reduces to assigning a prior to $\sigma$.
+
 ## APPENDIX B: THE PRIOR FOR SIGMA
+
 In discussing our choice of prior $p(\sigma|I)$, we can answer some
 common misgivings by noting that the Bayesian formalism automatically
 provides a diagnostic check on our priors and model. Of course, their
@@ -1150,7 +1171,9 @@ aforementioned extremes in the prior $p(\sigma|I)$ cannot lead us to
 very different conclusions about seasonal adjustment unless the data
 sharply contradict our informative prior, in which case we should start
 over again anyway. So we made the simplest choice in the text.
+
 ## APPENDIX C: THE "DIAGNOSTIC PHASE" OF INFERENCE
+
 G. E. P. Box (1982) noted the Bayesian significance test for comparing
 different models, but criticized it on the grounds that it could lead us
 to misleading conclusions if the class of alternatives did not happen to
@@ -1274,7 +1297,9 @@ therefore a sharper perception for recognizing the unexpected. To one
 who expects nothing in particular, nothing can be unexpected. This
 applies especially to methods of data analysis that decline to use any
 formal apparatus at all.
+
 ## REFERENCES
+
 Box, G. E. P. (1982), "An Apology for Ecumenism in Statistics",
 Technical Report #2408, Mathematics Research Center, University of
 Wisconsin.
@@ -1304,6 +1329,7 @@ Feinstein, A. (1958). *Information Theory*, New Your: Wiley.
 
 Frieden, B. R. (1980), "Statistical Models for the Image Restoration
 Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
+
 Gibbs J. Willard (1902) *Elementary Principles in Statistical
 Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
@@ -1326,6 +1352,7 @@ Jaynes E. T. (1982), "On the Rationale of Maximum-Entropy Methods"
 
 Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
 Physics*, D. Reidel Publishing Co., Dordrecht-Holland
+
 Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
 Statistics", in *Proceedings of the International Convention on
 Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
@@ -1378,13 +1405,16 @@ Probabilities," *Statistica Neerlandica*, **11** 1-16.
 Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
 Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
 Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
+
 Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
 and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
 Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
 
 Zellner, A. (1982). "Is Jeffreys a Necessarist?" *Am. Stat.* **36**,
 28-30.
+
 ## DISCUSSION
+
 **J. J. DEELY (University of Canterbury, NZ)**
 Firstly, I must apologize to Professor Jaynes for not having enough time
 to verify the details of his paper. I had to leave New Zealand early in
@@ -1568,7 +1598,9 @@ for continuous distributions, and having the analogous "splitative"
 property for discrete distributions. That is, weight of evidence, in the
 discrete case, is unchanged if categories are split, such as tossing a
 coin (Good, 1973).
+
 ## REPLY TO THE DISCUSSION
+
 It is I who must apologize to John Deely for failure to get my complete
 manuscript to him before this meeting. Desperate attempts to meet three
 publication deadlines simultaneously led also to omission of some of the
@@ -1785,7 +1817,9 @@ Having statisticians since Fisher known about the singular posterior
 distributions for the $\{e_t\}$ that I pointed out? How could they even
 recognize the existence of correlations in any posterior distributions,
 without becoming Bayesians?
+
 ## REFERENCES IN THE DISCUSSION
+
 Ameen, J. R. M. and Harrison, P. J. (1984). "Normal discount Bayesian
 models." This volume.
 Deely, J. J., Zimmer, W. J. and Tierney, M. S. (1970). "On the
@@ -1798,4 +1832,3 @@ Good, I. J. (1973). "Information, reward, and quasi-utilities."
 (eds.). Dordrecht: D. Reidel, 115-127.
 Harrison, P. J. and Stevens, C. S. (1976). "Bayesian forecasting." *J.
 Roy. Stat. Soc. B*, **38**, 205-247 (with discussion).
-[^1]: Washington University, St. Louis

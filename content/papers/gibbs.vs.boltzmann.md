@@ -20,6 +20,7 @@ abstract: >
 author:
   ["E.T. Jaynes"]
 ---
+
 ## INTRODUCTION
 IN the writer's 1962 Brandeis lectures on statistical mechanics, the
 Gibbs and Boltzmann expressions for entropy were compared briefly, and
@@ -113,6 +114,7 @@ Boltzmann's $H$, some recent ones fail to mention even the existence of
 the Gibbs $H$.[^3] I was unable to find any explicit mathematical
 demonstration of their difference. It appeared, therefore, that the
 following note might be pedagogically useful.
+
 ## THE BASIC INEQUALITY
 We consider, as usual, a monoatomic fluid of $N$ particles. The ensemble
 is defined by the $N$-particle distribution function, or Liouville
@@ -174,6 +176,7 @@ $$
 $$
 W_N(1 \cdots N) = w_1(1) \cdots w_1(N).
 $$
+
 ## CANONICAL ENSEMBLE
 Theorem 1 holds for any symmetrical $W_N$. The magnitude of the
 difference $(H_G - H_B)$ depends on the distribution function, and we
@@ -272,6 +275,7 @@ observable effect on the thermodynamic properties. If the system
 exhibits an equation of state or heat capacity different from those of
 an ideal gas, the Boltzmann entropy will be in error by a corresponding
 amount.
+
 ## THE SECOND LAW
 We can now demonstrate the second law very easily, for the specialized
 case usually considered. The following argument can be greatly
@@ -316,6 +320,7 @@ the time-developed distribution function $W_N(t^\prime)$ leads to a correct
 prediction of the new energy $U^\prime$ in the sense of (16), then the
 inequality (17) still holds. The fact that $H_G$ is a constant of the
 motion then gives $S_e \leq S_e^\prime$, which is the second law.
+
 ## INTUITIVE MEANING OF THE SECOND LAW
 The above proof has the merit of being almost unbelievably short, but
 partly for that reason, the physical basis of the second law is not made
@@ -388,6 +393,7 @@ defines the largest high-probability region. The phase volume $W_0$
 therefore describes the full range of possible initial microstates; and
 not some arbitrary subset of them; this is the basic justification for
 using the canonical distribution to describe partial information.
+
 On the "subjective" side, we can therefore say that $W_0$ measures our
 degree of ignorance as to the true unknown microstate, when the only
 information we have consists of the macroscopic thermodynamic
@@ -404,7 +410,8 @@ When we carry out an adiabatic change of state, the region $R_0$ is
 transformed, by the equations of motion, into a new region $R_1$. From
 either the constancy of $H_G$, or directly from Liouville's theorem, the
 phase volume remains unchanged; $W_1=W_0$. Each possible initial
-microstate in $R_0$ uniquely determines a possible final one in $R_1$, and on successive repetitions of the experiment, the final state varies
+microstate in $R_0$ uniquely determines a possible final one in $R_1$,
+and on successive repetitions of the experiment, the final state varies
 over $R_1$ at random.
 
 At the end of this experiment, under the new equilibrium conditions, we
@@ -458,7 +465,7 @@ the system just before $t=0$ imposes any constraints other than those
 implied by the canonical distribution, the manifold of possible initial
 states will be reduced below $W_0$, and we shall not have an equality in
 Eq. (17) initially. This necessity is also shown strikingly from an
-experimental standpoint in the phenomenon of spin echos,[^7]$^,$[^8]
+experimental standpoint in the phenomenon of spin echos,[^7][^8]
 which is a gross violation of any statement of the second law that fails
 to specify anything about the past history of the system. This proviso
 has not been particularly emphasized before, but it has always been
@@ -495,6 +502,7 @@ irreversible phenomena; we must learn how to construct ensembles which
 describe not only the present values of macroscopic quantities, but also
 whatever information we have about their past behavior. The details of
 this generalization will be given elsewhere.
+
 ## THE "ANTHROPOMORPHIC" NATURE OF ENTROPY
 After the above insistence that any demonstration of the second law must
 involve the entropy as measured experimentally, it may come as a shock
@@ -547,7 +555,8 @@ experimental entropy is a function $S_n(X_1 \cdots X_n)$ of $n$
 independent variables. But the physical system has any number of
 additional degrees of freedom $X_{n+1}, X_{n+2}$, etc. We have to
 understand that these additional degrees of freedom are not to be
-tampered with during the experiments on the $n$ degrees of interest; otherwise one could easily produce apparent violations of the second
+tampered with during the experiments on the $n$ degrees of interest;
+otherwise one could easily produce apparent violations of the second
 law.
 
 For example, the engineers have their "steam tables," which give
@@ -559,6 +568,7 @@ electric field strength present. It must always be understood implicitly
 degree of freedom was not tampered with during the experiments on which
 the steam tables are based; which means, in this case, that the electric
 field was not inadvertently varied from one measurement to the next.
+
 Recognition that the "entropy of a physical system" is not meaningful
 without further qualifications is important in clarifying many questions
 concerning irreversibility and the second law. For example, I have been
@@ -567,6 +577,7 @@ cat, which converts inanimate food into a highly organized structure and
 behavior, represents a violation of the second law. The answer I always
 give is that, until we specify the set of parameters which define the
 thermodynamic state of the cat, no definite question has been asked!
+
 It seems apparent, in view of complications which we have encountered in
 the attempt to give a complete statement of the second law, that much
 more work needs to be done in this field. Glib, unqualified statements
@@ -578,6 +589,7 @@ has been attempted thus far. Perhaps the most difficult problem of all
 is to learn how to state clearly what is the specific question we are
 trying to answer? However, I believe that in the above arguments we have
 been able to report some progress in this direction.
+
 ## ACKNOWLEDGMENTS
 I have profited from discussions of these problems, over many years,
 with Professor E. P. Wigner, from whom I first heard the remark,
@@ -614,4 +626,3 @@ and suggesting an important clarification of the argument.
 
 [^7]: E. L. Hahn, Phys. Rev. **80**, 580 (1950).
 [^8]: A. L. Bloom, Phys. Rev. **98**, 1104 (1955).
-[^100]: Department of Physics, Washington University, St. Louis, Missouri

@@ -11,7 +11,7 @@ abstract: >
   nuclear gyromagnetic effects have not as yet been observed
   experimentally, although their existence has been suggested. Our
   treatment of electronic effects does not include ferromagnetism.
-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
+author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
 ---
 ## INTRODUCTION
 THE experiment of rotating a magnet to polarize it and the converse
@@ -26,6 +26,7 @@ out by Einstein and de Haas.[^5] These experiments provided early
 measurements of the gyromagnetic ratio of electrons. The experimental
 work on these effects has continued[^6] and very high accuracy is 
 attained in the recent experiments, particularly those of Scott.[^6]
+
 The physical fact underlying all the gyromagnetic effects is that the
 nuclear spin and the electronic spin, as well as their orbital angular
 momenta, generate a magnetic moment parallel to the angular momentum
@@ -1002,6 +1003,7 @@ perturbation theory, he finds $g=2+\alpha$. The result is valid even
 when exchange interactions, dipole interactions between spins, and any
 other interactions which commute with $S$ are included. The available
 experimental data are summarized in Table I.
+
 | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
 | :--- | :--- | :--- | :--- |
 | Fe | 2.11 | 1.90 | 1.92 |
@@ -1012,7 +1014,9 @@ experimental data are summarized in Table I.
 | Heusler Alloy | 2.01 | 1.99 | 1.99 |
 | Magnetite | 2.20 | 1.83 | 1.93 |
 | Mn Sb | 2.10 | 1.91 | 1.98 |
+
 **Table I:** Comparison of experimental g values and g' values.[^32]
+
 The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
 for Fe, Ni, Co, and the alloys. A few years ago it appeared that
 discrepancies existed for these metals and alloys. However, the recent
@@ -1987,6 +1991,7 @@ used, and $I$ is the angular momentum in units of $\hbar$.
 7.  $\langle I_x^2\Gamma \rangle_0 = \frac{1}{2}\frac{\partial\langle I_x^2 \rangle_0}{\partial a} = \frac{aI(I+1)}{90}[4I(I+1)-3]+O(a^3)$
 8.  $\langle I_x I_y \Gamma \rangle_0 = \langle I_z I_x \Gamma \rangle_0 = 0$
 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
+
 [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
 [^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
 [^3]: J. Clerk Maxwell, *Electricity and Magnetism* (Oxford University Press, London, 1892), pp. 574 and 575.

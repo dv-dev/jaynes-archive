@@ -1,0 +1,429 @@
+=== STDOUT ===
+Updated [content/papers/gyromagnetic.effects.md](/home/dave/Projects/jaynes-archive/content/papers/gyromagnetic.effects.md) with minimal structural QA edits:
+
+- Added missing second author footnote marker in front matter: `E.T. Jaynes[^2]`.
+- Inserted a paragraph break in the introduction to reduce one merged text wall.
+- Improved Markdown table rendering around Table I by adding proper blank lines before/after the table and caption.
+- Added a blank line before footnote definitions so the final numbered list and footnotes render cleanly.
+
+No paper meaning was changed, and no LaTeX/KaTeX/math text was modified. No duplicate abstract text in body was found, so no abstract-removal edit was needed.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb9a9-43ca-7850-b3a2-b2d4cd2d8917
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/gyromagnetic.effects.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/gyromagnetic.effects.md` for structural Markdown QA issues, then apply only minimal formatting edits that preserve meaning and leave all math untouched.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Theory of Gyromagnetic Effects and Some Related Magnetic Phenomena"
+year: 1962
+abstract: >
+  In this paper we present a unified theory of these gyromagnetic effects
+  and ordinary magnetic polarization. In addition, we consider the
+  analogous nuclear gyromagnetic phenomena and polarization of nuclei by a
+  magnetic field. This results in a unified treatment of several effects,
+  such as the Knight shift, the Lamb diamagnetic shielding, the Ramsey
+  chemical shift, and pseudodipolar coupling. Of these phenomena, only the
+  nuclear gyromagnetic effects have not as yet been observed
+  experimentally, although their existence has been suggested. Our
+  treatment of electronic effects does not include ferromagnetism.
+author: ["S.P. Heims[^1]", "E.T. Jaynes"]
+---
+## INTRODUCTION
+THE experiment of rotating a magnet to polarize it and the converse
+experiment of applying a magnetic field to a freely suspended magnet in
+order to induce its rotation are called gyromagnetic experiments. Their
+history goes back as far as Maxwell,[^3] who suggested and tried these
+codex
+I’ve loaded the first section and will now scan the rest of the file for duplicate abstract text, citation formatting inconsistencies, and structural Markdown issues before patching.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$I\omega_x(t_n)$ and $I\omega_x(t_m)$ that occurs, the order of writing
+the factors is taken to be the order of the natural time sequence.
+Comparing (13) to the part of the time-evolution operator involving the
+magnetic field and requiring that $[J\cdot\omega(t), \mathcal{H}_0]=0$,
+gives the time-dependent Larmor theorem which differs from (7) and (9)
+only in that $H$ and $\omega$ are time-dependent. For example, (7b)
+becomes 
+$$
+\omega_k(t) = \gamma_k H(t) \text{ for all } t.
+$$
+
+ For magnetic
+fields which vary nonlinearly with the time, the accompanying electric
+field is only approximately given by $E = \dot{H} \times r/2c$. The
+approximation consists of neglecting displacement current. When that
+approximation applies, the theorem (14) and the other time-dependent
+expressions corresponding to (7a) and (9) can be derived.
+### A Simple Example of Polarization
+The discussion of Larmor's theorem has shown that the effect of a
+constant magnetic field is transformed away by going to a rotating
+exec
+/bin/bash -lc "sed -n '521,900p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+e^{A+B} = e^A\left[1+\epsilon \int_0^1 e^{-Ax}Be^{A(x+\epsilon B)}dx \right]
+$$
+ to obtain, by iteration,
+$$
+e^{\epsilon A+B} = e^A[1+\epsilon S_1 + \epsilon^2 S_2 + O(\epsilon^3)]
+$$
+$$
+\begin{aligned}
+S_1 &= \int_0^1 dx e^{-Ax}Be^{Ax} \nonumber \\\\ S_2 &= \int_0^1 xdx \int_0^1 dx^\prime e^{-Ax}Be^{Ax(1-x^\prime)}Be^{Axx^\prime},
+\end{aligned}
+$$
+ and, thus, 
+$$
+\begin{aligned}
+\frac{de^{\epsilon A+B}}{d\epsilon}\bigg|_{\epsilon=0} &= e^A S_1; \nonumber \\\\ \frac{d^2e^{\epsilon A+B}}{d\epsilon^2}\bigg|_{\epsilon=0} &= 2e^A S_2.
+\end{aligned}
+$$
+
+ The derivatives for $\langle C \rangle_\epsilon$ are
+exec
+/bin/bash -lc "sed -n '901,1280p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+(e/2mc)g^\prime_B = \omega_B/H_B = \frac{\langle M_3 \rangle/\theta_{33}}{\langle M_3 \rangle/\chi_{33}} = \frac{\chi_{33}}{\theta_{33}}.
+$$
+
+The equality $g^\prime_B=g^\prime_E=g^\prime$ arises from the equality of $\theta_{33}$
+and $\theta^\prime_{33}$, which is a direct consequence of the relation (35). In
+the present (linear) approximation, $g^\prime_E$ and $g^\prime_B$ are independent
+of the field strength or angular velocity, but may have a temperature
+dependence. Numerical evaluation of $g^\prime$ has been carried out by Van
+Vleck and Frank,[^25] by Arajs et al.[^26] for rare-earth salts, and by
+Gorter and Kahn[^27] particularly for salts containing ions of the iron
+group. Van Vleck, Frank, and Arajs assume that $J_z$ commutes with
+$\mathcal{H}^{(0)}$, so that
+$$
+\theta = (e/2mc)\beta\langle(L_z+S_z)(L_z+2S_z)\rangle_0.
+$$
+
+ This is a
+good assumption for the rare-earth salts, since the $4f$ electrons
+responsible for the magnetism are well inside the atoms and only very
+exec
+/bin/bash -lc "sed -n '1281,1700p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+to previously known effects, many of which have been observed and
+evaluated theoretically in detail. The field $H^I$ is known[^39] to cause
+splitting of magnetic-resonance lines in unsymmetrical configurations.
+If the crystal is rotating, the vector $R_\alpha$ also rotates, so that
+the splittings depending on the components of $R_\alpha$ perpendicular
+to the axis of rotation will be washed out.[^40] The term $H^S$ produces
+an anisotropic line shift, which is however zero in crystals with cubic
+symmetry. The field $H^S$ must also include the effect of the
+second-order, pseudodipolar coupling, which has, for example, been
+studied by Bloembergen and Rowland.[^41] This is shown by treating the
+contact interaction between the electron spin $S$ and nuclear spin $I_a$
+as a perturbation in the exponent of the density matrix $\rho_0$ in
+evaluating the expectation values (66), and by then calculating the
+linear term in the perturbation according to (30). In this way, we find
+for an electron of spin $S$ coupled with a nuclear spin $I$ other than
+the spin of interest:
+$$
+\left\langle \frac{S_z}{r^3} - \frac{3z(r\cdot S)}{r^5} \right\rangle_{00} - \left\langle \frac{S_z}{r_a^3} - \frac{3z_a(r_a \cdot S)}{r_a^5} \right\rangle_{00} - (4\pi/3)\mu_e\mu_g\beta\langle I_a^z \rangle_{00} \left\langle \frac{1-3\cos\theta_{0a}}{R_{0a}^3} \right\rangle_{00} + \dots
+\tag{73}
+$$
+exec
+/bin/bash -lc "sed -n '1701,2100p' content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+oscillation in the usual manner[^52] to obtain in the laboratory system
+$$
+\dot{\sigma}+i[\gamma H_0 I_z + \Delta E + \Gamma, \sigma]\_z = \pi\sum_n \langle F_n(0)F_{-n}(0)\rangle (2e^{-\beta\hbar n\Omega}\sigma K_n K_{-n} - \sigma K_n K_{-n} - K_n K_{-n}\sigma),
+$$
+ with $\Delta E$ defined by its matrix elements
+$$
+\langle m|\Delta E|m'\rangle = [\hbar/(\sum_{g'}e^{-\beta g'})]\sum_g e^{\beta g}\langle mg|G(0)|mg\rangle,
+$$
+ and
+$$
+\Gamma = \sum_n P \int (d\epsilon/\epsilon)(F_n(-\epsilon)F_{-n}(\epsilon))K_n K_{-n},
+$$
+ where $P$ means the "principal part of the integral." The left-hand
+side of (99) describes the periodic precession of the spin. In first
+approximation, the precession frequency is just $\gamma H_0$,
+independent of the rotation of the crystal. The terms in $\Delta E$ and
+$\Gamma$ are corrections, respectively, linear and quadratic in the
+coupling $G$; these correspond to the linear and quadratic perturbations
+on the energy levels, which were studied in Sec. 3d in connection with
+the equilibrium-density matrix. The right-hand side of (99) describes
+codex
+I identified a few safe structural fixes: author footnote consistency in front matter, clearer paragraph breaks in the introduction, and Markdown table spacing/caption separation. I’m applying only those minimal edits now.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/gyromagnetic.effects.md
+@@ -13,3 +13,3 @@
+   treatment of electronic effects does not include ferromagnetism.
+-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
++author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+ ---
+@@ -28,2 +28,3 @@
+ attained in the recent experiments, particularly those of Scott.[^6]
++
+ The physical fact underlying all the gyromagnetic effects is that the
+@@ -1004,2 +1005,3 @@
+ experimental data are summarized in Table I.
++
+ | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
+@@ -1014,3 +1016,5 @@
+ | Mn Sb | 2.10 | 1.91 | 1.98 |
++
+ **Table I:** Comparison of experimental g values and g' values.[^32]
++
+ The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
+@@ -1989,2 +1993,3 @@
+ 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
++
+ [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
+apply_patch(auto_approved=true) exited 0 in 16ms:
+Success. Updated the following files:
+M content/papers/gyromagnetic.effects.md
+file update:
+diff --git a/content/papers/gyromagnetic.effects.md b/content/papers/gyromagnetic.effects.md
+index 02acdf0f957ad435c2d77686951aa963efa93ac2..fbaeea33791c9b80d580229366c3921bb145f9e1
+--- a/content/papers/gyromagnetic.effects.md
++++ b/content/papers/gyromagnetic.effects.md
+@@ -11,7 +11,7 @@
+   nuclear gyromagnetic effects have not as yet been observed
+   experimentally, although their existence has been suggested. Our
+   treatment of electronic effects does not include ferromagnetism.
+-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
++author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+ ---
+ ## INTRODUCTION
+ THE experiment of rotating a magnet to polarize it and the converse
+@@ -26,6 +26,7 @@
+ measurements of the gyromagnetic ratio of electrons. The experimental
+ work on these effects has continued[^6] and very high accuracy is 
+ attained in the recent experiments, particularly those of Scott.[^6]
++
+ The physical fact underlying all the gyromagnetic effects is that the
+ nuclear spin and the electronic spin, as well as their orbital angular
+ momenta, generate a magnetic moment parallel to the angular momentum
+@@ -1002,6 +1003,7 @@
+ when exchange interactions, dipole interactions between spins, and any
+ other interactions which commute with $S$ are included. The available
+ experimental data are summarized in Table I.
++
+ | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
+ | :--- | :--- | :--- | :--- |
+ | Fe | 2.11 | 1.90 | 1.92 |
+@@ -1012,7 +1014,9 @@
+ | Heusler Alloy | 2.01 | 1.99 | 1.99 |
+ | Magnetite | 2.20 | 1.83 | 1.93 |
+ | Mn Sb | 2.10 | 1.91 | 1.98 |
++
+ **Table I:** Comparison of experimental g values and g' values.[^32]
++
+ The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
+ for Fe, Ni, Co, and the alloys. A few years ago it appeared that
+ discrepancies existed for these metals and alloys. However, the recent
+@@ -1987,6 +1991,7 @@
+ 7.  $\langle I_x^2\Gamma \rangle_0 = \frac{1}{2}\frac{\partial\langle I_x^2 \rangle_0}{\partial a} = \frac{aI(I+1)}{90}[4I(I+1)-3]+O(a^3)$
+ 8.  $\langle I_x I_y \Gamma \rangle_0 = \langle I_z I_x \Gamma \rangle_0 = 0$
+ 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
++
+ [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
+ [^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
+ [^3]: J. Clerk Maxwell, *Electricity and Magnetism* (Oxford University Press, London, 1892), pp. 574 and 575.
+
+file update:
+diff --git a/content/papers/gyromagnetic.effects.md b/content/papers/gyromagnetic.effects.md
+index 02acdf0f957ad435c2d77686951aa963efa93ac2..fbaeea33791c9b80d580229366c3921bb145f9e1
+--- a/content/papers/gyromagnetic.effects.md
++++ b/content/papers/gyromagnetic.effects.md
+@@ -11,7 +11,7 @@
+   nuclear gyromagnetic effects have not as yet been observed
+   experimentally, although their existence has been suggested. Our
+   treatment of electronic effects does not include ferromagnetism.
+-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
++author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+ ---
+ ## INTRODUCTION
+ THE experiment of rotating a magnet to polarize it and the converse
+@@ -26,6 +26,7 @@
+ measurements of the gyromagnetic ratio of electrons. The experimental
+ work on these effects has continued[^6] and very high accuracy is 
+ attained in the recent experiments, particularly those of Scott.[^6]
++
+ The physical fact underlying all the gyromagnetic effects is that the
+ nuclear spin and the electronic spin, as well as their orbital angular
+ momenta, generate a magnetic moment parallel to the angular momentum
+@@ -1002,6 +1003,7 @@
+ when exchange interactions, dipole interactions between spins, and any
+ other interactions which commute with $S$ are included. The available
+ experimental data are summarized in Table I.
++
+ | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
+ | :--- | :--- | :--- | :--- |
+ | Fe | 2.11 | 1.90 | 1.92 |
+@@ -1012,7 +1014,9 @@
+ | Heusler Alloy | 2.01 | 1.99 | 1.99 |
+ | Magnetite | 2.20 | 1.83 | 1.93 |
+ | Mn Sb | 2.10 | 1.91 | 1.98 |
++
+ **Table I:** Comparison of experimental g values and g' values.[^32]
++
+ The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
+ for Fe, Ni, Co, and the alloys. A few years ago it appeared that
+ discrepancies existed for these metals and alloys. However, the recent
+@@ -1987,6 +1991,7 @@
+ 7.  $\langle I_x^2\Gamma \rangle_0 = \frac{1}{2}\frac{\partial\langle I_x^2 \rangle_0}{\partial a} = \frac{aI(I+1)}{90}[4I(I+1)-3]+O(a^3)$
+ 8.  $\langle I_x I_y \Gamma \rangle_0 = \langle I_z I_x \Gamma \rangle_0 = 0$
+ 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
++
+ [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
+ [^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
+ [^3]: J. Clerk Maxwell, *Electricity and Magnetism* (Oxford University Press, London, 1892), pp. 574 and 575.
+
+exec
+/bin/bash -lc "rg -n \"unified theory of these gyromagnetic effects|Lecture given at|\\(.*[0-9]{4}.*\\)\\[\\"'^|'"\\[\\"'^2'"\\]\" content/papers/gyromagnetic.effects.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+5:  In this paper we present a unified theory of these gyromagnetic effects
+14:author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+1996:[^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
+file update:
+diff --git a/content/papers/gyromagnetic.effects.md b/content/papers/gyromagnetic.effects.md
+index 02acdf0f957ad435c2d77686951aa963efa93ac2..fbaeea33791c9b80d580229366c3921bb145f9e1
+--- a/content/papers/gyromagnetic.effects.md
++++ b/content/papers/gyromagnetic.effects.md
+@@ -11,7 +11,7 @@
+   nuclear gyromagnetic effects have not as yet been observed
+   experimentally, although their existence has been suggested. Our
+   treatment of electronic effects does not include ferromagnetism.
+-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
++author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+ ---
+ ## INTRODUCTION
+ THE experiment of rotating a magnet to polarize it and the converse
+@@ -26,6 +26,7 @@
+ measurements of the gyromagnetic ratio of electrons. The experimental
+ work on these effects has continued[^6] and very high accuracy is 
+ attained in the recent experiments, particularly those of Scott.[^6]
++
+ The physical fact underlying all the gyromagnetic effects is that the
+ nuclear spin and the electronic spin, as well as their orbital angular
+ momenta, generate a magnetic moment parallel to the angular momentum
+@@ -1002,6 +1003,7 @@
+ when exchange interactions, dipole interactions between spins, and any
+ other interactions which commute with $S$ are included. The available
+ experimental data are summarized in Table I.
++
+ | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
+ | :--- | :--- | :--- | :--- |
+ | Fe | 2.11 | 1.90 | 1.92 |
+@@ -1012,7 +1014,9 @@
+ | Heusler Alloy | 2.01 | 1.99 | 1.99 |
+ | Magnetite | 2.20 | 1.83 | 1.93 |
+ | Mn Sb | 2.10 | 1.91 | 1.98 |
++
+ **Table I:** Comparison of experimental g values and g' values.[^32]
++
+ The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
+ for Fe, Ni, Co, and the alloys. A few years ago it appeared that
+ discrepancies existed for these metals and alloys. However, the recent
+@@ -1987,6 +1991,7 @@
+ 7.  $\langle I_x^2\Gamma \rangle_0 = \frac{1}{2}\frac{\partial\langle I_x^2 \rangle_0}{\partial a} = \frac{aI(I+1)}{90}[4I(I+1)-3]+O(a^3)$
+ 8.  $\langle I_x I_y \Gamma \rangle_0 = \langle I_z I_x \Gamma \rangle_0 = 0$
+ 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
++
+ [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
+ [^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
+ [^3]: J. Clerk Maxwell, *Electricity and Magnetism* (Oxford University Press, London, 1892), pp. 574 and 575.
+
+codex
+Updated [content/papers/gyromagnetic.effects.md](/home/dave/Projects/jaynes-archive/content/papers/gyromagnetic.effects.md) with minimal structural QA edits:
+
+- Added missing second author footnote marker in front matter: `E.T. Jaynes[^2]`.
+- Inserted a paragraph break in the introduction to reduce one merged text wall.
+- Improved Markdown table rendering around Table I by adding proper blank lines before/after the table and caption.
+- Added a blank line before footnote definitions so the final numbered list and footnotes render cleanly.
+
+No paper meaning was changed, and no LaTeX/KaTeX/math text was modified. No duplicate abstract text in body was found, so no abstract-removal edit was needed.
+file update:
+diff --git a/content/papers/gyromagnetic.effects.md b/content/papers/gyromagnetic.effects.md
+index 02acdf0f957ad435c2d77686951aa963efa93ac2..fbaeea33791c9b80d580229366c3921bb145f9e1
+--- a/content/papers/gyromagnetic.effects.md
++++ b/content/papers/gyromagnetic.effects.md
+@@ -11,7 +11,7 @@
+   nuclear gyromagnetic effects have not as yet been observed
+   experimentally, although their existence has been suggested. Our
+   treatment of electronic effects does not include ferromagnetism.
+-author: ["S.P. Heims[^1]", "E.T. Jaynes"]
++author: ["S.P. Heims[^1]", "E.T. Jaynes[^2]"]
+ ---
+ ## INTRODUCTION
+ THE experiment of rotating a magnet to polarize it and the converse
+@@ -26,6 +26,7 @@
+ measurements of the gyromagnetic ratio of electrons. The experimental
+ work on these effects has continued[^6] and very high accuracy is 
+ attained in the recent experiments, particularly those of Scott.[^6]
++
+ The physical fact underlying all the gyromagnetic effects is that the
+ nuclear spin and the electronic spin, as well as their orbital angular
+ momenta, generate a magnetic moment parallel to the angular momentum
+@@ -1002,6 +1003,7 @@
+ when exchange interactions, dipole interactions between spins, and any
+ other interactions which commute with $S$ are included. The available
+ experimental data are summarized in Table I.
++
+ | Material | Magnetic-resonance measurements $g$ | $g/(g-1)$ | Gyromagnetic-effect measurements $g^\prime$ |
+ | :--- | :--- | :--- | :--- |
+ | Fe | 2.11 | 1.90 | 1.92 |
+@@ -1012,7 +1014,9 @@
+ | Heusler Alloy | 2.01 | 1.99 | 1.99 |
+ | Magnetite | 2.20 | 1.83 | 1.93 |
+ | Mn Sb | 2.10 | 1.91 | 1.98 |
++
+ **Table I:** Comparison of experimental g values and g' values.[^32]
++
+ The data indicate satisfactory agreement with the relation $g/(g-1)=g^\prime$,
+ for Fe, Ni, Co, and the alloys. A few years ago it appeared that
+ discrepancies existed for these metals and alloys. However, the recent
+@@ -1987,6 +1991,7 @@
+ 7.  $\langle I_x^2\Gamma \rangle_0 = \frac{1}{2}\frac{\partial\langle I_x^2 \rangle_0}{\partial a} = \frac{aI(I+1)}{90}[4I(I+1)-3]+O(a^3)$
+ 8.  $\langle I_x I_y \Gamma \rangle_0 = \langle I_z I_x \Gamma \rangle_0 = 0$
+ 9.  $\langle I_x I_y \Gamma \rangle_0 = -\langle I_y I_x \Gamma \rangle_0 = \tfrac{1}{2}i\hbar\langle I_z\Gamma \rangle_0$
++
+ [^1]: Brandeis University, Waltham, Massachusetts. Part of the material in this paper is based on a Ph.D. dissertation submitted to Stanford University in 1960. Some of the work was carried out while this author was associated with Raytheon Company, Wayland, Massachusetts. Work at Brandeis University supported by the U. S. Air Force.
+ [^2]: Washington University, St. Louis, Missouri. Work at Stanford University supported by the U. S. Air Force during 1959 and 1960.
+ [^3]: J. Clerk Maxwell, *Electricity and Magnetism* (Oxford University Press, London, 1892), pp. 574 and 575.
+
+tokens used
+47,617
+

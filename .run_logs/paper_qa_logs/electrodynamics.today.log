@@ -1,0 +1,1408 @@
+=== STDOUT ===
+Changed `content/papers/electrodynamics.today.md` with minimal structural QA edits only:
+
+- Improved markdown readability:
+  - formatted the opening Einstein quote as a blockquote
+  - inserted missing paragraph breaks where text had run together
+  - fixed split/broken sentence flow around the Mahanty/Power passage
+- Repaired reference formatting:
+  - cleaned malformed wrapping in reference 22
+- Improved addendum structure:
+  - converted `(1)`…`(7)` blocks into a proper markdown numbered list
+- Removed extraneous trailing metadata footnote:
+  - deleted `[^100]` affiliation/publication-note block at the end
+- Confirmed no duplicate abstract text in the body, so no abstract-body removal was needed.
+- Ignored missing figures as requested.
+- Left LaTeX/math expressions unchanged.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb99b-9fb4-7f33-9f35-c473a3b313f4
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/electrodynamics.today.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/electrodynamics.today.md` for structural QA only (paragraphs, tables, duplicate abstract, citations, extraneous metadata), then apply minimal direct edits while preserving all meaning and leaving every math expression untouched.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/electrodynamics.today.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Electrodynamics Today"
+year: 1978
+abstract: >
+  The question whether Quantum Optics can provide any new evidence that
+  might clear up the then outstanding difficulties in QED was raised at
+  the 1966 Rochester Coherence Conference, in the author's talk
+  entitled, "Is QED Necessary?" This was done in a deliberately
+  provocative way because of a complacency in the air that tended to
+  regard Quantum Optics as nothing more than an application of
+  completely established theory. If this field has no long-range goals
+  of its own relating to fundamental physics, it must inevitably
+  degenerate into a kind of Engineering Service Facility, whose main
+  function is to provide bigger and better lasers for use in other
+  fields.
+  It was clear immediately that still more provocation would be needed if
+  any serious attention was to be turned to the great range of
+  possibilities for new fundamental tests of quantum theory, that were
+  opening up. Accordingly, some old ideas were revived under the name
+  "Neoclassical Theory" (NCT) whose purpose was to demonstrate the
+codex
+I’ve read the first section and identified likely structural issues (run-on paragraphs, spacing breaks, citation style). I’ll scan the remainder now before editing so I can keep changes minimal and consistent across the whole file.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/electrodynamics.today.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+"Dirac Hilbert space" of the electrons. This is the "source field"
+approach, which need not be discussed at length here, since it has
+already moved out of the research journals and become textbook material.
+Allen and Eberly$^{21}$ give a unified discussion of the work of
+Series,$^{22}$ Senitzky,$^{23}$ Milonni, Ackerhalt and Smith,$^{24}$
+and
+Fain and Khanin.$^{25}$ When extended from two-level systems to real
+systems, it now appears that source fields will give a proper account of
+the Lamb shift, the anomalous moment, and presumably all of the usual
+"electrodynamic" effects. This approach is being carried much further
+in a series of articles by R. K. Bullough and collaborators.$^{26}$
+Of course, source-field theory is not in conflict with QED; it is a
+truncated form of QED in which one notices that, with proper ordering of
+the operators at t = 0, the vacuum fluctuations of the quantized EM
+field play no role in the phenomenon; and so the quantized free field
+and its whole Maxwell-Hilbert space need never be introduced at all.
+This should be adequate for any problem of electrodynamics, since in a
+very fundamental sense every EM field is a source field from somewhere.
+On the other hand, if we define QED as the theory based on quantizing
+the radiation field, representing it by operators on a new
+codex
+I’ve reached the references and addendum; next I’ll inspect the rest and then make only structural markdown fixes plus citation normalization where duplicated.
+exec
+/bin/bash -lc "sed -n '521,820p' content/papers/electrodynamics.today.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+company. Briefly, the present situation is this:
+(1) NCT did fail to predict the facts for the Lamb shift, as we now
+believe them to be. Professor Lamb's verdict was therefore entirely
+proper and just according to the conditions of the bet.
+(2) However, the failure of NCT lay not in the numerical value of the
+shift, but in the qualitative matter of the "dynamical Lamb shift"
+chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+experimental evidence about this, because a dozen theoretical decisions,
+and the interpretation of several other experiments, all hung on the
+issue whether this chirp does or does not exist. The Citron$^{20}$
+experiment now seems to show that it does not.
+(3) The implications of this for the Lamb shift are the following. NCT
+will still agree with existing experiments, which measure only the
+stimulating frequency needed to initiate a transition starting from 
+a metastable S state.$^{18}$ But if the Lamb shift could be measured
+starting from a P state, it now appears that NCT would predict not the
+wrong magnitude, but the wrong sign, of the shift. It is for this reason
+that I stated in my presentation, "we are not entitled to claim
+success."
+(4) But this leads us into another mystery; for the sign reversal that
+codex
+I’m ready to patch the file now with minimal structural edits: quote/rendering cleanup, paragraph flow fixes, references formatting cleanup, addendum list normalization, and removal of the trailing extraneous metadata footnote. I will not alter any equations or mathematical content.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+@@ -40,5 +40,6 @@
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+@@ -121,2 +122,3 @@
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+@@ -234,9 +236,8 @@
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+@@ -500,3 +501,4 @@
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
++Damping and Level Shifts without Field Quantization," (unpublished,
++1975).
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+@@ -521,6 +523,7 @@
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+@@ -531,3 +534,4 @@
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+@@ -539,3 +543,4 @@
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+@@ -566,3 +571,4 @@
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+@@ -575,3 +581,4 @@
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+@@ -590,3 +597,4 @@
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+@@ -643,3 +651 @@
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+apply_patch(auto_approved=true) exited 0 in 6ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..860499d382b01dbe9d03af5d60d3fe93bee9adf4
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,8 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
++Damping and Level Shifts without Field Quantization," (unpublished,
++1975).
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +521,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +541,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +569,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +579,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +595,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +649,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..860499d382b01dbe9d03af5d60d3fe93bee9adf4
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,8 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
++Damping and Level Shifts without Field Quantization," (unpublished,
++1975).
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +521,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +541,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +569,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +579,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +595,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +649,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+codex
+I applied the structural pass, but I need one quick cleanup check in the references section to remove an accidental duplication introduced while reflowing line 22.
+exec
+/bin/bash -lc "sed -n '430,520p' content/papers/electrodynamics.today.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+Perhaps from this one can understand why Power$^{12}$ and Mahanty$^{19}$
+were able to calculate the Lamb shift from the total change in the
+(infinite) zero-point energy, without any need for the zero-point energy
+to be physically real. In fact, they calculated the total change in all
+mode frequencies; a quantity that is equal to the shift in the dynamical
+problem even if all modes are perfectly quiescent. Perhaps also, one can
+now look at calculations of the Casimir attraction effect through new
+eyes.
+## CONCLUSION
+It is clear that, over the past ten years, theoretical and experimental
+work in Quantum Optics has yielded--just as I had hoped it
+would--important and, to all of us, surprising fundamental new
+information about electrodynamics. In both QED and classical theory, our
+judgment as to which parts are elements of truth, which are elements of
+nonsense, which parts are necessary to account for experimental facts,
+which parts were unnecessary complications, are very different today. In
+QED, both the pessimism at the highbrow level and the childlike faith at
+the lowbrow level have been greatly reduced; and as a result, I think we
+can now continue the pursuit of truth in a more rational way, with more
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..860499d382b01dbe9d03af5d60d3fe93bee9adf4
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,8 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
++Damping and Level Shifts without Field Quantization," (unpublished,
++1975).
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +521,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +541,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +569,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +579,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +595,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +649,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+@@ -501,4 +501,2 @@
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-Damping and Level Shifts without Field Quantization," (unpublished,
+-1975).
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+apply_patch(auto_approved=true) exited 0 in 12ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..c48b2e8dfdfaa616181380861e2da78a43c8eb81
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +519,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +539,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +567,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +577,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +593,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +647,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..c48b2e8dfdfaa616181380861e2da78a43c8eb81
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +519,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +539,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +567,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +577,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +593,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +647,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+codex
+I fixed the reference-list duplication and am doing a final pass to confirm no math was altered and that the markdown now renders cleanly (especially in the addendum list and references block).
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^100'"\\]|"'^## ADDENDUM|''^1'"\\. NCT|"'^2'"\\. However|"'^22'"\\.|"'^> '"\\\"Für den Rest\" content/papers/electrodynamics.today.md && sed -n '1,90p' content/papers/electrodynamics.today.md && sed -n '520,760p' content/papers/electrodynamics.today.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+41:> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+501:22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+511:## ADDENDUM: POST MORTEM ON THE BET
+522:1. NCT did fail to predict the facts for the Lamb shift, as we now
+526:2. However, the failure of NCT lay not in the numerical value of the
+---
+title: "Electrodynamics Today"
+year: 1978
+abstract: >
+  The question whether Quantum Optics can provide any new evidence that
+  might clear up the then outstanding difficulties in QED was raised at
+  the 1966 Rochester Coherence Conference, in the author's talk
+  entitled, "Is QED Necessary?" This was done in a deliberately
+  provocative way because of a complacency in the air that tended to
+  regard Quantum Optics as nothing more than an application of
+  completely established theory. If this field has no long-range goals
+  of its own relating to fundamental physics, it must inevitably
+  degenerate into a kind of Engineering Service Facility, whose main
+  function is to provide bigger and better lasers for use in other
+  fields.
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..c48b2e8dfdfaa616181380861e2da78a43c8eb81
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,10 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +120,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +234,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +499,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +519,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +539,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +567,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +577,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +593,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +647,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+codex
+I’m doing one last tiny readability tweak (spacing after the opening blockquote) and then I’ll give you a concise change summary.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+@@ -44,2 +44,3 @@
+ > Albert Einstein$^{1}$
++
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+apply_patch(auto_approved=true) exited 0 in 13ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/electrodynamics.today.md
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..3df637637b9eef59d3ab64535e55b224d7846707
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,11 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
++
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +121,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +235,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +500,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +520,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +540,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +568,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +578,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +594,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +648,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..3df637637b9eef59d3ab64535e55b224d7846707
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,11 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
++
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +121,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +235,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +500,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +520,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +540,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +568,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +578,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +594,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +648,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+codex
+Changed `content/papers/electrodynamics.today.md` with minimal structural QA edits only:
+
+- Improved markdown readability:
+  - formatted the opening Einstein quote as a blockquote
+  - inserted missing paragraph breaks where text had run together
+  - fixed split/broken sentence flow around the Mahanty/Power passage
+- Repaired reference formatting:
+  - cleaned malformed wrapping in reference 22
+- Improved addendum structure:
+  - converted `(1)`…`(7)` blocks into a proper markdown numbered list
+- Removed extraneous trailing metadata footnote:
+  - deleted `[^100]` affiliation/publication-note block at the end
+- Confirmed no duplicate abstract text in the body, so no abstract-body removal was needed.
+- Ignored missing figures as requested.
+- Left LaTeX/math expressions unchanged.
+file update:
+diff --git a/content/papers/electrodynamics.today.md b/content/papers/electrodynamics.today.md
+index 8bc98c34a46af372320feb5225f424fb033bd5f7..3df637637b9eef59d3ab64535e55b224d7846707
+--- a/content/papers/electrodynamics.today.md
++++ b/content/papers/electrodynamics.today.md
+@@ -38,9 +38,11 @@
+ author: ["E.T. Jaynes"]
+ ---
+ ## BACKGROUND
+-"Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
+-ist."
+---- Albert Einstein$^{1}$
++> "Für den Rest meines Lebens will Ich darüber nachdenken, was das Licht
++> ist."
++>
++> Albert Einstein$^{1}$
++
+ In 1966, QED was in one of its recurrent states of pessimism, just as it
+ had been twenty years earlier. In 1946, the teacher from whom I first
+ learned about it--J. R. Oppenheimer--described it publicly as "a
+@@ -119,6 +121,7 @@
+ by the cutoff at the Compton wavelength used in Welton's and
+ Bethe's$^{13}$ calculations, were noted in my paper at the last
+ conference.$^{14}$
++
+ Of course, a staunch defender of present theory will say immediately
+ that such objections reflect only naive metaphysical preconceptions of
+ "reality," not unlike pre-relativistic notions of absolute
+@@ -232,13 +235,12 @@
+ then the charge density $\rho(\mathbf{x},t) = e|\psi|^2$ cannot
+ oscillate at any other frequency than $(E_1-E_2)/\hbar$ without
+ violating charge conservation, $\nabla\cdot\mathbf{J} + \dot{\rho} = 0$.
+-A more complete calculation is then needed; this was done by J.
+-
+-Mahanty$^{19}$ by an elegant contour integral method. In first order,
++A more complete calculation is then needed; this was done by
++J. Mahanty$^{19}$ by an elegant contour integral method. In first order,
+ the result agreed with the original "Bethe logarithm" term; the last
+ several equations of Mahanty are identical with those of E. A.
++Power.$^{12}$
+ 
+-Power.$^{12}$
+ Nevertheless, we are not entitled to claim success; for the NCT
+ equations also predict the "dynamic Lamb shift" chirp discussed
+ before,$^{14}$ the emitted frequency varying from
+@@ -498,7 +500,6 @@
+ 21. L. Allen and J. H. Eberly, *Optical Resonance and Two-Level Atoms*, J.
+ Wiley & Sons, New York (1975); Chap. 7.
+ 22. G. W. Series, in *Optical Pumping and Atomic Line Shape*, T.
+-
+ Skalinski, Ed., Panst. Wdaw. Nauk Warsawa (1969); and "Radiative
+ Damping and Level Shifts without Field Quantization," (unpublished,
+ 1975).
+@@ -519,17 +520,19 @@
+ important now is to understand the technical situation as it emerges
+ from this. Those who came away confused about the facts had plenty of
+ company. Briefly, the present situation is this:
+-(1) NCT did fail to predict the facts for the Lamb shift, as we now
++1. NCT did fail to predict the facts for the Lamb shift, as we now
+ believe them to be. Professor Lamb's verdict was therefore entirely
+ proper and just according to the conditions of the bet.
+-(2) However, the failure of NCT lay not in the numerical value of the
++
++2. However, the failure of NCT lay not in the numerical value of the
+ shift, but in the qualitative matter of the "dynamical Lamb shift"
+ chirp. At the 1972 meeting$^{14}$ I stressed the importance of obtaining
+ experimental evidence about this, because a dozen theoretical decisions,
+ and the interpretation of several other experiments, all hung on the
+ issue whether this chirp does or does not exist. The Citron$^{20}$
+ experiment now seems to show that it does not.
+-(3) The implications of this for the Lamb shift are the following. NCT
++
++3. The implications of this for the Lamb shift are the following. NCT
+ will still agree with existing experiments, which measure only the
+ stimulating frequency needed to initiate a transition starting from 
+ a metastable S state.$^{18}$ But if the Lamb shift could be measured
+@@ -537,7 +540,8 @@
+ wrong magnitude, but the wrong sign, of the shift. It is for this reason
+ that I stated in my presentation, "we are not entitled to claim
+ success."
+-(4) But this leads us into another mystery; for the sign reversal that
++
++4. But this leads us into another mystery; for the sign reversal that
+ leads to this discrepancy has nothing to do with the anti-quantum
+ heresies of NCT. It has been a hitherto unquestioned part of quantum
+ theory, appearing already in the Kramers-Heisenberg dispersion formula.
+@@ -564,7 +568,8 @@
+ and makes instead a bright spot in the forward direction. Indeed, it was
+ Professor Lamb who pointed out this directional property of stimulated
+ emission, at the 1961 Quantum Electronics Conference.
+-(5) We see, then, how acute the mystery is: In NCT, this same sign
++
++5. We see, then, how acute the mystery is: In NCT, this same sign
+ reversal carries through to reactive as well as dissipative effects;
+ i.e., reversing the sign of the atomic currents reverses the sign of the
+ frequency shift, as well as the direction of energy flow. Does this seem
+@@ -573,7 +578,8 @@
+ inductor, it becomes a capacitor and has the opposite tuning effects.
+ Evidently, we are still far from understanding how a real atom emits or
+ absorbs light, in the sense of having any self-consistent picture.
+-(6) Could we, then, get more experimental evidence trying to pin down
++
++6. Could we, then, get more experimental evidence trying to pin down
+ the exact role of this sign reversal? A direct experimental test of the
+ directional properties of stimulated emission would establish whether it
+ is still operative there. Also, if some experimentalist could figure out
+@@ -588,7 +594,8 @@
+ experiment the pumping, so carefully adjusted to give a pure two-level
+ state, also inadvertently wiped out the very effect that one was trying
+ to observe!
+-(7) Finally, it should be noted that there was considerable
++
++7. Finally, it should be noted that there was considerable
+ uncertainty in all our minds as to just what the real issue of the bet
+ had been, the only written record being that of MacAdam.$^{17}$ Two
+ quite different issues are: (1) whether QED and vacuum fluctuations are
+@@ -641,5 +648,3 @@
+ a great deal more has been learned (still unpublished) about these
+ matters since my 1972 report.$^{14}$ We are closer to the real truth
+ about electrodynamics for the way events have turned out.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, Missouri 63130. A shorter version of this work appeared in *Coherence and Quantum Optics IV*, L. Mandel and E. Wolf, Editors, Plenum Press, N. Y. (1978); pp 495-509.
+
+tokens used
+24,437
+

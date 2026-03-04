@@ -49,6 +49,7 @@ personalistic doctrine makes no attempt to meet this desideratum, but
 instead attacks it as representing a naive "necessary" view of
 probability; and proclaims as one of its fundamental tenets (Ref. [2]
 , p. 3) that we are free to violate it without being unreasonable!
+
 ## THE BASIC DESIDERATUM
 Let us belabor the point just made. A prior probability assignment not
 based on frequencies is necessarily "subjective" in the sense that it
@@ -152,12 +153,14 @@ desideratum of consistency may then be stated mathematically in the form
 of functional equations which must be satisfied by the prior
 distributions and which, at least in some cases, uniquely determine the
 form of the prior.
+
 ## TRANSFORMATION GROUPS
 We sample from a continuous two-parameter distribution
 $$
 p(dx|\mu,\sigma) = \phi(x,\mu,\sigma) \, dx
 $$
- and consider:
+and consider:
+
 **Problem A:** Given a sample {$x_1 \dots x_n$}, estimate $\mu$ and
 $\sigma$.
 
@@ -230,8 +233,10 @@ parameter is a state of knowledge such that a *change of scale and shift
 of location does not change that state of knowledge*. We shall presently 
 have to state this more carefully, but first let us see its consequences. 
 Consider, therefore,
+
 **Problem B:** Given a sample {$x^\prime_1 \dots x^\prime_n$}, estimate $\mu^\prime$ and
 $\sigma^\prime$
+
 If we are "completely ignorant" in the above sense, then we must
 consider A and B as entirely equivalent problems; they have identical
 sampling distributions, and our state of prior knowledge about $\mu^\prime$
@@ -404,6 +409,7 @@ different; but the prior to which they would lead in the
 $(\alpha,\beta)$-space would be just the one that we obtain by solving
 the problem in the $(\mu,\sigma)$-space and transforming the result to
 the parameters $(\alpha,\beta)$ by the usual jacobian rule.
+
 ## DISCUSSION
 The above analysis enables us to see the Jeffreys prior probability rule
 in a new light. It has, perhaps, always been obvious that the real
@@ -489,6 +495,7 @@ prior information then becomes independent of our choice of parameters.
 Demonstration of the consistency of this interpretation, and examples of
 use of the resulting procedure in practical statistical problems, will
 be deferred to a later article.
+
 ## CONCLUSION
 It might be objected that we have not, by these considerations, solved
 the problem of "complete ignorance". We have merely shifted the
@@ -534,5 +541,3 @@ further work along these lines -- directed in particular toward learning
 how to formulate statistical problems so that condition (1) is satisfied -- 
 may yet lead to the final solution of this ancient but vital puzzle; and 
 thus achieve full "objectivity" for Bayesian methods.
-
-[^1]: Washington University, St. Louis, Mo. Supported by the National Science Foundation, Grant No. NSF G23778

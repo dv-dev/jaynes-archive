@@ -61,10 +61,10 @@ numerical estimates, but it is clear that we get a qualitative
 understanding of two of the most puzzling features of BaTiO$_3$, namely
 the existence of three phase transitions with shifts of the direction of
 spontaneous polarization, and the very large electromechanical coupling.
+
 I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
 helpful discussions.
 
-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
 [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
 [^2]: Rushman and Strivens, Trans. Faraday Soc. **42A**, 231 (1946).
 [^3]: Mason and Matthias, Phys. Rev. **74**, 1622 (1948).

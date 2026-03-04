@@ -7,12 +7,6 @@ abstract: >
   the history of theoretical physics in the period 1946-1950.
 author: ["E.T. Jaynes"]
 ---
-This is a collection of some weird thoughts, inspired by reading
-"Disturbing the Universe" by Freeman Dyson (1979), which I found in a
-bookstore in Cambridge. He reminisces about the history of theoretical
-physics in the period 1946-1950, particularly interesting to me because
-as a graduate student at just that time, I knew almost every person he
-mentions.
 
 From the first part of Dyson's book we can learn about some incidents of
 this important period in the development of theoretical physics, in
@@ -111,10 +105,13 @@ year, and was in contact with Feynman there, then with Schwinger in the
 Summer of 1948 at the University of Wisconsin. Before returning to
 Cornell he took a two-week vacation to explore the American West, Utah
 and California, and it is his homeward trip that interests us.
+
 ## SCHWINGER AND FEYNMAN
-Dyson (p. 67) recalls his discovery of the unification of the Schwinger
+
+Dyson[^dyson67] recalls his discovery of the unification of the Schwinger
 and Feynman systems of Quantum Electrodynamics (QED) while riding across
 Nebraska in a Greyhound Bus, in September 1948:
+
 > "For two weeks I had not thought about physics, and now it came
 > bursting into my consciousness like an explosion. Feynman's pictures
 > and Schwinger's equations began sorting themselves out in my head with
@@ -249,8 +246,10 @@ beginning. Indeed, any differential equation whose Green's function is
 nonnegative can be given a stochastic interpretation immediately; and
 both parabolic and hyperbolic equations have random walk solutions of
 the Feynman genre.
+
 ## OPPY
-Dyson (p. 73) reports that at the aforementioned 1947 Pocono conference
+
+Dyson[^dyson73] reports that at the aforementioned 1947 Pocono conference
 Oppy accepted Schwinger's theory, and criticized Feynman's; but a few
 months later Oppy was not interested in Dyson's unification of them
 because he had come to believe that the QED of both Schwinger and
@@ -356,8 +355,8 @@ then shifted from QED to group theory and statistical mechanics.
 The same feeling bothered Edward Teller to the point of inducing him to
 make his statement against Oppenheimer in the infamous Washington
 hearing of 1954 which, as Dyson notes, hurt Teller far more than it did
-Oppy. In view of some later distortions of Teller's position, Dyson (p.
-87) took care to quote Teller's exact words:
+Oppy. In view of some later distortions of Teller's position, Dyson[^dyson87]
+took care to quote Teller's exact words:
 > "I thoroughly disagreed with him in numerous issues and his actions
 > frankly appeared to me confused and complicated. To this extent I feel
 > that I would like to see the vital interests of this country in hands
@@ -385,7 +384,9 @@ been telling us; but the next day, reading over what I knew to be
 verbatim transcriptions of his words, I could not make any sense out of
 them. He did not need to be consistent, for he had the power to make you
 think he was talking sense, even when he was not.
+
 ## BISHOP WILBERFORCE AND THE PURPOSE OF NATURE
+
 Science, fundamentally concerned as it is with matters of cause and
 effect, has had to contend with two diametrically opposite attitudes
 that want to abolish causality; the religious-teleological kind, that
@@ -418,8 +419,8 @@ mysticism, without ever breaking out of it or feeling any discomfort
 about what he is doing.
 
 It seems that Dyson, having contributed to the mathematics of one kind
-of mysticism, feels also a predilection for the other. Somehow (p.
-246ff) the topic gets around to the famous debate of Bishop Wilberforce
+of mysticism, feels also a predilection for the other. Somehow[^dyson246ff]
+the topic gets around to the famous debate of Bishop Wilberforce
 vs Thomas Huxley on evolution.
 
 Today it is hard to understand how nineteenth century theologians could
@@ -482,38 +483,43 @@ noted: whether or not we believe privately that there is an ultimate
 purpose to the universe, we have nothing to gain and a great deal to
 lose by introducing it into science -- because it blocks progress by
 explaining everything post facto, but predicting nothing.
+
 ## THE UNFINISHED PART
-(1) Dyson notes that "Quantitative predictions by mere extrapolation
+
+1. Dyson notes that "Quantitative predictions by mere extrapolation
 of the past quickly become obsolete from qualitative changes in the
 rules of the game." Yes -- this is a perfect description of what
 happens in Economics -- but for Physics we need to elaborate on this
-with specific examples. (2) "Description should be independent of the
-mode of observation (249)." Yes -- in fact, this ought to be a major
-goal of theoretical physics -- but the Copenhagen interpretation sneers
-at it. (3) "Chance cannot be defined except as a measure of the
-observer's ignorance of the future." (p. 249). Hooray! Dyson, like
-Laplace, Maxwell, and Jeffreys, sees the falsity of the notion of
-"physical probability", which is just a euphemism for "denying the
-existence of causal mechanisms".
-## REFERENCES
-F. Dyson, "Disturbing the Universe", Harper & Row, Publishers, New
-York (1979).
+with specific examples.
+2. "Description should be independent of the mode of
+observation."[^dyson249a] Yes -- in fact, this ought to be a major goal of theoretical
+physics -- but the Copenhagen interpretation sneers at it.
+3. "Chance cannot be defined except as a measure of the observer's
+ignorance of the future."[^dyson249b] Hooray! Dyson, like Laplace,
+Maxwell, and Jeffreys, sees the falsity of the notion of "physical
+probability", which is just a euphemism for "denying the existence of
+causal mechanisms".
 
-J. M. Keynes, "Newton, the Man", Royal Society of London, Newton
+## REFERENCES
+
+- F. Dyson, "Disturbing the Universe", Harper & Row, Publishers, New
+York (1979).
+- J. M. Keynes, "Newton, the Man", Royal Society of London, Newton
 Tercentenary Celebrations, 15 July 1946. Cambridge University Press,
 1947; pp. 27-34.
-
-Jacques Monod "Chance and Necessity", Knopf, N. Y., 1971.
-
-E. F. Moore, "Artificial Living Plants", Scientific American, 195, No.
+- Jacques Monod "Chance and Necessity", Knopf, N. Y., 1971.
+- E. F. Moore, "Artificial Living Plants", Scientific American, 195, No.
 4, 118-126, October 1956.
-
-S. M. Stanley, "Clades and Clones in Evolution", Science, 190,
+- S. M. Stanley, "Clades and Clones in Evolution", Science, 190,
 382-383, 1975.
-
-J. von Neumann, Collected Works, A. H. Taub, Ed., MacMillan, N. Y.,
-1961-63. Theory of Automata, Vol. 5
-J von Neumann, "Theory of Self-Reproducing Automata", Ed. Arthur W.
+- J. von Neumann, Collected Works, A. H. Taub, Ed., MacMillan, N. Y.,
+1961-63. Theory of Automata, Vol. 5.
+- J von Neumann, "Theory of Self-Reproducing Automata", Ed. Arthur W.
 Burks, University of Illinois Press, Urbana, 1966.
 
-[^100]: St. John's College, Cambridge CB2 1TP, U. K.
+[^dyson67]: Freeman Dyson, "Disturbing the Universe", p. 67.
+[^dyson73]: Freeman Dyson, "Disturbing the Universe", p. 73.
+[^dyson87]: Freeman Dyson, "Disturbing the Universe", p. 87.
+[^dyson246ff]: Freeman Dyson, "Disturbing the Universe", p. 246ff.
+[^dyson249a]: Freeman Dyson, "Disturbing the Universe", p. 249.
+[^dyson249b]: Freeman Dyson, "Disturbing the Universe", p. 249.

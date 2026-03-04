@@ -38,7 +38,7 @@ the one of maximum entropy; i.e., that distributions with appreciably
 lower entropy than the maximum are atypical of those allowed by the
 constraints.
 
-Likewise, Schrödinger (1948) noted that this is the reason why, in
+Likewise, Schrödinger[^schrodinger-1948] noted that this is the reason why, in
 statistical mechanics, the Darwin-Fowler method and the Boltzmann
 "method of the most probable distribution" lead to the same result in
 the limit $N \to \infty$, where N is a suitable "size" parameter
@@ -46,11 +46,11 @@ the limit $N \to \infty$, where N is a suitable "size" parameter
 communication theory the number of symbols in a message; in statistical
 inference the number of trials of a random experiment). A general proof
 of this limiting form (i.e., a generalized Darwin-Fowler theorem) is
-given by van Campenhout and Cover (1979).
+given by van Campenhout and Cover[^vancampenhout-cover-1979].
 
 But these results, pertaining only to the limiting distribution, leave
 us in the same unsatisfactory state as did the original limit theorem of
-Jacob Bernoulli (1713): (as $N \to \infty$, the observable frequency
+Jacob Bernoulli[^bernoulli-1713]: (as $N \to \infty$, the observable frequency
 $f=r/N$ of successes converges in probability to p). This said nothing
 about how large N must be for a given accuracy. For applications one
 needed the more explicit de Moivre-Laplace theorem: (Asymptotically,
@@ -66,7 +66,7 @@ Maximum Entropy as a method of inference.
 This problem was discussed at the M.I.T. Maximum Entropy Formalism
 Conference of May 1978, in connection with some alternative solutions
 that had been proposed for maximum entropy problems. The result was a
-lengthy but awkward and unsatisfactory analysis (Jaynes, 1978) in which
+lengthy but awkward and unsatisfactory analysis[^jaynes-1978] in which
 real insight into the problem had not yet been achieved. We give here a
 simpler, more accurate, and more general treatment of entropy
 concentration.
@@ -85,6 +85,7 @@ of R. Wolf. We show how entropy analysis enables one to draw conclusions
 about the specific physical imperfections that must have been present
 (not knowing whether those dice are still in existence, so that our
 conclusions might be checked directly).
+
 ## Entropy Concentration Theorem
 A random experiment has n possible results at each trial; thus in N
 trials there are $n^N$ conceivable outcomes (we use the word "result"
@@ -150,8 +151,9 @@ distributed over class C as Chi-squared with $k=n-m-1$ degrees of
 freedom, independently of the nature of the constraints. That is,
 denoting the critical Chi-squared for k degrees of freedom at the 100 P
 % significance level by $\chi_k^2(P)$, $\Delta H$ is given in terms of
-the upper tail area (1-F) by $2N \Delta H = \chi_k^2(1-F) \quad .$ 
- The
+the upper tail area (1-F) by $2N \Delta H = \chi_k^2(1-F) \quad .$
+
+The
 proof is relegated to the Appendix, since it consists of little more
 than repeating *mutatis mutandis* Karl Pearson's original derivation of
 the Chi-squared distribution, taking note of the reduction of
@@ -159,6 +161,7 @@ dimensionality due to constraints. Note that the theorem is
 combinatorial, expressing only a counting of the *possibilities*; it
 does not become a statement of *probabilities* unless one assigns equal
 probability to each outcome in class C.
+
 ## Examples: Frequency Estimation
 We illustrate the meaning and use of this result by a much-discussed
 example. Suppose a die is tossed N = 1000 times and we are told only
@@ -170,17 +173,19 @@ inspection of the die or from past experience with dice in general),
 what estimates should we make of the frequencies {$f_i$} with which
 the different faces appeared? This is a kind of caricature of a class of
 real problems that arises constantly in physical applications.
+
 The distribution which has maximum entropy subject to the constraint (9)
 is given by (4)-(7) with n=6, m=1, $A_{j1} = i$,
 $Z(\lambda) = (e^{-\lambda} + \dots + e^{-6\lambda})$,
-$\lambda = -0.37105$. The result, derived in more detail before (Jaynes,
-1978), is
+$\lambda = -0.37105$. The result, derived in more detail before
+Jaynes[^jaynes-1978], is
 $$
 \{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}
 $$
 and it has entropy $H_{\max} = 1.61358$ as compared to the value
 $\log_e 6 = 1.79176$, corresponding to no constraint and a uniform
 distribution.
+
 Applying the concentration theorem, we have 6-1-1=4 degrees of freedom;
 entering the Chi-squared tables at the conventional 5% significance
 level, we find that 95% of all *possible* outcomes allowed by the
@@ -190,19 +195,23 @@ accuracy,
 $$
 1.609 \le H \le 1.614
 $$
- Thus on the "null hypothesis"
+
+Thus on the "null hypothesis"
 which supposes that no further systematic influence is operative in the
 experiment other than the one taken into account (i.e., which assigns
 equal probability to all outcomes in class C), there is less than a 5%
 chance of seeing a frequency distribution with entropy outside the
 interval (12).
+
 A remarkable feature is that the "95% concentration range"
 $$
 H_{\max} - \frac{4.74}{N} \le H \le H_{\max}
 $$
- is valid asymptotically
+
+is valid asymptotically
 for any random experiment with four degrees of freedom, although the
 value of $H_{\max}$ may vary widely with other details.
+
 More interesting numerical results are found at more extreme
 significance levels. Thus, in any experiment with 1000 trials and four
 degrees of freedom, 99.99% of all outcomes allowed by the constraints
@@ -215,6 +224,7 @@ entropy is not only the one that can be realized in the greatest number
 of ways; in fact, for large N the overwhelming majority of all
 *possible* distributions compatible with our information have entropy
 very close to the maximum.
+
 Note that the width of this region of concentration goes down like
 $N^{-1}$; and not like $N^{-1/2}$ as one might have guessed. Thus, in
 20,000 tosses agreeing with (9), 95 percent of the possible outcomes
@@ -222,7 +232,8 @@ have entropy in the interval $(1.61334 < H < 1.61358)$ and only one in
 $10^8$ has $H < 1.61253$. As $N \to \infty$, any frequency distribution
 other than the one of maximum entropy thus becomes highly atypical of
 those allowed by the constraints.
-Even more interesting numbers are readily found. Rowlinson (1970)
+
+Even more interesting numbers are readily found. Rowlinson[^rowlinson-1970]
 rejected the principle of maximum entropy for this problem, and proposed
 as an alternative solution in place of (10) the binomial distribution
 $$
@@ -235,9 +246,10 @@ We now have $2N \Delta H = 400 = \chi_4^2(1-F)$; or from (A8),
 $$
 1 - F = 2.94 \times 10^{-84}
 $$
- This indicates that in 1000 tosses,
+This indicates that in 1000 tosses,
 less than one in $10^{83}$ of the outcomes compatible with the
 constraint (9) have entropy as low as $H^\prime$.
+
 But the concentration theorem is valid only asymptotically, because of
 the approximation (A4) made in its derivation; and even for N=1000 we
 might distrust its numerical accuracy that far out in the tail of the
@@ -255,6 +267,7 @@ $10^{62}$ ways for every microsecond in the age of the universe). While
 this result does not take into account the volume element factors
 ($r^{k-1} dr$) of the full concentration theorem, it does indicate that
 (17) did not mislead us.
+
 Even if we come down to N=50, we find the following. The sample numbers
 which agree most closely with (10), (16) while summing to
 $\sum N_i = 50$ are $\{N_k\} = (3,4,6,8,12,17)$ and
@@ -268,17 +281,20 @@ when we maximize entropy. If our data do not fully determine a
 distribution {$f_i$} it is prudent to adopt, for purposes of
 inference, that distribution which has maximum entropy subject to the
 data we do have.
+
 ## Hypothesis Testing: Wolf's Dice Data
 The Swiss astronomer Rudolph Wolf (1816-1893; best known today as the
 discoverer of the correlation between terrestrial magnetic disturbances
 and sunspot activity) performed a number of random experiments,
 conducted with great care, presumably to check the validity of
-statistical theory. An account with references is given by Czuber
-(1908).
+statistical theory. An account with references is given by
+Czuber[^czuber-1908].
+
 In one of these experiments, a red and white die were tossed together
 20,000 times in a way that precluded any systematic favoring of any face
 over any other. The resulting 36 joint sample numbers are given in Table
 1 (taken from Czuber).
+
 | Red Die / White Die | 1 | 2 | 3 | 4 | 5 | 6 | Row Total |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 547 | 587 | 500 | 462 | 621 | 690 | 3407 |
@@ -290,6 +306,7 @@ over any other. The resulting 36 joint sample numbers are given in Table
 | Column Total | 3246 | 3449 | 2897 | 2841 | 3635 | 3932 | 20000 |
 
 **Wolf's Dice Data**
+
 These are the sample numbers $N_i, 1 \le i \le n$ of a random
 experiment with n=36 possible results at each trial. On the null
 hypothesis which assigns uniform probabilities p=n^{-1}=1/36, the
@@ -332,6 +349,7 @@ of the data for our purposes is contained in the marginal totals. The
 observed frequencies {$f_i$} and their deviations
 {$\Delta_i = f_i - 1/6$} from the null hypothesis prediction are given
 in Table 2.
+
 | $i$ | Red Die $f_i$ | Red Die $\Delta_i$ | White Die $f_i$ | White Die $\Delta_i$ |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | 0.17035 | +0.00368 | 0.16230 | -0.00437 |
@@ -342,6 +360,7 @@ in Table 2.
 | 6 | 0.17110 | +0.00443 | 0.19960 | +0.02993 |
 
 **Wolf's Marginal Frequencies**
+
 On the null hypothesis that the dice were true, the standard deviations
 of {$f_i$} from p=1/6 should be
 $\sigma = [p(1-p)/N]^{1/2} = 0.0026$. The observed deviations $\Delta_i$
@@ -366,9 +385,11 @@ and therefore, from (A8),
 $$
 1-F = 1.07 \times 10^{-56} \quad .
 $$
- Only one in $10^{56}$ of the
+
+Only one in $10^{56}$ of the
 $6^N$ conceivable outcomes has an entropy as low as Wolf's data give.
-In Jaynes (1978) we considered what specific imperfections one might
+
+In Jaynes[^jaynes-1978] we considered what specific imperfections one might
 expect to find in a die, that might tend to make the frequencies
 nonuniform. The two most obvious are (1) a shift of the center of
 gravity due to the mass of ivory excavated from the spots, which being
@@ -390,7 +411,8 @@ influences is indicated by Wolf's measured averages for them:
 $$
 \bar{f}_1 = 0.0983 \quad , \quad \bar{f}_2 = 0.1393
 $$
- Now if these are
+
+Now if these are
 the only two imperfections present, we expect that the die will be
 equally free to yield any outcome compatible with the constraints (22).
 Therefore the observed frequencies should be the ones that can be
@@ -400,8 +422,9 @@ hand, if the entropy of the observed distribution is appreciably below
 the maximum allowed by (22), that would be evidence that there is still
 another imperfection present; i.e., a third systematic influence not yet
 taken into account.
-The maximum entropy $H_{\max}$ allowed by (22) was calculated in Jaynes
-(1978) by the algorithm (4)-(7), with the result indicated below:
+
+The maximum entropy $H_{\max}$ allowed by (22) was calculated in
+Jaynes[^jaynes-1978] by the algorithm (4)-(7), with the result indicated below:
 $$
 \begin{aligned} H_{\max} &= 1.785\ 225 \\\\ H_{\text{Wolf}} &= 1.784\ 990 \\\\ \hline \Delta H &= 0.000\ 235 \end{aligned}
 $$
@@ -417,8 +440,9 @@ Wolf. To assume a further very tiny imperfection [the (2-3-6) corner
 chipped off] we could make even this discrepancy disappear; but in view
 of the great number of trials one will probably not consider the result
 (24) as sufficiently strong evidence for this.
+
 ## Conclusion
-In Jaynes (1978) we gave a much more lengthy analysis, using the
+In Jaynes[^jaynes-1978] we gave a much more lengthy analysis, using the
 conventional Chi-squared test but arriving at less detailed and less
 accurate conclusions. At that time, in ignorance of the concentration
 theorem, it was not realized that there is no need to carry out the
@@ -431,6 +455,7 @@ We now see that the single maximum entropy formalism defined by (1) -
 incomplete data are available, that is optimal by a certain well-defined
 criterion; but also the criterion for testing hypotheses about
 systematic influences when frequency data are at hand.
+
 ## Appendix
 In N trials of the aforementioned random experiment, the $i^\prime$th result
 occurs $N_i = N f_i$ times, $1 \le i \le n$. Out of the $n^N$
@@ -477,7 +502,7 @@ Entropy maximization with constraints linear in $f_i$ thus amounts
 to finding the value of $x=H_{\max}$ for which $S^\prime$ is a supporting
 tangent plane to $S_x$.
 After these preliminaries, our argument follows slavishly the original
-derivation by Karl Pearson, as recalled by Lancaster (1969). In $S^\prime$ we
+derivation by Karl Pearson, as recalled by Lancaster[^lancaster-1969]. In $S^\prime$ we
 may define new coordinates $(x_1 \dots x_k)$ as appropriate linear
 functions of $(f_1 \dots f_n)$ such that the new origin is at the
 maximum-entropy point, and there is a distance $r = (\sum x_i^2)^{1/2}$
@@ -518,6 +543,7 @@ $$
 When s is an integer (k even) this terminates and gives the exact
 result. Most of the numerical results cited in the text have been
 obtained from (A8).
+
 ## References
 E. Czuber (1908), *Wahrscheinlichkeitsrechnung*, Teubner, Berlin; Vol.
 I, pp. 149-151.
@@ -531,4 +557,11 @@ E. Schrödinger (1948), *Statistical Thermodynamics*, Cambridge
 University Press.
 J. van Campenhout & T. M. Cover, "Maximum Entropy and Conditional
 Probability," I.E.E.E. Information Theory Trans. (in press).
-[^100]: Department of Physics, Washington University, St. Louis, Missouri 63130, U.S.A. To be presented at the 19'th NBER-NSF Seminar on Bayesian Statistics. Montreal, October 1979.
+
+[^bernoulli-1713]: Jacob Bernoulli (1713).
+[^schrodinger-1948]: E. Schrödinger (1948).
+[^vancampenhout-cover-1979]: J. van Campenhout and T. M. Cover (1979).
+[^jaynes-1978]: E. T. Jaynes (1978).
+[^rowlinson-1970]: J. S. Rowlinson (1970).
+[^czuber-1908]: E. Czuber (1908).
+[^lancaster-1969]: H. O. Lancaster (1969).

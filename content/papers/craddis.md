@@ -13,7 +13,7 @@ abstract: >
   quite different from those that have been tried in the past, and give
   elementary intuitive explanations of why this is so.
 author:
-["E.T. Jaynes"]
+  - "E.T. Jaynes"
 ---
 # INTRODUCTION
 If radar systems could distinguish different targets from each other,
@@ -181,7 +181,7 @@ $$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2}\int n^2(t)dt\right\}$$
 We indicate this as a conditional probability, conditional on knowledge
 of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
 and probability theory tells us the proper way of doing this, as shown
-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
+by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
 in advance because it is essentially the noise temperature of the
 receiver [see Eq. (2-54) below], and one will surely have determined
 this before trying to test the system at all. This simplifies our
@@ -891,4 +891,4 @@ possible in principle, using existing memory capacities and computing
 power. For its realization in practice, the present top priority job is
 to obtain the aforementioned reflection function information.
 
-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+[^bretthorst1988]: Bretthorst (1988).

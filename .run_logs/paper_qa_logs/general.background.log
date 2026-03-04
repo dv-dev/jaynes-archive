@@ -1,0 +1,615 @@
+=== STDOUT ===
+Edited `content/papers/general.background.md` with minimal structural QA changes:
+
+1. Added one paragraph break in the `## LAPLACE` section to avoid a run-on text wall (before “Secondly, we can apply Bayes' theorem…”).
+2. Replaced the malformed ASCII “rationales” block with a valid Markdown table for clean Hugo rendering.
+3. Removed extraneous end metadata not part of the paper body:
+   - `Notes for a special course given in December 1980.`
+   - trailing `[^100]: ... Presented at ...` lecture/proceedings note.
+
+No abstract duplication was found in the body, and no math/LaTeX content was changed.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb9a2-7e50-7e51-b9a3-7f28aad9b385
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/general.background.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/general.background.md` for structural QA issues (paragraph splits, citation/abstract duplication, table formatting, and extraneous metadata), then apply minimal edits directly to that file only.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Bayesian Methods: General Background"
+year: 1986
+abstract: >
+  We note the main points of history, as a framework on which to hang
+  many background remarks concerning the nature and motivation of
+  Bayesian/Maximum Entropy methods. Experience has shown that these are
+  needed in order to understand recent work and problems. A more
+  complete account of the history, with many more details and
+  references, is given in Jaynes (1978).
+  The following discussion is essentially nontechnical; the aim is only
+  to convey a little introductory "feel" for our outlook, purpose, and
+  terminology, and to alert newcomers to common pitfalls of
+  misunderstanding.
+author: ["E.T. Jaynes"]
+---
+## HERODOTUS
+The necessity of reasoning as best we can in situations where our
+information is incomplete is faced by all of us, every waking hour of
+our lives. We must decide what to do next, even though we cannot be
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+probability", updated as a result of acquiring new information B.
+Typically, A represents some hypothesis, or theory, whose truth we wish
+to ascertain, B represents new data from some observation, and the
+"prior information" C represents the totality of what we knew about A
+before getting the data B.
+
+For example -- a famous example that Laplace actually did solve --
+proposition A might be the statement that the unknown mass $M_S$ of
+Saturn lies in a specified interval, B the data from observatories about
+the mutual perturbations of Jupiter and Saturn, C the common sense
+observation that $M_S$ cannot be so small that Saturn would lose its
+rings; or so large that Saturn would disrupt the solar system. Laplace
+reported that, from the data available up to the end of the 18'th
+Century, Bayes' theorem estimates $M_S$ to be (1/3512) of the solar
+mass, and gives a probability of .99991, or odds of 11,000:1, that $M_S$
+lies within 1% of that value. Another 150 years' accumulation of data
+has raised the estimate 0.63 percent.
+
+The more we study it, the more we appreciate how nicely Bayes' theorem
+corresponds to, and improves on, our common sense. In the first place,
+exec
+/bin/bash -lc "sed -n '521,920p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+predictions of equilibrium thermodynamics. But $S_E$ still had to be
+determined by calorimetric measurements (the familiar $S_E = \int dQ/T$
+over a reversible path that science students learn about). Boltzmann
+(1877), Gibbs (1902) and von Neumann (1928) gave three variational
+principles in which the maximization of the "Shannon information
+entropy" $S_I$ led, in both classical and quantum theory, to a
+theoretical prediction of the Clausius entropy $S_E$; and thus again (if
+one was a good enough calculator) to all the useful results of
+equilibrium thermodynamics -- without any need for the calorimetric
+measurements.
+
+But again we had been in a puzzling situation just like that of Bayesian
+inference. Also here we had (from Gibbs) a simple, mathematically
+elegant formalism that led, in the quantum theory version, to enormous
+pragmatic success; but had no clearly demonstrated theoretical
+justification. Also here, arguments over its rationale -- among others,
+does it or does it not require "ergodic" properties of the equations
+of motion? -- had been underway for decades, the partisans on each side
+doubting the sanity of those on the other. But again, Shannon's
+consistency theorem finally showed in what sense entropy maximization
+exec
+/bin/bash -lc "sed -n '921,1240p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+has been demonstrated many times that an experienced scientist could
+reason confidently to correct conclusions, where a mathematician was
+helpless because his tools did not fit the problem. Our reasoning has
+always been an intuitive version of Bayes' theorem, which can cope with
+incomplete information.
+## DOWNWARD ANALYSIS IN STATISTICAL MECHANICS
+To illustrate this open-ended descent into deeper and deeper hypothesis
+spaces, a physicist or chemist considering a common object, say a sugar
+cube, might analyze it into a succession of deeper and deeper hypothesis
+spaces on which probabilities might be defined. Our direct sense
+perceptions reveal only a white cube, with frosty rather than shiny
+sides, and no very definite hypothesis space suggests itself to us. But
+examination with a low power lens is sufficient to show that it is
+composed of small individual crystals. So our first hypothesis space
+$H_1$ might consist of enumerating all possible sizes and orientations
+of those crystals and assigning probabilities to them. Some of the
+properties of the sugar cube, such as its porosity, could be discussed
+successfully at that level.
+
+On further analysis one finds that crystals are in turn composed of
+codex
+I found one clear structural issue (a malformed ASCII table) and extraneous end-matter metadata (`[^100]` lecture/presentation note). I’ll make minimal edits: fix that table into valid Markdown, clean a couple of paragraph breaks for rendering, and remove the extraneous metadata block.
+exec
+/bin/bash -lc "sed -n '300,380p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[\\"'^100'"\\]|Our present maximum entropy procedure|Secondly, we can apply Bayes' theorem repeatedly|## REFERENCES|Notes for a special course\" content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+298:Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+1070:Our present maximum entropy procedure is supported by many different
+1140:## REFERENCES
+1208:Notes for a special course given in December 1980.
+1210:[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+ succeeded in 51ms:
+posterior probability from each application becoming the prior
+probability for the next. It is easy to verify that (3) has the chain
+consistency that common sense would demand; at any stage the probability
+that Bayes' theorem assigns to A depends only on the total evidence
+$B_{tot} = B_1 B_2 \dots B_k$ then at hand, not on the order in which
+the different updatings happened. We could reach the same conclusion by
+a single application of Bayes' theorem using $B_{tot}$.
+
+But Bayes' theorem tells us far more than intuition can. Intuition is
+rather good at judging what pieces of information are relevant to a
+question, but very unreliable in judging the relative cogency of
+different pieces of information. Bayes' theorem tells us quantitatively
+just how cogent every piece of information is.
+
+Bayes' theorem is such a powerful tool in this extended logic that,
+after 35 years of using it almost daily, I still feel a sense of
+excitement whenever I start on a new, nontrivial problem; because I know
+that before the calculation has reached a dozen lines it will give me
+some important new insight into the problem, that nobody's intuition has
+seen before. But then that surprising result always seems intuitively
+exec
+/bin/bash -lc "sed -n '1070,1185p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Our present maximum entropy procedure is supported by many different
+rationales, including:
+  --------------------- ---------------------------
+  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+  ---------------------------
+  --------------------------- ---------------------------
+  (2) INFORMATION THEORY    Shannon, Jaynes
+  (3) UTILITY               Good, Skilling
+  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+  (5) CODING THEORY         Rissanen
+  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+  ---------------------------
+Of these, (1) is easy to explain to everybody, while (2) is more
+general, but hard to explain to those with orthodox statistical
+training, (3) and (4) are currently popular, and (5) shows great
+long-range theoretical promise, but is not yet well explored.
+
+Most of the writer's recent discussions have concentrated on (1) rather
+than (2) in the belief that, after one has become comfortable with using
+an algorithm in cases where it has a justification so clear and simple
+exec
+/bin/bash -lc "sed -n '270,315p' content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+the mutual perturbations of Jupiter and Saturn, C the common sense
+observation that $M_S$ cannot be so small that Saturn would lose its
+rings; or so large that Saturn would disrupt the solar system. Laplace
+reported that, from the data available up to the end of the 18'th
+Century, Bayes' theorem estimates $M_S$ to be (1/3512) of the solar
+mass, and gives a probability of .99991, or odds of 11,000:1, that $M_S$
+lies within 1% of that value. Another 150 years' accumulation of data
+has raised the estimate 0.63 percent.
+
+The more we study it, the more we appreciate how nicely Bayes' theorem
+corresponds to, and improves on, our common sense. In the first place,
+it is clear that the prior probability $p(A|C)$ is necessarily present
+in all inference; to ask "What do you know about A after seeing the
+data B?" cannot have any definite answer -- because it is not a
+well-posed question -- if we fail to take into account, "What did you
+know about A before seeing B?"
+
+Even this platitude has not always been perceived by those who do not
+use Bayes' theorem and go under the banner: "Let the data speak for
+themselves!" They cannot, and never have. If we want to decide between 
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/general.background.md
+@@ -297,2 +297,3 @@
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+@@ -1071,12 +1072,12 @@
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+@@ -1206,5 +1207 @@
+ Associates, Princeton, N. J.
+-
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+apply_patch(auto_approved=true) exited 0 in 17ms:
+Success. Updated the following files:
+M content/papers/general.background.md
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..a63681ef930c27b714ca1b4629de9941a2bc3125
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1204,7 +1205,3 @@
+ 
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+-
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..a63681ef930c27b714ca1b4629de9941a2bc3125
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1204,7 +1205,3 @@
+ 
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+-
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+codex
+I’ve applied the structural edits and now I’m doing a quick verification pass to ensure no math text changed and the markdown still renders cleanly (especially around the converted table and removed metadata).
+exec
+/bin/bash -lc "git diff -- content/papers/general.background.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab..a63681e 100644
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@ happened. For the data always have a much higher probability [namely
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@ where it does better, and others where it does worse". ...John W. Tukey
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..a63681ef930c27b714ca1b4629de9941a2bc3125
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1204,7 +1205,3 @@
+ 
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+-
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+exec
+/bin/bash -lc "printf '
+' >> content/papers/general.background.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..47cf6260f6098351e2fc7401a5b68cfd50a50e71
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1205,6 +1206,3 @@
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+ 
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+exec
+/bin/bash -lc "tail -n 8 content/papers/general.background.md && echo '---' && git diff -- content/papers/general.background.md | tail -n 20" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+C. E. Shannon (1948), "A Mathematical Theory of Communication", Bell
+Systems Tech. Jour. **27**, 379, 623. Reprinted in C. E. Shannon & W.
+Weaver, *The Mathematical theory of Communication*, Univ. of Illinois
+Press, Urbana, 1949.
+
+J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+Associates, Princeton, N. J.
+
+---
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..47cf6260f6098351e2fc7401a5b68cfd50a50e71
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1205,6 +1206,3 @@
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+ 
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+codex
+Edited `content/papers/general.background.md` with minimal structural QA changes:
+
+1. Added one paragraph break in the `## LAPLACE` section to avoid a run-on text wall (before “Secondly, we can apply Bayes' theorem…”).
+2. Replaced the malformed ASCII “rationales” block with a valid Markdown table for clean Hugo rendering.
+3. Removed extraneous end metadata not part of the paper body:
+   - `Notes for a special course given in December 1980.`
+   - trailing `[^100]: ... Presented at ...` lecture/proceedings note.
+
+No abstract duplication was found in the body, and no math/LaTeX content was changed.
+file update:
+diff --git a/content/papers/general.background.md b/content/papers/general.background.md
+index a8855ab67e8ab56aa05bb7400034ae930c48187e..47cf6260f6098351e2fc7401a5b68cfd50a50e71
+--- a/content/papers/general.background.md
++++ b/content/papers/general.background.md
+@@ -295,6 +295,7 @@
+ $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
+ orthodox "maximum likelihood" solution over the class of all theories. 
+ Only our extremely low prior probability for $ST$ can justify rejecting it.
++
+ Secondly, we can apply Bayes' theorem repeatedly as new pieces of
+ information $B_1, B_2, \dots$ are received from the observatories, the
+ posterior probability from each application becoming the prior
+@@ -1069,16 +1070,16 @@
+ 
+ Our present maximum entropy procedure is supported by many different
+ rationales, including:
+-  --------------------- ---------------------------
+-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
+-  ---------------------------
+-  --------------------------- ---------------------------
+-  (2) INFORMATION THEORY    Shannon, Jaynes
+-  (3) UTILITY               Good, Skilling
+-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
+-  (5) CODING THEORY         Rissanen
+-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
+-  ---------------------------
++
++| Rationale | Contributors |
++| --- | --- |
++| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
++| (2) INFORMATION THEORY | Shannon, Jaynes |
++| (3) UTILITY | Good, Skilling |
++| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
++| (5) CODING THEORY | Rissanen |
++| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
++
+ Of these, (1) is easy to explain to everybody, while (2) is more
+ general, but hard to explain to those with orthodox statistical
+ training, (3) and (4) are currently popular, and (5) shows great
+@@ -1205,6 +1206,3 @@
+ J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
+ Associates, Princeton, N. J.
+ 
+-Notes for a special course given in December 1980.
+-
+-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.
+\ No newline at end of file
+
+tokens used
+27,435
+

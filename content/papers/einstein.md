@@ -24,7 +24,7 @@ integrals. This approximation, which gives the correct results in the
 region of the homogeneous phase in the case of an infinite system,
 requires an artificial modification to account for the condensation
 region. The modification is made by treating the terms corresponding to
-the ground state of the individual boson separately from the others. (1)
+the ground state of the individual boson separately from the others.[^ref1]
 In the present report we show that an exact mathematical treatment of
 the Einstein condensation is feasible, and therefore the nature of the
 usual "integral approximation" and its modification is revealed.
@@ -75,7 +75,7 @@ Since the lowest energy, $E_i$, in (4) is zero, an inspection of (1),
 range of z is $0 < z < 1$. Hence we can expand each term of the series
 in (1) and (2) (consequently (3) by (6)) in power series in z and
 interchange the order of the summation in the resulted repeated series,
-which can be shown to be allowable.(2) Thus we have
+which can be shown to be allowable.[^ref2] Thus we have
 $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
 $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
 
@@ -91,6 +91,7 @@ $V \rightarrow \infty$. This raises a mathematical question about the
 interchange of the order of these operations and a physical question
 about the correct volume dependence of thermodynamic properties of the
 ideal boson system.
+
 We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
 $$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i},$$ 
 can be exactly expressed in terms of the theta function, $\theta(x)$,
@@ -102,7 +103,7 @@ where $$\lambda = h\sqrt{\beta/2\pi m}.$$ The theta function has the
 following properties: $\theta(x)$ is a monotonically decreasing function
 in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
 $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
-Besides it satisfies the following important functional relation:(3)
+Besides it satisfies the following important functional relation:[^ref3]
 $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
 (12) becomes
 $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
@@ -166,9 +167,10 @@ therefore the only V dependent factors in each term of the series in
 (20) and (21) are $\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right)$ and
 $\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ respectively. In the
 former case z is a dependent variable, therefore varies with V also.
+
 Let us first consider the case where z is an independent variable, along
 with $\beta$ and V. Then it can be easily shown by the Weierstrass'
-M-test(4) that both the series in (20) and (21) are uniformly convergent
+M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
 with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
 $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
 we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
@@ -254,11 +256,6 @@ may, according to our above discussions, be regarded not as a
 modification to the "integral approximation", but as an entirely
 different approach to the problem by using a different (i.e. canonical)
 ensemble method.
-# References {#references .unnumbered}
-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
 # FIGURE CAPTIONS {#figure-captions .unnumbered}
 **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
 $\phi(x)$.
@@ -285,4 +282,8 @@ $V \rightarrow \infty$.</figcaption>
 ensemble method. The horizontal line shows the region of
 condensation.</figcaption>
 </figure>
-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
+
+[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.

@@ -24,6 +24,7 @@ of a propagation mode, and it may have applications for waveguide
 filters. In addition, it has a certain educational value because of a
 mathematical analogy with the phenomenon of localized bound states due
 to imperfections in crystals.
+
 # Ghost Modes Due to a Dielectric
 To illustrate the simplest case, and one which can be analyzed
 completely, consider the structure of Fig. 1. A dielectric disk of
@@ -31,11 +32,13 @@ thickness $d$, dielectric constant $\epsilon$, is placed in a
 cylindrical waveguide of radius $a$. Let the center of the disk be the
 origin of a cylindrical coordinate system $(r, \theta, z)$. A possible
 electromagnetic field is one whose transverse structure is that of the
-TM$_{01}$ mode, derived from the field component $$E_z = \begin{cases}
+TM$_{01}$ mode, derived from the field component
+$$E_z = \begin{cases}
     B J_0(k_1 r) \exp [-(k_1^2 - k^2)^{1/2}z], & z > \frac{d}{2} \\\\
     A J_0(k_1 r) \cos [(\epsilon k^2 - k_1^2)^{1/2}z], & |z| < \frac{d}{2} \\\\
     B J_0(k_1 r) \exp [+(k_1^2 - k^2)^{1/2}z], & z < -\frac{d}{2}
-\end{cases}$$ In (1),
+\end{cases}$$
+In (1),
 $$k_1 = \frac{2.405}{a} = \frac{\omega_c}{c}, \quad k = \frac{\omega}{c}$$
 where $\omega_c$ and $\omega$ are, respectively, the TM$_{01}$ cutoff
 frequency and an operating frequency to be determined presently.
@@ -50,8 +53,10 @@ exists. We consider, in particular, the case where $\epsilon$ is
 appreciably greater than unity and $k_1 d \ll 1$. Then $k$ as determined
 from (2) is very close to $k_1$, and it will be a good approximation to
 set
-$$(\epsilon k^2 - k_1^2)^{1/2}d \approx (\epsilon - 1)^{1/2} k_1 d \ll 1,$$ so that (2) reduces to the following formula for $\omega$:
-$$\omega^2 \approx \omega_c^2 \left[ 1 - \frac{\epsilon}{2} \left( \frac{k_1 d}{2} \right)^2 \right].$$ The field derived from (1) thus represents a resonant mode with resonant
+$$(\epsilon k^2 - k_1^2)^{1/2}d \approx (\epsilon - 1)^{1/2} k_1 d \ll 1,$$
+so that (2) reduces to the following formula for $\omega$:
+$$\omega^2 \approx \omega_c^2 \left[ 1 - \frac{\epsilon}{2} \left( \frac{k_1 d}{2} \right)^2 \right].$$
+The field derived from (1) thus represents a resonant mode with resonant
 frequency slightly below the cutoff frequency of the TM$_{01}$ mode, in
 which the fields are localized to the vicinity of the dielectric disk.
 The electric field configuration is sketched in Fig. 1. The longitudinal
@@ -78,7 +83,13 @@ slightest inhomogeneity in dielectric constant of the disk, can couple
 the ghost to the TE$_{11}$ mode and cause a large absorption of energy
 at the frequency given by (3). The field of the ghost can attain a
 magnitude several hundred times that of the propagating TE$_{11}$ mode,
-so that
+so that in a high-power device a ghost can cause breakdown. It was, in fact, the
+persistent failure of ceramic windows in the output waveguides of
+high-powered klystrons feeding the Stanford linear electron accelerator
+(carrying about 20 megw at 3 kmc), which led to the recognition of ghost
+modes. Spurious resonances in certain ferrite devices may also be
+traceable to this cause.
+
 <figure>
 <figcaption>TM<span class="math inline"><sub>01</sub></span> ghost mode
 due to a dielectric disk.</figcaption>
@@ -94,18 +105,13 @@ frequency.</figcaption>
 <figcaption>Electric field lines of TE and TM ghost modes due to wall
 imperfections.</figcaption>
 </figure>
-in a high-power device a ghost can cause breakdown. It was, in fact, the
-persistent failure of ceramic windows in the output waveguides of
-high-powered klystrons feeding the Stanford linear electron accelerator
-(carrying about 20 megw at 3 kmc), which led to the recognition of ghost
-modes. Spurious resonances in certain ferrite devices may also be
-traceable to this cause.
 
 What was said for the TM$_{01}$ mode evidently applies in general for
 the structure of Fig. 1; every propagation mode of the waveguide is
 accompanied by a ghost with the same transverse field pattern, localized
 to the vicinity of the disk, with a resonant frequency slightly below
 the corresponding cutoff frequency.
+
 # General Ghost Modes
 The presence of a dielectric is not necessary for existence of ghosts;
 any localized imperfection in a waveguide will cause them to appear.
@@ -116,7 +122,7 @@ $\omega_c$. Let the electric and magnetic fields in the vicinity of any
 point P on the waveguide wall be E, H. Now if
 $\epsilon_0 E^2 > \mu_0 H^2$, push the wall in slightly at P, while if
 $\mu_0 H^2 > \epsilon_0 E^2$, pull out a small "blister" as in Fig. 3.
-According to the Slater perturbation formula [1], the resonant
+According to the Slater perturbation formula [^3], the resonant
 frequency of the cavity is always lowered by this change. But at any
 lower frequency than $\omega_c$ the fields will be attenuated
 exponentially as we move away from the imperfection; thus a ghost has
@@ -142,13 +148,17 @@ dimensionless quantity of the order of magnitude unity, given by
 $$\alpha = \frac{|\mu_0 H^2 - \epsilon_0 E^2|}{\langle \mu_0 H^2 + \epsilon_0 E^2 \rangle_{Av}}$$
 where the fields in the numerator are values near the imperfection,
 while the denominator is an average over a waveguide cross section
-passing through the imperfection [2].
+passing through the imperfection [^4].
 
 From these formulas several general conclusions may be drawn. If the
-imperfection is so small that $$\delta V < \frac{A \lambda_c}{100}$$ then one may expect the ghost to be separated from the cutoff frequency
+imperfection is so small that
+$$\delta V < \frac{A \lambda_c}{100}$$
+then one may expect the ghost to be separated from the cutoff frequency
 by less than the bandwidth $\omega_c/Q$, so that it does not appear as a
 well-resolved resonance, but only a slight broadening of the cutoff
-region. If, on the other hand, $$\delta V > \frac{A \lambda_c}{100}$$ the ghost will generally appear as a distinct resonance. The
+region. If, on the other hand,
+$$\delta V > \frac{A \lambda_c}{100}$$
+the ghost will generally appear as a distinct resonance. The
 longitudinal extension $x_0$ of any well-resolved ghost will, from Fig.
 2, never be more than a few times $\lambda_c$. The $\delta V$ required
 by (10) is so large that the usual mechanical imperfections due to
@@ -174,30 +184,21 @@ well-known features of solid-state theory. Here a crystal represents a
 three-dimensional periodic structure, and solutions of the Schrödinger
 equation, in one-electron approximation, show an almost perfect
 mathematical analogy with those in the corresponding electrical problem
-[3]. In particular, the conduction bands of the crystal correspond to
+[^5]. In particular, the conduction bands of the crystal correspond to
 pass bands of the filter, and any localized imperfection in the crystal
 (such as a vacancy, interstitial atom, or impurity atom), results in at
 least one localized bound state, with an energy just above or just below
 the edge of a conduction band. In this way one can understand the
 creation of donor or acceptor impurity levels involved in n-type and
-p-type conductivity in semiconductors [4].
+p-type conductivity in semiconductors [^6].
 
 Further work on ghost modes, by M. Forrer and the writer, is being
 prepared for publication. Experimental results, universal curves for
 predicting the occurrence of ghosts, and discussion of their possible
 use in waveguide filters and mode convertors will be included.
-# Bibliography {#bibliography .unnumbered}
-::: thebibliography
-4 Slater, J. C. *Microwave Electronics*, New York: D. Van Nostrand
-Company, Inc., 1950, p. 81. The derivation of (6) and (7) is a bit
-tricky, since a small change in $\delta V$ alters the "length" $x_0$
-of the cavity. One must apply the Slater formula only to infinitesimal
-changes in $\delta V$, and integrate to obtain their cumulative effect.
-For this reason the frequency shift involves $(\delta V)^2$ rather than
-$(\delta V)$, as one might at first expect. Brillouin, L. *Wave
-Propagation in Periodic Structures*, New York: McGraw-Hill Book Company,
-Inc., 1946. Kittel, C. *Introduction to Solid-State Physics*. New York: John Wiley & Sons, Inc., 1953, Ch. 14.
-:::
+## Bibliography
 
-[^1]: Microwave Laboratory, Stanford University, Stanford, Calif.
-[^2]: Original manuscript received by the IRE, September 6, 1957.
+[^3]: Slater, J. C. *Microwave Electronics*. New York: D. Van Nostrand Company, Inc., 1950, p. 81.
+[^4]: The derivation of (6) and (7) is a bit tricky, since a small change in $\delta V$ alters the "length" $x_0$ of the cavity. One must apply the Slater formula only to infinitesimal changes in $\delta V$, and integrate to obtain their cumulative effect. For this reason the frequency shift involves $(\delta V)^2$ rather than $(\delta V)$, as one might at first expect.
+[^5]: Brillouin, L. *Wave Propagation in Periodic Structures*. New York: McGraw-Hill Book Company, Inc., 1946.
+[^6]: Kittel, C. *Introduction to Solid-State Physics*. New York: John Wiley & Sons, Inc., 1953, Ch. 14.

@@ -9,7 +9,7 @@ abstract: >
   Approximate, nearly local relationships are presented and are
   demonstrated to predict accurately the ultrasonic dispersion in
   solutions of hemoglobin from the results of attenuation measurements.
-author: ["M. O'Donnell[^1]", "E.T. Jaynes", "J.G. Miller[^1]"]
+author: ["M. O'Donnell[^100]", "E.T. Jaynes", "J.G. Miller[^100]"]
 ---
 PACS numbers: 43.80.Cs, 43.35.Bf
 The purposes of this letter are twofold: (1) to explore the implications
@@ -24,7 +24,7 @@ mechanisms governing the propagation remain obscure.
 
 Relationships between attenuation and dispersion, sometimes called
 Kramers--Kronig or generalized dispersion relationships, have proved
-useful in several areas of physics.[^1]$^,$[^2] Expressed in a form
+useful in several areas of physics.[^1][^2] Expressed in a form
 appropriate to ultrasonic studies, these relationships take the form
 $$
 K_I(\omega) = C_0 - \frac{2}{\pi} \int_0^\infty \frac{\omega^\prime \alpha(\omega^\prime)}{(\omega^\prime)^2 - \omega^2} d\omega^\prime  ,
@@ -85,7 +85,7 @@ the existence of these completely general relationships renders invalid
 attempts to compare the attenuation and dispersion as a means of
 validating any specific model proposed to account for the propagation of
 ultrasound in some medium, as some authors appear to have
-attempted.[^5]$^,$[^6]
+attempted.[^5][^6]
 
 In the form given by Eqs. (1) and (2) the Kramers--Kronig relationships
 are limited in usefulness because of their nonlocal character; i.e., a
@@ -120,13 +120,20 @@ I, if the attenuation varies linearly with frequency, the dispersion
 should vary logarithmically with frequency, regardless of the details of
 the specific mechanism responsible for the linear frequency dependence
 of the attenuation.
+
 | Description | Frequency dependence of attenuation $\alpha(\omega)$ | Frequency dependence of $\Delta C(\omega)$ |
 | :--- | :--- | :--- |
 | Classical Viscous | $\omega^2$ | $\omega$ |
 | "Soft Tissue" | $\omega$ | $\ln \omega$ |
+
 **Table I:** Observed frequency dependences of attenuation coefficient $\alpha$ for classical viscous losses and for the case of soft tissue, and corresponding frequency dependences of $\Delta C$ predicted from Eq. (6).
-To illustrate the use of the nearly local attenuation-dispersion relationships, we present in Fig. 1(a) the attenuation measured as a function of frequency by Carstensen and Schwan[^5] in two solutions of hemoglobin. In Fig. 1(b) we compare the dispersion measured by Carstensen and Schwan to the dispersion predicted on the basis of the measured attenuation and Eq. (6), where $C_0$ was taken to be the phase velocity at 1 MHz. Agreement between the measured and predicted dispersion is excellent. Further, if the dispersion data are plotted on a logarithmic frequency scale, the data lie approximately on a straight line, in agreement with the prediction of Table I for the case of a nearly linear dependence of attenuation on frequency.
+
+To illustrate the use of the nearly local attenuation-dispersion relationships, we present in Fig. 1(a) the attenuation measured as a function of frequency by Carstensen and Schwan[^5] in two solutions of hemoglobin. In Fig. 1(b) we compare the dispersion measured by Carstensen and Schwan to the dispersion predicted on the basis of the measured attenuation and Eq. (6), where $C_0$ was taken to be the phase velocity at 1 MHz.
+
+Agreement between the measured and predicted dispersion is excellent. Further, if the dispersion data are plotted on a logarithmic frequency scale, the data lie approximately on a straight line, in agreement with the prediction of Table I for the case of a nearly linear dependence of attenuation on frequency.
+
 **[FIGURE: (a) The attenuation coefficient measured by Carstensen and Schwan is plotted as a function of frequency for hemoglobin solutions of two concentrations. (b) The change $\Delta C$ in the velocity of sound from its value $C_0$ at 1 MHz is displayed as a function of frequency for the same two solutions. The data points correspond to measurements made by Carstensen and Schwan, and the dashed curves were computed using Eq. (6) and the attenuation data of Fig. 1(a).]**
+
 These results demonstrate the need for determining which features of
 ultrasonic propagation are determined by general laws of physics, as
 opposed to those features which are specific to the particular mechanism
@@ -148,4 +155,4 @@ Supported in part by grants NIH HL19537, NSF APR7709776, and NASA NSG 1392.
 [^6]: P. N. T. Wells, "Absorption and Dispersion of Ultrasound in Biological Tissue," Ultrasound Med. Biol. **1**, 369 (1975).
 [^7]: H. W. Bode, "Relations Between Attenuation and Phase in Feedback Amplifier Design," Bell Syst. Tech. J. **19**, 421 (1940).
 [^8]: M. O'Donnell, E. T. Jaynes, and J. G. Miller (unpublished).
-[^100]: Laboratory for Ultrasonics, Department of Physics, Washington University, St. Louis, Missouri 63130. (Received 12 December 1977; revised 27 February 1978)
+[^100]: Laboratory for Ultrasonics, Department of Physics, Washington University, St. Louis, Missouri 63130.

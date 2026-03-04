@@ -1,0 +1,544 @@
+=== STDOUT ===
+Updated [`content/papers/highly.informative.priors.md`](/home/dave/Projects/jaynes-archive/content/papers/highly.informative.priors.md) with minimal structural QA changes only:
+
+- Added missing blank lines around all `##` section headings for cleaner Markdown/Hugo rendering.
+- Added missing blank lines between a few merged entries in `## REFERENCES` to improve readability.
+- Removed an orphan trailing footnote metadata line (`[^1]: Washington University, St. Louis`) that was not referenced in the body.
+
+Checks:
+- No paper meaning/content changed.
+- No LaTeX/KaTeX/math text changed.
+- No duplicate abstract text found in the body, so none removed.
+- No duplicate footnote+inline citation patterns found to normalize.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb9aa-4674-7733-928c-b96ef060d86d
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/highly.informative.priors.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/highly.informative.priors.md` for structural QA only, then apply minimal edits that preserve all meaning and leave every math expression unchanged. I’m starting by inspecting the file for duplicated abstract text, citation format issues, and markdown/table rendering problems.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Highly Informative Priors"
+year: 1985
+abstract: >
+  After discussing the role of prior information in statistical
+  inference, histori- cally and in current problems, we analyze the
+  problem of seasonal adjustment in economics. Litterman (1980) has
+  shown how informative priors for autoregressive coefficients can
+  improve economic forecasts. We find that in seasonal adjustment
+  informative priors can have a much greater effect on our conclusions.
+  In our model, even the dimensionality of the joint posterior
+  distribution of the irregulars depends on prior information about the
+  seasonal component; and some functions of the ir- regulars can be
+  determined more accurately than in sampling theory.
+author: ["E.T. Jaynes"]
+---
+
+## INTRODUCTION
+The statistical problems envisaged in our pedagogy are almost always
+ones in which we acquire new data D that give evidence concerning some
+codex
+I’ve reviewed the first part and now need the remainder to check for duplicated abstract text, body metadata artifacts, and citation/table issues before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+problem of inference at all. Only recently has Gibbs' work been seen in
+its simplicity and generality, as a method of inference in which prior
+information about multiplicity factors W converts a vague, ill-posed
+problem into a well-posed, accurately solvable one.
+
+The Gibbs formalism is based on the maximization of entropy S = log W
+subject to the constraints of our data. This is, from our present
+standpoint, not an application of a law of physics, but simply locating
+the peak of a distribution that contains W (the "size" of the deeper
+microscopic hypothesis space that I failed to communicate to Jimmie
+Savage) as a factor. The accuracy of our predictions (sharpness of that
+peak) is due to the fact that W is an enormously rapidly varying function
+of the macroscopic quantities -- and of course, that we know the laws of
+physics well enough to calculate it correctly.
+
+Once this had been recognized, it was evident that the reasoning was
+equally applicable in other problems than thermodynamics. The recent
+advances in the techniques for Spectrum Analysis (Burg, 1975; Childers,
+1978; Currie, 1981; Jaynes, 1982), Image Reconstruction (Gull & Daniell,
+1978; Frieden, 1980; Gull & Skilling, 1980), the determination of
+exec
+/bin/bash -lc "sed -n '521,900p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+course, the prior estimate $a_0$ and weighting factors of (29) can
+hardly emerge from a theory which does not admit prior distributions.
+But more important are the correlations of the different $e_t$ in their
+joint posterior distribution expressed by the matrix R. Clearly, if
+$e_1$ and $e_2$ are negatively correlated in this distribution, then we
+can estimate $(e_1+ e_2)$ more accurately than $(e_1 - e_2)$, while the
+opposite is true if they are positively correlated, as is the case here.
+If our goal is to estimate some function $f(e_1...e_N)$, and not just
+the $e_t$ individually, these correlations in the posterior distribution
+can greatly affect both our estimate of $f$ and its accuracy. Yet it
+appears to us that sampling theory, far from being able to take this
+into account, lacks even the conceptual basis and vocabulary in which
+one could state that such logical connections exist.
+
+The reason for this is clear when we note from (25) that these
+correlations come entirely from the prior information; the posterior
+covariance matrix R can be known before one has the data y. Faced with
+this result, a sampling theorist will tend first to question the cogency
+and trustworthiness of the information contained in R. For that reason,
+we have pointed out the phenomenon in a simple, intuitive case.
+codex
+I have most of the body and will scan the final section to ensure there isn’t a duplicated abstract or trailing metadata/citation anomalies before patching.
+exec
+/bin/bash -lc "sed -n '901,1200p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+There are two basic kinds of periodic but nonsinusoidal behavior: (a)
+high-low asymmetry making, for example, sharp peaks but broad troughs,
+as we conjecture to be the case for department store sales; and (b)
+up-down asymmetry tending, for example, to make the falling portion of a
+curve steeper than the rising portion. It seems plausible that sales of
+bathing suits might rise slowly throughout the Spring and Summer, but
+drop precipitously in the Fall.
+
+Type (a) behavior is represented by a Fourier series with only even
+order harmonics, while type (b) has both odd and even. Doubtless, both
+effects are present to some extent in most time series; but it seems
+highly unlikely that any economic quantity would exhibit only odd
+harmonics, making the peaks and troughs mirror images of each other
+(although that is the usual case for the electrical engineer's seasonal
+adjustment problem, elimination of complex and changing hum interference
+waveforms from sensitive circuits). It appears that in most cases the
+economist may expect the sinusoidal components of order $k = 1,2,4$ to
+predominate, while $k = 3,4,6$ should be much weaker.
+
+We suggest that putting this information into our priors may make a
+exec
+/bin/bash -lc "sed -n '1201,1500p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+of alternatives, and therefore does tell us what the test has accomplished.
+Given a null hypothesis $H_0$ and some class C of alternative hypotheses
+$(H_1, H_2,...)$, a usable test, that goes at least part way toward a
+full Bayesian posterior odds ratio test, is to search out class C for
+the best alternative to $H_0$ by the likelihood criterion; i.e. given
+the data D, calculate the test statistic
+$$t(D; C) = \max_{H \in C} \log [p(D|H)/p(D|H_0)] \tag{C1}$$ which tells
+us how much the data could support an alternative in C, relative to
+$H_0$.
+
+For example, the Chi-squared test with n categories is commonly cited as
+a test without alternatives; yet Chi-squared is readily interpreted in
+Bayesian terms, as the statistic that searches out the class $B_n$ of
+Bernoulli alternatives (i.e. n possible results at each trial,
+independence of different trials). Chi-squared is a two-term Taylor
+series approximation to $2t(D; B_n)$. Thus the numerical value of
+Chi-squared has a definite meaning: it tells us how much improvement in
+fit could be obtained within the class $B_n$ of alternatives.
+
+This brings up the second reason for using a Bayesian test, the logic of
+codex
+I found no obvious duplicate abstract so far, but I’m checking the rest for concrete markdown issues I can safely fix with minimal structural edits, especially around headings, display equations, and any malformed citation/metadata patterns.
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^|Lecture given at|Abstract|ABSTRACT|##|'"\\|\" content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+18:## INTRODUCTION
+57:## NECESSARIANS
+138:value of $p(A|B)$ does not depend only on A and B; it depends also on
+143:and rightly -- change $p(A|B)$. This "anti-necessary" dependence is
+193:## NEW APPLICATIONS
+306:## BAYESIAN SEASONAL ADJUSTMENT
+327:prior density for the irregulars, $p(e_1...e_N|I)$, where I denotes the
+357:$$p(e|yI) = \int \int p(e|\sigma AyI)p(\sigma A|yI)d\sigma dA.$$ But if
+359:first factor: $p(e|\sigma yAI) = p(e|yAI)$. Then $\sigma$ integrates out
+360:of the second factor, leaving, $$p(e|yI) = \int p(e|yAI)p(A|yI)dA.$$
+362:$p(e|yAI)$ is nonzero only on a complicated set of points. But one can
+366:$$E(e^{ir \cdot e}|yI) = e^{ir \cdot y}E(e^{-ir \cdot s}|yI) = e^{ir \cdot y} f(r).$$
+369:- Evaluate the joint posterior density $p(A|yI)$ of the seasonal
+372:  $$f(r) = \int e^{-ir \cdot s} p(A|yI)dA.$$
+374:  $$p(e|yI) = (2\pi)^{-N} \int f(r) e^{ir \cdot (y-e)} d^N r.$$
+377:all the parameters is proportional to $p(y|AI)$:
+394:$$p(A_0...B_5|I) \propto \exp(-\frac{Q_P}{2})$$ where
+399:$$p(A|yI) \propto p(A|I)p(y|AI) = p(A|I) \int p(y|A\sigma I)p(\sigma|AI)d\sigma.$$
+402:$p(\sigma|AI) = p(\sigma|I)$, and our result is
+403:$$p(A_0...B_5|yI) \propto \int p(\sigma|I)\sigma^{-N} \exp\left[ -\frac{(Q_L+Q_P)}{2} \right] d\sigma.$$
+exec
+/bin/bash -lc "sed -n '1360,1840p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+Rissanen J. (1983), "A Universal Prior for the Integers", *Ann.
+
+Stat.*, July 1983.
+
+Savage L. J. (1954), *The Foundations of Statistics*, J. Wiley & Sons,
+Inc., New York.
+
+Stigler, S. M. (1980), "Stigler's Law of Eponymy," *Trans. New York
+Acadn. Sci.* **39**, 147-159.
+
+Tukey, J. W. (1978), *Granger on Seasonality*, in *Seasonal Analysis of
+Time Series*, U. S. Government Printing Office: A. Zellner, Editor,
+Washington.
+
+Van Dantzig, D. (1957). "Statistical Priestschaft: Savage on Personal
+Probabilities," *Statistica Neerlandica*, **11** 1-16.
+
+Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+codex
+I identified the safest high-impact fixes as markdown rendering cleanups (heading/equation spacing) plus removal of an orphan metadata footnote at the end; I’m now checking for exact patterns so edits stay minimal and non-semantic.
+exec
+/bin/bash -lc "rg -n \"\\"'$'"\\"'$.*'"\\"'$'"\\"'$'"\\s+[A-Za-z(]\" content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+exec
+/bin/bash -lc "rg -n \"\\"'$'"\\"'$" content/papers/highly.informative.priors.md | sed -n '"'1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+1:---
+2:title: "Highly Informative Priors"
+3:year: 1985
+4:abstract: >
+5:  After discussing the role of prior information in statistical
+6:  inference, histori- cally and in current problems, we analyze the
+7:  problem of seasonal adjustment in economics. Litterman (1980) has
+8:  shown how informative priors for autoregressive coefficients can
+9:  improve economic forecasts. We find that in seasonal adjustment
+10:  informative priors can have a much greater effect on our conclusions.
+11:  In our model, even the dimensionality of the joint posterior
+12:  distribution of the irregulars depends on prior information about the
+13:  seasonal component; and some functions of the ir- regulars can be
+14:  determined more accurately than in sampling theory.
+15:author: ["E.T. Jaynes"]
+16:---
+17:
+18:## INTRODUCTION
+19:The statistical problems envisaged in our pedagogy are almost always
+20:ones in which we acquire new data D that give evidence concerning some
+exec
+/bin/bash -lc "cp content/papers/highly.informative.priors.md /tmp/highly.informative.priors.md.bak && perl -0pe 's/(\\S)\\n(## )/"'$1'"\\n\\n"'$2/g; s/(''^## [''^'"\\n]*\\n)(\\S)/"'$1'"\\n"'$2/gm'"' /tmp/highly.informative.priors.md.bak > /tmp/highly.informative.priors.md.new && diff -u /tmp/highly.informative.priors.md.bak /tmp/highly.informative.priors.md.new | sed -n '1,240p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+--- /tmp/highly.informative.priors.md.bak	2026-03-04 11:25:41.749914953 -0500
++++ /tmp/highly.informative.priors.md.new	2026-03-04 11:25:41.754915380 -0500
+@@ -16,6 +16,7 @@
+ ---
+ 
+ ## INTRODUCTION
++
+ The statistical problems envisaged in our pedagogy are almost always
+ ones in which we acquire new data D that give evidence concerning some
+ hypotheses H, H',... (this includes parameter estimation, since H might
+@@ -54,7 +55,9 @@
+ entirely resolved, and to note some other new applications of
+ informative priors. Our seasonal adjustment calculation starts in
+ Section 4.
++
+ ## NECESSARIANS
++
+ There is a surprisingly wide range of philosophical views about the role
+ of prior information. Since the 1930's a common view has been that it
+ is just plain wrong to take prior information into account. As a student
+codex
+I’m applying minimal structural edits now: standard markdown spacing around section headers, fixing a few merged reference entries, and removing the orphan trailing footnote metadata that isn’t referenced in-body. I will not touch any math content.
+exec
+/bin/bash -lc "perl -0pi -e 's/(\\S)\\n(## )/"'$1'"\\n\\n"'$2/g; s/(''^## [''^'"\\n]*\\n)(\\S)/"'$1'"\\n"'$2/gm'"' content/papers/highly.informative.priors.md && sed -i 's/\\*Computer Graphics and Image Processing\\*, \\*\\*12\\*\\*, 40-59\\.\\nGibbs J\\. Willard/\\*Computer Graphics and Image Processing\\*, \\*\\*12\\*\\*, 40-59.\\n\\nGibbs J. Willard/' content/papers/highly.informative.priors.md && sed -i 's/D\\. Reidel Publishing Co\\., Dordrecht-Holland\\nJaynes, E\\. T\\./D. Reidel Publishing Co., Dordrecht-Holland\\n\\nJaynes, E. T./' content/papers/highly.informative.priors.md && sed -i 's/\\*Acta Cryst\\.\\* \\*\\*A39\\*\\*, pp\\. 47-60\\.\\nWinkler, R\\. L\\./\\*Acta Cryst.\\* \\*\\*A39\\*\\*, pp. 47-60.\\n\\nWinkler, R. L./' content/papers/highly.informative.priors.md && sed -i '/"'^'"\\[\\"'^1'"\\]: Washington University, St\\. Louis"'$/d'"' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "git diff -- content/papers/highly.informative.priors.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index e8fcc7a..bcc14a5 100644
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -16,6 +16,7 @@ author: ["E.T. Jaynes"]
+ ---
+ 
+ ## INTRODUCTION
++
+ The statistical problems envisaged in our pedagogy are almost always
+ ones in which we acquire new data D that give evidence concerning some
+ hypotheses H, H',... (this includes parameter estimation, since H might
+@@ -54,7 +55,9 @@ history of the prior information issue, with its controversies still not
+ entirely resolved, and to note some other new applications of
+ informative priors. Our seasonal adjustment calculation starts in
+ Section 4.
++
+ ## NECESSARIANS
++
+ There is a surprisingly wide range of philosophical views about the role
+exec
+/bin/bash -lc "sed -n '1310,1375p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Columbia University, New York.
+
+Bryan, R. K., Bansanl, M,. Folkhard, W., Nave, C. and Marvin, D. A.
+(1983). "Maximum Entropy Calculation of the electron density at 4A
+resolution of PF1 filamentous bacteriophage", *Proc. Nat. Acad. Sci.
+USA*, **80**, pp. 4728-4731.
+
+Burg, J. P. (1975) "Maximum Entropy Spectral Analysis" Stanford
+University Thesis.
+
+Childers, D., Ed. (1978), "Modern Spectral Analysis", IEEE Press, New
+York.
+
+Currie, R. G., (1981), "Solar Cycle Signal in Earth Rotation",
+*Science*, **211**, 386-389; See also "Evidence for 18.6 year M$_N$
+Signal in Temperature and Drought Conditions in North America Since AD
+1800", *J. Geophys. Res.* **86**, 11055-11064.
+
+Feinstein, A. (1958). *Information Theory*, New Your: Wiley.
+
+exec
+/bin/bash -lc "sed -n '1375,1418p' content/papers/highly.informative.priors.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+
+Litterman R. (1980), "A Bayesian Procedure for Forecasting with Vector
+Autoregression", Manuscript dated September 1980 and Ph.D. Thesis,
+University of Minnesota, 1979.
+
+Mead, L. R. and Papanicolaou, N. (1984), "Maximum Entropy in the
+Problem of Moments," *J. Math. Phys.* **25**, 2404-2417.
+
+Popper K. R. (1959), *The Logic of Scientific Discovery*, Basic Books,
+Inc., New York.
+
+Rissanen J. (1983), "A Universal Prior for the Integers", *Ann.
+
+Stat.*, July 1983.
+
+Savage L. J. (1954), *The Foundations of Statistics*, J. Wiley & Sons,
+Inc., New York.
+
+Stigler, S. M. (1980), "Stigler's Law of Eponymy," *Trans. New York
+Acadn. Sci.* **39**, 147-159.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/highly.informative.priors.md
+@@ -1331,2 +1331,3 @@
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+@@ -1353,2 +1354,3 @@
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+@@ -1405,2 +1407,3 @@
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M content/papers/highly.informative.priors.md
+file update:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index bcc14a5587b295894496995404fdca27ad012a04..93e0b85f9cdb2af69f9841382a19cf5c69b74c2b
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -1329,6 +1329,7 @@
+ 
+ Frieden, B. R. (1980), "Statistical Models for the Image Restoration
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+ Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
+ 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
+@@ -1351,6 +1352,7 @@
+ 
+ Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+ Statistics", in *Proceedings of the International Convention on
+ Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
+@@ -1403,6 +1405,7 @@
+ Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+ Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+ and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
+ Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
+
+file update:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index bcc14a5587b295894496995404fdca27ad012a04..93e0b85f9cdb2af69f9841382a19cf5c69b74c2b
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -1329,6 +1329,7 @@
+ 
+ Frieden, B. R. (1980), "Statistical Models for the Image Restoration
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+ Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
+ 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
+@@ -1351,6 +1352,7 @@
+ 
+ Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+ Statistics", in *Proceedings of the International Convention on
+ Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
+@@ -1403,6 +1405,7 @@
+ Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+ Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+ and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
+ Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
+
+codex
+Edits are in place; I’m doing a final diff pass to confirm only structural markdown changes were made and no math content was altered.
+exec
+/bin/bash -lc "git diff -- content/papers/highly.informative.priors.md | sed -n '1,320p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index e8fcc7a..93e0b85 100644
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -16,6 +16,7 @@ author: ["E.T. Jaynes"]
+ ---
+ 
+ ## INTRODUCTION
++
+ The statistical problems envisaged in our pedagogy are almost always
+ ones in which we acquire new data D that give evidence concerning some
+ hypotheses H, H',... (this includes parameter estimation, since H might
+@@ -54,7 +55,9 @@ history of the prior information issue, with its controversies still not
+ entirely resolved, and to note some other new applications of
+ informative priors. Our seasonal adjustment calculation starts in
+ Section 4.
++
+ ## NECESSARIANS
++
+ There is a surprisingly wide range of philosophical views about the role
+file update:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index bcc14a5587b295894496995404fdca27ad012a04..93e0b85f9cdb2af69f9841382a19cf5c69b74c2b
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -1329,6 +1329,7 @@
+ 
+ Frieden, B. R. (1980), "Statistical Models for the Image Restoration
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+ Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
+ 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
+@@ -1351,6 +1352,7 @@
+ 
+ Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+ Statistics", in *Proceedings of the International Convention on
+ Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
+@@ -1403,6 +1405,7 @@
+ Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+ Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+ and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
+ Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
+
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^" content/papers/highly.informative.priors.md' in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index bcc14a5587b295894496995404fdca27ad012a04..93e0b85f9cdb2af69f9841382a19cf5c69b74c2b
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -1329,6 +1329,7 @@
+ 
+ Frieden, B. R. (1980), "Statistical Models for the Image Restoration
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+ Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
+ 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
+@@ -1351,6 +1352,7 @@
+ 
+ Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+ Statistics", in *Proceedings of the International Convention on
+ Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
+@@ -1403,6 +1405,7 @@
+ Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+ Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+ and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
+ Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
+
+codex
+Updated [`content/papers/highly.informative.priors.md`](/home/dave/Projects/jaynes-archive/content/papers/highly.informative.priors.md) with minimal structural QA changes only:
+
+- Added missing blank lines around all `##` section headings for cleaner Markdown/Hugo rendering.
+- Added missing blank lines between a few merged entries in `## REFERENCES` to improve readability.
+- Removed an orphan trailing footnote metadata line (`[^1]: Washington University, St. Louis`) that was not referenced in the body.
+
+Checks:
+- No paper meaning/content changed.
+- No LaTeX/KaTeX/math text changed.
+- No duplicate abstract text found in the body, so none removed.
+- No duplicate footnote+inline citation patterns found to normalize.
+file update:
+diff --git a/content/papers/highly.informative.priors.md b/content/papers/highly.informative.priors.md
+index bcc14a5587b295894496995404fdca27ad012a04..93e0b85f9cdb2af69f9841382a19cf5c69b74c2b
+--- a/content/papers/highly.informative.priors.md
++++ b/content/papers/highly.informative.priors.md
+@@ -1329,6 +1329,7 @@
+ 
+ Frieden, B. R. (1980), "Statistical Models for the Image Restoration
+ Problem", *Computer Graphics and Image Processing*, **12**, 40-59.
++
+ Gibbs J. Willard (1902) *Elementary Principles in Statistical
+ Mechanics*, reprinted in *The Collected Works of J. Willard Gibbs*, Vol.
+ 2, by Yale University Press, New Haven, Conn, 1948 and by Dover
+@@ -1351,6 +1352,7 @@
+ 
+ Jaynes, E. T. (1983), *Papers on Probability, Statistics and Statistical
+ Physics*, D. Reidel Publishing Co., Dordrecht-Holland
++
+ Jaynes, E. T. (1984), "The Intuitive Inadequacy of Classical
+ Statistics", in *Proceedings of the International Convention on
+ Fundamentals of Probability and Statistics*, Luino, Italy, Sept. 17-19,
+@@ -1403,6 +1405,7 @@
+ Wilkins, S. W., Varghese, J. N. and Lehmann, M. S. (1983). "Statistical
+ Geometry I. A Self-Consistent Approach to the Crystallographic Inversion
+ Problem Based on Information Theory," *Acta Cryst.* **A39**, pp. 47-60.
++
+ Winkler, R. L. (1980). "Prior Information, Predictive Distributions,
+ and Bayesian Model Building," in *Bayesian Analysis in Econometrics and
+ Statistics*, North-Holland, Amsterdam: A. Zellner, Editor.
+
+tokens used
+50,781
+

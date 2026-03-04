@@ -26,7 +26,7 @@ insights into current technical problems.
 Some important facts about thermodynamics have not been understood by
 others to this day, nearly as well as Gibbs understood them over 100
 years ago. Other aspects of this "new" development have been reported
-elsewhere (Jaynes 1986, 1988, 1989). In the present note we consider the
+elsewhere.[^jaynes-1986-1989] In the present note we consider the
 "Gibbs Paradox" about entropy of mixing and the logically inseparable
 topics of reversibility and the extensive property of entropy.
 
@@ -51,7 +51,7 @@ because there was no paradox.
 
 Why did Gibbs fail to give this explanation in his *Statistical
 Mechanics*? We are inclined to see in this further support for our
-contention (Jaynes, 1967) that this work was never finished. In reading
+contention[^jaynes-1967] that this work was never finished. In reading
 Gibbs, it is important to distinguish between early and late Gibbs. His
 *Heterogeneous Equilibrium* of 1875-78 is the work of a man at the
 absolute peak of his intellectual powers; no logical subtlety escapes
@@ -82,7 +82,7 @@ requiring it nor forbidding it.
 Indeed, in the phenomenological theory Clausius defined entropy by the
 integral of $dQ/T$ over a reversible path; but in that path the size of
 a system was not varied, therefore the dependence of entropy on size was
-not defined. This was perceived by Pauli (1973), who proceeded to give
+not defined. This was perceived by Pauli,[^pauli-1973] who proceeded to give
 the correct functional equation analysis of the necessary conditions for
 extensivity. But if this is required already in the phenomenological
 theory, the same analysis is required *a fortiori* in both classical
@@ -248,11 +248,11 @@ compatible with $X$. Boltzmann, Planck, and Einstein showed that we may
 interpret the entropy of a macrostate as $S(X) = k \log W(C)$, where
 $W(C)$ is the phase volume occupied by all the microstates in the chosen
 reference class $C$. From this formula, a large mass of correct results
-may be explained and deduced in a neat, natural way (Jaynes, 1988). In
+may be explained and deduced in a neat, natural way.[^jaynes-1988] In
 particular, one has a simple explanation of the reason for the second
 law as an immediate consequence of Liouville's theorem, and a
 generalization of the second law to nonequilibrium conditions, which has
-useful applications in biology (Jaynes, 1989).
+useful applications in biology.[^jaynes-1989]
 
 This has some interesting implications, not generally recognized. The
 thermodynamic entropy $S(X)$ is, by definition and construction, a
@@ -356,6 +356,7 @@ nonequilibrium -- are to ones of higher entropy, simply because there
 are overwhelmingly more microstates to go to, by factors like (2). We do
 not see why any more than this is needed to understand the second law as
 a fact of macroscopic phenomenology.
+
 However, the argument just given showing how entropy depends, not on the
 microstate, but on human choice of the reference class in which it is to
 be embedded, may appear so abstract that it leaves the reader in doubt
@@ -364,7 +365,7 @@ particular philosophy of interpretation, without physical consequences.
 This is so particularly when we recall that after the aforementioned
 paper of 1866, Boltzmann spent the remaining 40 years of his life in
 inner turmoil and outward controversy over the second law, repeatedly
-changing his position. The details are recounted by Klein (1973). In the
+changing his position. The details are recounted by Klein.[^klein-1973] In the
 end this degenerated into nit-picking arguments over the exact
 conditions under which his H-function did or did not decrease. But none
 of this was ever settled or related to the real experimental facts about
@@ -396,6 +397,7 @@ volume $V_1$, and pure A2 in $V_2$, we would have no way of knowing
 this, or of detecting any difference in the resulting diffusion process.
 Thus all the thermodynamic measurements we can actually make today are
 accounted for correctly by ascribing zero entropy of mixing to argon.
+
 Now the scene shifts to the next Century, when Whifnium is readily
 available to experimenters. What could happen before only by rare
 chance, we can now bring about by design. We may, at will, prepare
@@ -415,9 +417,11 @@ where $$
 \Delta S_2 &= -nR(1-f) \log(1-f)
 \end{aligned}
 $$
+
 But if this entropy increase is more than just a figment
 of our imagination, it ought to have observable consequences, such as a
 change in the useful work that we can extract from the process.
+
 There is a school of thought which militantly rejects all attempts to
 point out the close relation between entropy and information, claiming
 that such considerations have nothing to do with energy; or even that
@@ -426,6 +430,7 @@ nothing to do with experimental facts at all. We would observe, however,
 that the number of fish that you can catch is an "objective experimental
 fact"; yet it depends on how much "subjective" information you have
 about the behavior of fish.
+
 If one is to condemn things that depend on human information, on the
 grounds that they are "subjective", it seems to us that one must condemn
 all science and all education; for in those fields, human information is
@@ -436,6 +441,7 @@ real"; but our hypotheses about that will have no testable consequences
 unless it can also describe what human observers can see and know. It
 seems to us that this lesson should have been learned rather well from
 relativity theory.
+
 The amount of useful work that we can extract from any system depends --
 obviously and necessarily -- on how much "subjective" information we
 have about its microstate, because that tells us which interactions will
@@ -444,6 +450,7 @@ platitude. If the entropy we ascribe to a macrostate did not represent
 some kind of human information about the underlying microstates, it
 could not perform its thermodynamic function of determining the amount
 of work that can be extracted reproducibly from that macrostate.
+
 But if this is not obvious, it is easily demonstrated in our present
 scenario. The diffusion will still take place without any change of
 temperature, pressure, or internal energy; but because of our greater
@@ -614,7 +621,7 @@ $T$ and $V$. Indeed, if $N$ varied on our reversible path, then (7)
 would not be correct (an extra 'entropy of convection' term
 $\int \mu dN/T$ would be needed).
 
-Pauli (1973) noticed this incompleteness of (7) and saw that if we wish
+Pauli[^pauli-1973] noticed this incompleteness of (7) and saw that if we wish
 entropy to be extensive, then that is logically an additional condition, that
 we must impose separately. The extra condition is that entropy
 should satisfy the scaling law
@@ -647,6 +654,7 @@ the dimensions of action. It might appear that this is the limit of what
 can be said about the entropy function from phenomenological
 considerations; however, there may be further cogent arguments that have
 escaped our attention.
+
 # Would Gibbs Have Accepted It?
 Note that the Pauli analysis has not demonstrated from the principles of
 physics that entropy actually should be extensive; it has only indicated
@@ -665,7 +673,7 @@ evidence or further theoretical considerations.
 
 The original thermodynamics of Clausius considered only closed systems,
 and was consistent with conclusion (1). Textbooks for physicists have
-been astonishingly slow to move beyond it; that of Callen (1960) is
+been astonishingly slow to move beyond it; that of Callen[^callen-1960] is
 almost the only one that recognizes the more complete and fundamental
 nature of Gibbs' work.
 
@@ -695,6 +703,7 @@ example, from our mechanical experience it seems intuitively obvious
 that a liquid sphere has a lower energy than any other shape with the
 same entropy; yet to most of us it seems far from obvious that the
 sphere has higher entropy than any other shape with the same energy.
+
 It is interesting to note how the various classical textbooks deal with
 the question of extensivity; and then how Gibbs dealt with it. Planck
 (1926, p. 92), Epstein (1937; p. 136) and Zemansky (1943; p. 311) do not
@@ -703,6 +712,7 @@ the start, apparently considering this too obvious to be in need of any
 discussion. Callen (1960; p. 26) does write the scaling law, but does
 not derive it from anything or derive anything from it; thereafter he
 proceeds to write entropy as extensive without further discussion.
+
 In other words, all of these works simply assume entropy to be extensive
 without investigating the question whether that extensivity follows
 from, or is even consistent with, the Clausius definition of entropy.
@@ -974,6 +984,7 @@ number 137.036 should be forbidden to appear in a classical calculation.
 Since the problem has not been looked at in this way before, and nobody
 has tried to determine that constant from classical physics, we see no
 grounds for confident claims either that it can or cannot be done.
+
 But the apparent involvement of $e$ and $c$ suggests, as Gibbs himself
 noted in the preface to his *Statistical Mechanics*, that
 electromagnetic considerations may be important even in the
@@ -1078,6 +1089,7 @@ define entropy in statistical mechanics merely by analogy with the
 phenomenological theory. The only truly fundamental definition of
 entropy must be provided directly by the statistical theory itself; and
 comparison with observed phenomenology takes place only afterward.
+
 This is how relativity theory was constituted: empirical results like
 the Michelson-Morley experiment might well suggest the principle of
 relativity; but the deduction of the theory from this principle was made
@@ -1121,7 +1133,7 @@ this generalization leads to simple rules of thumb like the phase volume
 interpretation $S=k \log W$ of Boltzmann, Einstein, and Planck, which
 are not limited to equilibrium conditions and can be applied directly
 for very simple applications like the calculation of muscle efficiency
-in biology (Jaynes, 1989).
+in biology.[^jaynes-1989]
 # REFERENCES {#references .unnumbered}
 Callen, H. B. (1960), *Thermodynamics*, J. Wiley & Sons, Inc., New York.
 Epstein, P. S. (1937), *Textbook of Thermodynamics*, J. Wiley & Sons,
@@ -1171,12 +1183,16 @@ Inc., N. Y.
 Zemansky, M. W. (1943) *Heat and Thermodynamics*, McGraw-Hill Book Co.,
 New York.
 
-[^1]: In *Maximum Entropy and Bayesian Methods*, C. R. Smith, G. J.
-    Erickson, & P. O. Neudorfer, Editors, Kluwer Academic Publishers,
-    Dordrecht, Holland (1992); pp. 1--22.
-
 [^2]: In this respect Gibbs' notation is really neater formally -- and
     more cogent physically -- than ours; for Boltzmann's constant is
     only a correction factor necessitated by our custom of measuring
     temperature in arbitrary units derived from the properties of water.
     A really fundamental system of units would have $k=1$ by definition.
+
+[^jaynes-1986-1989]: Jaynes, E. T. (1986, 1988, 1989). See corresponding entries in References.
+[^jaynes-1967]: Jaynes, E. T. (1967). See corresponding entry in References.
+[^pauli-1973]: Pauli, W. (1973). See corresponding entry in References.
+[^jaynes-1988]: Jaynes, E. T. (1988). See corresponding entry in References.
+[^jaynes-1989]: Jaynes, E. T. (1989). See corresponding entry in References.
+[^klein-1973]: Klein, M. J. (1973). See corresponding entry in References.
+[^callen-1960]: Callen, H. B. (1960). See corresponding entry in References.

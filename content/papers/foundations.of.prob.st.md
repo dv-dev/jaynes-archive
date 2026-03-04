@@ -15,6 +15,7 @@ abstract: >
   approved or deprecated by the scientific community as a whole.
 author: ["E.T. Jaynes"]
 ---
+
 ## WHAT MAKES THEORIES GROW?
 However much the "pure" scientist may deplore it, the fact remains that
 military or engineering applications of science have, over and over
@@ -127,12 +128,13 @@ During a fairly short period many important advances in physical theory
 were made by such persons as LAPLACE, LAGRANGE, LAVOISIER, and FOURIER.
 Then a pressure maximum occurred in the first half of the nineteenth 
 century, which is well described in some thermodynamics textbooks, 
-particularly that of EPSTEIN [1]. This period of hostility toward free 
+particularly that of EPSTEIN [^1]. This period of hostility toward free 
 speculation seems to have been brought about, in part, by the collapse 
 of SCHELLING'S *Naturphilosophie*, and its chief effect was to delay 
 recognition of the first law of thermodynamics for several decades. As 
 already noted, FRESNEL was one of the very few physicists who escaped 
 this influence sufficiently to make important advances in theory.
+
 Another pressure minimum was reached during the third quarter of the
 nineteenth century, when a new spurt of advances took place in a period
 of only fifteen years (1855--1870), in the hands of MAXWELL, KELVIN,
@@ -145,7 +147,7 @@ the tragedies (at least from the standpoint of physics) caused by this
 was the virtual loss of the talents of POINCARÉ. While his contributions 
 to physical theory are considerable, still they are hardly commensurate 
 with what we know of his enormous abilities. This was recognized and 
-explained by E. T. BELL [2] in these words: "He had the misfortune to 
+explained by E. T. BELL [^2] in these words: "He had the misfortune to 
 be in his prime just when physics had reached one of its recurrent 
 periods of senility." The official dogma at that time was that all the 
 facts of physics are to be explained in terms of Newtonian mechanics; 
@@ -155,7 +157,9 @@ theory by more and more complicated mechanical models of the ether ---
 efforts which remind us very much of the earlier single-minded 
 insistence that all the facts of astronomy must be explained by adding 
 more and more Ptolemaic epicycles.
+
 **[FIGURE: Some recent fluctuations in social pressure in science]**
+
 An interesting manifestation toward the end of this period was the rise
 of the school of "Energetics", championed by MACH and OSTWALD, which
 represents an early attempt of the positivist philosophy to limit the
@@ -180,7 +184,7 @@ space, and computing transition matrix elements between them. Any
 attempt to find a more detailed description than this stood in conflict
 with the official ideology, and was quickly suppressed without any
 attempt to exhibit a logical inconsistency or a conflict with
-experiment; this time, a few individual cases can be documented [3].
+experiment; this time, a few individual cases can be documented [^3].
 There are now many signs that the pressure has started down again;
 several of the supposedly universal principles of quantum theory have
 been confronted with new facts, or new investigations, which make us
@@ -259,6 +263,7 @@ which will lead to the next round of advances are to be found in the
 many suggestions already made by dissenters from the Copenhagen theory 
 --- suggestions which have, thus far, been met only by sneers and 
 attacks, which no attempt to study their real potentialities.
+
 ## STATISTICAL MECHANICS
 At this point, I see that you are looking about anxiously and wondering
 if you are in the right room; for the announced title of this talk was,
@@ -325,6 +330,7 @@ more than likely to be wasted.* I believe that, in this century,
 thousands of man-years of our finest mathematical talent have been lost
 through failure to understand this simple principle of methodology; and
 this remark applies with equal force to physics and to statistics.
+
 ### BOLTZMANN'S Collision Equation
 Let us consider some case histories. BOLTZMANN sought to describe the
 approach to equilibrium in a gas in terms of the distribution
@@ -336,7 +342,7 @@ $$
 n_R = \int_R f(x, p, t) d^3 x d^3 p.
 $$
 
- After some physical arguments
+After some physical arguments
 which need not concern us here, BOLTZMANN concluded that the time
 evolution of the gas should be described by his famous "collision
 equation",
@@ -351,7 +357,7 @@ the quantity
 $$
 H_B = \int f \log f \, d^3 x \, d^3 p
 $$
- can only decrease 
+can only decrease 
 (in this equation we integrate over all the accessible phase space); and 
 so BOLTZMANN sought to identify the quantity 
 $$
@@ -395,7 +401,7 @@ above this level.
 
 If you think my characterization of the situation has been too laconic,
 and unfair to many honest seekers after the truth, I invite you to
-examine a recent review article on transport theory [4]. On page 271,
+examine a recent review article on transport theory [^4]. On page 271,
 the author states that "The Boltzmann distribution function --- is the
 (probable) number of particles in the positional range $d^3x$ and the
 velocity range $d^3v$ ---". On page 274 this is altered to: "The
@@ -438,6 +444,7 @@ range of validity of Eq. (2), and we cannot say how it should be
 extended to more general problems. Because of imprecise concepts, the
 theory reaches an impasse at the stage where it has barely scratched the
 surface of any real treatment of irreversible processes!
+
 ### Method of GIBBS
 For our second case history, we turn to the work of GIBBS. This was done
 some thirty years after the aforementioned work of BOLTZMANN, and the
@@ -453,7 +460,7 @@ and GIBBS' canonical ensemble is clearly only a small step removed from
 the distribution laws of MAXWELL and BOLTZMANN. However, GIBBS applied
 these ideas in a way which was unprecedented; so much so that his work
 was almost totally rejected ten years later in the famous Ehrenfest
-review article [5], which has had a dominating influence on thought in
+review article [^5], which has had a dominating influence on thought in
 statistical mechanics for fifty years. In this article, the methods of
 GIBBS are attacked repeatedly, and the physical superiority of
 BOLTZMANN'S approach is proclaimed over and over again. For example,
@@ -471,7 +478,7 @@ repeating the arguments of BOLTZMANN.
 
 This hybrid nature --- the attempt to graft together two quite
 incompatible philosophies --- is nowhere more clearly shown than in the
-fact that the "official" commentary on GIBBS' work [6] devotes a
+fact that the "official" commentary on GIBBS' work [^6] devotes a
 major amount of space to discussion of ergodic theories. Now, it is a
 curious fact that if you study GIBBS' work, you will not find the word
 "ergodic" or the concept of ergodicity, at any point. Recalling that
@@ -513,13 +520,13 @@ words what he had not yet been able to reduce to equations. On pages
 143-144 he tries to explain the methodology which led him to his
 canonical and grand canonical ensembles, as well as the ensemble
 canonical in the angular momenta which was presented in Chapter 4 but
-not applied to any problem [7]. However, he devotes only two sentences
+not applied to any problem [^7]. However, he devotes only two sentences
 to this; and the principle he states is what we would recognize today as
 the principle of maximum entropy! To the best of my knowledge, this
 passage has never been noted or quoted by any other author (it is rather
 well hidden among discussions of other topics); and I discovered it
 myself only by accident, three years after I had written some papers
-[8] advocating this principle as a general foundation for statistical
+[^8] advocating this principle as a general foundation for statistical
 mechanics. This discovery convinced me that there was much more to the
 history of this subject than one finds in any textbook, and induced me
 to study it from the original sources; some of the resulting conclusions
@@ -547,7 +554,7 @@ choose to coarse-grain.
 On the other hand, the variational (maximum entropy) property noted by
 GIBBS does lead us immediately to a proof, not only of the second law,
 but of an extension of the second law to nonequilibrium states. I have
-recently pointed this out [9] and supplied the very simple proof,
+recently pointed this out [^9] and supplied the very simple proof,
 which I think is just the argument GIBBS would have given if he had been
 able to complete his work. However, this is not the main point I wish to
 discuss tonight, so let us turn back to other topics.
@@ -558,7 +565,7 @@ description of the motivation behind his work. I believe that it was
 virtually impossible to understand what GIBBS's methods amounted to, and
 therefore how great was their generality and range of validity, until
 the appearance of SHANNON'S work on Information Theory, in our own time
-[10]. Finally, until recently the situation in probability theory
+[^10]. Finally, until recently the situation in probability theory
 itself, which was in a high-pressure phase completely dominated by the
 frequency theory, which only sneers and attacks on the theories of
 LAPLACE and JEFFREYS, has made it impossible even to discuss, much less
@@ -652,7 +659,7 @@ question must have occurred to almost every physicist who has made a
 serious study of statistical mechanics, for the past sixty years. And
 yet, it has seemed to many a hopelessly difficult task; or even an
 impossible one. For example, at the 1956 International Congress on
-Theoretical Physics, L. VAN HOVE [11] remarked, "In contrast to the
+Theoretical Physics, L. VAN HOVE [^11] remarked, "In contrast to the
 case of thermodynamical equilibrium, no general set of equations is
 known to describe the behavior of many-particle systems whenever their
 state is different from the equilibrium state and, in view of the
@@ -693,6 +700,7 @@ the same impasse with regard to GIBBS' equations; because their
 *conceptual basis has not been precisely defined, the theory dissolves
 in ambiguities which have prevented us, for sixty years, from extending
 it to new domains.*
+
 ### Conceptual Problems of the Ensemble
 The fact that two different camps exist, with diametrically opposed
 views as to the justification of GIBBS' methods, is simply the
@@ -926,6 +934,7 @@ terms of the frequency theory; but, thanks to the work of GIBBS and
 SHANNON, I believe that it makes extremely good sense, and in fact has 
 a very general and mathematically unambiguous solution in terms of 
 subjective probabilities.
+
 ## THE GENERAL MAXIMUM-ENTROPY FORMALISM
 If we accept SHANNON'S interpretation (which can be justified by other
 mathematical arguments entirely independent of the ones given by
@@ -951,8 +960,8 @@ and energy ran out on him --- acquire a much deeper meaning. If we
 specify the expectation value of the energy, this principle uniquely
 determines GIBBS' canonical ensemble. If we specify the expectations of
 energy and mole numbers, it uniquely determines GIBBS' grand canonical
-ensemble [8]. If we specify the expectations of energy and angular
-momentum, it uniquely determines GIBBS' rotational ensemble [7]. Thus,
+ensemble [^8]. If we specify the expectations of energy and angular
+momentum, it uniquely determines GIBBS' rotational ensemble [^7]. Thus,
 all the results of GIBBS on statistical mechanics follow immediately
 from the principle of maximum entropy; and their derivation is
 astonishingly short and simple compared to the arguments usually found
@@ -1098,6 +1107,7 @@ perhaps, that other philosophy will lead to still further
 generalizations and extensions, to which my own philosophy makes me
 blind. That is, after all, just the process by which all progress in
 theoretical physics has been made.
+
 ## REFERENCES
 1. EPSTEIN, P. S.: Textbook of thermodynamics, p. 27--34. New York: John Wiley & Sons, Inc. 1937.
 2. BELL, E. T.: Men of mathematics, p. 546. New York: Dover Publ. Inc. 1937.
@@ -1110,4 +1120,14 @@ theoretical physics has been made.
 9. SHANNON, C. E., and W. WEAVER: The mathematical theory of communication. Urbana (Ill.): University of Illinois Press 1949.
 10. HOVE, L. VAN: Revs. Mod. Phys. **29**, 200 (1957).
 
-[^100]: Department of Physics, Washington University, St. Louis, Missouri
+[^1]: See the numbered References section.
+[^2]: See the numbered References section.
+[^3]: See the numbered References section.
+[^4]: See the numbered References section.
+[^5]: See the numbered References section.
+[^6]: See the numbered References section.
+[^7]: See the numbered References section.
+[^8]: See the numbered References section.
+[^9]: See the numbered References section.
+[^10]: See the numbered References section.
+[^11]: See the numbered References section.

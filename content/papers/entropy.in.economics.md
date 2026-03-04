@@ -53,11 +53,14 @@ not describable merely in terms of particles interacting via central
 forces, in imitation of Newtonian cosmology. This was the methodological
 crisis that Albert Einstein and Max Planck faced; their conceptual
 innovations started our present relativity and quantum theories.
+
 ## THE ECONOMIC - THERMODYNAMIC ANALOGY
+
 Today, it appears that the real world of economics might not be
 describable merely in terms of conventional macroeconomic variables
 (unemployment rate, GNP, aggregate demand, etc.) If so, then a
 conceptual innovation is called for. So what is the missing factor?
+
 An economic system is in some ways like a mechanism, as is recognized in
 all theories. But it is really more like a thermodynamic system than a
 mechanism -- an analogy also noted by others, but not yet developed
@@ -116,13 +119,13 @@ does the economic system drift up the entropy hill? How widely will it
 fluctuate about the deterministic path? The answers were first seen
 intuitively in early work of Einstein, Fokker-Planck, and Onsager. Today
 they are all subsumed in the general formalism of Predictive Statistical
-Mechanics (Jaynes, 1980, 1985), in which the equilibrium maximum-entropy
+Mechanics[^jaynes1980][^jaynes1985], in which the equilibrium maximum-entropy
 variational principle of Gibbs is generalized to time-varying phenomena.
 What that theory suggests is the following. Even though a neighboring
 macroeconomic state of higher entropy is available, the system does not
-necessarily move to it. A pile of sand does not necessarily level 
-itself unless there is an earthquake to shake it up a little. The 
-economic system might just stagnate where it is, unless it is shaken 
+necessarily move to it. A pile of sand does not necessarily level
+itself unless there is an earthquake to shake it up a little. The
+economic system might just stagnate where it is, unless it is shaken
 up by what an Englishman might call a "dither" of some sort.
 
 Of course, stagnation is not necessarily bad in itself; stagnation at a
@@ -130,7 +133,9 @@ point where everybody is happy might even be perceived as the goal of
 economics. But in the past, stagnation seems to have occurred at points
 where almost everybody was unhappy, and wanted a change (as political
 slogans of the genre: "Let's get the country moving again!" testify).
+
 ## THE DITHER
+
 In our conjectured picture of things, the dither that prevents economic
 stagnation and drives us up the entropy hill is a kind of turbulence
 injected into the macroeconomic variables by fluctuations in the
@@ -193,13 +198,15 @@ accord -- hopefully in the right direction and at a safe velocity. To
 guide that policy econometrics would, among other things, try to
 determine the current entropy gradient and dither, from theory and the
 available data.
+
 ## BUBBLE DYNAMICS AND CATASTROPHE THEORY
+
 The ideas of "steering" and "fine-tuning" have of course been with
 us for a long time, although not very successfully and not in connection
 with achieving a desired entropy function.
 
-The further quantitative development of this line of thought (Jaynes,
-1985) is what we have called "bubble dynamics". We have a bubble of
+The further quantitative development of this line of thought[^jaynes1985]
+is what we have called "bubble dynamics". We have a bubble of
 probability in the macroeconomic space, whose center of gravity follows
 a deterministic path up the entropy hill, but whose size and shape
 constantly change in adjustment to the local curvature of the entropy
@@ -235,7 +242,7 @@ not been clear which quantity should be thought of as having these
 convexity-topological properties; i.e. to what function one should apply
 these considerations? We suggest that it is the entropy function -- for
 then the stability criteria are just the convexity properties given by
-Gibbs (1873) in his analysis of thermodynamic stability. Analytical
+Gibbs[^gibbs1873] in his analysis of thermodynamic stability. Analytical
 solutions displaying all these features have been found; details will be
 given elsewhere.
 
@@ -283,7 +290,9 @@ what fraction of the bubble will move to the left or right (i.e., given
 the size, shape, and position of a bubble approaching a bifurcation
 point, what is the probability that the system will move ultimately to
 the left or right?).
+
 ## CONCLUSION
+
 To apply these ideas to real economic prediction would require the kind
 of judgment that comes from long familiarity with the subject-matter.
 One needs to know which particular macroeconomic variables should be
@@ -301,21 +310,27 @@ contemplate that very much of existing theories would be lost in the
 process of adding these new features; rather their successful parts
 would be incorporated into the new theory. Established truths do not
 lose their validity when new truths are added to them.
+
 ## REFERENCES
-J. Willard Gibbs (1873). Part I: "Graphical Methods in the
+
+- J. Willard Gibbs (1873). Part I: "Graphical Methods in the
 Thermodynamics of Fluids"; Part II: "A Method of Geometrical
 Representation of the Thermodynamic Properties of Substances by means of
 Surfaces". Trans. Conn. Acad. Sci, pp. 309--404. Reprinted in *The
 Scientific Papers of J. Willard Gibbs*, Volume 1; Dover Publications,
-Inc., N. Y. (1961).
+  Inc., N. Y. (1961).
 
-E. T. Jaynes (1980). "The Minimum Entropy Production Principle" *Annual
+- E. T. Jaynes (1980). "The Minimum Entropy Production Principle" *Annual
 Review of Physical Chemistry*, Vol. 31, pp. 579--601. Reprinted in
 Jaynes (1983), pp. 401--424.
-(1983), *Papers on Probability, Statistics and Statistical Physics*, R.
+
+- E. T. Jaynes (1983), *Papers on Probability, Statistics and Statistical Physics*, R.
 D. Rosenkrantz, Editor, D. Reidel Publishing Co., Dordrecht-Holland. A
 collection of reprints of 13 papers, with commentary.
-(1985), "Macroscopic Prediction", in *Complex Systems -- Operational
+
+- E. T. Jaynes (1985), "Macroscopic Prediction", in *Complex Systems -- Operational
 Approaches*, H. Haken, Editor, Springer-Verlag, Berlin (1985).
 
-[^100]: St. John's College, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Washington University, St. Louis MO 63130, USA
+[^gibbs1873]: J. Willard Gibbs (1873). Part I: "Graphical Methods in the Thermodynamics of Fluids"; Part II: "A Method of Geometrical Representation of the Thermodynamic Properties of Substances by means of Surfaces". Trans. Conn. Acad. Sci, pp. 309--404.
+[^jaynes1980]: E. T. Jaynes (1980). "The Minimum Entropy Production Principle" *Annual Review of Physical Chemistry*, Vol. 31, pp. 579--601.
+[^jaynes1985]: E. T. Jaynes (1985), "Macroscopic Prediction", in *Complex Systems -- Operational Approaches*, H. Haken, Editor, Springer-Verlag, Berlin (1985).

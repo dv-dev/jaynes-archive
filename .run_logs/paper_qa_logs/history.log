@@ -1,0 +1,597 @@
+=== STDOUT ===
+Edits applied to [content/papers/history.md](/home/dave/Projects/jaynes-archive/content/papers/history.md).
+
+Summary of changes:
+- Improved markdown structure for cleaner rendering by adding consistent blank lines around section headers.
+- Normalized in-text citations to markdown footnote references (e.g., converted parenthetical citation patterns to `[^...]` style).
+- Converted the `## REFERENCES` block into proper markdown footnote definitions matching those in-text citations.
+- Fixed one malformed prose fragment (`R \>"> a` -> `R >> a`) that affected readability/rendering.
+- Confirmed no duplicate abstract text in body, no tables to repair, and no math/LaTeX content was modified.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb9ac-0daf-7752-b551-ec50605fbf1b
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/history.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/history.md` for structural markdown QA only, then apply minimal edits that preserve meaning and leave all math untouched. I’m starting by scanning the file for duplicate abstract text, citation style issues, and formatting problems.
+exec
+/bin/bash -lc "wc -l content/papers/history.md && sed -n '1,260p' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+909 content/papers/history.md
+---
+title: "Ancient History of Free Electron Devices"
+year: 1978
+abstract: >
+  We recall some early thinking about the production of light from
+  high-energy electrons, that started with problems in the design of
+  electron accelerators, in which the writer was an interested observer
+  and (at Stanford, Berkeley, and Princeton in 1946-1960) a sometime
+  participant. In fact, some of that work is being put on record here for
+  the first time, since there was no encouragement to follow up such ideas
+  then, beyond a few Seminar talks (although it has been inflicted since
+  on generations of students, as pedagogical fodder and homework
+  problems).
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["free electron devices", "betatrons", "synchrotrons", "linear accelerators", "undulators", "cyclotron-maser", "Schwarz-Hora effect"]
+---
+## BETATRONS AND SYNCHROTRONS
+Radiation of light due to acceleration of free electrons occurs
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$\theta^\prime$ to the z-axis with frequency $\omega^\prime$, will appear in the
+laboratory frame to have direction $\theta$, frequency $\omega$, where
+$$
+\begin{aligned}
+\cos\theta &= \frac{\beta + \cos\theta^\prime}{1+\beta\cos\theta^\prime} \\
+\omega &= \gamma(1 + \beta\cos\theta^\prime)\omega^\prime = 2\gamma^2(1 + \beta\cos\theta^\prime)\omega_0
+\end{aligned}
+$$
+
+In the electron's frame half the energy is emitted in the forward
+hemisphere $0 < \cos\theta^\prime < 1$. This appears in the
+laboratory frame as $\beta < \cos\theta < 1$, which becomes in the
+extreme relativistic limit $0 < \gamma\theta < 1$, just the
+aforementioned forward cone of angle $\theta = \gamma^{-1}$. Since both
+energy and frequency of a plane wave transform as the time component of
+a four-vector, the ratio $n = E/\hbar\omega$ is an invariant; i.e., half
+the "photons" are emitted into this cone.
+
+Eliminating $\theta^\prime$ between (19) and (20), we have the variation of
+frequency with angle as seen in the laboratory system:
+codex
+I’ve finished the first half and found mostly structural issues (heading spacing and citation style), with no math changes needed. I’m now checking the remainder for duplicate abstract/body text, table formatting, and extraneous metadata lines.
+exec
+/bin/bash -lc "sed -n '521,909p' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+of the energy:
+$$
+\begin{aligned}
+M(t) &= ey(t) \\
+W(t) &= -mc v_z(t)
+\end{aligned}
+$$
+
+Equations (37) then reduce to
+$$
+\begin{aligned}
+\ddot{M} + \omega_0^2 M &= -K^2 W H_x(t) \\
+\dot{W} &= H_x(t)\dot{M}
+\end{aligned}
+$$
+with $K=(e/mc)$.
+
+The formal analogy with the two-level Schrödinger equation (31) is
+complete. Of course, the numerical constants and physical meanings are
+different. For example, in the case of the ammonia molecule in a maser,
+codex
+I finished the scan: there is no duplicate abstract in the body and no table issues, but there are several inline parenthetical citations and a few markdown readability glitches. I’m going to apply a minimal structural cleanup: heading spacing, citation footnotes, and tiny prose-level formatting fixes (without touching any math).
+exec
+/bin/bash -lc "rg -n \"\\([A-Za-z]["'^'"\\)]*\\d{4}["'^'"\\)]*\\)\" content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+8:  and (at Stanford, Berkeley, and Princeton in 1946-1960) a sometime
+119:survives usefully today is the diagnostic method (Jaynes, 1952) worked
+124:already reached Stanford (Schiff, 1946), and those of us dreaming of
+395:The Undulator (Motz, 1950) passes the electrons through a comb-like
+457:the beginning of neoclassical theory (Jaynes, 1973).
+exec
+/bin/bash -lc "rg -n \"1944\\)|1946\\)|1948\\)|1949\\)|1950\\)|1951\\)|1952\\)|1969\\)|1973\\)\" content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+25:Iwanenko and Pomeranchuk (1944) gave a formula for the betatron based on
+27:$P_L = (2e^2/3c^3)\dot{v}^2$, and Schwinger (1946, 1949) produced an
+31:Elder, Langmuir, and Pollock (1948) on the G. E. synchrotron. For an
+97:(1952).
+119:survives usefully today is the diagnostic method (Jaynes, 1952) worked
+124:already reached Stanford (Schiff, 1946), and those of us dreaming of
+395:The Undulator (Motz, 1950) passes the electrons through a comb-like
+457:the beginning of neoclassical theory (Jaynes, 1973).
+644:(1969). I don't want to get into controversies about whether the effect
+890:Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+892:D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+894:E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+897:Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+899:H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+901:L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+903:L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+905:H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+909:J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
+exec
+/bin/bash -lc "perl -0pi -e 's/Iwanenko and Pomeranchuk \\(1944\\)/Iwanenko and Pomeranchuk["'^iwanenko1944]/g; s/Schwinger '"\\(1946, 1949\\)/Schwinger["'^schwinger1946][''^schwinger1949]/g; s/Elder, Langmuir, and Pollock '"\\(1948\\)/Elder, Langmuir, and Pollock["'^elder1948]/g; s/see Schiff '"\\(1952\\)\\./see Schiff["'^schiff1952]'"\\./g; s/method \\(Jaynes, 1952\\) worked/method["'^jaynes1952] worked/g; s/reached Stanford '"\\(Schiff, 1946\\)/reached Stanford["'^schiff1946]/g; s/The Undulator '"\\(Motz, 1950\\)/The Undulator["'^motz1951]/g; s/the beginning of neoclassical theory '"\\(Jaynes, 1973\\)\\./the beginning of neoclassical theory["'^jaynes1973]'"\\./g; s/Schwarz and Hora\\n\\(1969\\)\\./Schwarz and Hora["'^schwarzhora1969]'"\\./g; s/But when R \\\">\"> a,/But when R >> a,/g;' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "perl -0pi -e 's/(["'^'"\\n])\\n## /"'$1'"\\n\\n## /g; s/("'^## [''^'"\\n]+)\\n(\\S)/"'$1'"\\n\\n"'$2/gm;'"' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+codex
+I’ve applied the citation and heading-structure transformations. Next I’m validating the diff to make sure no math changed and then I’ll format the references section into proper markdown footnote definitions.
+exec
+/bin/bash -lc "git diff -- content/papers/history.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index eca2bdd..ee8c196 100644
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -15,20 +15,22 @@ author: ["E.T. Jaynes"]
+ categories: ["Quantum Mechanics & Advanced Physics"]
+ tags: ["free electron devices", "betatrons", "synchrotrons", "linear accelerators", "undulators", "cyclotron-maser", "Schwarz-Hora effect"]
+ ---
++
+ ## BETATRONS AND SYNCHROTRONS
++
+ Radiation of light due to acceleration of free electrons occurs
+ naturally in Bremsstrahlung. In the early 1940's, when the betatron and
+ synchrotron were being developed, it was realized that this same
+ phenomenon would place an upper limit to the attainable energy from any
+ such device other than a linear accelerator.
+ 
+-Iwanenko and Pomeranchuk (1944) gave a formula for the betatron based on
++Iwanenko and Pomeranchuk[^iwanenko1944] gave a formula for the betatron based on
+ the relativistic generalization of the Larmor power formula
+exec
+/bin/bash -lc "git diff -- content/papers/history.md | sed -n '261,520p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "rg -n \"R >> a|Schiff\\(1952\\)|see Schiff|\\"'^'"\\[schiff1952\\]\" content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+98:problem. For the summing up, vindicating classical theory, see Schiff
+exec
+/bin/bash -lc "sed -n '88,106p' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+80 Mev it is not yet serious, amounting only to about 12 ev per electron
+per turn. However, it is only because of the high frequency of the
+radiation, which keeps the emission from different electrons
+incoherent, that the synchrotron will work. If the radiation were of
+such a low frequency that the bunch of N electrons were smaller than a
+wavelength, they would radiate coherently, losing energy at a rate
+proportional to $N^2$ rather than N; and that would be fatal.
+
+Finally, a controversy, amusing in retrospect, developed for a short
+time on the validity of classical vs. quantum electrodynamics for this
+problem. For the summing up, vindicating classical theory, see Schiff
+(1952).
+
+## LINEAR ACCELERATORS
+
+In the closing days of World War II, I found myself in the Navy headed
+for the South Pacific; but just before leaving I visited my friend
+Professor W. W. Hansen, at Stanford. Alarmed at my imminent cultural
+deprivation, he gave me his copy of Whittaker and Watson, with all his
+exec
+/bin/bash -lc "rg -n \"R .*>.* a|R >> a|R \\\">\\\"> a\" content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+205:potential. But when R \>"> a, these integrals go into the form
+codex
+I found two remaining cleanup points: one malformed `R \>"> a` text fragment and the references block still in plain-list format. I’m now patching those into clean markdown plus footnote definitions.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/history.md
+@@ -97,4 +97,3 @@
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+@@ -204,3 +203,3 @@
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+@@ -903,22 +902,12 @@
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+apply_patch(auto_approved=true) exited 0 in 5ms:
+Success. Updated the following files:
+M content/papers/history.md
+file update:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index ee8c196c04319faecd070b2d09c725270d090c5e..3d1e01c7f91967083c729a3bfdfa0d1c2950dd9c
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -95,8 +95,7 @@
+ 
+ Finally, a controversy, amusing in retrospect, developed for a short
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+ ## LINEAR ACCELERATORS
+ 
+@@ -202,7 +201,7 @@
+ $$
+ where $k=\omega/c$, and r is the distance from the point of integration
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+ \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+ $$
+@@ -901,24 +900,14 @@
+ entirely.
+ 
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+
+file update:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index ee8c196c04319faecd070b2d09c725270d090c5e..3d1e01c7f91967083c729a3bfdfa0d1c2950dd9c
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -95,8 +95,7 @@
+ 
+ Finally, a controversy, amusing in retrospect, developed for a short
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+ ## LINEAR ACCELERATORS
+ 
+@@ -202,7 +201,7 @@
+ $$
+ where $k=\omega/c$, and r is the distance from the point of integration
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+ \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+ $$
+@@ -901,24 +900,14 @@
+ entirely.
+ 
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+
+exec
+/bin/bash -lc "rg -n \"\\([A-Za-z]["'^'"\\)]*\\d{4}["'^'"\\)]*\\)\" content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+8:  and (at Stanford, Berkeley, and Princeton in 1946-1960) a sometime
+file update:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index ee8c196c04319faecd070b2d09c725270d090c5e..3d1e01c7f91967083c729a3bfdfa0d1c2950dd9c
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -95,8 +95,7 @@
+ 
+ Finally, a controversy, amusing in retrospect, developed for a short
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+ ## LINEAR ACCELERATORS
+ 
+@@ -202,7 +201,7 @@
+ $$
+ where $k=\omega/c$, and r is the distance from the point of integration
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+ \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+ $$
+@@ -901,24 +900,14 @@
+ entirely.
+ 
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+
+exec
+/bin/bash -lc "sed -n '1,140p' content/papers/history.md && echo '---' && sed -n '188,230p' content/papers/history.md && echo '---' && sed -n '880,930p' content/papers/history.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Ancient History of Free Electron Devices"
+year: 1978
+abstract: >
+  We recall some early thinking about the production of light from
+  high-energy electrons, that started with problems in the design of
+  electron accelerators, in which the writer was an interested observer
+  and (at Stanford, Berkeley, and Princeton in 1946-1960) a sometime
+  participant. In fact, some of that work is being put on record here for
+  the first time, since there was no encouragement to follow up such ideas
+  then, beyond a few Seminar talks (although it has been inflicted since
+  on generations of students, as pedagogical fodder and homework
+  problems).
+author: ["E.T. Jaynes"]
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["free electron devices", "betatrons", "synchrotrons", "linear accelerators", "undulators", "cyclotron-maser", "Schwarz-Hora effect"]
+---
+
+## BETATRONS AND SYNCHROTRONS
+
+file update:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index ee8c196c04319faecd070b2d09c725270d090c5e..3d1e01c7f91967083c729a3bfdfa0d1c2950dd9c
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -95,8 +95,7 @@
+ 
+ Finally, a controversy, amusing in retrospect, developed for a short
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+ ## LINEAR ACCELERATORS
+ 
+@@ -202,7 +201,7 @@
+ $$
+ where $k=\omega/c$, and r is the distance from the point of integration
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+ \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+ $$
+@@ -901,24 +900,14 @@
+ entirely.
+ 
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+
+codex
+Edits applied to [content/papers/history.md](/home/dave/Projects/jaynes-archive/content/papers/history.md).
+
+Summary of changes:
+- Improved markdown structure for cleaner rendering by adding consistent blank lines around section headers.
+- Normalized in-text citations to markdown footnote references (e.g., converted parenthetical citation patterns to `[^...]` style).
+- Converted the `## REFERENCES` block into proper markdown footnote definitions matching those in-text citations.
+- Fixed one malformed prose fragment (`R \>"> a` -> `R >> a`) that affected readability/rendering.
+- Confirmed no duplicate abstract text in body, no tables to repair, and no math/LaTeX content was modified.
+file update:
+diff --git a/content/papers/history.md b/content/papers/history.md
+index ee8c196c04319faecd070b2d09c725270d090c5e..3d1e01c7f91967083c729a3bfdfa0d1c2950dd9c
+--- a/content/papers/history.md
++++ b/content/papers/history.md
+@@ -95,8 +95,7 @@
+ 
+ Finally, a controversy, amusing in retrospect, developed for a short
+ time on the validity of classical vs. quantum electrodynamics for this
+-problem. For the summing up, vindicating classical theory, see Schiff
+-(1952).
++problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+ 
+ ## LINEAR ACCELERATORS
+ 
+@@ -202,7 +201,7 @@
+ $$
+ where $k=\omega/c$, and r is the distance from the point of integration
+ to the point of observation R; a similar expression holds for the vector
+-potential. But when R \>"> a, these integrals go into the form
++potential. But when R >> a, these integrals go into the form
+ $$
+ \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
+ $$
+@@ -901,24 +900,14 @@
+ entirely.
+ 
+ ## REFERENCES
+-
+-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+-
+-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+-
+-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+-
+-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
+-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+-
+-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+-
+-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+ 
+-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+-
+-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
+-complete bibliography of later discussions, see H. Hora, Il Nuovo
+-Cimento 26, 295 (1975).
+-
+-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
++[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
++[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
++[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
++[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
++[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
++[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
++[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
++[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
++[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
++[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).
+
+tokens used
+45,400
+

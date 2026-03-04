@@ -1,0 +1,928 @@
+=== STDOUT ===
+Changed `content/papers/einstein.md` with minimal, structural QA edits only:
+
+- Normalized citations from inline numeric markers to footnote citations:
+  - `(1)`, `(2)`, `(3)`, `(4)` -> `[^ref1]`, `[^ref2]`, `[^ref3]`, `[^ref4]`
+- Removed the standalone `# References` block and converted those entries into proper footnote definitions at the end.
+- Removed extraneous metadata footnote:
+  - `[^1]: Department of Physics, Washington University...`
+- Added two paragraph breaks in dense sections for cleaner markdown rendering/readability.
+- Left all math/LaTeX content unchanged.
+- No abstract duplication found in body, so no abstract removal was needed.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb99a-7ba4-7523-ac0c-a0bba57155db
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/einstein.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/einstein.md` for structural QA issues, then make minimal markdown-only fixes while preserving all paper meaning and leaving every math expression untouched. I’ll report exactly what changed at the end.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "On The Einstein Condensation"
+year: 1960
+abstract: >
+  Exact series expressions for the thermodynamic quantities of an ideal
+  Bose gas are found in terms of the theta function of Jacobi. The
+  Einstein condensation thus can be treated by rigorous mathematical
+  argument. The nature of the "integral approximation" and its
+  modification, employed in the usual treatment of the problem, is
+  clearly revealed. For finite volume, the exact expansions of pressure
+  and density in powers of the activity converge in an entirely
+  different way than do the integral approximation expansions. The
+  modified integral approximation, however, becomes exact in the limit
+  $V \rightarrow \infty$, $N \rightarrow \infty$,
+  $V/N \rightarrow \text{const}$.
+author: ["E.T. Jaynes", "C.T. Chen-Tsai"]
+---
+The phenomenon of the Einstein condensation of an ideal boson system is
+well known. In the usual procedure of evaluating the thermodynamic
+quantities, one uses the "integral approximation", in which the
+codex
+I’ve reviewed the first section and now I’m checking the tail of the file for references/metadata artifacts and any duplicate abstract text before applying minimal structural fixes.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+# FIGURE CAPTIONS {#figure-captions .unnumbered}
+**Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+$\phi(x)$.
+**Fig. 2:** Curve (a) is the isotherm at finite volume. Curve (b) is the
+isotherm at infinite volume obtained from the grand canonical ensemble
+method. The dotted line is missing in the process
+$V \rightarrow \infty$.
+**Fig. 3:** The isotherm at infinite volume obtained from the canonical
+ensemble method. The horizontal line shows the region of condensation.
+<figure>
+<figcaption>The functional behaviors of <span
+class="math inline"><em>θ</em>(<em>x</em>)</span>, <span
+class="math inline"><em>Ψ</em>(<em>x</em>)</span> and <span
+class="math inline"><em>ϕ</em>(<em>x</em>)</span>.</figcaption>
+</figure>
+<figure>
+<figcaption>Curve (a) is the isotherm at finite volume. Curve (b) is the
+isotherm at infinite volume obtained from the grand canonical ensemble
+method. The dotted line is missing in the process
+codex
+I found no duplicate abstract in the body. Next I’ll make minimal structural edits: convert the inline numeric citations to footnote citations, remove the separate references block, and drop the extraneous affiliation footnote metadata.
+codex
+I hit a patch-context mismatch due line wrapping, so I’m re-targeting the same edits with exact line matches and then I’ll re-check the final file.
+exec
+/bin/bash -lc "rg -n \"others\\. \\(1\\)|allowable\\.\\(2\\)|functional relation|M-test|# References|\\[\\"'^1'"\\]\" content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+27:the ground state of the individual boson separately from the others. (1)
+78:which can be shown to be allowable.(2) Thus we have
+105:Besides it satisfies the following important functional relation:(3)
+171:M-test(4) that both the series in (20) and (21) are uniformly convergent
+212:show, again by the Weierstrass M-test, that the series in (24) and (21)
+257:# References {#references .unnumbered}
+288:[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/einstein.md
+@@ -26,3 +26,3 @@
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+@@ -77,3 +77,3 @@
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+@@ -104,3 +104,3 @@
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+@@ -170,3 +170,3 @@
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+apply_patch(auto_approved=true) exited 0 in 11ms:
+Success. Updated the following files:
+M content/papers/einstein.md
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d2c563da5cebcafac495951679e1cafec28b3b90
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d2c563da5cebcafac495951679e1cafec28b3b90
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+
+exec
+/bin/bash -lc "sed -n '244,320p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+with the grand canonical ensemble one by being capable of describing the
+condensation analytically.
+
+We note that in the usual method in order to account for the
+condensation region one modifies the "integral approximation" by
+rewriting the expression for $N/V$ in the form of (24) and approximating
+$\phi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ by 1. This "modified
+integral approximation" which gives the results we obtained in the
+canonical ensemble method by some mathematically less rigorous arguments
+may, according to our above discussions, be regarded not as a
+modification to the "integral approximation", but as an entirely
+different approach to the problem by using a different (i.e. canonical)
+ensemble method.
+# References {#references .unnumbered}
+(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+# FIGURE CAPTIONS {#figure-captions .unnumbered}
+**Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d2c563da5cebcafac495951679e1cafec28b3b90
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+
+codex
+I’ve applied citation marker changes in-body. I’m now cleaning the trailing references section into actual footnotes and removing the unrelated affiliation metadata line.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/einstein.md
+@@ -256,7 +256,2 @@
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+@@ -287,2 +282,6 @@
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+apply_patch(auto_approved=true) exited 0 in 11ms:
+Success. Updated the following files:
+M content/papers/einstein.md
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d3a0af886a8d490f7c24ded9b3a327c66f04379f
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +254,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +280,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d3a0af886a8d490f7c24ded9b3a327c66f04379f
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +254,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +280,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+exec
+/bin/bash -lc "rg -n \"\\(1\\)|\\(2\\)|\\(3\\)|\\(4\\)|\\[\\"'^ref|'"\\[\\"'^1'"\\]\" content/papers/einstein.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "sed -n '1,120p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+27:the ground state of the individual boson separately from the others.[^ref1]
+50:The expressions (1), (2) and (3), as is well known, can be derived
+63:set of integers, ($n_x$, $n_y$, $n_z$), satisfying (4), the number of
+68:From (4) and (5) we get immediately
+69:$$-\frac{\partial E_i}{\partial V} = \frac{2}{3} E_i V^{-1}.$$ Hence (2)
+70:and (3) have the following relation $$E = \frac{3}{2} pV,$$ which holds
+73:Since the lowest energy, $E_i$, in (4) is zero, an inspection of (1),
+74:(2) and (3) shows that z must be always smaller than unity, i.e. the
+76:in (1) and (2) (consequently (3) by (6)) in power series in z and
+78:which can be shown to be allowable.[^ref2] Thus we have
+99:derivative. In fact, by (4) and (5), we have
+105:Besides it satisfies the following important functional relation:[^ref3]
+171:M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+284:[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+285:[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+286:[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+287:[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ succeeded in 51ms:
+---
+title: "On The Einstein Condensation"
+year: 1960
+abstract: >
+  Exact series expressions for the thermodynamic quantities of an ideal
+  Bose gas are found in terms of the theta function of Jacobi. The
+  Einstein condensation thus can be treated by rigorous mathematical
+  argument. The nature of the "integral approximation" and its
+  modification, employed in the usual treatment of the problem, is
+  clearly revealed. For finite volume, the exact expansions of pressure
+  and density in powers of the activity converge in an entirely
+  different way than do the integral approximation expansions. The
+  modified integral approximation, however, becomes exact in the limit
+  $V \rightarrow \infty$, $N \rightarrow \infty$,
+  $V/N \rightarrow \text{const}$.
+author: ["E.T. Jaynes", "C.T. Chen-Tsai"]
+---
+The phenomenon of the Einstein condensation of an ideal boson system is
+well known. In the usual procedure of evaluating the thermodynamic
+quantities, one uses the "integral approximation", in which the
+exec
+/bin/bash -lc "sed -n '150,230p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "sed -n '240,330p' content/papers/einstein.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+The p-v curve of the cases (a) and (b) discussed above is shown in Fig.
+3. The curve consists of two regular curves which meet at the singular
+point $v=v_c$, $p=p_c$. The canonical ensemble method is thus contrasted
+with the grand canonical ensemble one by being capable of describing the
+condensation analytically.
+
+We note that in the usual method in order to account for the
+condensation region one modifies the "integral approximation" by
+rewriting the expression for $N/V$ in the form of (24) and approximating
+$\phi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ by 1. This "modified
+integral approximation" which gives the results we obtained in the
+canonical ensemble method by some mathematically less rigorous arguments
+may, according to our above discussions, be regarded not as a
+modification to the "integral approximation", but as an entirely
+different approach to the problem by using a different (i.e. canonical)
+ensemble method.
+# FIGURE CAPTIONS {#figure-captions .unnumbered}
+**Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+$\phi(x)$.
+ succeeded in 51ms:
+
+To show the condensation phenomenon of the ideal boson system, we have
+to consider the properties of the system in the limit
+$V \rightarrow \infty$. The expressions for $1/v$ and p to be
+investigated, from (18) and (19), now are:
+$$\frac{1}{v} = \lambda^{-3} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-3/2} \theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l,$$ 
+$$p = \lambda^{-3}\beta^{-1} \lim_{V\rightarrow\infty} \sum_{l=1}^{\infty} l^{-5/2} \Psi\left(\frac{V^{2/3}}{l\lambda^2}\right) z^l.$$ 
+
+A sufficient condition that the "lim" in (20) and (21) can be placed
+inside the summation sign is that the series in (20) and (21) be
+uniformly convergent with respect to V near $V = \infty$. To test this
+condition two cases have to be considered, according to whether (20) and
+(21) are originally regarded as derived from the canonical or grand
+canonical ensemble method. In the latter case z is an independent
+variable,
+therefore the only V dependent factors in each term of the series in
+(20) and (21) are $\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right)$ and
+$\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ respectively. In the
+former case z is a dependent variable, therefore varies with V also.
+Let us first consider the case where z is an independent variable, along
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d3a0af886a8d490f7c24ded9b3a327c66f04379f
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +254,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +280,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+codex
+I’ve finished edits and I’m running a final diff check to ensure only minimal structural/citation cleanup was made in `content/papers/einstein.md`.
+exec
+/bin/bash -lc 'git diff -- content/papers/einstein.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57..d3a0af8 100644
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@ integrals. This approximation, which gives the correct results in the
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@ Since the lowest energy, $E_i$, in (4) is zero, an inspection of (1),
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..d3a0af886a8d490f7c24ded9b3a327c66f04379f
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -102,7 +102,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -168,7 +168,7 @@
+ former case z is a dependent variable, therefore varies with V also.
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +254,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +280,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+codex
+I’m adding two minimal paragraph breaks in dense sections to improve markdown readability without changing any wording or equations.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/einstein.md
+@@ -93,2 +93,3 @@
+ ideal boson system.
++
+ We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
+@@ -168,2 +169,3 @@
+ former case z is a dependent variable, therefore varies with V also.
++
+ Let us first consider the case where z is an independent variable, along
+apply_patch(auto_approved=true) exited 0 in 5ms:
+Success. Updated the following files:
+M content/papers/einstein.md
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..67a6742264fb0ec566421e8e014235e029f9f114
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -91,6 +91,7 @@
+ interchange of the order of these operations and a physical question
+ about the correct volume dependence of thermodynamic properties of the
+ ideal boson system.
++
+ We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
+ $$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i},$$ 
+ can be exactly expressed in terms of the theta function, $\theta(x)$,
+@@ -102,7 +103,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -166,9 +167,10 @@
+ (20) and (21) are $\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right)$ and
+ $\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ respectively. In the
+ former case z is a dependent variable, therefore varies with V also.
++
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +256,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +282,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..67a6742264fb0ec566421e8e014235e029f9f114
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -91,6 +91,7 @@
+ interchange of the order of these operations and a physical question
+ about the correct volume dependence of thermodynamic properties of the
+ ideal boson system.
++
+ We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
+ $$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i},$$ 
+ can be exactly expressed in terms of the theta function, $\theta(x)$,
+@@ -102,7 +103,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -166,9 +167,10 @@
+ (20) and (21) are $\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right)$ and
+ $\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ respectively. In the
+ former case z is a dependent variable, therefore varies with V also.
++
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +256,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +282,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+codex
+Changed `content/papers/einstein.md` with minimal, structural QA edits only:
+
+- Normalized citations from inline numeric markers to footnote citations:
+  - `(1)`, `(2)`, `(3)`, `(4)` -> `[^ref1]`, `[^ref2]`, `[^ref3]`, `[^ref4]`
+- Removed the standalone `# References` block and converted those entries into proper footnote definitions at the end.
+- Removed extraneous metadata footnote:
+  - `[^1]: Department of Physics, Washington University...`
+- Added two paragraph breaks in dense sections for cleaner markdown rendering/readability.
+- Left all math/LaTeX content unchanged.
+- No abstract duplication found in body, so no abstract removal was needed.
+file update:
+diff --git a/content/papers/einstein.md b/content/papers/einstein.md
+index 3b7da57a31ce36fcbf1c0ef724fc200c3837a70d..67a6742264fb0ec566421e8e014235e029f9f114
+--- a/content/papers/einstein.md
++++ b/content/papers/einstein.md
+@@ -24,7 +24,7 @@
+ region of the homogeneous phase in the case of an infinite system,
+ requires an artificial modification to account for the condensation
+ region. The modification is made by treating the terms corresponding to
+-the ground state of the individual boson separately from the others. (1)
++the ground state of the individual boson separately from the others.[^ref1]
+ In the present report we show that an exact mathematical treatment of
+ the Einstein condensation is feasible, and therefore the nature of the
+ usual "integral approximation" and its modification is revealed.
+@@ -75,7 +75,7 @@
+ range of z is $0 < z < 1$. Hence we can expand each term of the series
+ in (1) and (2) (consequently (3) by (6)) in power series in z and
+ interchange the order of the summation in the resulted repeated series,
+-which can be shown to be allowable.(2) Thus we have
++which can be shown to be allowable.[^ref2] Thus we have
+ $$N = \sum_{l=1}^{\infty} z^l \left(\sum_i g_i e^{-l\beta E_i}\right)$$
+ $$p = \frac{2}{3} V^{-1} \sum_{l=1}^{\infty} z^l \left(\sum_i g_i E_i e^{-l\beta E_i}\right)$$
+ 
+@@ -91,6 +91,7 @@
+ interchange of the order of these operations and a physical question
+ about the correct volume dependence of thermodynamic properties of the
+ ideal boson system.
++
+ We now show that the two series $$I = \sum_i g_i e^{-l\beta E_i},$$ 
+ $$J = -\frac{\partial I}{\partial l\beta} = \sum_i g_i E_i e^{-l\beta E_i},$$ 
+ can be exactly expressed in terms of the theta function, $\theta(x)$,
+@@ -102,7 +103,7 @@
+ following properties: $\theta(x)$ is a monotonically decreasing function
+ in $0 < x < \infty$; $\theta(x) \rightarrow 0$, as $x \rightarrow 0$;
+ $\theta(x) \rightarrow 1$, as $x \rightarrow \infty$. See Fig. 1.
+-Besides it satisfies the following important functional relation:(3)
++Besides it satisfies the following important functional relation:[^ref3]
+ $$\theta(x) = \frac{1}{\sqrt{x}}\theta\left(\frac{1}{x}\right).$$ Hence
+ (12) becomes
+ $$I = V\lambda^{-3}l^{-3/2}\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right).$$ 
+@@ -166,9 +167,10 @@
+ (20) and (21) are $\theta^3\left(\frac{V^{2/3}}{l\lambda^2}\right)$ and
+ $\Psi\left(\frac{V^{2/3}}{l\lambda^2}\right)$ respectively. In the
+ former case z is a dependent variable, therefore varies with V also.
++
+ Let us first consider the case where z is an independent variable, along
+ with $\beta$ and V. Then it can be easily shown by the Weierstrass'
+-M-test(4) that both the series in (20) and (21) are uniformly convergent
++M-test[^ref4] that both the series in (20) and (21) are uniformly convergent
+ with respect to V near $V = \infty$ for all z in $0 \le z < 1$. Since
+ $\lim_{x\rightarrow\infty} \theta(x) = \lim_{x\rightarrow\infty} \Psi(x) = 1$,
+ we thus from (20) and (21) obtain the limiting expressions for $1/v$ and
+@@ -254,11 +256,6 @@
+ modification to the "integral approximation", but as an entirely
+ different approach to the problem by using a different (i.e. canonical)
+ ensemble method.
+-# References {#references .unnumbered}
+-(1) For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
+-(2) K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
+-(3) R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
+-(4) E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+ # FIGURE CAPTIONS {#figure-captions .unnumbered}
+ **Fig. 1:** The functional behaviors of $\theta(x)$, $\Psi(x)$ and
+ $\phi(x)$.
+@@ -285,4 +282,8 @@
+ ensemble method. The horizontal line shows the region of
+ condensation.</figcaption>
+ </figure>
+-[^1]: Department of Physics, Washington University, St. Louis 30, Missouri. Supported in part by the Office of Scientific Research of the U.S. Air Force, Contract AF49(638)834.
++
++[^ref1]: For example, A. Munster, Handbook of Physics, Vol. III/2 (Flugge), 1959.
++[^ref2]: K. Knopp, Infinite Sequences and Series, Dover, p. 27. Dover, 1956.
++[^ref3]: R. Courant and D. Hilbert, Methods of Mathematical Physics, Vol. 1, p. 75, Interscience, 1955.
++[^ref4]: E. T. Whittaker and G. H. Watson, Modern Analysis, 4-th ed. Cambridge, 1957.
+
+tokens used
+23,411
+

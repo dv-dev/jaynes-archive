@@ -295,6 +295,7 @@ happened. For the data always have a much higher probability [namely
 $p(D|ST) = 1$] on $ST$ than on any other theory; $ST$ is always the 
 orthodox "maximum likelihood" solution over the class of all theories. 
 Only our extremely low prior probability for $ST$ can justify rejecting it.
+
 Secondly, we can apply Bayes' theorem repeatedly as new pieces of
 information $B_1, B_2, \dots$ are received from the observatories, the
 posterior probability from each application becoming the prior
@@ -1069,16 +1070,16 @@ where it does better, and others where it does worse". ...John W. Tukey
 
 Our present maximum entropy procedure is supported by many different
 rationales, including:
-  --------------------- ---------------------------
-  (1) COMBINATORIAL   Boltzmann, Darwin, Fowler
-  ---------------------------
-  --------------------------- ---------------------------
-  (2) INFORMATION THEORY    Shannon, Jaynes
-  (3) UTILITY               Good, Skilling
-  (4) LOGICAL CONSISTENCY   Shore, Johnson, Gull
-  (5) CODING THEORY         Rissanen
-  (6) PRAGMATIC SUCCESS     Gibbs, Papanicolaou, Mead
-  ---------------------------
+
+| Rationale | Contributors |
+| --- | --- |
+| (1) COMBINATORIAL | Boltzmann, Darwin, Fowler |
+| (2) INFORMATION THEORY | Shannon, Jaynes |
+| (3) UTILITY | Good, Skilling |
+| (4) LOGICAL CONSISTENCY | Shore, Johnson, Gull |
+| (5) CODING THEORY | Rissanen |
+| (6) PRAGMATIC SUCCESS | Gibbs, Papanicolaou, Mead |
+
 Of these, (1) is easy to explain to everybody, while (2) is more
 general, but hard to explain to those with orthodox statistical
 training, (3) and (4) are currently popular, and (5) shows great
@@ -1205,6 +1206,3 @@ Press, Urbana, 1949.
 J. W. Tukey (1980), *The Practice of Spectrum Analysis*, University
 Associates, Princeton, N. J.
 
-Notes for a special course given in December 1980.
-
-[^100]: St. John's College and Cavendish Laboratory, Cambridge CB2 1TP, England. Permanent Address: Dept. of Physics, Campus Box 1105, Washington University, 1 Brookings Drive, St. Louis MO 63130, U.S.A. Presented at the Fourth Annual Workshop on Bayesian/Maximum Entropy Methods, University of Calgary, August 1984. In the Proceedings Volume, *Maximum Entropy and Bayesian Methods in Applied Statistics*, J. H. Justice, Editor, Cambridge University Press (1985); pp. 1-25.

@@ -1,0 +1,1824 @@
+=== STDOUT ===
+Updated `content/papers/cplanets.md` with minimal, structural-only QA edits.
+
+Changed:
+- Improved markdown readability by splitting several dense blocks and adding paragraph spacing before section headers.
+- Reformatted multiple inline `$$...$$` display equations to standalone blocks for cleaner Hugo+KaTeX rendering (math content unchanged).
+- Removed the dangling extraneous metadata footnote at the end:
+  - `[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130`
+
+Checked:
+- No duplicate abstract text in body (abstract remains only in front matter).
+- No markdown tables were present to repair.
+- No paper meaning/content changed; math/LaTeX text was not modified.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb995-79b6-7263-84d9-6086a4cb1100
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/cplanets.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/cplanets.md` for structural markdown QA only, then apply minimal edits directly in that file while preserving all paper meaning and all math exactly. I’m starting by inspecting the current front matter/body structure and citation patterns.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/cplanets.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Detection of Extra-Solar-System Planets"
+year: 1988
+abstract: >
+  Stimulated by a proposal of Wm. Hayden Smith and co-workers to detect
+  planets on nearby stars by high resolution imaging, we speculate on
+  the appropriate data analysis method, making use of probability theory
+  to perform the optimal deconvolution of the point-spread function. In
+  this preliminary study, we seek to understand what probability theory
+  has to say about the fundamental problem, by analyzing a simple
+  one-dimensional version. The necessary theoretical principles are
+  developed in the thesis of G. L. Bretthorst (Washington University,
+  May 1987) and in Bretthorst (1988).
+  Our main message is this: once one is committed to using a computer to
+  analyze the data, the high-resolution imaging problem is completely
+  changed. What one has tried to do in the past by fancy optical and
+  mechanical engineering feats (apodizing, image stabilizing) can be
+  done far better, and at a small fraction of the cost, by the computer.
+author:
+  ["E.T. Jaynes"]
+codex
+I’ve identified several long text walls and a few markdown line-break issues around display equations; I’ll scan the remainder of the file to confirm whether there’s duplicated abstract/citation cleanup needed before editing.
+exec
+/bin/bash -lc "sed -n '261,560p' content/papers/cplanets.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+information we have about systematic effects that might be in the data,
+whether or not they are of interest to us in the present problem, and
+whether we consider them to be part of the "model function" or part of
+the "noise," should be put into our model. In effect, this tells the
+computer to be on the lookout for such variations and make allowances
+for them, so that they do not deteriorate our estimates of the
+quantities of interest. We stress the extreme importance of following
+this policy, which was revealed by the analysis of NMR data in the
+Bretthorst thesis. Here we are interested in determining the oscillation
+frequencies present; one would at first suppose that the way to do this
+is to take the Fourier transform of the data. But an additional
+systematic effect, exponential decay of the oscillations, is present. If
+the decay rate is put into the model, then integrated out as a nuisance
+parameter, one obtains orders of magnitude more accurate frequency
+estimates than are given by a Fourier transform. The implications of
+this for the planet problem must not be missed. In particular, the
+computer can be taught to distinguish between atmospheric distortion and
+true noise. A human telescopic observer can to some extent make mental
+allowance for the atmospheric distortions he is seeing, and concentrate
+on what the shaky image is telling him about the real object. But a 
+codex
+I confirmed there’s no duplicate abstract in the body and no markdown tables to repair. Next I’ll make minimal structural edits: add paragraph breaks in the largest text walls, fix citation/footnote hygiene by removing the dangling unused footnote metadata at the end, and keep all math unchanged.
+exec
+/bin/bash -lc "nl -ba content/papers/cplanets.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Detection of Extra-Solar-System Planets"
+     3	year: 1988
+     4	abstract: >
+     5	  Stimulated by a proposal of Wm. Hayden Smith and co-workers to detect
+     6	  planets on nearby stars by high resolution imaging, we speculate on
+     7	  the appropriate data analysis method, making use of probability theory
+     8	  to perform the optimal deconvolution of the point-spread function. In
+     9	  this preliminary study, we seek to understand what probability theory
+    10	  has to say about the fundamental problem, by analyzing a simple
+    11	  one-dimensional version. The necessary theoretical principles are
+    12	  developed in the thesis of G. L. Bretthorst (Washington University,
+    13	  May 1987) and in Bretthorst (1988).
+    14	  Our main message is this: once one is committed to using a computer to
+    15	  analyze the data, the high-resolution imaging problem is completely
+    16	  changed. What one has tried to do in the past by fancy optical and
+    17	  mechanical engineering feats (apodizing, image stabilizing) can be
+    18	  done far better, and at a small fraction of the cost, by the computer.
+    19	author:
+    20	  ["E.T. Jaynes"]
+exec
+/bin/bash -lc "nl -ba content/papers/cplanets.md | sed -n '261,620p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   261	information we have about systematic effects that might be in the data,
+   262	whether or not they are of interest to us in the present problem, and
+   263	whether we consider them to be part of the "model function" or part of
+   264	the "noise," should be put into our model. In effect, this tells the
+   265	computer to be on the lookout for such variations and make allowances
+   266	for them, so that they do not deteriorate our estimates of the
+   267	quantities of interest. We stress the extreme importance of following
+   268	this policy, which was revealed by the analysis of NMR data in the
+   269	Bretthorst thesis. Here we are interested in determining the oscillation
+   270	frequencies present; one would at first suppose that the way to do this
+   271	is to take the Fourier transform of the data. But an additional
+   272	systematic effect, exponential decay of the oscillations, is present. If
+   273	the decay rate is put into the model, then integrated out as a nuisance
+   274	parameter, one obtains orders of magnitude more accurate frequency
+   275	estimates than are given by a Fourier transform. The implications of
+   276	this for the planet problem must not be missed. In particular, the
+   277	computer can be taught to distinguish between atmospheric distortion and
+   278	true noise. A human telescopic observer can to some extent make mental
+   279	allowance for the atmospheric distortions he is seeing, and concentrate
+   280	on what the shaky image is telling him about the real object. But a 
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+@@ -114,2 +114,3 @@
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+@@ -157,2 +158,3 @@
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+@@ -181,2 +183,3 @@
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+@@ -286,2 +289,3 @@
+ results will mean.
++
+ ## GENERALIZATIONS
+@@ -334,2 +338,3 @@
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+@@ -359,2 +364,3 @@
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+@@ -392,2 +398,3 @@
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+@@ -425,2 +432,3 @@
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+@@ -499,3 +507 @@
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+codex
+I’ve applied a minimal pass with structural-only edits (paragraph spacing and heading separation) and removed the dangling end-of-file metadata footnote. I’m doing a quick diff check now to ensure no math or substantive text changed.
+exec
+/bin/bash -lc 'git diff -- content/papers/cplanets.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b..a2cde58 100644
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@ see from (1), (2), and (9), they contain the quantities of interest
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@ extremely unlikely to be further from the star than the width of that
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+exec
+/bin/bash -lc "sed -n '392,500p' content/papers/cplanets.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+(30). Doing this, and using the notation (29), we see that the quadratic
+form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
+which is of
+the form used in the Bretthorst calculation. Therefore, if the
+"bigger" program is fed $D, G$, and the true matrix $M$; while the
+Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+same actual calculation. QED
+
+## WARNING: DON'T APODIZE!
+Apodizing was a pre-computer way of making the optical system do,
+crudely and inaccurately, a small part of this computation. But
+apodizing has serious limitations that a computer does not have. It does
+suppress the wiggles in the point-spread function; but at a cost that is
+today not only unacceptable, but unnecessary. We note some of the
+difficulties with apodization, which can be overcome easily with
+computers. Psychologically, apodizing always leaves us not knowing
+whether something better could have been done, because it is only an
+intuitive, *ad hoc* device not derived from any theoretical principles
+or optimality criterion. For this same reason, it leaves us unable to
+judge the accuracy of our final results. More serious, apodizing throws
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+codex
+I’m adding a few more paragraph breaks inside the longest “WARNING” section to reduce text-wall density without altering any wording or math.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+apply_patch(auto_approved=true) exited 0 in 11ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+exec
+/bin/bash -lc 'git diff -- content/papers/cplanets.md' in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b..a2cde58 100644
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@ see from (1), (2), and (9), they contain the quantities of interest
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@ extremely unlikely to be further from the star than the width of that
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..a2cde585a8e29c5e25e59fe1024b7e29276e73b7
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -112,6 +112,7 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+@@ -155,6 +156,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +181,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -284,6 +287,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +336,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +362,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -390,6 +396,7 @@
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +430,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +505,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+codex
+I found several inline `$$...$$` display blocks embedded in sentences that can render inconsistently in Hugo/KaTeX. I’ll do a minimal formatting pass to place those display equations on their own lines while keeping all math text identical.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+@@ -25,7 +25,15 @@
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++jointly a smeared image
++
++$$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++
+ This is
+@@ -85,3 +93,6 @@
+ analytically or measured at the observation points. Then the interaction
+-matrix is $$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++matrix is
++
++$$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++
+ and this matrix
+@@ -96,7 +107,17 @@
+ $$g_{12} = \frac{2\pi}{3} u(r)$$
+-where $$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
++where
++
++$$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
+ is the overlap function, normalized to $u(0) = 1$. Note, for later 
+ purposes, that as $r \to 0$, $u(r)$ is given asymptotically by
+-$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$ while as
+-$r \to \infty$, $$u(r) \sim \frac{3}{2} r^{-2} + \dots$$ The matrix $g$
++
++$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$
++
++while as $r \to \infty$,
++
++$$u(r) \sim \frac{3}{2} r^{-2} + \dots$$
++
++The matrix $g$
+ now becomes
+@@ -106,3 +127,7 @@
+ diagonalize this for any value of $r$; that is, the orthonormal model
+-functions always have the form $$H(x) = C [G_1(x) \pm G_2(x)]$$ so,
++functions always have the form
++
++$$H(x) = C [G_1(x) \pm G_2(x)]$$
++
++so,
+ supplying the proper normalization factors, we have 
+@@ -118,9 +143,18 @@
+ data onto the $H(x)$ functions:
+-$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$ then a jointly sufficient
++
++$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$
++
++then a jointly sufficient
+ statistic, which contains all the information the data have to give us
+ about the unknown parameters $(a,b)$ is simply
+-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$ If the computer is to
++
++$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
++
++If the computer is to
+ estimate the noise level from the data and use the student
+ t-distribution, it must also calculate
+-$$\sum d_i^2 = N \overline{d^2}.$$ Then the joint posterior probability 
++
++$$\sum d_i^2 = N \overline{d^2}.$$
++
++Then the joint posterior probability 
+ density function for the parameters $(a,b)$, as derived in the 
+@@ -131,7 +165,17 @@
+ $r = b-a$, so go to the mean and relative coordinates
+-$$R = (a+b)/2; \quad r=b-a.$$ The Jacobian of the transformation (18) is
++
++$$R = (a+b)/2; \quad r=b-a.$$
++
++The Jacobian of the transformation (18) is
+ one, so the joint posterior probability density for $R$ and $r$ is the
+-same quantity: $$p(R, r | D, I) = p(a,b | D,I).$$ The final step is to
++same quantity:
++
++$$p(R, r | D, I) = p(a,b | D,I).$$
++
++The final step is to
+ integrate out the uninteresting parameter $R$, getting a function of
+-$r$: $$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++$r$:
++
++$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++
+ which tells us
+@@ -198,5 +242,9 @@
+ where $a < b$.) Let $Q(a,b)$ be the departure of the sufficient
+-statistic from that maximum: $$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
+-and
+-define the quantity $s^2$ by $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
++statistic from that maximum:
++
++$$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
++
++and define the quantity $s^2$ by
++
++$$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
+ Now the joint posterior probability density (17) is, to within a
+@@ -393,2 +441,3 @@
+ form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
++
+ which is of
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/cplanets.md
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..577ee781c8b7ac60fc84a14b8c03cc5a81adb4fe
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -23,11 +23,19 @@
+ Our optical system has a point-spread function $(\sin x/x)^2$. A
+ "star" whose image should be a sharp point at position $x=a$ then
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++jointly a smeared image
++
++$$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++
+ This is
+ observed at the positions $(x_1 \dots x_N)$, getting a data set
+ $D = (d_1 \dots d_N)$:
+@@ -83,7 +91,10 @@
+ 
+ First, the computer is given the model functions $G_j(x)$, either
+ analytically or measured at the observation points. Then the interaction
+-matrix is $$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++matrix is
++
++$$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++
+ and this matrix
+ will be calculated by the computer program. For now, approximate it by
+ an integral:
+@@ -94,17 +105,31 @@
+ 
+ Therefore, define
+ $$g_{12} = \frac{2\pi}{3} u(r)$$
+-where $$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
++where
++
++$$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
+ is the overlap function, normalized to $u(0) = 1$. Note, for later 
+ purposes, that as $r \to 0$, $u(r)$ is given asymptotically by
+-$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$ while as
+-$r \to \infty$, $$u(r) \sim \frac{3}{2} r^{-2} + \dots$$ The matrix $g$
++
++$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$
++
++while as $r \to \infty$,
++
++$$u(r) \sim \frac{3}{2} r^{-2} + \dots$$
++
++The matrix $g$
+ now becomes
+ $$g = \frac{2\pi}{3} \begin{bmatrix} 1 & u(r) \\ u(r) & 1 \end{bmatrix} .$$
+ 
+ Since the diagonal elements are equal, a fixed transformation will
+ diagonalize this for any value of $r$; that is, the orthonormal model
+-functions always have the form $$H(x) = C [G_1(x) \pm G_2(x)]$$ so,
++functions always have the form
++
++$$H(x) = C [G_1(x) \pm G_2(x)]$$
++
++so,
+ supplying the proper normalization factors, we have 
+ $$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned}$$ 
+ which somehow remind one of molecular orbitals. As we
+@@ -112,27 +137,47 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+-$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$ then a jointly sufficient
++
++$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$
++
++then a jointly sufficient
+ statistic, which contains all the information the data have to give us
+ about the unknown parameters $(a,b)$ is simply
+-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$ If the computer is to
++
++$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
++
++If the computer is to
+ estimate the noise level from the data and use the student
+ t-distribution, it must also calculate
+-$$\sum d_i^2 = N \overline{d^2}.$$ Then the joint posterior probability 
++
++$$\sum d_i^2 = N \overline{d^2}.$$
++
++Then the joint posterior probability 
+ density function for the parameters $(a,b)$, as derived in the 
+ Bretthorst thesis, is proportional to
+ $$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2}$$
+ where $m$ (=2 in the present case) is the number of model functions that
+ we are fitting to the data. But the only parameter of interest is
+ $r = b-a$, so go to the mean and relative coordinates
+-$$R = (a+b)/2; \quad r=b-a.$$ The Jacobian of the transformation (18) is
++
++$$R = (a+b)/2; \quad r=b-a.$$
++
++The Jacobian of the transformation (18) is
+ one, so the joint posterior probability density for $R$ and $r$ is the
+-same quantity: $$p(R, r | D, I) = p(a,b | D,I).$$ The final step is to
++same quantity:
++
++$$p(R, r | D, I) = p(a,b | D,I).$$
++
++The final step is to
+ integrate out the uninteresting parameter $R$, getting a function of
+-$r$: $$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++$r$:
++
++$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++
+ which tells us
+ everything the data have to say about the planetary separation,
+ independently of the brightness and absolute positions of star and
+@@ -155,6 +200,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +225,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -193,9 +240,13 @@
+ reaches its absolute maximum (there are generally two such points,
+ because the distribution is symmetric in $a$ and $b$; so choose the one
+ where $a < b$.) Let $Q(a,b)$ be the departure of the sufficient
+-statistic from that maximum: $$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
+-and
+-define the quantity $s^2$ by $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
++statistic from that maximum:
++
++$$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
++
++and define the quantity $s^2$ by
++
++$$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
+ Now the joint posterior probability density (17) is, to within a
+ normalization constant,
+ $$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2}$$
+@@ -284,6 +335,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +384,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +410,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -385,11 +439,13 @@
+ and the two factors can be absorbed into the vectors on either side in
+ (30). Doing this, and using the notation (29), we see that the quadratic
+ form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
++
+ which is of
+ the form used in the Bretthorst calculation. Therefore, if the
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +479,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +554,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..577ee781c8b7ac60fc84a14b8c03cc5a81adb4fe
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -23,11 +23,19 @@
+ Our optical system has a point-spread function $(\sin x/x)^2$. A
+ "star" whose image should be a sharp point at position $x=a$ then
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++jointly a smeared image
++
++$$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++
+ This is
+ observed at the positions $(x_1 \dots x_N)$, getting a data set
+ $D = (d_1 \dots d_N)$:
+@@ -83,7 +91,10 @@
+ 
+ First, the computer is given the model functions $G_j(x)$, either
+ analytically or measured at the observation points. Then the interaction
+-matrix is $$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++matrix is
++
++$$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++
+ and this matrix
+ will be calculated by the computer program. For now, approximate it by
+ an integral:
+@@ -94,17 +105,31 @@
+ 
+ Therefore, define
+ $$g_{12} = \frac{2\pi}{3} u(r)$$
+-where $$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
++where
++
++$$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
+ is the overlap function, normalized to $u(0) = 1$. Note, for later 
+ purposes, that as $r \to 0$, $u(r)$ is given asymptotically by
+-$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$ while as
+-$r \to \infty$, $$u(r) \sim \frac{3}{2} r^{-2} + \dots$$ The matrix $g$
++
++$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$
++
++while as $r \to \infty$,
++
++$$u(r) \sim \frac{3}{2} r^{-2} + \dots$$
++
++The matrix $g$
+ now becomes
+ $$g = \frac{2\pi}{3} \begin{bmatrix} 1 & u(r) \\ u(r) & 1 \end{bmatrix} .$$
+ 
+ Since the diagonal elements are equal, a fixed transformation will
+ diagonalize this for any value of $r$; that is, the orthonormal model
+-functions always have the form $$H(x) = C [G_1(x) \pm G_2(x)]$$ so,
++functions always have the form
++
++$$H(x) = C [G_1(x) \pm G_2(x)]$$
++
++so,
+ supplying the proper normalization factors, we have 
+ $$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned}$$ 
+ which somehow remind one of molecular orbitals. As we
+@@ -112,27 +137,47 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+-$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$ then a jointly sufficient
++
++$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$
++
++then a jointly sufficient
+ statistic, which contains all the information the data have to give us
+ about the unknown parameters $(a,b)$ is simply
+-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$ If the computer is to
++
++$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
++
++If the computer is to
+ estimate the noise level from the data and use the student
+ t-distribution, it must also calculate
+-$$\sum d_i^2 = N \overline{d^2}.$$ Then the joint posterior probability 
++
++$$\sum d_i^2 = N \overline{d^2}.$$
++
++Then the joint posterior probability 
+ density function for the parameters $(a,b)$, as derived in the 
+ Bretthorst thesis, is proportional to
+ $$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2}$$
+ where $m$ (=2 in the present case) is the number of model functions that
+ we are fitting to the data. But the only parameter of interest is
+ $r = b-a$, so go to the mean and relative coordinates
+-$$R = (a+b)/2; \quad r=b-a.$$ The Jacobian of the transformation (18) is
++
++$$R = (a+b)/2; \quad r=b-a.$$
++
++The Jacobian of the transformation (18) is
+ one, so the joint posterior probability density for $R$ and $r$ is the
+-same quantity: $$p(R, r | D, I) = p(a,b | D,I).$$ The final step is to
++same quantity:
++
++$$p(R, r | D, I) = p(a,b | D,I).$$
++
++The final step is to
+ integrate out the uninteresting parameter $R$, getting a function of
+-$r$: $$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++$r$:
++
++$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++
+ which tells us
+ everything the data have to say about the planetary separation,
+ independently of the brightness and absolute positions of star and
+@@ -155,6 +200,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +225,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -193,9 +240,13 @@
+ reaches its absolute maximum (there are generally two such points,
+ because the distribution is symmetric in $a$ and $b$; so choose the one
+ where $a < b$.) Let $Q(a,b)$ be the departure of the sufficient
+-statistic from that maximum: $$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
+-and
+-define the quantity $s^2$ by $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
++statistic from that maximum:
++
++$$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
++
++and define the quantity $s^2$ by
++
++$$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
+ Now the joint posterior probability density (17) is, to within a
+ normalization constant,
+ $$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2}$$
+@@ -284,6 +335,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +384,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +410,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -385,11 +439,13 @@
+ and the two factors can be absorbed into the vectors on either side in
+ (30). Doing this, and using the notation (29), we see that the quadratic
+ form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
++
+ which is of
+ the form used in the Bretthorst calculation. Therefore, if the
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +479,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +554,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+codex
+I’ve completed the KaTeX-safe formatting pass for inline display equations and will now verify the final diff to confirm edits are structural only (no math/content changes).
+exec
+/bin/bash -lc "git diff -- content/papers/cplanets.md | sed -n '1,240p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b..577ee78 100644
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -23,11 +23,19 @@ author:
+ Our optical system has a point-spread function $(\sin x/x)^2$. A
+ "star" whose image should be a sharp point at position $x=a$ then
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..577ee781c8b7ac60fc84a14b8c03cc5a81adb4fe
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -23,11 +23,19 @@
+ Our optical system has a point-spread function $(\sin x/x)^2$. A
+ "star" whose image should be a sharp point at position $x=a$ then
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++jointly a smeared image
++
++$$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++
+ This is
+ observed at the positions $(x_1 \dots x_N)$, getting a data set
+ $D = (d_1 \dots d_N)$:
+@@ -83,7 +91,10 @@
+ 
+ First, the computer is given the model functions $G_j(x)$, either
+ analytically or measured at the observation points. Then the interaction
+-matrix is $$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++matrix is
++
++$$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++
+ and this matrix
+ will be calculated by the computer program. For now, approximate it by
+ an integral:
+@@ -94,17 +105,31 @@
+ 
+ Therefore, define
+ $$g_{12} = \frac{2\pi}{3} u(r)$$
+-where $$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
++where
++
++$$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
+ is the overlap function, normalized to $u(0) = 1$. Note, for later 
+ purposes, that as $r \to 0$, $u(r)$ is given asymptotically by
+-$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$ while as
+-$r \to \infty$, $$u(r) \sim \frac{3}{2} r^{-2} + \dots$$ The matrix $g$
++
++$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$
++
++while as $r \to \infty$,
++
++$$u(r) \sim \frac{3}{2} r^{-2} + \dots$$
++
++The matrix $g$
+ now becomes
+ $$g = \frac{2\pi}{3} \begin{bmatrix} 1 & u(r) \\ u(r) & 1 \end{bmatrix} .$$
+ 
+ Since the diagonal elements are equal, a fixed transformation will
+ diagonalize this for any value of $r$; that is, the orthonormal model
+-functions always have the form $$H(x) = C [G_1(x) \pm G_2(x)]$$ so,
++functions always have the form
++
++$$H(x) = C [G_1(x) \pm G_2(x)]$$
++
++so,
+ supplying the proper normalization factors, we have 
+ $$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned}$$ 
+ which somehow remind one of molecular orbitals. As we
+@@ -112,27 +137,47 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+-$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$ then a jointly sufficient
++
++$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$
++
++then a jointly sufficient
+ statistic, which contains all the information the data have to give us
+ about the unknown parameters $(a,b)$ is simply
+-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$ If the computer is to
++
++$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
++
++If the computer is to
+ estimate the noise level from the data and use the student
+ t-distribution, it must also calculate
+-$$\sum d_i^2 = N \overline{d^2}.$$ Then the joint posterior probability 
++
++$$\sum d_i^2 = N \overline{d^2}.$$
++
++Then the joint posterior probability 
+ density function for the parameters $(a,b)$, as derived in the 
+ Bretthorst thesis, is proportional to
+ $$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2}$$
+ where $m$ (=2 in the present case) is the number of model functions that
+ we are fitting to the data. But the only parameter of interest is
+ $r = b-a$, so go to the mean and relative coordinates
+-$$R = (a+b)/2; \quad r=b-a.$$ The Jacobian of the transformation (18) is
++
++$$R = (a+b)/2; \quad r=b-a.$$
++
++The Jacobian of the transformation (18) is
+ one, so the joint posterior probability density for $R$ and $r$ is the
+-same quantity: $$p(R, r | D, I) = p(a,b | D,I).$$ The final step is to
++same quantity:
++
++$$p(R, r | D, I) = p(a,b | D,I).$$
++
++The final step is to
+ integrate out the uninteresting parameter $R$, getting a function of
+-$r$: $$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++$r$:
++
++$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++
+ which tells us
+ everything the data have to say about the planetary separation,
+ independently of the brightness and absolute positions of star and
+@@ -155,6 +200,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +225,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -193,9 +240,13 @@
+ reaches its absolute maximum (there are generally two such points,
+ because the distribution is symmetric in $a$ and $b$; so choose the one
+ where $a < b$.) Let $Q(a,b)$ be the departure of the sufficient
+-statistic from that maximum: $$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
+-and
+-define the quantity $s^2$ by $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
++statistic from that maximum:
++
++$$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
++
++and define the quantity $s^2$ by
++
++$$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
+ Now the joint posterior probability density (17) is, to within a
+ normalization constant,
+ $$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2}$$
+@@ -284,6 +335,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +384,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +410,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -385,11 +439,13 @@
+ and the two factors can be absorbed into the vectors on either side in
+ (30). Doing this, and using the notation (29), we see that the quadratic
+ form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
++
+ which is of
+ the form used in the Bretthorst calculation. Therefore, if the
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +479,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +554,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+codex
+Updated `content/papers/cplanets.md` with minimal, structural-only QA edits.
+
+Changed:
+- Improved markdown readability by splitting several dense blocks and adding paragraph spacing before section headers.
+- Reformatted multiple inline `$$...$$` display equations to standalone blocks for cleaner Hugo+KaTeX rendering (math content unchanged).
+- Removed the dangling extraneous metadata footnote at the end:
+  - `[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130`
+
+Checked:
+- No duplicate abstract text in body (abstract remains only in front matter).
+- No markdown tables were present to repair.
+- No paper meaning/content changed; math/LaTeX text was not modified.
+file update:
+diff --git a/content/papers/cplanets.md b/content/papers/cplanets.md
+index 243cd8b654090678fef9490ef7e32f10f3631d7f..577ee781c8b7ac60fc84a14b8c03cc5a81adb4fe
+--- a/content/papers/cplanets.md
++++ b/content/papers/cplanets.md
+@@ -23,11 +23,19 @@
+ Our optical system has a point-spread function $(\sin x/x)^2$. A
+ "star" whose image should be a sharp point at position $x=a$ then
+ produces a smeared image proportional to
+-$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$ and a "planet" at $x=b$ gives
+-an offset diffraction pattern $$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
++$$G_1(x) = \frac{\sin^2(x-a)}{(x-a)^2}$$
++
++and a "planet" at $x=b$ gives an offset diffraction pattern
++
++$$G_2(x) = \frac{\sin^2(x-b)}{(x-b)^2}$$
++
+ These are the "model functions" to be built into the computer program.
+ The star and planet have brightnesses $A_1, A_2$ and so they produce
+-jointly a smeared image $$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++jointly a smeared image
++
++$$f(x) = A_1 G_1(x) + A_2 G_2(x)$$
++
+ This is
+ observed at the positions $(x_1 \dots x_N)$, getting a data set
+ $D = (d_1 \dots d_N)$:
+@@ -83,7 +91,10 @@
+ 
+ First, the computer is given the model functions $G_j(x)$, either
+ analytically or measured at the observation points. Then the interaction
+-matrix is $$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++matrix is
++
++$$g_{jk} = \sum_{i=1}^N G_j(x_i)G_k(x_i)$$
++
+ and this matrix
+ will be calculated by the computer program. For now, approximate it by
+ an integral:
+@@ -94,17 +105,31 @@
+ 
+ Therefore, define
+ $$g_{12} = \frac{2\pi}{3} u(r)$$
+-where $$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
++where
++
++$$u(r) = 6\left[ \frac{2r - \sin 2r}{(2r)^3} \right]$$
++
+ is the overlap function, normalized to $u(0) = 1$. Note, for later 
+ purposes, that as $r \to 0$, $u(r)$ is given asymptotically by
+-$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$ while as
+-$r \to \infty$, $$u(r) \sim \frac{3}{2} r^{-2} + \dots$$ The matrix $g$
++
++$$u(r) \sim 1 - \frac{1}{5}r^2 + \frac{2}{105}r^4 - \dots$$
++
++while as $r \to \infty$,
++
++$$u(r) \sim \frac{3}{2} r^{-2} + \dots$$
++
++The matrix $g$
+ now becomes
+ $$g = \frac{2\pi}{3} \begin{bmatrix} 1 & u(r) \\ u(r) & 1 \end{bmatrix} .$$
+ 
+ Since the diagonal elements are equal, a fixed transformation will
+ diagonalize this for any value of $r$; that is, the orthonormal model
+-functions always have the form $$H(x) = C [G_1(x) \pm G_2(x)]$$ so,
++functions always have the form
++
++$$H(x) = C [G_1(x) \pm G_2(x)]$$
++
++so,
+ supplying the proper normalization factors, we have 
+ $$\begin{aligned} H_1(x; a, b) &= \left[ \frac{3}{4\pi(1+u)} \right]^{1/2} [G_1(x) + G_2(x)] \\ H_2(x; a, b) &= \left[ \frac{3}{4\pi(1-u)} \right]^{1/2} [G_1(x) - G_2(x)] \end{aligned}$$ 
+ which somehow remind one of molecular orbitals. As we
+@@ -112,27 +137,47 @@
+ $(a,b)$ as parameters. Once the computer is set to calculate these
+ functions for all $(x,a,b)$, we are ready to analyze any number of data
+ sets (i.e., any number of stars) with it.
++
+ ## THE COMPUTATION ALGORITHM
+ Given a data set $(d_1 \dots d_N)$, calculate the projections of the
+ data onto the $H(x)$ functions:
+-$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$ then a jointly sufficient
++
++$$h_j(a,b) = \sum_i H_j(x_i)d_i, \quad j=1,2$$
++
++then a jointly sufficient
+ statistic, which contains all the information the data have to give us
+ about the unknown parameters $(a,b)$ is simply
+-$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$ If the computer is to
++
++$$\sum h_j^2 = 2\hat{h}^2(a,b) = h_1^2 + h_2^2.$$
++
++If the computer is to
+ estimate the noise level from the data and use the student
+ t-distribution, it must also calculate
+-$$\sum d_i^2 = N \overline{d^2}.$$ Then the joint posterior probability 
++
++$$\sum d_i^2 = N \overline{d^2}.$$
++
++Then the joint posterior probability 
+ density function for the parameters $(a,b)$, as derived in the 
+ Bretthorst thesis, is proportional to
+ $$p(a,b | D, I) \sim \left[ \sum d^2 - \sum h^2 \right]^{-(N-m)/2}$$
+ where $m$ (=2 in the present case) is the number of model functions that
+ we are fitting to the data. But the only parameter of interest is
+ $r = b-a$, so go to the mean and relative coordinates
+-$$R = (a+b)/2; \quad r=b-a.$$ The Jacobian of the transformation (18) is
++
++$$R = (a+b)/2; \quad r=b-a.$$
++
++The Jacobian of the transformation (18) is
+ one, so the joint posterior probability density for $R$ and $r$ is the
+-same quantity: $$p(R, r | D, I) = p(a,b | D,I).$$ The final step is to
++same quantity:
++
++$$p(R, r | D, I) = p(a,b | D,I).$$
++
++The final step is to
+ integrate out the uninteresting parameter $R$, getting a function of
+-$r$: $$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++$r$:
++
++$$p(r) = p(r | D, I) = \int dR \, p(R, r | D, I)$$
++
+ which tells us
+ everything the data have to say about the planetary separation,
+ independently of the brightness and absolute positions of star and
+@@ -155,6 +200,7 @@
+ distribution. A major feature of this data analysis procedure is that, thanks
+ to the elimination of nuisance parameters, we can combine the
+ data from many different measurements into one grand final distribution.
++
+ For example, suppose we have developed a computer program that
+ eliminates atmospheric distortion as a nuisance parameter. Now we take
+ 1000 successive data sets on the same star, in a time so short that the
+@@ -179,6 +225,7 @@
+ optical or mechanical engineering feats, this might involve rebuilding 
+ a telescope. If a computer is doing all the data processing, one needs 
+ only rewrite a few lines of the program code.
++
+ ## INTUITIVE MEANING OF THE RESULT
+ One problem we have is that the algorithm and final result (17) are so
+ slick and efficient that, at first glance, it is far from obvious that
+@@ -193,9 +240,13 @@
+ reaches its absolute maximum (there are generally two such points,
+ because the distribution is symmetric in $a$ and $b$; so choose the one
+ where $a < b$.) Let $Q(a,b)$ be the departure of the sufficient
+-statistic from that maximum: $$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
+-and
+-define the quantity $s^2$ by $$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
++statistic from that maximum:
++
++$$\sum h^2 = \sum h_{max}^2 - Q(a,b)$$
++
++and define the quantity $s^2$ by
++
++$$\sum d^2 - \sum h_{max}^2 = (N-m)s^2.$$
+ Now the joint posterior probability density (17) is, to within a
+ normalization constant,
+ $$\left[ 1 + \frac{Q(a,b)}{(N-m)s^2} \right]^{(N-m)/2}$$
+@@ -284,6 +335,7 @@
+ solution for an oversimplified one-dimensional version of the problem, 
+ in order to give an intuitive feel for what is to be done, and what the 
+ results will mean.
++
+ ## GENERALIZATIONS
+ In the real problem, the solution will need to be fixed up to allow for
+ a dozen picky little details that we have left out above. We do not try
+@@ -332,6 +384,7 @@
+ But too fine a pixel may, we suspect, also lose information by wasting
+ some of the available light in the "fences" between the pixels in the
+ detector or by leakage of charge from one pixel to another.
++
+ ## NONWHITE NOISE
+ We stress that the only thing that is important is the *amount of
+ information* contained in the data; its exact form and such things as
+@@ -357,6 +410,7 @@
+ the possible magnitude of the noise. The computer is readily programmed
+ to take into account these different noise distributions. Fortunately,
+ the change likely to help the most is also the easiest to carry out.
++
+ To take this into account, first get the computer program running which
+ finds the optimal solution discussed above, given the model function
+ matrix $$G_{ij} = G_j(x_i), \quad 1 \le i \le N, \quad 1 \le j \le m$$
+@@ -385,11 +439,13 @@
+ and the two factors can be absorbed into the vectors on either side in
+ (30). Doing this, and using the notation (29), we see that the quadratic
+ form (30) is equal to $$Q = [D_0 - G_0 A]^T [D_0 - G_0 A]$$
++
+ which is of
+ the form used in the Bretthorst calculation. Therefore, if the
+ "bigger" program is fed $D, G$, and the true matrix $M$; while the
+ Bretthorst program is fed the massaged $D_0, G_0$, they will do just the
+ same actual calculation. QED
++
+ ## WARNING: DON'T APODIZE!
+ Apodizing was a pre-computer way of making the optical system do,
+ crudely and inaccurately, a small part of this computation. But
+@@ -423,6 +479,7 @@
+ analysis that tells us to start by throwing away some of the information
+ in the data, may be of some use as a "quick and dirty" expedient; but
+ fundamentally it is just not a rational way of looking at the problem.
++
+ Some years ago, Ronald Bracewell pointed out to me a problem that is
+ very similar both in topic and in theory. Let us recall it for the
+ lesson it teaches us. In the 1950's, the Hanbury Brown-Twiss (HBT)
+@@ -497,5 +554,3 @@
+     resolving fine detail! In throwing away information, it is throwing
+     away resolution. Apodizing does indeed "remove the foot;" but it
+     does it by shooting yourself in the foot.
+-
+-[^100]: Arthur Holly Compton Laboratory of Physics, Washington University, St. Louis, MO 63130
+
+tokens used
+36,880
+

@@ -1,0 +1,224 @@
+=== STDOUT ===
+Edited [content/papers/displacement.md](/home/dave/Projects/jaynes-archive/content/papers/displacement.md) with minimal structural QA only:
+
+- Removed extraneous unused metadata footnote `[^100]` (“Palmer Physical Laboratory… Reprinted…”).
+- Split the final acknowledgment into its own paragraph for readability.
+
+No math/LaTeX was changed, no paper meaning/content was altered, no figure-related changes were made, and no duplicate body abstract block was present to remove.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb998-0e4e-70f0-9501-2c6678cbdff6
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/displacement.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/displacement.md` for structural QA issues only (paragraphing, tables, duplicate abstract, citation formatting, and extraneous metadata), then apply minimal edits directly in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/displacement.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Displacement of Oxygen in BaTiO$_3$"
+year: 1950
+abstract: >
+  Attempts to explain the ferroelectric character of BaTiO$_3$ in terms of ionic displacements are discussed, with a focus on the role of oxygen ion displacement as a cause of polarization. A model is proposed in which ionic polarization arises chiefly from the oxygen ions, which explains the observed three phase transitions and predicts the correct magnitude of the transverse electrostriction in the tetragonal phase.
+author: ["E.T. Jaynes"]
+---
+Attempts to explain the ferroelectric character of BaTiO$_3$ in terms of
+ionic displacements[^1]--[^7] have usually concentrated attention on the Ti
+ion. Megaw[^1] has pointed out that if one assumes the Goldschmidt ionic
+radii, the Ba ions at the corners of the unit cell are slightly too
+large to fit into a close-packed perovskite structure; consequently the
+lattice is expanded and the Ti ions, at the body centers, are free to
+move through small distances. In such a model each oxygen ion, at a face
+center, is squeezed between four Ba ions, but is free to move at right
+angles to the plane of Ba ions, toward the Ti ions. Devonshire[^5] has
+estimated the forces on the Ti and O ions following Born's treatment,
+with the result that the Ti ion is definitely bound to its symmetrical
+position, but the force restoring an oxygen ion to its symmetrical
+position is much smaller, and of uncertain sign. It therefore appears
+codex
+I found only minor structural issues: an unused/extraneous metadata footnote (`[^100]`) and a readability split opportunity at the closing acknowledgment sentence. I’m applying just those minimal edits and leaving all math and paper meaning unchanged.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/displacement.md
+@@ -63,2 +63,3 @@
+ spontaneous polarization, and the very large electromechanical coupling.
++
+ I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
+@@ -66,3 +67,2 @@
+ 
+-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
+ [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
+@@ -74,2 +74,2 @@
+ [^7]: J. C. Slater, Phys. Rev. **78**, 748 (1950).
+-[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+\ No newline at end of file
++[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/displacement.md
+file update:
+diff --git a/content/papers/displacement.md b/content/papers/displacement.md
+index cc62b4f79bb075da3145c1d2bc95c40c696bf81a..5781fa26deb6308692d3424894237fccf6d8d7d1
+--- a/content/papers/displacement.md
++++ b/content/papers/displacement.md
+@@ -61,10 +61,10 @@
+ understanding of two of the most puzzling features of BaTiO$_3$, namely
+ the existence of three phase transitions with shifts of the direction of
+ spontaneous polarization, and the very large electromechanical coupling.
++
+ I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
+ helpful discussions.
+ 
+-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
+ [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
+ [^2]: Rushman and Strivens, Trans. Faraday Soc. **42A**, 231 (1946).
+ [^3]: Mason and Matthias, Phys. Rev. **74**, 1622 (1948).
+@@ -72,4 +72,4 @@
+ [^5]: A. F. Devonshire, Phil. Mag. (Series 7) **40**, 1040 (1949).
+ [^6]: P. W. Anderson, Phys. Rev. **78**, 341 (1950).
+ [^7]: J. C. Slater, Phys. Rev. **78**, 748 (1950).
+-[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+\ No newline at end of file
++[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+
+file update:
+diff --git a/content/papers/displacement.md b/content/papers/displacement.md
+index cc62b4f79bb075da3145c1d2bc95c40c696bf81a..5781fa26deb6308692d3424894237fccf6d8d7d1
+--- a/content/papers/displacement.md
++++ b/content/papers/displacement.md
+@@ -61,10 +61,10 @@
+ understanding of two of the most puzzling features of BaTiO$_3$, namely
+ the existence of three phase transitions with shifts of the direction of
+ spontaneous polarization, and the very large electromechanical coupling.
++
+ I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
+ helpful discussions.
+ 
+-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
+ [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
+ [^2]: Rushman and Strivens, Trans. Faraday Soc. **42A**, 231 (1946).
+ [^3]: Mason and Matthias, Phys. Rev. **74**, 1622 (1948).
+@@ -72,4 +72,4 @@
+ [^5]: A. F. Devonshire, Phil. Mag. (Series 7) **40**, 1040 (1949).
+ [^6]: P. W. Anderson, Phys. Rev. **78**, 341 (1950).
+ [^7]: J. C. Slater, Phys. Rev. **78**, 748 (1950).
+-[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+\ No newline at end of file
++[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/displacement.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Displacement of Oxygen in BaTiO$_3$"
+year: 1950
+abstract: >
+  Attempts to explain the ferroelectric character of BaTiO$_3$ in terms of ionic displacements are discussed, with a focus on the role of oxygen ion displacement as a cause of polarization. A model is proposed in which ionic polarization arises chiefly from the oxygen ions, which explains the observed three phase transitions and predicts the correct magnitude of the transverse electrostriction in the tetragonal phase.
+author: ["E.T. Jaynes"]
+---
+Attempts to explain the ferroelectric character of BaTiO$_3$ in terms of
+ionic displacements[^1]--[^7] have usually concentrated attention on the Ti
+ion. Megaw[^1] has pointed out that if one assumes the Goldschmidt ionic
+radii, the Ba ions at the corners of the unit cell are slightly too
+large to fit into a close-packed perovskite structure; consequently the
+lattice is expanded and the Ti ions, at the body centers, are free to
+move through small distances. In such a model each oxygen ion, at a face
+center, is squeezed between four Ba ions, but is free to move at right
+angles to the plane of Ba ions, toward the Ti ions. Devonshire[^5] has
+estimated the forces on the Ti and O ions following Born's treatment,
+with the result that the Ti ion is definitely bound to its symmetrical
+position, but the force restoring an oxygen ion to its symmetrical
+position is much smaller, and of uncertain sign. It therefore appears
+file update:
+diff --git a/content/papers/displacement.md b/content/papers/displacement.md
+index cc62b4f79bb075da3145c1d2bc95c40c696bf81a..5781fa26deb6308692d3424894237fccf6d8d7d1
+--- a/content/papers/displacement.md
++++ b/content/papers/displacement.md
+@@ -61,10 +61,10 @@
+ understanding of two of the most puzzling features of BaTiO$_3$, namely
+ the existence of three phase transitions with shifts of the direction of
+ spontaneous polarization, and the very large electromechanical coupling.
++
+ I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
+ helpful discussions.
+ 
+-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
+ [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
+ [^2]: Rushman and Strivens, Trans. Faraday Soc. **42A**, 231 (1946).
+ [^3]: Mason and Matthias, Phys. Rev. **74**, 1622 (1948).
+@@ -72,4 +72,4 @@
+ [^5]: A. F. Devonshire, Phil. Mag. (Series 7) **40**, 1040 (1949).
+ [^6]: P. W. Anderson, Phys. Rev. **78**, 341 (1950).
+ [^7]: J. C. Slater, Phys. Rev. **78**, 748 (1950).
+-[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+\ No newline at end of file
++[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+
+codex
+Edited [content/papers/displacement.md](/home/dave/Projects/jaynes-archive/content/papers/displacement.md) with minimal structural QA only:
+
+- Removed extraneous unused metadata footnote `[^100]` (“Palmer Physical Laboratory… Reprinted…”).
+- Split the final acknowledgment into its own paragraph for readability.
+
+No math/LaTeX was changed, no paper meaning/content was altered, no figure-related changes were made, and no duplicate body abstract block was present to remove.
+file update:
+diff --git a/content/papers/displacement.md b/content/papers/displacement.md
+index cc62b4f79bb075da3145c1d2bc95c40c696bf81a..5781fa26deb6308692d3424894237fccf6d8d7d1
+--- a/content/papers/displacement.md
++++ b/content/papers/displacement.md
+@@ -61,10 +61,10 @@
+ understanding of two of the most puzzling features of BaTiO$_3$, namely
+ the existence of three phase transitions with shifts of the direction of
+ spontaneous polarization, and the very large electromechanical coupling.
++
+ I am indebted to Professor E. P. Wigner and Dr. B. T. Matthias for
+ helpful discussions.
+ 
+-[^100]: Palmer Physical Laboratory, Princeton University, Princeton, New Jersey. Reprinted from THE PHYSICAL REVIEW, Vol. 79, No. 6, 1008-1009, September 15, 1950.
+ [^1]: H. D. Megaw, Trans. Faraday Soc. **42A**, 224 (1946).
+ [^2]: Rushman and Strivens, Trans. Faraday Soc. **42A**, 231 (1946).
+ [^3]: Mason and Matthias, Phys. Rev. **74**, 1622 (1948).
+@@ -72,4 +72,4 @@
+ [^5]: A. F. Devonshire, Phil. Mag. (Series 7) **40**, 1040 (1949).
+ [^6]: P. W. Anderson, Phys. Rev. **78**, 341 (1950).
+ [^7]: J. C. Slater, Phys. Rev. **78**, 748 (1950).
+-[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+\ No newline at end of file
++[^8]: W. J. Merz, Phys. Rev. **76**, 1221 (1949).
+
+tokens used
+9,231
+

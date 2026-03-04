@@ -15,20 +15,22 @@ author: ["E.T. Jaynes"]
 categories: ["Quantum Mechanics & Advanced Physics"]
 tags: ["free electron devices", "betatrons", "synchrotrons", "linear accelerators", "undulators", "cyclotron-maser", "Schwarz-Hora effect"]
 ---
+
 ## BETATRONS AND SYNCHROTRONS
+
 Radiation of light due to acceleration of free electrons occurs
 naturally in Bremsstrahlung. In the early 1940's, when the betatron and
 synchrotron were being developed, it was realized that this same
 phenomenon would place an upper limit to the attainable energy from any
 such device other than a linear accelerator.
 
-Iwanenko and Pomeranchuk (1944) gave a formula for the betatron based on
+Iwanenko and Pomeranchuk[^iwanenko1944] gave a formula for the betatron based on
 the relativistic generalization of the Larmor power formula
-$P_L = (2e^2/3c^3)\dot{v}^2$, and Schwinger (1946, 1949) produced an
+$P_L = (2e^2/3c^3)\dot{v}^2$, and Schwinger[^schwinger1946][^schwinger1949] produced an
 immense calculation of radiation from betatrons and synchrotrons, giving
 its full spectral and directional distribution. The predicted radiation
 was of surprisingly high frequency, as confirmed experimentally by
-Elder, Langmuir, and Pollock (1948) on the G. E. synchrotron. For an
+Elder, Langmuir, and Pollock[^elder1948] on the G. E. synchrotron. For an
 electron in an orbit of radius R = 29.2 cm (orbital frequency 163.5 MHz)
 it reached the optical region with the appearance of a dull red spot at
 30 Mev, progressing to brilliant bluish-white light at 80 Mev.
@@ -93,9 +95,10 @@ proportional to $N^2$ rather than N; and that would be fatal.
 
 Finally, a controversy, amusing in retrospect, developed for a short
 time on the validity of classical vs. quantum electrodynamics for this
-problem. For the summing up, vindicating classical theory, see Schiff
-(1952).
+problem. For the summing up, vindicating classical theory, see Schiff[^schiff1952].
+
 ## LINEAR ACCELERATORS
+
 In the closing days of World War II, I found myself in the Navy headed
 for the South Pacific; but just before leaving I visited my friend
 Professor W. W. Hansen, at Stanford. Alarmed at my imminent cultural
@@ -116,12 +119,12 @@ the structure, in its dependence on the dimensions of the loading discs.
 Having passed that test, he then gave me the problem of developing
 coupling systems to match the periodic accelerator structure to
 conventional 3 GHz waveguide. Probably the only part of that work that
-survives usefully today is the diagnostic method (Jaynes, 1952) worked
+survives usefully today is the diagnostic method[^jaynes1952] worked
 out to determine, from measurements in the waveguide, when we had a pure
 running wave in the accelerator tube.
 
 That Summer the news of Schwinger's still unpublished calculations had
-already reached Stanford (Schiff, 1946), and those of us dreaming of
+already reached Stanford[^schiff1946], and those of us dreaming of
 future LINACS felt left out, since it appeared that our machine would
 not produce this interesting visible light whose color shows, at a
 glance, the electron energy. But then it occurred to me that, because my
@@ -165,7 +168,9 @@ intensity, the electron might oscillate with such amplitude that it
 generates appreciable radiation in harmonics of the frequency $\omega^\prime$.
 We then need to discuss Thomson scattering in a wave of very high
 intensity.
+
 ## RADIATION FROM AN OSCILLATING CHARGE
+
 To fix numerical magnitudes, an energy flux of the above value S'
 corresponds to an electric field strength $E_r \sim 10^4$ esu, and the
 electron will oscillate with amplitude $a = eE_r/m\omega^2 \sim 10^{-4}$
@@ -196,7 +201,7 @@ $$
 $$
 where $k=\omega/c$, and r is the distance from the point of integration
 to the point of observation R; a similar expression holds for the vector
-potential. But when R \>"> a, these integrals go into the form
+potential. But when R >> a, these integrals go into the form
 $$
 \frac{1}{2\pi} \int_{-1}^1 \frac{T_n(z)}{\sqrt{1-z^2}} e^{iqz} dz = (i/2)^n J_n(q)
 $$
@@ -237,7 +242,9 @@ $$
 is independent of $\gamma$. In the Stanford LINAC, $ka \sim 0.02$, and
 harmonic production is always small. A machine operating at higher power
 and/or lower frequency would generate correspondingly more harmonics.
+
 ## BACK TO THE LABORATORY SYSTEM
+
 In view of the foregoing, we need consider only the conventional Thomson
 scattering at the fundamental frequency $\omega^\prime$, in spite of the
 enormous intensity S' of the incident wave. In the electron's reference
@@ -372,7 +379,9 @@ moment. Then there can be no objection to use of the photon in purely
 classical calculations. To emphasize this, note that our final result
 (27) is independent of the numerical value of $\hbar$, because $N\hbar$
 is.
+
 ## THE UNDULATOR
+
 In the Summer of 1947 I returned to Stanford and wrote up the above
 analysis, which was circulated privately to interested persons, but was
 not considered of enough earth-shaking importance to warrant
@@ -392,7 +401,7 @@ LINAC came to the attention of Hans Motz, and he conceived a variant of
 the idea which could produce coherent millimeter waves from a
 high-energy electron beam.
 
-The Undulator (Motz, 1950) passes the electrons through a comb-like
+The Undulator[^motz1951] passes the electrons through a comb-like
 structure of permanent magnets, reversing the magnetic field at each
 tooth of the comb. Thus the electron beam is forced to "undulate" and
 radiate light which, in the forward direction, can be relatively intense
@@ -402,7 +411,9 @@ predicted, but with the large amount of apparatus needed, it was hardly
 competitive with other methods of generating millimeter waves. To the
 best of my knowledge, no further work has been done on it since the
 early 1950's.
+
 ## THE CYCLOTRON-MASER EQUATIONS
+
 Also in the Summer of 1947, having just completed J. R. Oppenheimer's
 course in quantum theory at Berkeley, I was toying with alternative ways
 of writing the Schrödinger equation. One form in particular made an
@@ -454,7 +465,7 @@ is the unit sphere, $x^2 + y^2 + z^2 = 1$.
 When, in the middle 1950's, Professor Willis Lamb showed me his theory
 of the ammonia maser, I immediately rewrote it in the form (31), which
 made the physical operation of the device seem much clearer. This marked
-the beginning of neoclassical theory (Jaynes, 1973).
+the beginning of neoclassical theory[^jaynes1973].
 
 Bear with me--we have not really left the topic of free electrons. For
 also in the middle 1950's, Professor Charles Kittel gave a Seminar talk
@@ -637,11 +648,12 @@ Needless to say, this analysis leaves it an open question whether other
 configurations might be superior in power, efficiency, stability, etc.
 Presumably, use of a circularly polarized wave would double the rate of
 energy transfer.
+
 ## SCHWARZ-HORA EFFECT (?)
+
 An entirely different principle by which free electrons might be made to
 produce light, about which I and many other people did some thinking in
-1970, concerns the "blue electron" effect reported by Schwarz and Hora
-(1969). I don't want to get into controversies about whether the effect
+1970, concerns the "blue electron" effect reported by Schwarz and Hora[^schwarzhora1969]. I don't want to get into controversies about whether the effect
 has in fact been seen; and whether it could have been, with present
 electron optics techniques. But I think it is legitimate and important
 to raise the question whether, *in principle, according to present
@@ -886,24 +898,16 @@ easy to account for). And against whatever improbability it may have, one
 must balance the obvious importance of finding out about it, if it
 does exist. So I hope experimentalists will not forget about it
 entirely.
+
 ## REFERENCES
-Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
 
-D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
-
-E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
-
-E. T. Jaynes, in Coherence and Quantum Optics, L. Mandel and E. Wolf,
-Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
-
-H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
-
-L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
-
-L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
-
-H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). for a very
-complete bibliography of later discussions, see H. Hora, Il Nuovo
-Cimento 26, 295 (1975).
-
-J. Schwinger, Phys. Rev. 70, 798 (1946); 75, 1912 (1949).
+[^elder1948]: Elder, Langmuir, and Pollock, Phys. Rev. 74, 52 (1948).
+[^iwanenko1944]: D. Iwanenko and I. Pomeranchuk, Phys. Rev. 65, 343 (1944).
+[^jaynes1952]: E. T. Jaynes, Jour. App. Phys. 23, 1077 (1952).
+[^jaynes1973]: E. T. Jaynes, in *Coherence and Quantum Optics*, L. Mandel and E. Wolf, Editors, Plenum Publishing Corp., New York (1973); pp. 35-81.
+[^motz1951]: H. Motz, Jour. App. Phys. 22, 527, 1217 (1951).
+[^schiff1946]: L. I. Schiff, Rev. Sci. Inst. 17, 6 (1946).
+[^schiff1952]: L. I. Schiff, Am. Jour. Phys. 20, 474 (1952).
+[^schwarzhora1969]: H. Schwarz and H. Hora, App. Phys. Lett. 15, 349 (1969). For a very complete bibliography of later discussions, see H. Hora, *Il Nuovo Cimento* 26, 295 (1975).
+[^schwinger1946]: J. Schwinger, Phys. Rev. 70, 798 (1946).
+[^schwinger1949]: J. Schwinger, Phys. Rev. 75, 1912 (1949).

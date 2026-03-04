@@ -1,0 +1,308 @@
+=== STDOUT ===
+Changed `content/papers/craddis.md` with minimal structural QA edits only:
+
+- Normalized front matter `author` to valid YAML list format.
+- Normalized the inline citation `Bretthorst (1988)` to footnote citation format:
+  - `Bretthorst[^bretthorst1988]`
+  - added `[^bretthorst1988]: Bretthorst (1988).`
+- Removed the unreferenced trailing footnote `[^100]` (extraneous metadata-style note).
+
+No math/LaTeX content was modified. No abstract duplication was found in body text, so no abstract removal was needed.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb997-7b30-7c32-8a2f-a6c669b19c98
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/craddis.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’m going to inspect `content/papers/craddis.md` for structural QA issues only (paragraphing, tables, citations, duplicate abstract, and stray metadata), then make minimal edits directly in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Theory of Radar Target Discrimination"
+year: 1991
+abstract: >
+  We give a direct application of probability theory to the problem of
+  deciding which of a set of possible targets is present. The
+  reliability of discrimination depends on the noise level, the
+  background hash, the variation of echo with target aspect angles, the
+  energy and shape of the transmitted pulse, and the number of pulses.
+  The effect of each of these variables is calculated and discussed,
+  leading to some new conclusions about optimal radar design and optimal
+  data processing. We think that the tactics which might succeed are
+  quite different from those that have been tried in the past, and give
+  elementary intuitive explanations of why this is so.
+author:
+["E.T. Jaynes"]
+---
+# INTRODUCTION
+If radar systems could distinguish different targets from each other,
+there would be big advantages in air safety. Airport traffic controllers
+codex
+I’ve loaded the first section and now I’ll scan the remainder to catch duplicate abstract text, malformed tables, and citation patterns before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+have perceived this intuitively. Probability theory tells us, in (2-14),
+how the data should be processed for optimal
+discrimination between targets. With Gaussian noise, a simple linear
+operation on the data is the optimal computation which generates the
+posterior log-odds in favor of one target over the other.
+
+Now if A is in fact the true target present, then $d(t) = y_A(t)+n(t)$,
+and the result of this data processing will be
+$$\sigma^2 \log o(A|D\sigma) = n \cdot (y_A - y_B) + y_A \cdot (y_A - y_B) + \frac{1}{2}(y_B \cdot y_B - y_A \cdot y_A)$$
+or,
+$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) + \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B)$$
+a "random noise" part and a systematic part. If B is the true target,
+our computer will find instead the log-odds in favor of A of
+$$\sigma^2 \log o(A|D\sigma) = n\cdot (y_A - y_B) - \frac{1}{2}(y_A - y_B)\cdot (y_A - y_B)$$
+in which the systematic term has a reversed sign.
+
+The term $n \cdot (y_A - y_B)$ represents an unavoidable confusion due
+to noise. Eqs. (2-17) tell us that if $n(t)$ happens to resemble
+$(y_A - y_B)$, this term will be positive and it will incline us in the
+direction of favoring A. If $n(t)$ happens to have the opposite sign, so
+exec
+/bin/bash -lc "sed -n '521,780p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$\int n^2(t) dt = \frac{\pi}{\Omega} \sum_j n_j^2.$$ Note that (2-48)
+and (2-49) are not merely discrete sum approximations to the integrals; 
+for band-limited functions they are exact.
+
+Now we defined the quantity $\sigma$ in (2-3) by saying that the noise
+is supposed white, and the probability of a noise function $n(t)$ shall
+be
+$$p(n(t)|\sigma) \propto \exp\left\{-\frac{1}{2\sigma^2} \int n^2(t) dt \right\}$$
+
+This is now, from (2-49),
+$$\exp\left\{-\frac{\pi}{2\sigma^2 \Omega} \sum_j n_j^2 \right\}.$$ But
+this states that the variables $n_j \equiv n(t_j)$ are assigned
+independent Gaussian distributions with means $\langle n_j \rangle = 0$
+and second moments
+$$\langle n_j n_k \rangle = \frac{\sigma^2 \Omega}{\pi} \delta_{jk}.$$ 
+
+In other words, our definition (2-50) plus the band-limited condition
+implies white noise in the sense that the values of $n(t)$ separated by
+Nyquist intervals are independent. The noise is as "white" as it can
+be in view of the band limiting.
+exec
+/bin/bash -lc "sed -n '781,1040p' content/papers/craddis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$p(D|A\alpha\sigma)$, weighted according to the prior probability
+$p(\alpha|A\sigma)$. Therefore the odds ratio for comparing target A
+with target B still takes the form (2-12):
+$$\frac{p(A|D\sigma)}{p(B|D\sigma)} = \frac{p(A|\sigma)}{p(B|\sigma)} \frac{\int p(D|A\alpha\sigma)p(\alpha|A\sigma)d\alpha}{\int p(D|B\beta\sigma)p(\beta|B\sigma)d\beta}$$
+
+Thus probability theory tells us, very sensibly, that if $\alpha$ is
+unknown, then the best we can do is to "hedge our bets" by making
+allowance for all possible values that it might have, taking into
+account any information about how likely the different possible values
+are. The calculation could be organized differently by applying the sum
+rule and product rule directly to the final probability $f(A|D\sigma)$:
+$$p(A|D\sigma) = \int p(A\alpha|D\sigma) d\alpha = \int p(A|D\alpha\sigma)p(\alpha|D\sigma)$$
+which is a weighted average, now using probabilities of $\alpha$
+conditional on the data. Then we apply the rule (3-3) with a different
+choice of propositions:
+$$p(A|D\alpha\sigma) = p(A|\alpha\sigma) \frac{p(D|A\alpha\sigma)}{p(D|\alpha\sigma)}$$
+
+Of course, the calculation via (3-3) -- (3-5) is entirely equivalent to
+the one using (3-6), (3-7), and we are free to choose whichever one is
+more convenient computationally. But let us view this another way. Suppose 
+codex
+I’ve identified a small, safe edit set: normalize the front matter `author` list formatting, convert the one inline author-year citation to a footnote citation, and remove an orphan/extraneous footnote definition at the end that isn’t referenced in the body. I’ll keep all paper text meaning and all math exactly unchanged.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/craddis.md
+@@ -15,3 +15,3 @@
+ author:
+-["E.T. Jaynes"]
++  - "E.T. Jaynes"
+ ---
+@@ -183,3 +183,3 @@
+ and probability theory tells us the proper way of doing this, as shown
+-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
++by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+ in advance because it is essentially the noise temperature of the
+@@ -893,2 +893,2 @@
+ 
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
++[^bretthorst1988]: Bretthorst (1988).
+apply_patch(auto_approved=true) exited 0 in 14ms:
+Success. Updated the following files:
+M content/papers/craddis.md
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -13,7 +13,7 @@
+   quite different from those that have been tried in the past, and give
+   elementary intuitive explanations of why this is so.
+ author:
+-["E.T. Jaynes"]
++  - "E.T. Jaynes"
+ ---
+ # INTRODUCTION
+ If radar systems could distinguish different targets from each other,
+@@ -181,7 +181,7 @@
+ We indicate this as a conditional probability, conditional on knowledge
+ of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
+ and probability theory tells us the proper way of doing this, as shown
+-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
++by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+ in advance because it is essentially the noise temperature of the
+ receiver [see Eq. (2-54) below], and one will surely have determined
+ this before trying to test the system at all. This simplifies our
+@@ -891,4 +891,4 @@
+ power. For its realization in practice, the present top priority job is
+ to obtain the aforementioned reflection function information.
+ 
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
++[^bretthorst1988]: Bretthorst (1988).
+
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -13,7 +13,7 @@
+   quite different from those that have been tried in the past, and give
+   elementary intuitive explanations of why this is so.
+ author:
+-["E.T. Jaynes"]
++  - "E.T. Jaynes"
+ ---
+ # INTRODUCTION
+ If radar systems could distinguish different targets from each other,
+@@ -181,7 +181,7 @@
+ We indicate this as a conditional probability, conditional on knowledge
+ of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
+ and probability theory tells us the proper way of doing this, as shown
+-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
++by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+ in advance because it is essentially the noise temperature of the
+ receiver [see Eq. (2-54) below], and one will surely have determined
+ this before trying to test the system at all. This simplifies our
+@@ -891,4 +891,4 @@
+ power. For its realization in practice, the present top priority job is
+ to obtain the aforementioned reflection function information.
+ 
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
++[^bretthorst1988]: Bretthorst (1988).
+
+codex
+I’ve applied the minimal structural edits. I’ll run a quick pass to verify there’s no duplicated abstract in the body and that footnotes are now clean.
+exec
+/bin/bash -lc 'rg -n "''^#'"\\s*ABSTRACT|Bretthorst|\\[\\"'^" content/papers/craddis.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+184:by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+894:[^bretthorst1988]: Bretthorst (1988).
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -13,7 +13,7 @@
+   quite different from those that have been tried in the past, and give
+   elementary intuitive explanations of why this is so.
+ author:
+-["E.T. Jaynes"]
++  - "E.T. Jaynes"
+ ---
+ # INTRODUCTION
+ If radar systems could distinguish different targets from each other,
+@@ -181,7 +181,7 @@
+ We indicate this as a conditional probability, conditional on knowledge
+ of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
+ and probability theory tells us the proper way of doing this, as shown
+-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
++by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+ in advance because it is essentially the noise temperature of the
+ receiver [see Eq. (2-54) below], and one will surely have determined
+ this before trying to test the system at all. This simplifies our
+@@ -891,4 +891,4 @@
+ power. For its realization in practice, the present top priority job is
+ to obtain the aforementioned reflection function information.
+ 
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
++[^bretthorst1988]: Bretthorst (1988).
+
+codex
+Changed `content/papers/craddis.md` with minimal structural QA edits only:
+
+- Normalized front matter `author` to valid YAML list format.
+- Normalized the inline citation `Bretthorst (1988)` to footnote citation format:
+  - `Bretthorst[^bretthorst1988]`
+  - added `[^bretthorst1988]: Bretthorst (1988).`
+- Removed the unreferenced trailing footnote `[^100]` (extraneous metadata-style note).
+
+No math/LaTeX content was modified. No abstract duplication was found in body text, so no abstract removal was needed.
+file update:
+diff --git a/content/papers/craddis.md b/content/papers/craddis.md
+index 63664e2ef5b47c1803ee8edfddb4b6f5a67a0fa4..9b91c63b549a680162e251f45e30030a9df64982
+--- a/content/papers/craddis.md
++++ b/content/papers/craddis.md
+@@ -13,7 +13,7 @@
+   quite different from those that have been tried in the past, and give
+   elementary intuitive explanations of why this is so.
+ author:
+-["E.T. Jaynes"]
++  - "E.T. Jaynes"
+ ---
+ # INTRODUCTION
+ If radar systems could distinguish different targets from each other,
+@@ -181,7 +181,7 @@
+ We indicate this as a conditional probability, conditional on knowledge
+ of $\sigma$. If $\sigma$ is unknown, it must be estimated from the data
+ and probability theory tells us the proper way of doing this, as shown
+-by Bretthorst (1988). But in the present problem, $\sigma$ will be known
++by Bretthorst[^bretthorst1988]. But in the present problem, $\sigma$ will be known
+ in advance because it is essentially the noise temperature of the
+ receiver [see Eq. (2-54) below], and one will surely have determined
+ this before trying to test the system at all. This simplifies our
+@@ -891,4 +891,4 @@
+ power. For its realization in practice, the present top priority job is
+ to obtain the aforementioned reflection function information.
+ 
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
++[^bretthorst1988]: Bretthorst (1988).
+
+tokens used
+18,282
+

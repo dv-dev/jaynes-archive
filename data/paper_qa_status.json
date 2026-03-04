@@ -144,135 +144,135 @@
     "content/papers/cplanets.md": {
       "attempts": 1,
       "error": null,
-      "last_run_utc": "2026-03-04T16:01:46+00:00",
-      "return_code": null,
-      "status": "running"
+      "last_run_utc": "2026-03-04T16:03:58+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/craddis.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:04:35+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/displacement.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:05:04+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/disturbing.memory.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:07:14+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/einstein.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:08:29+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/electrodynamics.today.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:09:57+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/entropy.concentration.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:12:10+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/entropy.in.economics.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:13:16+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/foundations.of.prob.st.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:15:59+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/general.background.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:17:10+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/general.relationship.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:17:53+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/ghost.modes.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:19:29+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/gibbs.paradox.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:21:28+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/gibbs.vs.boltzmann.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:22:40+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/groups.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:23:23+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/gyromagnetic.effects.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:24:29+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/highly.informative.priors.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:26:26+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/history.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T16:28:32+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/inadequacy.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
+      "last_run_utc": "2026-03-04T16:28:32+00:00",
       "return_code": null,
-      "status": "pending"
+      "status": "running"
     },
     "content/papers/irreversible.stat.mac.md": {
       "attempts": 0,

@@ -124,10 +124,19 @@ def strip_tags(s: str) -> str:
     return TAG_RE.sub("", s).strip()
 
 
+def tag_no_indent_after_display_math(article_html: str) -> str:
+    # Hugo can emit block math as raw `$$...$$` between paragraph tags:
+    #   </p> $$ ... $$ <p>...
+    # Mark the following paragraph explicitly no-indent so styling is deterministic.
+    pattern = re.compile(r"(\$\$[\s\S]*?\$\$)\s*<p>", re.S)
+    return pattern.sub(r'\1<p class="no-indent-after-display">', article_html)
+
+
 def build_clean_html(source_html: str, slug: str) -> str:
     article_html = find_group(ARTICLE_RE, source_html)
     if not article_html:
         raise ValueError("Could not extract article body from rendered page")
+    article_html = tag_no_indent_after_display_math(article_html)
 
     title_html = find_group(TITLE_RE, source_html) or html.escape(slug)
     author_html = find_group(AUTHOR_RE, source_html) or ""
@@ -143,107 +152,177 @@ def build_clean_html(source_html: str, slug: str) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title_text}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
   <style>
-    @page {{ size: Letter; margin: 0.7in; }}
+    @page {{ size: Letter; margin: 1in 1in 1in 1in; }}
     body {{
-      font-family: "Source Serif 4", Georgia, serif;
-      color: #111;
-      font-size: 11.5pt;
-      line-height: 1.6;
+      font-family: "Times New Roman", Times, serif;
+      color: #111111;
+      font-size: 11pt;
+      line-height: 1.52;
       margin: 0;
       background: #fff;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }}
     .paper {{
-      max-width: 7in;
+      max-width: 6.5in;
       margin: 0 auto;
     }}
     .title {{
-      font-size: 20pt;
-      line-height: 1.25;
+      font-size: 18pt;
+      line-height: 1.2;
       font-weight: 700;
-      margin: 0 0 0.25rem 0;
+      margin: 0 0 0.34rem 0;
       text-align: center;
     }}
     .year {{
       text-align: center;
-      color: #444;
-      font-size: 11pt;
-      margin: 0 0 0.9rem 0;
+      color: #444444;
+      font-size: 10pt;
+      margin: 0 0 0.85rem 0;
     }}
     .authors {{
       text-align: center;
-      color: #333;
-      font-size: 11.5pt;
-      margin: 0 0 0.2rem 0;
+      color: #222222;
+      font-size: 11pt;
+      margin: 0 0 0.18rem 0;
     }}
     .abstract {{
-      border-left: 3px solid #bdbdbd;
-      padding: 0.2rem 0 0.2rem 0.8rem;
-      margin: 0 0 1.35rem 0;
+      max-width: 82%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 1rem;
       color: #222;
+      font-size: 10.5pt;
+      text-align: justify;
     }}
     .abstract strong {{
       font-weight: 700;
     }}
     article {{
       max-width: 100%;
+      text-align: justify;
     }}
     article h1, article h2, article h3, article h4, article h5, article h6 {{
       page-break-after: avoid;
       break-after: avoid-page;
-      margin-top: 1.25em;
-      margin-bottom: 0.6em;
+      margin-top: 1.1em;
+      margin-bottom: 0.35em;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.2;
     }}
-    article h1 {{ font-size: 16pt; border-bottom: 1px solid #ddd; padding-bottom: 0.25rem; }}
-    article h2 {{ font-size: 14pt; }}
-    article h3 {{ font-size: 12.5pt; }}
-    article p {{ margin: 0 0 0.8em 0; }}
-    article ul, article ol {{ margin: 0 0 0.8em 1.2em; }}
+    article h1 {{
+      font-size: 13.2pt;
+      padding-bottom: 0;
+    }}
+    article h2 {{ font-size: 12.2pt; }}
+    article h3 {{ font-size: 11.4pt; }}
+    article p {{
+      margin: 0;
+      text-indent: 1.15em;
+      orphans: 3;
+      widows: 3;
+    }}
+    article p + p {{
+      margin-top: 0.14em;
+    }}
+    article blockquote + p,
+    article ul + p,
+    article ol + p,
+    article table + p,
+    article .katex-display + p {{
+      text-indent: 0;
+      margin-top: 0.3em;
+    }}
+    article ul, article ol {{
+      margin: 0.28em 0 0.55em 1.15em;
+      padding: 0;
+    }}
     article li {{ margin-bottom: 0.25em; }}
     article blockquote {{
-      border-left: 3px solid #ddd;
-      margin: 0.8em 0;
-      padding: 0.1em 0 0.1em 0.8em;
+      border-left: 0;
+      margin: 0.6em 0 0.6em 1.2em;
+      padding: 0;
       color: #333;
+      font-style: italic;
     }}
     article table {{
       border-collapse: collapse;
       width: 100%;
-      margin: 1em 0;
-      font-size: 10.5pt;
+      margin: 0.68em 0;
+      font-size: 10pt;
       page-break-inside: avoid;
       break-inside: avoid;
     }}
     article th, article td {{
-      border: 1px solid #cfcfcf;
-      padding: 0.35em 0.45em;
+      border: 0;
+      border-bottom: 1px solid #d8d8d8;
+      padding: 0.2em 0.32em;
       vertical-align: top;
+    }}
+    article th {{
+      font-weight: 700;
+      border-top: 1px solid #bfbfbf;
     }}
     article img {{
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 1rem auto;
+      margin: 0.7rem auto;
       page-break-inside: avoid;
+    }}
+    article hr {{
+      display: none;
     }}
     a {{
       color: #111;
       text-decoration: none;
+    }}
+    sup {{
+      font-size: 0.74em;
+      line-height: 0;
+      vertical-align: super;
+    }}
+    .footnotes {{
+      margin-top: 0.9em;
+      padding-top: 0.2em;
+      border-top: 0;
+      font-size: 9.8pt;
+    }}
+    .footnotes ol {{
+      margin: 0.4em 0 0 1.2em;
+      padding: 0;
+    }}
+    .footnotes li {{
+      margin-bottom: 0.25em;
     }}
     .katex-display {{
       overflow: visible;
       white-space: normal;
       page-break-inside: avoid;
       break-inside: avoid;
-      margin: 0.8em 0;
+      margin: 0.55em 0 0.65em 0;
+      text-indent: 0;
+    }}
+    .katex {{
+      font-size: 1.04em;
+      line-height: 1.2;
+    }}
+    article .katex-display + p {{
+      text-indent: 0 !important;
+    }}
+    article p:has(.katex-display) + p {{
+      text-indent: 0 !important;
+      margin-top: 0.3em;
+    }}
+    article p.no-indent-after-display {{
+      text-indent: 0 !important;
+      margin-top: 0.3em;
     }}
     pre, code {{
       white-space: pre-wrap;
@@ -252,6 +331,22 @@ def build_clean_html(source_html: str, slug: str) -> str:
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {{
+      function markNextParagraphNoIndent(fromElement) {{
+        let next = fromElement ? fromElement.nextElementSibling : null;
+        while (next && next.tagName && next.tagName.toLowerCase() !== "p") {{
+          next = next.nextElementSibling;
+        }}
+        if (next) next.classList.add("no-indent-after-display");
+      }}
+
+      // Pass 1: detect raw markdown display-math paragraphs before KaTeX runs.
+      document.querySelectorAll("article p").forEach((p) => {{
+        const txt = (p.textContent || "").trim();
+        if (txt.startsWith("$$") && txt.endsWith("$$")) {{
+          markNextParagraphNoIndent(p);
+        }}
+      }});
+
       if (window.renderMathInElement) {{
         renderMathInElement(document.body, {{
           delimiters: [
@@ -259,6 +354,13 @@ def build_clean_html(source_html: str, slug: str) -> str:
             {{left: "$", right: "$", display: false}}
           ],
           output: "html"
+        }});
+
+        // Pass 2: detect KaTeX display output wrappers and mark next paragraph.
+        document.querySelectorAll("article .katex-display").forEach((disp) => {{
+          let block = disp.closest("p, div, figure, blockquote, li, td, th");
+          if (!block) block = disp.parentElement;
+          markNextParagraphNoIndent(block);
         }});
       }}
     }});
@@ -269,7 +371,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
     <h1 class="title">{title_html}</h1>
     {"<p class='authors'>" + author_html + "</p>" if author_text else ""}
     {"<p class='year'>" + year_html + "</p>" if year_text else ""}
-    {"<section class='abstract'><strong>Abstract.</strong> " + abstract_inner + "</section>" if abstract_inner else ""}
+    {"<section class='abstract'>" + abstract_inner + "</section>" if abstract_inner else ""}
     <article>
       {article_html}
     </article>
