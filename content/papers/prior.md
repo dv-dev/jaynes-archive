@@ -37,6 +37,7 @@ abstract: >
   class of problems, therefore, the prior distributions may now be
   claimed to be fully as "objective" as the sampling distributions.
 ---
+
 ## Background of the Problem
 Since the time of Laplace, applications of probability theory have been
 hampered by difficulties in the treatment of prior information. In
@@ -165,6 +166,7 @@ will tend to disappear. The two principles---maximum entropy and
 transformation groups---discussed in the following sections represent
 methods for calculating probabilities which apply indifferently to
 either.
+
 ## The Basic Desideratum
 To elaborate the point just made, a prior probability assignment not
 based on frequencies is necessarily \"subjective\" in the sense that
@@ -251,6 +253,7 @@ the problem.
 
 We now survey these briefly and aim to supplement the principle in a way
 that retains the advantages, while correcting the shortcomings.
+
 ## Maximum Entropy
 We illustrate this method by a simple example which occurred in a
 physical problem (distribution of impurities in a crystal lattice), and
@@ -277,7 +280,7 @@ $$
 H = - \sum_{j=1}^{n} p(j|I) \log p(j|I)
 \tag{2}
 $$
- subject
+subject
 to the constraints $p(j|I) \ge 0$ and 
 $$
 \sum_{j=1}^{n} p(j|I) = 1
@@ -288,19 +291,19 @@ $$
 \tag{4}
 $$
 
- The solution is well known,
+The solution is well known,
 and in this case takes the form
 $$
 p(j|I) = \frac{1}{Z(\lambda)} \exp\{\lambda \cos(kx_j)\}
 \tag{5}
 $$
- where
+where
 $Z(\lambda)$ is the partition function
 $$
 Z(\lambda) = \sum_{j=1}^{n} \exp\{\lambda \cos(kx_j)\}
 \tag{6}
 $$
- and the value
+and the value
 of $\lambda$ is to be determined from (4):
 $$
 \langle\cos(kx)\rangle = \frac{\partial}{\partial\lambda} \log Z(\lambda) = 0.3.
@@ -334,7 +337,7 @@ p(j|nr) &= Ap(j|I)p(r|nj) \\\\
 \end{aligned}
 \tag{10}
 $$
- where A, B are normalizing constants.
+where A, B are normalizing constants.
 
 Alternatively, and representative of a large class of important problems
 which includes statistical mechanics, the prior distribution $p(j|I)$
@@ -411,6 +414,7 @@ however, this frequency connection is unnecessary for the usefulness of
 the principle; and 3) in fact, the principle is most useful in just
 those cases where the empirical distribution fails to agree with the one
 predicted by maximum entropy.
+
 ## The Correspondence Property
 Application of the principle of maximum entropy does not require that
 the distribution sought be the result of any random experiment (in fact,
@@ -438,7 +442,7 @@ $$
 H = - \sum_{i=1}^{n} p(x_i|I) \log p(x_i|I)
 \tag{14}
 $$
- subject to the
+subject to the
 constraints 
 $$
 \sum_{i=1}^{n} p(x_i|I) = 1
@@ -448,7 +452,7 @@ $$
 \sum_{i=1}^{n} p(x_i|I)f_k(x_i) = F_k, \quad k = 1,2,\dots,m
 \tag{16}
 $$
- where
+where
 the $F_k$ are the prescribed mean values. Again, the well-known solution
 is
 $$
@@ -496,14 +500,14 @@ $$
 \sum_{i=1}^n m_i = M
 \tag{20}
 $$
- and if the specified mean values are in fact
+and if the specified mean values are in fact
 verified, we have the additional relations
 $$
 \sum_{i=1}^n m_i f_k(x_i) = MF_k, \quad k = 1,\dots,m.
 \tag{21}
 $$
 
- If $m < n-1$,
+If $m < n-1$,
 the constraints (20) and (21) are insufficient to determine the relative
 frequencies $f_i = m_i/M$. Nevertheless, we have strong grounds for
 predicting some choices of the $f_i$ to others. For out of the original
@@ -524,7 +528,7 @@ M^{-1} \log W \to - \sum_{i=1}^n f_i \log f_i = H_f.
 \tag{23}
 $$
 
- It is now
+It is now
 evident that, in (20)--(23) we have formulated exactly the same
 mathematical problem as in (14)--(16), and that this identity will
 persist whether or not the constraints take the form of mean values.
@@ -542,7 +546,7 @@ $$
 \frac{W}{W^\prime} \sim \exp\{M(H_f - H_f^\prime)\}
 \tag{24}
 $$
- and
+and
 passes all bounds as $M \to \infty$. Therefore, the distribution
 predicted by maximum entropy can be realized experimentally in
 overwhelmingly more ways than can any other. This is the precise
@@ -564,7 +568,7 @@ H_B \le H_A.
 \tag{25}
 $$
 
- We note two properties, easily verified from the
+We note two properties, easily verified from the
 forgoing equations. If Mr. B's additional information is redundant (in
 the sense that it is only what Mr. A would have predicted from his
 distribution), then $\lambda_3 = 0$, and the distribution is unchanged.
@@ -673,6 +677,7 @@ we had Shannon's theorem establishing the uniqueness of entropy as an
 \"information measure,\" it was clear that Gibbs' procedure was an
 example of a general method for inductive inference, whose applicability
 is in no way restricted to equilibrium thermodynamics or to physics.
+
 ## Connection With Direct Probability Models
 Another important conceptual point is brought out by comparing the
 frequency correspondence property of maximum-entropy distributions with
@@ -704,7 +709,7 @@ $$
 p(r|n) = \binom{n}{r} p^r (1-p)^{n-r}
 \tag{27}
 $$
- in which $p$ is regarded as a
+in which $p$ is regarded as a
 given number $0 < p < 1$. For finite $n$, there is no $r$ in
 $0 \le r \le n$ which is absolutely excluded by this, and so the
 observed frequency of success $f = r/n$ cannot be predicted with
@@ -761,14 +766,14 @@ $$
 M = \{y_1, y_2, \dots, y_n\}
 \tag{29}
 $$
- and the total number of successes
+and the total number of successes
 obtained is 
 $$
 r(M) = \sum_{i=1}^n y_i.
 \tag{30}
 $$
 
- From (27) we find that, for any
+From (27) we find that, for any
 $n$, the expected number of successes is 
 $$
 \langle r \rangle = np.
@@ -784,20 +789,20 @@ $$
 P_M \equiv p\{y_0 \dots y_n\}
 \tag{32}
 $$
- on the $2^n$-point sample space of all
+on the $2^n$-point sample space of all
 possible messages. The problem is then to find the distribution $P_M$
 which maximizes the entropy 
 $$
 H = - \sum_M P_M \log P_M
 \tag{33}
 $$
- subject to the
+subject to the
 constraint (31). The result is
 $$
 P_M = \frac{1}{Z(\lambda)} \exp\{\lambda r(M)\}
 \tag{34}
 $$
- with the partition
+with the partition
 function
 $$
 Z(\lambda) = \sum_M \exp\{\lambda r(M)\} = (\exp\{\lambda\} + 1)^n.
@@ -811,7 +816,7 @@ $$
 \end{aligned}
 \tag{36}
 $$
- or
+or
 $$
 \lambda = \log \frac{\langle r \rangle}{n - \langle r \rangle} = \log \frac{p}{1-p}.
 \tag{37}
@@ -823,7 +828,7 @@ P_M = p^r (1-p)^{n-r}.
 \tag{38}
 $$
 
- This is the probability of obtaining a
+This is the probability of obtaining a
 specific message, with successes at specified trials. The probability of
 obtaining $r$ successes regardless of the order then requires the
 additional binomial coefficient, and so we obtain precisely the result
@@ -919,6 +924,7 @@ alternative expression to $(-p \log p)$ must surely reproduce all of
 these desirable properties before it could be taken seriously. It seems
 to the author impossible that any such alternative quantity could do so,
 and likely that a rigorous proof of this could now be given.
+
 ## Continuous Distributions
 Thus far we have considered the principle of maximum entropy only for
 the discrete case and have seen that if the distribution sought can be
@@ -967,7 +973,7 @@ $$
 H^\prime = - \int p(x) \log p(x) dx
 \tag{40}
 $$
- lacks invariance under a change of
+lacks invariance under a change of
 variables $x \to y(x)$, for (39) is not the result of any derivation,
 and it turns out not to be the correct information measure for a
 continuous distribution. Shannon's theorem establishing (14) as an
@@ -996,14 +1002,14 @@ $$
 \int p(x)dx = 1
 \tag{42}
 $$
- (we understand the range of integration to be the
+(we understand the range of integration to be the
 full parameter space); and we have information fixing the mean values of
 m different functions $f_k(x)$:
 $$
 F_k = \int p(x) f_k(x)dx, \quad k = 1,2,\dots,m
 \tag{43}
 $$
- where the $F_k$ are
+where the $F_k$ are
 the given numerical values. Subject to these constraints, we are to
 maximize (40). The solution is again elementary:
 $$
@@ -1023,7 +1029,7 @@ $$
 \tag{46}
 $$
 
- It is
+It is
 evident from these equations that when we use (40) rather than (39) as
 our information measure not only our final conclusions (45), but also
 the partition function and Lagrange multipliers are all invariant under
@@ -1119,6 +1125,7 @@ this was discussed by Poincaré (1912) and more recently by Fraser
 give three examples of a different group theoretical method of reasoning
 developed largely by Weyl and Wigner (1959), which has met with great
 success in physical problems and seems uniquely adapted to our problem.
+
 ## Transformation Groups---Examples
 The method of reasoning is best illustrated by a simple example, which
 also happens to be one of the most important in practice. We sample from
@@ -1137,7 +1144,7 @@ $$
 f(\mu, \sigma) d\mu d\sigma
 \tag{49}
 $$
- but if we merely specify \"complete
+but if we merely specify \"complete
 initial ignorance,\" this does not seem to tell us which function
 $f(\mu, \sigma)$ to use.
 
@@ -1164,7 +1171,7 @@ x^\prime - \mu^\prime &= a(x-\mu) \notag
 \end{aligned}
 \tag{50}
 $$
- where $(0 < a < \infty)$, $(-\infty < b < \infty)$. The
+where $(0 < a < \infty)$, $(-\infty < b < \infty)$. The
 distribution (47) expressed in the new variables is unchanged:
 $$
 p(dx^\prime|\mu^\prime, \sigma^\prime) = h\left(\frac{x^\prime-\mu^\prime}{\sigma^\prime}\right) \frac{dx^\prime}{\sigma^\prime}
@@ -1177,7 +1184,7 @@ g(\mu^\prime, \sigma^\prime) = a^{-1} f(\mu, \sigma).
 \tag{52}
 $$
 
- Now let us consider a
+Now let us consider a
 second problem.
 
 Problem 2: Given a sample $\{x_1' \dots x_n^\prime\}$, estimate $\mu^\prime$ and
@@ -1193,7 +1200,7 @@ $$
 f(\mu, \sigma) = g(\mu, \sigma)
 \tag{53}
 $$
- whatever the values
+whatever the values
 of $(a,b)$. But the form of the prior is now uniquely determined, for
 combining (49), (51), and (52), we see that $f(\mu,\sigma)$ must satisfy
 the functional equation 
@@ -1201,7 +1208,7 @@ $$
 f(\mu, \sigma) = a f(\mu+b, a\sigma)
 \tag{54}
 $$
- whose
+whose
 general solution is 
 $$
 f(\mu, \sigma) = \frac{\text{(const)}}{\sigma}
@@ -1216,7 +1223,7 @@ $$
 p(n|\lambda t) = \exp\{-\lambda t\} \frac{(\lambda t)^n}{n!}
 \tag{56}
 $$
- and by
+and by
 observing the number of events we wish to estimate the rate constant
 $\lambda$. We are initially completely ignorant of $\lambda$ except for
 the knowledge that it is a rate constant of physical dimensions
@@ -1237,7 +1244,7 @@ $$
 p(d\lambda^\prime|X^\prime) = g(\lambda^\prime)d\lambda^\prime
 \tag{58}
 $$
- and if these are mutually
+and if these are mutually
 consistent (i.e., they have the same content), it must be that
 $f(\lambda)d\lambda = g(\lambda^\prime)d\lambda^\prime$; or
 $f(\lambda) = qg(\lambda^\prime)$. But Mr. X and Mr. X' are both completely
@@ -1250,7 +1257,7 @@ p(d\lambda|X) \sim \lambda^{-1}d\lambda.
 \tag{59}
 $$
 
- To use any other prior than
+To use any other prior than
 this will have the consequence that a change in the time scale will lead
 to a change in the form of the prior, which would imply a different
 state of prior knowledge; but if we are completely ignorant of the time
@@ -1319,7 +1326,7 @@ $$
 \theta = p(S|X)
 \tag{61}
 $$
- will change it to
+will change it to
 $$
 \theta^\prime = p(S|EX) = \frac{p(S|X)p(E|SX)}{p(E|SX)p(S|X) + p(E|FX)p(F|X)}
 \tag{62}
@@ -1331,7 +1338,7 @@ $$
 \theta^\prime = \frac{a\theta}{1-\theta+a\theta}
 \tag{63}
 $$
- where
+where
 $$
 a = \frac{p(E|SX)}{p(E|FX)}
 \tag{64}
@@ -1352,14 +1359,14 @@ $$
 f(\theta)d\theta = g(\theta^\prime)d\theta^\prime
 \tag{65}
 $$
- and, if the population as a
+and, if the population as a
 whole learned nothing, then $f$ and $g$ must be the same function:
 $$
 f(\theta) = g(\theta).
 \tag{66}
 $$
 
- Combining (62), (64), and (65), we find that
+Combining (62), (64), and (65), we find that
 $f(\theta)$ must satisfy the functional equation
 $$
 a f\left(\frac{a\theta}{1-\theta+a\theta}\right) = (1-\theta+a\theta)^2 f(\theta).
@@ -1373,13 +1380,13 @@ $$
 \theta(1-\theta)f^\prime(\theta) = (2\theta - 1)f(\theta)
 \tag{68}
 $$
- whose solution
+hose solution
 is 
 $$
 f(\theta) = \frac{\text{(const)}}{\theta(1-\theta)}
 \tag{69}
 $$
- which has the
+which has the
 qualitative property anticipated by Jeffreys. Now that the imaginary
 population of individuals has served its purpose of revealing the
 transformation group (62) of the problem, let them coalesce again into a
@@ -1405,7 +1412,7 @@ $$
 \tag{72}
 $$
 
- Thus the \"best\" estimate of the
+Thus the \"best\" estimate of the
 probability of success, by the criterion of quadratic loss function, is
 just equal to the observed frequency of success $f$; and this is also
 equal to the probability of success at the next trial, in agreement with
@@ -1465,6 +1472,7 @@ far more precisely if we can specify as set of operations which we
 recognize as transforming the problem into an equivalent one, and the
 desideratum of consistency then places nontrivial restrictions on the
 form of the prior.
+
 ## Transformation Groups Discussion
 Further analysis shows that, if the number of independent parameters in
 the transformation group is equal to the number of parameters in the
@@ -1568,6 +1576,7 @@ group does not strictly represent any realistic state of knowledge, but
 it does define the invariant measure for our parameter space, without
 which the problem of finding a realistic prior by maximum entropy is
 mathematically indeterminate.
+
 ## Conclusion
 The analysis given here provides no reason to think that specifying a
 transformation group is the only way in which complete ignorance may be
@@ -1602,6 +1611,7 @@ that further work along these lines---in particular, directed toward
 learning how to formulate problems so that condition 2) is
 satisfied---may yet lead to the final solution of this ancient but vital
 puzzle, and thus achieve full objectivity for Bayesian methods.
+
 ## References {#references .unnumbered}
 Bayes, Rev. Thomas, (1763) \"An Essay Toward Solving a Problem in the
 Doctrine of Chances,\" Phil. Trans. Roy. Soc. pp. 370-418. Photographic

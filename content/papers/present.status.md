@@ -117,9 +117,11 @@ which their ideas got:
 > \"The discoverer of a new scientific truth finds it much harder to
 > make out why others fail to understand him than it was to find the
 > truth in the first place.\"
+>
 > \"A new scientific truth does not become accepted by convincing its
 > opponents and making them see the light, but rather because its
 > opponents eventually die.\"
+>
 > \"Every new idea in science must pass through three phases. In Phase 1
 > everybody says the man is crazy and the idea is all wrong. In Phase 2
 > they say that the idea is correct but of no importance. In Phase 3

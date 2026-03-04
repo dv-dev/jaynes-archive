@@ -434,30 +434,30 @@
     "content/papers/present.status.md": {
       "attempts": 1,
       "error": null,
-      "last_run_utc": "2026-03-04T20:06:29+00:00",
-      "return_code": null,
-      "status": "running"
+      "last_run_utc": "2026-03-04T20:07:27+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/prior.information.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:09:46+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/prior.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:12:02+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/prob.as.logic.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
+      "last_run_utc": "2026-03-04T20:12:02+00:00",
       "return_code": null,
-      "status": "pending"
+      "status": "running"
     },
     "content/papers/prob.in.qm.md": {
       "attempts": 0,
