@@ -87,8 +87,33 @@
     const cleanBtn = document.getElementById("download-all-clean");
     if (!statusEl || !rawBtn || !cleanBtn) return;
 
-    const manifest = JSON.parse(manifestEl.textContent || "{}");
+    let manifest = JSON.parse(manifestEl.textContent || "{}");
     let working = false;
+
+    function buildManifestFromPageLinks() {
+        const slugs = new Set();
+        document.querySelectorAll('a[href*="/papers/"]').forEach((a) => {
+            const href = a.getAttribute("href") || "";
+            const match = href.match(/\/papers\/([^\/?#]+)\/?$/);
+            if (match && match[1]) slugs.add(match[1]);
+        });
+        const ordered = Array.from(slugs).sort();
+        return {
+            raw: ordered.map((slug) => `{{ "pdfs/raw/" | relURL }}${slug}.pdf`),
+            clean: ordered.map((slug) => `{{ "pdfs/clean/" | relURL }}${slug}.pdf`)
+        };
+    }
+
+    function normalizeManifest(input) {
+        const raw = Array.isArray(input && input.raw) ? input.raw : [];
+        const clean = Array.isArray(input && input.clean) ? input.clean : [];
+        if (raw.length > 0 || clean.length > 0) {
+            return { raw, clean };
+        }
+        return buildManifestFromPageLinks();
+    }
+
+    manifest = normalizeManifest(manifest);
 
     function setWorkingState(isWorking) {
         working = isWorking;
