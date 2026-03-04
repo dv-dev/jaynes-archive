@@ -20,16 +20,6 @@ Minimal Hugo site for the E.T. Jaynes paper archive.
 Workbench Python deps:
 `pip install fastapi uvicorn pymupdf httpx`
 
-## Publish on GitHub Pages
-1. Create a new GitHub account for the archive.
-2. In that account, create a new repository and push this code.
-3. In the repository: `Settings -> Pages -> Source`, select `GitHub Actions`.
-4. Push to `master` or `main`; workflow [hugo-pages.yml](/home/dave/Projects/jaynes-archive/.github/workflows/hugo-pages.yml) deploys automatically.
-
-Recommended:
-- Use repo name `<new-username>.github.io` for root hosting.
-- If you use another repo name, the workflow already sets Hugo `baseURL` correctly for project-path hosting.
-
 ## Deploy on Netlify
 - This repo includes [netlify.toml](/home/dave/Projects/jaynes-archive/netlify.toml).
 - Netlify should auto-detect:
