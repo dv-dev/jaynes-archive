@@ -1,10 +1,12 @@
 === STDOUT ===
-No changes.
+No changes were necessary in `content/papers/realativistic.clock.md`.
 
-Self-check results:
-- Paragraph boundaries are already separated by blank lines (no prose paragraph joins that needed splitting).
-- No in-text equation-number references (`Eq.`, `Eqs.`, etc.) are present, so there are no unresolved display-equation numbering issues.
-- No duplicate abstract text in body, no extraneous “Lecture given at …” metadata, and citation usage is already in footnote form without double-citation patterns.
+Self-check completed:
+- Paragraph boundaries are already separated by blank lines where intended.
+- No unresolved in-text equation references are present (no `Eq.`/`Eqs.` references to map to display-equation numbers).
+- No duplicate abstract in body (front matter has no abstract field, and body has no separate abstract block).
+- Citations are already normalized as footnotes.
+- No extraneous metadata (e.g., “Lecture given at ...”) found in body.
 
 
 === STDERR ===
@@ -17,7 +19,7 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cba58-b2d8-7ab3-8b3c-872b13ef8943
+session id: 019cba87-039d-7152-b42a-6d4f4d3218e5
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/realativistic.clock.md`.
@@ -62,44 +64,48 @@ Output requirements:
 
 mcp startup: no servers
 codex
-I’m going to inspect `content/papers/realativistic.clock.md` for structural markdown issues, equation-reference numbering, duplicate abstract/body metadata noise, and citation formatting, then apply only minimal edits to that file.
+I’ll inspect `content/papers/realativistic.clock.md` for structural QA issues, equation-number references, abstract duplication, and citation formatting, then apply minimal direct edits only in that file.
 exec
-/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && nl -ba content/papers/realativistic.clock.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-     1	---
-     2	title: "Relativistic Clock Experiments"
-     3	author: ["E.T. Jaynes"]
-     4	year: 1958
-     5	---
-     6	IN response to a recent letter[^1] concerning the effect of a
-     7	gravitational field on the frequency of light, it may be worth while to
-     8	note that whether there is or is not a Doppler shift depends on the
-     9	coordinate system from which we view the experiment. In fact, Einstein's
-    10	original demonstration of the effect[^2] was based on the Doppler shift
-    11	as seen in an inertial (i.e., freely falling) coordinate system.
-    12	
-    13	Einstein's argument is a direct application of the equivalence
-    14	principle, so simple that it can be given in any elementary physics
-    15	course. Let A be at a height $z$ above B, in a gravitational field $g$.
-    16	All phenomena observed by A and B are the same as if there were no
-    17	gravitational field, but as if they were accelerated upward, at rate
-    18	$g$. Light travels from A to B in time $t=z/c$. During this time, B is
-    19	accelerated by $\delta v=gt=gz/c$; therefore he sees the light raised in
-    20	frequency by the Doppler shift, $\delta f/f=\delta v/c = \varphi/c^2$,
+/bin/bash -lc "sed -n '1,260p' content/papers/realativistic.clock.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Relativistic Clock Experiments"
+author: ["E.T. Jaynes"]
+year: 1958
+---
+IN response to a recent letter[^1] concerning the effect of a
+gravitational field on the frequency of light, it may be worth while to
+note that whether there is or is not a Doppler shift depends on the
+coordinate system from which we view the experiment. In fact, Einstein's
+original demonstration of the effect[^2] was based on the Doppler shift
+as seen in an inertial (i.e., freely falling) coordinate system.
+
+Einstein's argument is a direct application of the equivalence
+principle, so simple that it can be given in any elementary physics
+course. Let A be at a height $z$ above B, in a gravitational field $g$.
+All phenomena observed by A and B are the same as if there were no
+gravitational field, but as if they were accelerated upward, at rate
+$g$. Light travels from A to B in time $t=z/c$. During this time, B is
+accelerated by $\delta v=gt=gz/c$; therefore he sees the light raised in
+frequency by the Doppler shift, $\delta f/f=\delta v/c = \varphi/c^2$,
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/realativistic.clock.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
 codex
-I finished a full pass of the file. Next I’m doing a quick mechanical check for any in-text equation references (`Eq.`/`Eqs.`) and duplicated abstract/citation patterns before deciding whether edits are necessary.
+I’ve read the full file; next I’ll quickly verify there are no in-text equation references and then report whether any edits are needed.
 exec
-/bin/bash -lc "cd /home/dave/Projects/jaynes-archive && rg -n \"Eq\\.|Eqs\\.|equation|Abstract|abstract|Lecture given at|\\(["'^'"\\)]*[0-9]{4}["'^'"\\)]*\\)\" content/papers/realativistic.clock.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|equation|\\([0-9]+\\)\" content/papers/realativistic.clock.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 38:(Maxwell's) equations to describe all light propagation effects.[^4] In
 64:[^1]: M. J. E. Golay, Am. J. Phys. **25**, 494 (1957).
 65:[^2]: A. Einstein, Ann. Phys. **35**, 898 (1911).
-77:    edited by W. Pauli, (Pergamon Press, London, 1955).
 codex
-No changes.
+No changes were necessary in `content/papers/realativistic.clock.md`.
 
-Self-check results:
-- Paragraph boundaries are already separated by blank lines (no prose paragraph joins that needed splitting).
-- No in-text equation-number references (`Eq.`, `Eqs.`, etc.) are present, so there are no unresolved display-equation numbering issues.
-- No duplicate abstract text in body, no extraneous “Lecture given at …” metadata, and citation usage is already in footnote form without double-citation patterns.
+Self-check completed:
+- Paragraph boundaries are already separated by blank lines where intended.
+- No unresolved in-text equation references are present (no `Eq.`/`Eqs.` references to map to display-equation numbers).
+- No duplicate abstract in body (front matter has no abstract field, and body has no separate abstract block).
+- Citations are already normalized as footnotes.
+- No extraneous metadata (e.g., “Lecture given at ...”) found in body.
 tokens used
-3,960
+3,316
 

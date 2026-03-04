@@ -25,7 +25,9 @@ abstract: >
   set up a quantitative model which would do the proper things for us
   automatically and optimally.
 ---
+
 ## Introduction
+
 THIS PAPER concerns what is in one sense a small detail in the context
 of the vast amount of work done on spectral analysis. But in another
 sense, we are concerned with the general principles underlying all
@@ -56,7 +58,7 @@ statistics that it seems new and mysterious to many (although
 historically it dates back to Boltzmann, 1877). To compound the
 confusion, the MAXENT spectral estimate is, for one particular kind of
 data, identical in analytical form with that of an AR model, as found by
-Burg \[1\].
+Burg [1].
 
 If that were not enough, any MAXENT solution also defines a particular
 model for which the predictive distribution using the maximum-likelihood
@@ -78,7 +80,9 @@ is determined jointly by the \"hypothesis space\" representing our prior
 information about the phenomenon, and by the kind of data we have. To
 change either will result in a different analytical form of our spectral
 estimate, that of Burg being only the first discovered.
+
 ## Entropy Discussion
+
 For many decades it has been recognized, or conjectured, that the notion
 of entropy defines a kind of measure on the space of probability
 distributions, such that those of high entropy are in some sense favored
@@ -114,7 +118,7 @@ lower entropy ruled out? Just what are we accomplishing when we maximize
 entropy?
 
 We shall try to explain this here, not in terms of the most general
-information theory rationale originally advanced \[5\], but in terms of
+information theory rationale originally advanced [5], but in terms of
 an entropy concentration property that is free of all vagueness, at the
 cost of somewhat restricted application.
 
@@ -124,7 +128,7 @@ the one of maximum entropy; i.e., that distributions with appreciably
 lower entropy than the maximum permitted by our data are atypical of
 those allowed by the data.
 
-Schrödinger \[12\], noting this concentration property qualitatively,
+Schrödinger [12], noting this concentration property qualitatively,
 saw it as the reason why, in various problems, the Darwin-Fowler method
 and the Boltzmann \"method of the most probable distribution\" lead to
 the same result in the limit $N \to \infty$, where $N$ is a suitable
@@ -132,7 +136,7 @@ the same result in the limit $N \to \infty$, where $N$ is a suitable
 a system; in Communication Theory the number of symbols in a message; in
 Statistical Inference, the number of trials of a random experiment,
 etc.). A general proof of this limiting form is given by Van Campenhout
-and Cover \[14\].
+and Cover [14].
 
 But these results, pertaining only to the limiting distribution, leave
 us in the same unsatisfactory state as did the original limit theorem
@@ -153,7 +157,7 @@ Maximum Entropy as a method of inference.
 This problem was discussed at the MIT Maximum Entropy Formalism
 Conference of May 1978, in connection with some alternative solutions
 that had been proposed for maximum-entropy problems. The result was a
-lengthy but awkward and unsatisfactory analysis \[7\] in which real
+lengthy but awkward and unsatisfactory analysis [7] in which real
 insight into the problem had not yet been achieved. We give here a
 simpler, more accurate, and more general treatment of entropy
 concentration.
@@ -168,14 +172,20 @@ available. As will be shown elsewhere, this same concentration theorem
 establishes the fundamental status of entropy as a criterion for testing
 hypotheses about systematic effects in experiments where frequency data
 are available.
+
 ## Entropy Concentration Theorem
+
 A random experiment has $n$ possible results at each trial; thus in $N$
 trials there are $n^N$ conceivable outcomes (we use the word \"result\"
 for a single trial, while \"outcome\" refers to the experiment as a
 whole; thus one outcome consists of an enumeration of $N$ results,
 including their order). Each outcome yields a set of sample numbers
 $\{N_i\}$ and frequencies $\{f_i = N_i/N, 1 \le i \le n\}$, with an
-entropy $$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i. \tag{1}$$ This
+entropy
+
+$$H(f_1 \dots f_n) = -\sum_{i=1}^{n} f_i \log f_i. \tag{1}$$
+
+This
 encompasses many different scenarios, for example: 1) *Generalized
 Loaded Dice*: A die with $n$ faces is tossed $N$ times, the $i$th face
 turning up $N_i$ times. 2) *Statistical Mechanics*: A system contains
@@ -193,7 +203,10 @@ $N_i$ times.
 Consider the subclass $C$ of all possible outcomes that could be
 observed in $N$ trials, compatible with $m$ linearly independent
 constraints ($m < n$) of the form
-$$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m. \tag{2}$$ The conceptual
+
+$$\sum_{i=1} A_{ji} f_i = d_j, \quad 1 \le j \le m. \tag{2}$$
+
+The conceptual
 interpretation is that $m$ different \"physical quantities\" have been
 measured, the matrix $A_{ji}$ defines their \"nature,\" and
 $D = \{d_1 \dots d_m\}$ is our data set. For example, in image
@@ -207,7 +220,9 @@ use---the entropy (1) as a criterion for estimating the $\{f_i\}$.
 
 A certain fraction $F$ of the outcomes in class $C$ will yield an
 entropy in the range
+
 $$H_{\text{max}} - \Delta H \le H(f_1 \dots f_n) < H_{\text{max}} \tag{3}$$
+
 where $H_{\text{max}}$ is determined by the well-known algorithm
 recalled in Appendix I. Their concentration near this upper bound (i.e.,
 the functional relation connecting $F$ and $\Delta H$) is given by the
@@ -216,7 +231,11 @@ over class $C$ as chi-squared with $k = n-m-1$ degrees of freedom,
 independently of the nature of the constraints. That is, denoting the
 critical chi-squared for $k$ degrees of freedom at the $100P$ percent
 significance level by $\chi_k^2(P)$, $\Delta H$ is given in terms of the
-upper tail area ($1-F$) by $$2N\Delta H = \chi_k^2(1-F). \tag{4}$$ The proof is
+upper tail area ($1-F$) by
+
+$$2N\Delta H = \chi_k^2(1-F). \tag{4}$$
+
+The proof is
 relegated to Appendix II, since it consists of little more than
 repeating mutatis mutandis Karl Pearson's original derivation of the
 chi-squared distribution, taking note of the reduction of dimensionality
@@ -224,7 +243,9 @@ due to constraints. Note that the theorem is combinatorial, expressing
 only a counting of the possibilities; it does not become a statement of
 probabilities unless one assigns equal probability to each outcome in
 class $C$.
+
 ## Example: Loaded Dice
+
 Consider the case $n=6, N=1000$. Can we estimate the six frequencies on
 the basis of no information except that there are 6 faces and it was
 tossed 1000 times? On orthodox statistical theory the problem is
@@ -253,9 +274,17 @@ distribution. Applying the concentration theorem, we have $6-1=5$
 degrees of freedom. Entering the chi-squared tables at the conventional
 5-percent significance level, we find $\chi_5^2(0.05) = 11.07$. Thus 95
 percent of all possible outcomes have entropy in the range
-$2N\Delta H = 11.07$, or $$1.786 \le H \le 1.792. \tag{5}$$ Likewise,
+$2N\Delta H = 11.07$, or
+
+$$1.786 \le H \le 1.792. \tag{5}$$
+
+Likewise,
 $\chi_5^2(0.005) = 16.75$, and so 99.5 percent of all possible outcomes
-have entropy in the interval $$1.783 \le H \le 1.792. \tag{6}$$ It is,
+have entropy in the interval
+
+$$1.783 \le H \le 1.792. \tag{6}$$
+
+It is,
 therefore, pretty clear which estimate we shall wish to make. Without
 invoking either empirical evidence, or any probability model of
 Bernoulli trials we know, as an elementary combinatorial theorem, that
@@ -273,9 +302,15 @@ feel for the uniform distribution.
 In fact, this rationale was well understood by Jacob Bernoulli and
 Laplace, although they did not use the logarithmic form that we now call
 \"entropy.\" They calculated multiplicities, such as
-$$W = \frac{N!}{N_1! N_2! \dots N_n!} \tag{7}$$ but today we prefer to invoke
+
+$$W = \frac{N!}{N_1! N_2! \dots N_n!} \tag{7}$$
+
+but today we prefer to invoke
 the Stirling approximation to derive
-$$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N) \tag{8}$$ the
+
+$$\lim_{N\to\infty} N^{-1} \log W = -\sum (N_i/N) \log(N_i/N) \tag{8}$$
+
+the
 
 Shannon entropy form. Intuitively, then, distributions of higher entropy
 have higher multiplicity---i.e., they can be realized by Nature in more
@@ -303,7 +338,10 @@ such anomalies as spurious sidelobes.
 influence causing the distribution to depart from uniformity. We learn
 that in the 1000 tosses the average number of spots up was not 3.5, as
 we would have predicted from the uniform distribution, but
-$$\sum_{i=1}^6 i f_i = 4.5 \tag{9}$$ which is a special case of (2). Given this
+
+$$\sum_{i=1}^6 i f_i = 4.5 \tag{9}$$
+
+which is a special case of (2). Given this
 constraint and nothing else (i.e., not making use of any additional
 information that you or I might get from inspection of the die or from
 past experience with dice in general), what estimates should we now make
@@ -314,13 +352,18 @@ constantly in physical applications.
 The distribution $\{f_i\}$ which has maximum entropy subject to the
 constraint (9) is found by the method of Appendix I with
 $n=6, m=1, A_{1i}=i$. The numerical results, derived in more detail
-before \[7\] are:
+before [7] are:
 
 $\{f_i = e^{-\lambda i}(\sum e^{-\lambda i})^{-1}, 1\le i \le 6\}$ with
 $\lambda = -0.37105$, or
+
 $$\{f_1 \dots f_6\} = \{0.0543, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475\}. \tag{10}$$
 
-This distribution has entropy $$H_{\text{max}} \approx 1.61358 \tag{11}$$ far
+This distribution has entropy
+
+$$H_{\text{max}} \approx 1.61358 \tag{11}$$
+
+far
 below the range (6), indicating that the new constraint is very strong,
 confining us to an extremely small subclass of all the $6N$ outcomes
 conceivable a priori.
@@ -329,7 +372,11 @@ Again applying the concentration theorem, we have $6-1-1 = 4$ degrees of
 freedom; the chi-squared tables tell us that 95 percent of all possible
 outcomes allowed by the constraint (9) have entropy in a range of width
 $\Delta H = (2N)^{-1} \chi_4^2(0.05) = 0.00474$; or, to sufficient
-accuracy, $$1.609 \le H \le 1.614. \tag{12}$$ Thus on the \"null hypothesis\"
+accuracy,
+
+$$1.609 \le H \le 1.614. \tag{12}$$
+
+Thus on the \"null hypothesis\"
 which supposes that no further systematic influence is operative in the
 experiment other than the one taken into account (i.e., which assigns
 equal probability to all outcomes in the new class $C$), there is less
@@ -337,7 +384,10 @@ than a 5-percent chance that the frequency distribution has entropy
 outside the interval (12).
 
 A remarkable feature is that the \"95-percent concentration range\"
-$$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$ is valid
+
+$$H_{\text{max}} - \frac{4.74}{N} < H < H_{\text{max}} \tag{13}$$
+
+is valid
 asymptotically for any experiment with four degrees of freedom, although
 the value of $H_{\text{max}}$ may vary widely with other details.
 
@@ -346,8 +396,16 @@ significance levels. Thus in an experiment with 1000 trials and four
 degrees of freedom, 99.99 percent of all outcomes allowed by the
 constraints have entropy in a range of width
 $\Delta H = (2N)^{-1}\chi_4^2(0.0001) = 0.012$. In the above example
-this is $$1.602 \le H \le 1.614 \tag{14}$$ and only one in $10^8$ of the possible
-outcomes has entropy outside $$1.592 \le H \le 1.614. \tag{15}$$ Thus given
+this is
+
+$$1.602 \le H \le 1.614 \tag{14}$$
+
+and only one in $10^8$ of the possible
+outcomes has entropy outside
+
+$$1.592 \le H \le 1.614. \tag{15}$$
+
+Thus given
 incomplete information, the distribution of maximum entropy is not only
 the one that can be realized in the greatest number of ways; in fact,
 for large $N$ the overwhelming majority of all possible distributions
@@ -362,19 +420,26 @@ becomes highly atypical of those allowed by the constraints. This is the
 asymptotic optimality property.
 
 In view of this result, we can now appreciate the prophetic wisdom in
-the remark of Burg \[1\] that \"\... a reasonable goal is to find a
+the remark of Burg [1] that \"\... a reasonable goal is to find a
 single function, $P(f)$, which will be representative of the class of
 all possible spectra.\" This is precisely what he did accomplish; and
 indeed in a deeper sense than he may have realized at the time.
 
-Even more interesting numbers are readily found. Rowlinson \[11\]
+Even more interesting numbers are readily found. Rowlinson [11]
 rejected the principle of maximum entropy for this problem, and proposed
 as an alternative solution in place of (10) the binomial distribution
-$$f_i = \binom{5}{i-1} p^{i-1}(1-p)^{6-i}, \quad 1 \le i \le 6 \tag{16}$$ which
+
+$$f_i = \binom{5}{i-1} p^{i-1}(1-p)^{6-i}, \quad 1 \le i \le 6 \tag{16}$$
+
+which
 also satisfies the constraint (9) if $p = 0.7$. But the distribution
 (16) has entropy $H^\prime = 1.4136 = H_{\text{max}} - 0.200$, far below the
 limit (15). We now have $2N\Delta H = 400 = \chi_4^2(1 - F)$; or from
-(A12) $$1 - F \approx 2.94 \times 10^{-84}. \tag{17}$$ This indicates that in
+(A12)
+
+$$1 - F \approx 2.94 \times 10^{-84}. \tag{17}$$
+
+This indicates that in
 1000 tosses, less than one in $10^{83}$ of the outcomes compatible with
 the constraint (9) have entropy as low as $H^\prime$.
 
@@ -434,7 +499,9 @@ observation.
 Entropy maximization is a kind of insurance policy that protects us
 against predicting spurious details (such as sidelobes) for which there
 is no evidence in the data.
+
 ## Time Series
+
 In the preceding example each toss of the die could be considered a
 separate \"trial\" because the available information took the form of
 constraints on quantities that involved only sums $\sum g_i$ of
@@ -492,12 +559,16 @@ we make, usually the mean value over a MAXENT distribution.
 
 The MAXENT problem for our time series then takes the form: find the
 probability density $p(y_0 \dots y_T)$ which has maximum entropy
+
 $$H = -\int dy_0 \dots \int dy_T p(y_0 \dots y_T) \log p(y_0 \dots y_T) \tag{18}$$
+
 subject to constraints that represent all our information about the time
 series. If these constraints take the form of mean values of $m$
 different quantities $A_k$, our data set $D = \{A_1' \dots A_m^\prime\}$
 imposes the constraints
+
 $$A_k^\prime = \int dy_0 \dots \int dy_T p(y_0 \dots y_T) A_k(y_0 \dots y_T), \quad 1 \le k \le m \tag{19}$$
+
 and this is, but for notation, the problem that was formulated and
 solved by Gibbs. It is a continuous analog of (1) and (2).
 
@@ -505,22 +576,37 @@ Constraints of the form (19) appear general enough (with a little
 ingenuity in defining the functions $A_k$) to deal with almost any real
 problem yet thought of. The algorithm proceeds as before; define the
 partition function analogous to (A1)
-$$Z(\lambda_1 \dots \lambda_m) = \int dy e^{-\lambda \cdot A} \tag{20}$$ and the
+
+$$Z(\lambda_1 \dots \lambda_m) = \int dy e^{-\lambda \cdot A} \tag{20}$$
+
+and the
 maximum-entropy distribution is, analogous to (A4),
-$$p(y) = Z^{-1} e^{-\lambda \cdot A} \tag{21}$$ where we have passed to the
+
+$$p(y) = Z^{-1} e^{-\lambda \cdot A} \tag{21}$$
+
+where we have passed to the
 compact notation $dy=dy_0 \dots dy_T$
+
 $$\lambda \cdot A \equiv \sum_{k=1}^{m} \lambda_k A_k(y_0 \dots y_T) \tag{22}$$
+
 and the Lagrange multipliers $\lambda_k$ are still determined by (A3).
 The maximum entropy attained is a function of the data (compare (A2))
-$$H_{\text{max}} = S(A_1' \dots A_m^\prime) = \log Z + \lambda \cdot A^\prime \tag{23}$$ and
+
+$$H_{\text{max}} = S(A_1' \dots A_m^\prime) = \log Z + \lambda \cdot A^\prime \tag{23}$$
+
+and
 if this function were known, the Lagrange multipliers would be given by
 $\lambda_k = \partial S/\partial A_k^\prime$. That is, $\log Z(\lambda)$ and
 $S(A^\prime)$ are equivalent representations, each containing full information
 about the distribution, and differing by the Legendre transformation
 (23).
+
 ## Example: The Burg Problem
+
 Our information consists of measured values $R_k^\prime$ of the autocovariance
+
 $$R_k(y_0 \dots y_T) = \frac{1}{T+1} \sum_{j=0}^{T-k} y_j y_{j+k}^*, \quad 0 \le k \le m \tag{24}$$
+
 for $m+1$ lags, where $m < T$. Put, for formal reasons, $R_{-k}=R_k^*$,
 although these quantities are real in most applications. If we have no
 other information, then the probability density that has maximum entropy
@@ -529,19 +615,28 @@ multipliers $\{\lambda_{-m} \dots \lambda_0 \dots \lambda_m\}$.
 The quantities $A_k(y_0 \dots y_T)$ in the general formalism may be
 defined with any coefficients we please, and the scalar product
 $\lambda \cdot A$ and final conclusion will, of course, be independent
-of our choice. The choice $$A_k = \frac{T+1}{2} R_k, \quad -m < k < m \tag{25}$$
+of our choice. The choice
+
+$$A_k = \frac{T+1}{2} R_k, \quad -m < k < m \tag{25}$$
+
 will be convenient, making the Lagrange multipliers $\lambda_k$
 independent of $T$.
 The maximum-entropy distribution is then
+
 $$p(y_0 \dots y_T) = Z^{-1} \exp\left[-\sum_k \lambda_k A_k(y_0 \dots y_T)\right] \tag{26}$$
+
 which is a Gibbsian generalized canonical ensemble. But in this case,
 the exponent is a quadratic form in the $y_i$; from (24) and (25) we
 have
+
 $$p(y_0 \dots y_T) \propto \exp\left[-\frac{1}{2}(y^\dagger A y)\right] \tag{27}$$
+
 where y is the column vector $(y_0 \dots y_T)$, $y^\dagger$ its
 Hermitian conjugate row vector $(y_0^* \dots y_T^*)$, and A is the
 matrix with $(T+1)$ rows and columns
+
 $$A_{ij} = \begin{cases} \lambda_{|j-i|}, & |j-i| \le m \\\\ 0, & |j-i|>m \end{cases} \tag{28}$$
+
 in which the Lagrange multipliers are assembled in the Toeplitz form.
 With this kind of information, the MAXENT distribution is, therefore,
 multivariate Gaussian. Note that in this derivation, which differs from
@@ -554,22 +649,36 @@ distributions in this field calls for further comment to be given
 elsewhere.
 
 The partition function (20) is given by
-$$\log Z = -\frac{1}{2} \sum_{j=0}^{T} \log g_j + (\text{const}) \tag{29}$$ where
+
+$$\log Z = -\frac{1}{2} \sum_{j=0}^{T} \log g_j + (\text{const}) \tag{29}$$
+
+where
 $g_j$ are the eigenvalues of A. If we define the polynomial
-$$g(z) = \sum_{k=-m}^{m} \lambda_k z^k \tag{30}$$ then from Toeplitz theory, for
-$T \gg m$ the eigenvalues go into $$g_j = g(z_j), \quad 0 \le j \le T \tag{31}$$
+
+$$g(z) = \sum_{k=-m}^{m} \lambda_k z^k \tag{30}$$
+
+then from Toeplitz theory, for
+$T \gg m$ the eigenvalues go into
+
+$$g_j = g(z_j), \quad 0 \le j \le T \tag{31}$$
+
 where $z_j$ are the roots of $z^{T+1} = 1$; i.e.,
-$$z_j = \exp[2\pi i j/(T+1)]. \tag{32}$$ In fact, for a \"circular\" time series,
+
+$$z_j = \exp[2\pi i j/(T+1)]. \tag{32}$$
+
+In fact, for a \"circular\" time series,
 $y_{T+1}=y_0$, A is a circulant matrix and (31) is exact for finite $T$,
 a fact that will prove essential in understanding the \"line-splitting\"
 phenomenon.
 
 As $T \to \infty$, then, from (29) and (31), $\log Z$ goes
 asymptotically into an integral over the unit circle in the z-plane
+
 $$\frac{2}{T+1} \log Z(\lambda_k) \to -\frac{1}{2\pi} \int_0^{2\pi} \log g(e^{i\theta}) d\theta. \tag{33}$$
 
 The general MAXENT formalism then determines the $\lambda_k$ from
 $A_k^\prime = -\partial \log Z / \partial \lambda_k$, or
+
 $$R_k^\prime = \frac{1}{2\pi} \int_0^{2\pi} \frac{e^{ik\theta} d\theta}{g(e^{i\theta})}, \quad -m \le k \le m. \tag{34}$$
 
 At this point we note an interesting property of the MAXENT formalism.
@@ -588,8 +697,13 @@ extrapolation of the covariance function: $\hat{R}_k = R_k$.
 
 But a further generalization is then obvious: if we have data on any
 information set $I$; i.e., we are given $R_k^\prime$ for $k \in I$, then
-define $$g(z) = \sum_{k \in I} \lambda_k z^k \tag{35}$$ whereupon (34) will be
+define
+
+$$g(z) = \sum_{k \in I} \lambda_k z^k \tag{35}$$
+
+whereupon (34) will be
 valid for all $k$, with the meaning
+
 $$\hat{R}_k = \begin{cases} \text{data } R_k^\prime, & k \in I \\\\ \text{prediction } \hat{R}_k, & \text{otherwise.} \end{cases} \tag{36}$$
 
 There is a Lagrange multiplier for each item of data we have, and the
@@ -597,7 +711,7 @@ same formula (34) gives the optimal interpolation of missing data as
 well as the optimal extrapolation beyond the data---\"optimal\" by the
 GNW criterion.
 
-We have noted before \[7, eq. D54\] that this convenient double meaning
+We have noted before [7, eq. D54] that this convenient double meaning
 of our constraint equations holds quite generally for perturbation
 expansions of MAXENT solutions. Full MAXENT is a highly nonlinear
 algorithm; however, in first order of perturbation about a \"reference\"
@@ -613,11 +727,11 @@ include the standard Callen-Green-Kubo theory of
 response functions and transport coefficients (diffusion, electrical and
 thermal conductivity, etc.) of Irreversible Statistical Mechanics. All
 of the static transport theory summarized in the treatise of Zubarev
-\[15\] is a consequence of this phenomenon, in the case where
+[15] is a consequence of this phenomenon, in the case where
 constraints are confined to conserved quantities. Had Zubarev used more
 general kinds of input data, this same double meaning would have
 generated the algorithm for more general predictions, such as ultrasonic
-dispersion and attenuation \[7\], \[8\].
+dispersion and attenuation [7], [8].
 
 We interject these remarks to stress that the double meaning found in
 (34) is a very general and important property of the MAXENT method. The
@@ -629,13 +743,15 @@ Once the $\lambda_k$ are determined from (34), the MAXENT prediction for
 any property of the time series follows from the distribution (29). If
 we wish only to predict the power spectrum $P(f)$, the result is
 trivial, for this is given by autocovariance
+
 $$P(f) = \sum_{k=-\infty}^{\infty} R_k \exp(+i2\pi fk), \quad |f| \le \frac{1}{2}. \tag{37}$$
 
 But then (34) is just the inversion of this Fourier series, and we have,
 by inspection, $P(f) = 1/g$; the predicted spectrum is
+
 $$\hat{P}(f) = \frac{1}{\sum_{k \in I} \lambda_k e^{-i2\pi fk}}, \quad |f| \le \frac{1}{2}. \tag{38}$$
 
-This formula, first derived by Burg \[1\], is one of the most beautiful
+This formula, first derived by Burg [1], is one of the most beautiful
 analytical results in statistics. Note some of its properties; by the
 MAXENT principle it is the \"smoothest\" (by the Burg
 $\int \log P(f) df$ criterion) spectrum consistent with the data; it is
@@ -665,7 +781,7 @@ MAXENT spectrum is determined, not by the number of data points we have,
 but by the \"effective number of logically independent pieces of
 information\" contained in them.
 
-This is, again, a general property of the MAXENT formalism \[6\]; it is
+This is, again, a general property of the MAXENT formalism [6]; it is
 never necessary, when setting up a MAXENT problem, to ascertain whether
 the different pieces of information used are independent. Any redundant
 information will drop out automatically---for in any variational
@@ -735,10 +851,9 @@ In dice tossing, any imperfection in the die represents such a
 systematic influence tending to make the frequencies nonuniform. An
 analysis of the famous dice data of Rudolph Wolf by the entropy test,
 revealing two strong imperfections and barely significant evidence for a
-third very weak one, is given in \[9\].
+third very weak one, is given in [9].
 
-Also eliminated in (38) is the possibility of a negative esti-
-mate; if the data are the sampled autocovariance of a possible time
+Also eliminated in (38) is the possibility of a negative estimate; if the data are the sampled autocovariance of a possible time
 series, (38) cannot become negative. Yet (38) can also exhibit sharp
 lines with arbitrarily high resolution when the data do contain evidence
 for them.
@@ -755,11 +870,15 @@ tempt one to use it in problems different from the one for which it was
 derived. We stress again; a method that is optimal in one class of
 problems can be dangerously misleading in another. At this point, we
 enter into the confusion of the current literature.
+
 ## When Does It Apply?
+
 In the derivation just given, we have been led to the solution (38) for
 one very specific problem, namely one in which a) the data consist of
 the exact values of
+
 $$R_k^\prime = \frac{1}{T+1} \sum_{t=0}^{T-k} y_t y_{t+k}^*, \quad 0 \le k \le m. \tag{39}$$
+
 b) $T \gg m$, because (38) is only the asymptotic form of (29), (A3).
 If condition a) is not met, then our state of knowledge is different
 from that portrayed by (27), (29), and the whole problem must be
@@ -773,6 +892,7 @@ briefly the exact calculation that should, in principle, be done when
 condition a) is met but b) is not. Then the MAXENT distribution will
 always have the Toeplitz form (27), (28); but the $\lambda_k$ should be
 determined from (A3) which now reads, using (20), (25)
+
 $$R_k^\prime = -\frac{1}{T+1} \frac{\partial}{\partial\lambda_k} \log \det(A), \quad -m \le k \le m. \tag{40}$$
 
 This is, in complex notation $R_{-k} = R_k^*$, a set of $(2m+1)$
@@ -799,7 +919,9 @@ $\lambda_{m+1} = \dots = \lambda_T = 0$. Looking at the problem this
 way, it is clear that (39) holds for all $k$ in ($-T \le k \le T$), with
 the derivatives evaluated at $\lambda_k=0$ for $(m+1 \le |k| \le T)$.
 The exact predicted MAXENT spectrum is then
+
 $$P(f) = \frac{1}{T+1} \sum_{k=-T}^{T} e^{\pm i2\pi fk} \frac{\partial}{\partial\lambda_k} \log\det(A) \tag{41}$$
+
 and the essence of the computer program is to find the determinant of an
 arbitrary finite-dimensional Toeplitz matrix.
 
@@ -868,7 +990,9 @@ engineer with the understanding he needs to deal adequately with
 virtually all real problems. In this sense, the Burg solution may, in
 time, be seen as the first of a small collection of basic MAXENT
 solutions that cover the field adequately for practical purposes.
+
 ## Line Splitting
+
 Consider a circular time series, for which
 $y_0 = y_{T+1}, y_1 = y_{T+2}$, etc. All $y_k$ are now defined modulo
 $(T+1)$, and our data consist of $\{R_0' \dots R_m^\prime\}$ as in (24), but
@@ -878,7 +1002,10 @@ of the process; there is no longer any distinction between a correlation
 over a lag less than half way around the circle and more than half way
 around. More precisely, because $y_j = y_{j+T+1}$, we have necessarily
 not only $R_k=R_{-k}^*$, but also
-$$R_k = R_{T+1-k}^*, \quad 1 \le k \le m \tag{42}$$ and so the maximum possible
+
+$$R_k = R_{T+1-k}^*, \quad 1 \le k \le m \tag{42}$$
+
+and so the maximum possible
 $m$ is $T/2$ or $(T+1)/2$, whichever is an integer.
 
 The form (27) of the MAXENT distribution still holds, but A is now a
@@ -889,16 +1016,27 @@ eigenvalues are given by (31), (32).
 
 Equation (38) determining $\{\lambda_0 \dots \lambda_m\}$ then reduces
 to
+
 $$R_k^\prime = \frac{1}{T+1} \sum_j \frac{z_j^k}{g(z_j)}, \quad -m \le k \le m \tag{43}$$
+
 a discrete version of (34). But because of the circularity we have: a)
 the power spectrum need be defined only at $(T+1)$ discrete frequencies
-$$f_j = \frac{j}{T+1}, \quad 0 \le j [\text{mod } (T+1)] < T \tag{44}$$ and b)
+
+$$f_j = \frac{j}{T+1}, \quad 0 \le j [\text{mod } (T+1)] < T \tag{44}$$
+
+and b)
 only $(T+1)$ consecutive values of $R_k$ are different, so
-$$P(f) = \sum_{k=0}^{T} R_k e^{-2\pi ikf} \tag{45}$$ and any other $(T+1)$
+
+$$P(f) = \sum_{k=0}^{T} R_k e^{-2\pi ikf} \tag{45}$$
+
+and any other $(T+1)$
 consecutive values would yield the same sum. Then, because of
 orthogonality of $z_j^k = \exp[2\pi ijk/ (T+1)]$ on the unit circle,
 using (42) in (44) yields simply
-$$P(f_j) = \frac{1}{g(z_j)}, \quad 0 \le j \le T \tag{46}$$ which is identical
+
+$$P(f_j) = \frac{1}{g(z_j)}, \quad 0 \le j \le T \tag{46}$$
+
+which is identical
 with (38).
 
 This identity of the asymptotic solution to the linear time series
@@ -928,9 +1066,14 @@ phenomenon is simplest mathematically in the continuous case. The
 function $y(t) = \cos(\nu |t| + \phi)$ has a nominal frequency $\nu$,
 but with a phase jump of $2\phi$ at $t=0$. If it persists for an
 interval $T$, its spectrum is proportional to
+
 $$|Y(\omega)|^2 = \left[ \int_{-T/2}^{T/2} y(t) \cos \omega t \, dt \right]^2 \tag{47}$$
+
 and in the vicinity of $\omega \approx \nu$ this varies like
-$$\frac{[\sin(\alpha+\phi)-\sin\phi]^2}{\alpha^2} \tag{48}$$ where
+
+$$\frac{[\sin(\alpha+\phi)-\sin\phi]^2}{\alpha^2} \tag{48}$$
+
+where
 $\alpha = (\nu - \omega)T/2$. Without the phase jump this would be the
 conventional Dirichlet $\sin\alpha/\alpha$ function, but the phase jump
 gives a skewed spectrum with two main peaks. In the case $\phi = \pi/4$,
@@ -940,7 +1083,7 @@ different heights, in such a way that the center of gravity of the
 amplitude function $Y(\omega)$ is still at $\omega = \nu$. Computer
 plots of the function (47) for various values of $\phi$ reproduce quite
 nicely the various shapes of line-split spectra that have been reported
-previously \[2\], \[10\].
+previously [2], [10].
 
 A person who tries to use the solution (38) without understanding in
 what problem it is appropriate, might easily find himself in just the
@@ -949,7 +1092,7 @@ the correct, optimal solution to a problem on the grounds that it is not
 the solution to a different problem.
 
 The difficulties we face in trying to define \"What is the Problem?\"
-are not confined to spectral analysis. As we have noted recently \[7\],
+are not confined to spectral analysis. As we have noted recently [7],
 for 200 years applications of probability theory have been plagued by
 the seeming impossibility of communicating to another person exactly
 what problem is being solved. Dating back at least to Laplace, almost
@@ -978,7 +1121,9 @@ into our probability model. This also leads
 to a solvable problem; but it is a different problem than the one solved
 by (38). However, a kind of probability model that may be appropriate is
 suggested by the MAXENT solution.
+
 ## Relation to Autoregressive Models
+
 The MAXENT spectrum (38) is of the same analytical form as that
 resulting from an autoregressive (AR) model of order $m$, driven by
 white noise. Because of this, some have dismissed the whole MAXENT
@@ -1001,7 +1146,7 @@ the power spectrum?\" it is mathematically equivalent to ask, \"What are
 the AR coefficients?\" Whatever is stated in one language, can be stated
 as well in the other.
 
-So when van den Bos \[13\] announced his discovery that the MAXENT
+So when van den Bos [13] announced his discovery that the MAXENT
 estimate (38) is equivalent to estimating AR coefficients, he might have
 announced far more; not only MAXENT, but any spectrum estimation method
 whatsoever, can with equal justice be interpreted as solving an AR
@@ -1014,6 +1159,7 @@ writer's knowledge, the only theoretical relation that does determine a
 definite AR order for us. It tells us that given data $D$, the optimal
 spectrum estimate corresponds to an AR model whose order is the maximum
 lag for which we have relevant data.
+
 van den Bos expressed concern that the number of poles generated by
 MAXENT could be too small and thought it might be \"more adequate\" to
 use other methods for fitting AR or ARMA models to the data, \"since
@@ -1078,7 +1224,9 @@ $R_k$, the canonical distribution (26) would have had a different
 analytical form than the almost-AR sampling distribution (27). If the
 data referred to specific times, the MAXENT distribution would represent
 a nonstationary process.
+
 ## Current Ad Hockeries
+
 An often-expressed goal is to estimate the spectrum of a process
 $\{y_0 \dots y_N\}$ that is known to be stationary, although we have
 data from only a small part of it (and here we leave it for the reader
@@ -1147,7 +1295,9 @@ just one analytical theory to be developed, but several different ones
 corresponding to different kinds of data, different kinds of physical
 phenomena, and different objectives. However, some features can be
 anticipated from other Bayesian solutions as noted below.
+
 ## Bayesian Image Reconstruction
+
 To sum up what has been found thus far, the combinatorial basis for
 MAXENT is nothing but an application of the principle that was stated
 clearly in the *Ars Conjectandi* of Jacob Bernoulli (1713) as his
@@ -1171,8 +1321,8 @@ we are trying to decide between two hypotheses A and B, but our data D
 are equally consistent with either: $p(D|A) = p(D|B)$. Then orthodox
 statistical theory has no criterion for choosing between them. Yet if
 our prior information tells us that for every way in which A could be
-true, there are a million ways in which B could be true \[i.e., their
-multiplicities satisfy $W(B)/W(A)=10^6$\], then the \"art of
+true, there are a million ways in which B could be true [i.e., their
+multiplicities satisfy $W(B)/W(A)=10^6$], then the \"art of
 conjecture\" as Bernoulli calls it, will surely lead us to choose rather
 confidently. In the last analysis, this is all that MAXENT amounts to,
 and the entropy concentration theorem is just a quantitative refinement
@@ -1194,7 +1344,7 @@ them.
 
 In the analogous but theoretically simpler problem of image
 reconstruction, a start on the full Bayesian solution has been made by
-Gull and Daniell \[4\]. They find, as one would expect, that taking the
+Gull and Daniell [4]. They find, as one would expect, that taking the
 uncertainty due to noise into account leads one to modify the MAXENT
 solution, moving to a point higher up on the \"entropy hill\"
 corresponding to a smoother scene. In other words, the predicted scene
@@ -1206,15 +1356,21 @@ argument; a similar result must hold also in spectrum analysis.
 
 To incorporate noise, one represents the data $D=\{d_1 \dots d_m\}$ by a
 modification of (2) above
-$$d_j = \sum_{i=1}^{n} A_{ji} f_i + e_j, \quad 1 \le j \le m \tag{49}$$ where
+
+$$d_j = \sum_{i=1}^{n} A_{ji} f_i + e_j, \quad 1 \le j \le m \tag{49}$$
+
+where
 $e_j$ are the traditional noise terms. If $e_j \sim N(0, \sigma_j)$
 independently, define the quadratic form
+
 $$Q(f_1 \dots f_n) = \frac{1}{2} \sum_{j=1}^{m} \frac{1}{\sigma_j^2} \left( \sum_{i=1}^{n} A_{ji} f_i - d_j \right)^2 \tag{50}$$
 
 Then given the prior information I and data D, any scene
 $(f_1 \dots f_n)$ of entropy $H(f_1 \dots f_n)$ has a posterior
 probability proportional to
+
 $$p(\text{scene}|D,I) \propto \exp[NH(\text{scene}) - Q(\text{scene})] \tag{51}$$
+
 in which both the prior probability (multiplicity factor)
 
 $W \sim \exp(NH)$ of (A5) and the likelihood $\exp(-Q)$ are present. In
@@ -1271,9 +1427,11 @@ Therefore it appears that, if one had a pure MAXENT computer program
 already running, it could be used also to generate full Bayes solution
 by feeding it \"preadjusted\" data which amounts to fixing $Q$ at a
 nonzero value to allow for noise. Indeed, this is just what Gull and
-Daniell \[4\] did in a beautiful early example of MAXENT in radio
+Daniell [4] did in a beautiful early example of MAXENT in radio
 astronomy.
+
 ## Periodograms and Lag Windows
+
 Historically, spectrum estimation started in the last century with the
 Schuster periodogram. Nobody seemed to like it, and the proposal of
 Blackman and Tukey (1958) to use lag windows was an easily implemented,
@@ -1299,6 +1457,7 @@ different reasons, but these have not been defined clearly enough to
 provide any definite criterion of optimality by which various algorithms
 could be judged. Nevertheless, we can perceive two broadly different
 philosophies about the undefined problem:
+
 a\) We believe that a repetition of the measurements would yield a
 different set of data $\{x_1' \dots x_N^\prime\}$ and a periodogram $P^\prime$ in
 which the fine details would be entirely different. We want to remove
@@ -1310,6 +1469,7 @@ one data set, it cannot tell us which features are common to all data
 sets. But it is clear that some kind of smoothing is needed; and
 introduction of a lag window is a computationally simple way of
 accomplishing this.
+
 b\) We view our data as incomplete, rather than noisy. The fine details
 in the periodogram therefore signify, not variability from noise, but
 artifacts caused by our Fourier-transforming only a short run of the
@@ -1338,7 +1498,7 @@ windows that did this were not a final solution, only a temporary
 expedient giving symptomatic relief without going after the real cause
 of the disease.
 
-The major advance of Burg \[1\] was to see clearly that the cause of the
+The major advance of Burg [1] was to see clearly that the cause of the
 disease lay in the unwarranted and almost surely wrong extrapolation of
 $R_k$ to zero beyond the data. The MAXENT extrapolation not only got rid
 of the sidelobes, for noiseless data one now had much higher resolution.
@@ -1380,11 +1540,13 @@ still very great. Advocates of windows may be able to point out to us a
 class of well-defined problems---perhaps with some particular kind of
 prior information about the spectrum---in which window methods have a
 demonstrable optimality property.
+
 ## Conclusion
+
 The methods of spectral analysis now in use, having conquered the
 (resolution versus sidelobes) problem, are routinely extracting
 information from data in a way that would not have been possible before
-the major breakthrough accomplished by Burg \[1\]. However, present
+the major breakthrough accomplished by Burg [1]. However, present
 methods are still not quite optimal, always involving some ad hoc
 patchwork as noted above.
 
@@ -1403,30 +1565,52 @@ to the best that could ever be hoped for. In this paper we have not
 attempted to present such a theory, but have tried to achieve the
 preliminary conceptual understanding without which further theoretical
 development could not proceed.
+
 ## Appendix I {#appendix-i .unnumbered}
+
 To summarize the MAXENT algorithm, define the partition function
+
 $$Z(\lambda_1 \dots \lambda_m) = \sum_{i=1}^{n} \exp\left(-\sum_{j=1}^{m} \lambda_j A_{ji}\right) \tag{A1}$$
 
-Then $$H_{\text{max}} = \log Z + \sum_{j=1}^{m} \lambda_j d_j \tag{A2}$$ in which
+Then
+
+$$H_{\text{max}} = \log Z + \sum_{j=1}^{m} \lambda_j d_j \tag{A2}$$
+
+in which
 the Lagrange multipliers $\{\lambda_j\}$ are found from
+
 $$\frac{\partial}{\partial\lambda_j} \log Z + d_j = 0, \quad 1 \le j \le m \tag{A3}$$
+
 a set of $m$ simultaneous equations for $m$ unknowns. The frequency
 distribution which has this maximum entropy is then
+
 $$f_i = Z^{-1} \exp\left(-\sum_j \lambda_j A_{ji}\right), \quad 1 \le i \le n. \tag{A4}$$
 
 Other distributions $\{f_i^\prime\}$ allowed by the constraints (2) will have
 various entropies less than $H_{\text{max}}$.
+
 ## Appendix II {#appendix-ii .unnumbered}
+
 In $N$ trials of a random experiment, the $i$th result occurs
 $N_i = Nf_i$ times, $1 \le i \le n$. Out of the $n^N$ conceivable
 outcomes, the number which yield a particular set of frequencies
 $\{f_i\}$ is the multiplicity factor
-$$W(f_1 \dots f_n) = \frac{N!}{(Nf_1)!\dots(Nf_n)!} \tag{A5}$$ and as
+
+$$W(f_1 \dots f_n) = \frac{N!}{(Nf_1)!\dots(Nf_n)!} \tag{A5}$$
+
+and as
 $N \to \infty$ we have by the Stirling approximation
-$$N^{-1} \log W \to H(f_1 \dots f_n) \tag{A6}$$ the entropy function (1). Given
+
+$$N^{-1} \log W \to H(f_1 \dots f_n) \tag{A6}$$
+
+the entropy function (1). Given
 two sets of frequencies $\{f_i\}$ and $\{f_i^\prime\}$, the ratio (number of
 ways $f_i$ can be realized)/(number of ways $f_i^\prime$ can be realized) is
-asymptotically $$\frac{W}{W^\prime} \sim A e^{N(H-H^\prime)} \tag{A7}$$ The conceivable
+asymptotically
+
+$$\frac{W}{W^\prime} \sim A e^{N(H-H^\prime)} \tag{A7}$$
+
+The conceivable
 frequencies $\{f_1 \dots f_n\}$ may be regarded as Cartesian coordinates
 of a point $P$ in an $n$-dimensional space, restricted to
 $\{S: 0 \le f_i, \sum f_i = 1\}$, the $(n-1)$-dimensional convex set
@@ -1449,33 +1633,51 @@ new coordinates $(x_1 \dots x_k)$ as appropriate linear functions of
 $\{f_1 \dots f_n\}$ such that the new origin is at the maximum-entropy
 point, and there is a distance $r=(\sum x_i^2)^{1/2}$ such that near the
 origin a power series expansion yields
-$$H(P) = H_{\text{max}} - ar^2 + \dots, \quad a > 0. \tag{A8}$$ We then have a
+
+$$H(P) = H_{\text{max}} - ar^2 + \dots, \quad a > 0. \tag{A8}$$
+
+We then have a
 volume element in $S^\prime$ proportional to $r^{k-1} dr$. The domain of all
 possible frequency distributions $\{f_1 \dots f_n\}$ which satisfy the
 constraints and whose entropy is in the range (3) is a k-sphere of
 radius $R$, given by $aR^2 = \Delta H$.
 In N trials, this sphere contains a fraction F of all possible
-outcomes in class C. From (A7), (A8) this is given asymptotically by $$F \sim I(R)/I(\infty) \tag{A9}$$ where
-$$I(r) = \int_0^R e^{-Nar^2} r^{k-1} dr. \tag{A10}$$ But, setting
+outcomes in class C. From (A7), (A8) this is given asymptotically by
+
+$$F \sim I(R)/I(\infty) \tag{A9}$$
+
+where
+
+$$I(r) = \int_0^R e^{-Nar^2} r^{k-1} dr. \tag{A10}$$
+
+But, setting
 $NaR^2 = N\Delta H = (1/2)\chi^2$, this is just the cumulative
 chi-squared distribution with $k$ degrees of freedom, in conventional
 notation the relation between $\Delta H$ and $F$ is given by (4).
 In our applications we are generally concerned with numerical values for
 large $N\Delta H$, beyond the range of tables. The chi-squared
 distribution $F(N\Delta H)$ may be expressed analytically as
-$$F(x) = \frac{1}{s!} \int_0^x t^s e^{-t} dt \tag{A11}$$ where $s=(k/2)-1$. For
+
+$$F(x) = \frac{1}{s!} \int_0^x t^s e^{-t} dt \tag{A11}$$
+
+where $s=(k/2)-1$. For
 large $x=N\Delta H$, this yields the asymptotic expansion
+
 $$1 - F(x) \sim (s!)^{-1} x^s e^{-x} [1+sx^{-1}+s(s-1)x^{-2}+\dots]. \tag{A12}$$
 
 When $s$ is an integer ($k$ even) (A12) terminates and is exact. Most of
 the numerical results cited in the text have been obtained from (A12).
+
 ## Acknowledgment {#acknowledgment .unnumbered}
+
 I have profited from several discussions with J. W. Tukey, who pointed
 out the line-splitting phenomenon. The entropy concentration theorem was
 first presented at the Nineteenth NBER-NSF Seminar on Bayesian Inference
 in Econometrics, Montreal, Que., Canada, October 1979. The participants
 are thanked for several useful comments.
+
 ## References {#references .unnumbered}
+
 ::: thebibliography
 99
 J. P. Burg, \"Maximum entropy spectral analysis,\" in *Proc. 37th Meet.
@@ -1516,4 +1718,4 @@ probability,\" *IEEE Trans. Inform. Theory*, vol. IT-27, pp. 483-489,
 D. N. Zubarev, *Nonequilibrium Statistical Thermodynamics*. New York:
 Plenum, 1974.
 :::
-\*These papers are reprinted in \[9\].
+\*These papers are reprinted in [9].

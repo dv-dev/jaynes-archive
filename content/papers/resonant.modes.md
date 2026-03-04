@@ -28,6 +28,7 @@ cross-sectional shape may be arbitrary. Under these assumptions the
 window does not introduce modal conversions, and analysis may proceed
 using conventional transmission-line theory.
 **[FIGURE: Transverse dielectric slab window.]**
+
 wave impedance
 $$
 Z_{wn} = Z_0 \left\{ \begin{array}{l} k/k_{an} \\\\ k_{an}/k \end{array} \right. ,
@@ -96,7 +97,7 @@ $$
 
 Frequencies that satisfy this equation are the ghost-mode
 resonant frequencies. The impedance at the dielectric-air interface
-becomes 
+becomes
 $$
 Z_{wn}(L/2) = jZ_{wn}^{(\epsilon)} \cot \beta_n L/2,
 \tag{7}
@@ -104,6 +105,14 @@ $$
 
 and the
 continuity condition of tangential fields at $z=L/2$ leads to
+$$
+\begin{aligned}
+\cot \beta_n L/2 &= \beta_n/k^\prime_{an} \\
+\cot \beta_n L/2 &= -\epsilon k^\prime_{an}/\beta_n
+\end{aligned}
+\tag{8}
+$$
+
 $$
 \cot \beta_n L/2 = \beta_n/k^\prime_{an}
 \tag{8a}
@@ -132,7 +141,7 @@ $$
 N_o < \sqrt{\epsilon-1} \frac{k_{cn}L}{\pi} < N_o + 1.
 $$
 
- Resonant
+Resonant
 field patterns corresponding to the lowest frequency solutions for some
 simple waveguide modes are sketched in Fig. 2. The upper-right and
 lower-left hand patterns correspond to (6), the others correspond to
@@ -272,15 +281,6 @@ Finally, it might be noted that the location of ghost-mode resonances
 represents a simple but unusually interesting laboratory experiment by
 which several aspects of waveguide theory can be demonstrated in the
 teaching of microwave techniques.
-
-[^1]: General Electric Microwave Lab., Palo Alto, Calif.
-[^2]: Microwave Lab., W. W. Hansen Labs. of Physics, Stanford
-    University, Stanford, Calif.
-
-[^3]: Manuscript received by the PGMTT, August 31, 1959. The research
-    reported in this paper was supported jointly by the U. S. Army
-    Signal Corps, the U. S. Air Force, and the U. S. Navy (Office of
-    Naval Research).
 
 [^4]: E. T. Jaynes, \"Ghost modes in imperfect waveguides,\" PROC. IRE,
     vol. 46, pp. 415-418; February, 1958. (Note that Fig. 2 in this

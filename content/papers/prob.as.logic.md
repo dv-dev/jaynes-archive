@@ -354,17 +354,20 @@ to one who tries to interpret probabilities as expressing physical
 causation or long-run relative frequencies; but as (11) and (11a)
 illustrate, this updating appears automatically when we use probability
 theory as logic.
+
 For example, what is the probability that in 10 binomial trials we shall
 find 8 or more successes? The binomial sampling distribution might
 assign to this event a probability of 0.46. But if the first 6 trials
 yield only 3 successes, then we know with certainty that we shall *not*
 get 8 or more successes in those 10 trials; the sampling probability
 0.46 becomes irrelevant to the question we are asking.
+
 How would a conventional probabilist respond to this example? He can
 hardly deny our conclusion, but he will get out of it by saying that
 conventional probability theory does not refer to the individual case as
 we were trying to do; it makes statements only about long-run relative
 frequencies, and we agree.
+
 But then we observe that probability theory as logic *does* apply to the
 individual case, and it is just that individual case that concerns us in
 virtually all real problems of scientific inference (i.e., reasoning as
@@ -373,6 +376,7 @@ distribution (11) will yield a more reliable estimate of $n_1$ than will
 the Poisson distribution (6) in *each individual case* because it
 contains cogent information, pertaining to that individual case, that is
 not in (6).
+
 Orthodox probabilists, who use only sampling probability distributions
 and do not associate them with the individual case at all, are obliged
 to judge any estimation method by its performance \"in the long run\";
@@ -383,6 +387,7 @@ need for a slide rule. The real job before us is to make the best
 estimates possible from the information we have in *each individual
 case*; and since Bayesians already have the solution to that problem, we
 have no need to discuss a lesser problem.
+
 To see that long-run performance is indeed a lesser problem, note that
 even if we had found a procedure whose long-run performance is proved to
 be as good as can be obtained (for example,
@@ -392,6 +397,7 @@ particular individual case. One can trade off better performance for one
 class of samples against worse performance for another in a way that has
 no effect on long-run performance, but has a very large effect on
 performance in the individual case.
+
 We do, of course, want to know how accurate we can expect our estimates
 to be; but the proper criterion of this is not the sampling
 distribution, but the width of the Bayesian posterior probability
@@ -400,6 +406,7 @@ of our estimate in *each individual case*, not merely a smeared-out
 average over all cases. In this sense also, the sampling distribution is
 the answer to a lesser problem, and the sampling distribution criterion
 of performance is not the one an informed scientist really wants.
+
 The relevant question for a scientist is not: \"How accurately would the
 estimate agree with the true value of the parameter in the long run over
 all possible data sets?\" but rather: \"How accurately does the one data
@@ -409,6 +416,7 @@ statistic exists (or if one uses an estimator which is not a sufficient
 statistic, even though one does exist) the answers to these questions
 can be very different, and the sampling distribution criterion can be
 misleading.
+
 This was perceived already by R. A. Fisher in the 1930's. He noted that
 different data sets, even though they may lead to the same estimate, may
 still justify very different claims of accuracy because they have
@@ -416,6 +424,7 @@ different spreads, and he sought to correct this by his conditioning on
 \"ancillary statistics\". But ancillary statistics do not always exist,
 and when they do, as noted by Bretthorst (1988), this procedure is
 mathematically equivalent to applying Bayes' theorem.
+
 Indeed Bayes' theorem generates a log-likelihood that is spread over a
 range corresponding to that of the data, whether or not ancillary
 statistics exist. For example, let $\theta$ be a location parameter:
@@ -428,6 +437,7 @@ data have spread greater or less than expected, so the claimed accuracy
 is always that indicated by the data. This is one of its built-in safety
 features; it protects us against being misled about the accuracy of our
 estimates.
+
 If we choose estimates by sampling distribution criteria, the
 conclusions we draw will depend, not just on the data that we actually
 have, but on what other data sets one thinks might have been observed,
@@ -436,6 +446,7 @@ set that we have observed can be rejected on the grounds that it would
 have worked poorly for some other data set that we have not observed! We
 return to this point in \"Optional Stopping\" below, and see the can of
 worms it opens up.
+
 But if anyone insists on seeing it, the Bayesian can of course calculate
 the sampling distribution for his estimates. Needless to say, Bayesian
 procedures look very good by sampling theory criteria, even though they
@@ -445,6 +456,7 @@ noninformative priors (say, the mean $\pm$ standard deviation of the
 posterior distribution) are almost always the best available by sampling
 theory criteria. With informative priors, Bayesian methods advance into
 an area where sampling theory cannot follow at all.
+
 For example, the frequency distribution of errors in estimating $n_1$
 that result from using the Bayesian predictive distribution (11a) will
 be better (more accurate in the long run) than the distribution that one
@@ -452,6 +464,7 @@ gets from using the direct sampling distribution (6). To a Bayesian,
 this is obvious without any calculation; for if a method is better in
 each individual case, how could it fail to be better also in the long
 run?
+
 Orthodox probabilists would not accept that argument, but they would be
 convinced by comparing the two sampling distributions of the estimates,
 either analytically or experimentally. A simple hand-waving argument
@@ -460,6 +473,7 @@ than that with (6) by a factor $[1-(t_1/t_2)]$. Although we could
 demonstrate this by an explicit sampling theory calculation, it would be
 more interesting to conduct \"Monte Carlo\" computer experiments to
 check our claim.
+
 Of course, probability theory as logic need not be applied only to the
 individual case. It can be applied equally well to prediction of
 long-run relative frequencies, if that happens to be the thing of
@@ -467,6 +481,7 @@ interest. Indeed, it can sometimes make better predictions, because by
 using the notion of probability of an hypothesis it has the means for
 taking into account relevant information that \"random variable\" theory
 cannot use.
+
 The philosophical difference between conventional probability theory and
 probability theory as logic is that the former allows only sampling
 distributions, interprets them as physically real frequencies of "random
@@ -475,6 +490,7 @@ being meaningless. We take just the opposite position: that the
 probability of an hypothesis is the fundamental, necessary ingredient in
 all inference, and the notion of \"randomness\" is a red herring, at
 best irrelevant.
+
 But although there is a very great philosophical difference, where is
 the functional difference? As illustrated above, by \"probability theory
 as logic\" we mean nothing more than applying the standard product and
@@ -505,6 +521,7 @@ particle, because:
 > stochastic element. I don't know what's random anymore, and so I
 > cannot find a stochastic model which will lead to the full Boltzmann
 > equation.\"*
+
 Mark Kac was a fine mathematician, but he had this mental hangup which
 prevented him from comprehending the notion of a probability referring
 to an individual case, rather than an \"ensemble\" of cases. So he was
@@ -518,12 +535,14 @@ equation:
 > in it you must ask yourself why nature prepares for you at time zero
 > such a strange factorized distribution. Because otherwise you can't
 > get Boltzmann's equation.\"*
+
 We see here the Mind Projection Fallacy, in the form of a belief that
 his $n$-particle probability distributions were real things existing in
 Nature. The answer which I gave Mark Kac at the time
 was: \"Nature does not prepare distributions, factorized or otherwise;
 she prepares *states*.\" But his thinking was so far removed from this
 viewpoint that he thought I was joking.
+
 Today we could explain the point a little better: \"The probability
 distributions in phase space used by Maxwell, Boltzmann, and Gibbs are
 not realities existing in Nature; they are descriptions of incomplete
@@ -538,6 +557,7 @@ knowing the position of one *does* tell us something about where the
 others are. Therefore the probability distributions which lead to the
 best physical predictions for interacting particles are not
 factorized.\"
+
 But we think that Kac's mathematical conclusion is quite correct; the
 Boltzmann equation does, in effect, suppose factorization. But then it
 follows that it cannot take full account of the effect of interactions.
@@ -547,10 +567,12 @@ state or the hydrodynamic equations of motion. One can do much better by
 using the nonfactorized distribution of Gibbs, which contains more
 relevant information than does the Boltzmann distribution, in just the
 same sense that (11) contains more relevant information than does (6).
+
 Mark Kac had this important fact in his grasp but could not see it
 because of his conceptual hangup over the notion of probability; and so
 he never appreciated the superiority of Gibbs' methods, and continued
 trying to justify Boltzmann's methods.
+
 We could give other recent case histories of workers (Feller, Uhlenbeck,
 Montroll) who were highly competent mathematically, but were
 conceptually such captives of the Mind Projection Fallacy that it
@@ -561,11 +583,13 @@ worker in statistical mechanics stating as one of its long-standing
 problems:
 > *\"Where does the randomness necessary for statistical behavior come
 > from if the universe is at heart an orderly, deterministic place?\"*
+
 Statements like this are spread throughout the literature of quantum
 theory and statistical mechanics. People who believe that probabilities
 are physically real, are thereby led to doubt the reality of mechanical
 causes; eventually they come to doubt the reality of physical objects
 like atoms.
+
 Once we have learned how to use probability theory as logic, we are free
 of this mental hangup and able at least to perceive, if not always
 solve, the real problems of science. Most of those long-standing
@@ -575,6 +599,7 @@ what we see in Nature is *physical* behavior, which does not conflict in
 any way with deterministic physical law. Quite the contrary, probability
 theory as logic easily explains what we see, as a *consequence* of
 deterministic physical law.
+
 We are not puzzled by \"irreversibility\" because (one of those
 important results which has been in our equations for over a Century,
 but is still invisible to some), given the present macrostate, the
@@ -583,6 +608,7 @@ evil, deterministic mechanical equations of motion, to the *same*
 macroscopic behavior; just the reproducible behavior that we observe in
 the laboratory. So what else is there to explain? There would be a major
 mystery to be explained if this behavior were *not* observed.
+
 The Maximum Entropy formulation makes these things obvious from the
 start, because it sees Statistical Mechanics not as a physical theory of
 \"random behavior\", but as a process of inference: predicting
@@ -599,6 +625,7 @@ of us are obliged to use the term \"random\" merely as a synonym for
 This field provides examples differing in detail, but not in the basic
 situation. Recently, its stagnation has been noted by many, leading to
 the appearance of articles of the genre: \"*Whatever* happened to AI?\"
+
 We can tell you what has happened by noting two recent references.
 Peter Cheeseman (1988) in an eight-page article, tried to point out the
 need for Bayesian inference in AI, only to be buried under an avalanche
@@ -609,24 +636,29 @@ simply refused to take note of his message (which was that Bayesian
 methods solve some currently important AI problems) and attacked his
 work on other grounds. Obviously, we cannot go into all the
 counter-arguments here, but we can indicate their general flavor.
+
 The first critic objected to Bayesian methods on the grounds that they
 do not tell us how to create hypotheses (although neither do any other
 methods). This is like criticizing a computer because it will not push
 its own buttons; of course, it is up to us to tell Bayesian theory which
 problem we want it to solve. Would anybody want it otherwise?
+
 The second critic complained that Bayesian inference \"seems to be ruled
 out as a candidate for representing commonsense reasoning\" on the
 grounds that people often reason differently. Indeed they do,
 particularly in AI. As we have been pointing out for many years, people
 who lack Bayesian training commit all kinds of errors of reasoning,
 which Bayesian methods would have corrected.
+
 The third critic wrote so confusingly that I have no idea what he was
 trying to say. The fourth was concerned with Cheeseman's failure to
 recite the long history of the subject. The fifth and sixth rejected
 Cox's theorems on the grounds that he assumed differentiability,
 evidently unaware that Aczél (1966) removed that assumption long ago.
+
 Another critic resorted to name-calling, accusing Cheeseman of being a
 \"necessarian\"; and even worse, a physicist!!
+
 \[Indeed, one with some training in physics is in a good position to
 perceive the logical situation here, because we are familiar with it in
 other contexts. The present context is that we learn about real physical
@@ -634,21 +666,25 @@ phenomena via probability theory, although probability is not itself a
 physical phenomenon. We also learn about the size and shape of objects
 via light, although light does not itself possess the properties of size
 and shape.\]
+
 And so it went on and on, critics calling up every conceivable
 subterfuge in order to avoid having to recognize what Bayesian methods
 *actually do* in real problems. It was like the rantings of a
 desperately ill patient who refuses to take the one medicine that could
 save him, and accuses the doctors of trying to poison him.
+
 Our second example is explicit enough so that we can indicate one thing
 that Bayesian methods can do for AI. Dan Shafer (1989) tries to explain
 what is called in AI a \"certainty factor\" or \"confidence factor\". He
 states that (on a scale of 0 to 100) this \"expresses the degree of
 confidence the user or the system has in a response or a conclusion\"
 and warns us that this is something very different from a probability.
+
 In his words \[italics mine\]:
 > *\"Probability--which predicts or describes the likelihood that in a
 > given group of items any single item will have a particular
 > attribute--does not enter into the issue.\"*
+
 Again, the mental hangup which cannot comprehend the notion of
 probability applied to an individual case.
 
@@ -665,6 +701,7 @@ it offers the user his choice of not just three, but *seven* different
 rules for calculating this confidence factor! This certainly reveals the
 poverty of Bayesian analysis, which can offer only one solution to this
 problem.
+
 A \"confidence factor\" is a very explicit attempt to represent degrees
 of plausibility by real numbers; and so the user of it is automatically
 at the mercy of Cox's theorems. Cox's first functional equation,
@@ -673,6 +710,7 @@ conjunction of propositions, any AI algorithm that is not mathematically
 equivalent to the product rule of probability theory, will contain
 demonstrable inconsistencies when we try to apply it to more than two
 propositions.
+
 But these inconsistencies never appear in Shafer's discussion because it
 never reaches even the first level of comprehension, where one sees that
 the problem requires the notion of a conditional confidence factor
@@ -682,11 +720,13 @@ an elevated temperature, etc. The confidence factor for the conjunction
 AB cannot be assessed rationally if one fails to take this correlation
 into account. A potential inconsistency for three propositions hardly
 matters if we have not yet achieved consistency for two.
+
 If we can judge from Shafer's exposition, the AI theory of confidence
 factors is stumbling about in a condition more primitive than the
 probability theory of Cardano, 400 years ago. Yet the problems they are
 trying to solve are just the ones that *were* solved long ago in the
 Bayesian literature, as Cheeseman tried to point out.
+
 One disadvantage of having a little intelligence is that one can invent
 myths out of his own imagination, and come to believe them. Wild
 animals, lacking imagination, almost never do disastrously stupid things
@@ -709,11 +749,13 @@ erroneous conclusions and wasted effort in the area of medical testing.
 The issue is: can an overzealous experimenter produce evidence
 supporting a foregone false conclusion, by deciding when to stop taking
 data?
+
 Here orthodox theory as expounded by Armitage (1975) holds that the
 conclusions we should draw from an experiment depend not only on the
 experimental procedure and the resulting data, but also on the private
 thoughts that went through the experimenter's mind when he took the
 data! How can this be?
+
 To see how, consider again binomial sampling, observing $r$ successes in
 $n$ trials. Two medical researchers use the same treatment
 independently, in different hospitals. Neither would stoop to falsifying
@@ -726,6 +768,7 @@ indicating a rate of cures definitely greater than 60%, however many
 patients that might require. But in fact, both stopped with exactly the
 same data: $n = 100, r = 70$. Should we then draw different conclusions
 from their experiments?
+
 One who thinks that the important question is: \"Which quantities are
 random?\" is then in this situation. For the first researcher, $n$ was a
 fixed constant, $r$ a random variable with a certain sampling
@@ -734,6 +777,7 @@ distribution. For the second researcher, $r/n$ was a fixed constant
 sampling distribution. Orthodox practice will then analyze the two
 experiments in different ways, and will in general draw different
 conclusions about the efficacy of the treatment from them.
+
 This would really cause trouble in a high-energy physics laboratory,
 where a dozen researchers may collaborate on carrying out a big
 experiment. Suppose that by mutual consent they agree to stop at a
@@ -741,12 +785,14 @@ certain point; but they had a dozen different private reasons for doing
 so. According to the principles expounded by Armitage, one ought then to
 analyze the data in a dozen different ways and publish a dozen different
 conclusions, from what is in fact only one data set from one experiment!
+
 Bayesian inference cannot get us into this absurd situation, because it
 perceives automatically what common sense demands; that what is relevant
 for this inference is not the relative probabilities of imaginary data
 sets which were not observed, but the relative likelihoods of different
 parameter values, based on the one real data set which *was* observed;
 and this is the same for all the experimenters.
+
 Actually, as Jimmie Savage (1962) explained long ago, we need not worry
 about being misled by zealots because, contrary to what many assume, it
 is for all practical purposes impossible to sample deliberately to a
@@ -760,10 +806,12 @@ which lead to an estimated interval that strongly excludes the true
 value) is extremely small in an honestly conducted experiment, even if
 he samples for billions of years (see the 'iterated logarithm'
 calculation in Feller's textbook).
+
 Thus to produce data strongly supporting a false conclusion it is not
 enough merely to be zealous; one must be actively dishonest. Today it is
 not the zealots, but the medical testers who follow Armitage, who
 mislead themselves and others.
+
 Orthodox writers love to charge Bayesians with \"subjectivity\" because
 we use probability as a way of describing our information. But we have
 seen a few examples of their idea of objectivity and some of its
@@ -774,6 +822,7 @@ of all, orthodox teaching can lead one to draw conclusions that depend
 on whether an experimenter subjectively imagined data sets which were
 not observed! A person who does that is in no position to charge anybody
 with \"subjectivity\".
+
 Invariably, those who attack Bayesian methods only reveal their
 ignorance of what Bayesian methods are. The blame for this lies with
 those educators who continue to teach only orthodox methods and
@@ -792,26 +841,31 @@ dependent without being physically dependent. From the sound of
 raindrops striking my window pane, I infer the likely existence of
 clouds overhead, $p(\text{clouds}|\text{sound}) \sim 1$, although the
 sound of raindrops is not a physical causative agent producing clouds.
+
 From the unearthing of bones in Wyoming we infer the existence of
 dinosaurs long ago: $p(\text{dinosaurs}|\text{bones}) \sim 1$, although
 the digging of the bones is not the physical cause of the dinosaurs.
+
 Yet conventional probability theory cannot account for such simple
 inferences, which we all make constantly and which are obviously
 justified. As noted, it rationalizes this failure by claiming that
 probability theory expresses partial physical causation and does not
 apply to the individual case.
+
 But if we are to be denied the use of probability theory not only for
 problems of reasoning about the individual case; but also for problems
 where the cogent information does not happen to be about a physical
 cause or a frequency, we shall be obliged to invent arbitrary *ad
 hockeries* for dealing with virtually all real problems of inference; as
 indeed the orthodox school of thought has done.
+
 Therefore, if it should turn out that probability theory used as logic
 is, after all, the unique, consistent tool for dealing with such
 problems, a viewpoint which denies this applicability on ideological
 grounds would represent a disastrous error of judgment, which deprives
 probability theory of virtually all its real value -- and even worse,
 deprives science of the proper means to deal with its problems.
+
 As an analogy, small children start counting on their fingers and toes.
 Then suppose that the teaching of arithmetic had fallen under control of
 an Establishment ideology which proclaims that the rules of elementary
@@ -819,6 +873,7 @@ arithmetic apply *only* to fingers and toes; and then invents a
 different *ad hoc* rule for counting apples, still another for counting
 dollars, and so on. Imagine the effect this would have on our
 civilization.
+
 Our position is that this is exactly what *has* happened in probability
 theory; when we start thinking about probability we, like small
 children, tend to think in terms of concrete things like frequencies.
@@ -828,10 +883,12 @@ effects of this are visible all about us. In theoretical physics we see
 the stagnation of quantum theory, an astonishing number of physicists
 having left it for other fields such as biophysics, and the
 wheel-spinning concentration on non-problems in statistical mechanics.
+
 In experimental science we see the absurdity of orthodox methods of data
 analysis. In Artificial Intelligence we see the consequences of militant
 refusal to adopt the only methods that can deal with their unsolved
 problems.
+
 Fortunately, children quickly reach a level of maturity where they can
 perceive the number 13 as an abstract notion in its own right, not
 standing necessarily for ten fingers and three toes. It is high time
@@ -841,6 +898,7 @@ necessary for organizing our reasoning in a consistent way. Of course,
 just as the rules of arithmetic remain valid when applied to fingers and
 toes, the rules of probability theory remain valid when applied to
 calculation of frequencies.
+
 Note that probability theory as logic is more general than just Bayesian
 inference; it automatically includes calculation of sampling
 distributions, as in our derivation of (6), and Maximum Entropy
@@ -848,6 +906,7 @@ calculations, in the situations where they are appropriate. Bayesian
 analysis requires that we have a model in addition to the data. If we
 have only an hypothesis space but no model, then MAXENT is the best we
 can do without more information.
+
 It may appear that in our recent concentration on Bayesian methods we
 have abandoned MAXENT. Not at all; it is an accomplished fact and we are
 using it constantly for its original purpose: to assign our priors. It
@@ -858,6 +917,7 @@ ago) is the flexibility of Bayesian analysis. As Bretthorst (1988)
 demonstrates by many specific examples, it can accommodate itself easily
 to all kinds of complicating circumstances that would bring orthodox
 methods to a standstill.
+
 Scientists, engineers, economists and statisticians who are ignorant of
 Bayesian methods are handicapped in the performance of their work. In
 physics and astronomy the greatest experts in instrumentation may
@@ -878,6 +938,7 @@ Bayesian belief that a weighted average of real numbers may take on all
 those, and only those, values in the range spanned by them. Thus any
 number in (.887, .917) can be written as a weighted average of (.887,
 .907, .917).
+
 Since the average 0.900 specified by Kyburg lies in that interval,
 Bayesians do indeed, just as he charges, believe that we can assign
 prior probabilities $(\alpha, \beta, \gamma)$ leading to that average.

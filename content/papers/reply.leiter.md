@@ -8,17 +8,17 @@ abstract: >
   an atom plays a critical role in determining its average lifetime in
   an excited state.
 ---
-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
-of atoms within the framework of a semiclassical theory, which includes
-the effects upon the atom of the fields created by the atomic currents.
-They state that, in the absence of an applied field, an atom will
-spontaneously decay from an excited state with a characteristic time
-which is equal to the reciprocal of the Einstein A coefficient for the
-transition. The purpose of this note is to point out that statement is
-not entirely precise. To see this we note that the solution to the
-nonlinear density-matrix equation, for the diagonal matrix elements in a
-two-level decay, in a spontaneous transition with no applied fields can
-be written 
+In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
+within the framework of a semiclassical theory, which includes the effects upon
+the atom of the fields created by the atomic currents. They state that, in the
+absence of an applied field, an atom will spontaneously decay from an excited
+state with a characteristic time which is equal to the reciprocal of the
+Einstein A coefficient for the transition. The purpose of this note is to point
+out that statement is not entirely precise.
+
+To see this we note that the solution to the nonlinear density-matrix equation,
+for the diagonal matrix elements in a two-level decay, in a spontaneous
+transition with no applied fields can be written
 $$
 \tag{1}
 \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
@@ -42,45 +42,43 @@ $$
 \rho_{12}(t) = \rho_{21}^{*}(t)
 = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
 $$
-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-values of the coefficients ($n=1,2$) in the wave-function of the atom
-which describes the transition process. We first note, that the value of
-$t_m$ determines the point at which the maximum atomic-dipole moment
-occurs [the effective-dipole moment of the transition is proportional
-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
-assumed that the expectation value of the dipole moment of the atom is
-responsible for the radiation process. Hence, an excited atom radiates
-slowly until its dipole moment grows to an appreciable value, and then
-begins to radiate its energy away very rapidly. While this
-characteristic behavior was duly noted by Jaynes and Crisp in their
-article, the role that the value of $t_m$ (the point in time where the
-maximum dipole radiation occurs) plays in determining the average
-lifetime of the atom was not clarified. While it is certainly true that
-Eqs. (1), (2), and (4) imply that most of the transition energy is
-radiated during a time interval which is proportional to the reciprocal
-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
-energy transfer time\" is not equal to the average lifetime of the atom.
-In particular, if we define the average lifetime of the atom as that
-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
-its initial value, we find from Eq. (2) that
+where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
+coefficients ($n=1,2$) in the wave-function of the atom which describes the
+transition process. We first note, that the value of $t_m$ determines the point
+at which the maximum atomic-dipole moment occurs [the effective-dipole moment
+of the transition is proportional to $(\rho_{12}+\rho_{21})$].
+
+In Jaynes's semiclassical theory, it is assumed that the expectation value of
+the dipole moment of the atom is responsible for the radiation process. Hence,
+an excited atom radiates slowly until its dipole moment grows to an appreciable
+value, and then begins to radiate its energy away very rapidly. While this
+characteristic behavior was duly noted by Jaynes and Crisp in their article,
+the role that the value of $t_m$ (the point in time where the maximum dipole
+radiation occurs) plays in determining the average lifetime of the atom was not
+clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
+most of the transition energy is radiated during a time interval which is
+proportional to the reciprocal of the associated Einstein A coefficient
+$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
+average lifetime of the atom.
+
+In particular, if we define the average lifetime of the atom as that time
+required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
+value, we find from Eq. (2) that
 $$
 \tau_2 \approx (A_{21})^{-1} \ln[(1.718)\rho_{22}(0)/\rho_{11}(0)](\text{sec}).
 $$
 
-Hence, we see that the initial values of $\rho_{22}(0)$
-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
-critical role in determining the atoms average lifetime, while the
-\"characteristic energy transfer time\" (occurring in some interval of
-time $\Delta t$ about $t_m$) is essentially independent of the atoms
-initial condition at $t=0$. The implication here is that there is a need
-to include an additional element into the theory, one which can account
-for the experimental fact that the average lifetime of an atom is
-essentially independent of its preparation. One possibility is that the
-presence of a \"semiclassically described\" vacuum state[^3] might
-produce the required behavior when properly included in the associated
-nonlinear density-matrix equations of the theory.
-
-[^4]
+Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
+[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
+the atoms average lifetime, while the \"characteristic energy transfer time\"
+(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
+independent of the atoms initial condition at $t=0$. The implication here is
+that there is a need to include an additional element into the theory, one
+which can account for the experimental fact that the average lifetime of an
+atom is essentially independent of its preparation. One possibility is that the
+presence of a \"semiclassically described\" vacuum state[^3] might produce the
+required behavior when properly included in the associated nonlinear
+density-matrix equations of the theory.[^4]
 ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
 E. T. Jaynes\
 *Arthur Holly Compton Laboratory of Physics, Washington University, St.

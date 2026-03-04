@@ -455,107 +455,107 @@
     "content/papers/prob.as.logic.md": {
       "attempts": 1,
       "error": null,
-      "last_run_utc": "2026-03-04T20:12:02+00:00",
-      "return_code": null,
-      "status": "running"
+      "last_run_utc": "2026-03-04T20:14:22+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/prob.in.qm.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:17:07+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/propagation.in.waveguides.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:18:32+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/quantum.beats.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:20:09+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/radiative.effects.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:21:34+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/random.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:23:23+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/rational.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:25:36+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/realativistic.clock.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:25:50+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/relationship.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:26:05+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/reply.leiter.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:26:54+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/reply.to.dawid.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:27:20+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/reproduce_issue.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:27:32+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/resonant.modes.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:28:42+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/review.by.atkins.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:29:38+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/review.extended.prob.md": {
-      "attempts": 0,
+      "attempts": 1,
       "error": null,
-      "last_run_utc": null,
+      "last_run_utc": "2026-03-04T20:29:38+00:00",
       "return_code": null,
-      "status": "pending"
+      "status": "running"
     },
     "content/papers/scattering.by.free.md": {
       "attempts": 0,

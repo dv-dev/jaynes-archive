@@ -359,14 +359,11 @@ The agreement between the 1s-2p quantum-electrodynamic Lamb shift and the corres
 
 | Transition | $\Gamma_{nm}/2\pi$ | $\delta\omega_{\mathrm{expt}}$ | $\delta\omega_{\mathrm{QED}}$ |
 | --- | --- | --- | --- |
-| 1s-2p | $0.278\ \mathrm{cm}^{-1}$ | $0.262 \pm 0.038\ \mathrm{cm}^{-1}$ $^{\text{a}}$ | $0.2726\ \mathrm{cm}^{-1}$ |
-| 2s-2p | $657.20\ \mathrm{MHz}$ | $1057.77 \pm 0.10\ \mathrm{MHz}$ $^{\text{b}}$ | $1057.19\ \mathrm{MHz}$ |
-| 3s-3p | $0.0027\ \mathrm{cm}^{-1}$ | $0.0083^{+0.002}_{-0.003}\ \mathrm{cm}^{-1}$ $^{\text{c}}$ | $0.0105\ \mathrm{cm}^{-1}$ |
+| 1s-2p | $0.278\ \mathrm{cm}^{-1}$ | $0.262 \pm 0.038\ \mathrm{cm}^{-1}$[^11] | $0.2726\ \mathrm{cm}^{-1}$ |
+| 2s-2p | $657.20\ \mathrm{MHz}$ | $1057.77 \pm 0.10\ \mathrm{MHz}$[^21] | $1057.19\ \mathrm{MHz}$ |
+| 3s-3p | $0.0027\ \mathrm{cm}^{-1}$ | $0.0083^{+0.002}_{-0.003}\ \mathrm{cm}^{-1}$[^22] | $0.0105\ \mathrm{cm}^{-1}$ |
 
-Table I. Comparison of the semiclassical frequency shifts with the experimentally measured and quantum-electrodynamically calculated Lamb shift. Both the semiclassical and the quantum-electrodynamic calculations include the corrections for vacuum polarization.\
-$^{\text{a}}$ G. Herzberg (Ref. 11).\
-$^{\text{b}}$ S. Triebwasser, E. S. Dayhoff, and W. E. Lamb, Phys. Rev. **89**, 98 (1953).\
-$^{\text{c}}$ G. W. Series, Proc. Roy. Soc. (London) **A208**, 277 (1951).
+Table I. Comparison of the semiclassical frequency shifts with the experimentally measured and quantum-electrodynamically calculated Lamb shift. Both the semiclassical and the quantum-electrodynamic calculations include the corrections for vacuum polarization.
 
 ![Figure 1. Energy-level diagram for a two-level atom.](/images/papers/radiative.effects_fig_1.png)
 ## Spontaneous Decay {#spontaneous-decay .unnumbered}
@@ -784,10 +781,9 @@ $$
 \rho_{lj}\rho_{jm} = \rho_{lm}\rho_{jj},
 $$
 
- Eq. (A2) leads to Eq.
-(14).[^20]
+Eq. (A2) leads to Eq. (14).[^20]
 
-The applied field term in Eq. (A2) may be wrtten as 
+The applied field term in Eq. (A2) may be written as 
 $$
 \begin{aligned}
 -&\frac{E_0}{\hbar\omega} \sum_j [\Omega_{lj}\boldsymbol{\mu}_{lj}\rho_{jm}e^{i\Omega_{lj}t}(\tfrac{1}{2}(e^{i\omega t}+e^{-i\omega t}))  \\\\
@@ -917,3 +913,6 @@ experiment were much less than this.
     $A_{lj}^{\beta\alpha}$ and $\Gamma_{lj}^{\beta\alpha}$ are zero
     unless $\alpha=j$ and $\beta=l$, so that this system is also
     described by Eq. (14).
+[^21]: S. Triebwasser, E. S. Dayhoff, and W. E. Lamb, Phys. Rev.
+    **89**, 98 (1953).
+[^22]: G. W. Series, Proc. Roy. Soc. (London) **A208**, 277 (1951).

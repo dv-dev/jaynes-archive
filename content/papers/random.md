@@ -34,7 +34,7 @@ place to develop that theme.
 It should be pointed out that my publications, starting in 1957, make a
 rather late entry into this movement. Prior to that, many important
 works - by B. de Finetti, H. Jeffreys, R. T. Cox, C.E. Shannon, I. J.
-Good, A. Wald, R. Carnap, L. J. Savage, and D. V. Lindley -- had[^1]
+Good, A. Wald, R. Carnap, L. J. Savage, and D. V. Lindley --
 started this general shift in thinking. These works had laid the basis
 of the revolution by their demonstrations that probability theory can
 deal, consistently and usefully, with much more than \"frequencies in a
@@ -118,8 +118,7 @@ fails to note that this applies only to the 1957 papers; and even there
 my terminology was standard when written. It is, for example, essen-
 tially the same as that used by Jimmie Savage (1954). It is not our
 fault that Latter-Day Commentators, in ill-advised attempts to
-\"classify
-Bayesians\", have scrambled the meanings of our words, producing a
+\"classify Bayesians\", have scrambled the meanings of our words, producing a
 language appropriately called NEWSPEAK. To translate, we note a few
 approximate equivalences between standard terminology of the 1950's and
 NEWSPEAK:
@@ -311,6 +310,7 @@ we have been trained not to believe in causes -- and so we have stopped
 looking for them. To explain the indeterminacy in current physical
 theories we need not suppose there is any indeterminacy in Nature; the
 mental attitude of physicists is already sufficient to account for it.
+
 I suggest, then, that those who try to justify the concept of \"physical
 probability\" by pointing to quantum theory, are entrapped in circular
 reasoning. Probabilities in present quantum theory express the in-
@@ -568,14 +568,20 @@ $$\tag{1}
 p(f|I) = \int p(f|TI)p(T|I)dT.$$
 
 Now, then, what do you know about $T$?\"
+
 A: \"Nothing. That's just why\....\"
+
 B: \"But you must know something, else how could you know that $T$
 exists and is relevant? Surely you know it is bounded; after all, we
 aren't being scorched by the radiation from the Crab nebula.\".
+
 A: \"Well, yes, but\....\"
+
 B: \"And surely you know that it is not zero, else we would never be
 thinking about this problem.\"
+
 A: \"Well, yes -- but I don't have any numbers, so how can that help?\"
+
 B: \"But you do have some numbers, just think a bit harder. You know
 that $T < 10^{60}$ watts, because that would drain off the entire
 $E = mc^2$ energy of the Crab nebula in a microsecond. And you know that
@@ -583,44 +589,58 @@ $T > 10^{-60}$ watts, because that is less than one microwave photon in
 the age of the universe, and nobody outside would know the Crab nebula
 exists. So you have two numbers, $T_{\min}$ and $T_{\max}$, within which
 you know the true value surely lies.\"
+
 A: But this is silly. Such vague stuff can't help me!\"
+
 B: \"*O ye of little faith!* How do you know such stuff can't help until
 you give it a chance? Actually, knowing that $\log_{10}T$ is confined to
 a finite interval, $(-60, +60)$, is saying quite a lot. It makes the
 integral (1) converge, so now we can get a definite prior $p(f|I)$, which
 a moment ago you thought was impossible. We have made real progress.\"
+
 A: \"But the result is going to depend on those ridiculous numbers,
 $10^{60}$ and so on. They don't mean anything.\"
+
 B: \"Wait--we're not yet finished. How do you know the result depends on
 $T_{\min}$ and $T_{\max}$ until you study the matter? Let me ask a new
 question: Suppose you knew $f$; could you then estimate $T$?\"
+
 A: Of course. $p(f|TI)$ is a definite, calculable sampling distribution
 and as a function of $T$ it is the likelihood function. I could get a
 maximum likelihood estimate of $T$, and find the accuracy of the
 estimate by setting up a 90% confidence interval. And I can do all this
 without ever mentioning those useless prior probabilities.\"
+
 B: \"Would that confidence interval extend out to $T_{\min}$ or
 $T_{\max}$?\"
+
 A: \"Of course not. Those are, as I said, ridiculous numbers by many
 orders of magnitude.\"
+
 B: \"Then, in fact, the integral will converge so well that the result,
 if we round it off to four or five significant figures, won't depend on
 what those ridiculous numbers are.\"
+
 A: \"Well, yes, that's right. But I have no idea what $p(T|I)$ is in the
 region where it does contribute to the integral (1), so we'll still have
 no definite solution.\"
+
 B: \"But we're still not finished. You said you don't have any idea of
 what $T$ is. Now how wide is that likelihood function going to be?\"
+
 A: (pause) \"Actually, it's very broad. It would cover about a 2:1 range
 so I couldn't estimate $T$ very accurately from $f$, after all. So it's
 clear that your line of reasoning is not going to help us.\"
+
 B: \"Actually, 2:1 is quite a small range, only 0.3 on our logarithmic
 scale of (-60, +60). But surely the prior density $p(T|I)$ that
 describes your prior information about $T$ does not vary widely in an
 interval of 0.3; if it did, that would imply some rather definite prior
 information about $T$, and you said a moment ago that you know nothing
 about its value.\"
+
 A: \"Yes, that's right -- Oh -- now I see the point.\"
+
 B: \"So now perhaps we are finished.\"
 ### The Moral {#the-moral .unnumbered}
 To find prior probabilities we do, of course, need some actual prior
@@ -648,13 +668,16 @@ A: \"But wait a minute, we're not finished. There isn't any definite
 solution because maybe there's another quantity $U$ that is also
 relevant. If I used $U$ instead of $T$, surely I wouldn't get the same
 result $p(f|I)$ in general.\"
+
 B: \"Of course you wouldn't; nor should you, for you would be solving a
 different problem. Knowing about $T$ but not $U$, is a different state
 of knowledge from knowing about $U$ but not $T$.\"
+
 A: \"But now your whole system crashes after all; for how can I ever
 know which quantities to take into account, or which other ones may be
 lurking out there unrecognized? There are no definite Bayesian
 inferences.\"
+
 B: (wearily) \"The tenacity and determination with which the orthodox
 mind resists simple common sense is truly amazing. I have now to point
 out a principle of morality, then one of pragmatism. *Morality*: In
@@ -744,6 +767,7 @@ offering his work as a new contribution to the field, but wanted only to
 translate something already known into his own language. In that case we
 are concerned only with the suitability of that language as a
 description of the real problems where we use PME.
+
 Now in most real problems there is no \"random experiment\" and no
 \"random variables\"; and the extension space $S^n$ is purely a figment
 of our imagination. Surely, it is inelegant and unnecessary to drag in
@@ -944,40 +968,38 @@ advantages are apparent and it no longer seems strange. It is the idea
 that inference was once thought to be tied to frequencies in random
 experiments, that will seem strange to future generations.
 ## References {#references .unnumbered}
-Boltzmann, L.: 1877, *Wiener Berichte* **76**, 373.
-Cox, R. T.: 1946, *Am. Jour. Phys.* **17**, 1.
-Cox, R. T.: 1961, *The Algebra of Probable Inference*, Johns Hopkins
+- Boltzmann, L.: 1877, *Wiener Berichte* **76**, 373.
+- Cox, R. T.: 1946, *Am. Jour. Phys.* **17**, 1.
+- Cox, R. T.: 1961, *The Algebra of Probable Inference*, Johns Hopkins
 University Press, Baltimore, Reviewed by E. T. Jaynes, *Am. Jour. Phys.*
 **31**, 66, 1963.
-Cyranski, J.: 1979, *Information and Control* **33**, 275--304.
-Darwin, G. C. and Fowler, R. H.: 1928, see account in R. H. Fowler
+- Cyranski, J.: 1979, *Information and Control* **33**, 275--304.
+- Darwin, G. C. and Fowler, R. H.: 1928, see account in R. H. Fowler
 (1936), *Statistical Mechanics*, Cambridge University Press.
-Eyring, H.: 1964, *Statistical Mechanics and Dynamics*, J. Wiley & Sons,
+- Eyring, H.: 1964, *Statistical Mechanics and Dynamics*, J. Wiley & Sons,
 Inc., New York.
-Gage, D. and Hestenes, D.: 1973, *J. Stat. Phys.* **7**, 89.
-Gibbs, J. W.: 1902, *Elementary Principles in Statistical Mechanics*,
+- Gage, D. and Hestenes, D.: 1973, *J. Stat. Phys.* **7**, 89.
+- Gibbs, J. W.: 1902, *Elementary Principles in Statistical Mechanics*,
 reprinted (1961) by Dover Publishing Co., New York.
-Hobson, A.: 1972, *J. Stat. Phys.* **6**, 189.
-\*Jaynes, E. T.: 1971, 'The Well-Posed Problem', in V. P. Godambe and D.
+- Hobson, A.: 1972, *J. Stat. Phys.* **6**, 189.
+- \*Jaynes, E. T.: 1971, 'The Well-Posed Problem', in V. P. Godambe and D.
 A. Sprott, (eds.), *Foundations of Statistical Inference*, Holt,
 Rinehart & Winston of Canada, Toronto.
-\*Jaynes, E. T.: 1978, 'Where Do We Stand on Maximum Entropy?', in R. D.
+- \*Jaynes, E. T.: 1978, 'Where Do We Stand on Maximum Entropy?', in R. D.
 Levine and M. Tribus (eds.), *The Maximum Entropy Formalism*, M.I.T.
 Press, Cambridge MA.
-\*Jaynes, E. T.: 1980, \"Marginalization and Prior Probabilities\", in
+- \*Jaynes, E. T.: 1980, \"Marginalization and Prior Probabilities\", in
 A. Zellner (ed.), *Bayesian Analysis in Econometrics and Statistics*,
 North-Holland Publishing Co.
-Jaynes, E. T.: 1982, 'On the Rationale of Maximum-Entropy Methods',
+- Jaynes, E. T.: 1982, 'On the Rationale of Maximum-Entropy Methods',
 *Proc. IEEE*, **70**, 939--952.
-Jeffreys, H.: 1939, 1948, *Theory of Probability*, Oxford University
+- Jeffreys, H.: 1939, 1948, *Theory of Probability*, Oxford University
 Press, 1st and 2nd editions.
-Savage, L. J.: 1954, *The Foundations of Statistical Inference*, J.
+- Savage, L. J.: 1954, *The Foundations of Statistical Inference*, J.
 Wiley & Sons, Inc., New York.
-Schrodinger, E.: 1948, *Statistical Thermodynamics*, Cambridge
+- Schrodinger, E.: 1948, *Statistical Thermodynamics*, Cambridge
 University Press.
-Tribus, M. and Motroni, H.: 1972, *J. Stat. Phys.* **4**, 227.
-\* These articles are reprinted in E. T. Jaynes (1983), *Papers on
+- Tribus, M. and Motroni, H.: 1972, *J. Stat. Phys.* **4**, 227.
+- \* These articles are reprinted in E. T. Jaynes (1983), *Papers on
 Probability, Statistics and Statistical Physics*, R. D. Rosenkrantz,
 Editor, D. Reidel Publishing Co. Dordrecht- Holland.
-[^1]: *Synthese* 63 (1985) 115--138. 0039-7857/85.10\
-    © 1985 by D. Reidel Publishing Company

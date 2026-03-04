@@ -1,22 +1,19 @@
 === STDOUT ===
-Edited [`content/papers/reply.leiter.md`](/home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md) with minimal QA-only structural fixes.
+Updated `content/papers/reply.leiter.md` with minimal structural QA edits only.
 
-Changes made:
-- Added visible equation tags for all referenced equations in Leiter’s comment:
-  - `\tag{1}` `\rho_{11}(t)...`
-  - `\tag{2}` `\rho_{22}(t)...`
-  - `\tag{3}` `t_m = ...`
-  - `\tag{4}` off-diagonal relation/evolution equation block
-- Added visible equation tags for referenced equations in Jaynes’s reply:
-  - `\tag{1}` exponential pulse
-  - `\tag{2}` hyperbolic-secant pulse
-- Normalized malformed citation cluster:
-  - changed `[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11]` to `[^6][^7][^8][^9][^10][^11]`
+What changed:
+- Split the oversized opening prose into clearer paragraph blocks using blank-line paragraph boundaries.
+- Split another long mid-section prose block into separate paragraphs for readability.
+- Moved the standalone citation marker `[^4]` into inline footnote-citation form at the end of the relevant sentence.
+- Kept all math expressions, symbols, operators, variable names, and equation content unchanged.
+- Kept equation numbering markup unchanged (all referenced Eq. numbers already had visible display tags).
+- No abstract duplication found in body; no removal needed.
+- No markdown tables present; no table fixes needed.
+- No extraneous “Lecture given at …” style metadata found in body.
 
 Self-check:
-- Paragraph blocks remain separated by blank lines where intended.
-- No unresolved in-text `Eq.` references to missing display-equation numbers.
-- No paper-content/math-expression meaning changes were made.
+- Paragraph boundaries are blank-line separated where intended.
+- No unresolved in-text equation references to missing displayed equation numbers.
 
 
 === STDERR ===
@@ -29,7 +26,7 @@ approval: never
 sandbox: workspace-write [workdir, /tmp, $TMPDIR]
 reasoning effort: medium
 reasoning summaries: none
-session id: 019cba5a-5f2d-70c2-9695-2152668c0b27
+session id: 019cba87-77d7-7e10-8294-4e645f55d67e
 --------
 user
 Perform QA and directly edit only this one markdown file: `content/papers/reply.leiter.md`.
@@ -74,9 +71,9 @@ Output requirements:
 
 mcp startup: no servers
 codex
-I’m going to inspect `content/papers/reply.leiter.md` for structural markdown issues, equation-reference numbering, duplicate abstract/body metadata artifacts, and citation formatting, then apply only minimal in-place edits.
+I’m going to inspect `content/papers/reply.leiter.md` for paragraph-boundary, citation, abstract duplication, and equation-reference numbering issues, then apply minimal structural edits only in that file.
 exec
-/bin/bash -lc "sed -n '1,260p' content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+/bin/bash -lc "sed -n '1,260p' content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
 ---
 title: "Comment on the Characteristic Time of Spontaneous Decay in Jaynes's Semiclassical Radiation Theory"
 author: ["Darryl Leiter", "E.T. Jaynes"]
@@ -98,987 +95,607 @@ not entirely precise. To see this we note that the solution to the
 nonlinear density-matrix equation, for the diagonal matrix elements in a
 two-level decay, in a spontaneous transition with no applied fields can
 codex
-I found the main issues: missing visible equation numbers for referenced `Eq.` calls, one malformed citation cluster in Jaynes’s reply, and a few structure spots around display equations that can be cleaned without altering content. I’m now applying a minimal patch for those only.
-exec
-/bin/bash -lc "nl -ba content/papers/reply.leiter.md | sed -n '10,130p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-    10	---
-    11	In a recent publication,[^2] Jaynes and Crisp have studied the behavior
-    12	of atoms within the framework of a semiclassical theory, which includes
-    13	the effects upon the atom of the fields created by the atomic currents.
-    14	They state that, in the absence of an applied field, an atom will
-    15	spontaneously decay from an excited state with a characteristic time
-    16	which is equal to the reciprocal of the Einstein A coefficient for the
-    17	transition. The purpose of this note is to point out that statement is
-    18	not entirely precise. To see this we note that the solution to the
-    19	nonlinear density-matrix equation, for the diagonal matrix elements in a
-    20	two-level decay, in a spontaneous transition with no applied fields can
-    21	be written 
-    22	$$
-    23	\rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
-    24	$$
-    25	$$
-    26	\rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
-    27	$$
-    28	 where
-    29	$\rho_{11}(t) + \rho_{22}(t) = 1$
-exec
-/bin/bash -lc "nl -ba content/papers/reply.leiter.md | sed -n '130,240p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-   130	excited atom proceeds to radiate a spontaneous emission pulse with field
-   131	amplitude at a given point of the form
-   132	$$
-   133	Ce^{-At/2} \cos(\omega t + \theta),
-   134	$$
-   135	 where $\hbar\omega = E_2 - E_1$,
-   136	and A is the Einstein A coefficient for the transition. The total energy
-   137	radiated in the pulse is $\hbar\omega$.
-   138	
-   139	In NCT, the predicted spontaneous emission pulse is of the form
-   140	$$
-   141	C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
-   142	$$
-   143	 where
-   144	$(C^\prime)^2 \propto C^2$, and $t_m$ is determined by the initial state through
-   145	Leiter's Eq. (3) with $\rho_{22}(0) = |a_2|^2$, etc. The observed pulse,
-   146	of course, consists only of the portion of this function for $t > 0$;
-   147	and so NCT predicts a spontaneous emission pulse with a truncated
-   148	hyperbolic secant envelope rather than an exponential one. Furthermore,
-   149	the total energy radiated during the pulse is
-codex
-I’m patching in smaller chunks now to avoid context mismatches, then I’ll run a final self-check for paragraph boundaries and Eq. references.
+I found mostly structural issues in the first section: one oversized paragraph and a standalone `[^4]` citation marker. I’m applying minimal paragraph splits and moving that citation inline, without changing meaning or equations.
 file update
 M /home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md
-@@ -22,2 +22,3 @@
+@@ -10,13 +10,13 @@
+ ---
+-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
+-of atoms within the framework of a semiclassical theory, which includes
+-the effects upon the atom of the fields created by the atomic currents.
+-They state that, in the absence of an applied field, an atom will
+-spontaneously decay from an excited state with a characteristic time
+-which is equal to the reciprocal of the Einstein A coefficient for the
+-transition. The purpose of this note is to point out that statement is
+-not entirely precise. To see this we note that the solution to the
+-nonlinear density-matrix equation, for the diagonal matrix elements in a
+-two-level decay, in a spontaneous transition with no applied fields can
+-be written 
++In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
++within the framework of a semiclassical theory, which includes the effects upon
++the atom of the fields created by the atomic currents. They state that, in the
++absence of an applied field, an atom will spontaneously decay from an excited
++state with a characteristic time which is equal to the reciprocal of the
++Einstein A coefficient for the transition. The purpose of this note is to point
++out that statement is not entirely precise.
++
++To see this we note that the solution to the nonlinear density-matrix equation,
++for the diagonal matrix elements in a two-level decay, in a spontaneous
++transition with no applied fields can be written
  $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
-@@ -25,2 +26,3 @@
+@@ -44,23 +44,24 @@
  $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
-@@ -30,2 +32,3 @@
+-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
+-values of the coefficients ($n=1,2$) in the wave-function of the atom
+-which describes the transition process. We first note, that the value of
+-$t_m$ determines the point at which the maximum atomic-dipole moment
+-occurs [the effective-dipole moment of the transition is proportional
+-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
+-assumed that the expectation value of the dipole moment of the atom is
+-responsible for the radiation process. Hence, an excited atom radiates
+-slowly until its dipole moment grows to an appreciable value, and then
+-begins to radiate its energy away very rapidly. While this
+-characteristic behavior was duly noted by Jaynes and Crisp in their
+-article, the role that the value of $t_m$ (the point in time where the
+-maximum dipole radiation occurs) plays in determining the average
+-lifetime of the atom was not clarified. While it is certainly true that
+-Eqs. (1), (2), and (4) imply that most of the transition energy is
+-radiated during a time interval which is proportional to the reciprocal
+-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
+-energy transfer time\" is not equal to the average lifetime of the atom.
+-In particular, if we define the average lifetime of the atom as that
+-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
+-its initial value, we find from Eq. (2) that
++where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
++coefficients ($n=1,2$) in the wave-function of the atom which describes the
++transition process. We first note, that the value of $t_m$ determines the point
++at which the maximum atomic-dipole moment occurs [the effective-dipole moment
++of the transition is proportional to $(\rho_{12}+\rho_{21})$].
++
++In Jaynes's semiclassical theory, it is assumed that the expectation value of
++the dipole moment of the atom is responsible for the radiation process. Hence,
++an excited atom radiates slowly until its dipole moment grows to an appreciable
++value, and then begins to radiate its energy away very rapidly. While this
++characteristic behavior was duly noted by Jaynes and Crisp in their article,
++the role that the value of $t_m$ (the point in time where the maximum dipole
++radiation occurs) plays in determining the average lifetime of the atom was not
++clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
++most of the transition energy is radiated during a time interval which is
++proportional to the reciprocal of the associated Einstein A coefficient
++$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
++average lifetime of the atom.
++
++In particular, if we define the average lifetime of the atom as that time
++required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
++value, we find from Eq. (2) that
  $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
-@@ -37,2 +40,3 @@
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
-apply_patch(auto_approved=true) exited 0 in 7ms:
+@@ -69,16 +70,13 @@
+ 
+-Hence, we see that the initial values of $\rho_{22}(0)$
+-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
+-critical role in determining the atoms average lifetime, while the
+-\"characteristic energy transfer time\" (occurring in some interval of
+-time $\Delta t$ about $t_m$) is essentially independent of the atoms
+-initial condition at $t=0$. The implication here is that there is a need
+-to include an additional element into the theory, one which can account
+-for the experimental fact that the average lifetime of an atom is
+-essentially independent of its preparation. One possibility is that the
+-presence of a \"semiclassically described\" vacuum state[^3] might
+-produce the required behavior when properly included in the associated
+-nonlinear density-matrix equations of the theory.
+-
+-[^4]
++Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
++[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
++the atoms average lifetime, while the \"characteristic energy transfer time\"
++(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
++independent of the atoms initial condition at $t=0$. The implication here is
++that there is a need to include an additional element into the theory, one
++which can account for the experimental fact that the average lifetime of an
++atom is essentially independent of its preparation. One possibility is that the
++presence of a \"semiclassically described\" vacuum state[^3] might produce the
++required behavior when properly included in the associated nonlinear
++density-matrix equations of the theory.[^4]
+ ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
+apply_patch(auto_approved=true) exited 0 in 12ms:
 Success. Updated the following files:
 M content/papers/reply.leiter.md
 file update:
 diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..3ae9b39d46be9e777542160344a68af0ce35ff0d
+index 4079b6235adc42c1a42a03462a08d1787efa292c..0ad79c5a0972379f545bc4648fbf272b5e6df8a4
 --- a/content/papers/reply.leiter.md
 +++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
+@@ -8,17 +8,17 @@
+   an atom plays a critical role in determining its average lifetime in
+   an excited state.
+ ---
+-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
+-of atoms within the framework of a semiclassical theory, which includes
+-the effects upon the atom of the fields created by the atomic currents.
+-They state that, in the absence of an applied field, an atom will
+-spontaneously decay from an excited state with a characteristic time
+-which is equal to the reciprocal of the Einstein A coefficient for the
+-transition. The purpose of this note is to point out that statement is
+-not entirely precise. To see this we note that the solution to the
+-nonlinear density-matrix equation, for the diagonal matrix elements in a
+-two-level decay, in a spontaneous transition with no applied fields can
+-be written 
++In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
++within the framework of a semiclassical theory, which includes the effects upon
++the atom of the fields created by the atomic currents. They state that, in the
++absence of an applied field, an atom will spontaneously decay from an excited
++state with a characteristic time which is equal to the reciprocal of the
++Einstein A coefficient for the transition. The purpose of this note is to point
++out that statement is not entirely precise.
++
++To see this we note that the solution to the nonlinear density-matrix equation,
++for the diagonal matrix elements in a two-level decay, in a spontaneous
++transition with no applied fields can be written
  $$
-+\tag{1}
+ \tag{1}
  \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
+@@ -42,45 +42,43 @@
  \rho_{12}(t) = \rho_{21}^{*}(t)
+ = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
  $$
+-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
+-values of the coefficients ($n=1,2$) in the wave-function of the atom
+-which describes the transition process. We first note, that the value of
+-$t_m$ determines the point at which the maximum atomic-dipole moment
+-occurs [the effective-dipole moment of the transition is proportional
+-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
+-assumed that the expectation value of the dipole moment of the atom is
+-responsible for the radiation process. Hence, an excited atom radiates
+-slowly until its dipole moment grows to an appreciable value, and then
+-begins to radiate its energy away very rapidly. While this
+-characteristic behavior was duly noted by Jaynes and Crisp in their
+-article, the role that the value of $t_m$ (the point in time where the
+-maximum dipole radiation occurs) plays in determining the average
+-lifetime of the atom was not clarified. While it is certainly true that
+-Eqs. (1), (2), and (4) imply that most of the transition energy is
+-radiated during a time interval which is proportional to the reciprocal
+-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
+-energy transfer time\" is not equal to the average lifetime of the atom.
+-In particular, if we define the average lifetime of the atom as that
+-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
+-its initial value, we find from Eq. (2) that
++where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
++coefficients ($n=1,2$) in the wave-function of the atom which describes the
++transition process. We first note, that the value of $t_m$ determines the point
++at which the maximum atomic-dipole moment occurs [the effective-dipole moment
++of the transition is proportional to $(\rho_{12}+\rho_{21})$].
++
++In Jaynes's semiclassical theory, it is assumed that the expectation value of
++the dipole moment of the atom is responsible for the radiation process. Hence,
++an excited atom radiates slowly until its dipole moment grows to an appreciable
++value, and then begins to radiate its energy away very rapidly. While this
++characteristic behavior was duly noted by Jaynes and Crisp in their article,
++the role that the value of $t_m$ (the point in time where the maximum dipole
++radiation occurs) plays in determining the average lifetime of the atom was not
++clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
++most of the transition energy is radiated during a time interval which is
++proportional to the reciprocal of the associated Einstein A coefficient
++$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
++average lifetime of the atom.
++
++In particular, if we define the average lifetime of the atom as that time
++required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
++value, we find from Eq. (2) that
  $$
+ \tau_2 \approx (A_{21})^{-1} \ln[(1.718)\rho_{22}(0)/\rho_{11}(0)](\text{sec}).
+ $$
+ 
+-Hence, we see that the initial values of $\rho_{22}(0)$
+-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
+-critical role in determining the atoms average lifetime, while the
+-\"characteristic energy transfer time\" (occurring in some interval of
+-time $\Delta t$ about $t_m$) is essentially independent of the atoms
+-initial condition at $t=0$. The implication here is that there is a need
+-to include an additional element into the theory, one which can account
+-for the experimental fact that the average lifetime of an atom is
+-essentially independent of its preparation. One possibility is that the
+-presence of a \"semiclassically described\" vacuum state[^3] might
+-produce the required behavior when properly included in the associated
+-nonlinear density-matrix equations of the theory.
+-
+-[^4]
++Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
++[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
++the atoms average lifetime, while the \"characteristic energy transfer time\"
++(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
++independent of the atoms initial condition at $t=0$. The implication here is
++that there is a need to include an additional element into the theory, one
++which can account for the experimental fact that the average lifetime of an
++atom is essentially independent of its preparation. One possibility is that the
++presence of a \"semiclassically described\" vacuum state[^3] might produce the
++required behavior when properly included in the associated nonlinear
++density-matrix equations of the theory.[^4]
+ ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
+ E. T. Jaynes\
+ *Arthur Holly Compton Laboratory of Physics, Washington University, St.
 
 file update:
 diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..3ae9b39d46be9e777542160344a68af0ce35ff0d
+index 4079b6235adc42c1a42a03462a08d1787efa292c..0ad79c5a0972379f545bc4648fbf272b5e6df8a4
 --- a/content/papers/reply.leiter.md
 +++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
+@@ -8,17 +8,17 @@
+   an atom plays a critical role in determining its average lifetime in
+   an excited state.
+ ---
+-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
+-of atoms within the framework of a semiclassical theory, which includes
+-the effects upon the atom of the fields created by the atomic currents.
+-They state that, in the absence of an applied field, an atom will
+-spontaneously decay from an excited state with a characteristic time
+-which is equal to the reciprocal of the Einstein A coefficient for the
+-transition. The purpose of this note is to point out that statement is
+-not entirely precise. To see this we note that the solution to the
+-nonlinear density-matrix equation, for the diagonal matrix elements in a
+-two-level decay, in a spontaneous transition with no applied fields can
+-be written 
++In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
++within the framework of a semiclassical theory, which includes the effects upon
++the atom of the fields created by the atomic currents. They state that, in the
++absence of an applied field, an atom will spontaneously decay from an excited
++state with a characteristic time which is equal to the reciprocal of the
++Einstein A coefficient for the transition. The purpose of this note is to point
++out that statement is not entirely precise.
++
++To see this we note that the solution to the nonlinear density-matrix equation,
++for the diagonal matrix elements in a two-level decay, in a spontaneous
++transition with no applied fields can be written
  $$
-+\tag{1}
+ \tag{1}
  \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
+@@ -42,45 +42,43 @@
  \rho_{12}(t) = \rho_{21}^{*}(t)
+ = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
  $$
+-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
+-values of the coefficients ($n=1,2$) in the wave-function of the atom
+-which describes the transition process. We first note, that the value of
+-$t_m$ determines the point at which the maximum atomic-dipole moment
+-occurs [the effective-dipole moment of the transition is proportional
+-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
+-assumed that the expectation value of the dipole moment of the atom is
+-responsible for the radiation process. Hence, an excited atom radiates
+-slowly until its dipole moment grows to an appreciable value, and then
+-begins to radiate its energy away very rapidly. While this
+-characteristic behavior was duly noted by Jaynes and Crisp in their
+-article, the role that the value of $t_m$ (the point in time where the
+-maximum dipole radiation occurs) plays in determining the average
+-lifetime of the atom was not clarified. While it is certainly true that
+-Eqs. (1), (2), and (4) imply that most of the transition energy is
+-radiated during a time interval which is proportional to the reciprocal
+-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
+-energy transfer time\" is not equal to the average lifetime of the atom.
+-In particular, if we define the average lifetime of the atom as that
+-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
+-its initial value, we find from Eq. (2) that
++where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
++coefficients ($n=1,2$) in the wave-function of the atom which describes the
++transition process. We first note, that the value of $t_m$ determines the point
++at which the maximum atomic-dipole moment occurs [the effective-dipole moment
++of the transition is proportional to $(\rho_{12}+\rho_{21})$].
++
++In Jaynes's semiclassical theory, it is assumed that the expectation value of
++the dipole moment of the atom is responsible for the radiation process. Hence,
++an excited atom radiates slowly until its dipole moment grows to an appreciable
++value, and then begins to radiate its energy away very rapidly. While this
++characteristic behavior was duly noted by Jaynes and Crisp in their article,
++the role that the value of $t_m$ (the point in time where the maximum dipole
++radiation occurs) plays in determining the average lifetime of the atom was not
++clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
++most of the transition energy is radiated during a time interval which is
++proportional to the reciprocal of the associated Einstein A coefficient
++$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
++average lifetime of the atom.
++
++In particular, if we define the average lifetime of the atom as that time
++required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
++value, we find from Eq. (2) that
  $$
-
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md
-@@ -100,3 +100,3 @@
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
-@@ -136,2 +136,3 @@
+ \tau_2 \approx (A_{21})^{-1} \ln[(1.718)\rho_{22}(0)/\rho_{11}(0)](\text{sec}).
  $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
-@@ -144,2 +145,3 @@
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
-apply_patch(auto_approved=true) exited 0 in 11ms:
-Success. Updated the following files:
-M content/papers/reply.leiter.md
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..5807ac950196f9f8473ecae068cb234ded11a8b9
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
- $$
- $$
-@@ -94,7 +98,7 @@
  
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +134,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +143,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..5807ac950196f9f8473ecae068cb234ded11a8b9
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
- $$
- $$
-@@ -94,7 +98,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +134,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +143,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-exec
-/bin/bash -lc "rg -n \"Eqs?\\. \\(|Leiter's Eq|Eq\\.\" content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-61:Eqs. (1), (2), and (4) imply that most of the transition energy is
-67:its initial value, we find from Eq. (2) that
-151:Leiter's Eq. (3) with $\rho_{22}(0) = |a_2|^2$, etc. The observed pulse,
-165:attains an amplitude $|a_2| \ll 1$. But then $t_m$ in Eq. (2) is
-169:hyperbolic secant pulse, in Eq. (2); since
-171:as the QED pulse, in Eq. (1) except for a smaller amplitude.
-178:collision, and each one emits the full exponential pulse as in Eq. (1);
-180:given by Eq. (1), but with an amplitude proportional to the particular
-195:the net radiation from many atoms decays exponentially according to Eq.
-226:[^4]: Since the maximum-dipole moment occurs at $t=t_m$ in Eq. (4), the
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..5807ac950196f9f8473ecae068cb234ded11a8b9
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
- $$
- $$
-@@ -94,7 +98,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +134,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +143,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-exec
-/bin/bash -lc "sed -n '18,180p' content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-not entirely precise. To see this we note that the solution to the
-nonlinear density-matrix equation, for the diagonal matrix elements in a
-two-level decay, in a spontaneous transition with no applied fields can
-be written 
-$$
-\tag{1}
-\rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
-$$
-$$
-\tag{2}
-\rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
-$$
- where
-$\rho_{11}(t) + \rho_{22}(t) = 1$
-$$
-\tag{3}
-\text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
-$$
- is
-related to the initial state of the atom at $t=0$. If we temporarily
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..5807ac950196f9f8473ecae068cb234ded11a8b9
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,6 +38,7 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
- $$
- $$
-@@ -94,7 +98,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +134,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +143,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
+-Hence, we see that the initial values of $\rho_{22}(0)$
+-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
+-critical role in determining the atoms average lifetime, while the
+-\"characteristic energy transfer time\" (occurring in some interval of
+-time $\Delta t$ about $t_m$) is essentially independent of the atoms
+-initial condition at $t=0$. The implication here is that there is a need
+-to include an additional element into the theory, one which can account
+-for the experimental fact that the average lifetime of an atom is
+-essentially independent of its preparation. One possibility is that the
+-presence of a \"semiclassically described\" vacuum state[^3] might
+-produce the required behavior when properly included in the associated
+-nonlinear density-matrix equations of the theory.
+-
+-[^4]
++Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
++[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
++the atoms average lifetime, while the \"characteristic energy transfer time\"
++(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
++independent of the atoms initial condition at $t=0$. The implication here is
++that there is a need to include an additional element into the theory, one
++which can account for the experimental fact that the average lifetime of an
++atom is essentially independent of its preparation. One possibility is that the
++presence of a \"semiclassically described\" vacuum state[^3] might produce the
++required behavior when properly included in the associated nonlinear
++density-matrix equations of the theory.[^4]
+ ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
+ E. T. Jaynes\
+ *Arthur Holly Compton Laboratory of Physics, Washington University, St.
 
 codex
-I’m making one more targeted fix: combining the split off-diagonal display into a single numbered equation so `Eq. (4)` maps to the full expression cleanly in KaTeX.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md
-@@ -40,6 +40,4 @@
- $$
--\tag{4}
-+= \tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
-apply_patch(auto_approved=true) exited 0 in 7ms:
-Success. Updated the following files:
-M content/papers/reply.leiter.md
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..1036c0143839ec09c581dd5cf03bb72589217473
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+= \tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..1036c0143839ec09c581dd5cf03bb72589217473
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+= \tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
+I’ve applied the structural changes and now I’m doing a quick self-check for paragraph separators and in-text Eq. references versus visible equation tags.
 exec
-/bin/bash -lc "nl -ba content/papers/reply.leiter.md | sed -n '30,52p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-    30	 where
-    31	$\rho_{11}(t) + \rho_{22}(t) = 1$
-    32	$$
-    33	\tag{3}
-    34	\text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
-    35	$$
-    36	 is
-    37	related to the initial state of the atom at $t=0$. If we temporarily
-    38	neglect that part of the self-field which yields only a small frequency
-    39	shift, the solution for the off-diagonal elements are given by
-    40	$$
-    41	= \tag{4}
-    42	\rho_{12}(t) = \rho_{21}^{*}(t)
-    43	= \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
-    44	$$
-    45	where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-    46	values of the coefficients ($n=1,2$) in the wave-function of the atom
-    47	which describes the transition process. We first note, that the value of
-    48	$t_m$ determines the point at which the maximum atomic-dipole moment
-    49	occurs [the effective-dipole moment of the transition is proportional
+/bin/bash -lc "rg -n \"Eq\\.|Eqs\\.|\\tag\\{\" content/papers/reply.leiter.md && echo '---' && sed -n '1,260p' content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+58:clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
+66:value, we find from Eq. (2) that
+147:Leiter's Eq. (3) with $\rho_{22}(0) = |a_2|^2$, etc. The observed pulse,
+161:attains an amplitude $|a_2| \ll 1$. But then $t_m$ in Eq. (2) is
+165:hyperbolic secant pulse, in Eq. (2); since
+167:as the QED pulse, in Eq. (1) except for a smaller amplitude.
+174:collision, and each one emits the full exponential pulse as in Eq. (1);
+176:given by Eq. (1), but with an amplitude proportional to the particular
+191:the net radiation from many atoms decays exponentially according to Eq.
+222:[^4]: Since the maximum-dipole moment occurs at $t=t_m$ in Eq. (4), the
+---
+---
+title: "Comment on the Characteristic Time of Spontaneous Decay in Jaynes's Semiclassical Radiation Theory"
+author: ["Darryl Leiter", "E.T. Jaynes"]
+year: 1970
+abstract: >
+  We examine the implication in the fact that, in a semiclassical theory
+  of atomic structure proposed by Jaynes and Crisp, the initial state of
+  an atom plays a critical role in determining its average lifetime in
+  an excited state.
 file update:
 diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..1036c0143839ec09c581dd5cf03bb72589217473
+index 4079b6235adc42c1a42a03462a08d1787efa292c..0ad79c5a0972379f545bc4648fbf272b5e6df8a4
 --- a/content/papers/reply.leiter.md
 +++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
+@@ -8,17 +8,17 @@
+   an atom plays a critical role in determining its average lifetime in
+   an excited state.
+ ---
+-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
+-of atoms within the framework of a semiclassical theory, which includes
+-the effects upon the atom of the fields created by the atomic currents.
+-They state that, in the absence of an applied field, an atom will
+-spontaneously decay from an excited state with a characteristic time
+-which is equal to the reciprocal of the Einstein A coefficient for the
+-transition. The purpose of this note is to point out that statement is
+-not entirely precise. To see this we note that the solution to the
+-nonlinear density-matrix equation, for the diagonal matrix elements in a
+-two-level decay, in a spontaneous transition with no applied fields can
+-be written 
++In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
++within the framework of a semiclassical theory, which includes the effects upon
++the atom of the fields created by the atomic currents. They state that, in the
++absence of an applied field, an atom will spontaneously decay from an excited
++state with a characteristic time which is equal to the reciprocal of the
++Einstein A coefficient for the transition. The purpose of this note is to point
++out that statement is not entirely precise.
++
++To see this we note that the solution to the nonlinear density-matrix equation,
++for the diagonal matrix elements in a two-level decay, in a spontaneous
++transition with no applied fields can be written
  $$
-+\tag{1}
+ \tag{1}
  \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+= \tag{4}
+@@ -42,45 +42,43 @@
  \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
  = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
  $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
+-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
+-values of the coefficients ($n=1,2$) in the wave-function of the atom
+-which describes the transition process. We first note, that the value of
+-$t_m$ determines the point at which the maximum atomic-dipole moment
+-occurs [the effective-dipole moment of the transition is proportional
+-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
+-assumed that the expectation value of the dipole moment of the atom is
+-responsible for the radiation process. Hence, an excited atom radiates
+-slowly until its dipole moment grows to an appreciable value, and then
+-begins to radiate its energy away very rapidly. While this
+-characteristic behavior was duly noted by Jaynes and Crisp in their
+-article, the role that the value of $t_m$ (the point in time where the
+-maximum dipole radiation occurs) plays in determining the average
+-lifetime of the atom was not clarified. While it is certainly true that
+-Eqs. (1), (2), and (4) imply that most of the transition energy is
+-radiated during a time interval which is proportional to the reciprocal
+-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
+-energy transfer time\" is not equal to the average lifetime of the atom.
+-In particular, if we define the average lifetime of the atom as that
+-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
+-its initial value, we find from Eq. (2) that
++where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
++coefficients ($n=1,2$) in the wave-function of the atom which describes the
++transition process. We first note, that the value of $t_m$ determines the point
++at which the maximum atomic-dipole moment occurs [the effective-dipole moment
++of the transition is proportional to $(\rho_{12}+\rho_{21})$].
++
++In Jaynes's semiclassical theory, it is assumed that the expectation value of
++the dipole moment of the atom is responsible for the radiation process. Hence,
++an excited atom radiates slowly until its dipole moment grows to an appreciable
++value, and then begins to radiate its energy away very rapidly. While this
++characteristic behavior was duly noted by Jaynes and Crisp in their article,
++the role that the value of $t_m$ (the point in time where the maximum dipole
++radiation occurs) plays in determining the average lifetime of the atom was not
++clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
++most of the transition energy is radiated during a time interval which is
++proportional to the reciprocal of the associated Einstein A coefficient
++$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
++average lifetime of the atom.
++
++In particular, if we define the average lifetime of the atom as that time
++required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
++value, we find from Eq. (2) that
+ $$
+ \tau_2 \approx (A_{21})^{-1} \ln[(1.718)\rho_{22}(0)/\rho_{11}(0)](\text{sec}).
+ $$
  
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
+-Hence, we see that the initial values of $\rho_{22}(0)$
+-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
+-critical role in determining the atoms average lifetime, while the
+-\"characteristic energy transfer time\" (occurring in some interval of
+-time $\Delta t$ about $t_m$) is essentially independent of the atoms
+-initial condition at $t=0$. The implication here is that there is a need
+-to include an additional element into the theory, one which can account
+-for the experimental fact that the average lifetime of an atom is
+-essentially independent of its preparation. One possibility is that the
+-presence of a \"semiclassically described\" vacuum state[^3] might
+-produce the required behavior when properly included in the associated
+-nonlinear density-matrix equations of the theory.
+-
+-[^4]
++Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
++[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
++the atoms average lifetime, while the \"characteristic energy transfer time\"
++(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
++independent of the atoms initial condition at $t=0$. The implication here is
++that there is a need to include an additional element into the theory, one
++which can account for the experimental fact that the average lifetime of an
++atom is essentially independent of its preparation. One possibility is that the
++presence of a \"semiclassically described\" vacuum state[^3] might produce the
++required behavior when properly included in the associated nonlinear
++density-matrix equations of the theory.[^4]
+ ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
+ E. T. Jaynes\
+ *Arthur Holly Compton Laboratory of Physics, Washington University, St.
 
 codex
-I introduced an extra leading `=` while merging Eq. (4); I’m correcting that now so the equation content remains unchanged and valid.
-file update
-M /home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md
-@@ -40,3 +40,3 @@
- $$
--= \tag{4}
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
-apply_patch(auto_approved=true) exited 0 in 7ms:
-Success. Updated the following files:
-M content/papers/reply.leiter.md
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..4079b6235adc42c1a42a03462a08d1787efa292c
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
+Updated `content/papers/reply.leiter.md` with minimal structural QA edits only.
 
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..4079b6235adc42c1a42a03462a08d1787efa292c
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-exec
-/bin/bash -lc "rg -n \"\\\\tag\\{\" content/papers/reply.leiter.md && rg -n \"Eqs?\\. \\(|Leiter's Eq|Eq\\.\" content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
-
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..4079b6235adc42c1a42a03462a08d1787efa292c
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-exec
-/bin/bash -lc "rg -n '\\\\tag\\{' content/papers/reply.leiter.md; rg -n \"Eqs?\\. \\(|Leiter's Eq|Eq\\.\" content/papers/reply.leiter.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
-23:\tag{1}
-27:\tag{2}
-33:\tag{3}
-41:\tag{4}
-135:\tag{1}
-144:\tag{2}
-59:Eqs. (1), (2), and (4) imply that most of the transition energy is
-65:its initial value, we find from Eq. (2) that
-149:Leiter's Eq. (3) with $\rho_{22}(0) = |a_2|^2$, etc. The observed pulse,
-163:attains an amplitude $|a_2| \ll 1$. But then $t_m$ in Eq. (2) is
-167:hyperbolic secant pulse, in Eq. (2); since
-169:as the QED pulse, in Eq. (1) except for a smaller amplitude.
-176:collision, and each one emits the full exponential pulse as in Eq. (1);
-178:given by Eq. (1), but with an amplitude proportional to the particular
-193:the net radiation from many atoms decays exponentially according to Eq.
-224:[^4]: Since the maximum-dipole moment occurs at $t=t_m$ in Eq. (4), the
-file update:
-diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..4079b6235adc42c1a42a03462a08d1787efa292c
---- a/content/papers/reply.leiter.md
-+++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
- $$
-+\tag{1}
- \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
- \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
- = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
- $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
- 
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
-
-codex
-Edited [`content/papers/reply.leiter.md`](/home/dave/Projects/jaynes-archive/content/papers/reply.leiter.md) with minimal QA-only structural fixes.
-
-Changes made:
-- Added visible equation tags for all referenced equations in Leiter’s comment:
-  - `\tag{1}` `\rho_{11}(t)...`
-  - `\tag{2}` `\rho_{22}(t)...`
-  - `\tag{3}` `t_m = ...`
-  - `\tag{4}` off-diagonal relation/evolution equation block
-- Added visible equation tags for referenced equations in Jaynes’s reply:
-  - `\tag{1}` exponential pulse
-  - `\tag{2}` hyperbolic-secant pulse
-- Normalized malformed citation cluster:
-  - changed `[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11]` to `[^6][^7][^8][^9][^10][^11]`
+What changed:
+- Split the oversized opening prose into clearer paragraph blocks using blank-line paragraph boundaries.
+- Split another long mid-section prose block into separate paragraphs for readability.
+- Moved the standalone citation marker `[^4]` into inline footnote-citation form at the end of the relevant sentence.
+- Kept all math expressions, symbols, operators, variable names, and equation content unchanged.
+- Kept equation numbering markup unchanged (all referenced Eq. numbers already had visible display tags).
+- No abstract duplication found in body; no removal needed.
+- No markdown tables present; no table fixes needed.
+- No extraneous “Lecture given at …” style metadata found in body.
 
 Self-check:
-- Paragraph blocks remain separated by blank lines where intended.
-- No unresolved in-text `Eq.` references to missing display-equation numbers.
-- No paper-content/math-expression meaning changes were made.
+- Paragraph boundaries are blank-line separated where intended.
+- No unresolved in-text equation references to missing displayed equation numbers.
 file update:
 diff --git a/content/papers/reply.leiter.md b/content/papers/reply.leiter.md
-index dd3c1ea0f4d893eb6ca507449e4c065d7b642c11..4079b6235adc42c1a42a03462a08d1787efa292c
+index 4079b6235adc42c1a42a03462a08d1787efa292c..0ad79c5a0972379f545bc4648fbf272b5e6df8a4
 --- a/content/papers/reply.leiter.md
 +++ b/content/papers/reply.leiter.md
-@@ -20,14 +20,17 @@
- two-level decay, in a spontaneous transition with no applied fields can
- be written 
+@@ -8,17 +8,17 @@
+   an atom plays a critical role in determining its average lifetime in
+   an excited state.
+ ---
+-In a recent publication,[^2] Jaynes and Crisp have studied the behavior
+-of atoms within the framework of a semiclassical theory, which includes
+-the effects upon the atom of the fields created by the atomic currents.
+-They state that, in the absence of an applied field, an atom will
+-spontaneously decay from an excited state with a characteristic time
+-which is equal to the reciprocal of the Einstein A coefficient for the
+-transition. The purpose of this note is to point out that statement is
+-not entirely precise. To see this we note that the solution to the
+-nonlinear density-matrix equation, for the diagonal matrix elements in a
+-two-level decay, in a spontaneous transition with no applied fields can
+-be written 
++In a recent publication,[^2] Jaynes and Crisp have studied the behavior of atoms
++within the framework of a semiclassical theory, which includes the effects upon
++the atom of the fields created by the atomic currents. They state that, in the
++absence of an applied field, an atom will spontaneously decay from an excited
++state with a characteristic time which is equal to the reciprocal of the
++Einstein A coefficient for the transition. The purpose of this note is to point
++out that statement is not entirely precise.
++
++To see this we note that the solution to the nonlinear density-matrix equation,
++for the diagonal matrix elements in a two-level decay, in a spontaneous
++transition with no applied fields can be written
  $$
-+\tag{1}
+ \tag{1}
  \rho_{11}(t) = 1/[\exp(-A_{21}(t-t_m))+1],
- $$
- $$
-+\tag{2}
- \rho_{22}(t) = [\exp(A_{21}(t-t_m))+1]^{-1},
- $$
-  where
- $\rho_{11}(t) + \rho_{22}(t) = 1$
- $$
-+\tag{3}
- \text{and } t_m = A_{21}^{-1}[\ln(\rho_{22}(0)/\rho_{11}(0))]
- $$
-  is
-@@ -35,9 +38,8 @@
- neglect that part of the self-field which yields only a small frequency
- shift, the solution for the off-diagonal elements are given by
- $$
-+\tag{4}
+@@ -42,45 +42,43 @@
  \rho_{12}(t) = \rho_{21}^{*}(t)
--$$
--$$
  = \frac{\rho_{12}(0)}{\rho_{22}(0)} \frac{\exp(-i\omega_{21}t+A_{21}t/2)}{\exp(A_{21}(t-t_m))+1},
  $$
- where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
-@@ -94,7 +96,7 @@
+-where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial
+-values of the coefficients ($n=1,2$) in the wave-function of the atom
+-which describes the transition process. We first note, that the value of
+-$t_m$ determines the point at which the maximum atomic-dipole moment
+-occurs [the effective-dipole moment of the transition is proportional
+-to $(\rho_{12}+\rho_{21})$]. In Jaynes's semiclassical theory, it is
+-assumed that the expectation value of the dipole moment of the atom is
+-responsible for the radiation process. Hence, an excited atom radiates
+-slowly until its dipole moment grows to an appreciable value, and then
+-begins to radiate its energy away very rapidly. While this
+-characteristic behavior was duly noted by Jaynes and Crisp in their
+-article, the role that the value of $t_m$ (the point in time where the
+-maximum dipole radiation occurs) plays in determining the average
+-lifetime of the atom was not clarified. While it is certainly true that
+-Eqs. (1), (2), and (4) imply that most of the transition energy is
+-radiated during a time interval which is proportional to the reciprocal
+-of the associated Einstein A coefficient $A_{21}$, this \"characteristic
+-energy transfer time\" is not equal to the average lifetime of the atom.
+-In particular, if we define the average lifetime of the atom as that
+-time required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of
+-its initial value, we find from Eq. (2) that
++where $\rho_{nn}(0) = C_n^*(0)C_n(0)$ and $C_n(0)$ are the initial values of the
++coefficients ($n=1,2$) in the wave-function of the atom which describes the
++transition process. We first note, that the value of $t_m$ determines the point
++at which the maximum atomic-dipole moment occurs [the effective-dipole moment
++of the transition is proportional to $(\rho_{12}+\rho_{21})$].
++
++In Jaynes's semiclassical theory, it is assumed that the expectation value of
++the dipole moment of the atom is responsible for the radiation process. Hence,
++an excited atom radiates slowly until its dipole moment grows to an appreciable
++value, and then begins to radiate its energy away very rapidly. While this
++characteristic behavior was duly noted by Jaynes and Crisp in their article,
++the role that the value of $t_m$ (the point in time where the maximum dipole
++radiation occurs) plays in determining the average lifetime of the atom was not
++clarified. While it is certainly true that Eqs. (1), (2), and (4) imply that
++most of the transition energy is radiated during a time interval which is
++proportional to the reciprocal of the associated Einstein A coefficient
++$A_{21}$, this \"characteristic energy transfer time\" is not equal to the
++average lifetime of the atom.
++
++In particular, if we define the average lifetime of the atom as that time
++required for $\rho_{22}(0) = 1$, at $t=0$, to decay to $1/e$th of its initial
++value, we find from Eq. (2) that
+ $$
+ \tau_2 \approx (A_{21})^{-1} \ln[(1.718)\rho_{22}(0)/\rho_{11}(0)](\text{sec}).
+ $$
  
- The semiclassical or \"neoclassical\" theory (NCT) in question was
- developed by the writer and his
--colleagues[^6][^7][^8]^,^[^9]^,^[^10]^,^[^11] with the following
-+colleagues[^6][^7][^8][^9][^10][^11] with the following
- motivation. Our present quantum electrodynamics (QED) has not achieved
- any satisfactory final form; it contains many important \"elements of
- truth,\" but is mixed up with clear \"elements of nonsense.\" The
-@@ -130,6 +132,7 @@
- excited atom proceeds to radiate a spontaneous emission pulse with field
- amplitude at a given point of the form
- $$
-+\tag{1}
- Ce^{-At/2} \cos(\omega t + \theta),
- $$
-  where $\hbar\omega = E_2 - E_1$,
-@@ -138,6 +141,7 @@
- 
- In NCT, the predicted spontaneous emission pulse is of the form
- $$
-+\tag{2}
- C^\prime \text{sech}[A(t-t_m)] \cos[\omega(t-t_m) + \theta],
- $$
-  where
+-Hence, we see that the initial values of $\rho_{22}(0)$
+-and $\rho_{11}(0)$ [where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a
+-critical role in determining the atoms average lifetime, while the
+-\"characteristic energy transfer time\" (occurring in some interval of
+-time $\Delta t$ about $t_m$) is essentially independent of the atoms
+-initial condition at $t=0$. The implication here is that there is a need
+-to include an additional element into the theory, one which can account
+-for the experimental fact that the average lifetime of an atom is
+-essentially independent of its preparation. One possibility is that the
+-presence of a \"semiclassically described\" vacuum state[^3] might
+-produce the required behavior when properly included in the associated
+-nonlinear density-matrix equations of the theory.
+-
+-[^4]
++Hence, we see that the initial values of $\rho_{22}(0)$ and $\rho_{11}(0)$
++[where $\rho_{11}(0) + \rho_{22}(0) = 1$] play a critical role in determining
++the atoms average lifetime, while the \"characteristic energy transfer time\"
++(occurring in some interval of time $\Delta t$ about $t_m$) is essentially
++independent of the atoms initial condition at $t=0$. The implication here is
++that there is a need to include an additional element into the theory, one
++which can account for the experimental fact that the average lifetime of an
++atom is essentially independent of its preparation. One possibility is that the
++presence of a \"semiclassically described\" vacuum state[^3] might produce the
++required behavior when properly included in the associated nonlinear
++density-matrix equations of the theory.[^4]
+ ## Reply to Leiter's Comment {#reply-to-leiters-comment .unnumbered}
+ E. T. Jaynes\
+ *Arthur Holly Compton Laboratory of Physics, Washington University, St.
 
 tokens used
-18,987
+19,656
 

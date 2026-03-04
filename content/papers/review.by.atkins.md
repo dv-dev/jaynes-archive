@@ -31,8 +31,8 @@ inferences.
 One of these inferences, and perhaps the main functional use of entropy
 in thermodynamics, is to predict the work available in an isothermal
 process: $W = T \Delta S - \Delta U$. Some have argued that, since
-entropy has this \"objective\" physical meaning, it cannot represent a
-mere \"subjective\" measure of human information. However, we would
+entropy has this "objective" physical meaning, it cannot represent a
+mere "subjective" measure of human information. However, we would
 observe that when we cause an interaction of some kind with a system,
 whether energy flows in one direction or the other depends on what
 microstate that system is in.
@@ -52,38 +52,38 @@ comprehended their message only adds lustre to their accomplishments.
 [^jaynes1965]: E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.* **33**, 391.
 
 ## References {#references .unnumbered}
-P. W. Atkins, 1986, \"Entropy in relation to complete knowledge\",
+P. W. Atkins, 1986, "Entropy in relation to complete knowledge",
 *Contemp. Phys.*, **27**, 257.
 
-E. T. Jaynes, 1965, \"Gibbs vs Boltzmann Entropies\", *Am. J. Phys.*
+E. T. Jaynes, 1965, "Gibbs vs Boltzmann Entropies", *Am. J. Phys.*
 **33**, 391. Here we demonstrate a generalised second law based on
 $S = k \log W$ as a necessary condition for reproducibility, even for
 changes between nonequilibrium macrostates. Note a typographical error:
-at a crucial point of the \"anthropomorphic\" argument the word
-\"levels\" should be read as \"levers\".
+at a crucial point of the "anthropomorphic" argument the word
+"levels" should be read as "levers".
 
 E. T. Jaynes, 1983, *Papers on Probability, Statistics, and Statistical
 Physics*, edited by R. Rosenkrantz (D. Reidel, Dordrecht-Holland).
 Reprints of the above article and 12 others, with commentaries. See
 particularly pages 18, 78, 238.
 
-E. T. Jaynes, 1985, \"Generalized Scattering\", in *Maximum Entropy and
+E. T. Jaynes, 1985, "Generalized Scattering", in *Maximum Entropy and
 Bayesian Methods in Inverse Problems*, edited by T. W. Grandy and C. R.
 Smith, (D. Reidel, Dordrecht-Holland), pp. 377-398. Notes the relation
 between the Clausius phenomenological entropy and the von Neumann
 information entropy.
 
-E. T. Jaynes, 1985, \"Macroscopic Prediction\", in *Complex Systems -
+E. T. Jaynes, 1985, "Macroscopic Prediction", in *Complex Systems -
 Operational Approaches*, edited by H. Haken, (Springer-Verlag, Berlin),
 pp. 254-269. Gives a hint of the generality of applications of
 $S = k \log W$, once we see its connection with information.
 
-E. T. Jaynes, 1986, \"Predictive Statistical Mechanics\", in *Frontiers
+E. T. Jaynes, 1986, "Predictive Statistical Mechanics", in *Frontiers
 of Nonequilibrium Statistical Physics*, edited by G. T. Moore and M. O.
 Scully, (Plenum Press, New York), pp 33-56. Cites many recent
 applications of entropy in astronomy, geophysics, and molecular biology.
 
-W. T. Grandy, 1987 \"Foundations of Statistical Mechanics\" (D. Reidel,
+W. T. Grandy, 1987 "Foundations of Statistical Mechanics" (D. Reidel,
 Dordrecht-Holland). A comprehensive review of this approach. All the
 same ideas are expressed, in slightly different words, with massive
 documentation.

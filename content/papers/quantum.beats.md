@@ -56,6 +56,7 @@ and Noise in Parametric Processes." They state in the abstract:
 > amplification process is completely valid provided we take correctly
 > into account the response of the amplifier to the input zero-point
 > fields. This result is valid for inputs of arbitrarily small power.
+
 Their evident surprise at finding this from a QED analysis is shown by
 the number of times essentially the same remark is repeated in the
 article. And indeed, their result conflicts with what we have all been
@@ -119,7 +120,9 @@ induce oscillations of the beat frequency $\omega_\alpha - \omega_\beta$
 in some detection device. But whether these beats can or cannot be seen
 is entirely a question of the skill and ingenuity of the experimenter
 and does not concern the theoretician, whose job is finished when he has
-described, by calculation, the real physical situation. Or to put it
+described, by calculation, the real physical situation.
+
+Or to put it
 more strongly: in classical physics, it is simply not in his area of
 competence for the theoretician to make pronouncements about what can
 and cannot be measured in the laboratory, any more than for the
@@ -135,7 +138,9 @@ only: "What will be the result of this particular experiment?" Even then
 it usually gives, not a definite answer, but a set of possible answers,
 with their probabilities. As Bohr stressed over and over again,
 a physical phenomenon is defined only by specifying the entire
-experimental arrangement used to observe it. (Bohr even added the
+experimental arrangement used to observe it.
+
+(Bohr even added the
 stricture that the experimental arrangement must be described in
 classical terms, although Wigner$^{(10)}$ asked, plaintively, "But why
 must I describe it in classical terms? What will happen to me if I
@@ -232,7 +237,9 @@ at will, force the radiation field into either: (1) a state with a known
 one of the photons $\hbar\omega_\alpha, \hbar\omega_\beta$ present, and
 no possibility of interference effects in any subsequent measurement:
 (2) a state with both $\hbar\omega_\alpha, \hbar\omega_\beta$ present
-with a known relative phase. Lower-level interference effects are then
+with a known relative phase.
+
+Lower-level interference effects are then
 not only observable, but predictable. And we can decide which to do
 after the emission is over and the radiation is far from the atom, so
 there can be no thought of any physical influence on the radiation!

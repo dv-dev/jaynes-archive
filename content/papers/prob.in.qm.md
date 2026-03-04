@@ -16,6 +16,7 @@ abstract: >
   information. We examine in detail only one of the issues this raises:
   the reality of zero-point energy.
 ---
+
 ## Introduction: How We Look at Things {#introduction-how-we-look-at-things .unnumbered}
 In this workshop we are venturing into a smoky area of science where
 nobody knows what the real truth is. Such fields are always dominated by
@@ -72,6 +73,7 @@ literature.
 First we note a more immediate example of the effect of how we look at
 things, to support by physical arguments what is suggested later from
 probability considerations.
+
 ## How Do We Look at Gravitation and QED? {#how-do-we-look-at-gravitation-and-qed .unnumbered}
 In teaching relativity theory, one may encounter a bright student who
 raises this objection: \"Why should such a fundamental thing as the
@@ -183,7 +185,7 @@ $\int \int J_{\mu}(x) D(xy) J_{\mu}(y)dxdy$. Terms such as
 $\int J_{\mu}(x)A_{\mu}^{(0)}(x)dx$ involving the quantized free field
 in its ground state cancel out because it is uncorrelated with the local
 state of matter. This has been confirmed in part by the \"source-field
-theory\"\* which arose in quantum optics some years ago \[Milonni et al
+theory\"[^2] which arose in quantum optics some years ago \[Milonni et al
 (1973), Senitzky (1973), Allen & Eberly (1975)\]. It was found that, at
 least in lowest nonvanishing order, observable effects such as
 spontaneous emission and the Lamb shift, can be regarded as arising from
@@ -199,7 +201,8 @@ field only tags along, putting an infinite uncertainty into the initial
 conditions (that is, a finite uncertainty into each of an infinite
 number of field modes) and thus giving us an infinite "zero-point
 energy\", but not producing any observable electrodynamic effects. One
-wonders, then: If we don't use it, do we really need it?†
+wonders, then: If we don't use it, do we really need it?[^3]
+
 ## How Do We Look at Basic Quantum Theory? {#how-do-we-look-at-basic-quantum-theory .unnumbered}
 Let us back off for a moment for a more general view of these things.
 Current thinking about the role of information in science applies to all
@@ -235,7 +238,7 @@ interpretation is a mass of contradictions and irrationality and that,
 while theoretical physics can of course continue to make progress in the
 mathematical details and computational techniques, there is no hope of
 any further progress in our basic understanding of Nature until this
-conceptual mess is cleared up.[^2][^3]
+conceptual mess is cleared up.
 
 Because this position seems to arouse fierce controversy, let me stress
 our motivation: if quantum theory were not successful pragmatically, we
@@ -402,6 +405,7 @@ have some discernible structure of the kind that we would need in order
 to unscramble it. I do not think this problem is unsolvable in principle
 -- in fact, one can now see vaguely how it is going to work out -- only
 nobody has yet seen how to handle the specific details.
+
 ## Probability Theory as the Logic of Science {#probability-theory-as-the-logic-of-science .unnumbered}
 Let us note first an older and simpler field in which basically the same
 questions and the same arguments are rampant. For some 200 years a
@@ -484,7 +488,7 @@ volumes of the Annual (since 1981) MAXENT workshops; particularly the
 one in Cambridge, England in August 1988, wherein our present
 understanding of entropy leads to a generalized Second Law of
 Thermodynamics, applied in what we think is the first quantitative
-application of the second law in biology.\* But unfortunately, most of
+application of the second law in biology.[^4] But unfortunately, most of
 the problems solvable by pencil-and-paper methods were too trivial to
 put this issue to a real test; although the results never conflicted
 with common sense, neither did they extend it very far beyond what
@@ -514,7 +518,7 @@ of the theories in the light of the data. It was interesting, although
 to us not surprising, to find that this leads automatically to an
 improved, quantitative version of Occam's Razor: prefer the simpler
 and/or more plausible theory unless the other gives a significantly
-better fit to the data.[^4]
+better fit to the data.
 
 Many computer printouts have now been made at Cambridge University, of
 image reconstructions in optics and radio astronomy; and at Washington
@@ -549,6 +553,7 @@ information specified, independently of anybody's personality, opinions,
 or hopes. It is \"objectivity\" in this sense that we need if
 information is ever to be a sound basis for new theoretical developments
 in science.
+
 ## How Would Quantum Theory Be Different? {#how-would-quantum-theory-be-different .unnumbered}
 The aforementioned successful applications of probability theory as
 logic were concerned with data processing, while the original maximum
@@ -560,6 +565,7 @@ predictions must be \"right\"; only that they are the best that can be
 made from the information we have. They do, after all, the most that any
 science could ever have pretended to do; yet some complain bitterly when
 cherished illusions of \"objectivity\" are replaced by facts.
+
 We would like to see quantum theory in a similar way; since a pure state
 $\psi$ does not contain enough information to predict all experimental
 results, we would like to see QM as the process of making the best
@@ -567,6 +573,7 @@ predictions possible from the information that we have when we know
 $\psi$. If we could either succeed in this, or prove that it is
 impossible, we would know far more about the basis of our present theory
 and about future possibilities than we do today.
+
 Einstein wanted to do something very similar; but he offered only
 criticisms rather than constructive suggestions. What undoubtedly
 deterred both Einstein and Schrödinger is this: one sees quickly that
@@ -576,6 +583,7 @@ probabilities calculated within a QM pure state $\psi$, according to the
 standard rules of our textbooks are now to be interpreted as expressions
 of human ignorance of the true physical state. The results depend on the
 representation in a way that makes this naive approach impossible.
+
 For example, if we expand $\psi$ in the energy representation:
 $\psi(x,t) = \sum a_n(t)u_n(x)$, the physical situation cannot be
 described merely as \"the system may be in state $u_1(x)$ with
@@ -586,6 +594,7 @@ theory, the QM
 predictions of quantities that are diagonal in the $\{u_n\}$
 representation; but the relative phases of the amplitudes $a_n$ have a
 definite physical meaning that would be lost by that approach.
+
 Even though they have no effect on probabilities $p_n$ in the energy
 representation, these phases will have a large effect on probabilities
 in some other representation. They affect the predicted values of
@@ -593,7 +602,8 @@ quantities that are not diagonal in the $\{u_n\}$ representation, in a
 way that is necessary for agreement with experiment. For example, the
 relative phases of degenerate energy states of an atom determine the
 polarization of its resonance radiation, which is an experimental fact;
-so there has to be something physically real in them.†
+so there has to be something physically real in them.[^5]
+
 In other words, we cannot say merely that the atom is \"in\" state $u_1$
 or \"in\" state $u_2$ as if they were mutually exclusive possibilities
 and it is only we who are ignorant of which is the true one; in some
@@ -601,6 +611,7 @@ sense it must be in both simultaneously, or as Pauli would say, the atom
 itself does not know what energy state it is in. This is the
 conceptually disturbing, but experimentally required, function of the
 superposition principle.
+
 We conjecture that this is the circumstance that also deterred Niels
 Bohr from making ontological statememts, and forced him to use such
 cautious language. He would never say (as some of his unperceptive
@@ -609,6 +620,7 @@ the n'th state, which would be an unjustified ontological statement;
 rather, he would say that $|a_n|^2$ is the probability that, if we
 measure its energy, we shall find the value corresponding to the n'th
 state.
+
 But notice that there is nothing conceptually disturbing in the
 statement that a vibrating bell is in a linear combination of two
 vibration modes with a definite relative phase; we just interpret the
@@ -652,7 +664,7 @@ experimentally observable \"quantum fluctuations\" in F. Some who pose
 as disciples of Bohr even claim that these fluctuations are real
 physical events that take place constantly whether or not any
 measurement is being made (although of course that does violence to
-Bohr's position, as we have just seen).[^5] For example, at the
+Bohr's position, as we have just seen). For example, at the
 1966 Rochester Coherence Conference, Roy Glauber assured us that vacuum
 fluctuations are \"very real things\" and that any attempts to dispense
 with EM field quantization are therefore doomed to failure. It can be
@@ -677,6 +689,7 @@ vacuum fluctuations to be real events after all; (2) Bayesian
 probability at this point is not only consistent with the experimental
 facts, it offers us some striking advantages in clearing up past
 difficulties that have worried generations of physicists.
+
 ## Is Zero-Point Energy Real? {#is-zero-point-energy-real .unnumbered}
 For many years we have had a strange situation; on the one hand,
 \"Official\" QED has never taken the infinite ZP energy problem
@@ -740,6 +753,7 @@ $$W_{RR} = \frac{E_{RR}^2}{8\pi} = \frac{1}{18\pi} \mu^2 \left(\frac{\omega}{c}\
 But (8) and (10) are identical! A radiating atom is indeed interacting
 with an electric field of just the magnitude predicted by the zero-point
 calculation; but this is the atom's own radiation reaction field.
+
 Now we can see that this needed field is generated by the radiating
 atom, automatically but in a more economical way; only where it is
 needed, when it is needed, and in the frequency band needed. Spontaneous
@@ -793,6 +807,7 @@ committing ourselves to electromagnetic or acoustical fields. Thus the
 vibrations of a plucked guitar string are also damped and shifted by
 their coupling to the acoustical radiation field, according to the
 following equations.
+
 ## The Lamb Shift in Classical Mechanics {#the-lamb-shift-in-classical-mechanics .unnumbered}
 Let there be n 'field oscillators' with coordinates and momenta
 $\{q_i(t), p_i(t)\}$, and one 'Extra Oscillator' $\{Q(t), P(t)\}$, a
@@ -837,9 +852,10 @@ are the \"spontaneous emission rate\" and \"radiative frequency shift\"
 exhibited by the EO due to its coupling to the field modes. We note that
 $\Delta(\Omega)$ and $\Gamma(\omega)$ form a Hilbert transform pair, a
 Kramers-Kronig type dispersion relation usually considered as expressing
-causality.† In this approximation, the general solution (14) becomes the
+causality.[^6] In this approximation, the general solution (14) becomes the
 exponentially damped solution of a linear differential equation with
 loss: $\ddot{Q} + 2\Gamma \dot{Q} + (\Omega + \Delta)^2 Q = 0$.
+
 As a check, it is a simple homework problem to compare our damping
 factor $\Gamma$, with the well-known Larmor radiation law, by inserting
 into the above formulas the free-space mode density function
@@ -857,7 +873,7 @@ material.
 It is clear from this derivation that the spontaneous emission and the
 radiative frequency shift do not require field fluctuations, since we
 started with the explicit initial condition of a quiescent field:
-$q_i = \dot{q}_i = 0$.[^6] The damping and shifting exhibited above
+$q_i = \dot{q}_i = 0$. The damping and shifting exhibited above
 are due entirely to the source field reacting back on the source, as
 expressed by the integral in (13).
 
@@ -902,6 +918,7 @@ But this still leaves a mystery surrounding the Feynman-Power
 calculation, which obtains the Lamb shift from the change in total ZP
 energy in the space surrounding the hydrogen atom; let us explain how
 that can be.
+
 ## Classical Subtraction Physics {#classical-subtraction-physics .unnumbered}
 Consider now the second, static method of calculating the effect of
 field coupling. One of the effects of the EO is to change the
@@ -1072,6 +1089,7 @@ fields (1). It does not require ZP energy to reside throughout all
 space, any more than does the van der Waals force. Thus we need not
 worry about the effect of ZP energy on the Kepler ratio (3) or the
 cosmological constant, after all.
+
 ## Conclusion {#conclusion .unnumbered}
 We have explored only a small part of the issues that we have raised;
 but it is the part that has seemed the greatest obstacle to a unified
@@ -1097,6 +1115,7 @@ thing that is infinite is the uncertainty of the prediction. In our
 view, this represents the beginning of a far more rational and
 satisfactory way of looking at quantum theory, in which the important
 research problems will appear entirely different than they do now.
+
 ## References {#references .unnumbered}
 L. Allen & J. H. Eberly (1975), *Optical Resonance and Two-Level Atoms*,
 J. Wiley & Sons, New York, Chap. 7.
