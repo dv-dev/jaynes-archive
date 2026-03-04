@@ -9,6 +9,7 @@ tags: ["maximum entropy", "statistical mechanics", "history", "irreversible proc
 <blockquote class="border-l-4 border-gray-300 pl-4 italic my-4">
 <strong>Note:</strong> This digital version is transcribed from a retypeset version available at <a href="https://github.com/arxetype/jaynes78/blob/master/main.pdf">https://github.com/arxetype/jaynes78/blob/master/main.pdf</a>.
 </blockquote>
+
 ## Historical Background
 The ideas to be discussed at this Symposium are found clearly expressed already in ancient sources, particularly the Old Testament, Herodotus, and Ovennus.
 
@@ -27,6 +28,7 @@ Even in the most elementary homework problems, such as "Find the probability of 
 But by what reasoning does one arrive at this initial assignment?
 
 If it is questioned, how shall we defend it?
+
 ### The First Line: Bernoulli to Cox
 The basis underlying such initial assignments was stated as an explicit formal principle in the *Ars Conjectandi* of James (= Jacob) Bernoulli (1713).
 
@@ -89,6 +91,7 @@ The result $A4$ was first given in this generality by Laplace; it had been found
 And in turn, the de Moivre-Laplace theorem $A4$ became the ancestor of our present Central Limit Theorem.
 
 Since these limit theorems are sometimes held to be the most important and sophisticated fruits of probability theory, we note that they depend crucially on the assumption of independence of different trials.
+
 The slightest positive correlation between trials $i$ and $j$, if it persists for arbitrarily large $|i-j|$, will render these theorems qualitatively incorrect.
 
 Laplace's contributions to probability theory go rather far beyond mere analytical refinements of other peoples’ results.
@@ -134,6 +137,7 @@ This would certainly seem to be the neatest and simplest imaginable solution to 
 Laplace, in his famous memoir of 1774 on the "probabilities of causes," perceived the principle underlying inverse probabilities in far greater generality. Let $E$ stand for some observable event and $\{C_1, \ldots C_N\}$ the set of its conceivable causes.
 
 Suppose that we have found, according to some conceptual model, the "sampling distribution" or "direct" probabilities of $E$ for each cause: $P(E| C_i),\ i=1,2,\ldots,N$.
+
 Then, says Laplace, if initially the causes $C_i$ are considered equally likely, then having seen the event $E$, the different causes are indicated with probability proportional to $P(E | C_i)$.
 That is, with uniform prior probabilities, the posterior probabilities of the $C_i$, are
 $$
@@ -143,6 +147,7 @@ $$
 This is a tremendous generalization of the Bernoulli-Bayes results $A2$, $A5$.
 
 If the event $E$ consists in finding m successes in $n$ trials, and the causes $C_i$ correspond to the possible values of $M$ in the Bernoulli model, then $P(E| C_i)$ is the binomial distribution $A2$; and in the limit $N\to\infty$ $A6$ goes into Bayes' result $A5$.
+
 Later, Laplace generalized $A6$ further by noting that, if initially the $C_i$ are not considered equally likely, but have prior probabilities $P(C_i| I)$, where $I$ stands for the prior information, then the terms in $A6$ should be weighted according to $P(C_i| I):$
 $$
 	P(C_i| E, I) = \frac{P(E| C_i) P(C_i| I)}{\sum_{j} P(E| C_j) P(C_j| I)} \tag{A7}
@@ -174,11 +179,15 @@ More importantly, it became apparent that, in spite of first appearances, the re
 Recall, Bernoulli's original motivation was that the Principle of Insufficient Reason is inapplicable in so many real problems, because we are unable to break things down into an enumeration of "equally possible" cases.
 
 His hope--left unrealized at his death in 1705--had been that, by inversion of his theorem one could avoid having to use Insufficient Reason.
+
 Yet when the inversion problem was finally solved by Bayes and Laplace, the prior probabilities $P(C_i | I)$ that Bernoulli had sought to avoid, intruded themselves inevitably right back into the picture!
+
 The only useful results Laplace got came from $A6$, based on the uniform prior probabilities $P(C_i| I) = 1/N$ from the Principle of Insufficient Reason.
+
 That is, of course, not because Laplace failed to understand the generalization $A7$ as some have charged--it was Laplace who, in his *Essai Philosophique*, pointed out the need for that generalization.
 
 Rather, Laplace did not have any principle for finding prior probabilities in cases where the prior information fails to render the possibilities "equally likely."
+
 At this point, the history of statistical theory takes a sharp 90° turn away from the original goal, and we are only slowly straightening out again today.
 
 One might have thought, particularly in view of the great pragmatic success achieved by Laplace with $A6$, that the next workers would try to build constructively on the foundations laid down by him.
@@ -192,7 +201,9 @@ Totally ignoring the successful results they had yielded, Laplace's methods base
 The main early references to this counter-stream of thought are Ellis (1842), Boole (1854), Venn (1866), and von Mises (1928).
 
 As already emphasized, Bernoulli's definition of probability $A1$ was developed for the purpose of representing mathematically a particular state of knowledge; and the equations of probability theory then represent the process of plausible, or inductive, reasoning in cases where there is not enough information at hand to permit deductive reasoning.
+
 In particular, Laplace's result $A7$ represents the process of "learning by experience," the prior probability $P(C| I)$ changing to the posterior probability $P(C| E,I)$ as a result of obtaining new evidence $E$.
+
 This counter-stream of thought, however, rejected the notion of probability as describing a state of knowledge, and insisted that by "probability" one must mean only "frequency in a random experiment." For a time this viewpoint dominated the field so completely that those who were students in the period 1930-1960 were hardly aware that any other conception had ever existed.
 
 If anyone wishes to study the properties of frequencies in random experiments he is, of course, perfectly free to do so; and we wish him every success.
@@ -207,6 +218,7 @@ Now the historical priority belongs clearly to Bernoulli and Laplace.
 Therefore, in the interests not only of responsible scholarship, but also of clear exposition and to avoid becoming entangled in semantic irrelevancies, we ought to use the word "probability" in the original sense of Bernoulli and Laplace; and if we mean something else, call it something else.
 
 With the usage just recommended, the term "frequency theory of probability" is a pure incongruity; just as much so as "theory of square circles."
+
 One might speak properly of a "frequency theory of inference," or the better term "sampling theory," now in general use among statisticians (because the only distributions admitted are the ones we have called sampling distributions).
 
 This stands in contrast to the "Bayesian theory" developed by Laplace, which admits the notion of probability of an hypothesis.
@@ -247,11 +259,13 @@ But just at the right moment there appeared a work that removed all doubts and s
 An unpretentious little article by Professor R. T. Cox (1946) turned the problem under debate around and, for the first time, looked at it in a constructive way.
 
 Instead of making dogmatic *assertions* that it is or is not legitimate to use probability in the sense of degree of plausibility rather than frequency, he had the good sense to ask a *question*:
+
 Is it possible to construct a consistent set of mathematical rules for carrying out plausible, rather than deductive, reasoning?
 
 He found that, if we try to represent degrees of plausibility by real numbers, then the conditions of consistency can be stated in the form of functional equations, whose general solutions can be found.
 
 The results were: out of all possible monotonic functions which might in principle serve our purpose, there exists a particular scale on which to measure degrees of plausibility which we henceforth call *probability*, with particularly simple properties.
+
 Denoting various propositions by $A$, $B$, etc., and using the notation, $AB\equiv\text{"Both A and B are true,"}$ $\bar{A}\equiv\text{"A is false,"}$ $p(A| B) \equiv \text{probability of $A$ given $B$}$, the consistent rules of combination take the form of the familiar product rule and sum rule:
 $$
 \begin{aligned}
@@ -286,7 +300,9 @@ Bayes and Laplace had used uniform prior densities, as the most obvious analog o
 But it was clear, even in the time of Laplace, that this rule is ambiguous because it is not invariant under a change of parameters.
 
 A uniform density for $\theta$ does not correspond to a uniform density for $\alpha=\theta^3$; or $\beta = \log \theta$; so for which choice of parameters should the uniform density apply?
+
 In the first (1939) Edition of his book, Jeffreys made a tentative start on this problem, in which he found his now famous rule: to express ignorance of a scale parameter $\sigma$, whose possible domain is $0 \lt \sigma \lt \infty$, assign uniform prior density to its logarithm: $P(\sigma | I) = d \sigma/\sigma$.
+
 The first arguments advanced in support of this rule were not particularly clear or convincing to others (including this writer).
 
 But other desiderata were found; and we have now succeeded in proving via the integral equations of marginalization theory (Jaynes, 1979) that Jeffreys’ prior $d \sigma/\sigma$ is, in fact, uniquely determined as the only prior for a scale parameter that is "completely uninformative" in the sense that it leads us to the same conclusions about other parameters $\theta$ as if the parameter $\sigma$ had been removed from the model.
@@ -315,6 +331,7 @@ Today, most active research in statistics is Bayesian, a good deal of it directe
 This history of basic statistical theory, showing how developments over more than two centuries set the stage naturally for the Principle of Maximum Entropy, has been recounted at some length because it is unfamiliar to most scientists and engineers.
 
 Although the second line converging on this principle is much better known to this audience, our account can be no briefer because there is so much to be unlearned.
+
 ### The Second Line: Maxwell, Boltzmann, Gibbs, Shannon
 Over the past 120 years another line of development was taking place, which had astonishingly little contact with the "statistical inference" line just described.
 
@@ -323,6 +340,7 @@ In the 1850's James Clerk Maxwell started the first serious work on the applicat
 He was confronted immediately with the problem of assigning initial probabilities to various positions and velocities of molecules.
 
 To see how he dealt with it, we quote his first (1859) words on the problem of finding the probability distribution for velocity direction of a spherical molecules after an impact: "*In order that a collision may take place, the line of motion of one of the balls must pass the center of the other at a distance less than the sum of their radii; that is, it must pass through a circle whose centre is that of the other ball, and radius the sum of the radii of the balls. Within this circle every position is equally probable, and therefore ---.*"
+
 Here again, as that necessary first step in a probability analysis, Maxwell had to apply the Principle of Indifference; in this case to a two-dimensional continuous variable.
 
 But already at this point we see a new feature.
@@ -528,7 +546,9 @@ The idea became associated later with the von Mises "Kollektiv" but was actually
 It is important for our purposes to appreciate this little historical fact and to note that, far from having invented the notion of an ensemble, Gibbs himself (*loc cit.*, p. 17) de-emphasized its importance.
 
 We can detect a hint of cynicism in his words when he states: "It is in fact customary in the discussion of probabilities to describe anything which is imperfectly known as something taken at random from a great number of things which are completely described."
+
 He continues that, if we prefer to avoid any reference to an ensemble of systems, we may recognize that we are merely talking about "the probability that the phase of a system falls within certain limits at a certain time ---."
+
 In other words, even in 1902 it was customary to talk about a probability as if it were a frequency; even if it is a frequency only in an imaginary *ad hoc* collection invented just for that purpose.
 
 Of course, any probability whatsoever can be thought of in this way if one wishes to; but Gibbs recognized that in fact we are only describing our imperfect knowledge about a single system.
@@ -536,6 +556,7 @@ Of course, any probability whatsoever can be thought of in this way if one wishe
 The reason it is important to appreciate this is that we then understand Gibbs’ later treatment of several topics, one of which had been thought to be a serious omission on his part.
 
 If we are describing only a state of knowledge about a single system, then clearly there can be nothing physically real about frequencies in the ensemble; and it makes no sense to ask, "which ensemble is the correct one?"
+
 In other words: different ensembles are not in $1:1$ correspondence with different physical situations; they correspond only to different states of knowledge about a single physical situation.
 
 Gibbs understood this clearly; and that, I suggest, is the reason why he does not say a word about ergodic theorems, or hypotheses, but instead gives a totally different reason for his choice of the canonical ensembles.
@@ -570,7 +591,9 @@ But I did not have any hint as to exactly what that class is; and needless to sa
 We stress that, on this matter of the exact status of ensembles, you have to read Gibbs’ own words in order to know accurately what his position was.
 
 For example, ter Haar (1954, p. 128) tells us that "Gibbs introduced ensembles in order to use them for statistical considerations rather than to illustrate the behavior of physical systems ---."
+
 But Gibbs himself (*loc. cit.* p. 150) says, "--- our ensembles are chosen to illustrate the probabilities of events in the real world ---."
+
 It might be thought that such questions are only matters of personal taste, and a scientist ought to occupy himself with more serious things.
 
 But one's personal taste determines which research problems he believes to be the important ones in need of attention; and the total domination by the frequency view caused all attention to be directed instead to the aforementioned "ergodic" problems; to justify the methods of Statistical Mechanics by proving from the dynamic equations of motion that the canonical ensemble correctly represents the frequencies with which, over a long time, an individual system coupled to a heat bath, finds itself in various states.
@@ -619,7 +642,9 @@ The flow will be metrically transitive on some (unknown) sub-space $S^\prime$ de
 Furthermore, the fraction of time that the system spends in any particular region $s$ in $S^\prime$ is equal to the ratio of phase volumes: $\sigma(s)/\sigma(S^\prime)$.
 
 These are just the properties that Boltzmann and Maxwell wanted; but they apply only to some subspace $S^\prime$ *which cannot be known until we have determined all the uniform integrals of the motion*. That is the purely dynamical theorem; and I think that if today we could resurrect Maxwell and tell it to him, his reaction would be: "Of course, that is obviously right and it is just what I was trying to say. The trouble was that I was groping for words, because in my day we did not have the mathematical vocabulary, arising out of measure theory and the theory of transformation groups, that is needed to state it precisely."
+
 That more valuable result is tantalizingly close when Truesdell considers "--- the idea that however many integrals a system has, generally we shall not know the value of any but the energy, so we should assign equal *a priori* probability to the possible values of the rest, which amounts to disregarding the rest of them. Now an idea of this sort, by itself, is just unsound."
+
 It is indeed unsound, in the context of Truesdell's purpose to calculate correct time averages from the dynamics; for those time averages must in general depend on all the integrals of the motion, whether or not we happen to know about them.
 
 The point that he just fails to see is that if, nevertheless, we only have the courage to go ahead and do the calculation he rejects as unsound, we can then compare its results with experimental time averages.
@@ -771,6 +796,7 @@ The last statement above breaks into new ground, and claims for statistical mech
 Just for that reason, the issue is no longer one of mere philosophical preference for one viewpoint or another; the issue is now one of definite mathematical fact.
 
 For the assertion just made can be put to the test by carrying out specific calculations, and will prove to be either right or wrong.
+
 ### Some Personal Recollections
 All this was clear to me by 1951; nevertheless, no attempt at publication was made for another five years.
 
@@ -791,6 +817,7 @@ Today, it seems trivially easy to answer Professor Uhlenbeck's objection as foll
 "Certainly, different people have different amounts of ignorance.
 
 The entropy of a thermodynamic system is a measure of the degree of ignorance of a person whose *sole knowledge about its microstate consists of the values of the macroscopic quantities $X_i$ which define its thermodynamic state*. This is a completely `objective' quantity, in the sense that it is a function only of the $X_i$, and does not depend on anybody's personality. There is then no reason why it cannot be measured in the laboratory."
+
 It was my total inability to communicate this argument to Professor Uhlenbeck that caused me to spend another five years thinking over these matters, trying to write down my thoughts more clearly and explicitly, and making sure in my own mind that I could answer all the objections that Uhlenbeck and others had raised.
 
 Finally, in the Summer of 1956 I collected this into two papers, sending the first off to the Physical Review on August 29.
@@ -842,7 +869,9 @@ But once the argument is understood, it is clear that it applies equally well wh
 I hope that this historical account will also convey to the reader that the Principle of Maximum Entropy, although a powerful tool, is hardly a radical innovation.
 
 Its philosophy was clearly foreshadowed by Laplace and Jeffreys; its mathematics by Boltzmann and Gibbs.
+
 ## Present Features
+
 ### The Formalism
 Let us set down, for reference, a bit of the basic Maximum Entropy formalism for the finite discrete case, putting off generalizations until they are needed.
 
@@ -884,6 +913,7 @@ Furthermore, strictly speaking, if $D^\prime$ is an open set there may not be an
 
 Such a case is generated by $I_7 \equiv$ "$p_1^2 + p_2^2 < n^{-2}$."
 However, since we are concerned with physical problems where the distinction between open and closed sets cannot matter, we would accept a point on the closure of $D^\prime$ (in this example, on its boundary) as a valid solution, although corresponding strictly only to $I_8 \equiv$ "$p_1^2 + p_2^2 \leq n^{-2}$."
+
 But these considerations are mathematical niceties that one has to mention only because he will be criticized if he does not.
 
 In the real applications that matter, we have not yet found a case which does not have a unique solution.
@@ -957,6 +987,7 @@ However, the Lagrange multiplier $\lambda_k$ is an integrating factor such that 
 I believe that Clausius would recognize here an interesting echo of his work, although we have only stated some general rules for plausible reasoning, making no necessary reference to physics.
 
 This is enough of the bare skeleton of the formalism to serve as the basis for some examples and discussion.
+
 ### Brandeis Dice Problem
 First, we illustrate the formalism by working out the numerical solution to a problem which was used in the Introduction to my 1962 Brandeis lectures merely as a qualitative illustration of the ideas, but has since become a *cause célébre* as some papers have been written attacking the Principle of Maximum Entropy on the grounds of this very example.
 
@@ -1030,6 +1061,7 @@ There is, indeed, a connection between a *probability* $p_i$ in space $S$ and a 
 but we are justified in using only those connections which are deducible from the mathematical rules of probability theory.
 
 As we shall see in connection with fluctuation theory, some common attempts to identify probability and frequency actually stand in conflict with the rules of probability theory.
+
 ### Probability and Frequency
 To derive the simplest and most general connection, the sample space $S^n$ of $n$ trials may be labeled by $\{r_1,r_2,\ldots,r_n\}$, where $1\leq r_k \leq 6$, and $r_k$ is the number of spots up on the $k$'th toss.
 
@@ -1101,6 +1133,7 @@ Two extreme cases of inter-trial correlations are contained in $B21$.
 For complete independence, $\alpha = p$, the variance reduces to $n^{-1} p (1-p)$, just the result of the de Moivre-Laplace limit theorem $A4$.
 
 But as cautioned before, in any other case the variance does not tend to zero at all; there is no "law of large numbers."
+
 For complete dependence, $\alpha = 1$ (i.e., having seen the result of one toss, the die is certain to give the same result at all others), $B21$ reduces to $p(1-p)$ which again makes excellent sense; in this case our uncertainty about the frequency in any number of tosses must be just our uncertainty about the first toss.
 
 Note that the variance $B21$ becomes zero for a slight negative correlation:
@@ -1125,6 +1158,7 @@ where $R_i = (\alpha_i-p_i)/(1-p_i)$ is a measure of the inter-trial correlation
 Evidently, then, to suppose that a probability assignment at a single trial is also an assertion about a frequency in many trials in the sense of the Bernoulli and de Moivre-Laplace limit theorems, is in general unjustified unless (1) the successive trials form an exchangeable sequence, and (2) the correlation of different trials is strictly zero.
 
 However, there are other kinds of connections between probability and frequency; and maximum-entropy distributions have an exact and close relation to frequencies after all, as we shall see presently.
+
 ### Relation to Bayes' Theorem
 To prepare us to deal with some objections to the maximum-entropy solution $B13$ we turn back to the basic product and sum rules of probability theory $A8$, derived by Cox from requirements of consistency.
 
@@ -1139,10 +1173,13 @@ Furthermore, in neither the statement nor the derivation of these rules is there
 In a formally qualitative sense, therefore, they may be applied to any propositions $A,B, C,\ldots$ with unambiguous meanings.
 
 Their complete qualitative correspondence with ordinary common sense was demonstrated in exhaustive detail by Polya (1954).
+
 But in quantitative applications we find at once that merely defining two propositions, $A, B$ is not sufficient to determine any numerical value for $p(a| B)$.
+
 This numerical value depends not only on $A, B$, but also on which alternative propositions $A^\prime, A"$, etc. are to be considered if $A$ should be false; and the problem is mathematically indeterminate until those alternatives are fully specified.
 
 In other words, we must define our "sample space" or "hypothesis space" before we have any mathematically well-posed problem.
+
 In statistical applications (parameter estimation, hypothesis testing), the most important constructive rule is just the statement that the product rule is consistent; i.e., $p(AB| C)$ is symmetric in $A$ and $B$, so $p(A | BC)\cdot p(B | C) = p(B| AC)\cdot p(A| C)$.
 If $p(B| C) \neq 0$, we thus obtain
 $$
@@ -1153,8 +1190,11 @@ in which we may call $C$ the prior information, $B$ the conditioning information
 In typical applications, $C$ represents the general background knowledge or assumptions used to formulate the problem, $B$ is the new data of some experiment, and $A$ is some hypothesis being tested.
 
 For example, in the Millikan oil-drop experiment, we might take $A$ as the hypothesis: "the electronic charge lies in the interval $4.802 < \mathrm{e} < 4.803$," while $C$ represents the general assumed known laws of electrostatics and viscous hydrodynamics and the results of previous measurements, while $B$ stands for the new data being used to find a revised "best" value of $\mathrm{e}$.
+
 Equation $B24$ then shows how the prior probability $p(A| C)$ is changed to the posterior probability $p(A| BC)$ as a result of acquiring the new information $B$.
+
 In this kind of application, $p(B| AC)$ is a "direct" or "sampling" probability, since we reason in the direction of the causal influence, from an assumed cause $A$ to a presumed observable result $B$: and $p(A| BC)$ is an "inverse" probability, in which we reason from an observed result $B$ to an assumed cause $A$.
+
 On comparing with $A7$ we see that $B24$ is a more general form of Laplace's rule, in which we need not have an exhaustive set of possible causes.
 
 Therefore, since $A7$ is always called "Bayes' theorem," we may as well apply the same name to $B24$.
@@ -1201,6 +1241,7 @@ The FS article led to considerably more discussion (see the references collected
 FS suggest that a possible way of resolving all this is "to deny that the probability of $d_\epsilon$ can be well-defined.
 
 Of course it cannot be; however, to understand the situation we need no "deep and systematic analysis of the concept of reasonable degree of belief."
+
 We need only raise our standards of exposition to the same level that is required in any other application of probability theory; i.e., we must define our propositions and sample spaces with enough precision to make a determinate mathematical problem.
 
 There is a more serious difficulty in trying to reply to these criticisms.
@@ -1210,12 +1251,14 @@ If FS dislike the maximum-entropy solution $B13$ to this problem strongly enough
 But what different solution?
 
 One cannot form any clear idea of what is really troubling them, because in all these publications FS give no hint as to how, in their view, a more acceptable solution ought to differ from $B13$.
+
 ### The Rowlinson Criticism
 In sharp contrast to the FS criticisms is that of J. S. Rowlinson (1970), who considers the same dice problem but does offer an alternative solution.
 
 For this reason, it is easy to give a precise quantitative reply to his criticism.
 
 He starts with the all too familiar line: "Most scientists would say that the probability of an event is (or represents) the frequency with which it occurs in a given situation." Likewise, a critic of Columbus could have written (*after* he had returned from his first voyage): "Most geographers would say that the earth is flat."
+
 Clarification of the centuries-old confusion about probability and frequency will not be achieved by taking votes; much less by quoting the philosophical writings of Leslie Ellis (1842).
 
 Rather, we must examine the mathematical facts concerning the rules of probability theory and the different sample spaces in which probabilities and frequencies are defined.
@@ -1348,6 +1391,7 @@ In this example, to accept any distribution whose entropy is as much as $0.005$ 
 For reasons unexplained, Rowlinson seizes upon the particular value $p_1 = 0.05435$ from the maximum-entropy solution $B13$, and asks: "But what basis is there for trusting in this last number?" but fails to ask the same question about his own very different result $p^\prime_1 = 0.00243$.
 
 Since it is so seldom that one is able to give a quantitative reply to a rhetorical question, we should not pass up this opportunity.
+
 ### Answer to the Rhetorical Question
 Let us, as before, count up the number of possibilities compatible with the given data.
 
@@ -1434,6 +1478,7 @@ It is, perhaps, sufficiently clear from this how much a Physical Chemist has to 
 But we still have not dealt with the most fundamental misunderstandings in the Rowlinson article.
 
 He turns next to the shape of the maximum-entropy distribution $B13$, with another rhetorical question: "--- is there anything in the mechanics of throwing dice which suggests that if a die is not true the probabilities of scores $1,2,\ldots 6$, should form the geometrical progression [our Eq. $B13$]?"
+
 He then cites some data of Wolf on 20,000 throws of a die which gave an average $\langle i\rangle= 3.5983$, plots the observed frequencies against the maximum-entropy distribution based on that constraint, and concludes that "departures from the random value of $1/6$ bear no resemblance to those calculated from the rule of maximum entropy.
 
 What is clearly wrong with the indiscriminate use of this rule, and of the older rules from which it stems, is that they ignore the physics of the problem."
@@ -1444,6 +1489,7 @@ If Wolf's data depart significantly from the maximum-entropy distribution based 
 Unable to see the new physical information here revealed, he lashes out blindly against the principle that has revealed it.
 
 Therefore, let us now give an analysis of Wolf's dice data showing just what things maximum entropy can give us here, if we only open our eyes to them.
+
 ### Wolf's Dice Data
 In the period roughly 1850--1890, the Zurich astronomer R. Wolf conducted and reported a mass of "random experiments."
 An account is given by Czuber (1908).
@@ -1584,6 +1630,7 @@ and if our die has no other imperfections beyond the two noted, then it is overw
 If the observed frequencies show any statistically significant departure from $B51$, then we have extracted from the data evidence of a third imperfection, which probably would have been totally invisible in the raw data; i.e., only when we have used the maximum entropy principle to "subtract off" the effect of the stronger influences, can we hope to detect a weaker one.
 
 Our program for the maximum-entropy analysis of the die--or any other random experiment--is now defined except for the final step; how we decide whether a discrepancy is "statistically significant?"
+
 The reader is cautioned that in all this discussion relating to Rowlinson we are being careless about distinctions between probability and frequency, because Rowlinson himself makes no distinction between them, and trying to correct this at every point quickly became tedious.
 
 The following analysis should be restated much more carefully to bring out the fact that it is only a very special case, although to the "frequentist" it appears to be the general case.
@@ -1610,6 +1657,7 @@ $$
 $$
 which means that, if the null hypothesis is true there is only a $5$% chance of seeing a value greater than $\chi^2_c$.
 The critical value is independent of $N$, because for a frequentist who believes that $p_i$ is an assertion of a limiting frequency in the sense of the de Moivre-Laplace limit theorem $A4$, if $H_0$ is true, then the deviations should fall off as $|g_i - p_i| = O\left(N^{-1/2}\right)$.
+
 A more careful approach shows that this holds only if our model is an exchangeable sequence with zero correlations; and even in this case the $\chi^2$ criterion of "closeness" has no theoretical justification (i.e., no uniqueness property) in the basic principles of probability theory.
 
 In fact, for the case of independent exchangeable trials, there is a criterion with a direct information-theory justification (Kullback, 1959) in the "minimum discrimination information
@@ -1769,6 +1817,7 @@ This reduction is appropriate if the parameters are chosen by the *criterion* of
 That is, if we choose them for the express purpose of making $\chi^2$ small and still fail to do so, it does not speak well for the hypothesis and a penalty is in order.
 
 But our parameters were chosen by a criterion that took no note of $\chi^2$; and therefore the proper question is only: "How well does the result fit the data?" and not: "How did you find the parameters?"
+
 Had we chosen our parameters to minimize $\chi^2$, we, would have found a still lower value; but one that is not relevant to the point being made here, which is the performance of the *maximum entropy* criterion, as advocated long before this die problem was thought of.
 
 The maximum entropy method with two Lagrange multipliers thus successfully determines a distribution with five independent quantities.
@@ -1832,6 +1881,7 @@ I really must thank Rowlinson for giving us (albeit unintentionally) such a magn
 And indeed, all the criticisms he made were richly deserved; for he was not, after all, criticizing the Principle of Maximum Entropy; only a gross misunderstanding of it.
 
 Rowlinson's criticisms were, however, taken up and extended by Lindhard (1974); in view of the long commentary above we may leave it as an exercise for the reader to deal with his arguments.
+
 ### The Constraint Rule
 There is a further point of logic about our use of maximum entropy that has troubled some who are able to see the distinction between probability and frequency.
 
@@ -1947,6 +1997,7 @@ This appears to the writer as a rather complete answer to some objections that h
 We are not, after all, confusing two averages; it is a derivable consequence of probability theory that we should set them equal.
 
 Maximizing the entropy subject to the constraints $B80$, is equivalent to (i.e., it leads to the same result as) maximizing the likelihood over the manifold of sampling distributions picked out by maximum entropy.
+
 ### Forney's Question
 An interesting question related to this was put to me by G. David Forney in 1963.
 
@@ -2012,6 +2063,7 @@ This is particularly true in statistical mechanics, due to the enormously high d
 Here the effect of specifying any reasonable accuracy in $F$ is usually completely negligible.
 
 However, there are occasional exceptions; and whenever this extra information does make an appreciable difference it would, of course, be wrong to ignore it.
+
 ## Speculations for the Future
 The field of statistical Inference--in or out of Physics--is so wide that there is no hope of guessing every area in which new advances might be made.
 
@@ -2047,6 +2099,7 @@ Yet the objectives of turbulence theory are such things as: given the density, c
 Even if one's objective were only to predict some *frequencies* $g_i$ related to turbulence, statements about the best estimate of $g_i$ and the reliability of that estimate, can only be derived from probabilities that are not themselves frequencies.
 
 We indicated a little of this above [Equations (B18)--(B23)]; now let us see in a more realistic case why the frequencies with which various things happen in a time-dependent process are not the same as their probabilities; but that, nevertheless, there are always definite connections between probability and frequency, derivable as consequences of probability theory.
+
 ### Fluctuations
 Consider some physical quantity $f(t)$.
 
@@ -2136,6 +2189,7 @@ $$
 $$
 
 Only if $|\Delta \bar{f}/\langle \bar{f}\rangle| \ll 1$ is the ensemble making a sharp prediction of the measured average $\bar{f}$.
+
 Now, however, the time averaging can help us; for $\Delta \bar{f}$ may become very small compared to $\Delta f$, if we average over a long enough time.
 
 Now in an equilibrium ensemble the integrand of $C9$ is a function of $t_2-t_1$ only, and defines the *covariance function*
@@ -2225,6 +2279,7 @@ Yet to the best of my knowledge, no existing treatment of fluctuation theory eve
 In almost all discussions of random functions in the existing literature concerned with physical applications, it is taken for granted that $C6$ holds for all functionals.
 
 One can hardly avoid this if one postulates, with Rowlinson, that "the probability of an event is the frequency with which it occurs in a given situation."
+
 But if it requires the computation $C20$ to justify this for the mean-square fluctuation, what would it take to justify it in general?
 
 That is just the "ergodic" problem for this model.
@@ -2256,6 +2311,7 @@ Therefore, it appears that a reinterpretation of the "fluctuation laws" of quant
 The situation just noted is only one of a wide class of connections that might be called "generalized fluctuation-dissipation theorems," or "fluctuation-response theorems."
 These include all of the Kubo-type theorems relating transport coefficients to various "thermal fluctuations."
 I believe that relations of this type will become more general and more useful with a better understanding of fluctuation theory.
+
 ### Biology
 Perhaps the largest and most obvious beckoning new field for application of statistical thermodynamics is biology.
 
@@ -2264,6 +2320,7 @@ At present, we do not have the input information needed for a useful theory, we 
 Nevertheless, molecular biology has advanced to the point where some preliminary useful results do not seem any further beyond us now than the achievement of an integrated circuit computer chip did thirty years ago.
 
 In the case of the simplest organism for which a great deal of biochemical information exists, the bacterium *E. coli*, Watson (1965) estimated that "one-fifth to one-third of the chemical reactions in *E. coli* are known," and noted that additions to the list were coming at such a rate that by perhaps 1985 it might be possible to describe "essentially all the metabolic reactions involved in the life of an E. coli cell."
+
 As a pure speculation, then, let us try to anticipate a problem that might just possibly be amenable to the biochemical knowledge and computer technology of the year 2000: Given the structure and chemical composition of *E. coli*, predict its experimentally reproducible properties, i.e., the range of environmental conditions (temperature, pH, concentrations of food and other chemicals) under which a cell can stay alive; the rate of growth as a function of these factors.
 
 Given a specific mutation (change in the DNA code), predict whether it can survive and what the reproducible properties of the new form will be.
@@ -2291,6 +2348,7 @@ This has been stated so as to bring out the close analogy with what has happened
 In the early 1950's the development of a general formalism for irreversible processes appeared to be a hopelessly complicated program, not to be thought of in the next thousand years, if ever.
 
 Thus, van Hove (1956) stated: "... in view of the unlimited diversity of possible nonequilibrium situations, the existence of such a set of equations seems rather doubtful."
+
 Yet, as noted in Section A above, the principle which has solved this problem already existed, unrecognized, at that time.
 
 And today it seems that our major problem is not the complications of detail, but the conceptual difficulty in understanding how such a complicated problem could have such a (formally) simple solution.
@@ -2304,6 +2362,7 @@ Of course, applications of statistical mechanics to biology may be imagined at m
 Thus, while I have been speculating about complexities within a single cell, the contribution of E. H. Kerner to this Symposium goes after the opposite extreme, interaction of many organisms.
 
 At that level the relevant information is now so much simpler and more easily obtained that many interesting results are already available.
+
 ### Basic Statistical Theory
 From the standpoint of statistical theory in general, the principle of maximum entropy is only one detail, which arose in connection with the problem of generalizing Laplace's statistical practice from (A6), and we have examined it above only in the finite discrete case.
 
@@ -2318,6 +2377,7 @@ In the finite case, the mere enumeration of the possibilities {i = 1,2,...n} spe
 If $n \to \infty$, we have specified far less in the enumeration, and it is hardly surprising that this must be compensated by specifying more information in our constraints.
 
 Rowlinson quotes Leslie Ellis (1842) to the effect that "Mere ignorance is no ground for any inference whatever. *Ex nihilo nihil.*"
+
 I am bewildered as to how Rowlinson can construe this as an argument against maximum entropy, since as we see the maximum entropy principle immediately tells us the same thing.
 
 Indeed, it is the principle of maximum entropy---and not Leslie Ellis---that tells us precisely *how much* information must be specified before we have a normalizable distribution so that rational inferences are possible.
@@ -2409,8 +2469,10 @@ One of these new approaches, and the one on which there is most to report, is th
 The basic facts pointing to it were given already by Jeffreys (1939; $\S$3.8), but it was not realized until 1976 that this provides a new, constructive method for defining what is meant by "ignorance," with the advantage that everything follows from the basic rules (A8), of probability theory, with no need for any such desiderata as entropy or group invariance.
 
 We indicate the basic idea briefly, using a bare skeleton notation to convey only the structure of the argument.
+
 ### Marginalization
 We have a sampling distribution $p(x| \theta)$ for some observable quantity $x$, depending on a parameter $\theta$, both multidimensional.
+
 From an observed value $x$ we can make inferences about $\theta$; with prior information $I_1$, prior probability distribution $p(\theta | I_1)$ Bayes’ theorem (B24) yields the posterior distribution
 $$ 
 	p(\theta | x I_1) = A p(\theta | I_1) p(x | \theta) \tag{C27}
@@ -2458,6 +2520,7 @@ $$
 where $\lambda(y, z)$ is a function to be determined from (C31).
 
 Therefore, the rules of probability theory already contain the criterion for defining what is meant by "completely uninformative."
+
 Mathematical analysis of (C31) proves to be quite involved; and we do not yet know a necessary and sufficient condition on $p(y, z | \zeta \eta)$ for it to have solutions, or unique solutions, although a number of isolated results are now in (Jaynes, 1979).
 We indicate one of them.
 
@@ -2532,6 +2595,7 @@ Such cases have been well recognized as presenting special difficulties of princ
 We show here that recognition of the existence of the stage (1) problem, and that its general solution is available, can remove such ambiguities and reduce the labor of stage (2).
 
 In the case of the nonequilibrium steady state, stage (2) can be dispensed with entirely if stage (1) has been properly treated.
+
 ### Background
 To achieve a certain unity within the present volume, we shall take the review article of Mori, Oppenheim, and Ross (1962)---hereafter denoted MOR---as indicating the level to which nonequilibrium theory had been brought before the introduction of Information Theory notions.
 
@@ -2568,12 +2632,15 @@ In cases where this is not true, coarse-graining would result in loss of the phy
 The real nature of the forward integration and coarse-graining operations is therefore obscure; in a correctly formulated theory neither should be required.
 
 We are led to suspect the choice of initial ensemble; i.e., that ensembles such as $D1$ and $D2$ do not fully describe the conditions under which irreversible phenomena are observed, and therefore do not represent the correct solution of the stage (1) problem.
+
 [We note that $D1$ and $D2$ were not "derived" from anything more fundamental; they were written down intuitively, by analogy with the grand canonical ensemble of equilibrium theory.]
+
 The forward integration and coarse-graining operations would, on this view, be regarded as corrective measures which in some way compensate for the error in the initial ensemble.
 
 This conclusion is in agreement with that of MOR.
 
 These authors never claimed that $\rho_t$, in $D2$ was the correct density matrix, but supposed that it differed by only a small amount from another matrix $\rho(t)$, which they designate as the "actual distribution."
+
 They further supposed that after a short induction time, $\rho_t$ relaxes into $\rho(t)$, which would explain the need for forward integration.
 
 Such relaxation undoubtedly takes place in the low-order distribution functions derived from $\rho$, as was first suggested by Bogoliubov for the analogous classical problem.
@@ -2585,6 +2652,7 @@ Furthermore, $\rho(t)$ was never uniquely defined; given two different candidate
 For reasons already explained in earlier Sections and in Jaynes (1967), we believe that such criteria do not exist; i.e., that the notion of an "actual distribution" is illusory, since different density matrices connote only different states of knowledge.
 
 In the following Section we approach the problem in a different way, which yields a definite procedure for constructing a density matrix which is to replace $\rho_t$, and will play approximately the same role in our theory as the $\rho(t)$ of MOR.
+
 ### The Gibbs Algorithm
 If the above reasoning is correct, a reexamination of the procedures by which ensembles are set up in statistical mechanics is indicated.
 
@@ -2781,6 +2849,7 @@ $$
 in which the problem of stage (2) now appears explicitly as that of finding the time-evolution of $\rho(t)$.
 
 The form $D23$ will be more convenient if several different quantities $J_1, J_2, \ldots$ are to be predicted.
+
 ### Discussion
 In equations $D19$--$D23$ we have the generalized Gibbs algorithm for calculating irreversible processes.
 
@@ -2834,6 +2903,7 @@ Indeed (Jaynes, 1968) this is just what did happen early in this Century; the fa
 Any successes make this theory useful in an "engineering" sense; but for a research physicist its failures would be far more valuable than its successes.
 
 We emphasize that the basic physical and conceptual formulation of the theory is complete at this point; what follows represents only the working out of various mathematical consequences of this algorithm.
+
 ### Perturbation Theory
 For systems close to thermal equilibrium, the following general theorems are useful.
 
@@ -2929,6 +2999,7 @@ $$
 $$ 
 
 This identity, with $u$ interpreted as a time, provides a general connection between statistical and dynamical problems.
+
 ### Near-Equilibrium Ensembles
 A closed system in thermal equilibrium is described, as usual, by the density matrix
 $$ 
@@ -2941,6 +3012,7 @@ $$
 $$ 
 
 But suppose we are now given the value of $\langle F(t)\rangle$ throughout the "information-gathering" interval $-\tau \leq t \leq 0$.
+
 The ensemble which includes this new information is of the form $D19$, which maximizes $S_I$ for prescribed $\langle H\rangle$ and $\langle F(t)\rangle$.
 It corresponds to the partition functional
 $$ 
@@ -2956,8 +3028,11 @@ In words: if the new information is redundant (in the sense that it is only what
 This is a general property of the formalism here presented.
 
 In applications it means that there is never any need, when setting up an ensemble, to ascertain whether the different pieces of information used are independent; any redundant parts will drop out automatically.
+
 If, therefore, we treat the integral in $D44$ as a small perturbation, we are expanding in powers of the departure from equilibrium.
+
 For validity of the perturbation scheme it is not necessary that $\lambda(t) F(t)$ be everywhere small; it is sufficient if the integral is small.
+
 First-order effects in the departure from equilibrium, such as linear diffusion or heat flow, are then predicted using the general formula $D32$, with the choices $A = -\beta H$, and
 $$ 
 	\epsilon B = \int_{-\tau}^{0} \lambda(t) F(t) d t
@@ -2995,9 +3070,12 @@ and $D41$ becomes
 $$
 	i\hbar \frac{\partial K_{CF}(t, t^\prime)}{dt} = \langle [C(t), F(t^\prime)]\rangle_0 \tag{D53}
 $$
+
 ### Integral Equations for the Lagrange Multipliers
 We wish to find the $\lambda_k(x, t)$ to first order in the given departures from equilibrium, $\langle F_k(x, t)\rangle - \langle F_k(x, t)\rangle_0$.
+
 This could be done by direct application of the formalism; by finding the perturbation expansion of $\log Z$ to second order in the $\lambda$'s and taking the functional derivative explicitly according to $D21$.
+
 It will be sufficient to do this for the simpler case described by Equations $D44$--$D53$; but on carrying through this calculation we discover that the result is already contained in our perturbation-theory formula $D49$.
 This is valid for any operator $C(t)$; and therefore in particular for the choice $C(t) = F(t)$.
 Then $D49$ becomes
@@ -3006,10 +3084,15 @@ $$
 $$ 
 
 If $t$ is in the "information-gathering interval" $-\tau \leq t \leq 0$ this is identical with what we get on writing out $D17$ explicitly with $\log Z$ expanded to second order.
+
 In lowest order, then, taking the functional derivative of $\log Z$ has the effect of constructing a linear Fredholm integral equation for $\lambda(t)$, in which the "driving force" is the given departure from equilibrium.
+
 However, from that direct manner of derivation it would appear that $D54$ applies *only* when ($-\tau \leq t \leq 0)$; while the derivation of $D49$ makes it clear that $D54$ has a definite meaning for all $t$.
+
 When $t$ is in $-\tau \leq t \leq 0$, it represents the integral equation from which $\lambda(t)$ is to be determined; when $t > 0$, it represents the *predicted future* of $F(t)$; and when $t < -\tau$, it represents the *retrodicted past* of $F(t)$.
+
 If the information about $\langle F(t)\rangle$ is given in the entire past, $\tau = \infty$, $D54$ becomes a Wiener-Hopf equation.
+
 Techniques for the solution, involving matching functions on strips in the complex fourier transform space are well known; we remark only that the solution $\lambda(t)$ will in general contain a $\delta$-function singularity at $t = 0$; it is essential to retain this in order to get correct physical predictions.
 In other words, the upper limit of integration in $D54$ must be taken as $0^+$.
 The case of finite $\tau$, where we generally have $\delta$-functions at both end-points, is discussed by Middleton (1960).
@@ -3045,12 +3128,16 @@ $$
 $$ 
 
 The result $D58$ thus predicts the usual exponential approach back to equilibrium, with a relaxation time $\tau = a^{-1}$.
+
 The particular correlation function $D55$ is "Markoffian" in that the predicted future decay depends only on the specified departure from equilibrium at $t = 0$; and not on information about its past history.
+
 With other forms of correlation function we get a more complicated prediction, with in general more than one relaxation time.
+
 ### Relation to Wiener Prediction Theory
 This problem is so similar conceptually to Wiener's (1949) problem of optimal prediction of the future of a random function whose past is given that one would guess them to be mathematically related.
 However, this is not obvious from the above, because the Wiener theory was stated in entirely different terms.
 In particular, it contained no quantity such as $\lambda(t)$ which enables us to express both the given past and predicted future of $F(t)$ in a single equation $D54$.
+
 To establish the connection between these two theories, and to exhibit an alternative form of our theory, we may eliminate $\lambda(t)$ by the following purely formal manipulations
 If the resolvent $K_{FF}^{-1}(t, t^\prime)$ of the integral equation $D54$ can be found so that
 $$ \begin{aligned}
@@ -3118,6 +3205,7 @@ Thus, while our conception of causality is based on the postulate that a force a
 It therefore represents an explicit statement of the fact that, while *physical influences* propagate only forward in time, *logical inferences* propagate equally well in either direction; i.e., new information about the present affects our knowledge of the past as well as the future.
 
 Although relations such as $D63$ have been rather rare in physics, the situation is, of course, commonplace in other fields; sciences such as geology depend on logical connections of this type.
+
 ### Space-Time Variations
 Suppose the particle density $n(x, t)$ departs slightly from its equilibrium value in a space-time region $R$.
 
@@ -3234,6 +3322,7 @@ Terms which arise from parts of $K_{nn}(k, \omega) Q(\omega)$ that are not sharp
 If $\alpha$ is small, the contribution $D87$ will quickly dominate them, leading to a long-term attenuation and propagation velocity essentially independent of the method of preparation.
 
 Thus, the laws of ultrasonic dispersion and attenuation are contained in the location and width of the sharp peaks in $K_{nn}(k, \omega)$.
+
 ### Other Forms of the Theory
 Thus far we have considered the application of maximum entropy in its most general form: given some arbitrary initial information, to answer an arbitrary question about reproducible effects.
 
@@ -3248,9 +3337,11 @@ But this kind of problem has come up before in mathematical physics; and Dicke (
 Our present problem, although entirely different in physical and mathematical details, is practically identical formally; and so this same technique must be applicable.
 
 Zwanzig (1962) introduced projection operators for dealing with two interacting systems, only one of which is of interest, the other serving only as its "heat bath."
+
 Robertson (1964) recognized that this will work equally well for any kind of separation, not necessarily spatial; i.e., if we want to predict only the behavior of a few physical quantities $\{F_1 \ldots F_m\}$ we can introduce a projection operator $P$ which throws away everything that is irrelevant for predicting those particular things; allowing, in effect, everything else to serve as a kind of "heat bath" for them.
 
 In the statistical theory this dichotomy may be viewed in another way: instead of "relevant" and "irrelevant" read "systematic" and "random."
+
 Then, referring to Robertson's presentation in this volume, it is seen that Eq. (9.3), which could be taken as the definition of his projection operator $P(t)$, is formally just the same as the solution of the problem of "reduction of equations for condition" given by Laplace for the optimal estimate of systematic effects.
 
 A modern version can be found in statistics textbooks, under the heading: "multiple regression."
@@ -3276,6 +3367,7 @@ For a similar reason, you are not allowed to protest that if $F_0 \equiv 1$, the
 One of my mathematics professors once threw our class into an uproar by the same trick; evaluating an integral, correctly, by differentiating with respect to $\pi$.
 
 For those with a taste for subtle trickery, variational mathematics is the most fun of all.
+
 ## References
 *   Bayes, T. (1763), Phil. Trans. Roy. Soc. 330-418. Reprint, with biographical note by G. A. Barnard, in Biometrika *45*, 293 (1958) and in *Studies in the History of Statistics and Probability*, E. S. Pearson and M. G. Kendall, editors, C. R. Griffin and Co. Ltd., London (1970). Also reprinted in *Two Papers by Bayes with Commentaries*, W. E. Deming, editor, Hafner Publishing Co., New York (1963).
 *   Bell, E. T. (1937), *Men of Mathematics*, Simon and Schuster, N.Y.

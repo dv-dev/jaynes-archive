@@ -14,7 +14,9 @@ author: ["E.T. Jaynes"]
 categories: ["Foundations of Probability & Bayesian Inference"]
 tags: ["marginalization paradox", "improper priors", "prior ignorance", "integral equations", "noninformative priors", "Jeffreys prior", "group invariance"]
 ---
+
 ## INTRODUCTION
+
 A recent article of Dawid, Stone, and Zidek (1973) notes two Bayesian
 calculation methods--the first using an improper prior, the second
 avoiding it--that one feels intuitively ought to lead to the same
@@ -39,7 +41,9 @@ integral equation. This method draws only upon the universally accepted
 principles of probability theory, making no appeal to such additional
 desiderata as entropy, group invariance, or Fisher information. However,
 its range of applicability is still largely unexplored.
+
 ## THE PARADOX
+
 A conscientious Bayesian $B_1$ studies a problem with parameters
 $\theta$ which he partitions into two sets, $\theta = (\eta, \zeta)$,
 being interested only in inferences about $\zeta$. Dawid, Stone, and
@@ -70,7 +74,9 @@ parameters it is rather exceptional to find a problem with all that
 group structure; and the paradox persists even in problems that have no
 group structure at all. In general, therefore, no way emerged for
 avoiding the paradox.
+
 ## THE RESOLUTION
+
 Predictably, some have seized upon this as a new tool for the abrogation
 of Bayesian statistics in general. However unimportant the practical
 consequences may be, it is imperative for Bayesian theory that this
@@ -162,6 +168,7 @@ p(\eta,\zeta|xI_1) = p(\eta|xI_1)p(\zeta|xI_1) \tag{4}
 $$
  we examine some
 of the DSZ examples for this factorization property.
+
 **Example 1.** The model is described in DSZ. For present purposes we
 need note only that the raw data $x = \{x_1 \dots x_n\}$ are partitioned
 into $y = x_1$, and $z = \{z_i = x_i/x_1, 1 \leq i \leq n\}$. The joint
@@ -208,17 +215,20 @@ from which we note several things:
   agree. We now see that, at least in this example, the paradox
   disappears rather because the comparison disappears; $B_2$ can no
   longer play his game at all.
+
 For efficient verbalization at this point, we need to coin a new term. A
 prior $\pi(\eta)$ that leads to the separation property (1) nullifies
 the effect of the data y for inference about $\zeta$. Let us call such
 a prior \*nullifying\* (more precisely: y-nullifying within the context of
 a particular model).
+
 What DSZ proved is then: If a proper prior is also nullifying, then it
 necessarily leaves $B_1$ and $B_2$ in agreement. However, except in the
 trivial case of complete independence:
 $p(dydz|\eta\zeta)=p(dy|\eta)p(dz|\zeta)$ one cannot assume \*ohne
 weiteres\* the existence of such a prior, as this example illustrates.
-\*\*Example 2.\*\* We have parameters $\theta = (\mu_1, \mu_2, \sigma)$ and
+
+**Example 2.** We have parameters $\theta = (\mu_1, \mu_2, \sigma)$ and
 data $x = (u_1, u_2, s)$ with sampling density function
 $$
 p(u_1 u_2 s | \mu_1 \mu_2 \sigma) = A (s^{\nu-1}/\sigma^{\nu+2})\exp(-Q) \tag{8}
@@ -284,7 +294,9 @@ Rather than continuing with a rather tedious, but still superficial,
 inspection of more examples, which would only reconfirm the mechanism
 already established, we can get a better understanding by returning to a
 second look at Example 1.
+
 ## A REINTERPRETATION
+
 We may take a more charitable view of $B_2$, if DSZ will grant a similar
 courtesy to $B_1$. In these examples, independently of all questions of
 priors, it is true that the marginal sampling distribution of z
@@ -357,7 +369,9 @@ $\zeta$; and it is only right and proper that his conclusions deviate
 from $B_2$'s. Any statistical method that failed to make use of this
 information although it was available to the user, would then be
 deserving of the epithet, "impropriety."
+
 ## IMPROPER PRIORS --- DISCUSSION
+
 In view of the great emphasis on the issue of improper priors in DSZ and
 in the ensuing discussion--almost to the exclusion of all else--and
 subsequent attempts to use this as an argument against all Bayesian
@@ -433,7 +447,9 @@ Doubtless, an econometrician could give much more immediate examples; e.g.,
 the effect of new knowledge (the role of oil prices) on prediction
 of economic activity from models in which, prior to 1973, oil price did
 not appear as a factor.
+
 ## THE INTEGRAL EQUATIONS
+
 Can we extract something of positive value from all this, leaving
 Bayesian theory with a net gain? As is now clear, there is no reason to
 be surprised when $B_1$ and $B_2$ disagree; that was only to be
@@ -566,13 +582,16 @@ is contradictory, ambiguous, or well defined, is removed from the realm
 of philosophical debate, and reduced to the question whether a set of
 simultaneous integral equations is overdetermined, underdetermined, or
 well-posed.
+
 ## AN EXAMPLE
+
 We know at least that the system of equations (31) is not always
 overdetermined; for in several examples DSZ were able to recognize
 particular priors $\pi(\eta)$ which leave $B_1$ and $B_2$ in harmony for
 all samples. Each of the DSZ examples can tell us something about the
 mathematical structure of (31) and its correspondence with previous
 group invariance arguments.
+
 **Example 1.** The sampling distribution is
 $$
 p(yz|\eta\zeta) = \eta^n c^{n-\zeta} y^{n-1} \exp[-nyQ(\zeta,z)] \tag{32}
@@ -682,7 +701,9 @@ things:
   prior $\pi(\eta) \sim \eta^{-1}$ satisfies (31), and $y\lambda(y,z)$
   is then a constant. Whether this solution is unique depends, of
   course, on how z,$\zeta$ enter into the function g.
+
 ## THE ONE-DIMENSIONAL CASE
+
 With the insight gained from the DSZ Example 1, we are able to give a
 more general discussion of the case where y, $\eta$ are one-dimensional.
 We started cautiously, asking only for a prior $\pi(\eta)$ that is
@@ -910,7 +931,9 @@ himself), but by giving a preliminary survey of a more general attack on
 the structure of those integral equations, not restricted to the
 one-dimensional case. But before turning to that, we note some further
 pertinent clues from the DSZ examples with higher dimensionality.
+
 ## HIGHER DIMENSIONALITY
+
 It appears from the foregoing that the case of a single location or
 scale parameter--or one that can be reduced to this by a change of
 variables--is disposed of once and for all; the only remaining function
@@ -936,6 +959,7 @@ $B_2$ can arise from its use. Yet DSZ produce apparent counter-examples,
 in which a prior of the form (54) does lead to disagreement! The DSZ
 paradoxes must, then, have been in part illusory. In the following
 examples we will see just how this has come about.
+
 **Example 2.** Here we appear to be in the aforementioned difficulty,
 for DSZ note that the "paradox" (i.e., disagreement of $B_1$ and
 $B_2$) does not disappear for the "widely recommended prior"
@@ -1045,6 +1069,7 @@ conjecture that some further restriction on the allowable behavior at
 infinity [for example that $\pi(\mu,\sigma)$ shall be at most
 $O(|\mu|^N)$ for some $N \lt \infty$] may lead, after all, to the Jeffreys
 prior as the unique solution.
+
 **Example 3.** We have n independent observations of a bivariate
 $(x_1,x_2)$ with model structure
 $$
@@ -1144,6 +1169,7 @@ finding a fully rigorous proof of this, or a counter-example. Therefore,
 in view of the writer's astonishment at discovering the non-uniqueness
 of (60) after long believing it unique but being unable to prove it, we
 leave this an open question which others may perhaps answer.
+
 **Example 4a.** At this point in the DSZ narrative, the sense of paradox
 increases sharply; for they produce two versions of a problem that
 appear not only paradoxical, but unavoidably inconsistent with each
@@ -1186,7 +1212,9 @@ $\pi(\eta)$ recommended by Jeffreys. Far from suggesting any
 inconsistency in Bayesian principles, marginalization thus demonstrates
 again the power and basic soundness of the notions introduced into this
 field by Jeffreys some forty years ago.
+
 ## SINGULAR SOLUTIONS: KNOWLEDGE IS IGNORANCE
+
 In the DSZ example 3, the correlation coefficient was considered the
 quantity of interest, $\rho=\zeta$, and we found that the prior
 $\pi(\eta)dn = (d\sigma_1/\sigma_1)(d\sigma_2/\sigma_2)$ was completely
@@ -1265,7 +1293,9 @@ $\eta$.
 
 Now, at long last, we have enough clues in hand to commence a general
 attack on the integral equations.
+
 ## STRUCTURE OF THE INTEGRAL EQUATIONS
+
 For any fixed data set x = (y,z), (31) is an integral equation which we
 write, for suggestiveness, in the form
 $$
@@ -1428,7 +1458,9 @@ these cases from occurring?
 For enlightenment let us turn back, still another time, to our faithful
 DSZ Example 1, which has never yet failed to give us an interesting and
 useful answer to any question we have put to it.
+
 ## EXAMPLE 1 --- A FOURTH LOOK
+
 We have seen already, in Eq. (38), that the integral equations determine
 the Jeffreys prior $\pi(\eta) = \eta^{-1}$ uniquely; now we want to
 examine in minute detail the mechanism by which this is accomplished.
@@ -1582,7 +1614,9 @@ $$
 The structure thus revealed will, of course, generalize readily to other
 problems. But our story has already grown too long, and the next Chapter
 must be told elsewhere.
+
 ## CONCLUSION
+
 While the full implications of marginalization for Bayesian statistical
 theory are still far from explored, the analysis given here represents
 at least the necessary beginnings. However, in research of this type, more
@@ -1623,7 +1657,9 @@ the integral equations (31) to possess nontrivial and "morally
 acceptable" solutions? Our analysis in Sec. 11 above does not yet
 answer this; only the future will tell how close it has come to that
 goal.
+
 ## APPENDIX A --- COMMENTS ON GROUP ANALYSIS
+
 The explicit mathematical use of group invariance as a criterion for
 assigning probability distributions goes back to Poincaré (1912),
 although of course the intuitive recognition of symmetry in gambling
@@ -1862,7 +1898,9 @@ form yet visualized--does not tell us whether other solutions of the
 integral equations (31) may exist beyond those resulting from the group
 structure. However, it may be that new theorems bearing on this are
 waiting to be discovered.
+
 ## APPENDIX B --- HISTORICAL NOTE
+
 Since statistical theory is returning to the original viewpoint of
 Laplace on the relation of inference and probability, we follow
 Laplace's example also in concluding with two remarks on the background
@@ -1882,7 +1920,9 @@ statistic for $\rho$, the posterior distributions (10), (24) again
 reveal the slight difference caused by different prior information about
 the location parameters (a,b). The comparison is reminiscent of our
 Equations (51), (52) above.
+
 ## REFERENCES
+
 Bretthorst, G. L. (1988), *Bayesian Spectrum Analysis and Parameter Estimation*, Lecture Notes in Statistics, Vol. 48, Springer-Verlag, Berlin.
 Cramér, H. (1946), *Mathematical Methods of Statistics*, Princeton University Press.
 Dawid, A. P., Stone, M. & Zidek, J. V. (1973), "Marginalization Paradoxes in Bayesian and Structural Inference", *J. Roy Stat. Soc. B 35*, pp. 189--233.
@@ -1891,6 +1931,7 @@ Gamow, George (1945), *The Birth and Death of the Sun*, Penguin Books, Inc. New 
 Hamermesh, M. (1962), *Group Theory*, Addison-Wesley, Reading, Mass. pp. 293-295.
 Jaynes, E. T. (1968), "Prior Probabilities", *IEEE Trans. Systems Sci. and Cybernetics SSC-4*, pp. 227-241.
 Jaynes, E. T. (1971), "The Well-Posed Problem", in *Foundation of Statistical Inference* (V. P. Godambe and D. A. Sprott, Editors) Toronto: Holt, Reinhart and Winston.
+
 Jaynes, E. T. (1976), "Confidence Intervals vs. Bayesian Intervals", in *Foundations of Probability Theory, Statistical Inference, and Statistical Theories of Science*, W. L. Harper and C. A. Hooker, Editors, D. Reidel Publishing Co. Dordrecht-Holland; Vol. 11, pp. 175-257.
 Lord Kelvin (1862), "On the Age of the Sun's Heat", *Macmillan's Magazine*.
 Lindley, D. V. (1958), "Fiducial Distributions and Bayes' Theorem", *J. Roy. Stat. Soc. (B)*, 20, 102.
@@ -1898,4 +1939,3 @@ Lindley, D. V. (1971), *Bayesian Statistics: A Review*, Philadelphia; Society of
 Poincaré, H. (1912), *Calcul des Probabilites*, pp. 118-130.
 
 Villegas, C. (1971), "On Haar Priors", in *Foundations of Statistical Inference* (V. P. Godambe and D. A. Spott, Editors), Toronto: Holt, Rinehart, and Winston.
-[^1]: A preliminary account of this work was given at the 14th NBER-NSF Seminar on Bayesian Inference, Holmdel, N. J. (June 1977).

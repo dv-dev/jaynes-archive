@@ -134,7 +134,7 @@ def print_progress(done: int, total: int, current: str, width: int = 34) -> None
     print("\r" + msg[:200], end="", flush=True)
 
 
-def ensure_file_entries(state: Dict[str, object], files: List[str]) -> None:
+def ensure_file_entries(state: Dict[str, object], files: List[str], mark_missing: bool = True) -> None:
     file_map = state.setdefault("files", {})
     if not isinstance(file_map, dict):
         state["files"] = {}
@@ -153,10 +153,11 @@ def ensure_file_entries(state: Dict[str, object], files: List[str]) -> None:
             # Recover cleanly after interrupted runs.
             file_map[relpath]["status"] = "pending"
 
-    # Mark files no longer present as skipped_missing_from_repo.
-    for relpath in list(file_map.keys()):
-        if relpath not in files and isinstance(file_map[relpath], dict):
-            file_map[relpath]["status"] = "skipped_missing_from_repo"
+    if mark_missing:
+        # Mark files no longer present as skipped_missing_from_repo.
+        for relpath in list(file_map.keys()):
+            if relpath not in files and isinstance(file_map[relpath], dict):
+                file_map[relpath]["status"] = "skipped_missing_from_repo"
 
 
 def count_statuses(state: Dict[str, object]) -> Dict[str, int]:
@@ -351,7 +352,8 @@ def main() -> int:
         return 1
 
     files_abs = list_paper_files(content_dir)
-    files_rel = [str(p.relative_to(repo_root)) for p in files_abs]
+    all_files_rel = [str(p.relative_to(repo_root)) for p in files_abs]
+    files_rel = list(all_files_rel)
     only_raw = [s.strip() for s in args.only.split(",") if s.strip()]
     only_set = set(only_raw)
     if only_set:
@@ -373,7 +375,7 @@ def main() -> int:
     state["content_dir"] = str(Path(args.content_dir))
     state["state_file"] = str(Path(args.state_file))
     state["last_run_started_utc"] = utc_now()
-    ensure_file_entries(state, files_rel)
+    ensure_file_entries(state, files_rel, mark_missing=not bool(only_set))
     save_state(state_path, state)
 
     file_map = state["files"]
