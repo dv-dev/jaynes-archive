@@ -6,7 +6,7 @@ abstract: >
   inference. In some currently important problems, this can accelerate
   the process of finding appropriate models.
 author: ["E.T. Jaynes"]
-title: PRIOR INFORMATION IN INFERENCE[^1]
+title: Prior Information in Inference
 year: 1982
 ---
 # INTRODUCTION {#introduction .unnumbered}

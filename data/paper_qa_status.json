@@ -1,7 +1,8 @@
 {
   "content_dir": "content/papers",
   "counts": {
-    "pending": 94
+    "completed": 92,
+    "failed": 2
   },
   "files": {
     "content/papers/AJP00180.md": {
@@ -553,23 +554,23 @@
     "content/papers/review.extended.prob.md": {
       "attempts": 1,
       "error": null,
-      "last_run_utc": "2026-03-04T20:29:38+00:00",
-      "return_code": null,
-      "status": "running"
+      "last_run_utc": "2026-03-04T20:36:46+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/scattering.by.free.md": {
-      "attempts": 0,
-      "error": null,
-      "last_run_utc": null,
-      "return_code": null,
-      "status": "pending"
-    },
-    "content/papers/search.md": {
       "attempts": 1,
       "error": null,
-      "last_run_utc": "2026-03-04T19:53:36+00:00",
-      "return_code": null,
-      "status": "pending"
+      "last_run_utc": "2026-03-04T20:39:06+00:00",
+      "return_code": 0,
+      "status": "completed"
+    },
+    "content/papers/search.md": {
+      "attempts": 2,
+      "error": null,
+      "last_run_utc": "2026-03-04T20:41:33+00:00",
+      "return_code": 0,
+      "status": "completed"
     },
     "content/papers/second.law.md": {
       "attempts": 1,
@@ -579,9 +580,9 @@
       "status": "completed"
     },
     "content/papers/stand.on.entropy.md": {
-      "attempts": 1,
-      "error": "validation failed: Likely missing blank lines between paragraphs near body lines 39, 40, 41, 42, 43, 61, 64, 65...",
-      "last_run_utc": "2026-03-04T19:46:02+00:00",
+      "attempts": 2,
+      "error": "validation failed: Likely missing blank lines between paragraphs near body lines 84, 129, 138, 169, 170, 171, 174, 187...",
+      "last_run_utc": "2026-03-04T20:44:25+00:00",
       "return_code": 0,
       "status": "failed"
     },
@@ -663,7 +664,7 @@
       "status": "completed"
     }
   },
-  "last_run_finished_utc": null,
+  "last_run_finished_utc": "2026-03-04T20:46:24+00:00",
   "last_run_started_utc": "2026-03-04T19:56:47+00:00",
   "repo_root": "/home/dave/Projects/jaynes-archive",
   "schema_version": 1,

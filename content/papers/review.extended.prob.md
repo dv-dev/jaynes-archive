@@ -169,7 +169,7 @@ function which for the first time was applied by Wigner in order to
 calculate the quantum correction to the gas pressure formula \[12\]. If
 a wave function $\psi(x_1, \dots, x_n)$, abbreviated by $\psi(x)$, is
 given, the corresponding Wigner function reads
-$$P(x, p) = (\pi\hbar)^{-n} \int_{-\infty}^{\infty} d^n y \psi^*(x+y)\psi(x-y) \exp(2ip \cdot y / \hbar),$$
+$$P(x, p) = (\pi\hbar)^{-n} \int_{-\infty}^{\infty} d^n y \psi^*(x+y)\psi(x-y) \exp(2ip \cdot y / \hbar), \tag{3.1}$$
 with $x$, $y$ and $p$ vectors having as many components as has the
 configuration space of the $\psi$, namely $n$. $p \cdot y$ denotes the
 scalar product. In order to demonstrate the fundamental features of the
@@ -474,14 +474,14 @@ Lorentz-invariant formulation of quantum theory is attempted. The
 special role that time plays in non-relativistic theory can, e.g., in
 the most simple case of particles with no charge and spin, be removed by
 means of the Klein-Gordon equation which for a single free particle of
-rest mass $m$ is given by $$(\Box + m^2)\psi = 0$$ ($\hbar = c = 1$, and
+rest mass $m$ is given by $$(\Box + m^2)\psi = 0 \tag{3.35}$$ ($\hbar = c = 1$, and
 the usual terminology \[29\] is adopted). Born's notion, however,
 according to which the square of the wave function has to be interpreted
 as probability density \[30\], necessarily must fail in this context,
 because $|\psi|^2$ as a scalar violates conservation of total
 probability. On the other hand, the density proposed by Gordon \[31\]
 and Klein \[32\],
-$$\frac{1}{2im} \left( \psi^* \frac{\partial\psi}{\partial t} - \psi \frac{\partial\psi^*}{\partial t} \right),$$
+$$\frac{1}{2im} \left( \psi^* \frac{\partial\psi}{\partial t} - \psi \frac{\partial\psi^*}{\partial t} \right), \tag{3.36}$$
 satisfies as time component of a four-vector the conservation law, and
 \"thus (3.36) is evidently the correct mathematical form to use\" \[1\],
 but, clearly, it can go negative.
@@ -490,11 +490,11 @@ This is not the only difficulty. If the wave function of a plane wave
 $$\psi = \exp[-i(p_0x_0 - p_1x_1 - p_2x_2 - p_3x_3)], \quad x_0=t, \quad p_0=E,$$
 is transformed to the momentum and energy variables, the Gordon-Klein
 expression (3.36) goes over into
-$$|\psi(p_0p_1p_2p_3)|^2 p_0^{-1} \, dp_1 \, dp_2 \, dp_3,$$ \"as the
+$$|\psi(p_0p_1p_2p_3)|^2 p_0^{-1} \, dp_1 \, dp_2 \, dp_3, \tag{3.38}$$ \"as the
 probability of the momentum having a value within the small domain
 $dp_1 \, dp_2 \, dp_3$ about a value $p_1, p_2, p_3$, with the energy
 having the value $p_0$, which must be connected with $p_1, p_2, p_3$ by
-$$p_0^2 - p_1^2 - p_2^2 - p_3^2 - m^2 = 0.$$ The weight factor
+$$p_0^2 - p_1^2 - p_2^2 - p_3^2 - m^2 = 0. \tag{3.39}$$ The weight factor
 $p_0^{-1}$ appears in (3.38) and makes it Lorentz invariant, since
 $\psi(p)$ is a scalar - it is defined in terms of $\psi(x)$ to make it
 so - and the differential element $p_0^{-1} \, dp_1 \, dp_2 \, dp_3$ is
@@ -814,7 +814,7 @@ since it is possible to show that one obtains in this case a classical
 diffusion equation that one cannot reduce to the quantum Klein-Gordon
 equation.\"
 In this chapter we have not explicitly considered the Dirac equation
-$$(i\not\partial - e\not A - m)\psi = 0,$$ with $e$ and $m$ denoting
+$$(i\not\partial - e\not A - m)\psi = 0, \tag{3.52}$$ with $e$ and $m$ denoting
 charge and mass, respectively, and $\not V = \gamma_\mu V^\mu$
 symbolizing the product of Dirac-matrices $\gamma$ with a four-vector
 $V$ \[29\]. This has been omitted because it has been shown (and can be
@@ -1068,7 +1068,7 @@ initial result, the last condition necessary is
 $$w_+(a, S) = 1 \quad \text{for } a \cdot S = \tfrac{1}{2}(\hbar).$$
 
 Consequently the probability functions read
-$$w_+(a, S) = 0.5 + a \cdot S \quad \text{and} \quad w_-(a, S) = 0.5 - a \cdot S.$$
+$$w_+(a, S) = 0.5 + a \cdot S \quad \text{and} \quad w_-(a, S) = 0.5 - a \cdot S. \tag{3.60}$$
 
 These probability functions ranging from $(1-\sqrt{3})/2$ to
 $(1+\sqrt{3})/2$ admit a correct calculation of
@@ -1108,6 +1108,7 @@ Therefore reality cannot exist without extended probabilities. But it is
 open to question whether it can exist with, because of some strange
 consequences emerging from this special example. These, however will be
 left for the discussion.
+
 ### Non-quantum indications
 There are some examples even in classical physics, which either entail
 or at least can be interpreted in terms of negative probabilities, being
@@ -1126,7 +1127,7 @@ $\partial P(x, t)/\partial t = \partial^2 P(x, t)/\partial x^2$. Suppose
 at $x=0$ and $x=\pi$ the rod has absorbers at both ends so that
 $P(x, t)=0$ there. Let the probability of being at $x$ at $t=0$ be given
 as $P(x, 0) = f(x)$. What is $P(x, t)$ thereafter? It is
-$$P(x, t) = \sum_{n=1}^\infty P_n \sin nx \exp(-n^2 t),$$ where $P_n$ is
+$$P(x, t) = \sum_{n=1}^\infty P_n \sin nx \exp(-n^2 t), \tag{3.62}$$ where $P_n$ is
 given by $$f(x) = \sum_{n=1}^\infty P_n \sin nx,$$
 or $$P_n = \frac{2}{\pi} \int_0^\pi f(x) \sin nx \, dx.$$ The easiest
 way of analyzing this (and the way used if $P(x, t)$ is a temperature,
@@ -1540,11 +1541,12 @@ us denote any vector in this space by $\psi$ or $\Phi$. With this space
 let us associate a dual space such that corresponding to any vector
 $\psi$ there exists a vector $\psi^*$ in the dual space. Let us assume
 that the relationship between the two spaces is such that
+$$\psi \leftrightarrow \psi^*. \tag{4.17}$$
 $$\begin{gathered}
 (\psi + \Phi)^* = \psi^* + \Phi^*, \quad (c\psi)^* = c^*\psi^*,  \\\\
 \psi^*\Phi = \text{number} = (\Phi^*\psi)^*, 
-\end{gathered}$$ where $c$ is a number. It follows from (4.18) that
-$$\psi^*\psi = \text{real number}. $$ The only difference
+\end{gathered} \tag{4.18}$$ where $c$ is a number. It follows from (4.18) that
+$$\psi^*\psi = \text{real number}. \tag{4.19}$$ The only difference
 between the above assumptions and those of \[usual quantum mechanics\]
 is that now the quantity $\psi^*\psi$ is not positive definite, but,
 according to (4.19), it can be positive, negative, or zero. We shall,
@@ -1558,13 +1560,13 @@ is said to be normalized, because we cannot change the sign of the norm
 of a vector by multiplying it by any number.
 If an operator $\hat{A}$ is such that $$\hat{A}^* = \hat{A},$$ it is
 called Hermitian. The expectation value of a dynamical variable is given
-by $$\langle A \rangle = \psi^* \hat{A} \psi,$$ where the operator
+by $$\langle A \rangle = \psi^* \hat{A} \psi, \tag{4.22}$$ where the operator
 $\hat{A}$ represents the dynamical variable, and $\psi$ is the
 normalized state vector. It follows from (4.22) that all quantities of
 physical interest must be represented by Hermitian operators in order
 that they have real expectation values. If $a$ is an eigenvalue of
 $\hat{A}$ belonging to the eigenstate $\psi_a$ in usual quantum theory
-$$(a - a^*) \psi_a^* \psi_a = 0$$ accounts for the reality of
+$$(a - a^*) \psi_a^* \psi_a = 0 \tag{4.23}$$ accounts for the reality of
 eigenvalues of Hermitian operators. Since according to (4.19) the norm
 $\psi^*\psi$ may vanish, this conclusion is not generally valid here.
 But we can still infer from (4.23) that all eigenvalues of an Hermitian
@@ -1590,7 +1592,7 @@ Instead of the usual expansion
 $$\langle f(\hat{A}) \rangle = \sum_n c_n^* c_n f(a_n)$$ we have in the
 present case
 $$\langle f(\hat{A}) \rangle = \sum_n \pm c_n^* c_n f(a_n),$$
-which gives $$P_n = \pm c_n^* c_n,$$ \"where $P_n$ is the probability of
+which gives $$P_n = \pm c_n^* c_n, \tag{4.28}$$ \"where $P_n$ is the probability of
 obtaining $a_n$ as the result of measurement of $\hat{A}$. The result
 (4.28) shows that vectors with a negative norm represent states
 occurring with a negative probability. It should be noted that if the
@@ -1674,7 +1676,7 @@ obtains the unique random distribution of chord lengths. \"A chord whose
 midpoint is at $(r, \theta)$ has a length $L = 2(R^2 - r^2)^{1/2}$. In
 terms of the reduced chord lengths, $x = L/2R$, we obtain the universal
 distribution law\"
-$$p(x) \, dx = x \, dx / \sqrt{1-x^2}, \quad 0 \leq x < 1,$$
+$$p(x) \, dx = x \, dx / \sqrt{1-x^2}, \quad 0 \leq x < 1, \tag{4.30}$$
 corresponding to the solution A.
 \"Any rain of straws which does not produce a frequency distribution
 agreeing with (4.30) will necessarily produce different distributions on
@@ -2448,7 +2450,7 @@ a set S of subsets of a set M. This set S fulfills the following axioms:
 $$\begin{gathered}
 (a, b \in S) \wedge (a \subset b) \Rightarrow (b \setminus a \in S), \\\\
 (a, b \in S) \Rightarrow (a \cap b \in S).
-\end{gathered}$$ Here $\wedge$ is the logical \"and\", $\Rightarrow$ is
+\end{gathered} \tag{6.1}$$ Here $\wedge$ is the logical \"and\", $\Rightarrow$ is
 the logical implication, and $b \setminus a$ is the relative complement
 of $a$ in $b$. A set of statistical selection procedures is determined
 by the additional axiom: There is a real function
@@ -2458,7 +2460,7 @@ $$(a_1, a_2 \in S) \wedge (a_1 \cap a_2 = \emptyset) \wedge (a_1 \cup a_2 \in S)
 $$\begin{gathered}
 (a_1, a_2, a_3 \in S) \wedge (a_1 \supset a_2 \supset a_3) \wedge (a_2 \neq \emptyset) \Rightarrow p(a_1, a_3) = p(a_1, a_2) p(a_2, a_3), \\\\
 (a_1, a_2 \in S) \wedge (a_1 \supset a_2 \neq \emptyset) \Rightarrow p(a_1, a_2) \neq 0.
-\end{gathered}$$ $p(a, b)$ is called the probability of the selection
+\end{gathered} \tag{6.5}$$ $p(a, b)$ is called the probability of the selection
 procedure $b$ relative to $a$. The real number $p$ shall be compared
 with reproducible frequencies. That means, if among a number $N$ of
 trials selected according to $a$ there is a number $N_+$ of trials
@@ -2620,18 +2622,18 @@ certain well-behaved external potentials the KG solutions may be split
 into positive- and negative energy parts associated, respectively, with
 positive and negative probability.
 To see this, let us start from the charged scalar wave equation
-$$(D_\mu D^\mu - m^2)\psi = 0,$$ where $D_\mu = \partial_\mu - ieA_\mu$,
+$$(D_\mu D^\mu - m^2)\psi = 0, \tag{6.6}$$ where $D_\mu = \partial_\mu - ieA_\mu$,
 $e$ and $m$ are the charge and mass, respectively, of the particle
 moving in the external field $A_\mu$, the metric has the signature
 (-+++) and the units are chosen so that $\hbar=c=1$. Equation (6.6) may
 be expressed in the form
-$$i\frac{\partial \Psi}{\partial t} = H(e)\Psi,$$ where $\Psi$ is a
+$$i\frac{\partial \Psi}{\partial t} = H(e)\Psi, \tag{6.7}$$ where $\Psi$ is a
 two-component wave function and $H$ is a $2\times 2$ matrix Hamiltonian.
 One can show that for
 the inner product
 $(\Phi, \Psi) = \int \Phi^* \sigma_3 \Psi d^3x = \int j^0 d^3x$ where
 the conserved current is
-$$j^\mu = \psi^* \frac{1}{i} (\tilde{\partial}^\mu - ieA^\mu) \psi$$
+$$j^\mu = \psi^* \frac{1}{i} (\tilde{\partial}^\mu - ieA^\mu) \psi \tag{6.8}$$
 ($\tilde{\partial}$ means that $\partial_t$ is to be applied to the left
 and right wave functions in turn), the mean value of $H$ in any state is
 positive: $\langle \Psi, H\Psi \rangle > 0$. It follows that, with
@@ -2658,7 +2660,7 @@ Substituting $\psi = \exp(P+iS)$, where $P, S$ are real scalars, in
 $$\begin{gathered}
 (\partial^\mu S - eA^\mu)(\partial_\mu S - eA_\mu) = -M^2, \\\\
 \partial_\mu j^\mu = 0,
-\end{gathered}$$ where
+\end{gathered} \tag{6.9}$$ where
 $M^2 = m^2 - \Box P - \partial^\mu P \partial_\mu P$ is de Broglie's
 variable rest mass and $j^\mu = 2e^{2P}(\partial^\mu S - eA^\mu)$ is the
 current (6.8).
@@ -2667,10 +2669,11 @@ The assumption of the SIQM is that the KG particle has a drift velocity
 $u^\mu = dx^\mu / d\tau$ where $\tau$ is the proper time along paths
 parallel to $j^\mu$. In terms of the momentum
 $P^\mu = \partial^\mu S - eA^\mu$, $u^\mu = M^{-1}P^\mu$ with
-$u_\mu u^\mu = -1$, from eq. (6.9).
+$$u_\mu u^\mu = -1. \tag{6.10}$$
+from eq. (6.9).
 
 Defining a scalar density $\rho = M e^{2P}$ we may express eq. (6.10) in
-the form \[188\] $$D\rho/D\tau = \partial_\mu(\rho u^\mu) = 0.$$ (Note
+the form \[188\] $$D\rho/D\tau = \partial_\mu(\rho u^\mu) = 0. \tag{6.11}$$ (Note
 that $D/D\tau$ is an average derivative in a volume element \[188\].)
 From this it follows that along a line of flow $$\omega M e^{2P} = K$$
 where $\omega$ is a volume element of fluid, and $K$ is a real or pure
@@ -2745,12 +2748,12 @@ theory of spin $\frac{1}{2}$ particles based on a second-order wave
 equation: the so-called 4-component Feynman and Gell-Mann equation
 \[69\] that, in the presence of an external electromagnetic field
 $A_\mu$, by rewriting eq. (3.52) takes the following form ($\hbar=c=1$):
-$$[(i\partial_\mu - eA_\mu)(i\partial^\mu - eA^\mu) - \tfrac{1}{2} e F_{\mu\nu} \sigma^{\mu\nu} - m^2]\psi = 0.$$
+$$[(i\partial_\mu - eA_\mu)(i\partial^\mu - eA^\mu) - \tfrac{1}{2} e F_{\mu\nu} \sigma^{\mu\nu} - m^2]\psi = 0. \tag{6.12}$$
 
 Beyond a series of well-known remarks \[69\] about the use of (6.12),
 the main reasons that induced the
 authors to adopt it instead of the Dirac equation
-$$(i\not\partial - e\not A - m)\psi = 0$$ are the following:
+$$(i\not\partial - e\not A - m)\psi = 0 \tag{6.13}$$ are the following:
 \(a\) if we are looking for a causal interpretation of the quantum
 equations, a classical analogy can be found only starting from a
 second-order differential equation;
@@ -2829,7 +2832,7 @@ j_\mu &= \text{Re}[(\bar{\psi}_+ + \bar{\psi}_-)\gamma_\mu \not{D}(\psi_+ + \psi
 &= \bar{\psi}_-\gamma_\mu\psi_- - \bar{\psi}_+\gamma_\mu\psi_+,
 \end{aligned}$$ i.e., the conserved current $j_\mu$ is the difference of
 two Dirac-like conserved currents for particles and antiparticles.
-Moreover, $$j_0 = \psi_-^\dagger\psi_- - \psi_+^\dagger\psi_+,$$ that
+Moreover, $$j_0 = \psi_-^\dagger\psi_- - \psi_+^\dagger\psi_+, \tag{6.19}$$ that
 means that the non-positive conserved density $j_0$ is always a
 difference of two positive Dirac densities for particles and
 antiparticles. The result (6.19) is perfectly coherent with the point of

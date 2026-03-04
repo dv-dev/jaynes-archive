@@ -67,6 +67,7 @@ theoretical principle told Goudsmit and Uhlenbeck how this should be
 incorporated into the mathematics. The expedient that finally gave the
 right answers depended on Pauli's knowing about the two-valued
 representations of the rotation group, discovered by Cartan in 1913.
+
 In advancing to QED, no theoretical principle told Dirac that
 electromagnetic field modes should be quantized like material harmonic
 oscillators; and for reasons to be explained here by Asim Barut, we
@@ -170,6 +171,7 @@ questions are exactly the ones that a physicist ought to be trying to
 answer; for the purpose of science is to understand the real world. If
 there were no such thing as a reality that exists independently of human
 knowledge, then there could be no point to physics or any other science.
+
 It is not only in radioactivity that QM is pragmatically incomplete; for
 example, the data record from a Stern-Gerlach experiment can tell not
 only the number of particles in each beam, but the time order in which
@@ -217,6 +219,7 @@ then reveal their schizoid mentality when they ascribe unquestioning
 ontological reality -- independent of human information -- to things
 such as 'quantum jumps' and 'vacuum fluctuations'. This does violence to
 Bohr's teachings; yet those who commit it claim to be disciples of Bohr.
+
 For a time we were optimistic because it appeared that the new thinking
 of John Bell (1987)
 might show us the way. It was refreshing to see from his words that he
@@ -511,7 +514,7 @@ To define the proposed experiment it will be sufficient to use the
 nonrelativistic spinless Schrödinger equation, if we note first how and
 under what circumstances it can arise from the relativistic Klein-Gordon
 equation satisfied by each Dirac wave component:
-$$\nabla^2\phi - \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2} = -\left(\frac{mc}{\hbar}\right)^2 \phi$$
+$$\nabla^2\phi - \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2} = -\left(\frac{mc}{\hbar}\right)^2 \phi \tag{1}$$
 
 This has plane wave solutions of the form
 $$\phi(x,t) = \exp(i\mathbf{k}\cdot\mathbf{x} - i\omega t)$$ with
@@ -531,7 +534,9 @@ which is exact. Now if $\psi(x,t)$ contains frequencies up to order
 $\nu$, the two time derivative terms are in approximately the ratio
 $$\frac{\hbar^2 \ddot{\psi}/2mc^2}{i\hbar\dot{\psi}} \approx \frac{\hbar\nu}{2mc^2}$$
 and if this is small compared to one, we have the NR Schrödinger
-equation $$i\hbar\dot{\psi} = -\frac{\hbar^2}{2m}\nabla^2\psi$$ but we
+equation
+$$i\hbar\dot{\psi} = -\frac{\hbar^2}{2m}\nabla^2\psi \tag{7}$$
+but we
 now understand when it applies and what it means. It describes the slow
 'secular' variations in the envelope when the relativistic wave function
 has only components $\exp(-i\omega t)$ with no admixture of terms
@@ -542,6 +547,7 @@ give us an approximation to an arbitrary relativistic solution; but only
 to those particular solutions which contain no ZBW effects. But the
 solutions we have discarded in making this approximation comprise in a
 sense the 'vast majority' of all possible relativistic solutions!
+
 With this perhaps 'new' understanding, we may reexamine the conventional
 solutions of (7) for our problem. It has the general initial-value
 solution
@@ -552,11 +558,13 @@ corresponding to diffusion with an imaginary diffusion coefficient. In
 particular, with an initial packet of RMS radius $a$,
 $$\psi_0(\mathbf{x},0) = \left(\frac{1}{2\pi a^2}\right)^{3/4} \exp\left(-\frac{r^2}{4a^2}\right)$$
 we find the canonical spreading wave packet solution of our textbooks:
-$$\psi_0(\mathbf{x},t) = \left(\frac{a}{\sqrt{2\pi}\left(a^2 + \frac{i\hbar t}{2m}\right)}\right)^{3/2} \exp\left\{-\frac{r^2}{4\left(a^2 + \frac{i\hbar t}{2m}\right)}\right\}$$
+$$\psi_0(\mathbf{x},t) = \left(\frac{a}{\sqrt{2\pi}\left(a^2 + \frac{i\hbar t}{2m}\right)}\right)^{3/2} \exp\left\{-\frac{r^2}{4\left(a^2 + \frac{i\hbar t}{2m}\right)}\right\} \tag{11}$$
 for which the probability density or normalized charge density is given
 by
 $$|\psi_0(\mathbf{x},t)|^2 = \left(\frac{1}{2\pi\sigma^2}\right)^{3/2} \exp\left\{-\frac{r^2}{2\sigma^2}\right\}$$
-with $$\sigma^2(t) = a^2 + \frac{\hbar^2 t^2}{4m^2 a^2}$$ so the packet
+with
+$$\sigma^2(t) = a^2 + \frac{\hbar^2 t^2}{4m^2 a^2} \tag{13}$$
+so the packet
 grows with an ultimate spreading velocity which 'remembers' its initial
 size compared to the Compton wavelength:
 $$\left(\frac{v_r}{c}\right)_{final} = \frac{(\hbar/mc)}{2a}$$ Doubtless
@@ -570,16 +578,19 @@ that Pasteur looked at microbes. But conventional quantum mechanical
 scattering theory does not contemplate this, being based on an older
 idea, namely Aristotle's theory of Dramatic Unity. This prescribes that
 "The action must be complete, having
+
 1.  a beginning which implies no necessary antecedent, but is itself a
     natural antecedent of something to come,
 2.  a middle, which requires other matters to precede and follow, and
 3.  an end, which naturally follows upon something else, but implies
     nothing following it." (Taylor, 1913)
+
 Conventional scattering theory follows this plan perfectly, presupposing
 an initial state in which the particles involved are propagating as free
 particles but we ask not whence they come, an intermediate state in
 which the action takes place, and a final state in which they again
 propagate as free particles and we ask not where they go.
+
 Note that the conventional textbook arguments (the Heisenberg
 $\gamma$-ray microscope, etc.) warning us that there is an uncertainty
 principle making it impossible to do so many things, always presuppose
@@ -589,6 +600,7 @@ ascribing a separate ontological reality to the scattering of each
 individual photon. But the actual mathematical formalism of QED, as
 developed afterward, does not have anything in it corresponding to the
 concept of 'a given photon'.
+
 It seems to us that these things should be pointed out in elementary QM
 courses; the Heisenberg conclusion, far from being a firmly established
 foundation principle of physics, is not an experimental fact at all,
@@ -596,12 +608,14 @@ only an unverified conjecture which presupposes just the things that we
 want to test here. It is high time that we found out whether it is true,
 and our technology is just now coming to the point where the experiments
 are possible.
+
 But the scattering theory that we and Pasteur need is non-Aristotelian,
 in that the action does not have a beginning or an end at any times that
 are relevant to what we observe; rather we have something akin to a
 slowly changing nearly steady state, the incident light constantly
 bathing the electron or microbe and the scattered radiation constantly
 proceeding from it.
+
 This makes an important technical difference, in that principles like
 overall momentum conservation, although we do not deny them, do not have
 the same application that they have in conventional scattering theory.
@@ -609,12 +623,13 @@ This is not a handicap; on the contrary, it means that we, like electron
 microscopists, shall be able to see details that Aristotelian scattering
 theory does not describe. Requiring that the action be complete before
 we observe anything greatly restricts what one could see.
+
 In the above we have used the notation $\psi_0$ to denote solutions of
 the free-particle equation (7). In a transverse EM field, the minimal
 coupling ansatz makes the replacement
 $\mathbf{p} \rightarrow \mathbf{p} - (e/c)\mathbf{A}$, giving in first
 order
-$$i\hbar\dot{\psi} = \frac{p^2}{2m}\psi - \frac{e}{mc}(\mathbf{A} \cdot \mathbf{p}) \psi$$
+$$i\hbar\dot{\psi} = \frac{p^2}{2m}\psi - \frac{e}{mc}(\mathbf{A} \cdot \mathbf{p}) \psi \tag{15}$$
 
 To see what this interaction term means physically, consider a classical
 point electron in the same EM field:
@@ -640,6 +655,7 @@ A fairly good solution of the initial value problem for (15) is simply
 $$\psi(\mathbf{x},t) = \psi_0(\mathbf{x} - \int \mathbf{v} dt, t)$$
 which we may visualize as in (Fig. 1).
 **[FIGURE: Fig. 1. (A) A cigar-shaped wave packet 5 microns long, unperturbed. (B) The same packet with light of wavelength $\lambda = 0.5$ micron incident from the left, polarized vertically. The undulations are moving to the right at the velocity of light.]**
+
 To fix orders of magnitude, think of a wave packet a few microns in
 size, optical wavelengths of perhaps a half micron. Whenever the optical
 wavelength is small compared to the size of the wave packet, then the
@@ -653,7 +669,7 @@ frequencies).
 
 Then the incident wave $\mathbf{A}_{inc}(\mathbf{x},t)$ induces a local
 current response
-$$\mathbf{J}(\mathbf{x},t) = \frac{e}{c}|\psi(\mathbf{x},t)|^2 \mathbf{v}(t) = -\frac{e^2}{mc^2}|\psi|^2 \mathbf{A}_{inc}(\mathbf{x},t) \quad emu$$
+$$\mathbf{J}(\mathbf{x},t) = \frac{e}{c}|\psi(\mathbf{x},t)|^2 \mathbf{v}(t) = -\frac{e^2}{mc^2}|\psi|^2 \mathbf{A}_{inc}(\mathbf{x},t) \quad emu \tag{23}$$
 and we note that the original Klein-Nishina derivation of the Compton
 cross-section, and the Dyson (1951) calculation of vacuum polarization
 started from this same local current response. To
@@ -835,7 +851,7 @@ force
 $$d\mathbf{F}_2(t) = \mathbf{J}(\mathbf{x}_2,t) \times [\nabla \times \mathbf{A}_1(\mathbf{x}_2,t)] d^3x_2 = \cos(\omega t + \phi_2) \mathbf{I}_2 \times [\nabla f \times \mathbf{I}_1]$$
 
 But
-$$\nabla f = \frac{\partial f}{\partial r} \nabla r = k \frac{\sin(\omega t - kr + \phi_1)}{r} \mathbf{n}$$
+$$\nabla f = \frac{\partial f}{\partial r} \nabla r = k \frac{\sin(\omega t - kr + \phi_1)}{r} \mathbf{n} \tag{36}$$
 where $\mathbf{n} = \nabla r$ is a unit vector pointing from
 $\mathbf{x}_1 \rightarrow \mathbf{x}_2$, and we used the aforementioned
 long distance condition $kr \gg 1$ to discard a near field term that is
@@ -848,11 +864,11 @@ get the time average over a ZBW cycle, note that
 $$\sin(\omega t - kr + \phi_1) \cos(\omega t + \phi_2) = (1/2) \sin(\phi_1 - \phi_2 - kr)$$
 so the time average force density seen at $\mathbf{x}_2$ due to the
 current element at $\mathbf{x}_1$ is
-$$\bar{\mathbf{F}} = \frac{k \sin(\phi_1 - \phi_2 - kr)}{2r} [\mathbf{n}(\mathbf{I}_1 \cdot \mathbf{I}_2) - \mathbf{I}_1(\mathbf{n} \cdot \mathbf{I}_2)]$$
+$$\bar{\mathbf{F}} = \frac{k \sin(\phi_1 - \phi_2 - kr)}{2r} [\mathbf{n}(\mathbf{I}_1 \cdot \mathbf{I}_2) - \mathbf{I}_1(\mathbf{n} \cdot \mathbf{I}_2)] \tag{39}$$
 
 Its component along $\mathbf{n}$ depends only on the product of
 transverse components of the currents:
-$$\mathbf{n} \cdot \bar{\mathbf{F}} = \frac{k \sin(\phi_1 - \phi_2 - kr)}{2r} [(\mathbf{I}_1 \cdot \mathbf{I}_2) - (\mathbf{n} \cdot \mathbf{I}_1)(\mathbf{n} \cdot \mathbf{I}_2)]$$
+$$\mathbf{n} \cdot \bar{\mathbf{F}} = \frac{k \sin(\phi_1 - \phi_2 - kr)}{2r} [(\mathbf{I}_1 \cdot \mathbf{I}_2) - (\mathbf{n} \cdot \mathbf{I}_1)(\mathbf{n} \cdot \mathbf{I}_2)] \tag{40}$$
 which can be either positive (repulsive) or negative (attractive)
 depending on the relative phases. Thus ZBW currents generate secular
 force terms which must modify the wave packet of a free electron, and
@@ -978,6 +994,7 @@ forces always win out because their effects reinforce, drawing the
 pieces together and thus increasing the attractive forces. Note also
 that the ZBW forces are long range compared to Coulomb forces, falling
 off only as $1/r$; thus fairly distant fragments can interact strongly.
+
 On any slow perturbation of an oscillating system, there is a principle
 of stationary action, which makes changes of energy proportional to
 changes of frequency. This was known to Lord Rayleigh in acoustical
@@ -1037,6 +1054,7 @@ Cliffs, N. J.
 Cartan, E. (1966), *Theory of Spinors*, Hermann, Paris.
 
 Dyson, F. J. (1951), Notes on QED, Cornell University
+
 Heisenberg, W. (1958), Daedalus, **87**, 100.
 
 Hestenes, D. (1966), *Space-Time Algebra*, Gordon & Breach, N. Y.
@@ -1069,8 +1087,3 @@ summary and extensive bibliography of later developments, see H. Hora,
 Il Nuovo Cimento **26**, 295 (1975).
 
 Taylor, H. O. (1913), *Ancient Ideals*, MacMillan, London; p. 288.
-[^1]: Presented at the Workshop on "The Electron 1990", St. Francis
-    Xavier University, Antigonish, Nova Scotia, August 3, 1990. To be
-    published in the Proceedings volume, A. Weingartshofer & D.
-
-    Hestenes, Editors, Kluwer Academic Publishers, Holland.

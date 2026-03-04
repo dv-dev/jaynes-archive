@@ -1,0 +1,3637 @@
+=== STDOUT ===
+Updated [content/papers/search.md](/home/dave/Projects/jaynes-archive/content/papers/search.md) with minimal structural QA edits only.
+
+Summary of changes:
+- Added missing blank-line paragraph breaks in places where paragraph transitions were clearly intended (to avoid merged text walls and improve Hugo markdown rendering).
+- Added equation-number tags (no math-content edits) so in-text references resolve cleanly:
+  - Added tags `(22)` through `(38)` to the relevant display equations in the “An Example of Optimal Search” / final-phase section.
+  - Specifically ensured referenced equations `(24)`, `(26)`, `(27)`, `(28)`, `(34)`, `(35)`, and `(37)` are present as numbered display equations.
+- Normalized citations to footnote citation style:
+  - Converted in-text `Pierce (1978)`, `(Jaynes, 1978)`, and `Barker (1977)` mentions to `[^pierce1978]`, `[^jaynes1978]`, `[^barker1977]`.
+  - Converted the References block into corresponding footnote definitions.
+- Removed extraneous metadata footnote (`Presented at the First Maximum Entropy Workshop...`) from the file.
+- Fixed one introduced duplicate Stage 2 equation line during QA pass.
+
+Self-check completed:
+- Intended paragraph boundaries are blank-line separated where adjusted.
+- No unresolved in-text equation references to missing display-equation numbers remain.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cba93-5f95-70e1-9216-12d230385ef0
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/search.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT change mathematical expressions, symbols, operators, variable names, or equation content.
+3. You MAY add or adjust equation-numbering markup only (for example, display-equation tags/labels) when needed to match in-text Eq. references.
+4. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - enforce this rule: paragraph boundaries MUST be a blank line (double newline)
+  - when one paragraph clearly ends and the next begins, convert `...sentence
+Next sentence...` to `...sentence
+
+Next sentence...`
+  - do not keep prose paragraphs joined by a single newline where a visual paragraph break is intended
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Equation references:
+  - if prose references equations like Eq. (7), Eqs. (2) and (3), etc., ensure the corresponding display equations show visible numbers
+  - every referenced equation number should be discoverable in the document on a display equation
+  - keep numbering consistent with existing references; do not invent new references in prose
+  - prefer minimal numbering edits (tags/labels only), never expression edits
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- Before finishing, self-check:
+  - all intended paragraph breaks are blank-line separated
+  - no unresolved in-text Eq. references to missing display-equation numbers
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/search.md` for structure, equation references, citation formatting, and any duplicated abstract/body metadata issues, then apply only minimal structural edits in place. I’ll report exactly what changed after a self-check.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Entropy and Search Theory"
+author: ["E.T. Jaynes"]
+year: 1985
+---
+## Introduction
+A recent article by Pierce (1978) has brought search theory to the
+attention of workers in related fields which also use statistical
+theory. In recounting history, he noted that early workers tried to
+relate detection probability $p_D$ and search effort to the posterior
+entropy $H_{ND}$ conditional on nondetection \[Eq. (4) below\] or to the
+\"expected posterior entropy\" $H_E = p_D H_D + (1-p_D) H_{ND}$,
+discovered quickly that no general relation exists; and concluded that
+information theory has no useful connection with search theory.
+
+As Pierce stated: \"These negative findings had a clearly inhibiting
+effect on research, and relatively little effort has been devoted to the
+connections between information and search for the past fifteen years.
+Nonetheless, the intuitive appeal of information theory remains
+strong.\" He then presented some numerical analyses showing that in some
+codex
+I’ve read the first half and identified several structural issues (single-newline paragraph joins, one numbering mismatch, and citation style to normalize). I’m now reading the rest to complete a full pass before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+determine policy; and a \"final phase\" in which it is all used up:
+$I = J = 0$, and the optimal policy is independent of the prior
+information.
+We now examine in some detail the course of the optimal search policy
+for this model. In this we necessarily repeat a few facts well known in
+the literature of search theory; our object is to point out their
+interpretation in the light of the entropies $I(z), J(z)$. The search
+process now appears very much like an irreversible process in
+thermodynamics, in which an initially nonequilibrium state relaxes into
+the equilibrium state of maximum entropy. But now it is only our *state
+of knowledge* that relaxes to the \"equilibrium\" condition of maximum
+uncertainty, $I = J = 0$.
+## An Example of Optimal Search
+On the assumption of dynamical consistency, the entire course of the
+optimal search effort is clear; since according to (19) the probability
+of the searched cell is always lowered, that of the others raised, the
+optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
+starting from the top, as quickly as possible. We follow the
+aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+\"running variables\" that evolve during the search, and $A_i = a_i(0)$
+codex
+I’ve finished scanning and found unresolved equation references in the second half (e.g., (24), (26), (27), (28), (34), (35), (37)) that currently have no matching equation tags. I’m going to apply minimal tag-only numbering plus paragraph/table/citation cleanup next.
+exec
+/bin/bash -lc "rg -n \"\\([0-9]+\\)|Eq\\. \\([0-9]+\\)|Eqs\\.\" content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+7:A recent article by Pierce (1978) has brought search theory to the
+11:entropy $H_{ND}$ conditional on nondetection \[Eq. (4) below\] or to the
+52:connections was given by Barker (1977); the other is possibly new.
+80:$P_i = p_i(0)$ for their fixed initial values. The aforementioned
+119:(6).
+151:Consider a search that starts from initial values $I(0), J(0)$ which are
+155:$[I(z) - I(0)]$ is the measure of the amount of prior information
+156:utilized up to that point, while $[J(0) - J(z)]$ is the measure of the
+161:derivation of (10). To demonstrate the connection of $J(z)$ with search
+162:effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+164:$\{z_i\}$, $J(z)$ is from (12)
+165:$$J(z) = \sum_{i=1}^{n} m_i \log\left[\frac{m_i}{p_i} (1-p_D) \exp(z_i/s_i)\right] = J(0) + \log(1 - p_D) + (z/S) \tag{13}$$
+167:where $z = \sum z_i$ is the total search effort used. But (13) states
+173:$$z^* \equiv S[J(0) - J(z)] \tag{15}$$
+176:ignorance, $J(0) = 0$, then clearly the best we can do is to conduct the
+178:$$p_D = 1 - \exp(-z/S)$$ i.e., just the original detection function (1),
+195:must decide on the optimal allocation $\{\hat{z}_i^{(1)}\}$ with
+196:$\sum_i \hat{z}_i^{(1)} = C_1$ on the assumption that no further search
+200:allocation $\{\hat{z}_i^{(2)}\}$ with $\sum_i \hat{z}_i^{(2)} = C_2$ for
+205:$$\hat{z}_i^{(1)} + \hat{z}_i^{(2)} = \hat{z}_i, \quad 1 \le i \le n \tag{16}$$
+exec
+/bin/bash -lc "nl -ba content/papers/search.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Entropy and Search Theory"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1985
+     5	---
+     6	## Introduction
+     7	A recent article by Pierce (1978) has brought search theory to the
+     8	attention of workers in related fields which also use statistical
+     9	theory. In recounting history, he noted that early workers tried to
+    10	relate detection probability $p_D$ and search effort to the posterior
+    11	entropy $H_{ND}$ conditional on nondetection \[Eq. (4) below\] or to the
+    12	\"expected posterior entropy\" $H_E = p_D H_D + (1-p_D) H_{ND}$,
+    13	discovered quickly that no general relation exists; and concluded that
+    14	information theory has no useful connection with search theory.
+    15	
+    16	As Pierce stated: \"These negative findings had a clearly inhibiting
+    17	effect on research, and relatively little effort has been devoted to the
+    18	connections between information and search for the past fifteen years.
+    19	Nonetheless, the intuitive appeal of information theory remains
+    20	strong.\" He then presented some numerical analyses showing that in some
+exec
+/bin/bash -lc "nl -ba content/papers/search.md | sed -n '261,540p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   261	determine policy; and a \"final phase\" in which it is all used up:
+   262	$I = J = 0$, and the optimal policy is independent of the prior
+   263	information.
+   264	We now examine in some detail the course of the optimal search policy
+   265	for this model. In this we necessarily repeat a few facts well known in
+   266	the literature of search theory; our object is to point out their
+   267	interpretation in the light of the entropies $I(z), J(z)$. The search
+   268	process now appears very much like an irreversible process in
+   269	thermodynamics, in which an initially nonequilibrium state relaxes into
+   270	the equilibrium state of maximum entropy. But now it is only our *state
+   271	of knowledge* that relaxes to the \"equilibrium\" condition of maximum
+   272	uncertainty, $I = J = 0$.
+   273	## An Example of Optimal Search
+   274	On the assumption of dynamical consistency, the entire course of the
+   275	optimal search effort is clear; since according to (19) the probability
+   276	of the searched cell is always lowered, that of the others raised, the
+   277	optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
+   278	starting from the top, as quickly as possible. We follow the
+   279	aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+   280	\"running variables\" that evolve during the search, and $A_i = a_i(0)$
+codex
+I’m now applying a single minimal patch to: add missing blank-line paragraph breaks, normalize the three in-text citations to footnotes, tag unnumbered display equations that are referenced in prose, and remove the extraneous workshop metadata footnote.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/search.md
+@@ -6,3 +6,3 @@
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+@@ -25,2 +25,3 @@
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+@@ -39,3 +40,3 @@
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+@@ -51,3 +52,3 @@
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+@@ -159,2 +160,3 @@
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+@@ -224,2 +226,3 @@
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+@@ -252,2 +255,3 @@
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+@@ -263,2 +267,3 @@
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+@@ -276,3 +281,6 @@
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+@@ -281,3 +289,7 @@
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+@@ -286,8 +298,16 @@
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+@@ -297,3 +317,7 @@
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+@@ -302,3 +326,6 @@
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+@@ -315,4 +342,8 @@
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+@@ -321,6 +352,15 @@
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+@@ -336,8 +376,20 @@
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+@@ -354,4 +406,10 @@
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+@@ -366,2 +424,3 @@
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+@@ -376,2 +435,3 @@
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+@@ -387,2 +447,3 @@
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+@@ -394,2 +455,3 @@
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+@@ -404,2 +466,3 @@
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+@@ -410,4 +473,3 @@
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+@@ -415,2 +477,3 @@
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+@@ -428,2 +491,3 @@
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+@@ -439,5 +503,5 @@
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+@@ -447,11 +511,4 @@
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/search.md
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..cf00f3651e2e7bfec96ca01877f775064e4ba1a4
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,29 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +374,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +404,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +422,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +433,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +445,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +453,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +464,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,6 +489,7 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+@@ -437,21 +501,14 @@
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..cf00f3651e2e7bfec96ca01877f775064e4ba1a4
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,29 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +374,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +404,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +422,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +433,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +445,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +453,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +464,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,6 +489,7 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+@@ -437,21 +501,14 @@
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+codex
+The patch is in. I’m running a focused self-check now for unresolved equation references and any malformed paragraph/equation blocks introduced by the edit.
+exec
+/bin/bash -lc "rg -n \"\\([0-9]+\\)|Eq\\. \\([0-9]+\\)|Eqs\\.\" content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+11:entropy $H_{ND}$ conditional on nondetection \[Eq. (4) below\] or to the
+81:$P_i = p_i(0)$ for their fixed initial values. The aforementioned
+120:(6).
+152:Consider a search that starts from initial values $I(0), J(0)$ which are
+156:$[I(z) - I(0)]$ is the measure of the amount of prior information
+157:utilized up to that point, while $[J(0) - J(z)]$ is the measure of the
+163:derivation of (10). To demonstrate the connection of $J(z)$ with search
+164:effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+166:$\{z_i\}$, $J(z)$ is from (12)
+167:$$J(z) = \sum_{i=1}^{n} m_i \log\left[\frac{m_i}{p_i} (1-p_D) \exp(z_i/s_i)\right] = J(0) + \log(1 - p_D) + (z/S) \tag{13}$$
+169:where $z = \sum z_i$ is the total search effort used. But (13) states
+175:$$z^* \equiv S[J(0) - J(z)] \tag{15}$$
+178:ignorance, $J(0) = 0$, then clearly the best we can do is to conduct the
+180:$$p_D = 1 - \exp(-z/S)$$ i.e., just the original detection function (1),
+197:must decide on the optimal allocation $\{\hat{z}_i^{(1)}\}$ with
+198:$\sum_i \hat{z}_i^{(1)} = C_1$ on the assumption that no further search
+202:allocation $\{\hat{z}_i^{(2)}\}$ with $\sum_i \hat{z}_i^{(2)} = C_2$ for
+207:$$\hat{z}_i^{(1)} + \hat{z}_i^{(2)} = \hat{z}_i, \quad 1 \le i \le n \tag{16}$$
+232:which has reduced the cell probabilities (3) to $\{p_1 \dots p_n\}$, if
+237:But if detection does not result, then according to (3) the probability
+exec
+/bin/bash -lc "nl -ba content/papers/search.md | sed -n '268,380p'" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\\\tag\\{[0-9]+\\}\" content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   268	
+   269	We now examine in some detail the course of the optimal search policy
+   270	for this model. In this we necessarily repeat a few facts well known in
+   271	the literature of search theory; our object is to point out their
+   272	interpretation in the light of the entropies $I(z), J(z)$. The search
+   273	process now appears very much like an irreversible process in
+   274	thermodynamics, in which an initially nonequilibrium state relaxes into
+   275	the equilibrium state of maximum entropy. But now it is only our *state
+   276	of knowledge* that relaxes to the \"equilibrium\" condition of maximum
+   277	uncertainty, $I = J = 0$.
+   278	## An Example of Optimal Search
+   279	On the assumption of dynamical consistency, the entire course of the
+   280	optimal search effort is clear; since according to (19) the probability
+   281	of the searched cell is always lowered, that of the others raised, the
+   282	optimal strategy is the one that equalizes the numbers
+   283	
+   284	$$a_i = p_i/m_i \tag{22}$$
+   285	
+   286	starting from the top, as quickly as possible. We follow the
+   287	aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ exited 1 in 50ms:
+
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..cf00f3651e2e7bfec96ca01877f775064e4ba1a4
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,29 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +374,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +404,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +422,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +433,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +445,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +453,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +464,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,6 +489,7 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+@@ -437,21 +501,14 @@
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+exec
+/bin/bash -lc "nl -ba content/papers/search.md | sed -n '380,530p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   380	but have not searched at all in cell n: $z_n=0$. The prior probability
+   381	of detection has reached
+   382	
+   383	$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
+   384	
+   385	and $K^{(n-1)}$ is
+   386	$I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+   387	
+   388	$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
+   389	
+   390	From (27), (35), the entropy $I(z)$ is now reduced to
+   391	
+   392	$$I^{(n-1)} = 0 \tag{36}$$
+   393	
+   394	and from (13), (34), (35) we have also
+   395	$J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+   396	relaxation into their \"equilibrium\" values
+   397	$\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+   398	probabilities $\{w_k = N^{-1}, 1 \le k \le N\}$.
+   399	## Final Phase. {#final-phase. .unnumbered}
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..cf00f3651e2e7bfec96ca01877f775064e4ba1a4
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,29 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +374,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +404,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +422,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +433,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +445,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +453,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +464,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,6 +489,7 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+@@ -437,21 +501,14 @@
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+exec
+/bin/bash -lc "rg -n '\\\\tag\\{' content/papers/search.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+65:$$p(D|z) = 1 - \exp(-z/s) \tag{1}$$
+73:$$P_D = \sum_{i=1}^n P_i [1 - \exp(-z_i/s_i)] \tag{2}$$
+76:$$p_i = \frac{P_i \exp(-z_i/s_i)}{\sum_j P_j \exp(-z_j/s_j)} \tag{3}$$
+83:$$H_{ND} = - \sum_i p_i \log p_i \tag{4}$$
+100:$$\frac{s_i}{\sum s_i} = \frac{N_i}{\sum N_i}, \quad 1 \le i \le n \tag{5}$$
+107:$$r_k = s_i/N_i; \quad w_k = p_i/N_i; \quad y_k = z_i/N_i; \quad 1 \le k \le N_i \tag{6}$$
+111:$$\sum_{k=1}^{N_i} w_k[1 - \exp(-y_k/r_k)] \tag{7}$$
+116:$$N = \sum_{i=1}^{n} N_i \tag{8}$$
+128:$$I(z) = \sum_{i=1}^{n} p_i \log(m_i/p_i) \tag{10}$$
+131:$$m_i = \frac{N_i}{N} = \frac{s_i}{S}, \quad S = \sum s_i \tag{9}$$
+135:$$J(z) = \sum_{i=1}^{n} m_i \log(m_i/p_i) \tag{12}$$
+167:$$J(z) = \sum_{i=1}^{n} m_i \log\left[\frac{m_i}{p_i} (1-p_D) \exp(z_i/s_i)\right] = J(0) + \log(1 - p_D) + (z/S) \tag{13}$$
+171:$$p_D = 1 - \exp\left(-\frac{z+z^*}{S}\right) \tag{14}$$
+175:$$z^* \equiv S[J(0) - J(z)] \tag{15}$$
+207:$$\hat{z}_i^{(1)} + \hat{z}_i^{(2)} = \hat{z}_i, \quad 1 \le i \le n \tag{16}$$
+235:$$p_j[1 - \exp(-\delta z/s_j)] = (p_j/s_j)\delta z \tag{18}$$
+239:$$\delta p_i = (p_i - \delta_{ij})(p_j/s_j)\delta z \tag{19}$$
+242:$$\delta I = [I + \log(p_j/m_j)](p_j/s_j)\delta z \tag{20}$$
+244:$$\delta J = S^{-1}[1 - (p_j/m_j)]\delta z \tag{21}$$
+284:$$a_i = p_i/m_i \tag{22}$$
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..cf00f3651e2e7bfec96ca01877f775064e4ba1a4
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,29 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
+ point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
++$I^{(2)}$ is given by (27) with
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +374,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +404,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +422,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +433,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +445,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +453,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +464,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,6 +489,7 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+@@ -437,21 +501,14 @@
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+codex
+I found one structural artifact from the first patch: a duplicated `P_D^{(2)}` sentence/equation block in Stage 2. I’m removing that duplicate and adding one missing paragraph break in the conclusion section.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/search.md
+@@ -355,4 +355,3 @@
+ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
+-$I^{(2)}$ is given by (27) with
++point is
+ 
+@@ -498,2 +497,3 @@
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/search.md
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..429e215c51a0f69be94e41f949a98138dcdcd2b8
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,28 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
++point is
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +373,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +403,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +421,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +432,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +444,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +452,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +463,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,32 +488,27 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+ bring some surprise here. Any persistent failures would point to a new
+ hypothesis space--and therefore to the possibility of still better
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+ uniform independent weighting to all values of luminance for each pixel.
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..429e215c51a0f69be94e41f949a98138dcdcd2b8
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,28 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
++point is
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +373,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +403,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +421,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +432,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +444,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +452,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +463,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,32 +488,27 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+ bring some surprise here. Any persistent failures would point to a new
+ hypothesis space--and therefore to the possibility of still better
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+ uniform independent weighting to all values of luminance for each pixel.
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+exec
+/bin/bash -lc 'refs=$(rg -o '"'Eq\\. \\([0-9]+\\)|\\([0-9]+\\)' content/papers/search.md | sed -E 's/.*\\(([0-9]+)\\).*/\\1/' | sort -n | uniq); tags="'$(rg -o '"'\\\\tag\\{[0-9]+\\}' content/papers/search.md | sed -E 's/.*\\{([0-9]+)\\}.*/\\1/' | sort -n | uniq); echo 'Referenced:'; echo \""'$refs"; echo '"'Tagged:'; echo \""'$tags"; echo '"'Missing referenced tags:'; comm -23 <(echo \""'$refs") <(echo "$tags")' in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+Referenced:
+0
+1
+2
+3
+4
+6
+9
+10
+12
+13
+14
+15
+18
+19
+20
+21
+24
+26
+27
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..429e215c51a0f69be94e41f949a98138dcdcd2b8
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,28 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
++point is
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +373,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +403,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +421,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +432,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +444,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +452,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +463,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,32 +488,27 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+ bring some surprise here. Any persistent failures would point to a new
+ hypothesis space--and therefore to the possibility of still better
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+ uniform independent weighting to all values of luminance for each pixel.
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+exec
+/bin/bash -lc "nl -ba content/papers/search.md | sed -n '1,90p;500,530p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+     1	---
+     2	title: "Entropy and Search Theory"
+     3	author: ["E.T. Jaynes"]
+     4	year: 1985
+     5	---
+     6	## Introduction
+     7	A recent article by Pierce[^pierce1978] has brought search theory to the
+     8	attention of workers in related fields which also use statistical
+     9	theory. In recounting history, he noted that early workers tried to
+    10	relate detection probability $p_D$ and search effort to the posterior
+    11	entropy $H_{ND}$ conditional on nondetection \[Eq. (4) below\] or to the
+    12	\"expected posterior entropy\" $H_E = p_D H_D + (1-p_D) H_{ND}$,
+    13	discovered quickly that no general relation exists; and concluded that
+    14	information theory has no useful connection with search theory.
+    15	
+    16	As Pierce stated: \"These negative findings had a clearly inhibiting
+    17	effect on research, and relatively little effort has been devoted to the
+    18	connections between information and search for the past fifteen years.
+    19	Nonetheless, the intuitive appeal of information theory remains
+    20	strong.\" He then presented some numerical analyses showing that in some
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..429e215c51a0f69be94e41f949a98138dcdcd2b8
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,28 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
++point is
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +373,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +403,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +421,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +432,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +444,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +452,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +463,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,32 +488,27 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+ bring some surprise here. Any persistent failures would point to a new
+ hypothesis space--and therefore to the possibility of still better
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+ uniform independent weighting to all values of luminance for each pixel.
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+codex
+Updated [content/papers/search.md](/home/dave/Projects/jaynes-archive/content/papers/search.md) with minimal structural QA edits only.
+
+Summary of changes:
+- Added missing blank-line paragraph breaks in places where paragraph transitions were clearly intended (to avoid merged text walls and improve Hugo markdown rendering).
+- Added equation-number tags (no math-content edits) so in-text references resolve cleanly:
+  - Added tags `(22)` through `(38)` to the relevant display equations in the “An Example of Optimal Search” / final-phase section.
+  - Specifically ensured referenced equations `(24)`, `(26)`, `(27)`, `(28)`, `(34)`, `(35)`, and `(37)` are present as numbered display equations.
+- Normalized citations to footnote citation style:
+  - Converted in-text `Pierce (1978)`, `(Jaynes, 1978)`, and `Barker (1977)` mentions to `[^pierce1978]`, `[^jaynes1978]`, `[^barker1977]`.
+  - Converted the References block into corresponding footnote definitions.
+- Removed extraneous metadata footnote (`Presented at the First Maximum Entropy Workshop...`) from the file.
+- Fixed one introduced duplicate Stage 2 equation line during QA pass.
+
+Self-check completed:
+- Intended paragraph boundaries are blank-line separated where adjusted.
+- No unresolved in-text equation references to missing display-equation numbers remain.
+file update:
+diff --git a/content/papers/search.md b/content/papers/search.md
+index f7d7edc4cef136510362110946b417772c4dfa96..429e215c51a0f69be94e41f949a98138dcdcd2b8
+--- a/content/papers/search.md
++++ b/content/papers/search.md
+@@ -4,7 +4,7 @@
+ year: 1985
+ ---
+ ## Introduction
+-A recent article by Pierce (1978) has brought search theory to the
++A recent article by Pierce[^pierce1978] has brought search theory to the
+ attention of workers in related fields which also use statistical
+ theory. In recounting history, he noted that early workers tried to
+ relate detection probability $p_D$ and search effort to the posterior
+@@ -23,6 +23,7 @@
+ After analyzing the available evidence, Pierce concluded that the
+ relation between search theory and information theory remains complex,
+ but that the situation is promising enough to justify further study.
++
+ To an information theorist that intuitive appeal is so strong that one
+ is convinced from the start; there *must* exist a close relation between
+ information and optimal search policy; and not just a numerical
+@@ -37,7 +38,7 @@
+ Indeed, Shannon's original creation of information theory arose from a
+ special case of this: optimal encoding of a message so as to transmit it
+ most efficiently by the cost assignment of channel capacity. As we have
+-pointed out (Jaynes, 1978), all of presently known Statistical Mechanics
++pointed out[^jaynes1978], all of presently known Statistical Mechanics
+ is included in the solution that Shannon proposed for this problem. In
+ any such problem, the attainable efficiency must be related to--because
+ it is determined by--the amount of prior information available. If past
+@@ -49,7 +50,7 @@
+ simple search model studied by Pierce (single stationary target, no
+ false alarms, independent detection probability for successive looks),
+ after which we speculate on generalizations. One of our entropy
+-connections was given by Barker (1977); the other is possibly new.
++connections was given by Barker[^barker1977]; the other is possibly new.
+ However, our purpose here is \"introductory tutorial\" rather than
+ reporting new research.
+ ## The Simple Model
+@@ -157,6 +158,7 @@
+ saving in search effort thereby achieved. The optimal policy is then the
+ one that trades off initial information for reduced search effort, as
+ quickly as possible.
++
+ The connection of $I(z)$ with information was indicated in the
+ derivation of (10). To demonstrate the connection of $J(z)$ with search
+ effort, note that from (2), the denominator of (3) is just $(1-p_D)$.
+@@ -222,6 +224,7 @@
+ type (B). Without dynamical consistency, the optimal action for today
+ would in general depend on imaginary contingencies that might or might
+ not arise tomorrow, and a \"global\" optimum would be very hard to find.
++
+ Mathematically, dynamical consistency reduces the problem for any amount
+ of search effort to successive allocations of infinitesimal amounts
+ $\delta z$, for which the optimal allocation is obvious. Given any
+@@ -250,6 +253,7 @@
+ whatever cell has at that time the greatest value of $(p_j/m_j)$; as
+ noted, this is the optimal present policy even if the previous
+ allocation $\{z_i\}$ was not optimal.
++
+ This optimal search policy always takes us toward the condition of
+ \"complete ignorance\" $I = J = 0$; and thus (as noted by Pierce, in
+ agreement with an earlier conjecture of Richardson) it \"uses up\" the
+@@ -261,6 +265,7 @@
+ determine policy; and a \"final phase\" in which it is all used up:
+ $I = J = 0$, and the optimal policy is independent of the prior
+ information.
++
+ We now examine in some detail the course of the optimal search policy
+ for this model. In this we necessarily repeat a few facts well known in
+ the literature of search theory; our object is to point out their
+@@ -274,33 +279,55 @@
+ On the assumption of dynamical consistency, the entire course of the
+ optimal search effort is clear; since according to (19) the probability
+ of the searched cell is always lowered, that of the others raised, the
+-optimal strategy is the one that equalizes the numbers $$a_i = p_i/m_i$$
++optimal strategy is the one that equalizes the numbers
++
++$$a_i = p_i/m_i \tag{22}$$
++
+ starting from the top, as quickly as possible. We follow the
+ aforementioned notation of writing $a_i = a_i(z_1 \dots z_n)$ for the
+ \"running variables\" that evolve during the search, and $A_i = a_i(0)$
+ for their fixed initial values. Number the cells according to those
+-initial values, so that $$A_1 \ge A_2 \ge \dots \ge A_n$$ Then the
++initial values, so that
++
++$$A_1 \ge A_2 \ge \dots \ge A_n \tag{23}$$
++
++Then the
+ optimal search proceeds as follows:
+ ## Stage 1. {#stage-1. .unnumbered}
+ All the initial effort should go into cell 1 until its probability is
+ reduced to the point where $a_1 = a_2$. The search effort required to do
+-this is, from (3), $$z_1^{(1)} = s_1 \log(A_1/A_2)$$ and the prior
++this is, from (3),
++
++$$z_1^{(1)} = s_1 \log(A_1/A_2) \tag{24}$$
++
++and the prior
+ probability of detection at or before this point is
+-$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2)$$ Thus from
++
++$$P_D^{(1)} = P_1[1 - \exp(-z_1^{(1)}/s_1)] = m_1(A_1 - A_2) \tag{25}$$
++
++Thus from
+ (13) the entropy J has changed by
+-$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2)$$
+ 
++$$J^{(1)} - J(0) = \log[1 - m_1(A_1 - A_2)] + m_1 \log(A_1/A_2) \tag{26}$$
++
+ That this must be negative if $A_1 > A_2$ is evident from (21); to prove
+ it directly from (26) one must take into account also the inequalities
+ $\{A_2 \ge A_k, 3 \le k \le n\}$.
+ 
+ At any stage in the search, the entropy $I(z)$ may be written in the
+-form $$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z)$$ where $K(z)$ is an
++form
++
++$$I(z) = \log(1 - p_D) + (1-p_D)^{-1} K(z) \tag{27}$$
++
++where $K(z)$ is an
+ analytically simpler expression. Therefore we indicate the entropy
+ changes by giving the values of K at each stage of the search.
+ 
+ Initially, $K(0) = I(0)$, but after the search effort (24) we find
+-$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2)$$ That
++
++$$K^{(1)} = I(0) - P_1 \log(m_1/P_1) + (m_1/m_2)P_2 \log(m_2/P_2) \tag{28}$$
++
++That
+ is, the right-hand side of (28) is the expression (10) for $I(0)$ in
+ which the first term $[P_1 \log(m_1/P_1)] = -m_1 A_1 \log A_1$ has been
+ replaced by $-m_1 A_2 \log A_2$. In effect, this lumps the first two
+@@ -313,16 +340,28 @@
+ equality $a_1 = a_2$; that is, in the ratio $m_1:m_2$, which amounts to
+ equal allocation to the $(N_1+N_2)$ refined cells derived from cells 1,
+ 2. The second stage continues until $a_1 = a_2 = a_3$, at which point we
+-have used the additional search effort $$(s_1 + s_2) \log(A_2/A_3)$$
++have used the additional search effort
++
++$$(s_1 + s_2) \log(A_2/A_3) \tag{29}$$
++
+ and the total amounts expended in cells 1 and 2 up to this point are
++
+ $$\begin{aligned}
+ z_1^{(2)} &= z_1^{(1)} + s_1 \log(A_2/A_3) \nonumber \\\\
+ &= s_1 \log(A_1/A_3) \\\\
+ z_2^{(2)} &= s_2 \log(A_2/A_3)
+-\end{aligned}$$ The prior probability of detection at or before this
+-point is $$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3)$$ and the entropy
++\end{aligned}\tag{30}$$
++
++The prior probability of detection at or before this
++point is
++
++$$P_D^{(2)} = m_1(A_1 - A_3) + m_2(A_2-A_3) \tag{31}$$
++
++and the entropy
+ $I^{(2)}$ is given by (27) with
+-$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3)$$
++
++$$K^{(2)} = I(0) - P_1 \log(m_1/P_1) - P_2 \log(m_2/P_2) + \frac{m_1+m_2}{m_3} P_3 \log(m_3/P_3) \tag{32}$$
++
+ that is, by $I(0)$ with the first two terms replaced, in effect lumping
+ the first three cells into a single cell of measure $(m_1+m_2+m_3)$.
+ ## Stage 3. {#stage-3. .unnumbered}
+@@ -334,12 +373,24 @@
+ This initial \"equalization phase\" continues until for the first time
+ $a_1=a_2=\dots=a_n$, at which point we have used up the total search
+ effort
+-$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n]$$
++
++$$z^\prime = \sum z_i = \sum_{i=1}^{n-1} s_i \log(A_i/A_n) = -S[J(0) + \log A_n] \tag{33}$$
++
+ but have not searched at all in cell n: $z_n=0$. The prior probability
+-of detection has reached $$p_D^{(n-1)} = 1 - A_n$$ and $K^{(n-1)}$ is
++of detection has reached
++
++$$p_D^{(n-1)} = 1 - A_n \tag{34}$$
++
++and $K^{(n-1)}$ is
+ $I(0)$ with the first $(n-1)$ terms replaced: i.e.,
+-$$K^{(n-1)} = -A_n \log A_n$$ From (27), (35), the entropy $I(z)$ is now
+-reduced to $$I^{(n-1)} = 0$$ and from (13), (34), (35) we have also
++
++$$K^{(n-1)} = -A_n \log A_n \tag{35}$$
++
++From (27), (35), the entropy $I(z)$ is now reduced to
++
++$$I^{(n-1)} = 0 \tag{36}$$
++
++and from (13), (34), (35) we have also
+ $J^{(n-1)}=0$. The posterior probabilities (3) have completed the
+ relaxation into their \"equilibrium\" values
+ $\{p_i=m_i, 1 \le i \le n\}$; i.e., the refined cells now have equal
+@@ -352,8 +403,14 @@
+ probabilities remain at their equilibrium values, the entropies I, J
+ remain zero, and the detection probability with any further amount of
+ search effort (i.e., for total effort $z=z^\prime+z^{\prime\prime} > z^\prime$) is
+-$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right]$$
+-where, comparing with (14), (15), $$z^{**} = S J(0)$$ is the maximum
++
++$$p_D(\infty) = 1 - \exp\left[-\frac{z+z^{**}}{S}\right] \tag{37}$$
++
++where, comparing with (14), (15),
++
++$$z^{**} = S J(0) \tag{38}$$
++
++is the maximum
+ possible saving in search effort that can be \"bought\" with the prior
+ information.
+ ## Conclusion --- The Moral
+@@ -364,6 +421,7 @@
+ give a \"most general\" case once and for all. But before one can extend
+ the theory to some particular new case, it is necessary to understand
+ the moral of what we have just learned.
++
+ Why did it require nearly thirty years after Shannon's work to find this
+ (maximum entropy)-(optimal search) connection, in spite of the fact that
+ many workers suspected its existence and tried to find it? The answer
+@@ -374,6 +432,7 @@
+ entropy is always defined with respect to some basic \"measure\" and the
+ result of maximizing it depends not only on the constraints, but also on
+ the measure.
++
+ The difficulty in applying maximum entropy to problems outside
+ thermodynamics is not in deciding what constraints should be applied,
+ but in deciding what is the underlying measure--or, as I prefer to call
+@@ -385,6 +444,7 @@
+ canonical transformations (of which the equations of motion are a
+ special case), and so equal weighting to equal phase volumes was the
+ field on which Gibbs' game was played.
++
+ This leads to many correct predictions (equations of state,
+ susceptibilities, high-temperature specific heats of solids and
+ monatomic gases), but at low temperatures Nature persisted in giving
+@@ -392,6 +452,7 @@
+ predicted. In Nature, therefore, there must be further constraints
+ operative, beyond those imposed by Gibbs. This was the first clue
+ pointing to quantum theory.
++
+ The resolution, found by Einstein, Debye, von Neumann, and Brillouin,
+ was quite simple. It seems that not all classically allowed energies are
+ used by Nature, and equal weighting to orthogonal quantum states of a
+@@ -402,17 +463,18 @@
+ where it fails, because then we would have a clue pointing to the new
+ theory that will someday replace our present quantum theory, and so
+ history would be repeated.
++
+ In applications outside thermodynamics we are still at a phase
+ corresponding to--if one can imagine it--statistical mechanics before
+ the discovery of Liouville's theorem. The originally tried entropy
+ $H_{ND}$ of Eq. (4) was defined with respect to uniform weighting of all
+ search cells regardless of their size. Such a weighting simply ignores
+ the cogent information about cell sizes. Our proceeding to the refined
+-cells of
+-equal size restored the symmetry of our hypothesis space--and
++cells of equal size restored the symmetry of our hypothesis space--and
+ corresponded to the discovery of Liouville's theorem. As soon as we play
+ our game on the field defined by (9), the connection of entropy with
+ optimal search appears immediately.
++
+ *Moral:* In any new problem, one must face anew, what is the underlying
+ symmetrical hypothesis space on which our entropies are defined? The
+ strategy is:
+@@ -426,32 +488,27 @@
+     all relevant constraints have been taken into account, this is
+     evidence that Nature is using a different hypothesis space than
+     yours. Go to step (1).
++
+ In spectrum analysis, the Burg solution implied independent uniform
+ weighting to all possible values of $\{y_0 \dots y_N\}$. Its success
+ thus far indicates that we are now at step (2). However, the future may
+ bring some surprise here. Any persistent failures would point to a new
+ hypothesis space--and therefore to the possibility of still better
+ predictions.
++
+ In image reconstruction, the present solutions seem to be based on
+ uniform independent weighting to all values of luminance for each pixel.
+ I have a suspicion--perhaps shared by John Skilling, although he
+ expresses himself in very different terms--that a deeper hypothesis
+ space that to some degree \"anticipates\" correlations of adjacent
+-pixels, may be still
+-better. Of course, we would have to accumulate a great deal of further
++pixels, may be still better. Of course, we would have to accumulate a great deal of further
+ experience before we could be sure that we were at step (3).
++
+ We hope that entropy considerations will be brought to bear on other
+ problems of optimal strategy, and perhaps with enough experience we
+ shall learn how to define our hypothesis space for such problems, just
+ as confidently as physicists now do in Statistical Mechanics.
+ ## References {#references .unnumbered}
+-Wm. H. Barker (1977), \"Information Theory and the Optimal Detection
+-Search\", Operations Research, v.25, pp. 304-314.
+-E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The
+-Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T.
+-Press, Cambridge MA, pp. 15-118.
+-John G. Pierce, \"A New Look at the Relation Between Information Theory
+-and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and
+-M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+-[^1]: Presented at the First Maximum Entropy Workshop, University of
+-    Wyoming, June 1981.
++[^barker1977]: Wm. H. Barker (1977), \"Information Theory and the Optimal Detection Search\", *Operations Research*, v.25, pp. 304-314.
++[^jaynes1978]: E. T. Jaynes (1978), \"Where Do We Stand on Maximum Entropy?\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 15-118.
++[^pierce1978]: John G. Pierce, \"A New Look at the Relation Between Information Theory and Search Theory\", in *The Maximum Entropy Formalism*, R. Levine and M. Tribus, Editors; M.I.T. Press, Cambridge MA, pp. 339-402.
+
+tokens used
+43,506
+
