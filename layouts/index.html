@@ -57,14 +57,117 @@
 
 <!-- Download All Links (Moved to bottom and made smaller) -->
 <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-center gap-4 text-gray-500">
-    <a href="{{ "pdfs/raw.zip" | relURL }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+    <button id="download-all-raw" type="button" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed">
         <i data-lucide="package" class="w-4 h-4"></i>
         Download All Raw PDFs
-    </a>
-    <a href="{{ "pdfs/clean.zip" | relURL }}" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium">
+    </button>
+    <button id="download-all-clean" type="button" class="flex items-center justify-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed">
         <i data-lucide="file-text" class="w-4 h-4"></i>
         Download All Re-Typeset PDFs
-    </a>
+    </button>
 </div>
+<p id="zip-download-status" class="text-center text-sm text-gray-500 mt-3" aria-live="polite"></p>
+
+{{ $papers := sort (where .Site.RegularPages "Section" "papers") "File.ContentBaseName" "asc" }}
+{{ $rawPDFs := slice }}
+{{ $cleanPDFs := slice }}
+{{ range $papers }}
+    {{ $rawPDFs = $rawPDFs | append (printf "%s" (printf "pdfs/raw/%s.pdf" .File.BaseFileName | relURL)) }}
+    {{ $cleanPDFs = $cleanPDFs | append (printf "%s" (printf "pdfs/clean/%s.pdf" .File.BaseFileName | relURL)) }}
+{{ end }}
+{{ $manifest := dict "raw" $rawPDFs "clean" $cleanPDFs }}
+<script id="pdf-download-manifest" type="application/json">{{ $manifest | jsonify }}</script>
+<script>
+(() => {
+    const manifestEl = document.getElementById("pdf-download-manifest");
+    if (!manifestEl) return;
+
+    const statusEl = document.getElementById("zip-download-status");
+    const rawBtn = document.getElementById("download-all-raw");
+    const cleanBtn = document.getElementById("download-all-clean");
+    if (!statusEl || !rawBtn || !cleanBtn) return;
+
+    const manifest = JSON.parse(manifestEl.textContent || "{}");
+    let working = false;
+
+    function setWorkingState(isWorking) {
+        working = isWorking;
+        rawBtn.disabled = isWorking;
+        cleanBtn.disabled = isWorking;
+    }
+
+    function setStatus(message) {
+        statusEl.textContent = message;
+    }
+
+    async function ensureZipLib() {
+        if (window.JSZip) return window.JSZip;
+        await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+            script.async = true;
+            script.onload = resolve;
+            script.onerror = () => reject(new Error("Failed to load ZIP library."));
+            document.head.appendChild(script);
+        });
+        if (!window.JSZip) throw new Error("ZIP library not available.");
+        return window.JSZip;
+    }
+
+    async function downloadZip(kind) {
+        if (working) return;
+
+        const urls = manifest[kind];
+        if (!Array.isArray(urls) || urls.length === 0) {
+            setStatus("No files are available for this archive.");
+            return;
+        }
+
+        setWorkingState(true);
+        try {
+            const JSZip = await ensureZipLib();
+            const zip = new JSZip();
+            setStatus(`Downloading ${urls.length} PDFs for ${kind} archive...`);
+
+            for (let i = 0; i < urls.length; i += 1) {
+                const url = urls[i];
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${url}`);
+                }
+                const blob = await response.blob();
+                const filename = url.split("/").pop() || `file-${i + 1}.pdf`;
+                zip.file(filename, blob);
+                setStatus(`Downloaded ${i + 1}/${urls.length} PDFs...`);
+            }
+
+            setStatus("Compressing archive...");
+            const blob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 9 } });
+            const outName = kind === "raw" ? "raw-pdfs.zip" : "clean-pdfs.zip";
+            const outUrl = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = outUrl;
+            link.download = outName;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(outUrl);
+            setStatus(`Ready: ${outName}`);
+        } catch (err) {
+            setStatus(`Could not build ZIP: ${err.message}`);
+        } finally {
+            setWorkingState(false);
+        }
+    }
+
+    rawBtn.addEventListener("click", () => {
+        downloadZip("raw");
+    });
+
+    cleanBtn.addEventListener("click", () => {
+        downloadZip("clean");
+    });
+})();
+</script>
 
 {{ end }}
