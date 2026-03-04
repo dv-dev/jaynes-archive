@@ -15,6 +15,7 @@ abstract: >
 author:
   ["E.T. Jaynes"]
 ---
+
 ## INTRODUCTORY REMARKS
 Our group has the honour to be among the first to use this splendid new
 Fisher building with its 300 seat auditorium. But perhaps, at a meeting
@@ -80,6 +81,7 @@ workers in the quantitative sciences.
 How fitting it is that this meeting is being held back where these
 advances started. Our thanks to the Master and Council of St. John's
 College, who made it possible.
+
 ## THE MOTIVATION
 Probability theory is a versatile tool, which can serve many different
 purposes. The earliest signs of my own interest in the field involved
@@ -110,6 +112,7 @@ inequality mysteries in quantum theory: do physical influences travel
 faster than light? The third reexamines the old mystery about whether
 thermodynamics applies to biology: does the high efficiency of our
 muscles violate the second law?
+
 ## DIFFUSION
 Think, for definiteness, of a solution of sugar in water, so dilute that
 each sugar molecule interacts constantly with the surrounding water, but
@@ -304,6 +307,7 @@ of $N$ are of the order of $10^{16}$, and the prediction is highly
 reliable, in the following sense: for the great majority of the
 $N$-particle motions consistent with the information used, the flux is
 very close to the predicted value.
+
 ## DISCUSSION
 The above example may indicate the price that kinetic theory has paid
 for its failure to comprehend and use the Bayesian methods that Harold
@@ -363,6 +367,7 @@ reject a Bayesian calculation because it has given us an incorrect
 prediction is like disconnecting a fire alarm because that annoying bell
 keeps ringing. Probability theory is trying to tell us something
 important, and it behooves us to listen.
+
 ## THE MIND PROJECTION FALLACY
 It is very difficult to get this point across to those who think that in
 doing probability calculations their equations are describing the real
@@ -411,6 +416,7 @@ quandary for quantum theory, in the EPR paradox. It is so bad that some
 have concluded, with the usual consistency of quantum theory, that (1)
 there is no real world, after all, and (2) physical influences travel
 faster than light.
+
 ## BACKGROUND OF EPR
 Quantum Mechanics (QM) is a system of mathematics that was not developed
 to express any particular physical ideas, in the sense that the
@@ -461,6 +467,7 @@ to which a pure state represents an ensemble of similarly prepared
 systems and is thus an incomplete description of an individual system.
 Bohr's completeness claim has never played any functional role in
 applications, and in that sense it is indeed gratuitous.
+
 ## CONFRONTATION OR RECONCILIATION?
 Put most briefly, Einstein held that the QM formalism is incomplete and
 that it is the job of theoretical physics to supply the missing parts;
@@ -540,6 +547,7 @@ complementarity; it is a technical problem calling for probability
 theory as expounded by Jeffreys, and information theory. Indeed, we know
 that toward the end of his life, Bohr showed an interest in information
 theory.
+
 ## EPR
 But to return to the historical account; somehow, many physicists became
 persuaded that the success of the QM mathematical formalism proved the
@@ -609,6 +617,7 @@ to want to know what is happening. But I do want to know, and I do not
 think this is naïve; and so for me QM is not a physical theory at all,
 only an empty mathematical shell in which a future theory may, perhaps,
 be built.
+
 ## THE BELL INEQUALITIES
 John Bell (1964) studied a simple realization of the EPR scenario in
 which two spin 1/2 particles denoted by A and B were jointly in a pure
@@ -791,6 +800,7 @@ to reality. This supports the Einstein view of the meaning of a pure
 state as an ensemble; for in statistical mechanics it is a platitude
 that the true microstate may appear in two different ensembles,
 representing two different states of knowledge about the microstate.
+
 ## BERNOULLI'S URN REVISITED
 Define the propositions: *I* = "Our urn contains $N$ balls, identical
 in every respect except that $M$ of them are red, the remaining $N - M$
@@ -861,6 +871,7 @@ logical implication as physical causation, any more than we can
 conditional probability. Elementary facts like this are well understood
 in economics (Simon & Rescher, 1966; Zellner, 1984); it is high time
 that they were recognized in theoretical physics.
+
 ## OTHER HIDDEN -- VARIABLE THEORIES
 Now consider Hidden Assumption (2). Bell theories make no mention of
 time variation of the hidden variable $\lambda$; but if it is to take
@@ -959,6 +970,7 @@ happens in the real world depends on physical law and is on the level of
 ontology. What we can predict depends on our state of knowledge and is
 necessarily on the level of epistemology. He who confuses reality with
 his knowledge of reality generates needless artificial mysteries.
+
 ## THE SECOND LAW IN BIOLOGY
 As we learn in elementary thermodynamics, Kelvin's formula for the
 efficiency of a Carnot heat engine operating between upper and lower
@@ -1079,6 +1091,7 @@ evolved muscle efficiency (which must be of equal survival value)
 correspondingly. If so, then the maximum observed efficiency of muscles
 should be not merely a lower bound on the maximum theoretical efficiency
 we seek, but close to it numerically.
+
 ## GENERALISED EFFICIENCY FORMULA
 Consider the problem first in the simplicity of classical physics, where
 the Rayleigh-Jeans equipartition law holds. If in the Kelvin formula
@@ -1134,6 +1147,7 @@ engines. To achieve this we must understand clearly the basic physical
 reason why there is a second law limitation on processes. We suggest
 that the fundamental keyword characterizing the second law is not
 "disorder", but *reproducibility*.
+
 ## THE REASON FOR IT
 The second law arises from a deep interplay between the epistemological
 macrostate (i.e., the variables like pressure, volume, magnetization
@@ -1312,6 +1326,7 @@ interactions are with coordinates of low-frequency vibration modes of
 large protein molecules. How energy gets transferred from an excited
 electronic state of ATP to such a vibration mode would remain in the
 province of quantum theory; but this can be virtually 100% efficient.
+
 ## QUANTITATIVE DERIVATION
 Now we are ready for a specific calculation of muscle efficiency using
 the above principles. The phase volumes $W$ that we calculate are, of
@@ -1415,6 +1430,7 @@ theoretical efficiency would come out just above the maximum observed
 efficiency; and at least that much has been realized. It appears that the
 information we used was adequate for the purpose, and there is no longer
 any mystery.
+
 ## A CHECK
 We derived the efficiency formula (38) without assuming any slow
 reversible operation as conventional thermodynamics does. On the other
@@ -1486,6 +1502,7 @@ of order and disorder. On the other hand, the second law limitation on
 macroscopic processes is easily understood in objectively meaningful
 terms, in both biology and physics, as the price we pay for
 reproducibility.
+
 ## CONCLUSION
 As those promised tentative comments on biological information, we see
 the above as evidence that the energy of ATP hydrolysis is confined to a
@@ -1597,6 +1614,7 @@ engine operating *in vitro*; not very efficiently, but nevertheless
 confirming the idea. In time the design of useful anti-Carnot molecular
 engines (artificial muscles) might become about as systematic and well
 understood as the design of dyes, drugs, and antibiotics is now.
+
 ## REFERENCES
 B. Alberts, D. Bray, J. Lewis, M. Raff, K. Roberts, and J. D. Watson
 (1983), *Molecular Biology of the Cell*, Garland Publishing Co., New
@@ -1630,6 +1648,7 @@ Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
 A. Einstein, B. Podolsky, and N. Rosen (1935), "Can Quantum Mechanical
 Description of Reality be Considered Complete?", Phys. Rev. **47**,
 777.
+
 A. F. Huxley (1957), Prog. Biophys. Chem. **7**, 255.
 
 E. T. Jaynes (1965), "Gibbs vs Boltzmann Entropies", Am. J. Phys.
@@ -1645,6 +1664,7 @@ York.
 E. T. Jaynes (1985), "Generalized Scattering", in *Maximum Entropy and
 Bayesian Methods in Inverse Problems*, C. R. Smith & W. T. Grandy,
 Editors, D. Reidel Publishing Co., Dordrecht-Holland; pp. 377-398.
+
 E. T. Jaynes (1986), "Predictive Statistical Mechanics", in Moore &
 Scully (1986); pp. 33--56.
 
@@ -1669,6 +1689,7 @@ O. Penrose (1970), *Foundations of Statistical Mechanics*, Pergamon
 Press, Oxford; p. 160.
 
 G. Rempe, H. Walther, N. Klein (1987); Phys. Rev. Let **58**, 353
+
 S. Rozental, Editor (1964); *Niels Bohr, His Life and Work as seen by
 his Friends and Colleagues*, J. Wiley & Sons, Inc., New York.
 
@@ -1683,17 +1704,17 @@ New York.
 A. Zellner (1984), *Basic Issues in Econometrics*, Univ. Chicago Press;
 pp. 35-74.
 
-[^100]: Mailing Address: Campus Box #1105, Washington University, 1 Brookings Drive, St. Louis MO 63130.
 [^3]: As far as we have been able to determine, Jeffreys' view of
     probability theory was unknown in continental Europe throughout
     Einstein's lifetime; this was a handicap to Einstein in more ways
     than one.
 
-[^4]: As we noted long ago (Jaynes, 1973), In the optical "photon
+[^4]: As we noted long ago, in the optical "photon
     correlation" experiment where according to QM the two photons have
     parallel polarization, the non-existence of correlations when the
     polarizers are at a 90 degree angle is a more sensitive (and
     experimentally simpler) test of QM than are the Bell inequalities.
+
 [^5]: This suggests some fascinating speculations; from the beginning
     all life on the earth has been running on the temperature difference
     between the sun and the earth. Presumably, the first life was

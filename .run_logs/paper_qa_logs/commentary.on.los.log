@@ -1,0 +1,712 @@
+=== STDOUT ===
+Updated [content/papers/commentary.on.los.md](/home/dave/Projects/jaynes-archive/content/papers/commentary.on.los.md) with minimal structural QA edits only.
+
+Changes made:
+- Normalized in-text citations from bracket style to markdown footnote refs:
+  - `[1] [2] [3] [4]` -> `[^1] [^2] [^3] [^4]`
+- Converted the `# REFERENCES` entries into proper footnote definition format for clean Hugo markdown rendering.
+- Fixed one markdown list-rendering spacing issue by adding blank lines before/after the numbered list under “principle of morality”.
+- Resolved a duplicate footnote key conflict at the end by renumbering the extra trailing note from `[^1]:` to `[^5]:` (content preserved).
+
+Checks:
+- No LaTeX/KaTeX/math text was modified.
+- No paper meaning/content was changed.
+- No duplicate abstract text found in body (abstract remains in front matter only).
+- No “Lecture given at …” style extraneous metadata found to remove.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb991-0c3d-7d92-9cf9-25b24bd93d8a
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/commentary.on.los.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/commentary.on.los.md` for structural QA only, then apply minimal edits that preserve meaning and leave all math untouched. I’m starting by inspecting the file for duplicated abstract text, citation formatting, table issues, and any extraneous metadata lines.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Commentary on Two Articles by C. A. Los"
+year: 1991
+abstract: >
+  Recently, C. A. Los has recommended that all previous methods for
+  estimating linear relations from data with unknown errors be scrapped,
+  and proposes to find an 'exact objective mathematical solution' that
+  depends only on the data. We discuss this with the conclusions that
+  (1) his criticisms of previous methods, while overly severe, make some
+  important points worth noting; (2) however, his solution ignores
+  relevant information and does not exist except in very special cases;
+  (3) the Los solution, when it exists, may be characterized as the one
+  which would be correct if we had an infinite amount of data which led
+  to the same data correlation matrix; (4) methods for dealing with the
+  problem which are optimal in all cases have been known for 20 years.
+author:
+["E.T. Jaynes"]
+---
+# INTRODUCTION {#introduction .unnumbered} 
+The problem of estimating linear relations from a scatter plot of data
+codex
+I’ve read the first section and identified likely QA targets (citation style and potential duplicated abstract/body metadata). I’m continuing through the rest of the file before editing so changes stay minimal and consistent.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+choice $q = n - 1$ we have already required that the 'exact' component
+of the data $\hat{X}$ must be parallel to some fixed vector $a$, but (8)
+allows its direction to be arbitrary. Factoring (9) we have
+$\hat{X}_tj = a_j$, just what we knew before taking this detour.
+For that general solution, we extend this result to any $n$ and $q$.
+Since all matrix elements are real, the symmetric matrix $\hat{\Sigma}$
+has $n(n+1)/2$ independent components and (8) imposes $q(q+1)/2$ conditions on them. Therefore by the 'general solution' of (8) we mean
+any algorithm that enables us to write a specific solution
+$\hat{\Sigma}$ as a function of
+$$\frac{n(n + 1)}{2} - \frac{q(q + 1)}{2}$$ arbitrary real constants. To
+do this, choose $\hat{\Sigma}_22$ as an arbitrary symmetric positive
+definite matrix; this requires $(n - q)(n - q + 1)/2$ quantities. Then
+define $\hat{\Sigma}_12$ arbitrarily; this requires $q(n-q)$ more
+arbitrary quantities. Indeed,
+$$\frac{(n-q)(n-q + 1)}{2} + q(n - q) = \frac{n(n + 1)}{2} - \frac{q(q + 1)}{2}$$ 
+so all degrees of freedom are now specified. As the final step, then, we
+need only define
+$$\hat{\Sigma}_11 = \hat{\Sigma}_12 \hat{\Sigma}_22^{-1} \hat{\Sigma}_21$$ 
+and we have produced that 'general solution' by construction.
+
+codex
+I finished the full read. There is no duplicate abstract in the body and no “Lecture given at …” metadata line, so the main needed cleanup is citation normalization to footnotes and a few structural markdown fixes for cleaner Hugo rendering. I’m applying only those minimal edits now.
+codex
+Patch failed due a context mismatch, so I’m re-reading the exact sections and will re-apply a tighter patch with precise line matches.
+exec
+/bin/bash -lc "sed -n '1,220p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[1\\]|\\[2\\]|\\[3\\]|\\[4\\]|# REFERENCES|projection operator|\\"'$'"\\"'$'"\\\\hat\\{\\\\Sigma\\}_ij\" content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Commentary on Two Articles by C. A. Los"
+year: 1991
+abstract: >
+  Recently, C. A. Los has recommended that all previous methods for
+  estimating linear relations from data with unknown errors be scrapped,
+  and proposes to find an 'exact objective mathematical solution' that
+  depends only on the data. We discuss this with the conclusions that
+  (1) his criticisms of previous methods, while overly severe, make some
+  important points worth noting; (2) however, his solution ignores
+  relevant information and does not exist except in very special cases;
+  (3) the Los solution, when it exists, may be characterized as the one
+  which would be correct if we had an infinite amount of data which led
+  to the same data correlation matrix; (4) methods for dealing with the
+  problem which are optimal in all cases have been known for 20 years.
+author:
+["E.T. Jaynes"]
+---
+# INTRODUCTION {#introduction .unnumbered} 
+The problem of estimating linear relations from a scatter plot of data
+exec
+/bin/bash -lc "sed -n '220,520p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive exited 2 in 50ms:
+rg: regex parse error:
+    (?:\[1\]|\[2\]|\[3\]|\[4\]|# REFERENCES|projection operator|$$\hat\{\Sigma\}_ij)
+                                                                  ^^
+error: unrecognized escape sequence
+ succeeded in 51ms:
+$A = (I | -\beta^\prime)$ and $\hat{X} = (y|X_2)$, then (5) takes the more
+familiar form $X_2 \beta = y$. From (5) he then obtains
+$$A \hat{X}^\prime \hat{X} = A \hat{\Sigma} = 0$$ where $\hat{\Sigma}$
+is the reduced covariance matrix. The nature of the problem facing us can be
+seen at once by dealing directly with the data vectors $X$ without
+introducing $\Sigma$ at all; but Los chooses to take this detour, which
+obscures that information.
+Next he partitions the columns of $A$ in the aforementioned way
+$A = (I | B)$ where $I$ is a $(q \times q)$ matrix and $B$ a
+$q \times (n-q)$ one, and partitions $\hat{\Sigma}$ similarly:
+$$\hat{\Sigma} = 
+\begin{pmatrix}
+\hat{\Sigma}_11 & \hat{\Sigma}_12 \\\\
+\hat{\Sigma}_21 & \hat{\Sigma}_22
+\end{pmatrix}$$ where $\hat{\Sigma}_12 = \hat{\Sigma}_21'$ is a
+$(q \times n)$ matrix, etc., and $\hat{\Sigma}_22$ is to have full
+rank $(n-q)$. Then writing out (6) we find that $B$ is determined to be
+$B = -I \hat{\Sigma}_12 \hat{\Sigma}_22^{-1}$. If we choose $I$ to
+be the $(q \times q)$ unit matrix, as Los does, then (6) reduces to the
+condition
+codex
+I’m now applying a narrow, mechanical citation conversion (`[n]` to footnote refs) and rewriting the references block into footnote definitions, plus one small spacing fix for markdown list rendering.
+exec
+/bin/bash -lc "perl -0pi -e 's/\\[1\\]/["'^1]/g; s/'"\\[2\\]/["'^2]/g; s/'"\\[3\\]/["'^3]/g; s/'"\\[4\\]/["'^4]/g'"' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/commentary.on.los.md
+@@ -427,2 +427,3 @@
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+@@ -430,2 +431,3 @@
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+@@ -507,13 +509,15 @@
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/commentary.on.los.md
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..48bcf387ca3f6cbb94b677bc9bd0e4207f0d5fa7
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,17 +507,19 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+ [^1]: To be published in Volume 3 of special issues, "On
+
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..48bcf387ca3f6cbb94b677bc9bd0e4207f0d5fa7
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,17 +507,19 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+ [^1]: To be published in Volume 3 of special issues, "On
+
+codex
+Edits are in place. I’m doing a final pass to verify no math changed, no body abstract duplication exists, and citation/style updates are clean.
+exec
+/bin/bash -lc "sed -n '1,120p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[\\d+\\]|\\[\\"'^'"\\d+\\]|# REFERENCES|abstract:|Lecture given at\" content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Commentary on Two Articles by C. A. Los"
+year: 1991
+abstract: >
+  Recently, C. A. Los has recommended that all previous methods for
+  estimating linear relations from data with unknown errors be scrapped,
+  and proposes to find an 'exact objective mathematical solution' that
+  depends only on the data. We discuss this with the conclusions that
+  (1) his criticisms of previous methods, while overly severe, make some
+  important points worth noting; (2) however, his solution ignores
+  relevant information and does not exist except in very special cases;
+  (3) the Los solution, when it exists, may be characterized as the one
+  which would be correct if we had an infinite amount of data which led
+  to the same data correlation matrix; (4) methods for dealing with the
+  problem which are optimal in all cases have been known for 20 years.
+author:
+["E.T. Jaynes"]
+---
+# INTRODUCTION {#introduction .unnumbered} 
+The problem of estimating linear relations from a scatter plot of data
+ succeeded in 51ms:
+4:abstract: >
+25:available for 20 years [^1], but conceptual misunderstandings have
+29:In two recent articles, C. A. Los [^2], [^3] has proposed a radical
+68:presented in [^3], Appendix A. Then he gives the $(3 \times 3)$ data
+251:In the case $(n=3, q=2)$, [^3] devotes half a page to studying (8),
+354:In any event, his final solution for the current problem ([^3], Table
+502:examples of such solutions were given long ago by Zellner [^1]. If one
+508:by Bretthorst [^4].
+509:# REFERENCES {#references .unnumbered} 
+510:[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+514:[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+518:[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+522:[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+525:[^1]: To be published in Volume 3 of special issues, "On
+exec
+/bin/bash -lc "sed -n '300,420p' content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+To see the situation we are in more clearly, note that if there were no
+'noise', the problem would indeed be one of exact mathematical deduction
+not requiring probability theory at all; if the data obey any linear
+relations, any method of solution would find them. In other words, our
+uncertainty as to the existence of linear relations arises solely from
+the fact that the measurement errors are unknown. In order to get that
+'exact' solution demanded by Los, it is therefore a mathematical
+necessity that we impose $n(n + 1)/2 - q(q + 1)/2$ exact conditions on
+those measurement errors. However this is done, it requires us to assume
+a great deal of information which we do not possess; how could one ever
+justify any such assumption?
+
+The difference $\tilde{\Sigma} = \Sigma - \hat{\Sigma}$ is called the
+"residual covariance matrix", although it is not necessarily the
+covariance matrix of the residuals. In any event, the condition he now
+imposes is not that the residuals be small, but that $\tilde{\Sigma}$
+shall be a diagonal matrix! Far from being able to explain a reason for
+this, we are bewildered by it.
+
+To see why, suppose that $\tilde{\Sigma}$ is actually the covariance
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..48bcf387ca3f6cbb94b677bc9bd0e4207f0d5fa7
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,17 +507,19 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+ [^1]: To be published in Volume 3 of special issues, "On
+
+codex
+I found an additional existing footnote block at the end (`[^1]: To be published...`) that now conflicts with normalized citations. I’m checking the tail and will renumber only that extra note to avoid changing content.
+exec
+/bin/bash -lc 'tail -n 40 content/papers/commentary.on.los.md' in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+    step in a real research program; one needs also a way to judge the
+    relative merits of different models, in the light of the data so
+    that cumulative improvements can take place over long times.
+
+Now all of these advances over maximum likelihood are provided
+automatically and elegantly, by Bayesian methods. In particular, the
+Bayesian 'errors in variables' (EVM) models, which Los dismisses as "not
+fruitful to discuss" are nevertheless fruitful enough to provide the
+information handling ability and computational power that all other
+methods lack. The Los solution, when it exists, is the limit of the
+Bayesian solution as $T \to \infty$, $\Sigma/T \to \text{const}$.
+It is not our present topic to go into details of these Bayesian
+solutions; we hope to present them in a later article. However, several
+examples of such solutions were given long ago by Zellner [^1]. If one
+will investigate the properties of those solutions, they will be found
+to do every reasonable thing that one might hope for in these problems.
+On very similar problems, including economic time series, the analytical
+theory and many fully worked-out numerical examples to illustrate its
+use in all four of the above extensions of maximum likelihood, are given
+by Bretthorst [^4].
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..48bcf387ca3f6cbb94b677bc9bd0e4207f0d5fa7
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,17 +507,19 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+ [^1]: To be published in Volume 3 of special issues, "On
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/commentary.on.los.md
+@@ -524,3 +524,3 @@
+ 
+-[^1]: To be published in Volume 3 of special issues, "On
++[^5]: To be published in Volume 3 of special issues, "On
+     System-theoretic Methods in Economic Modelling", S. Mittnik,
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/commentary.on.los.md
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..ca0d9c41b96cbb0803afdd3f6c687e165305fffe
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,20 +507,22 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+-[^1]: To be published in Volume 3 of special issues, "On
++[^5]: To be published in Volume 3 of special issues, "On
+     System-theoretic Methods in Economic Modelling", S. Mittnik,
+     Editor, in *Computers and Mathematics with Applications*, and
+     subsequently as a monograph by Pergamon Press.
+
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..ca0d9c41b96cbb0803afdd3f6c687e165305fffe
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,20 +507,22 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+-[^1]: To be published in Volume 3 of special issues, "On
++[^5]: To be published in Volume 3 of special issues, "On
+     System-theoretic Methods in Economic Modelling", S. Mittnik,
+     Editor, in *Computers and Mathematics with Applications*, and
+     subsequently as a monograph by Pergamon Press.
+
+codex
+I fixed the conflicting footnote identifier to keep markdown valid. I’m doing one final validation pass for citation consistency and duplicate abstract/body checks before I summarize.
+exec
+/bin/bash -lc 'tail -n 24 content/papers/commentary.on.los.md' in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"Recently, C\\. A\\. Los has recommended|Lecture given at\" content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archiveexec
+/bin/bash -lc "rg -n \"\\[\\"'^[0-9]+'"\\]:|\\[\\"'^[0-9]+'"\\]\" content/papers/commentary.on.los.md" in /home/dave/Projects/jaynes-archive succeeded in 52ms:
+On very similar problems, including economic time series, the analytical
+theory and many fully worked-out numerical examples to illustrate its
+use in all four of the above extensions of maximum likelihood, are given
+by Bretthorst [^4].
+# REFERENCES {#references .unnumbered} 
+[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+    Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+    by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+
+[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+    Components and Common Factors Schemes", Computer Math. Applic.
+    **17**, 1269-1284.
+
+[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+    Data: a Three-variable Example" Computer Math. Applic. **17**,
+    1285-1304 (1989).
+
+[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+    Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+
+ succeeded in 51ms:
+25:available for 20 years [^1], but conceptual misunderstandings have
+29:In two recent articles, C. A. Los [^2], [^3] has proposed a radical
+68:presented in [^3], Appendix A. Then he gives the $(3 \times 3)$ data
+251:In the case $(n=3, q=2)$, [^3] devotes half a page to studying (8),
+354:In any event, his final solution for the current problem ([^3], Table
+502:examples of such solutions were given long ago by Zellner [^1]. If one
+508:by Bretthorst [^4].
+510:[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+514:[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+518:[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+522:[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+525:[^5]: To be published in Volume 3 of special issues, "On
+ succeeded in 51ms:
+5:  Recently, C. A. Los has recommended that all previous methods for
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..ca0d9c41b96cbb0803afdd3f6c687e165305fffe
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,20 +507,22 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+-[^1]: To be published in Volume 3 of special issues, "On
++[^5]: To be published in Volume 3 of special issues, "On
+     System-theoretic Methods in Economic Modelling", S. Mittnik,
+     Editor, in *Computers and Mathematics with Applications*, and
+     subsequently as a monograph by Pergamon Press.
+
+codex
+Updated [content/papers/commentary.on.los.md](/home/dave/Projects/jaynes-archive/content/papers/commentary.on.los.md) with minimal structural QA edits only.
+
+Changes made:
+- Normalized in-text citations from bracket style to markdown footnote refs:
+  - `[1] [2] [3] [4]` -> `[^1] [^2] [^3] [^4]`
+- Converted the `# REFERENCES` entries into proper footnote definition format for clean Hugo markdown rendering.
+- Fixed one markdown list-rendering spacing issue by adding blank lines before/after the numbered list under “principle of morality”.
+- Resolved a duplicate footnote key conflict at the end by renumbering the extra trailing note from `[^1]:` to `[^5]:` (content preserved).
+
+Checks:
+- No LaTeX/KaTeX/math text was modified.
+- No paper meaning/content was changed.
+- No duplicate abstract text found in body (abstract remains in front matter only).
+- No “Lecture given at …” style extraneous metadata found to remove.
+file update:
+diff --git a/content/papers/commentary.on.los.md b/content/papers/commentary.on.los.md
+index c1d67acc14f6fc285e841680f4f816a14f4ef099..ca0d9c41b96cbb0803afdd3f6c687e165305fffe
+--- a/content/papers/commentary.on.los.md
++++ b/content/papers/commentary.on.los.md
+@@ -425,9 +425,11 @@
+ best conclusions possible from the incomplete information available to
+ us. Surely, the fundamental basis of scientific inference - almost a
+ principle of morality -- is that we should
++
+ 1.  take into account all the relevant information we have, of whatever
+     type,
+ 2.  carefully avoid assuming information that we do not have.
++
+ but as we have seen, Los commits egregious violations of both of these
+ rules.
+ 
+@@ -505,20 +507,22 @@
+ use in all four of the above extensions of maximum likelihood, are given
+ by Bretthorst [^4].
+ # REFERENCES {#references .unnumbered} 
+-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
++[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
+     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
+     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
+-<!-- -->
+-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
++
++[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+     Components and Common Factors Schemes", Computer Math. Applic.
+     **17**, 1269-1284.
+-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
++
++[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+     Data: a Three-variable Example" Computer Math. Applic. **17**,
+     1285-1304 (1989).
+-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
++
++[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
+ 
+-[^1]: To be published in Volume 3 of special issues, "On
++[^5]: To be published in Volume 3 of special issues, "On
+     System-theoretic Methods in Economic Modelling", S. Mittnik,
+     Editor, in *Computers and Mathematics with Applications*, and
+     subsequently as a monograph by Pergamon Press.
+
+tokens used
+29,659
+

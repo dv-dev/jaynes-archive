@@ -382,7 +382,7 @@ apply equally well to any problem, in or out of physics, where the
 situation can be described by (1) enumerating a discrete set of
 possibilities and by (2) specifying average values of various
 quantities. The above formalism has been applied also to problems in
-engineering^2^ and economics.^3^
+engineering[^2] and economics.[^3]
 In most problems, interest centers on making the best possible
 predictions for a specific situation, and we are not really interested
 in properties of any ensemble, real or imaginary. (For example, we want
@@ -592,15 +592,17 @@ with the data in the aforementioned sense, the information theory
 entropy attains an absolute maximum, equal to the experimental entropy,
 if and only if $p_i$ is taken as the appropriate canonical or grand
 canonical distribution.
-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
+**Remarks:**
+
+1. We have taken $\langle E \rangle$ as the given quantity.
 In practice, it is usually the temperature that is measured. To treat
 the temperature as the observable, one must regard the system of
 interest to be in contact with a heat reservoir, with which it may
 exchange energy and which acts as a thermometer. Detailed analysis of
-the resulting system (given in reference^5^) leads to the same
+the resulting system (given in reference [^5]) leads to the same
 probability assignments as we have found with $\langle E \rangle$ as the
 given datum.
-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
+2. If not only $\langle E \rangle$ is known, but also the accuracy of
 the measurement, as given for example by $\langle E^2 \rangle$, then
 this information may be incorporated into the problem by taking
 $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
@@ -627,7 +629,7 @@ mean-square experimental error, and so the additional information about
 accuracy of the measurement did not lead to any difference in the
 predictions. This is, of course, the basic reason for the success of the
 Gibbs canonical ensemble formalism.
-3\. The theory as developed here has, in principle, an additional
+3. The theory as developed here has, in principle, an additional
 freedom of choice not present in conventional statistical mechanics. The
 statement that a system has a definite, reproducible equation of state
 means, for example, that if we fix experimentally any two of the
@@ -694,7 +696,7 @@ $$
 S_I = -\text{Tr} (\rho \log \rho)
 $$
  (See
-reference^5^ for the arguments that lead to this definition of $S_I$ and
+reference [^5] for the arguments that lead to this definition of $S_I$ and
 discussion of other expressions which have been proposed.) Maximizing
 $S_I$ subject to the constraints imposed by knowledge of the
 $\langle F_k \rangle$ yields
@@ -726,7 +728,7 @@ For all $\rho$ that agree with the data in the sense of (52), we have
 $S_I(\rho) \le S_e$, with equality if and only if $\rho$ is the
 canonical matrix (54).
 ## Continuous Distributions
-Shannon's fundamental uniqueness theorem (reference,^1^ theorem 3) which
+Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
 establishes $-\sum p_i \log p_i$ as the correct information measure,
 goes through only for discrete probability distributions. At the present
 time, the only criterion we have for finding the analogous expression
@@ -795,7 +797,7 @@ To achieve this invariance it is necessary that the "measure" $m(x)$
 be introduced. I stress this point because one still finds, in the
 literature, statements to the effect that the entropy of a continuous
 probability distribution is [not]{.underline} an invariant. This is due
-to the historical accident that in his original papers, Shannon^1^
+to the historical accident that in his original papers, Shannon[^1]
 assumed, without calculating, that the analog of $\sum p_i \log p_i$ was
 $\int w \log w dx$, and got into trouble for lack of invariance. Only
 recently have we realized that mathematical deduction from the
@@ -958,7 +960,7 @@ that we understand clearly the physical meaning of the Liouville
 function $W_N$ and the various reduced distribution functions derived
 from it. The following section surveys these questions.
 # DISTRIBUTION FUNCTIONS
-A recent review of transport theory by Dresden^6^ (hereafter referred to
+A recent review of transport theory by Dresden[^6] (hereafter referred to
 as MD) illustrates that attempts to bridge the gap between
 phenomenological rate equations and fundamentals (equations of Liouville
 and Gibbs) have been largely frustrated because basic conceptual
@@ -1034,17 +1036,17 @@ behind current developments in the field of basic probability and
 statistics. I hope to shorten that gap to about 10 years by pointing out
 that a revolution in statistical thought has recently taken place,
 brought about largely by the development of statistical decision theory.
-Two brief summaries of these developments have been published^7^, and a
-detailed analysis of the present situation^8^ will soon be available.
+Two brief summaries of these developments have been published[^7], and a
+detailed analysis of the present situation[^8] will soon be available.
 The net result is a vindication of the viewpoint of Laplace, and of
-Jeffreys,^9^ that probability theory is properly regarded as an
+Jeffreys,[^9] that probability theory is properly regarded as an
 extension of logic to the case of inductive, or plausible, reasoning, a
 "degree of reasonable belief," rather than limiting frequencies. This
 does not mean that there are no longer any connections between
 probability and frequency; the situation is rather that every connection
 between probability and frequency which is actually used in applications
 is deducible as a mathematical consequence of the "inductive logic"
-theory of probability.^8^ Equation (81), and others given below, provide
+theory of probability.[^8] Equation (81), and others given below, provide
 examples of the kind of connections that exist.
 
 Use of probability in this "modern" (actually the original) sense is,
@@ -1252,7 +1254,7 @@ statement: "There is, however, no possibility of identifying or
 relating $H_G$ to the macroscopic entropy, for one proves directly from
 (23) and (18) that $H_G$ is constant in time, whereas the macroscopic
 entropy always increases in a nonequilibrium situation." Similar
-statements appeared in the Ehrenfest^10^ review article of 1912, when
+statements appeared in the Ehrenfest[^10] review article of 1912, when
 the work of Gibbs had not yet been understood. From the frequency with
 which this objection to Gibbs' H has been repeated in the literature
 since then, it is clear that the nature of Gibbs' contribution has not
@@ -1332,7 +1334,7 @@ until we note that, if it is to have any precisely provable properties,
 it must be precisely related to the dynamics; i.e., out of all possible
 definitions of $\sigma$, we decide to use $\rho_1$, the projection of
 $\rho$ onto the subspace of a single molecule, as defined in
-reference^5^, Sec. 11. Its diagonal elements are expectation values,
+reference[^5], Sec. 11. Its diagonal elements are expectation values,
 over the global density matrix $\rho$, of occupation fractions. Then
 with $H_G^d$ and $H_B = \text{Tr}(\rho_1 \log \rho_1)$ we can prove
 exactly the same inequalities as for the classical case. Thus, the issue
@@ -1352,7 +1354,7 @@ W_N(x_1 \dots p_N) = \prod_{i=1}^N w_1(x_i, p_i)
 $$
  which
 corresponds, in quantum theory, to the condition that the global density
-matrix is a direct product^5^
+matrix is a direct product[^5]
 $$
 \rho = \rho_1 \times \rho_2 \times \dots \times \rho_N
 $$
@@ -1386,12 +1388,12 @@ There is still an apparent paradox hiding here; for suppose we choose t
 negative. It looks as if this argument then says that the
 experimental entropy in the past was greater than at the time of the
 measurements $X_1, \dots, X_n$. Actually, the explanation of this
-paradox has been given before.^5^ We have, of course, assumed in the
+paradox has been given before.[^5] We have, of course, assumed in the
 above that forward integration of the equations of motion does, in fact,
 yield the correct predictions at time t; i.e., the measured $X^\prime_i$ are
 equal to ensemble averages calculated from the time-developed Liouville
 function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,^5^ it is
+density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
 shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
 experimentally reproducible one. But we know that many past macroscopic
 states $X^{\prime\prime}_i$ would all relax into the same state $X_i$ at time $t=0$.
@@ -1464,29 +1466,29 @@ mechanics can be derived from this formalism; that is, of course, a
 minimum requirement that any proposed new theory must pass. The real
 test of these ideas can come only through their application to problems
 that have resisted solution by older methods. Although a few results
-along this line are now in,^11^ and a few others have been hinted at in
+along this line are now in,[^11] and a few others have been hinted at in
 these talks, a final settlement of the questions raised still lies
 rather far in the future.
 # References {#references .unnumbered}
-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
     Theory, Sept. 1959.
-3.  E. T. Jaynes, New engineering applications of information theory, in
+[^3]: E. T. Jaynes, New engineering applications of information theory, in
     "Symposium on Engineering Applications of Random Function Theory
     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
     York, 1963.
-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
+[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
     McGraw-Hill, New York, in press.
-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
     1938.
-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).

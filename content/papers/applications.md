@@ -10,14 +10,25 @@ weight: 1
 ---
 ## 1. Introduction
 The contributions of Bruno de Finetti to the general philosophy of probability theory, and to understanding of mathematical puzzles (finite additivity) and pathologies (non-conglomerability) that can arise when we try to apply it on infinite sets, have been well recognized and appreciated, here and elsewhere. To show the other side of the coin, we note some of the ways in which de Finetti's work has contributed to the technical solution of real problems.
+
 Probability distributions that are symmetric under permutations of a finite number of variables arise constantly in applications. For example, it is known that a bank has $n$ depositors, with total deposits $T$. Our joint probability distribution for the accounts will be a function $p(x_1 \dots x_n)$, where $x_i$, the size of the $i$'th account, is presumably in $(0,T)$. Whatever other information we may possess about the distribution of wealth, banking habits, etc. in the community, in the absence of any information that could distinguish one depositor from another $p(x_1 \dots x_n)$ will be symmetric under permutations of the $x_i$.
-One might then think that any such distribution could be represented in the integral form [Eq. (1) below] given by de Finetti, as generalized by Hewitt and Savage (1955); however, this turns out not to be the case because of the finiteness of $n$. The original de Finetti representation theorem holds only for subsets of an infinitely long exchangeable sequence, and not every finite symmetric sequence is such a subset. While one may feel intuitively that the difference cannot be very serious, in principle there is still unfinished business concerning the technical question of applicability of the representation (1) in real problems, which always involve finite sequences.
-More generally, the variables $x_i$ might be defined on almost any set $X$, as Hewitt and Savage showed in far greater generality than we need. But the phenomenon we wish to show arises already for the binary set $X = \{1,0\}$ considered in the original theorem of de Finetti (Kyburg and Smokler, 1981). What we demonstrate here for the binary set will hold, *mutatis mutandis*, for any set $X$ that is likely to arise in a real problem.
-That there are difficulties with finite sequences was noted by Feller (1971). He proved de Finetti's representation theorem by reducing it to the Hausdorff moment problem, and then gave examples which "show that the theorem fails for finite sequences". But he offered no alternative for the finite case.
-Heath and Sudderth (1976) gave such an alternative as part of a completely different proof in which the representation (1) emerged as the limit of a set of "Urn model" distributions for finite sequences. Their argument not only gives a much deeper understanding of the result; it is so simple that it seems futile to look for a still simpler one. But again, the integral representation (1) was proved only for subsets of an infinitely long sequence, and Heath and Sudderth also show by example that it can fail for finite sequences.
+
+One might then think that any such distribution could be represented in the integral form [Eq. (1) below] given by de Finetti, as generalized by Hewitt and Savage[^hewitt-savage-1955]; however, this turns out not to be the case because of the finiteness of $n$. The original de Finetti representation theorem holds only for subsets of an infinitely long exchangeable sequence, and not every finite symmetric sequence is such a subset.
+
+While one may feel intuitively that the difference cannot be very serious, in principle there is still unfinished business concerning the technical question of applicability of the representation (1) in real problems, which always involve finite sequences.
+
+More generally, the variables $x_i$ might be defined on almost any set $X$, as Hewitt and Savage showed in far greater generality than we need. But the phenomenon we wish to show arises already for the binary set $X = \{1,0\}$ considered in the original theorem of de Finetti[^kyburg-smokler-1981]. What we demonstrate here for the binary set will hold, *mutatis mutandis*, for any set $X$ that is likely to arise in a real problem.
+
+That there are difficulties with finite sequences was noted by Feller[^feller-1971]. He proved de Finetti's representation theorem by reducing it to the Hausdorff moment problem, and then gave examples which "show that the theorem fails for finite sequences". But he offered no alternative for the finite case.
+
+Heath and Sudderth[^heath-sudderth-1976] gave such an alternative as part of a completely different proof in which the representation (1) emerged as the limit of a set of "Urn model" distributions for finite sequences. Their argument not only gives a much deeper understanding of the result; it is so simple that it seems futile to look for a still simpler one. But again, the integral representation (1) was proved only for subsets of an infinitely long sequence, and Heath and Sudderth also show by example that it can fail for finite sequences.
+
 Of course, merely exhibiting examples of failure does not prove that (1) fails for all finite sequences; this question and also the question whether, in cases where it fails, another equally convenient integral representation may still hold, were left open by these arguments.
+
 A closely related difficulty was discovered about twenty years ago in physics. Here a joint probability distribution for the positions of $n$ particles, $p_n(x_1 \dots x_n)$, arises as the marginal distribution of a symmetric distribution function $P_N$ for a larger number $N > n$ of particles. Since typically $n$ was 2 or 3, while $N$ was $10^{23}$, one sought to represent $p_n$ without bringing in the details of the larger distribution $P_N$. Some anomalous results were obtained before it was realized that not every symmetric $n$-particle function can be obtained by marginalization from a symmetric $N$-particle one.
-The problem of finding the necessary and sufficient conditions on an $n$-point distribution which guarantee that it has this parentage, is called the $N$-representability problem in the literature of Statistical Mechanics. That it is related to the theory of convex sets was realized at once (Coleman, 1963), but to the best of the writer's knowledge an explicit solution has not been given.
+
+The problem of finding the necessary and sufficient conditions on an $n$-point distribution which guarantee that it has this parentage, is called the $N$-representability problem in the literature of Statistical Mechanics. That it is related to the theory of convex sets was realized at once by Coleman[^coleman-1963], but to the best of the writer's knowledge an explicit solution has not been given.
+
 In the following we augment these discussions by showing that (A) the original de Finetti representation (1) does indeed fail for a wide class of finite sequences; (B) nevertheless, with a trivial modification (dropping the non-negativity condition) it is resurrected, and the de Finetti representation then holds for all finite sequences, leading to solution of the $N$-representability problem.
 ## 2. The Generating Function
 Following the terminology advocated by Jimmie Savage in 1960's, a sequence {$x_1, x_2, \dots x_N$} whose probability distribution remains symmetric as $N \to \infty$ is called **exchangeable**. The probability $p(x_1 \dots x_N)$ can then depend only on the total number $R$ of successes. The original theorem asserts that, given any subset of $n$ trials from an exchangeable sequence, the probability that it contains exactly $r$ successes can be written in the form
@@ -31,7 +42,8 @@ $$
 
 Thus an exchangeable sequence is characterized completely by a single generating function $g(z)$.
 Mathematically, (1) is a weighted average of binomial distributions, and on that intuitive ground the representation (1) was introduced by Laplace in 1774. He obtained many useful results---in particular the Rule of Succession---by interpreting $g(z)$ as the posterior density of a parameter $z$, and therefore (1) as a predictive distribution for future observations. But for over a century Laplace's method was in disrepute because of conceptual difficulties [$g(z)dz$ seemed to be a "probability of a probability"].
-In 1937 de Finetti obtained the representation (1) by a completely different argument, which showed that Laplace's fault lay not in the alleged metaphysics of his method, but only in his failure to establish its essential assumptions and generality. The results Laplace obtained are now reinstated as important parts of Bayesian statistics (Lindley, 1976). Henceforth we shall call (1) the Laplace-de Finetti (LdF) representation; its apparent failure for finite sequences remains as a puzzle to resolve.
+
+In 1937 de Finetti obtained the representation (1) by a completely different argument, which showed that Laplace's fault lay not in the alleged metaphysics of his method, but only in his failure to establish its essential assumptions and generality. The results Laplace obtained are now reinstated as important parts of Bayesian statistics[^lindley-1976]. Henceforth we shall call (1) the Laplace-de Finetti (LdF) representation; its apparent failure for finite sequences remains as a puzzle to resolve.
 ## 3. An Example
 As soon as we know what to look for, it is easy to produce almost trivial-looking examples of this failure and its relation to the $N$-representability problem; it arises already in the comparison of two and three tosses of a coin. A two-point symmetric probability distribution $p(x_1,x_2) = p(x_2,x_1)$ on the set $X = \{0,1\}$ is determined by three numbers:
 $$
@@ -85,7 +97,9 @@ $$
 2(A + C) - (A - C)^2 - 1 = 2 \int_0^1 dy \int_0^1 dz \, (y-z)^2 g(y) g(z) \tag{9}
 $$
 and so if $g(z) \ge 0$ we can generate only those two-point functions for which (9) is non-negative. This limits us to points on or above the tilted parabola in Fig. 1. The two-point distributions representable in LdF form are therefore limited to the parabolic slice PQU.
+
 **[Figure 1 Placeholder: Exchangeable 2-point distributions derivable from N-point ones. A = P(2 heads), C = P(2 tails). PQR = all possible distributions. Derivability from a 3-point function truncates this to PQST. 4-point and 5-point parentage further truncate PQST as indicated by the dashed and dotted lines. As N -> infinity these nested polygons tend to the parabola, representing independent Bernoulli trials. The original Laplace-de Finetti representation yielded only distributions on or above the parabola, where negative correlations are impossible.]**
+
 We can understand this restriction intuitively by noting that the right-hand side of (9) is just four times the covariance of $(x_1, x_2)$. The limitation to the parabolic slice therefore signifies that the LdF representation is incapable of giving negative correlations. Yet in our opening example of the bank depositors, knowledge of the total deposits $T$ clearly does impose a negative correlation in $p(x_1 \dots x_n)$. Thus the bank distribution has no generalized LdF representation.
 Of course, if we wish only to represent a symmetric distribution of finite length, the Heath-Sudderth Urn representation is available. But while their proof was very simple, their result (a probability mixture of hypergeometric distributions) is not. As an analytical tool, the integral form (1) would be much easier to use. Also, a simpler Urn model may be defined, in which we put in (1)
 $$
@@ -184,9 +198,15 @@ The possible 3-point distributions are then defined by the convex hull of the cu
 For many applications we need to generalize these results, in the nammer of Hewitt-Savage, to larger sets than the binary one $X = \{0,1\}$. One can, of course, find new functions which generalize the properties of Legendre functions to higher dimensions. A more powerful and abstract approach, which does not require us to go into all that detail, was discovered by Dr. Eric Mjolsness while he was a student of the writer's. We hope that, with its publication, the useful results of this representation will become more readily obtainable.
 ## 7. Conclusion
 With the clearing up of one small technical detail, de Finetti's famous representation theorem is valid for all exchangeable sequences, finite or infinite. This enables us to make a significant reduction in many real problems; we note briefly how the appearance of kinetic theory is changed by this result.
+
 A great deal of work has been done on what is called the Bogoliubov-Born-Green-Kirkwood-Yvon (BBGKY) hierarchy, a set of distribution functions for the positions $x_i$ (in classical theory, also the momenta $q_i$) of one particle, two particles, --- on up to perhaps $10^{23}$ particles. The $n$-particle distribution $p_n = p(x_1 \dots x_n; t)$ is not only symmetric and derived by marginalization from all higher distributions; it depends explicitly on the time $t$ because of Schrödinger's (or Newton's) equations of motion.
-Now it turns out that almost all observable macroscopic properties of a system--reversible or irreversible in the sense of thermodynamics--could be predicted if we could calculate how the two-particle function evolves in time. But in this endeavor we have been frustrated for decades by the fact that the recursion relations go the wrong way; i.e., the time evolution of $p_2$ depends on $p_3$, which is unknown. The evolution of $p_3$ depends in turn on $p_4$, which is even more unknown--and so on. In other words, the evolution of $p_2$ depends on all the correlations in all the higher order distributions.
+
+Now it turns out that almost all observable macroscopic properties of a system--reversible or irreversible in the sense of thermodynamics--could be predicted if we could calculate how the two-particle function evolves in time.
+
+But in this endeavor we have been frustrated for decades by the fact that the recursion relations go the wrong way; i.e., the time evolution of $p_2$ depends on $p_3$, which is unknown. The evolution of $p_3$ depends in turn on $p_4$, which is even more unknown--and so on. In other words, the evolution of $p_2$ depends on all the correlations in all the higher order distributions.
+
 The problem appears hopeless without making drastic simplifying assumptions that nobody believes.
+
 But now, let us note the de Finetti representation. The distribution function for any order $n$ is determined by a single generating functional $g[f(x)]$, the Hewitt-Savage generalization of $g(z)$:
 $$
 p(x_1 \dots x_n) = \int f(x_1)f(x_2)\dots f(x_n) g[f(x)] \, df \tag{26}
@@ -230,10 +250,16 @@ $$
 B^{(3)} = \begin{pmatrix} 1 & 1 & 1 & 1 \\\\ -1 & -1/3 & 1/3 & 1 \\\\ 1 & -1 & -1 & 1 \\\\ -1 & 3 & -3 & 1 \end{pmatrix}
 $$
 ## References
-A. J. Coleman (1963), "Structure of Fermion Density Matrices", *Revs. Mod. Phys.* **35**, pp. 668-687.
-Wm. Feller (1971), *An Introduction to Probability Theory and Its Applications*, Vol. I; J. Wiley & Sons, Inc., N. Y.; pp. 228-230.
-D. Heath and Wm. Sudderth (1976), "de Finetti's Theorem on Exchangeable Variables" *Am. Stat.* **30**, pp. 188-189.
-E. Hewitt and L. J. Savage (1955); "Symmetric Measures on Cartesian Products", *Trans. Am. Math. Soc.* **80**, pp. 470-501.
-H. E. Kyburg and H. E. Smokler (1981), *Studies in Subjective Probability* 2nd edition, John Wiley & Sons, Inc., New York.
-D. V. Lindley (1976), "Inference for a Bernoulli Process (a Bayesian View)", *Amer. Stat.* **30**, pp. 112-119.
-[^1]: To appear in *Bayesian Inference and Decision Techniques with Applications: Essays in Honor of Bruno de Finetti*, Prem K. Goel and Arnold Zellner, Editors, North-Holland Publishers, Amsterdam.
+- A. J. Coleman (1963), "Structure of Fermion Density Matrices", *Revs. Mod. Phys.* **35**, pp. 668-687.
+- Wm. Feller (1971), *An Introduction to Probability Theory and Its Applications*, Vol. I; J. Wiley & Sons, Inc., N. Y.; pp. 228-230.
+- D. Heath and Wm. Sudderth (1976), "de Finetti's Theorem on Exchangeable Variables" *Am. Stat.* **30**, pp. 188-189.
+- E. Hewitt and L. J. Savage (1955); "Symmetric Measures on Cartesian Products", *Trans. Am. Math. Soc.* **80**, pp. 470-501.
+- H. E. Kyburg and H. E. Smokler (1981), *Studies in Subjective Probability* 2nd edition, John Wiley & Sons, Inc., New York.
+- D. V. Lindley (1976), "Inference for a Bernoulli Process (a Bayesian View)", *Amer. Stat.* **30**, pp. 112-119.
+
+[^coleman-1963]: Coleman (1963).
+[^feller-1971]: Feller (1971).
+[^heath-sudderth-1976]: Heath and Sudderth (1976).
+[^hewitt-savage-1955]: Hewitt and Savage (1955).
+[^kyburg-smokler-1981]: Kyburg and Smokler (1981).
+[^lindley-1976]: Lindley (1976).

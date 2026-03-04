@@ -392,7 +392,7 @@ of your own common sense, which is evidently a more powerful tool than
 the equal-tails $F$-test.
 
 However, if your statistician happened to be a Bayesian, he would
-report [^4] instead: "These data yield a probability of 0.9574, or odds
+report[^4] instead: "These data yield a probability of 0.9574, or odds
 of 22.47:1, in favor of type 2 rockets". I think you would decide to
 keep this fellow on your staff, because his report not only agrees with
 common sense; it is stated in a far more useful form. For, you have
@@ -1216,7 +1216,8 @@ $$
 w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
 $$
 
-Numerical values computed from this equation are given in Table I,
+Numerical values computed from this equation are given in Table I:
+
 | $y$ | $w(y, 6.31)$ | $F(y)$ |
 | :--- | :--- | :--- |
 | 0 | 0.998 | 1.000 |
@@ -1228,11 +1229,14 @@ Numerical values computed from this equation are given in Table I,
 | 12 | 0.069 | 0.053 |
 | 14 | 0.047 | 0.046 |
 | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
+
 **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
+
 in which we give the actual frequency $w(y, 6.31)$ of correct statements
 obtained by use of the 90% confidence interval, for various half-ranges
 y. In the third column we give the fraction of all samples,
 $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
+
 It appears that information about $(x_1-x_2)$ was indeed relevant to the
 question being asked. In the long run, the 90% CI will deliver a right
 answer 90% of the time; however, its merits appear very different in the
@@ -1539,7 +1543,6 @@ entropy and transformation groups is an attempt to contribute to, and
 not to tear down, the beautiful and powerful intellectual achievement
 that the world owes to Bayes and Laplace.
 
-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
 ## REFERENCES
 Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
 of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with

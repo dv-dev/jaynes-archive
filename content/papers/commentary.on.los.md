@@ -22,11 +22,11 @@ with unknown errors has been discussed, in one form or another, by
 physicists, astronomers, mathematicians, statisticians, economists,
 biologists, and psychologists, since at least the time of Gauss (1809). 
 What is for all practical purposes the correct general solution has been
-available for 20 years [1], but conceptual misunderstandings have
+available for 20 years [^1], but conceptual misunderstandings have
 prevented some from recognizing it as the solution, and attempts to
 solve it by other means still persist.
 
-In two recent articles, C. A. Los [2], [3] has proposed a radical
+In two recent articles, C. A. Los [^2], [^3] has proposed a radical
 new approach, which starts by rejecting all previous methods (least
 squares, maximum likelihood, principal components, Bayes' theorem, etc.)
 by which these problems have been solved in the past, on the grounds
@@ -65,7 +65,7 @@ holding companies; $x_{t1}$ is the net interest margin of the t'th
 company, $x_{t2}$ is "the consumer loans in percent of total loans to
 the U.S. addresses"; $x_{t3}$ is "the net purchases funds in percent
 of total assets." The raw data, with other explanatory remarks, are
-presented in [3], Appendix A. Then he gives the $(3 \times 3)$ data
+presented in [^3], Appendix A. Then he gives the $(3 \times 3)$ data
 covariance matrix $$\Sigma = X^\prime X = 
 \begin{pmatrix}
 0.7022 & 6.9040 & -10.6826 \\\\
@@ -248,7 +248,7 @@ Then he states that (8) poses (italics his): "a formidable intellectual
 problem. A general solution has not yet been found". We are happy to
 give that general solution below.
 
-In the case $(n=3, q=2)$, [3] devotes half a page to studying (8),
+In the case $(n=3, q=2)$, [^3] devotes half a page to studying (8),
 which is thought to impose complicated conditions on the solution to his
 problem, noting some implied sign conditions but not finding any
 specific solution. However, it is evident from inspection that in this
@@ -351,7 +351,7 @@ is not surprising that his example is (3,2). It seems to us that at this
 point he might have perceived that the Wilson inequality, far from
 causing difficulty for the conventional solutions as he alleges, is what
 makes his proposed solution indefensible and unusable in general.
-In any event, his final solution for the current problem ([3], Table
+In any event, his final solution for the current problem ([^3], Table
 6) is that $\hat{\Sigma}$ is the projection operator (9) with the vector
 $a^\prime = (-.80162, -8.61237, 13.32603)$. Normalized to unit length, this
 vector is $\hat{a}^\prime = (-.05046, -.54210, .83880)$. Comparing with the
@@ -425,9 +425,11 @@ of 'objectivity' but with information processing; how to extract the
 best conclusions possible from the incomplete information available to
 us. Surely, the fundamental basis of scientific inference - almost a
 principle of morality -- is that we should
+
 1.  take into account all the relevant information we have, of whatever
     type,
 2.  carefully avoid assuming information that we do not have.
+
 but as we have seen, Los commits egregious violations of both of these
 rules.
 
@@ -497,28 +499,30 @@ methods lack. The Los solution, when it exists, is the limit of the
 Bayesian solution as $T \to \infty$, $\Sigma/T \to \text{const}$.
 It is not our present topic to go into details of these Bayesian
 solutions; we hope to present them in a later article. However, several
-examples of such solutions were given long ago by Zellner [1]. If one
+examples of such solutions were given long ago by Zellner [^1]. If one
 will investigate the properties of those solutions, they will be found
 to do every reasonable thing that one might hope for in these problems.
 On very similar problems, including economic time series, the analytical
 theory and many fully worked-out numerical examples to illustrate its
 use in all four of the above extensions of maximum likelihood, are given
-by Bretthorst [4].
+by Bretthorst [^4].
 # REFERENCES {#references .unnumbered} 
-1.  A. Zellner (1971), *An Introduction to Bayesian Inference in
+[^1]: A. Zellner (1971), *An Introduction to Bayesian Inference in
     Econometrics*, J. Wiley & Sons, Inc., New York, (1971). Reprinted
     by R. E. Krieger Pub. Co., Malabar, Florida (1987); Chapter 5.
-<!-- -->
-2.  C. A. Los (1989a), "The Prejudices of Least Squares, Principal
+
+[^2]: C. A. Los (1989a), "The Prejudices of Least Squares, Principal
     Components and Common Factors Schemes", Computer Math. Applic.
     **17**, 1269-1284.
-3.  C. A. Los (1989b), "Identificaton of a Linear System from Inexact
+
+[^3]: C. A. Los (1989b), "Identificaton of a Linear System from Inexact
     Data: a Three-variable Example" Computer Math. Applic. **17**,
     1285-1304 (1989).
-4.  G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+
+[^4]: G. L. Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
     Estimation*, Springer Lecture Notes in Statistics, Vol. 48.
 
-[^1]: To be published in Volume 3 of special issues, "On
+[^5]: To be published in Volume 3 of special issues, "On
     System-theoretic Methods in Economic Modelling", S. Mittnik,
     Editor, in *Computers and Mathematics with Applications*, and
     subsequently as a monograph by Pergamon Press.

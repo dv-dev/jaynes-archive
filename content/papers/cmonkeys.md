@@ -31,9 +31,6 @@ author:
 8. [CONCLUSION: RESEMBLANCE TO THE TRUTH](#conclusion-resemblance-to-the-truth)
 9. [APPENDIX A. PSYCHOLOGICAL TESTS](#appendix-a-psychological-tests)
 
-## ABSTRACT
-> We examine some points of the rationale underlying the choice of priors for MAXENT image reconstruction. The original combinatorial (monkey) and exchangeability (kangaroo) approaches each contains important truth. Yet each also represents in a sense an extreme position which ignores the truth in the other. The models of W. E. Johnson, I. J. Good, and S. Zabell provide a continuous interpolation between them, in which the monkeys' entropy factor is always present in the prior, but becomes increasingly levelled out and disappears in the limit. However, it appears that the class of interpolated priors is still too narrow. A fully satisfactory prior for image reconstruction, which expresses all our prior information, needs to be able to express the common-sense judgment that correlations vary with the distance between pixels. To do this, we must go outside the class of exchangeable priors, perhaps into an altogether deeper hypothesis space.
-
 ## INTRODUCTION
 Image reconstruction is an excellent ground for illustrating the
 generalities in our Tutorial Introduction. Pedagogically, it is an
@@ -930,6 +927,7 @@ Although the incident happened a long time ago, some comments about it
 are still needed because the thinking of Venn persists in much of the
 recent statistical literature. With today's hindsight we can see that
 Venn suffered from a massive confusion over "What is the Problem?"
+
 Laplace derived the mathematical result as the solution of one problem.
 Venn[^venn-1866], not a mathematician, ignored his derivation -- which might
 have provided a clue as to what the problem is -- and tried to interpret
@@ -941,6 +939,7 @@ the solution applies. R. A. Fisher[^fisher-1956], pointed this out and
 expressed doubt as to whether Venn was even aware that Laplace's Rule
 had a mathematical basis and like other mathematical theorems had
 "stipulations specific for its validity".
+
 Fisher's testimony is particularly cogent here, for he was an
 undergraduate in Caius College when Venn was still alive (Venn
 eventually became the President of Caius College), and they must have
@@ -951,6 +950,7 @@ Venn. Indeed, it apparently never occurred to Venn that no single result
 solution to all of the great variety of problems where he tried to use
 it. Yet we still find Venn's arguments repeated uncritically in some
 recent "orthodox" textbooks; so let the reader beware.
+
 Now in the 1910's and 1920's Laplace's result became better understood
 by many: C. D. Broad, H. Jeffreys, D. Wrinch, and W. E. Johnson (all
 here in Cambridge also). Their work being ignored, it was rediscovered
@@ -959,17 +959,20 @@ that the results apply to all exchangeable sequences. de Finetti's work
 being in turn ignored, it was partly rediscovered still another time by
 Carnap and Kemeny, whose work was in turn ignored by almost everybody in
 statistics, still under the influence of Venn.
+
 It was only through the evangelistic efforts of I. J. Good and L. J.
 Savage in the 1950's and 1960's, and D. V. Lindley in the 1960's and
 1970's, that this exchangeability analysis finally became
 recognized as a respectable and necessary working part of statistics. Today,
 exchangeability is a large and active area of research in probability
 theory, much as Markov chains were thirty years ago.
+
 We think, however, that the autoregressive models, in a sense
 intermediate between exchangeable and markoffian ones, that were
 introduced in the 1920's by G. Udny Yule (also here in Cambridge, and
 living in the same rooms that John Skilling now occupies), offer even
 greater promise for future applications.
+
 Today, more than 200 years after Laplace started it, great mathematical
 generalizations are known but we are still far from understanding the
 useful range of application of exchangeability theory, because the
@@ -979,6 +982,7 @@ than a debating point for philosophers. Indeed, our present problem
 calls for better technical understanding than we really have at the
 moment. But at least the mathematics flows on easily for some distance
 more.
+
 Thinking of the $x_i$ as "real" parameters, we have a simple intuitive
 meaning of the hyperparameters $(k_1 \dots k_n)$ if we denote the
 observed proportion of attribute $i$ in the sampled population by
@@ -1053,6 +1057,7 @@ real quantities, so that it makes sense to apply Bayes' theorem in the
 way we have been doing, then Bayes' theorem tells us in quantitative
 detail -- just as it always does -- what our common sense might have
 perceived if our intuition was powerful enough.
+
 ## THE NEW KANGAROO SOLUTION
 We started considering Steve Gull's kangaroo problem on the original
 monkey hypothesis space H1, were somewhat unhappy at the result (18),
@@ -1315,7 +1320,6 @@ jury decisions, but engender new ones about medical decisions. These
 studies have led to proposals -- doubtless 100 years overdue -- to
 modify current jury systems. The services of some trained Bayesians are
 much needed wherever important decisions are being made.
-[^100]: Visiting Fellow, 1983-1984. Permanent Address: Dept. of Physics #1105, Washington University, St. Louis MO 63130, U.S.A.
 [^boltzmann-1877]: L. Boltzmann (1877), Wiener Berichte **76**, p. 373.
 [^chambers-1977]: J. M. Chambers (1977), *Computational Methods for Data Analysis*, J. Wiley & Sons, Inc., New York.
 [^cohen-1984]: L. J. Cohen (1984), Epistemologia, VII, Special Issue on Probability, Statistics, and Inductive Logic, pp. 68-71 and 213-222.

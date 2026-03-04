@@ -3,17 +3,25 @@ title: "Inferential Scattering"
 year: 1993
 author:
   ["E.T. Jaynes"]
+abstract: >-
+  Some difficult conceptual problems that have plagued Statistical Mechanics
+  from the start are explained by reference to a very simple experiment, which
+  also explains why the MAXENT formalism gives reliable predictions. Then some
+  of the inner workings of MAXENT are revealed by a general perturbation
+  theorem, showing how a prediction is modified by adding a new constraint. It
+  is illustrated by the example of Rayleigh scattering in acoustics. Here it
+  appears rather like Schwinger's Source Theory in that multiple scattered
+  waves of arbitrarily high order appear already in the first order of the
+  MAXENT perturbation scheme. The result holds in much more general problems of
+  "inferential scattering" in which any statistical inference is modified by
+  new information.
 ---
-Title note.[^*]
-
-> **Abstract.**
-> Some difficult conceptual problems that have plagued Statistical Mechanics from the start are explained by reference to a very simple experiment, which also explains why the MAXENT formalism gives reliable predictions. Then some of the inner workings of MAXENT are revealed by a general perturbation theorem, showing how a prediction is modified by adding a new constraint. It is illustrated by the example of Rayleigh scattering in acoustics. Here it appears rather like Schwinger's Source Theory in that multiple scattered waves of arbitrarily high order appear already in the first order of the MAXENT perturbation scheme. The result holds in much more general problems of "inferential scattering" in which any statistical inference is modified by new information.
 
 ## HISTORICAL BACKGROUND
 In much of Maximum-Entropy Inference (MAXENT) and its ancestor, Gibbsian
 thermodynamics, we are concerned with a single solution -- imposing one
 set of constraints and examining the resulting distribution and
-predictions. However, it was shown already by [Gibbs (1875)](#fn:1)[^1] that in
+predictions. However, it was shown already by Gibbs (1875)[^1] that in
 thermodynamics new and important facts appear when we consider the
 relation between two different solutions. We show that the same is true
 for the MAXENT generalization; indeed, much of conventional physics --
@@ -21,7 +29,7 @@ and for that matter, conventional wisdom -- is contained in a general
 theorem relating two different MAXENT predictions, before and after
 adding a new constraint.
 
-[Gibbs (1875)](#fn:1)[^1] gave two relations connecting neighboring thermal
+Gibbs (1875)[^1] gave two relations connecting neighboring thermal
 equilibrium states. The linear one is the familiar
 $$
 T\delta S - \delta U - P\delta V + \sum \mu_i \delta n_i = 0
@@ -44,7 +52,7 @@ ensemble" formalism contains such convexity relations as (2).
 
 In the modern MAXENT formalism these properties are still present; but
 now they apply to problems of inference in general. Some of these
-relations have been hinted at, rather cryptically, in [Jaynes (1980)](#fn:3)[^3].
+relations have been hinted at, rather cryptically, in Jaynes (1980)[^3].
 ## INFERENTIAL SCATTERING
 The usual scattering theory of physics is also concerned with a relation
 between two solutions, rather than with a single solution. In physical
@@ -239,7 +247,7 @@ states and future states.
 It is usually taken as axiomatic, in either quantum or classical
 statistical mechanics, that our probability distributions must evolve in
 time according to the equations of motion. As a result, as noted in the
-review article of [R. Zwanzig (1965)](#fn:7)[^7], "thermal driving" was long an
+review article of R. Zwanzig (1965)[^7], "thermal driving" was long an
 awkward topic, workers trying constantly to replace a heat source
 $\delta Q$ with some kind of dynamical perturbation (new term in the
 Hamiltonian) that would have similar effects. In principle, of course,
@@ -285,7 +293,7 @@ $$
 $$
 representing the final higher temperature $T_f$ of the water. Indeed,
 many authors state this as if they were quite sure that it must be true.
-For example, [Akhiezer & Peletminskii (1981, p. 127)](#fn:5)[^5] note the
+For example, Akhiezer & Peletminskii (1981, p. 127)[^5] note the
 time-developed $\rho(t)$ and state that as $t \to \infty$, "... the
 system undergoes a transition into a state of statistical equilibrium,
 described by the Gibbs statistical operator [our $\rho_c$], independent
@@ -293,7 +301,7 @@ of the initial state."
 
 Their failure to prove this assertion is the least of our worries. Even
 to think about doing the calculation gets us into paradoxes, noted in my
-review of Akhiezer & Peletminskii ([Jaynes, 1982](#fn:6)[^6]), that are not resolved
+review of Akhiezer & Peletminskii in Jaynes (1982)[^6], that are not resolved
 in even the latest textbooks on statistical mechanics.
 
 Here is the difficulty with (10): It is a theorem that, under the
@@ -341,7 +349,7 @@ For predicting the behavior of a system initially in thermal
 equilibrium, when an external perturbation takes it into a
 nonequilibrium state, we have full confidence in the dynamically evolved
 $\rho(t)$ generated by (8), (9). For example, it gives all the intricate
-details of multiple spin echoes ([Slichter, 1978](#fn:8)[^8]). Indeed, our confidence
+details of multiple spin echoes in Slichter (1978)[^8]. Indeed, our confidence
 in $\rho(t)$ is so great that discovery of a single case where it can be
 proved to fail would shake the foundations of physics and merit a dozen
 Nobel Prizes.
@@ -387,8 +395,8 @@ define our initial density matrix.
 On the other hand, the phenomenological entropy $S_E$ of the
 experimenter is by construction a function $S_E(P, T, M, \dots)$ of the
 experimentally observed macroscopic quantities $(P, T, M, \dots)$. The
-relationship between these entropies has been demonstrated before
-([Jaynes, 1963, 1965](#fn:9)[^9]). The experimentally measured entropy $S_E$ of
+relationship between these entropies has been demonstrated before in
+Jaynes (1963, 1965)[^9]. The experimentally measured entropy $S_E$ of
 Clausius is only the upper bound of the von Neumann-Shannon information
 entropy $S_I = -\text{Tr}(\rho \log \rho)$ over all density matrices
 $\rho$ that agree with the constraints. Only after it has been maximized
@@ -478,7 +486,7 @@ be about $\exp(10^{15})$.
 
 The appearance of such numbers in statistical mechanics was noted long
 ago by both Boltzmann and Planck, and it was stressed in the textbook of
-[Mayer & Mayer (1940)](#fn:10)[^10]. For reasons we cannot explain, these numbers
+Mayer & Mayer (1940)[^10]. For reasons we cannot explain, these numbers
 seldom appear in modern works; yet it is essential to know about them in
 doing practical calculations.
 
@@ -585,7 +593,7 @@ course of which some other quantity B may be changed. Supposing
 $\delta Q_A$ to be so small that the ensemble is only slightly modified,
 the amount $\delta \langle B \rangle$ of that change is given by the
 general variational property of neighboring canonical ensembles, given
-by Gibbs. However, as [Mitchell (1967)](#fn:4)[^4] showed, the answer can be reasoned
+by Gibbs. However, as Mitchell (1967)[^4] showed, the answer can be reasoned
 out heuristically but more generally, without invoking canonical
 distributions.
 
@@ -649,8 +657,8 @@ The covariance of two quantities A, B is a function of whatever
 parameters are in A, B, so we may have a space-time covariance function
 $K_{AB}(x, t; x^\prime, t^\prime)$ which now begins to resemble a Green's function
 of physics. With such space-time dependences, the partition function and
-entropy functions of Gibbs become promoted to functionals ([Jaynes, 1978](#fn:14)[^14];
-[Jaynes, 1980](#fn:3)[^3]), and the MAXENT formalism strongly resembles that of quantum field
+entropy functions of Gibbs become promoted to functionals (Jaynes, 1978[^14];
+Jaynes, 1980[^3]), and the MAXENT formalism strongly resembles that of quantum field
 theory. But for present simpler purposes we may accomplish nearly the
 same thing while retaining a Gibbs-like form (16) of our equations, by
 defining our physical quantities to be localized to small space-time
@@ -747,7 +755,8 @@ years before his Statistical Mechanics -- that the relation (2) was the
 fundamental key to understanding thermodynamic stability, however many
 components and phases a thermodynamic system may have.
 ## 9. MITCHELL'S RELATIONS
-But there is a still more interesting result contained in the above relations. Now notice that if $\delta\lambda_b = 0$, (25) reduces to
+But there is a still more interesting result contained in the above relations.
+Now notice that if $\delta\lambda_b = 0$, (25) reduces to
 $$
 \delta\langle A\rangle = -K_{AA}\delta\lambda_a = \delta Q_A
 $$
@@ -758,15 +767,28 @@ or
 $$
 \delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A
 $$
-which is identical with the prediction rule (15) that we reasoned out in an entirely different way!
-To make a long story short, the situation uncovered by [Mitchell (1967)](#fn:4)[^4] shows that when a source $\delta Q_A$ operates and an unconstrained quantity $B$ readjusts itself as a result, to predict the amount of that readjustment there are three principles:
+which is identical with the prediction rule (15) that we reasoned out in an
+entirely different way!
+
+To make a long story short, the situation uncovered by Mitchell (1967)[^4]
+shows that when a source $\delta Q_A$ operates and an unconstrained quantity
+$B$ readjusts itself as a result, to predict the amount of that readjustment
+there are three principles:
 
 - (I) Quantities $C$ uncorrelated with $A$ are unchanged.
 - (II) Potentials $\lambda_b$ of unconstrained quantities $B$ are unchanged.
 - (III) The information entropy is re-maximized.
 
-Mitchell discovered the remarkable fact that these three conditions are mathematically equivalent. It is remarkable because they seem so different to our untutored intuition. Almost everybody finds (I) so intuitive that he will accept it at once, without demanding any formal proof. But to many, (II) and (III) are so far from being intuitive that they will scarcely believe them even after seeing the proof. This shows how much our intuition can be educated by studying the MAXENT formalism and thinking hard about why and how it works.
-Mitchell's next relation introduces us to inferential scattering. Introduce a third variable $C$, so that on a small change in the MAXENT distribution
+Mitchell discovered the remarkable fact that these three conditions are
+mathematically equivalent. It is remarkable because they seem so different to
+our untutored intuition. Almost everybody finds (I) so intuitive that he will
+accept it at once, without demanding any formal proof. But to many, (II) and
+(III) are so far from being intuitive that they will scarcely believe them even
+after seeing the proof. This shows how much our intuition can be educated by
+studying the MAXENT formalism and thinking hard about why and how it works.
+
+Mitchell's next relation introduces us to inferential scattering. Introduce a
+third variable $C$, so that on a small change in the MAXENT distribution
 $$
 -\begin{pmatrix}
 \delta\langle A\rangle \\\\
@@ -785,16 +807,34 @@ K_{CA} & K_{CB} & K_{CC}
 \end{pmatrix}
 $$
 
-Now as soon as we recognize that these infinitesimal changes are related linearly, all the intuitive understanding we may have of other linear systems can be applied immediately. For example, if we think of $\{ \delta\langle A\rangle, \delta\lambda_a \}$ as analogous to current and voltage at the $a$'th port of an electrical network, then (28) describes quantitatively the observable "black box" properties of a 3-port network, in which the covariances $K_{ij}$ are the elements of the admittance matrix (inverse of the impedance matrix). In this analogy, the source $\delta Q_A$ corresponds to a current injected at the $a$'th port.
-If the source $\delta Q_A$ operates and both $B$ and $C$ are left free to readjust to this (i.e., in the electrical analogy, ports $B$ and $C$ are short-circuited, offering no resistance to a current flow), we have by the above principles
+Now as soon as we recognize that these infinitesimal changes are related
+linearly, all the intuitive understanding we may have of other linear systems
+can be applied immediately. For example, if we think of
+$\{ \delta\langle A\rangle, \delta\lambda_a \}$ as analogous to current and
+voltage at the $a$'th port of an electrical network, then (28) describes
+quantitatively the observable "black box" properties of a 3-port network, in
+which the covariances $K_{ij}$ are the elements of the admittance matrix
+(inverse of the impedance matrix). In this analogy, the source $\delta Q_A$
+corresponds to a current injected at the $a$'th port.
+
+If the source $\delta Q_A$ operates and both $B$ and $C$ are left free to
+readjust to this (i.e., in the electrical analogy, ports $B$ and $C$ are
+short-circuited, offering no resistance to a current flow), we have by the
+above principles
 $$
 \delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A \quad \delta\langle C\rangle = (K_{CA}/K_{AA})\delta Q_A
 $$
-amounting to two independent applications of our rule. But now let us impose a new constraint, that $\delta\langle C\rangle = 0$ (port $c$ is open-circuited). Writing out the bottom line of (28), we can solve for $\delta\lambda_c$:
+amounting to two independent applications of our rule.
+
+But now let us impose a new constraint, that $\delta\langle C\rangle = 0$ (port
+$c$ is open-circuited). Writing out the bottom line of (28), we can solve for
+$\delta\lambda_c$:
 $$
 K_{CC}\delta\lambda_c = -K_{CA}\delta\lambda_a - K_{CB}\delta\lambda_b
 $$
-and substituting this into (28) we find that the changes in $\langle A\rangle$ and $\langle B\rangle$ are still related by an equation like (25), but with a new "renormalized" covariance matrix:
+and substituting this into (28) we find that the changes in $\langle A\rangle$
+and $\langle B\rangle$ are still related by an equation like (25), but with a
+new "renormalized" covariance matrix:
 
 $$
 \begin{pmatrix}
@@ -818,14 +858,20 @@ K^{\prime}_{AB} &= K_{AB} - K_{AC}K_{CC}^{-1}K_{CB}
 \end{aligned}
 $$
 
-and so on. By our principle, $\delta\lambda_b$ will still be zero if $B$ is left free to readjust, so the predicted change in $B$ due to the source $\delta Q_A$ is now
+and so on. By our principle, $\delta\lambda_b$ will still be zero if $B$ is
+left free to readjust, so the predicted change in $B$ due to the source
+$\delta Q_A$ is now
 
 $$
 \delta\langle B\rangle = \frac{K^{\prime}_{BA}}{K^{\prime}_{AA}}\delta Q_A
 $$
 
-The difference between (33) and (27) represents inferential scattering; the logical connection between $A$ and $B$ is altered by the new constraint $\delta\langle C\rangle = 0$.
-We shall examine the meaning of every term in this difference. Define the correlation coefficient of $A$ and $C$:
+The difference between (33) and (27) represents inferential scattering; the
+logical connection between $A$ and $B$ is altered by the new constraint
+$\delta\langle C\rangle = 0$.
+
+We shall examine the meaning of every term in this difference. Define the
+correlation coefficient of $A$ and $C$:
 
 $$
 R_{AC} \equiv \frac{K_{AC}}{(K_{AA}K_{CC})^{1/2}}
@@ -842,7 +888,11 @@ $$
 \delta Q^{\prime}_A \equiv \frac{\delta Q_A}{(1 - R_{AC}^2)}
 $$
 
-is a "renormalized source strength", whose significance will appear presently. On the right-hand side of (35) we have two terms, the first representing the effect we would have without the constraint on $C$ if the renormalized source strength had operated. The last term in (35) can be interpreted by rewriting it as
+is a "renormalized source strength", whose significance will appear presently.
+On the right-hand side of (35) we have two terms, the first representing the
+effect we would have without the constraint on $C$ if the renormalized source
+strength had operated. The last term in (35) can be interpreted by rewriting it
+as
 
 $$
 \frac{K_{CB}}{K_{CC}} \cdot \delta Q^{\prime\prime}_C
@@ -851,15 +901,31 @@ $$
 \delta Q^{\prime\prime}_C \equiv -\frac{K_{CA}}{K_{AA}}\delta Q^{\prime}_A
 $$
 
-This is the response to a fictitious source strength $\delta Q^{\prime\prime}_C$, which we recognize as minus the change $\delta\langle C\rangle$ that would be produced in (29) by the renormalized source $\delta Q^{\prime}_A$ if $C$ were unconstrained.
-The new constraint $\delta\langle C\rangle = 0$ has therefore modified our predicted relation between $A$ and $B$ in two ways:
+This is the response to a fictitious source strength $\delta Q^{\prime\prime}_C$,
+which we recognize as minus the change $\delta\langle C\rangle$ that would be
+produced in (29) by the renormalized source $\delta Q^{\prime}_A$ if $C$ were
+unconstrained.
+
+The new constraint $\delta\langle C\rangle = 0$ has therefore modified our
+predicted relation between $A$ and $B$ in two ways:
 
 - (I) The source strength $\delta Q_A$ is renormalized; intuitively, if $A$ and $C$ are correlated (positively or negatively), then holding $\langle C\rangle$ fixed makes the system "stiffer" against an attempt to change $A$, and a given actual change $\delta Q_A$ has a greater effect on $B$ because of this. As an analogy, if the input impedance to an electrical network is increased by blocking an internal current path, then to inject a given current into it will in general result in increased voltages at other points.
 - (II) A new scattering term appears which, as seen from $B$, appears to come from a fictitious source at $C$. Our electrical network analogy still holds; a point $C$ where the current was blocked becomes a new voltage source whose effects propagate to other points of the network.
 
-But the relations just found are of far more general meaning than those of the network. $A, B, C$ may stand for any physical quantities, not necessarily localized in space or time.
+But the relations just found are of far more general meaning than those of the
+network. $A, B, C$ may stand for any physical quantities, not necessarily
+localized in space or time.
 ## 10. ACOUSTICS - DIRECT PROPAGATION
-Finally, we are ready for the promised specific case. In an acoustical problem, take our initial ensemble as the conventional canonical $\rho_0$ representing the air in thermal equilibrium at some temperature $T_0$. In the following, expectations are over this ensemble: $\langle X\rangle = \text{Tr}(\rho_0 X)$, and we examine the effect of modifying it by new information. Let $n(x,t)$ be the particle density (number of molecules per unit volume) and choose $A$ to be the number $N$ of particles in a small volume $V_A$ about the point $x^{\prime}$ at time $t^{\prime}$, while $B$ is the air pressure at a different space-time point $(x, t)$:
+Finally, we are ready for the promised specific case. In an acoustical problem,
+take our initial ensemble as the conventional canonical $\rho_0$ representing
+the air in thermal equilibrium at some temperature $T_0$. In the following,
+expectations are over this ensemble: $\langle X\rangle = \text{Tr}(\rho_0 X)$,
+and we examine the effect of modifying it by new information.
+
+Let $n(x,t)$ be the particle density (number of molecules per unit volume) and
+choose $A$ to be the number $N$ of particles in a small volume $V_A$ about the
+point $x^{\prime}$ at time $t^{\prime}$, while $B$ is the air pressure at a
+different space-time point $(x, t)$:
 $$
 A = n(x^{\prime}, t^{\prime})V_A = N
 $$
@@ -867,7 +933,9 @@ $$
 B = P(x, t)
 $$
 
-We make the nonessential but simplifying assumption that the region $V_A$ is small compared to a mean free path, so that for all practical purposes the fluctuations in $N$ are those of the ideal gas law, as used by Einstein long ago:
+We make the nonessential but simplifying assumption that the region $V_A$ is
+small compared to a mean free path, so that for all practical purposes the
+fluctuations in $N$ are those of the ideal gas law, as used by Einstein long ago:
 $$
 K_{AA} = \langle A^2 \rangle - \langle A \rangle^2 = \langle \delta N^2 \rangle = N_0 = n_0 V_A
 $$
@@ -876,19 +944,26 @@ $$
 \delta Q_A = \delta n V_A = \text{number of particles injected.}
 $$
 
-In conventional acoustics a source $s(x, t)$ is usually defined instead in terms of volume of fluid injected; so they are related by
+In conventional acoustics a source $s(x, t)$ is usually defined instead in
+terms of volume of fluid injected; so they are related by
 $$
 \delta s = \delta Q_A / n_0.
 $$
 
-With these preliminaries, our general prediction rule $\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A$ becomes: the predicted sound pressure is
+With these preliminaries, our general prediction rule
+$\delta\langle B\rangle = (K_{BA}/K_{AA})\delta Q_A$ becomes: the predicted
+sound pressure is
 $$
 \begin{aligned}
 \delta\langle P(x,t) \rangle &= \left[ \frac{[\langle P(x,t)n(x^{\prime},t^{\prime})\rangle - \langle P \rangle \langle n \rangle]V_A}{\langle n \rangle V_A} \right] [\langle n \rangle \delta s] \\\\
 &= [\langle P(x,t)n(x^{\prime},t^{\prime})\rangle - P_0 n_0]\delta s
 \end{aligned}
 $$
-where $P_0 = \langle P \rangle, n_0 = \langle n \rangle$ are the equilibrium pressure and particle density, supposed independent of $x$ and $t$. Comparing this with the conventional acoustic Green's function solution for a prescribed source distribution $s(x^{\prime}, t^{\prime})$:
+where $P_0 = \langle P \rangle, n_0 = \langle n \rangle$ are the equilibrium
+pressure and particle density, supposed independent of $x$ and $t$.
+
+Comparing this with the conventional acoustic Green's function solution for a
+prescribed source distribution $s(x^{\prime}, t^{\prime})$:
 $$
 P(x,t) = \int dt^{\prime} \int d^3x^{\prime} G(x, t; x^{\prime}, t^{\prime})s(x^{\prime}, t^{\prime})
 $$
@@ -896,8 +971,23 @@ we see that the MAXENT prediction of the acoustic Green's function is
 $$
 G(x, t; x^{\prime}, t^{\prime}) = \langle \delta P(x, t)n(x^{\prime}, t^{\prime}) \rangle = \left(1/kT\right)\langle \delta P(x, t)\delta P(x^{\prime}, t^{\prime}) \rangle
 $$
-where now we are writing (in a notation perhaps slightly inconsistent with our previous usage) $\delta P = P - P_0$, the departure from equilibrium pressure. The evident symmetry in (46) is recognized as just the Helmholtz-Rayleigh reciprocity theorem (Rayleigh, 1877, §294)[^11]. All the known reciprocity principles seem to appear automatically in MAXENT as simple mathematical identities of the general formalism, without our ever having to make any special effort to get them. Extra physical assumptions such as time-reversal symmetry or the decay law of spontaneous fluctuations, are never needed.
-In principle, we could calculate the pressure-pressure covariance function in (46) directly; but this is a complicated problem in many-body theory which would itself require a separate long article. Our point is made more quickly if we just note that we already know the Green's function $G$ from ordinary acoustical theory. A velocity potential $\phi(x,t)$ generates the velocity and density fields through $v = -\nabla\phi$, $\delta n = -n_0 \dot{\phi}/c^2$, where $c$ is the velocity of sound and $v$ the mass velocity of the fluid. The point source solution of the acoustical wave equation is spherically symmetric:
+where now we are writing (in a notation perhaps slightly inconsistent with our
+previous usage) $\delta P = P - P_0$, the departure from equilibrium pressure.
+The evident symmetry in (46) is recognized as just the Helmholtz-Rayleigh
+reciprocity theorem, Rayleigh (1877, §294)[^11]. All the known reciprocity
+principles seem to appear automatically in MAXENT as simple mathematical
+identities of the general formalism, without our ever having to make any
+special effort to get them. Extra physical assumptions such as time-reversal
+symmetry or the decay law of spontaneous fluctuations, are never needed.
+
+In principle, we could calculate the pressure-pressure covariance function in
+(46) directly; but this is a complicated problem in many-body theory which
+would itself require a separate long article. Our point is made more quickly if
+we just note that we already know the Green's function $G$ from ordinary
+acoustical theory. A velocity potential $\phi(x,t)$ generates the velocity and
+density fields through $v = -\nabla\phi$, $\delta n = -n_0 \dot{\phi}/c^2$,
+where $c$ is the velocity of sound and $v$ the mass velocity of the fluid. The
+point source solution of the acoustical wave equation is spherically symmetric:
 $$
 \phi(r,t) = -\frac{\dot{s}(t - r/c)}{4\pi r}
 $$
@@ -906,7 +996,8 @@ $$
 \delta Q_A = n_0 \delta s = n_0 \int \dot{s}(t^{\prime})dt^{\prime} = \int \dot{Q}_A dt^{\prime}.
 $$
 
-At this point it is easier mathematically and also more general to go into the frequency domain by taking time Fourier transforms of (47). Using (48) this gives
+At this point it is easier mathematically and also more general to go into the
+frequency domain by taking time Fourier transforms of (47). Using (48) this gives
 $$
 \phi(r, \omega) = i\omega \frac{\exp(i\omega r/c)}{4\pi r} Q_A(\omega)
 $$
@@ -919,15 +1010,28 @@ $$
 \end{aligned}
 $$
 
-This completes our derivation of the direct propagation term, corresponding to (27) and (neglecting for the moment the renormalization of the source strength) the first term $(K_{BA}/K_{AA})\delta Q_A$ in (35). We now try to relate the inferential scattering indicated by the last term of (35) to Rayleigh scattering.
+This completes our derivation of the direct propagation term, corresponding to
+(27) and (neglecting for the moment the renormalization of the source strength)
+the first term $(K_{BA}/K_{AA})\delta Q_A$ in (35). We now try to relate the
+inferential scattering indicated by the last term of (35) to Rayleigh scattering.
 ## 11. THE RAYLEIGH SCATTERING TERM
-Let us introduce that third quantity $C$, as representing, like $A$, the number of particles in a small volume $V_C$, again supposed small compared to a mean free path (and therefore small compared to the wavelength $\lambda = 2\pi c/\omega$):
+Let us introduce that third quantity $C$, as representing, like $A$, the number
+of particles in a small volume $V_C$, again supposed small compared to a mean
+free path (and therefore small compared to the wavelength $\lambda = 2\pi c/\omega$):
 $$
 C = n(x^{\prime\prime}, t^{\prime\prime})V_C
 $$
 
-To impose the constraint $\delta \langle C \rangle = 0$ is, in effect, to replace the boundary of $V_C$ by a rigid wall that allows no particles to cross it. This is just the problem that [Rayleigh (1877)](#fn:11)[^11] solved as a boundary-value problem of mathematical physics, and we now try to relate it to our statistical result (35).
-Comparing the two terms in (35) enables us to define the scattering cross-section. The energy radiated from the source $A$ is $U(\delta Q_A)^2$ where $U$ is a factor that we could easily, but need not, calculate, because the same factor appears in the energy scattered from $C$:
+To impose the constraint $\delta \langle C \rangle = 0$ is, in effect, to
+replace the boundary of $V_C$ by a rigid wall that allows no particles to cross
+it. This is just the problem that Rayleigh (1877)[^11] solved as a boundary-value
+problem of mathematical physics, and we now try to relate it to our statistical
+result (35).
+
+Comparing the two terms in (35) enables us to define the scattering
+cross-section. The energy radiated from the source $A$ is $U(\delta Q_A)^2$
+where $U$ is a factor that we could easily, but need not, calculate, because
+the same factor appears in the energy scattered from $C$:
 $$
 \sigma \left[ \frac{U\delta Q_A^2}{4\pi r_{AC}^2} \right]
 $$
@@ -953,16 +1057,35 @@ and so the scattering cross-section predicted by MAXENT is
 $$
 \sigma = \frac{\omega^4 V_C^2}{4\pi c^4} \propto \frac{V_C^2}{\lambda^4}
 $$
-which is just Rayleigh's formula down to the last factor of $\pi$[^rayleigh] with the $\lambda^{-4}$ dependence which he used to explain the blue color of the sky in the analogous electromagnetic scattering problem.
-This little test of the MAXENT relations illustrates that covariance functions in a maximum-entropy distribution have a direct physical meaning, equivalent to conventional causal propagators if the situation is one involving physical causation. But those covariance functions are far more general; they represent the best predictions we are able to make from the information we have, whether or not physical causation is involved. With more effort we could have removed our assumption about the smallness of $V_C$ and derived more elaborate (t-matrix) scattering formulas of more general validity.
-One bit of unfinished business remains: up till now we have ignored that prime on $Q_A$ in (35). But that is hiding the most interesting part of our story.
+which is just Rayleigh's formula down to the last factor of $\pi$[^rayleigh]
+with the $\lambda^{-4}$ dependence which he used to explain the blue color of
+the sky in the analogous electromagnetic scattering problem.
+
+This little test of the MAXENT relations illustrates that covariance functions
+in a maximum-entropy distribution have a direct physical meaning, equivalent to
+conventional causal propagators if the situation is one involving physical
+causation. But those covariance functions are far more general; they represent
+the best predictions we are able to make from the information we have, whether
+or not physical causation is involved. With more effort we could have removed
+our assumption about the smallness of $V_C$ and derived more elaborate
+(t-matrix) scattering formulas of more general validity.
+
+One bit of unfinished business remains: up till now we have ignored that prime
+on $Q_A$ in (35). But that is hiding the most interesting part of our story.
 ## 12. MEANING OF THE RENORMALIZED SOURCE
-We noted before that, intuitively, source renormalization is something like increased "stiffness" of the kind we are familiar with in mechanics or electrical network theory, where imposing a constraint on one motion or current increases the resistance to other motions or currents (by blocking paths where currents might otherwise have flowed).
-But in inferential scattering this increased "stiffness" may take an unexpected form. Let us expand the renormalization factor in (36):
+We noted before that, intuitively, source renormalization is something like
+increased "stiffness" of the kind we are familiar with in mechanics or
+electrical network theory, where imposing a constraint on one motion or current
+increases the resistance to other motions or currents (by blocking paths where
+currents might otherwise have flowed).
+
+But in inferential scattering this increased "stiffness" may take an unexpected
+form. Let us expand the renormalization factor in (36):
 $$
 (1 - R_{AC}^2)^{-1} = 1 + R_{AC}^2 + R_{AC}^4 + \dots
 $$
-and substitute the result into (35). We shall need a more compact notation, so define the "propagators"
+and substitute the result into (35). We shall need a more compact notation, so
+define the "propagators"
 $$
 X_{BA} \equiv K_{BA}/K_{AA}
 $$
@@ -975,8 +1098,16 @@ $$
 \end{aligned}
 $$
 
-Each of these terms has a simple meaning. The first is just the standard regression result (25) that held before the constraint $\delta\langle C\rangle = 0$ was imposed. The second, as we have just seen, represents the Rayleigh scattering of the constraint. But that is only the first order term in the full effect of the new constraint.
-A moment's contemplation of the third term will reveal its meaning: it is the amplitude of a double scattered wave that has propagated from $A$ to $C$, scattered off $C$ back to $A$, then scattered off $A$ on to $B$. We might represent this by the double scattering process
+Each of these terms has a simple meaning. The first is just the standard
+regression result (25) that held before the constraint $\delta\langle C\rangle = 0$
+was imposed. The second, as we have just seen, represents the Rayleigh
+scattering of the constraint. But that is only the first order term in the full
+effect of the new constraint.
+
+A moment's contemplation of the third term will reveal its meaning: it is the
+amplitude of a double scattered wave that has propagated from $A$ to $C$,
+scattered off $C$ back to $A$, then scattered off $A$ on to $B$. We might
+represent this by the double scattering process
 $$
 (A \longrightarrow C \longrightarrow A \longrightarrow B).
 $$
@@ -987,11 +1118,41 @@ $$
 $$
 and so on!
 
-So what the source renormalization has done for us, in this particular case, is that it has put in every possible multiple scattering effect in addition to the direct propagation and Rayleigh terms. At first glance, it may seem surprising that arbitrarily high order scatterings are given already by what is only the first order of MAXENT perturbation theory. But we can understand it as follows.
-This phenomenon was noted before in [Heims & Jaynes (1962)](#fn:12)[^12], where we applied MAXENT to calculation of gyromechanical and gyromagnetic effects. All terms of the famous susceptibility formula of van Vleck, which he derived by second order energy level perturbation theory, appeared in the first order of our calculation. The reason was that the expansion parameter was different in the two calculations.
-[Schwinger (1969, p. 36)](#fn:13)[^13] called attention to this same phenomenon in his source theory for quantum fields. One may consider phenomena that are first order in the action function. But the action function itself may be expanded by iteration into an infinite series, in which successive terms are recognized as representing a noninteracting system, the primitive interactions, $e-e$ scattering, pair annihilation, and so on. Ordinarily one would consider that the experimental charge and mass of the electron are modified by its interactions with the electromagnetic field, so in principle they could be determined only after summing an infinite perturbation series. But this is not the case here; as Schwinger puts it:
+So what the source renormalization has done for us, in this particular case, is
+that it has put in every possible multiple scattering effect in addition to the
+direct propagation and Rayleigh terms. At first glance, it may seem surprising
+that arbitrarily high order scatterings are given already by what is only the
+first order of MAXENT perturbation theory. But we can understand it as follows.
+
+This phenomenon was noted before in Heims & Jaynes (1962)[^12], where we
+applied MAXENT to calculation of gyromechanical and gyromagnetic effects. All
+terms of the famous susceptibility formula of van Vleck, which he derived by
+second order energy level perturbation theory, appeared in the first order of
+our calculation. The reason was that the expansion parameter was different in
+the two calculations.
+
+Schwinger (1969, p. 36)[^13] called attention to this same phenomenon in his
+source theory for quantum fields. One may consider phenomena that are first
+order in the action function. But the action function itself may be expanded by
+iteration into an infinite series, in which successive terms are recognized as
+representing a noninteracting system, the primitive interactions, $e-e$
+scattering, pair annihilation, and so on. Ordinarily one would consider that
+the experimental charge and mass of the electron are modified by its
+interactions with the electromagnetic field, so in principle they could be
+determined only after summing an infinite perturbation series. But this is not
+the case here; as Schwinger puts it:
 > "It should be emphasized that the iterated solution is a classification of processes in terms of increasing degree of complexity. It is not a perturbation expansion. The physical electron mass $m_e$ and the physical electron charge $e$, which are identified originally under specific physical circumstances, will never change their significance when the class of phenomena under examination is enlarged. Later terms in this series do not contain modifications of earlier ones."
-Schwinger's source concept enables him to define the symbols $e, m$ as the experimental charge and mass from the start, with great simplification of the logic and great pragmatic advantages in calculation. Our thermal source concept enables us to do something very similar (in fact, we think that they may be seen ultimately as two different examples of the same basic theory). In a conventional physics calculation where one expands in powers of the interaction forces, $n$'th order multiple scattering would appear only in the $2n$'th order of the perturbation. But we, like Schwinger, are expanding in powers of the source strength, and the MAXENT formalism gives in first order the exact part of the response that is linear in the source strength, however high order it may be in the interaction forces.
+Schwinger's source concept enables him to define the symbols $e, m$ as the
+experimental charge and mass from the start, with great simplification of the
+logic and great pragmatic advantages in calculation. Our thermal source concept
+enables us to do something very similar (in fact, we think that they may be
+seen ultimately as two different examples of the same basic theory). In a
+conventional physics calculation where one expands in powers of the interaction
+forces, $n$'th order multiple scattering would appear only in the $2n$'th order
+of the perturbation. But we, like Schwinger, are expanding in powers of the
+source strength, and the MAXENT formalism gives in first order the exact part
+of the response that is linear in the source strength, however high order it
+may be in the interaction forces.
 
 [^1]: J. W. Gibbs (1873, 1875) These works are reprinted in *The Scientific Papers of J. Willard Gibbs*, Dover Publishing Co., Inc., New York (1961).
 [^2]: J. W. Gibbs (1902), *Elementary Principles in Statistical Mechanics*, Reprinted by Dover Publishing Co., Inc. New York (1961).
@@ -1007,7 +1168,6 @@ Schwinger's source concept enables him to define the symbols $e, m$ as the exper
 [^12]: S. Heims & E. T. Jaynes (1962), "Theory of Gyromagnetic Effects and some Related Magnetic Phenomena" *Revs. Mod. Phys.* 34 pp. 143-165.
 [^13]: J. Schwinger (1969), *Particles and Sources*, Gordon & Breach, New York.
 [^14]: Placeholder citation for E. T. Jaynes (1978). Original bibliography entry was omitted in source; update with full publication details if available.
-[^*]: An early version of this was presented under the title "Generalized Scattering" at the Second Maximum Entropy Workshop, Laramie WY, August 1982, and is in the Proceedings volume, *Maximum-Entropy and Bayesian Methods in Inverse Problems*, C. R. Smith & W. T. Grandy, editors, D. Reidel Publishing Company, Holland (1985); pp. 377-398. The present version was converted to TeX and Times Roman type font for greater legibility, and extensively rewritten for greater clarity, in August 1993.
 [^dag]: We remark parenthetically that Rene Thom's modern catastrophe theory may be given an alternative mathematical form in terms of convexity of an entropy-like function. This was anticipated by Gibbs, whose first published work (1873) determined conditions for thermodynamic stability as a geometrical convexity property of the entropy, the condition for coexistence of two phases in equilibrium being a local non-convexity which makes it possible for a supporting tangent plane to make contact with the entropy surface at two points. Gibbs' choice of variables has the advantage of avoiding multiple-valued functions; a catastrophe is explained in terms of dimples in a single-valued function instead of folds in a multiple-valued one.
 [^qft]: As another parenthetic remark, our present Quantum Field Theory expresses a kind of mixture of principles of physics and principles of inference; but the latest mathematical formulations of QFT look remarkably like the most general (functional integral) MAXENT formalism. The Feynman propagators with parts that seem to run backward in time have been puzzling conceptually -- but perhaps they may be understood eventually in this way: what is travelling backward is not a physical influence, but only a logical inference.
 [^hill]: It appears to us that of all the writers on the subject, Terrell Hill came closest to seeing the truth here. Others failed utterly to comprehend the relation between the abstract mathematics and the real world. Invariably, the failure was due to the Mind Projection Fallacy; failure to perceive that a probability distribution is not an external reality, only a creation of our own minds as an aid to reasoning. Therefore it does not describe reality, only our own incomplete information about reality. As their writings reveal, Maxwell and Gibbs understood this perfectly well; and so for them there was no paradox.

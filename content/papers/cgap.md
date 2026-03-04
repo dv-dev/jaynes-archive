@@ -210,4 +210,3 @@ walls, it would be very nice to have a portrait of Uncle Gus there also.
 He agreed at once, and arranged to have a copy made of an oil portrait,
 which we received about two years later. Today, I am the only living
 person who knew personally everyone whose portrait hangs in our library.
-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130

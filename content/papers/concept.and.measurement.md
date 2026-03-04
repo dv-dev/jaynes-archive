@@ -43,11 +43,12 @@ wave guides, and in Sec. VI the theory of the nodal shift method is
 extended to such guides. The resulting measurement technique was
 developed and used by the writer in 1949 in connection with the design
 of coupling systems for the Stanford linear accelerator tubes.[^3]
+
 ## NODAL SHIFT THEORY
 First, we note the familiar fact that the voltage-current relationships
-of any linear, passive, four-terminal network may be expressed in terms 
-of the network parameters $A, B, C, D$, in the form (see Fig. 1 for 
-notation) 
+of any linear, passive, four-terminal network may be expressed in terms
+of the network parameters $A, B, C, D$, in the form (see Fig. 1 for
+notation)
 $$
 \begin{aligned}
 V_1 &= AV_2 + BI_2, \\

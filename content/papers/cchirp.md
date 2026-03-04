@@ -630,7 +630,7 @@ convert $C(\omega, 0)$ into a power spectrum estimate is a nonlinear
 operation much like exponentiation followed by renormalization, an
 approximation being:[^6]
 $$\hat{P}(\omega) \propto \exp \left[ \frac{C(\omega,0)}{\sigma^2} \right]$$
-# DISCUSSION - MEANING OF THE CHIRPOGRAM
+
 This will suppress those spurious wiggles at the bottom of the
 periodogram as well as did the B-T linear smoothing; but it will do it
 by attenuation rather than smearing, and will therefore not lose any
@@ -763,7 +763,7 @@ For formal reasons it is convenient to define our spectrum as extending
 over both positive and negative frequencies; thus (17) should be equated
 to the integral (16) over $(-\pi, \pi)$. Therefore our power spectrum
 estimate is
-# POWER SPECTRUM ESTIMATES
+
 $$P(\omega) = (N/2) \int dAA^2 \int_{-\pi}^\pi d\omega \, p(A, \omega, \alpha|D,I), \quad (-\pi < \omega < \pi) \tag{18}$$
 
 To define a power spectrum only over positive frequencies (as would be
@@ -962,12 +962,13 @@ the \"fluctuations\" in non-overlapping frequency bands must be
 perfectly negatively correlated in our posterior distribution. Of
 course, in the present problem there are no such fluctuations; they are
 creations only of the Mind
-# MANY SIGNALS
+
 Projection Fallacy which presupposes that probabilities are physically
 real things. The greater adaptability of Bayesian analysis arises in
 part from our recognition that probabilities are only indications of our
 own incomplete information; therefore we are free to change them
 whenever our information changes.
+
 Now if two frequencies can be present, it turns out that the answer to
 question (A) will be essentially the same. But the answer to question
 (B) - or any other question that involves the joint posterior
@@ -1029,7 +1030,7 @@ Then
 $$Q = \sum_{jk} M_{jk} (A_j - \hat{A}_j)(A_k - \hat{A}_k) - \sum_{jk} M_{jk}^{-1} \hat{A}_j \hat{A}_k \tag{56}$$
 and the joint likelihood function splits into three factors:
 $$L = L_1 L_2 L_3 \tag{57}$$ with
-# MANY SIGNALS
+
 $$L_1 = \sigma^{-N} \exp(-N\overline{y^2}/2\sigma^2) \tag{58}$$
 $$L_2 = \exp \left\{ -\frac{N}{2\sigma^2} \sum_{jk} M_{jk} (A_j - \hat{A}_j)(A_k - \hat{A}_k) \right\} \tag{59}$$
 $$L_3 = \exp \left\{ +\frac{N}{2\sigma^2} \sum_{jk} M_{jk} \hat{A}_j \hat{A}_k \right\}. \tag{60}$$
@@ -1123,7 +1124,7 @@ our frequencies to be positive, in $(0, \pi)$, then the terms in (67)
 with $(\omega_j + \omega_k)$ will never become large, and the
 off-diagonal elements are
 $$M_{jk} \approx \frac{\sin N u}{2N \sin u} \cos(\theta_j - \theta_k) + O(N^{-1}) \tag{69}$$
-# MANY SIGNALS
+
 where $u \equiv (\omega_j - \omega_k)/2$. This becomes of order unity
 only when the two frequencies are too close to resolve and that merging
 phenomenon begins. Thus as long as the frequencies $\omega_j$ are so
@@ -1208,7 +1209,7 @@ $$y_t = A \cos(\nu t + \theta) \tag{A2}$$ then the periodogram reaches
 its peak value at or very near the true frequency:
 $$X(\nu) = NA^2/4. \tag{A3}$$ But if the signal is chirped:
 $$y_t = A \cos(\nu t + \alpha t^2 + \theta) \tag{A4}$$
-# APPENDIX A: OCEANOGRAPHIC CHIRP {#appendix-a-oceanographic-chirp-1 .unnumbered}
+
 then the periodogram (A1) is reduced, broadened, and distorted. Its
 value at the center frequency is only about
 $$X(\nu) = (NA^2/4) \left| N^{-1} \sum_t e^{i\alpha t^2} \right|^2 \tag{A5}$$
@@ -1333,7 +1334,7 @@ data record; so it is quite meaningless to speak of the \"frequencies\"
 with which the different sequences of length $m=3$ appear in our data,
 and therefore equally meaningless to ask whether our noise probability
 distribution correctly describes those frequencies.
-# APPENDIX B: WHY GAUSSIAN NOISE? {#appendix-b-why-gaussian-noise-1 .unnumbered}
+
 As these considerations indicate, the function of $p(e|I)$ cannot be to
 describe the noise; but rather to describe our state of knowledge about
 the noise. It is related to facts to this extent: we want to be fairly
@@ -1441,75 +1442,84 @@ $$\int_0^\infty dAL(A, \omega) = \sqrt{\frac{\pi\sigma^2}{N}} e^q I_0(q) \tag{C9
 $$\int_0^\infty dA A^2 L(A, \omega) = 2\sigma^3 \sqrt{\frac{\pi}{N^3}} [(1+2q)I_0(q) + 2qI_1(q)] e^q \tag{C10}$$
 from which (18), (20) of the text follow.
 # REFERENCES {#references .unnumbered}
-N. F. Barber & F. Ursell (1948), \"The Generation and Propagation of
+- N. F. Barber & F. Ursell (1948), \"The Generation and Propagation of
 Ocean Waves and Swell\", Phil. Trans. Roy. Soc. London, **A240**, pp
 527-560.
-J. M. Bernardo, et al, editors (1985), *Bayesian Statistics 2*, Elsevier
+
+- J. M. Bernardo, et al, editors (1985), *Bayesian Statistics 2*, Elsevier
 Science Publishers, North-Holland. Proceedings of the Second Valencia
 International Meeting on Bayesian Statistics, Sept. 6-10, 1983.
-R. B. Blackman & J. W. Tukey (1958), *The Measurement of Power Spectra*,
+
+- R. B. Blackman & J. W. Tukey (1958), *The Measurement of Power Spectra*,
 Dover Publications, Inc., New York.
-G. Larry Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
+
+- G. Larry Bretthorst (1988), *Bayesian Spectrum Analysis and Parameter
 Estimation*, Springer Lecture Notes in Statistics, #47. Numerous
 computer printouts with real and simulated data.
-John Parker Burg (1967), \"Maximum Entropy Spectral Analysis\", in Proc.
+
+- John Parker Burg (1967), \"Maximum Entropy Spectral Analysis\", in Proc.
 37'th Meet. Soc. Exploration Geophysicists. Reprinted in *Modern
 Spectrum Analysis*, D. Childers, Editor, IEEE Press, New York. (1978).
-John Parker Burg (1975), "Maximum Entropy Spectral Analysis\", Ph.D.
+
+- John Parker Burg (1975), "Maximum Entropy Spectral Analysis\", Ph.D.
 Thesis, Stanford University.
-D. R. Griffin (1958), *Listening in the Dark*, Yale University Press,
+
+- D. R. Griffin (1958), *Listening in the Dark*, Yale University Press,
 New Haven; see also *About Bats*, R. H. Slaughter & D. W. Walton,
 Editors, SMU Press, Dallas, Texas (1970).
-B. Nikolaus & D. Grischkowsky (1983), \"90 Fsec Tunable Optical Pulses
+
+- B. Nikolaus & D. Grischkowsky (1983), \"90 Fsec Tunable Optical Pulses
 Obtained by Two-Stage Pulse Compression\", App. Phys. Lett.
-S. F. Gull & G. J. Daniell (1978), "Image Reconstruction from Incomplete
+
+- S. F. Gull & G. J. Daniell (1978), "Image Reconstruction from Incomplete
 and Noisy Data\", Nature, **272**, p. 686.
-R. A. Helliwell (1965), *Whistlers and Related Ionospheric Phenomena*,
+
+- R. A. Helliwell (1965), *Whistlers and Related Ionospheric Phenomena*,
 Stanford University Press, Palo Alto, Calif.
-E. T. Jaynes (1957), "Information Theory and Statistical Mechanics\",
+
+- E. T. Jaynes (1957), "Information Theory and Statistical Mechanics\",
 Phys. Rev. **106**, 620; **108**, 171.
-E. T. Jaynes (1973), \"Survey of the Present Status of Neoclassical
+
+- E. T. Jaynes (1973), \"Survey of the Present Status of Neoclassical
 Radiation Theory\", in Proceedings of the 1972 Rochester Conference on
 Optical Coherence, L. Mandel & E. Wolf, Editors, Pergamon Press, New
 York.
-E. T. Jaynes (1980), \"Marginalization and Prior Probabilities\", in
+
+- E. T. Jaynes (1980), \"Marginalization and Prior Probabilities\", in
 *Bayesian Analysis in Econometrics and Statistics*, A. Zellner, Editor,
 North-Holland Publishing Co. Reprinted in E. T. Jaynes, *Papers on
 Probability, Statistics, and Statistical Physics*, a reprint collection,
 D. Reidel, Dordrecht-Holland (1983).
-E. T. Jaynes (1981), \"What is the Problem?", Proceedings of the Second
+
+- E. T. Jaynes (1981), \"What is the Problem?", Proceedings of the Second
 ASSP Workshop on Spectrum Analysis, McMaster University, S. Haykin,
 Editor.
-E. T. Jaynes (1982), \"On the Rationale of Maximum-Entropy Methods\",
+
+- E. T. Jaynes (1982), \"On the Rationale of Maximum-Entropy Methods\",
 Proc. IEEE, **70**, pp. 939-952.
-W. H. Munk & F. E. Snodgrass (1957), "Measurements of Southern Swell at
+
+- W. H. Munk & F. E. Snodgrass (1957), "Measurements of Southern Swell at
 Guadalupe Island\", Deep-Sea Research, **4**, pp 272-286.
-L. J. Savage (1954), *The Foundations of Statistics*, J. Wiley & Sons,
+
+- L. J. Savage (1954), *The Foundations of Statistics*, J. Wiley & Sons,
 Inc., New York.
-A. Schuster (1897), "On Lunar and Solar Periodicities of Earthquakes\",
+
+- A. Schuster (1897), "On Lunar and Solar Periodicities of Earthquakes\",
 Proc. Roy. Soc. **61**, pp. 455-465.
-J. W. Tukey, P. Bloomfield, D. Brillinger, and W. S. Cleveland (1980),
+
+- J. W. Tukey, P. Bloomfield, D. Brillinger, and W. S. Cleveland (1980),
 *The Practice of Spectrum Analysis*, notes on a course given in
 Princeton, N. J. in December 1980.
-J. W. Tukey & D. Brillinger (1982), unpublished.
-J. W. Tukey (1984), \"Styles of Spectrum Analysis\", Scripps Institution
+
+- J. W. Tukey & D. Brillinger (1982), unpublished.
+
+- J. W. Tukey (1984), \"Styles of Spectrum Analysis\", Scripps Institution
 of Oceanography Reference Series 84-85, March 1984; pp. 100-103. An
 astonishing attack on all theoretical principles, including AR models,
 MAXENT, and Bayesian methods. John Tukey believed that one should not
 rely on any theory, but simply use his own intuition on every individual
 problem. But this made most Bayesian results inaccessible to him.
-[^1]: A revised and updated version of a paper presented at the Third
-    Workshop on Maximum-Entropy and Bayesian Methods, Laramie Wyoming,
-    August 1-4, 1983. Published in *Maximum-Entropy and Bayesian
-    Spectral Analysis and Estimation Problems*, C. R. Smith and G. J.
-    Erickson, Editors, D. Reidel Publishing Co., 1987. This is the
-    original investigation that evolved into the Bayesian Spectrum
-    Analysis of Bretthorst (1988). The \"plain vanilla\" Bayesian
-    analysis introduced here proved to be unexpectedly powerful in
-    applications because of its flexibility, which allows it to
-    accommodate itself to all kinds of complicating circumstances in a
-    way determined uniquely by the rules of probability theory, with no
-    need for any *ad hoc* devices or appeal to unreliable intuition.
+
 [^2]: This appeared later, in Bernardo, et al (1985), pp. 329-360.
 [^3]: Given in detail in Bretthorst (1988).
 [^4]: Bretthorst (1988) discovered that we avoid Bessel functions by

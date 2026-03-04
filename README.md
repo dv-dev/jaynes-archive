@@ -6,7 +6,7 @@ Minimal Hugo site for the E.T. Jaynes paper archive.
 - `content/papers`: paper pages (Markdown front matter + content)
 - `data/clusters.json`: landing page grouping
 - `data/summaries.json`: short summary text for landing cards
-- `static/pdfs/raw` and `static/pdfs/ocr`: downloadable PDFs
+- `static/pdfs/raw` and `static/pdfs/clean`: downloadable PDFs
 - `layouts/*` and `static/js/search.js`: site UI and client-side search
 - `scripts/workbench_server.py` + `scripts/workbench`: local audit workbench UI/API
 

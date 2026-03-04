@@ -11,7 +11,7 @@ author: ["E.T. Jaynes"]
 
 ## FIRST LECTURE: Classical and Heaviside Methods
 
-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
 **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
 
 **Aim of course:** to provide a technique for solving practical transient problems.
@@ -109,7 +109,11 @@ $$
 \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
 $$
 
-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
+This is the solution of the problem.
+
+There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
+
+Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
 
 The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
 
@@ -285,7 +289,7 @@ $$
 E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
 $$
 
-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
 $$
 E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
 $$
@@ -712,7 +716,7 @@ $$
 V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
 $$
 
-Pair 863.1 of Campbell & Foster is:
+Pair 863.1 of Campbell & Foster is:[^campbell-foster]
 $$
 e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
 $$
@@ -808,3 +812,6 @@ e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^
 $$
 
 This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+
+[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
+[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.

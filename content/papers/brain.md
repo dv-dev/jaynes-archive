@@ -58,8 +58,8 @@ Abel[^2] and Cox[^3], and the qualitative principle was given by
 Laplace[^4]. All we have to do is fit them together.
 
 Laplace's qualitative principle is his famous remark[^4] that
-\"Probability theory is nothing but common sense reduced to
-calculation.\" The main object of this paper is to show that this is not
+"Probability theory is nothing but common sense reduced to
+calculation." The main object of this paper is to show that this is not
 just a play on words, but a literal statement of fact.
 
 One of the most familiar facts of our experience is this: that there is
@@ -73,12 +73,13 @@ for plausible reasoning, undoubtedly much more complex than that
 required for deductive reasoning. But in order for this to be possible,
 there must exist consistent rules for carrying out plausible reasoning,
 in terms of operations so definite that they can be programmed on the
-computing machine which is the human brain. This is the \"experimental
-fact\" on which our theory is based. We know that it must be true,
+computing machine which is the human brain. This is the "experimental
+fact" on which our theory is based. We know that it must be true,
 because we all use it every day. Our direct knowledge about this process
 is, however, only qualitative in much the same way as is our direct
 experience of temperature. For that reason it is necessary to use the
 methodology of Shannon.
+
 # LAPLACE'S MODEL OF COMMON SENSE
 We now turn to development of our first mathematical model. We attempt
 to associate mental states with real numbers which are to be manipulated
@@ -175,7 +176,7 @@ imposing them, we can exercise that freedom to adopt conventions so as
 to make the rules as simple as possible. If we find that these
 requirements are so restrictive that there is in effect only one
 possible model satisfying them, are we entitled to claim that we have
-discovered the mechanism by which the brain does \"one-dimensional\"
+discovered the mechanism by which the brain does "one-dimensional"
 plausible reasoning? Except for the proviso that the human mind is
 imperfect, it seems that to deny that claim would be to assert that the
 human mind operates in a deliberately inconsistent way.
@@ -533,6 +534,7 @@ have at our disposal for attacking the problem. Alternatively, we can
 equally well regard $X$ as a set of hypotheses whose consequences we
 wish to investigate, so that all equations may be read, "If $X$ were
 true, then ..." It makes no difference in the formal theory.
+
 # DISCUSSION
 It is well known that criticism of the theory of Laplace, and pointing
 out of its obvious absurdity, has been a favorite indoor sport of
@@ -636,6 +638,7 @@ theory. The only "objective" probabilities are those which describe
 frequencies observed in experiments already completed. Before they can
 serve any purpose in applications they must be converted into subjective
 judgments about other situations where we do not know the answer.
+
 If a communication engineer says, "The statistical properties of the
 message and noise are known," he means only that he has some knowledge
 about the *past* behavior of some particular set of messages and some
@@ -645,6 +648,7 @@ accordingly, he is making a subjective judgment of exactly the type
 accounted for by Laplace's theory, and *the sole purpose of the
 statistical analysis of past events was to obtain that subjective
 judgment.*
+
 Two engineers who have different amounts of statistical information
 about messages will assign different n-gram probabilities and design
 different coding systems. Each represents rational design on the basis
@@ -666,6 +670,7 @@ are accounted for by Laplace's theory. Its conclusions are, for all
 practical purposes, identical with those provided by the method of
 confidence intervals,[^15] and it is our contention that the validity
 of the latter method depends on this agreement.
+
 # THE PRINCIPLE OF INSUFFICIENT REASON
 Two conditions are necessary before we can assign probabilities by means
 of the principle of insufficient reason: 
@@ -735,6 +740,7 @@ saying that you *have* evidence
 unless it is in the form of an observed frequency. Everything which the
 National Bureau of Standards can tell us must be ignored, because it has
 no frequency interpretation.
+
 # THE ENTROPY PRINCIPLE
 A biased die, colored black with white spots, has been tossed many times
 onto a black table, and we have recorded the experiment with a camera,
@@ -755,6 +761,7 @@ cars of each make in the cluster?
 
 During an earthquake, 100 windows were broken into 1000 pieces. What is
 the probability for a window to be broken into exactly $m$ pieces?
+
 These are examples of problems where condition (4-1) is satisfied but
 not condition (4-2). They can be formulated in a general way as follows.
 The quantity $x$ can assume the discrete values $x_1 \dots x_n$. There
@@ -889,6 +896,7 @@ understand just what we were doing in statistical mechanics, or to have
 any confidence in it for the prediction of irreversible processes.
 However, we can now see that statistical mechanics is a much more
 powerful tool than physicists had realized.
+
 # PROBABILITY AND FREQUENCY
 Although the word "frequency" has appeared a few times above, we have
 not so far made any use of it in developing the basic theory or in
@@ -1139,7 +1147,8 @@ revises his estimate for the first minute to 123. Each has done
 consistent plausible reasoning, but *prior evidence which has no
 frequency interpretation can completely change the conclusions which we
 draw from random data, and their degree of reliability*.
-# \"SUBJECTIVE\" COMMUNICATION THEORY
+
+# "SUBJECTIVE" COMMUNICATION THEORY
 Laplace's theory is of such wide scope that in principle it includes
 every example of plausible reasoning, and thus *a fortiori*,
 communication theory. In particular, much of communication theory can be
@@ -1162,6 +1171,7 @@ numbers can be applied." But how are we to decide whether a source is
 has a precise frequency interpretation only for behavior over infinite
 periods of time. From an operational viewpoint it is therefore
 meaningless. How, then, can we ever trust the result of the theorem?
+
 If we look at the problem in Laplace's way this difficulty disappears.
 When we say, "The source is ergodic," we are not describing the source,
 but rather our state of knowledge about the source. We mean only that
@@ -1236,6 +1246,7 @@ probabilities. At least not on paper. But we still have our brains, and
 until new principles are discovered, we will have to use them. We must
 take into account everything we know about the signal, and then *guess*
 the a-priori probabilities.
+
 # CONCLUSION
 We have tried to show above how a re-interpretation of the probability
 concept can clarify and extend the power of statistical methods for
@@ -1255,6 +1266,7 @@ generality will obscure the important points of an argument. Finally, it
 is interesting to note the increasing importance of the theory of
 functional equations in this field, shown also by Bellman and
 Kalaba.[^24]
+
 # REFERENCES {#references .unnumbered}
 [^1]: C.E. Shannon, "A Mathematical Theory of Communication," Bell Syst. Tech. Jour. Vol. 27, pp. 379-423, 623-655; July, October, 1948. Also in C. E. Shannon and W. Weaver, "The Mathematical Theory of Communication," University of Illinois Press, Urbana, 1949.
 [^2]: N. H. Abel, *Crelle's Jour.*, Bd. 1 (1826).
@@ -1280,4 +1292,3 @@ Kalaba.[^24]
 [^22]: **[REFERENCE MISSING: Maximum-entropy inference based on n-gram frequencies]**
 [^23]: **[REFERENCE MISSING: Linear Ising chain]**
 [^24]: **[REFERENCE MISSING: Theory of functional equations, Bellman and Kalaba]**
-[^100]: Present address: Wayman Crow Professor of Physics, Washington University, St. Louis. MO 63130

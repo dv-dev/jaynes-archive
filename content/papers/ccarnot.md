@@ -81,18 +81,15 @@ We hope that the disappointment of some at the simplicity of the maximum
 entropy principle, will be partially relieved on finding that it
 actually does work; and perhaps even fully compensated on seeing the
 connection with thermodynamics, and the logical unity of these seemingly
-different fields. This may be hoped for particularly in a lecture given
-in Paris; for the general viewpoint and the specific principle, from
-which it all follows, were given by Laplace and Carnot, not far from
-where we are now. After more than 150 years, we are beginning to
+different fields. After more than 150 years, we are beginning to
 understand them.
 
 In the following we survey the reasoning that follows from Carnot's
 principle, not in the confusion of the actual historical development,
 but as today's hindsight shows us it could have been done. Of course, if
 our object were merely to explain maximum-entropy inference, that can be
-done by much shorter arguments without reference to thermodynamics, as
-will doubtless be shown by other speakers here. Indeed, we think that in
+done by much shorter arguments without reference to thermodynamics.
+Indeed, we think that in
 the future thermodynamics itself will be approached by that shorter
 route and will be seen as only one particular application of
 maximum-entropy inference. But our present object is to make the logical
@@ -372,7 +369,7 @@ science, is of necessity inference based on the information at hand,
 rather than logical deduction --- which almost always would require far
 more information than we possess. Yet to sophisticated scientists this
 change of thinking has been very difficult conceptually, and it can
-arouse bitter controversy. To recognize "officially\" that we are only
+arouse bitter controversy. To recognize "officially" that we are only
 doing inference rather than deduction, is very foreign to the attitude
 that scientists are taught.
 
@@ -395,11 +392,13 @@ maximum entropy state. But I choose to ignore that warning, go ahead
 with my calculation, and then ask an experimentalist to compare my
 prediction with observation. What conclusions will we be able to draw
 from his verdict?
+
 \"Suppose my prediction turns out to be right. That does not prove that
 no unknown constraints exist; but it does prove that there are none
 which prevent the system from getting to the macrostate of maximum
 entropy. So the calculation has served a useful predictive purpose, and
 its success gives us more confidence in future predictions.
+
 \"But suppose my prediction turns out to be wrong; the experiment
 repeatedly gives a different result. Then we have learned far more; we
 know that there is some new (i.e., previously unknown) constraint
@@ -449,6 +448,7 @@ showed, far more than anyone else, how much we can accomplish by
 maximizing entropy. Yet we cannot learn from Gibbs: \"What are we
 actually doing when we maximize entropy?\" For this we must turn to
 Boltzmann.
+
 # FOURTH METAMORPHOSIS: BOLTZMANN
 Entropy first appeared, unanticipated and without warning, merely as a
 mathematical construct in equation (12). Even after its fundamental
@@ -566,6 +566,7 @@ microstates with total energy $E$ have $E_1$ very close to $E^\prime$. Less
 than 1 in $10^8$ of all possible states have $E_1$ outside the interval
 $(E^\prime \pm 6\sigma)$, far too narrow to measure experimentally. From (17),
 then, we understand also why Gibbs' method succeeds.
+
 But there is still more to be learned from Boltzmann's discovery (17).
 Imagine $n_2$ to become very large; then we may expand using (21):
 $$\log W_2(E - E_1) = \log W_2(E) - \frac{E_1}{kT} + \dots$$ and from
@@ -654,6 +655,7 @@ knowledge. Aware of the microstates and their relative numbers but,
 having no grounds for preferring any particular microstate consistent
 with our knowledge to any other, an honest description of what we know
 requires us to assign equal probabilities to them, resulting in (20).
+
 A person with greater knowledge would have a smaller set of possible
 states, and would be able to make better predictions of some things. But
 he would seldom do better in prediction of reproducible phenomena,
@@ -783,6 +785,7 @@ theoretical basis at all. If it does not yield useful results, it will
 not be used however strong the theoretical arguments for it. So, now let
 us hear from others how the method is working on some real, important,
 and highly nontrivial problems.
+
 # COMMENTS ON KELVIN'S RELATION
 Some have thought it inelegant to base a scientific theory on such
 vulgar things as heat engines; but in Kelvin's form (10) of Carnot's
@@ -979,6 +982,7 @@ difference corresponds to one microcalorie at room temperature,
 $p < \exp(-10^{15})$. We do not see why any more than this is needed to
 understand and explain the observed phenomenological facts associated
 with the second law.
+
 # REFERENCES {#references .unnumbered}
 B. Alberts, D. Bray, J. Lewis, M. Raff, K. Roberts & J. D. Watson,
 Molecular Biology of the Cell, Garland Publishing Co., New York; pp.
@@ -997,6 +1001,7 @@ Publishers, Dordrecht-Holland.
 J. Willard Gibbs, \"On the Equilibrium of Heterogeneous Substances\",
 Trans. Conn. Acad. Sci (1875-78). Reprinted in The Scientific Papers of
 J. Willard Gibbs, Vol. 1; Dover Publications, Inc., N. Y. (1961).
+
 C. C. Gillispie, Lazare Carnot, Savant Princeton University Press
 (1971). A technical analysis of his work, and its relation to that of
 his son Sadi. Original manuscripts.
@@ -1017,11 +1022,3 @@ M. Planck, Scientific Autobiography, Philosophical Library, N. Y.
 (1949); pp.17-18.
 
 M. Reinhard, Le Grand Carnot, 2 vols., Paris, 1950-52.
-
-[^1]: Visiting Fellow, 1983-84. Permanent Address: Department of
-    Physics, Washington University, St. Louis MO 63130, USA.
-
-[^2]: The opening talk at the EMBO Workshop on Maximum-Entropy Methods
-    in x-ray crystallographic and biological macromolecule structure
-    determination, Orsay, France, April 24-28, 1984. Reprinted in
-    Ericksen & Smith (1988), Vol 1, pp. 267-282

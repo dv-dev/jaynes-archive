@@ -1,0 +1,592 @@
+=== STDOUT ===
+Updated `content/papers/confidence.md` with minimal structural QA edits only:
+
+- Fixed footnote citation formatting: `report [^4]` → `report[^4]`.
+- Improved markdown table rendering around Table I:
+  - Added a colon and blank line before the table.
+  - Added blank lines around the table caption.
+  - Split adjacent text blocks for cleaner paragraph flow.
+- Removed extraneous metadata line not part of paper body:
+  - `[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130`
+
+No paper meaning/content was changed, and all LaTeX/KaTeX math was left exactly as-is.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb994-437c-72a0-855c-a1d1f2c801af
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/confidence.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/confidence.md` for structural QA issues (paragraph breaks, table formatting, duplicate abstract, citation normalization, and extraneous metadata), then apply minimal direct edits only in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Confidence Intervals vs Bayesian Intervals"
+year: 1976
+abstract: >
+  For many years, statistics textbooks have followed this 'canonical'
+  procedure: (1) the reader is warned not to use the discredited methods
+  of Bayes and Laplace, (2) an orthodox method is extolled as superior
+  and applied to a few simple problems, (3) the corresponding Bayesian
+  solutions are *not* worked out or described in any way. The net result
+  is that no evidence whatsoever is offered to substantiate the claim of
+  superiority of the orthodox method. To correct this situation we
+  exhibit the Bayesian and orthodox solutions to six common statistical
+  problems involving confidence intervals (including significance tests
+  based on the same reasoning). In every case, we find that the
+  situation is exactly the opposite; i.e., the Bayesian method is easier
+  to apply and yields the same or better results. Indeed, the orthodox
+  results are satisfactory only when they agree closely (or exactly)
+  with the Bayesian results. No contrary example has yet been produced.
+  By a refinement of the orthodox statistician's own criterion of
+  performance, the best confidence interval for any location or scale
+codex
+I’ve reviewed the first section and identified a few likely structural/citation cleanups; I’ll scan the rest of the file now so edits stay consistent and minimal.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+> simple illustration of the new [i.e., Bayesian] notions on real,
+> everyday statistical problems.
+> E. S. Pearson (1962)
+### (a) EXAMPLE 1. DIFFERENCE OF MEANS
+One of the most common of the 'everyday statistical problems' concerns
+the difference of the means of two normal distributions. A good example,
+with a detailed account of how current orthodox practice deals with such
+problems, appears in a recent book on reliability engineering (Roberts,
+1964).
+
+Two manufacturers, *A* and *B*, are suppliers for a certain component,
+and we want to choose the one which affords the longer mean life.
+Manufacturer *A* supplies 9 units for test, which turn out to have a
+(mean $\pm$ standard deviation) lifetime of ($42\pm7.48$) hours. *B*
+supplies 4 units, which yield ($50\pm6.48$) hours.
+
+I think our common sense tells us immediately, without any calculation,
+that this constitutes fairly substantial (but not overwhelming) evidence
+in favor of *B*. While we should certainly prefer a larger sample, *B*\'s
+units did give a longer mean life, the difference being appreciably
+codex
+I’m continuing through the remaining sections to catch any duplicated abstract/body metadata and citation style issues before making a single focused patch.
+exec
+/bin/bash -lc "sed -n '521,860p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+This is hardly a trivial point; for if it were *known* that
+$\lambda^{-1} = 10$ yr, the probability that a particular vehicle will
+actually run for 10 yrs would be only $1/e=0.368$; and the period for
+which we are 95 percent sure of success would be only $-10 \ln(0.95)$
+years, or 6.2 months. Reports which concern only the 'mean life' can be
+rather misleading.
+
+Let us first compare the ST test with a Bayesian test which makes use of
+exactly the same information; i.e., we are allowed to use only the total
+number of failures, not the actual failure times. On the hypothesis that
+the failure rate is $\lambda$, the probability that exactly $r$ units
+fail in time $t$ is
+$$
+p(r|n, \lambda, t) = \binom{n}{r} e^{-(n-r)\lambda t} (1 - e^{-\lambda t})^r.
+$$
+
+I want to defer discussion of nonuniform priors; for the time being
+suppose we assign a uniform prior density to $\lambda$. This amounts to
+saying that, before the test, we consider it extremely unlikely that our
+space vehicles have a mean life as long as a microsecond; nevertheless
+codex
+I’m in the last major sections now. After this pass I’ll patch only clear structural issues and citation normalization without touching math or meaning.
+exec
+/bin/bash -lc "sed -n '861,1220p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+charts.
+
+In all of probability theory there is no calculation which has been
+subjected to more sneering abuse from orthodox writers than the Bayesian
+one just described, which contains Laplace's rule of succession. But
+suppose we take a glimpse at the final numerical results, comparing,
+say, the 90% confidence belts with the Bayesian 90% posterior
+probability belts.
+
+This must be done with caution, because published confidence intervals
+all appear to have been calculated from approximate formulas which yield
+wider intervals than is needed for the stated confidence level. We use a
+recently published (Crow et al., 1960) recalculated table which, for the
+case $n=10$, gives intervals about 0.06 units smaller than the older
+Pearson-Clopper values.
+
+If we have observed 10 successes in 20 trials, the upper 90% confidence
+limit is given as 0.675; the above Bayesian formula gives 0.671. For 13
+successes in 26 trials, the tabulated upper confidence limit is 0.658; 
+the Bayesian result is 0.652.
+exec
+/bin/bash -lc "sed -n '1221,1560p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+| :--- | :--- | :--- |
+| 0 | 0.998 | 1.000 |
+| 2 | 0.991 | 0.296 |
+| 4 | 0.952 | 0.156 |
+| 6 | 0.702 | 0.105 |
+| 8 | 0.227 | 0.079 |
+| 10 | 0.111 | 0.064 |
+| 12 | 0.069 | 0.053 |
+| 14 | 0.047 | 0.046 |
+| $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
+**Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
+in which we give the actual frequency $w(y, 6.31)$ of correct statements
+obtained by use of the 90% confidence interval, for various half-ranges
+y. In the third column we give the fraction of all samples,
+$F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
+It appears that information about $(x_1-x_2)$ was indeed relevant to the
+question being asked. In the long run, the 90% CI will deliver a right
+answer 90% of the time; however, its merits appear very different in the
+individual case. In the subclass of samples with reasonably small range,
+the 90% CI is too conservative; we can choose a considerably smaller
+codex
+I found one clear non-body metadata line (`[^100]` affiliation) and possible citation/formatting cleanups; I’ll inspect the tail (references/footnotes) before patching.
+exec
+/bin/bash -lc "sed -n '1561,1880p' content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Crow, E. L., Davis, F. A., and Maxfield, M. W., *Statistics Manual*,
+Dover Publications, Inc., New York (1960).
+
+Fisher, R. A., *Statistical Methods and Scientific Inference*, Hafner
+Publishing Co., New York (1956).
+
+Friedman, K. and Shimony, A., 'Jaynes' Maximum Entropy Prescription and
+Probability Theory', *J. Stat. Phys.* **3**, 381-384 (1971).
+
+Good, I. J., *Probability and The Weighing of Evidence*, C. Griffin and
+Co. Ltd., London (1950).
+
+Good, I. J., *The Estimation of Probabilities*, Research Monograph #30,
+The MIT Press, Cambridge, Mass. (1965); paperback edition, 1968.
+
+Jaynes, E. T., 'Information Theory and Statistical Mechanics, I, II',
+*Phys. Rev.* **106**, 620-630; **108**, 171--190 (1957).
+
+Jaynes, E. T., *Probability Theory in Science and Engineering*, No. 4 of
+Colloquium Lectures on Pure and Applied Science, Socony-Mobil Oil Co.,
+codex
+I’ve reached the end and now I’m checking citation/footnote consistency so I can do the smallest safe structural patch without altering paper substance.
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^|'"\\(Jaynes|Lecture given at|Abstract|ABSTRACT|\\(\\w+[, ]+\\d{4}\\)\" content/papers/confidence.md | sed -n '1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+45:event, I have little more to say beyond what is already in print.[^2] So
+88:been through several times (Jaynes, 1967). Having seen how these crises 
+98:foundations of quantum theory (Jaynes, 1973). But in physics we have
+318:indications of common sense.[^3]
+395:report [^4] instead: "These data yield a probability of 0.9574, or odds
+730:[although I believe I have shown (Jaynes, 1968, 1971) that if a random 
+815:evident from our previous work (Jaynes, 1968) and the above example, 
+839:(Jaynes, 1968) in terms of transformation groups; it corresponds to
+955:argued elsewhere (Jaynes, 1968) is the proper way to express complete
+1442:been given (Birnbaum, 1962). However, I don't think we need a separate
+1506:defined previously (Jaynes, 1968). In the case of the aforementioned
+1542:[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+1584:Information Theory*, p. 98 (September 1959).
+1605:Cybernetics*, SSC-4, (September 1968), pp. 227-241.
+2335:of R. T. Cox (1946, 1961). He shows that any method of plausible
+2376:these problems (1968, 1971), but also that of Jeffreys (1939)? I can
+2410:mine detectors. I am on record (Jaynes, 1963) as claiming that there is
+2432:information theory (Shannon, 1948), 17 years after its bearing on the
+2433:prior probability problem was shown (Jaynes, 1957), ten years after the
+2434:generalization to continuous distributions (Jaynes, 1963), six years
+exec
+/bin/bash -lc 'rg -n "''^## |''^### |''^#### |''^'"\\[\\"'^[0-9]+'"\\]:|"'^---$|''^abstract:|''^title:|''^author:" content/papers/confidence.md | sed -n '"'1,260p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+1:---
+2:title: "Confidence Intervals vs Bayesian Intervals"
+4:abstract: >
+29:author: ["E.T. Jaynes"]
+30:---
+31:## INTRODUCTION
+167:### INTERVAL ESTIMATION
+256:## SIGNIFICANCE TESTS
+264:### (a) EXAMPLE 1. DIFFERENCE OF MEANS
+371:### (b) EXAMPLE 2. SCALE PARAMETERS
+449:### (c) EXAMPLE 3. AN ACCEPTANCE TEST
+754:### (d) SUMMARY
+818:## TWO-SIDED CONFIDENCE INTERVALS
+832:### (a) EXAMPLE 4. BINOMIAL DISTRIBUTION
+905:### (b) EXAMPLE 5. TRUNCATED EXPONENTIAL DISTRIBUTION
+1004:### (c) WHAT WENT WRONG?
+1125:### (d) EXAMPLE 6. THE CAUCHY DISTRIBUTION
+1299:### (e) GENERAL PROOF
+1354:## POLEMICS
+1542:[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+exec
+/bin/bash -lc "rg -n \"ABSTRACT|Abstract\" content/papers/confidence.md | sed -n '1,200p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^1'"\\]|\\[\\"'^2'"\\]|\\[\\"'^3'"\\]|\\[\\"'^4'"\\]|\\[\\"'^100'"\\]\" content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+45:event, I have little more to say beyond what is already in print.[^2] So
+318:indications of common sense.[^3]
+395:report [^4] instead: "These data yield a probability of 0.9574, or odds
+1542:[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+3451:[^1]: Supported by the Air Force Office of Scientific Research, Contract
+3454:[^2]: Editor's note: This reference likely refers to Jaynes' early papers on Maximum Entropy (1957).
+exec
+/bin/bash -lc "rg -n \"\\[\\"'^[0-9]+'"\\]:\" content/papers/confidence.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+1542:[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+3451:[^1]: Supported by the Air Force Office of Scientific Research, Contract
+3454:[^2]: Editor's note: This reference likely refers to Jaynes' early papers on Maximum Entropy (1957).
+exec
+/bin/bash -lc "rg -n \"Lecture|Presented|Reprinted|Editor'?s note|Department|Dept\\.|address|Received\" content/papers/confidence.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+1542:[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+1580:Colloquium Lectures on Pure and Applied Science, Socony-Mobil Oil Co.,
+2180:Kalbfleisch, J. G., 1971, *Probability and Statistical Methods*, Dept.
+3443:Theory Analysis', Multilithed, Dept. of Economics, University of
+3454:[^2]: Editor's note: This reference likely refers to Jaynes' early papers on Maximum Entropy (1957).
+exec
+/bin/bash -lc "nl -ba content/papers/confidence.md | sed -n '1528,1560p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+  1528	generalization of our present Bayesian principles. After all, the
+  1529	unsolved problems of Bayesian statistics are ones (such as treatment of
+  1530	nontestable prior information) that, for the most part, go so far beyond
+  1531	the domain of orthodox methods that they cannot even be formulated in
+  1532	orthodox terms.
+  1533	
+  1534	It would seem to me, therefore, that instead of attacking Bayesian
+  1535	methods because we still have unsolved problems, a rational person would
+  1536	want to be constructive and recognize the unsolved problems as the areas
+  1537	where it is important that further research be done. My work on maximum
+  1538	entropy and transformation groups is an attempt to contribute to, and
+  1539	not to tear down, the beautiful and powerful intellectual achievement
+  1540	that the world owes to Bayes and Laplace.
+  1541	
+  1542	[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+  1543	## REFERENCES
+  1544	Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
+  1545	of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with
+  1546	biographical note by G. A. Barnard, in *Biometrika* **45**, 293-315
+  1547	(1958) and in *Studies in the History of Statistics and Probability*, E.
+codex
+I’m about to apply a minimal patch: remove the non-body affiliation footnote, fix one malformed footnote citation spacing, and clean table/caption spacing so markdown renders more reliably.
+exec
+/bin/bash -lc "nl -ba content/papers/confidence.md | sed -n '1208,1255p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+  1208	therefore not (23), but
+  1209	$$
+  1210	p(\theta^* < \theta^\prime | \theta, y) = \frac{1}{2} + \frac{1}{2\pi} [\tan^{-1}(\theta^\prime-\theta+y) + \tan^{-1}(\theta^\prime-\theta-y)] + \frac{1}{4\pi y} \log\left[\frac{1+(\theta^\prime-\theta+y)^2}{1+(\theta^\prime-\theta-y)^2}\right]
+  1211	$$
+  1212	and so, in the subclass of samples with given $(x_1-x_2)$, the
+  1213	probability that the confidence interval (24) will yield a correct
+  1214	statement is not $P=(2/\pi)\tan^{-1}q$, but
+  1215	$$
+  1216	w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+  1217	$$
+  1218	
+  1219	Numerical values computed from this equation are given in Table I,
+  1220	| $y$ | $w(y, 6.31)$ | $F(y)$ |
+  1221	| :--- | :--- | :--- |
+  1222	| 0 | 0.998 | 1.000 |
+  1223	| 2 | 0.991 | 0.296 |
+  1224	| 4 | 0.952 | 0.156 |
+  1225	| 6 | 0.702 | 0.105 |
+  1226	| 8 | 0.227 | 0.079 |
+  1227	| 10 | 0.111 | 0.064 |
+exec
+/bin/bash -lc "nl -ba content/papers/confidence.md | sed -n '386,404p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   386	Suppose you were a military commander faced with the problem of deciding
+   387	which type of rocket to adopt. You provide your statistician with the
+   388	above data, obtained at great trouble and expense, and receive the
+   389	quoted report. What would be your reaction? I think that you would fire
+   390	the statistician on the spot; and henceforth make decisions on the basis
+   391	of your own common sense, which is evidently a more powerful tool than
+   392	the equal-tails $F$-test.
+   393	
+   394	However, if your statistician happened to be a Bayesian, he would
+   395	report [^4] instead: "These data yield a probability of 0.9574, or odds
+   396	of 22.47:1, in favor of type 2 rockets". I think you would decide to
+   397	keep this fellow on your staff, because his report not only agrees with
+   398	common sense; it is stated in a far more useful form. For, you have
+   399	little interest in being told merely whether the data constitute
+   400	'significant evidence for a difference'. It is already obvious without
+   401	any calculation that they *do* constitute highly significant evidence in
+   402	favor of type 2; the only purpose that can be served by a statistical
+   403	analysis is, again, to tell us *quantitatively how significant* that
+   404	evidence is. Traditional orthodox practice fails utterly to do this,
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/confidence.md
+@@ -394,3 +394,3 @@
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+@@ -1218,3 +1218,4 @@
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+ | $y$ | $w(y, 6.31)$ | $F(y)$ |
+@@ -1230,3 +1231,5 @@
+ | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
++
+ **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
++
+ in which we give the actual frequency $w(y, 6.31)$ of correct statements
+@@ -1235,2 +1238,3 @@
+ $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
++
+ It appears that information about $(x_1-x_2)$ was indeed relevant to the
+@@ -1541,3 +1545,2 @@
+ 
+-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+ ## REFERENCES
+apply_patch(auto_approved=true) exited 0 in 19ms:
+Success. Updated the following files:
+M content/papers/confidence.md
+file update:
+diff --git a/content/papers/confidence.md b/content/papers/confidence.md
+index 591e92e01d5523fbcae4b6787d9383c5fa5af1d1..4010a37a149d5c18ed0ddfaced3fc51a8d6242e8
+--- a/content/papers/confidence.md
++++ b/content/papers/confidence.md
+@@ -392,7 +392,7 @@
+ the equal-tails $F$-test.
+ 
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+ keep this fellow on your staff, because his report not only agrees with
+ common sense; it is stated in a far more useful form. For, you have
+@@ -1216,7 +1216,8 @@
+ w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+ $$
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+ | $y$ | $w(y, 6.31)$ | $F(y)$ |
+ | :--- | :--- | :--- |
+ | 0 | 0.998 | 1.000 |
+@@ -1228,11 +1229,14 @@
+ | 12 | 0.069 | 0.053 |
+ | 14 | 0.047 | 0.046 |
+ | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
++
+ **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
++
+ in which we give the actual frequency $w(y, 6.31)$ of correct statements
+ obtained by use of the 90% confidence interval, for various half-ranges
+ y. In the third column we give the fraction of all samples,
+ $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
++
+ It appears that information about $(x_1-x_2)$ was indeed relevant to the
+ question being asked. In the long run, the 90% CI will deliver a right
+ answer 90% of the time; however, its merits appear very different in the
+@@ -1539,7 +1543,6 @@
+ not to tear down, the beautiful and powerful intellectual achievement
+ that the world owes to Bayes and Laplace.
+ 
+-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+ ## REFERENCES
+ Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
+ of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with
+
+file update:
+diff --git a/content/papers/confidence.md b/content/papers/confidence.md
+index 591e92e01d5523fbcae4b6787d9383c5fa5af1d1..4010a37a149d5c18ed0ddfaced3fc51a8d6242e8
+--- a/content/papers/confidence.md
++++ b/content/papers/confidence.md
+@@ -392,7 +392,7 @@
+ the equal-tails $F$-test.
+ 
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+ keep this fellow on your staff, because his report not only agrees with
+ common sense; it is stated in a far more useful form. For, you have
+@@ -1216,7 +1216,8 @@
+ w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+ $$
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+ | $y$ | $w(y, 6.31)$ | $F(y)$ |
+ | :--- | :--- | :--- |
+ | 0 | 0.998 | 1.000 |
+@@ -1228,11 +1229,14 @@
+ | 12 | 0.069 | 0.053 |
+ | 14 | 0.047 | 0.046 |
+ | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
++
+ **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
++
+ in which we give the actual frequency $w(y, 6.31)$ of correct statements
+ obtained by use of the 90% confidence interval, for various half-ranges
+ y. In the third column we give the fraction of all samples,
+ $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
++
+ It appears that information about $(x_1-x_2)$ was indeed relevant to the
+ question being asked. In the long run, the 90% CI will deliver a right
+ answer 90% of the time; however, its merits appear very different in the
+@@ -1539,7 +1543,6 @@
+ not to tear down, the beautiful and powerful intellectual achievement
+ that the world owes to Bayes and Laplace.
+ 
+-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+ ## REFERENCES
+ Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
+ of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with
+
+codex
+I’ve applied the minimal structural edits. I’m running a quick diff check to confirm only the intended markdown/citation/metadata changes were made.
+exec
+/bin/bash -lc "git diff -- content/papers/confidence.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+diff --git a/content/papers/confidence.md b/content/papers/confidence.md
+index 591e92e..4010a37 100644
+--- a/content/papers/confidence.md
++++ b/content/papers/confidence.md
+@@ -392,7 +392,7 @@ of your own common sense, which is evidently a more powerful tool than
+ the equal-tails $F$-test.
+ 
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+ keep this fellow on your staff, because his report not only agrees with
+ common sense; it is stated in a far more useful form. For, you have
+@@ -1216,7 +1216,8 @@ $$
+ w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+ $$
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+file update:
+diff --git a/content/papers/confidence.md b/content/papers/confidence.md
+index 591e92e01d5523fbcae4b6787d9383c5fa5af1d1..4010a37a149d5c18ed0ddfaced3fc51a8d6242e8
+--- a/content/papers/confidence.md
++++ b/content/papers/confidence.md
+@@ -392,7 +392,7 @@
+ the equal-tails $F$-test.
+ 
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+ keep this fellow on your staff, because his report not only agrees with
+ common sense; it is stated in a far more useful form. For, you have
+@@ -1216,7 +1216,8 @@
+ w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+ $$
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+ | $y$ | $w(y, 6.31)$ | $F(y)$ |
+ | :--- | :--- | :--- |
+ | 0 | 0.998 | 1.000 |
+@@ -1228,11 +1229,14 @@
+ | 12 | 0.069 | 0.053 |
+ | 14 | 0.047 | 0.046 |
+ | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
++
+ **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
++
+ in which we give the actual frequency $w(y, 6.31)$ of correct statements
+ obtained by use of the 90% confidence interval, for various half-ranges
+ y. In the third column we give the fraction of all samples,
+ $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
++
+ It appears that information about $(x_1-x_2)$ was indeed relevant to the
+ question being asked. In the long run, the 90% CI will deliver a right
+ answer 90% of the time; however, its merits appear very different in the
+@@ -1539,7 +1543,6 @@
+ not to tear down, the beautiful and powerful intellectual achievement
+ that the world owes to Bayes and Laplace.
+ 
+-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+ ## REFERENCES
+ Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
+ of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with
+
+codex
+Updated `content/papers/confidence.md` with minimal structural QA edits only:
+
+- Fixed footnote citation formatting: `report [^4]` → `report[^4]`.
+- Improved markdown table rendering around Table I:
+  - Added a colon and blank line before the table.
+  - Added blank lines around the table caption.
+  - Split adjacent text blocks for cleaner paragraph flow.
+- Removed extraneous metadata line not part of paper body:
+  - `[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130`
+
+No paper meaning/content was changed, and all LaTeX/KaTeX math was left exactly as-is.
+file update:
+diff --git a/content/papers/confidence.md b/content/papers/confidence.md
+index 591e92e01d5523fbcae4b6787d9383c5fa5af1d1..4010a37a149d5c18ed0ddfaced3fc51a8d6242e8
+--- a/content/papers/confidence.md
++++ b/content/papers/confidence.md
+@@ -392,7 +392,7 @@
+ the equal-tails $F$-test.
+ 
+ However, if your statistician happened to be a Bayesian, he would
+-report [^4] instead: "These data yield a probability of 0.9574, or odds
++report[^4] instead: "These data yield a probability of 0.9574, or odds
+ of 22.47:1, in favor of type 2 rockets". I think you would decide to
+ keep this fellow on your staff, because his report not only agrees with
+ common sense; it is stated in a far more useful form. For, you have
+@@ -1216,7 +1216,8 @@
+ w(y,q) = \frac{1}{\pi}[\tan^{-1}(q+y) + \tan^{-1}(q-y)] + \frac{1}{2\pi y}\log\left[\frac{1+(q+y)^2}{1+(q-y)^2}\right]
+ $$
+ 
+-Numerical values computed from this equation are given in Table I,
++Numerical values computed from this equation are given in Table I:
++
+ | $y$ | $w(y, 6.31)$ | $F(y)$ |
+ | :--- | :--- | :--- |
+ | 0 | 0.998 | 1.000 |
+@@ -1228,11 +1229,14 @@
+ | 12 | 0.069 | 0.053 |
+ | 14 | 0.047 | 0.046 |
+ | $>14$ | $\dfrac{4q}{\pi(1+y^2)}$ | $\dfrac{2}{\pi y}$ |
++
+ **Table I: Performance of the 90% confidence interval for various sample half-ranges $y$**
++
+ in which we give the actual frequency $w(y, 6.31)$ of correct statements
+ obtained by use of the 90% confidence interval, for various half-ranges
+ y. In the third column we give the fraction of all samples,
+ $F(y)=(2/\pi)\tan^{-1}(1/y)$ which have half-range greater than $y$.
++
+ It appears that information about $(x_1-x_2)$ was indeed relevant to the
+ question being asked. In the long run, the 90% CI will deliver a right
+ answer 90% of the time; however, its merits appear very different in the
+@@ -1539,7 +1543,6 @@
+ not to tear down, the beautiful and powerful intellectual achievement
+ that the world owes to Bayes and Laplace.
+ 
+-[^100]: Dept. of Physics, Washington University, St. Louis, Missouri 63130
+ ## REFERENCES
+ Bayes, Rev. Thomas, 'An Essay Toward Solving a Problem in the Doctrine
+ of Chances', *Phil. Trans. Roy. Soc.* 330-418 (1763). Reprint, with
+
+tokens used
+39,304
+

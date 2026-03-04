@@ -1,0 +1,992 @@
+=== STDOUT ===
+Updated [`content/papers/brandeis.md`](/home/dave/Projects/jaynes-archive/content/papers/brandeis.md) with minimal structural QA edits:
+
+- Normalized citation markers from `^n^` to Markdown footnotes (`[^n]`) throughout the body.
+- Converted the `# References` section into proper footnote definitions (`[^n]: ...`) so citations render cleanly in Markdown/Hugo.
+- Fixed one malformed numbered subsection under `**Remarks:**` into proper Markdown list formatting (`1.`, `2.`, `3.`).
+- Minor spacing cleanup around inline footnote mentions (e.g., `reference [^5]`).
+
+No abstract duplication was found in the body, and no LaTeX/KaTeX/math content was modified.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb980-e1c2-7801-9d75-56c056b7170a
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/brandeis.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/brandeis.md` for structural QA issues (paragraphing, table formatting, duplicated abstract, citation style, and extraneous metadata), then apply minimal direct edits only in that file.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Brandeis Lectures"
+author: ["E.T. Jaynes"]
+year: 1963
+categories: ["Quantum Mechanics & Advanced Physics"]
+tags: ["information theory", "statistical mechanics", "maximum entropy", "thermodynamics"]
+---
+# INTRODUCTION
+At the beginning of every problem in probability theory, there arises a
+need to assign some initial probability distribution; or what is the
+same thing, to "set up an ensemble." This is a problem which cannot be
+evaded, and for which the laws of physics give us no help. For example,
+the laws of physics tell us that a density matrix $\rho(t)$ must vary
+with time according to $i\dot{\rho} = [H, \rho]$, but they do not tell
+us what function $\rho(0)$ should be put in at the start. Assignment of
+$\rho(0)$ is, of course, a matter of free choice on our part -- it is
+for us to say which problem we want to solve.
+
+The assignment of initial probabilities must, in order to be useful,
+agree with the initial information we have (i.e., the results of
+codex
+I’ve reviewed the first section and will scan the rest of the file now to catch any duplicated abstract/citation/table or metadata issues before editing.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+and, by using (13) and (14), we find
+$$
+\frac{\partial S}{\partial \langle f_k \rangle} = \lambda_k \quad k = 1, 2, \dots, m
+$$
+
+Regarding, in (14), the $\langle f_k \rangle$ expressed as functions of
+$(\lambda_1, \dots, \lambda_m)$, we find, on differentiating, the
+reciprocity law
+$$
+\frac{\partial \langle f_k \rangle}{\partial \lambda_j} = \frac{\partial \langle f_j \rangle}{\partial \lambda_k} = -\frac{\partial^2}{\partial \lambda_k \partial \lambda_j} \log Z = A_{jk}
+$$
+while by the same argument, if we regard $\lambda_k$ in (16) expressed
+as
+a function of $\langle f_1 \rangle, \dots, \langle f_m \rangle$, we find
+a corresponding law
+$$
+\frac{\partial \lambda_k}{\partial \langle f_j \rangle} = \frac{\partial \lambda_j}{\partial \langle f_k \rangle} = \frac{\partial^2 S}{\partial \langle f_j \rangle \partial \langle f_k \rangle} = B_{jk}
+$$
+
+Comparing (17) and (18) and remembering the chain rule for
+exec
+/bin/bash -lc "sed -n '521,840p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+
+In the present case (28) reduces to
+$$
+\delta S(\langle E \rangle, V) = \lambda \delta Q
+$$
+
+ Now the Kelvin
+temperature is defined by the condition that $(1/T)$ is the integrating
+factor for infinitesimal reversible heat in closed systems and the
+experimental entropy $S_e$ is defined as the resulting state function.
+So from (41) the predicted temperature T' and experimental entropy
+$S^\prime_e$ are given by 
+$$
+\lambda = \frac{1}{kT^\prime}
+$$
+$$
+S^\prime_e = kS(\langle E \rangle, V) = k(S_I)_{\text{max}}
+$$
+
+ The presence
+codex
+I’m at the later sections now; next I’ll check the tail for references/citations and any duplicated abstract or non-body metadata, then make a single minimal patch.
+exec
+/bin/bash -lc "sed -n '841,1160p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+the macroscopic density $\rho(x)$ as a function of position. We
+interpret this as specifying at each point of space, the expectation
+value of a certain quantity:
+$$
+\langle f_1(x_1 p_1 \dots x_N p_N; x) \rangle = \int W_N f_1 d\tau = \rho(x)
+$$
+where the phase function $f_1$ is given by
+$$
+f_1(x_1 p_1 \dots x_N p_N; x) = \sum_{i=1}^N m \delta(x_i - x)
+$$
+
+ The
+position x now plays the same role as the index k in the elementary
+version of the formalism, Eqs. (10) to (29), and so in place of the sum
+$\sum \lambda_k f_k(x_i)$ in the exponent of the probability dis-
+$\int \lambda(x) f_1 d^3x$ into the exponent of $W_N$. The partition
+function then becomes a partition functional of the function
+$\lambda(x)$.
+
+In general, we might have several phase functions of this kind, whose
+exec
+/bin/bash -lc "sed -n '1161,1480p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+experimentally imposed conditions, the theory is now telling us that
+under these conditions the flow will not be experimentally reproducible.
+In other words, the theory is predicting turbulent flow.
+
+These examples show that the proper physical interpretation of the
+distributions (i.e., their exact relation to physical quantities) is not
+an obscure philosophical point. Failure to distinguish between $w_1$ and
+f as given in (79) means failure to distinguish between expectation
+values and actual values, and amounts to the same thing as simply
+postulating that ensemble averages are equal to observed values of
+physical quantities. This is not only unjustified because of the
+probability nature of $W_N$; it would mean loss of the correct criterion
+for phase changes and of the criterion which distinguishes between
+laminar and turbulent flow.
+
+On the other hand, we can see no basis for any distinction between
+equilibrium and nonequilibrium situations here. One of the most
+elementary theorems of probability theory assures us that, for any phase
+function Q and any probability assignment $W_N$ whatsoever, the
+expectation value $\langle Q \rangle$, denoted by $Q_{obs}$ in MD, is
+exec
+/bin/bash -lc "sed -n '1481,1660p' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
+    McGraw-Hill, New York, in press.
+9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+    1938.
+10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+    Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+    Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+    by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+codex
+I found no abstract section duplicated in the body and no obvious “Lecture given at …” metadata to remove. I’m now doing minimal structural cleanup plus citation normalization (`^n^` to Markdown footnotes) without touching any math content.
+exec
+/bin/bash -lc "rg -n \"\\"'^[0-9]+'"\\"'^|Lecture given at|# References|'"\\|\" content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+385:engineering^2^ and economics.^3^
+600:the resulting system (given in reference^5^) leads to the same
+697:reference^5^ for the arguments that lead to this definition of $S_I$ and
+729:Shannon's fundamental uniqueness theorem (reference,^1^ theorem 3) which
+798:to the historical accident that in his original papers, Shannon^1^
+961:A recent review of transport theory by Dresden^6^ (hereafter referred to
+1037:Two brief summaries of these developments have been published^7^, and a
+1038:detailed analysis of the present situation^8^ will soon be available.
+1040:Jeffreys,^9^ that probability theory is properly regarded as an
+1047:theory of probability.^8^ Equation (81), and others given below, provide
+1118:\left| \frac{I_2}{I_1^2} - 1 \right| \ll 1
+1210:\langle F_\alpha \rangle = - \int \frac{\partial V}{\partial x_{1\alpha}} (x_2 \dots p_N | x_1 p_1) d^3x_2 \dots d^3p_N
+1214:$(x_2 \dots p_N | x_1 p_1)$ is the conditional probability density for
+1216:$W_N(x_1 \dots p_N) = (x_2 \dots p_N | x_1 p_1) w_1(x_1 p_1)$.
+1255:statements appeared in the Ehrenfest^10^ review article of 1912, when
+1335:reference^5^, Sec. 11. Its diagonal elements are expectation values,
+1355:matrix is a direct product^5^
+1389:paradox has been given before.^5^ We have, of course, assumed in the
+1394:density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,^5^ it is
+1467:along this line are now in,^11^ and a few others have been hinted at in
+exec
+/bin/bash -lc "nl -ba content/papers/brandeis.md | sed -n '360,430p' && nl -ba content/papers/brandeis.md | sed -n '580,740p' && nl -ba content/papers/brandeis.md | sed -n '780,840p' && nl -ba content/papers/brandeis.md | sed -n '940,1060p' && nl -ba content/papers/brandeis.md | sed -n '1240,1410p' && nl -ba content/papers/brandeis.md | sed -n '1450,1660p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   360	$$
+   361	or 
+   362	$$
+   363	\delta S = \sum_{k=1}^m \lambda_k \delta Q_k
+   364	$$
+   365	 where
+   366	$$
+   367	\delta Q_k = \delta \langle f_k \rangle - \langle \delta f_k \rangle
+   368	$$
+   369	
+   370	In general $\delta Q_k$ is not an exact differential; i.e., there is no
+   371	function $Q_k(\lambda_1, \dots, \lambda_m; \alpha_1, \dots, \alpha_r)$
+   372	which yields $\delta Q_k$ by differentiation. But (28) shows that
+   373	$\lambda_k$ is an integrating factor such that
+   374	$\sum \lambda_k \delta Q_k$ is the exact differential of some "state
+   375	function" $S(\lambda_1, \dots, \lambda_m; \alpha_1, \dots, \alpha_r)$.
+   376	All the above relations, (10) to (29), are elementary consequences of
+   377	maximizing the information theory entropy subject to constraints on
+   378	average values of certain quantities. Although they bear a strong formal
+   379	resemblance to the rules of calculation provided by statistical
+exec
+/bin/bash -lc "perl -0pi -e 's/\\"'^('"\\d+)\\"'^/['"\\"'^$1]/g'"' content/papers/brandeis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+codex
+I’ve converted inline numeric citations to Markdown footnote markers. Next I’ll do a small patch to make the references block valid footnote definitions and clean one list formatting spot for Markdown rendering.
+exec
+/bin/bash -lc "nl -ba content/papers/brandeis.md | sed -n '588,640p' && nl -ba content/papers/brandeis.md | sed -n '1462,1525p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+   588	we can consider open systems, where the number of molecules can change,
+   589	and we can use the grand canonical ensemble, etc. The corresponding
+   590	statement will still hold; over all probability assignments that agree
+   591	with the data in the aforementioned sense, the information theory
+   592	entropy attains an absolute maximum, equal to the experimental entropy,
+   593	if and only if $p_i$ is taken as the appropriate canonical or grand
+   594	canonical distribution.
+   595	**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
+   596	In practice, it is usually the temperature that is measured. To treat
+   597	the temperature as the observable, one must regard the system of
+   598	interest to be in contact with a heat reservoir, with which it may
+   599	exchange energy and which acts as a thermometer. Detailed analysis of
+   600	the resulting system (given in reference[^5]) leads to the same
+   601	probability assignments as we have found with $\langle E \rangle$ as the
+   602	given datum.
+   603	2\. If not only $\langle E \rangle$ is known, but also the accuracy of
+   604	the measurement, as given for example by $\langle E^2 \rangle$, then
+   605	this information may be incorporated into the problem by taking
+   606	$f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+   607	partition function (11) becomes
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/brandeis.md
+@@ -594,3 +594,5 @@
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+@@ -599,6 +601,6 @@
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+@@ -629,3 +631,3 @@
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+@@ -1470,8 +1472,8 @@
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+@@ -1479,11 +1481,11 @@
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+@@ -1491,2 +1493,2 @@
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M content/papers/brandeis.md
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..f593271e07544f5a0653c4cc0c094924df5d0f07
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..f593271e07544f5a0653c4cc0c094924df5d0f07
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+codex
+Patch is applied. I’m running a quick validation pass for leftover citation-pattern artifacts and any accidental math changes.
+exec
+/bin/bash -lc "rg -n \"\\"'^[0-9]+'"\\"'^|abstract|Lecture given at|'"\\[\\"'^[0-9]+'"\\]\" content/papers/brandeis.md && git diff -- content/papers/brandeis.md | sed -n '1,220p'" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+385:engineering[^2] and economics.[^3]
+602:the resulting system (given in reference [^5]) leads to the same
+699:reference[^5] for the arguments that lead to this definition of $S_I$ and
+731:Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
+800:to the historical accident that in his original papers, Shannon[^1]
+963:A recent review of transport theory by Dresden[^6] (hereafter referred to
+1039:Two brief summaries of these developments have been published[^7], and a
+1040:detailed analysis of the present situation[^8] will soon be available.
+1042:Jeffreys,[^9] that probability theory is properly regarded as an
+1049:theory of probability.[^8] Equation (81), and others given below, provide
+1257:statements appeared in the Ehrenfest[^10] review article of 1912, when
+1337:reference[^5], Sec. 11. Its diagonal elements are expectation values,
+1357:matrix is a direct product[^5]
+1391:paradox has been given before.[^5] We have, of course, assumed in the
+1396:density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
+1469:along this line are now in,[^11] and a few others have been hinted at in
+1473:[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+1476:[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+1478:[^3]: E. T. Jaynes, New engineering applications of information theory, in
+1482:[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..f593271e07544f5a0653c4cc0c094924df5d0f07
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/brandeis.md
+@@ -698,3 +698,3 @@
+  (See
+-reference[^5] for the arguments that lead to this definition of $S_I$ and
++reference [^5] for the arguments that lead to this definition of $S_I$ and
+ discussion of other expressions which have been proposed.) Maximizing
+@@ -730,3 +730,3 @@
+ ## Continuous Distributions
+-Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
++Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
+ establishes $-\sum p_i \log p_i$ as the correct information measure,
+@@ -1395,3 +1395,3 @@
+ function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
+-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
++density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
+ shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
+apply_patch(auto_approved=true) exited 0 in 16ms:
+Success. Updated the following files:
+M content/papers/brandeis.md
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..6c93ec8468c11463cfa5de73937f03c336670370
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -694,7 +696,7 @@
+ S_I = -\text{Tr} (\rho \log \rho)
+ $$
+  (See
+-reference[^5] for the arguments that lead to this definition of $S_I$ and
++reference [^5] for the arguments that lead to this definition of $S_I$ and
+ discussion of other expressions which have been proposed.) Maximizing
+ $S_I$ subject to the constraints imposed by knowledge of the
+ $\langle F_k \rangle$ yields
+@@ -726,7 +728,7 @@
+ $S_I(\rho) \le S_e$, with equality if and only if $\rho$ is the
+ canonical matrix (54).
+ ## Continuous Distributions
+-Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
++Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
+ establishes $-\sum p_i \log p_i$ as the correct information measure,
+ goes through only for discrete probability distributions. At the present
+ time, the only criterion we have for finding the analogous expression
+@@ -1391,7 +1393,7 @@
+ yield the correct predictions at time t; i.e., the measured $X^\prime_i$ are
+ equal to ensemble averages calculated from the time-developed Liouville
+ function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
+-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
++density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
+ shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
+ experimentally reproducible one. But we know that many past macroscopic
+ states $X^{\prime\prime}_i$ would all relax into the same state $X_i$ at time $t=0$.
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..6c93ec8468c11463cfa5de73937f03c336670370
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -694,7 +696,7 @@
+ S_I = -\text{Tr} (\rho \log \rho)
+ $$
+  (See
+-reference[^5] for the arguments that lead to this definition of $S_I$ and
++reference [^5] for the arguments that lead to this definition of $S_I$ and
+ discussion of other expressions which have been proposed.) Maximizing
+ $S_I$ subject to the constraints imposed by knowledge of the
+ $\langle F_k \rangle$ yields
+@@ -726,7 +728,7 @@
+ $S_I(\rho) \le S_e$, with equality if and only if $\rho$ is the
+ canonical matrix (54).
+ ## Continuous Distributions
+-Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
++Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
+ establishes $-\sum p_i \log p_i$ as the correct information measure,
+ goes through only for discrete probability distributions. At the present
+ time, the only criterion we have for finding the analogous expression
+@@ -1391,7 +1393,7 @@
+ yield the correct predictions at time t; i.e., the measured $X^\prime_i$ are
+ equal to ensemble averages calculated from the time-developed Liouville
+ function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
+-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
++density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
+ shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
+ experimentally reproducible one. But we know that many past macroscopic
+ states $X^{\prime\prime}_i$ would all relax into the same state $X_i$ at time $t=0$.
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+exec
+/bin/bash -lc "rg -n \"\\"'^[0-9]+'"\\"'^" content/papers/brandeis.md' in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..6c93ec8468c11463cfa5de73937f03c336670370
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -694,7 +696,7 @@
+ S_I = -\text{Tr} (\rho \log \rho)
+ $$
+  (See
+-reference[^5] for the arguments that lead to this definition of $S_I$ and
++reference [^5] for the arguments that lead to this definition of $S_I$ and
+ discussion of other expressions which have been proposed.) Maximizing
+ $S_I$ subject to the constraints imposed by knowledge of the
+ $\langle F_k \rangle$ yields
+@@ -726,7 +728,7 @@
+ $S_I(\rho) \le S_e$, with equality if and only if $\rho$ is the
+ canonical matrix (54).
+ ## Continuous Distributions
+-Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
++Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
+ establishes $-\sum p_i \log p_i$ as the correct information measure,
+ goes through only for discrete probability distributions. At the present
+ time, the only criterion we have for finding the analogous expression
+@@ -1391,7 +1393,7 @@
+ yield the correct predictions at time t; i.e., the measured $X^\prime_i$ are
+ equal to ensemble averages calculated from the time-developed Liouville
+ function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
+-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
++density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
+ shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
+ experimentally reproducible one. But we know that many past macroscopic
+ states $X^{\prime\prime}_i$ would all relax into the same state $X_i$ at time $t=0$.
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+codex
+Updated [`content/papers/brandeis.md`](/home/dave/Projects/jaynes-archive/content/papers/brandeis.md) with minimal structural QA edits:
+
+- Normalized citation markers from `^n^` to Markdown footnotes (`[^n]`) throughout the body.
+- Converted the `# References` section into proper footnote definitions (`[^n]: ...`) so citations render cleanly in Markdown/Hugo.
+- Fixed one malformed numbered subsection under `**Remarks:**` into proper Markdown list formatting (`1.`, `2.`, `3.`).
+- Minor spacing cleanup around inline footnote mentions (e.g., `reference [^5]`).
+
+No abstract duplication was found in the body, and no LaTeX/KaTeX/math content was modified.
+file update:
+diff --git a/content/papers/brandeis.md b/content/papers/brandeis.md
+index 1e1ad4875a70d68741d4f56c7e8759b88e32469a..6c93ec8468c11463cfa5de73937f03c336670370
+--- a/content/papers/brandeis.md
++++ b/content/papers/brandeis.md
+@@ -592,15 +592,17 @@
+ entropy attains an absolute maximum, equal to the experimental entropy,
+ if and only if $p_i$ is taken as the appropriate canonical or grand
+ canonical distribution.
+-**Remarks:** 1. We have taken $\langle E \rangle$ as the given quantity.
++**Remarks:**
++
++1. We have taken $\langle E \rangle$ as the given quantity.
+ In practice, it is usually the temperature that is measured. To treat
+ the temperature as the observable, one must regard the system of
+ interest to be in contact with a heat reservoir, with which it may
+ exchange energy and which acts as a thermometer. Detailed analysis of
+-the resulting system (given in reference[^5]) leads to the same
++the resulting system (given in reference [^5]) leads to the same
+ probability assignments as we have found with $\langle E \rangle$ as the
+ given datum.
+-2\. If not only $\langle E \rangle$ is known, but also the accuracy of
++2. If not only $\langle E \rangle$ is known, but also the accuracy of
+ the measurement, as given for example by $\langle E^2 \rangle$, then
+ this information may be incorporated into the problem by taking
+ $f_1(x_i, \alpha) = E_i(V)$, $f_2(x_i, \alpha) = E_i^2(V)$. The
+@@ -627,7 +629,7 @@
+ accuracy of the measurement did not lead to any difference in the
+ predictions. This is, of course, the basic reason for the success of the
+ Gibbs canonical ensemble formalism.
+-3\. The theory as developed here has, in principle, an additional
++3. The theory as developed here has, in principle, an additional
+ freedom of choice not present in conventional statistical mechanics. The
+ statement that a system has a definite, reproducible equation of state
+ means, for example, that if we fix experimentally any two of the
+@@ -694,7 +696,7 @@
+ S_I = -\text{Tr} (\rho \log \rho)
+ $$
+  (See
+-reference[^5] for the arguments that lead to this definition of $S_I$ and
++reference [^5] for the arguments that lead to this definition of $S_I$ and
+ discussion of other expressions which have been proposed.) Maximizing
+ $S_I$ subject to the constraints imposed by knowledge of the
+ $\langle F_k \rangle$ yields
+@@ -726,7 +728,7 @@
+ $S_I(\rho) \le S_e$, with equality if and only if $\rho$ is the
+ canonical matrix (54).
+ ## Continuous Distributions
+-Shannon's fundamental uniqueness theorem (reference,[^1] theorem 3) which
++Shannon's fundamental uniqueness theorem (reference [^1], theorem 3) which
+ establishes $-\sum p_i \log p_i$ as the correct information measure,
+ goes through only for discrete probability distributions. At the present
+ time, the only criterion we have for finding the analogous expression
+@@ -1391,7 +1393,7 @@
+ yield the correct predictions at time t; i.e., the measured $X^\prime_i$ are
+ equal to ensemble averages calculated from the time-developed Liouville
+ function obeying $\dot{W}_N = [H, W_N]$, or the time-developed global
+-density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference,[^5] it is
++density matrix obeying $i\dot{\rho} = [H, \rho]$. In reference [^5] it is
+ shown that this is the case if the observed change $X_i \to X^\prime_i$ is an
+ experimentally reproducible one. But we know that many past macroscopic
+ states $X^{\prime\prime}_i$ would all relax into the same state $X_i$ at time $t=0$.
+@@ -1468,25 +1470,25 @@
+ these talks, a final settlement of the questions raised still lies
+ rather far in the future.
+ # References {#references .unnumbered}
+-1.  C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
++[^1]: C. E. Shannon, Bell System Tech. J., **27**, 379, 623 (1948).
+     Reprinted in C. E. Shannon and W. Weaver, "The Mathematical Theory
+     of Communication," Univ. of Illinois Press, Urbana, Illinois, 1949.
+-2.  E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
++[^2]: E. T. Jaynes, Note on unique decipherability, IRE Trans. Inform.
+     Theory, Sept. 1959.
+-3.  E. T. Jaynes, New engineering applications of information theory, in
++[^3]: E. T. Jaynes, New engineering applications of information theory, in
+     "Symposium on Engineering Applications of Random Function Theory
+     and Probability" (J. L. Bogdanoff and F. Kozin, eds.), Wiley, New
+     York, 1963.
+-4.  E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
+-5.  E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
+-6.  M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
+-7.  E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
+-8.  E. T. Jaynes, "Probability Theory in Science and Engineering,"
++[^4]: E. T. Jaynes, Phys. Rev., **106**, 620 (1957).
++[^5]: E. T. Jaynes, Phys. Rev., **108**, 171 (1957).
++[^6]: M. Dresden, Rev. Mod. Phys., **33**, 265 (1961).
++[^7]: E. T. Jaynes, Am. J. Phys., **31**, 66 (1963).
++[^8]: E. T. Jaynes, "Probability Theory in Science and Engineering,"
+     McGraw-Hill, New York, in press.
+-9.  H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
++[^9]: H. Jeffreys, "Theory of Probability," Oxford Univ. Press, London,
+     1938.
+-10. P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
++[^10]: P. and T. Ehrenfest, Encykl. Math. Wiss., IV 2, II, Heft 6 (1912).
+     Reprinted in "Paul Ehrenfest, Collected Scientific Papers" (M. J.
+     Klein, ed.), North-Holland, Amsterdam, 1959. (English translation
+     by M. J. Moravcsik, Cornell Univ. Press, Ithaca, New York, 1959.)
+-11. S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
++[^11]: S. Heims and E. T. Jaynes, Rev. Mod. Phys., **34**, 143 (1962).
+
+tokens used
+54,040
+

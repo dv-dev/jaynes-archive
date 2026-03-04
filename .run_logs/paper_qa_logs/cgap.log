@@ -1,0 +1,164 @@
+=== STDOUT ===
+Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md) with one minimal QA fix:
+
+- Removed an orphaned/extraneous footnote metadata line at the end: `[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130`.
+
+No paper content meaning was changed, no math/LaTeX was modified, and no abstract duplication was found in the body.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb986-051a-7963-9645-07754828892f
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/cgap.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll QA `content/papers/cgap.md` for markdown-only structure issues, citation normalization, duplicate abstract/body cleanup, and non-body metadata removal, while preserving all paper meaning and leaving all math untouched. I’m opening the file now and will apply minimal edits directly if needed.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Recollections and Mementos of G. A. Pfeiffer"
+year: 1990
+abstract: >
+  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
+author: ["E.T. Jaynes"]
+---
+# NINETEENTH CENTURY BACKGROUND
+The story starts with my grandfather, Tom Ferguson, born in the early
+1860's. His parents had emigrated from Scotland to Toronto, but he lived
+most of his life as a realtor in the small town of Parkersburg, Iowa.
+Gustavus Adolphus Pfeiffer, slightly younger, was born of German
+immigrant parents in Cedar Falls, Iowa in 1872, and he also moved to
+Parkersburg where he operated a drug store in the 1890's and married
+Louise Foote of Parkersburg. [Forty years later, as a child growing up
+in Parkersburg, I knew the Foote house well because it was on main
+street diagonally across from the schoolhouse.]
+
+In the 1890's, Tom Ferguson and his family lived next door to Gus and
+Paul Pfeiffer and they became lifelong friends. My mother, Ethel
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+codex
+I found one clear structural issue: an orphaned footnote definition at the end (`[^100]: ...`) with no in-text reference, which reads like affiliation metadata rather than paper body. I’m making a minimal edit to remove that extraneous metadata and keep the rest intact.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/cgap.md
+@@ -212,2 +212 @@
+ person who knew personally everyone whose portrait hangs in our library.
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
+apply_patch(auto_approved=true) exited 0 in 11ms:
+Success. Updated the following files:
+M content/papers/cgap.md
+file update:
+diff --git a/content/papers/cgap.md b/content/papers/cgap.md
+index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+--- a/content/papers/cgap.md
++++ b/content/papers/cgap.md
+@@ -210,4 +210,3 @@
+ He agreed at once, and arranged to have a copy made of an oil portrait,
+ which we received about two years later. Today, I am the only living
+ person who knew personally everyone whose portrait hangs in our library.
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
+
+file update:
+diff --git a/content/papers/cgap.md b/content/papers/cgap.md
+index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+--- a/content/papers/cgap.md
++++ b/content/papers/cgap.md
+@@ -210,4 +210,3 @@
+ He agreed at once, and arranged to have a copy made of an oil portrait,
+ which we received about two years later. Today, I am the only living
+ person who knew personally everyone whose portrait hangs in our library.
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
+
+exec
+/bin/bash -lc 'rg -n "''^abstract:|Wayman Crow|'"\\"'^'"\\[100\\]|Lecture given at|\\(.*[0-9]{4}.*\\)\\s*\\[\\"'^" content/papers/cgap.md && echo '"'---' && sed -n '1,80p' content/papers/cgap.md && echo '---' && tail -n 20 content/papers/cgap.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+4:abstract: >
+---
+---
+title: "Recollections and Mementos of G. A. Pfeiffer"
+year: 1990
+abstract: >
+  This is a personal reminiscence about my early family association with "Uncle Gus" Pfeiffer, and a list of the mementos of it which still survive. The Pfeiffer Foundation presumably has already a large collection of Gus Pfeiffer mementos. However, in view of my present age (68) and since none of my surviving relatives and acquaintances would understand what they mean, I would be glad to donate any of mine that it wants to the Pfeiffer Foundation, which can give them a better future home than I can.
+author: ["E.T. Jaynes"]
+---
+# NINETEENTH CENTURY BACKGROUND
+The story starts with my grandfather, Tom Ferguson, born in the early
+1860's. His parents had emigrated from Scotland to Toronto, but he lived
+most of his life as a realtor in the small town of Parkersburg, Iowa.
+Gustavus Adolphus Pfeiffer, slightly younger, was born of German
+immigrant parents in Cedar Falls, Iowa in 1872, and he also moved to
+Parkersburg where he operated a drug store in the 1890's and married
+Louise Foote of Parkersburg. [Forty years later, as a child growing up
+in Parkersburg, I knew the Foote house well because it was on main
+street diagonally across from the schoolhouse.]
+
+file update:
+diff --git a/content/papers/cgap.md b/content/papers/cgap.md
+index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+--- a/content/papers/cgap.md
++++ b/content/papers/cgap.md
+@@ -210,4 +210,3 @@
+ He agreed at once, and arranged to have a copy made of an oil portrait,
+ which we received about two years later. Today, I am the only living
+ person who knew personally everyone whose portrait hangs in our library.
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
+
+codex
+Edited [content/papers/cgap.md](/home/dave/Projects/jaynes-archive/content/papers/cgap.md) with one minimal QA fix:
+
+- Removed an orphaned/extraneous footnote metadata line at the end: `[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130`.
+
+No paper content meaning was changed, no math/LaTeX was modified, and no abstract duplication was found in the body.
+file update:
+diff --git a/content/papers/cgap.md b/content/papers/cgap.md
+index a4aa3a3f89f4d4429d6b64324bade72d38bdbed7..f2f07583652baf5c288908918a9d601010ad9107
+--- a/content/papers/cgap.md
++++ b/content/papers/cgap.md
+@@ -210,4 +210,3 @@
+ He agreed at once, and arranged to have a copy made of an oil portrait,
+ which we received about two years later. Today, I am the only living
+ person who knew personally everyone whose portrait hangs in our library.
+-[^100]: Wayman Crow Professor of Physics, Washington University, St. Louis MO 63130
+\ No newline at end of file
+
+tokens used
+12,859
+

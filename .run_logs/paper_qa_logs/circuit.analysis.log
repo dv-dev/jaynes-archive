@@ -1,0 +1,416 @@
+=== STDOUT ===
+Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only:
+
+- Added proper footnote citations for source mentions:
+  - `Gardner and Barnes` (used in both the textbook line and later table lookup reference).
+  - `Campbell & Foster` (for pair 863.1).
+- Removed inline parenthetical citation style `(Gardner & Barnes)` where replaced by footnote formatting.
+- Split one dense paragraph in the first lecture into smaller paragraphs for readability.
+- Left all math/LaTeX content unchanged.
+- Confirmed abstract text is only in front matter (no duplicate abstract in body).
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb98c-ccd6-77c0-b450-8f4a4b800a46
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/circuit.analysis.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll inspect `content/papers/circuit.analysis.md` for structural QA issues (paragraph breaks, table formatting, duplicate abstract in body, citation style, and extraneous metadata), then apply minimal edits directly to that file only.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "Circuit Analysis by Laplace and Fourier Transforms"
+year: 1945
+abstract: >
+  A series of nine lectures given at the Combined Research Group,
+  Naval Research Laboratory, Washington, D. C. in August 1945.
+  The course provides a technique for solving practical transient problems
+  using classical, Heaviside, and Laplace transform methods.
+author: ["E.T. Jaynes"]
+---
+
+## FIRST LECTURE: Classical and Heaviside Methods
+
+**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
+**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+
+**Aim of course:** to provide a technique for solving practical transient problems.
+
+The classical method will be studied first, using as an example a series-peaked video amplifier stage. This problem will later be solved operationally. We assume a "unit step" current applied to the interstage coupling circuit, defined by:
+
+codex
+I’ve reviewed the first part and haven’t changed anything yet; next I’m scanning the rest of the file for duplicate abstract text, malformed tables, and citation/metadata issues before applying a single minimal patch.
+exec
+/bin/bash -lc "sed -n '261,620p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+This is now reduced to an algebraic equation in $s$. Note that the initial conditions give the correct quantities to specify, namely the initial current in an $L$, and the initial charge on a $C$. Quantities such as the initial voltage on $L$ are not permissible initial conditions, because they can be changed instantaneously.
+
+The Heaviside method automatically assumes zero initial conditions, because the operational interpretation of $1/p = \int_{0-}^t dt$ requires the $(-0)$ as the lower limit, in order that $p$ and $1/p$ be exactly inverse operations, whereas the Laplace transforms have $(+0)$ as the lower limit.
+
+If we solve (11) for $I(s)$, we have:
+$$
+I(s) = \frac{E(s) + L i_0 - \frac{q_0}{Cs}}{R + L s + \frac{1}{Cs}} \quad (12)
+$$
+
+The denominator of (12) looks very much like the standard expression for the steady-state impedance, if we replace $s$ by $j\omega$. It can be shown that this is true in general; in other words: **The relation between the transforms $I(s)$ and $E(s)$ is identical with the relation between the A.C. vectors $I$ and $E$ for the steady-state case, if $j\omega$ is replaced by $s$.**
+
+This rule is of great convenience, and enables us to bypass the differential equation stage unless there is some difficulty with initial conditions. If initial conditions are ignored, the solution assumes them to be zero.
+
+---
+
+## THIRD LECTURE
+
+We may apply this rule to the series-peaked video amplifier circuit discussed in lecture one, as follows:
+$$
+E(s) = \frac{I(s) \left[ (R+Ls)\frac{1}{Cs} \right]}{R + Ls + \frac{1}{Cs}} = \frac{I(s) [R + Ls]}{1 + RCs + LCs^2} \quad (1)
+exec
+/bin/bash -lc "sed -n '621,980p' content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+| $d^2f/dt^2$ discontinuity | $1/\omega^3 = 18$ db/octave |
+| $d^n f/dt^n$ discontinuity | $1/\omega^{n+1} = 6(n+1)$ db/octave |
+| No discontinuity in any derivative | $\sim e^{-\omega^2}$ |
+| infinite discontinuity (impulse) | $F(\omega)$ constant |
+| infinite doublet disc. | $F(\omega) \sim \omega$ |
+
+The reason for this is in the varying quality of cancellation in the integral defining $F(\omega)$, due to the smoothness of $f(t)$. The smoother this function, the more perfect the cancellation will be between adjacent half-cycles of the kernel $e^{j\omega t}$.
+
+**Analysis of Transmission Lines by the Laplace Transform**
+
+Fundamental equations are:
+$$
+v = v(x,t), \quad i = i(x,t)
+$$
+$$
+\frac{\partial v}{\partial x} = -(R i + L \frac{\partial i}{\partial t}) \quad (1)
+$$
+$$
+\frac{\partial i}{\partial x} = -(G v + C \frac{\partial v}{\partial t}) \quad (2)
+$$
+codex
+I found no duplicate abstract in the body and no missing-figure issues that need action. I’m now applying a minimal structural patch: citation footnotes for source mentions, small paragraph splits for readability, and preserving all math exactly unchanged.
+exec
+/bin/bash -lc "rg -n \"Gardner|Campbell|The following table:|Textbook|Other books|This is the solution of the problem\\. There are a few generalizations|The two modes for a simple LRC circuit\" content/papers/circuit.analysis.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+14:**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
+15:**Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+112:This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
+118:The two modes for a simple LRC circuit vary with increasing losses as shown below. 
+288:Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+503:The following table:
+615:The following table:
+715:Pair 863.1 of Campbell & Foster is:
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/circuit.analysis.md
+@@ -13,3 +13,3 @@
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+@@ -111,4 +111,8 @@
+ 
+-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++This is the solution of the problem.
+ 
++There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
++
++Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++
+ The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+@@ -287,3 +291,3 @@
+ 
+-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+@@ -714,3 +718,3 @@
+ 
+-Pair 863.1 of Campbell & Foster is:
++Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+ $$
+@@ -809,2 +813,5 @@
+ 
+-This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+\ No newline at end of file
++This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
++
++[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
++[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+apply_patch(auto_approved=true) exited 0 in 14ms:
+Success. Updated the following files:
+M /home/dave/Projects/jaynes-archive/content/papers/circuit.analysis.md
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,7 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -109,8 +109,12 @@
+ \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
+ $$
+ 
+-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++This is the solution of the problem.
+ 
++There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
++
++Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++
+ The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+@@ -285,7 +289,7 @@
+ E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
+ $$
+ 
+-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+ E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
+ $$
+@@ -712,7 +716,7 @@
+ V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
+ $$
+ 
+-Pair 863.1 of Campbell & Foster is:
++Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+ $$
+ e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
+ $$
+@@ -807,4 +811,7 @@
+ e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
+ $$
+ 
+-This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+\ No newline at end of file
++This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
++
++[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
++[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,7 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -109,8 +109,12 @@
+ \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
+ $$
+ 
+-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++This is the solution of the problem.
+ 
++There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
++
++Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++
+ The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+@@ -285,7 +289,7 @@
+ E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
+ $$
+ 
+-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+ E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
+ $$
+@@ -712,7 +716,7 @@
+ V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
+ $$
+ 
+-Pair 863.1 of Campbell & Foster is:
++Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+ $$
+ e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
+ $$
+@@ -807,4 +811,7 @@
+ e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
+ $$
+ 
+-This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+\ No newline at end of file
++This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
++
++[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
++[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+
+exec
+/bin/bash -lc 'rg -n "A series of nine lectures|Combined Research Group|Naval Research Laboratory" content/papers/circuit.analysis.md' in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+5:  A series of nine lectures given at the Combined Research Group,
+6:  Naval Research Laboratory, Washington, D. C. in August 1945.
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,7 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -109,8 +109,12 @@
+ \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
+ $$
+ 
+-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++This is the solution of the problem.
+ 
++There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
++
++Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++
+ The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+@@ -285,7 +289,7 @@
+ E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
+ $$
+ 
+-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+ E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
+ $$
+@@ -712,7 +716,7 @@
+ V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
+ $$
+ 
+-Pair 863.1 of Campbell & Foster is:
++Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+ $$
+ e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
+ $$
+@@ -807,4 +811,7 @@
+ e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
+ $$
+ 
+-This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+\ No newline at end of file
++This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
++
++[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
++[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+
+codex
+Updated `content/papers/circuit.analysis.md` with minimal structural QA edits only:
+
+- Added proper footnote citations for source mentions:
+  - `Gardner and Barnes` (used in both the textbook line and later table lookup reference).
+  - `Campbell & Foster` (for pair 863.1).
+- Removed inline parenthetical citation style `(Gardner & Barnes)` where replaced by footnote formatting.
+- Split one dense paragraph in the first lecture into smaller paragraphs for readability.
+- Left all math/LaTeX content unchanged.
+- Confirmed abstract text is only in front matter (no duplicate abstract in body).
+file update:
+diff --git a/content/papers/circuit.analysis.md b/content/papers/circuit.analysis.md
+index 838c30ce572b2e021ec0a4bc200ada498db9f131..e12a45b0cee25eb8968042ec52e0094d50ce4ce4
+--- a/content/papers/circuit.analysis.md
++++ b/content/papers/circuit.analysis.md
+@@ -11,7 +11,7 @@
+ 
+ ## FIRST LECTURE: Classical and Heaviside Methods
+ 
+-**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.
++**Textbook:** Gardner and Barnes, *Transients in Linear Systems*, Wiley, 1942.[^gardner-barnes-1942]
+ **Other books** by Berg, Bush, Cohen, Carson, Kurtz and Corcoran, Skilling, Stephens, and Churchill may be consulted.
+ 
+ **Aim of course:** to provide a technique for solving practical transient problems.
+@@ -109,8 +109,12 @@
+ \rho \equiv \sqrt{a^2 - h^2} = \sqrt{\frac{R^2}{4L^2} - \frac{1}{LC}} = \omega_0 \sqrt{\left(\frac{1}{2Q}\right)^2 - 1} \quad (9, 10)
+ $$
+ 
+-This is the solution of the problem. There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients. Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++This is the solution of the problem.
+ 
++There are a few generalizations that may be made about the classical method. It is found that in all networks in which the components are linear and independent of time, the differential equations are of the type known as linear equations with constant coefficients.
++
++Their solution consists of the **complementary function**, which is the general solution of the homogeneous differential equation obtained by putting the driving-force equal to zero, and a **particular integral** which depends on the form of the driving-force function. These are known to the engineer as the **transient** and **steady-state** responses respectively.
++
+ The transient part of the solution contains a sufficient number of arbitrary constants to enable it to meet all the prescribed initial conditions. The functions appearing in the transient are always exponential. If these exponentials are complex they always occur in complex conjugate pairs, so that their sum represents a real, exponentially damped oscillation. The difference between two real exponential functions occurs often and is called a **surge function**. It has the form illustrated below:
+ 
+ $$f(t) = e^{-at} - e^{-bt}$$
+@@ -285,7 +289,7 @@
+ E(s) = \frac{i_0}{s} \frac{(R+Ls)}{(1 + RCs + LCs^2)}
+ $$
+ 
+-Consulting the tables (Gardner & Barnes), we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
++Consulting the tables,[^gardner-barnes-1942] we find pair 1.109 to be closest, but it requires factoring the denominator of the equation:
+ $$
+ E(s) = \frac{i_0}{C} \frac{(s + \frac{R}{L})}{s(s^2 + \frac{R}{L}s + \frac{1}{LC})}
+ $$
+@@ -712,7 +716,7 @@
+ V(x,s) = \frac{1}{s} e^{-\frac{x}{v_0}\sqrt{(s+\rho)^2 - \sigma^2}}
+ $$
+ 
+-Pair 863.1 of Campbell & Foster is:
++Pair 863.1 of Campbell & Foster is:[^campbell-foster]
+ $$
+ e^{-y\sqrt{(s+r)(s+p)}} - e^{-y[s+\frac{1}{2}(r+p)]} \leftrightarrow \frac{y(r-p)}{2\sqrt{t^2-y^2}} e^{-\frac{1}{2}(r+p)t} I_1 \left[ \frac{1}{2}(r-p)\sqrt{t^2-y^2} \right]
+ $$
+@@ -807,4 +811,7 @@
+ e^{-\rho t_0 \sqrt{1 - (\sigma/\rho)^2}} \cong e^{-\rho t_0 [1 - \sigma^2/2\rho^2]} = e^{-\rho t_0} e^{\frac{\sigma^2 t_0}{2\rho}} \cong e^{-\rho t_0} \left[ 1 + \frac{\sigma^2 t_0}{2\rho} \right]
+ $$
+ 
+-This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
+\ No newline at end of file
++This is identical with the value given by the first term of the series, showing that the approximate solution is quite good, even for large $t$. Incidentally, the equations show that the percentage of distortion terms increases as we go down the line, so that eventually the initial sharp rise is lost in distortion terms. The final value is always greater than the value of the initial sharp jump.
++
++[^gardner-barnes-1942]: Gardner, M. F., and J. L. Barnes, *Transients in Linear Systems*. Wiley, 1942.
++[^campbell-foster]: Campbell, G. A., and R. M. Foster, *Fourier Integrals for Practical Applications*. Van Nostrand, 1948.
+
+tokens used
+19,851
+

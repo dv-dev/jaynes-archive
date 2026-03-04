@@ -1,0 +1,956 @@
+{
+  "content_dir": "content/papers",
+  "counts": {
+    "completed": 1,
+    "pending": 93
+  },
+  "files": {
+    "content/papers/AJP00180.md": {
+      "attempts": 5,
+      "duration_sec": 0.812,
+      "error": null,
+      "last_run_utc": "2026-03-04T15:42:18+00:00",
+      "output_pdf": "static/pdfs/clean/AJP00180.pdf",
+      "return_code": 0,
+      "source_url": "http://127.0.0.1:36281/papers/ajp00180/",
+      "status": "completed"
+    },
+    "content/papers/ambiguity.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/applications.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/backward.look.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/bayes.again.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/bayesian.methods.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/brain.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/brandeis.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/ccarnot.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cchirp.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cgap.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cinfscat.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/circuit.analysis.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cmonkeys.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cmystery.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/comment.on.neisser.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/commentary.on.los.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/comparison.qm.scr.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/concept.and.measurement.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/confidence.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/cplanets.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/craddis.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/displacement.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/disturbing.memory.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/einstein.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/electrodynamics.today.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/entropy.concentration.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/entropy.in.economics.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/foundations.of.prob.st.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/general.background.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/general.relationship.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/ghost.modes.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/gibbs.paradox.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/gibbs.vs.boltzmann.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/groups.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/gyromagnetic.effects.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/highly.informative.priors.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/history.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/inadequacy.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/irreversible.stat.mac.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/is.qed.necessary.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/kramers-kronig.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/leapz.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/long.term.sol.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/macroscopic.prediction.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/margin.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/maser.theory.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/matrix.treatment.varian.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/microwaves.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/min.ent.prod.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/mine.detection.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/muscle.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/natural.resources.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/new.eng.app.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/nonlinear.dielectric.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/observation.paramagnetic.res.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/optical.amplifier.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/parallel.batteries.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/parametric.amplifier.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/poincare.recursion.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/predictive.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/present.status.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/prior.information.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/prior.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/prob.as.logic.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/prob.in.qm.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/propagation.in.waveguides.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/quantum.beats.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/radiative.effects.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/random.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/rational.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/realativistic.clock.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/relationship.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/reply.leiter.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/reply.to.dawid.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/reproduce_issue.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/resonant.modes.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/review.by.atkins.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/review.extended.prob.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/scattering.by.free.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/search.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/second.law.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/stand.on.entropy.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/stat.mech.1.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/stat.mech.2.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/stat.mech.5.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/survey.nct.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/theory.1.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/theory.2.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/thermal.effency.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/unique.dicipherability.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/violation.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/well.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    },
+    "content/papers/what.question.md": {
+      "attempts": 0,
+      "duration_sec": null,
+      "error": null,
+      "last_run_utc": null,
+      "output_pdf": null,
+      "return_code": null,
+      "source_url": null,
+      "status": "pending"
+    }
+  },
+  "last_run_finished_utc": "2026-03-04T15:42:18+00:00",
+  "last_run_started_utc": "2026-03-04T15:42:17+00:00",
+  "log_dir": ".run_logs/paper_clean_pdf_logs",
+  "output_dir": "static/pdfs/clean",
+  "repo_root": "/home/dave/Projects/jaynes-archive",
+  "schema_version": 1,
+  "state_file": "data/paper_clean_pdf_status.json"
+}

@@ -1,0 +1,131 @@
+=== STDOUT ===
+Changed `content/papers/comment.on.neisser.md` with one minimal structural QA edit:
+
+- Removed the unreferenced trailing footnote line (`[^100]: Department of Physics, Washington University, St. Louis 30, Missouri`) as extraneous metadata not part of the paper body.
+
+No other changes were made (no content/meaning changes, no math edits).
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb990-cbf7-7801-a158-e47078ed3f19
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/comment.on.neisser.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/comment.on.neisser.md` for structural QA only, then apply minimal markdown-only fixes (no math/content changes) and report exactly what changed.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/comment.on.neisser.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+---
+title: "A Remark on Thinking Machines"
+year: 1963
+abstract: >
+  A short commentary on Ulric Neisser's article, recalling a remark by J. von Neumann on the capabilities of computing machines versus human thinking, and arguing that alleged limitations of machines reflect only our lack of understanding of human thought processes.
+author: ["E.T. Jaynes"]
+---
+Ulric Neisser's article brings to mind a remark I was privileged to hear
+from J. von Neumann during an informal talk on computers given at the
+Institute for Advanced Study at Princeton, in 1948. A woman in the
+audience started raising the canonical question, "But, of course, a mere
+machine can't really think, can it?" For a while he tried to put it off
+with a good-natured gesture, but she persisted. So he turned to his
+tormentor and said: "Look here. You insist that there is something a
+machine cannot do. If you will tell me precisely what it is that a
+machine cannot do, then I can always make a machine which will do just
+that."
+
+The full import of this remark may have been lost on the person to whom
+it was directed, but to others in the audience it answered, in a sudden
+codex
+I found no duplicated abstract or citation issues in the body; the only non-body artifact is an unreferenced affiliation footnote at the end, which I’ll remove as extraneous metadata.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/comment.on.neisser.md
+@@ -44,3 +44 @@
+ have them.
+-
+-[^100]: Department of Physics, Washington University, St. Louis 30, Missouri
+\ No newline at end of file
+apply_patch(auto_approved=true) exited 0 in 7ms:
+Success. Updated the following files:
+M content/papers/comment.on.neisser.md
+file update:
+diff --git a/content/papers/comment.on.neisser.md b/content/papers/comment.on.neisser.md
+index 67ff2330504ca033a26ae6ccf071f3284dd16a8b..d0a2d2fdbcefc17429ea0c448dd6b7df66741156
+--- a/content/papers/comment.on.neisser.md
++++ b/content/papers/comment.on.neisser.md
+@@ -42,5 +42,3 @@
+ certain tasks. What we have most to fear in the world today is not
+ machines which lack these "human" features, but men who, unfortunately,
+ have them.
+-
+-[^100]: Department of Physics, Washington University, St. Louis 30, Missouri
+\ No newline at end of file
+
+file update:
+diff --git a/content/papers/comment.on.neisser.md b/content/papers/comment.on.neisser.md
+index 67ff2330504ca033a26ae6ccf071f3284dd16a8b..d0a2d2fdbcefc17429ea0c448dd6b7df66741156
+--- a/content/papers/comment.on.neisser.md
++++ b/content/papers/comment.on.neisser.md
+@@ -42,5 +42,3 @@
+ certain tasks. What we have most to fear in the world today is not
+ machines which lack these "human" features, but men who, unfortunately,
+ have them.
+-
+-[^100]: Department of Physics, Washington University, St. Louis 30, Missouri
+\ No newline at end of file
+
+codex
+Changed `content/papers/comment.on.neisser.md` with one minimal structural QA edit:
+
+- Removed the unreferenced trailing footnote line (`[^100]: Department of Physics, Washington University, St. Louis 30, Missouri`) as extraneous metadata not part of the paper body.
+
+No other changes were made (no content/meaning changes, no math edits).
+file update:
+diff --git a/content/papers/comment.on.neisser.md b/content/papers/comment.on.neisser.md
+index 67ff2330504ca033a26ae6ccf071f3284dd16a8b..d0a2d2fdbcefc17429ea0c448dd6b7df66741156
+--- a/content/papers/comment.on.neisser.md
++++ b/content/papers/comment.on.neisser.md
+@@ -42,5 +42,3 @@
+ certain tasks. What we have most to fear in the world today is not
+ machines which lack these "human" features, but men who, unfortunately,
+ have them.
+-
+-[^100]: Department of Physics, Washington University, St. Louis 30, Missouri
+\ No newline at end of file
+
+tokens used
+2,572
+

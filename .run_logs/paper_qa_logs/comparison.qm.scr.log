@@ -1,0 +1,587 @@
+=== STDOUT ===
+Updated `content/papers/comparison.qm.scr.md` with minimal structural QA edits only.
+
+Summary of changes:
+- Normalized inline numeric citations from `[n]` to markdown footnote citations `[^refn]` throughout the body.
+- Added matching citation footnote definitions at the end (`[^ref1]`, `[^ref2]`, etc.) so Hugo markdown renders cleanly.
+- Removed one broken/unresolved footnote marker (`projection[^4]` -> `projection`).
+- Removed extraneous trailing metadata line: `*Reprinted from the PROCEEDINGS...*`.
+- Removed leftover non-citation affiliation footnotes (`[^1]`, `[^2]`) that were metadata-only and not used.
+- Fixed one minor markdown spacing issue: `n$\ge 0$` -> `n $\ge 0$`.
+
+No paper meaning/content was changed, and all LaTeX/KaTeX/math expressions were left intact.
+
+
+=== STDERR ===
+OpenAI Codex v0.107.0 (research preview)
+--------
+workdir: /home/dave/Projects/jaynes-archive
+model: gpt-5.3-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019cb992-5880-7191-abc3-e19cf81f4867
+--------
+user
+Perform QA and directly edit only this one markdown file: `content/papers/comparison.qm.scr.md`.
+
+Hard constraints (must follow exactly):
+1. Do NOT change any paper content/meaning.
+2. Do NOT modify any LaTeX/KaTeX/math text for any reason. Leave all math exactly as-is.
+3. Ignore missing figures.
+
+Allowed/required QA scope:
+- Fix markdown structure/readability only:
+  - split paragraphs properly to avoid giant text walls
+  - repair odd markdown table formatting
+  - ensure markdown renders cleanly in Hugo+KaTeX
+- Ensure abstract is not duplicated:
+  - abstract should exist in metadata/front matter only
+  - remove duplicate abstract text from body if present
+- Normalize citations:
+  - use proper footnote citation formatting
+  - remove double-citation patterns like '(Smith 2018)' when duplicated with footnotes
+- Remove extraneous metadata like 'Lecture given at ...' if it is not part of the paper body.
+
+Output requirements:
+- Apply edits directly to the file if needed.
+- Keep edits minimal and structural.
+- At the end, print a concise summary of what changed (or 'no changes').
+
+mcp startup: no servers
+codex
+I’ll review `content/papers/comparison.qm.scr.md` for structural markdown QA only, then apply minimal edits that preserve content and all math exactly. I’m starting by inspecting the file for duplicated abstract text, citation formatting, table issues, and extraneous metadata.
+exec
+/bin/bash -lc "sed -n '1,260p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+---
+title: "Comparison of Quantum and Semiclassical Radiation Theories with Application to the Beam Maser"
+year: 1963
+abstract: >
+  This paper has two purposes: 1) to clarify the relationship between
+  the quantum theory of radiation, where the electromagnetic
+  field-expansion coefficients satisfy commutation relations, and the
+  semiclassical theory, where the electromagnetic field is considered as
+  a definite function of time rather than as an operator; and 2) to
+  apply some of the results in a study of amplitude and frequency
+  stability in a molecular beam maser.
+  In 1), it is shown that the semiclassical theory, when extended to
+  take into account both the effect of the field on the molecules and
+  the effect of the molecules on the field, reproduces almost
+  quantitatively the same laws of energy exchange and coherence
+  properties as the quantized field theory, even in the limit of one or
+  a few quanta in the field mode. In particular, the semiclassical
+  theory is shown to lead to a prediction of spontaneous emission, with
+  the same decay rate as given by quantum electrodynamics, described by
+  the Einstein A coefficients.
+codex
+I’ve reviewed the opening sections and confirmed there is no body-level abstract duplication at the top; next I’m scanning the remainder for citation patterns, table formatting, and any non-paper metadata to clean up.
+exec
+/bin/bash -lc "sed -n '261,520p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+$$
+and
+$$
+\nabla \times \mathbf{H} = \frac{1}{c}\frac{\partial \mathbf{E}}{\partial t}
+$$
+then reduce to the Hamiltonian equations of motion, 
+$$
+\begin{aligned} \dot{q}_\alpha &= \frac{\partial\mathcal{H}}{\partial p_\alpha} = p_\alpha, \\\\ \dot{p}_\alpha &= -\frac{\partial\mathcal{H}}{\partial q_\alpha} = -\omega_\alpha^2 q_\alpha, \end{aligned}
+$$
+respectively.
+
+On quantization of the field the canonically conjugate coordinates and
+momenta satisfy the commutation rules,
+$$
+[q_\alpha, q_\beta] = [p_\alpha, p_\beta] = 0
+$$
+ and
+$$
+[q_\alpha, p_\beta] = i\hbar\delta_{\alpha\beta}.
+$$
+exec
+/bin/bash -lc "sed -n '521,780p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+\rho_F(\tau) = G \rho_F(0)
+$$
+$$
+\langle nn^\prime | G | kk^\prime \rangle = \sum_{m^{\prime\prime},m^\prime} \langle m^{\prime\prime}n | U | mk \rangle \langle m^\prime k^\prime | U^{-1} | m^{\prime\prime}n^\prime \rangle \sigma_{mm^\prime}
+$$
+ where we have written for brevity
+$$
+\sigma_{mm^\prime} = \langle m | \rho_I(0) | m^\prime \rangle.
+$$
+
+The sums (42) are
+readily evaluated with the use of (33), with the result that the only
+nonvanishing elements of $G$ are 
+$$
+\begin{aligned} \langle nn^\prime | G | n, n^\prime \rangle &= a_{n+1}^* a_{n^\prime+1} \sigma_{22} + c_n^* c_{n^\prime}^* \sigma_{11} \\\\ \langle nn^\prime | G | n+1, n^\prime \rangle &= b_{n+1}^* a_{n^\prime+1} \sigma_{12} \\\\ \langle n,n^\prime | G | n, n^\prime+1 \rangle &= a_{n+1}^* b_{n^\prime+1} \sigma_{21}, \\\\ \langle n,n^\prime | G | n, n^\prime-1 \rangle &= c_n^* b_{n^\prime}^* \sigma_{12}, \\\\ \langle n,n^\prime | G | n-1, n^\prime \rangle &= b_n^* c_{n^\prime}^* \sigma_{21}, \\\\ \langle n,n^\prime | G | n+1, n^\prime+1 \rangle &= b_{n+1}^* b_{n^\prime+1}^* \sigma_{11}, \\\\ \langle n,n^\prime | G | n-1, n^\prime-1 \rangle &= b_n^* b_{n^\prime}^* \sigma_{22}. \end{aligned}
+$$
+
+These relations hold for all quantum numbers $n$ if we understand that $c_0$
+is not defined by (33) but by $c_0 = \exp{(-i\omega_0 t)}$.
+
+codex
+I’m in the middle of the body now; so far the main issues are citation style (`[n]` inline citations) and some paragraph/table-like formatting artifacts. I’ll inspect the final sections and reference blocks before patching so I can do one minimal structural edit pass.
+exec
+/bin/bash -lc "sed -n '781,1040p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+and
+$$
+\ddot{E} + \omega/Q \dot{E} + \omega^2 E = S\ddot{M},
+$$
+ where
+$$
+K=2\mu/\hbar \quad S=4\pi\omega^2/J_1\sqrt{V}
+$$
+ and 
+$$
+\begin{aligned} W &= E_1|a|^2 + E_2|b|^2 - \frac{1}{2}(E_1+E_2) \ &= \frac{\hbar\Omega}{2}(|b|^2-|a|^2) \end{aligned}
+$$
+is the expectation value of energy of the molecule,
+referred to a zero lying midway between the levels $E_1, E_2$. In the
+form (69) we have an apparently classical nonlinear system, all
+reference to "quantum-mechanical" quantities having disappeared.
+
+The first two equations of (69) admit a first integral,
+$$
+\dot{M}^2 + \Omega^2 M^2 + K^2 W^2 = \text{const.} = \left(\frac{K\hbar\Omega}{2}\right)^2
+exec
+/bin/bash -lc "sed -n '1041,1300p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 50ms:
+$$
+|Y|^2 + K^2 W^2 = \text{constant} = \left(\frac{K\hbar\Omega}{2}\right)^2
+$$
+and 
+$$
+|X|^2 + 2SW = \text{constant}.
+$$
+
+ Now the functions $X$ and $Y$ are
+slowly varying functions of time, and again it is their average change
+over many cycles, rather than the very small rapid fluctuations at
+frequency $2\omega$, which are of interest. Thus the oscillating terms
+in (97) can be dropped, since their average over a cycle is negligible
+compared to their dc components. The quantities depicted in Fig. 2 are
+just the complex numbers (93) and (94). Noting the properties,
+$$
+(\dot{E})^2 + \omega^2 E^2 = |X|^2,
+$$
+
+The system of equations determining secular changes of both amplitude
+exec
+/bin/bash -lc "sed -n '1301,1560p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+W_i(t) - W_i(t_i) = \int_{t_i}^t G(t,t^\prime)W_i(t^\prime)dt^\prime,
+$$
+with the kernel,
+$$
+G(t,t^\prime) = -K^2 \int_{t^\prime}^t dt^{\prime\prime} E(t^{\prime\prime}) \cos \Omega(t^{\prime\prime}-t^\prime) E(t^\prime).
+$$
+
+ We
+now assume the electric field is given by 
+$$
+E(t) = 2a \sin \nu t
+$$
+ where
+$a$ and $\nu$ are parameters to be determined by the condition that
+(110), (111) and (113) be self-consistent. It is clear from (108c) that
+the exact solution of $W_i(t)$ contains terms oscillating at frequencies
+of the order of $(\Omega+\nu)$. While these terms may contribute
+appreciably to $\dot{W}_i$, their effect on $W_i$ averages to zero in
+times of the order of one cycle of the RF. Since we are interested in
+the long time drift in $W_i$, rather than these small rapid
+exec
+/bin/bash -lc "sed -n '1561,1820p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+If $\bar{W}=0$, this reduces, as it must, to the response of the cavity
+alone. The effect of the molecules is, in this approximation, to
+suppress the magnitude of the electric field fluctuations $E_1$, for
+those frequency components which lie close to the natural line
+frequency.
+
+If the period of the beat frequency $(\beta-\omega)$ is comparable to
+the flight time, however, then one should take into account the term
+$W_{i1}$; generally, perturbations of any type can lead to the greatest
+effects when their frequency is related in this way to the flight time.
+Since the theory remains linear, fluctuations due to any cause are
+readily calculated. We now proceed to the calculation of electric field
+fluctuation in which we retain the term $W_{i1}$.
+
+Keeping terms to only the first order in the perturbation, we have to
+solve the system of linear equations with time varying coefficients,
+$$
+\begin{aligned} \ddot{E}_1 + \frac{\omega}{Q}\dot{E}_1+\omega^2 E_1 &= S\ddot{M}_1(t)+F(t), \ &= S\sum_i \ddot{M}_{i1}(t)+F(t), \ \ddot{M}_{i1}+\Omega^2 M_{i1} &= -K^2 W_{i0}E_1 - K^2 W_{i1}E_0, \end{aligned}
+$$
+and
+codex
+I’ve reached the end. I found a clear extraneous metadata line at the bottom and citation normalization work to do (`[n]` style). I’ll make a minimal, structural patch focused on citation footnotes and clean markdown rendering without altering technical content or any math blocks.
+exec
+/bin/bash -lc "rg -n '\\[[0-9]+\\]|\\[\\"'^4'"\\]|Reprinted|Lecture given at|n\\"'$'"\\\\ge 0\\"'$'"' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+83:Townes [1] for a single-velocity beam and by Lamb and Helmer [6] for
+127:of this type [1], [2], and hence one cannot assess their worth until
+136:This is essentially the calculation of Shimoda, Wang and Townes [4],
+137:and Basov and Prokhorov [5], and Lamb and Helmer [6], Feynman,
+138:Vernon and Hellwarth [7]. While this is clearly superior to the first
+142:"super-radiant gas" [8]. In the theories quoted above, the molecules
+167:Shimoda, Wang, and Townes [4], and quantum electrodynamics. The
+186:with that of Gordon, Zeiger and Townes [1] in the univelocity case and
+187:with the analysis of Lamb and Helmer [6] in the case of a Maxwellian
+216:given by Fermi [9] is quite adequate for our purposes. Here the usual
+220:functions as defined by Slater [10]. The cavity is represented by a
+395:is the interaction constant. Using the value [11]
+509:projection[^4] of (38) onto the space of the field variables
+901:to quantum mechanics. The Einstein-Podolsky-Rosen [13] paradox
+1131:n$\ge 0$ is
+1224:[4]. The new feature is the realization that this formalism ac-
+1257:$E(t)$ as in the Stanford [6] ammonia maser, we can simply define the
+1441:we have $F(0)=G(0)=1$. Previous writers [1] have expressed their
+1471:Shimoda, Wang, and Townes [4], and in the case of a Maxwellian
+1478:($L$=length of cavity, $v_0^2=2KT/m$), they reduce to the theory of Lamb and Helmer [6]. In
+codex
+I’m applying a minimal transformation to normalize inline numeric citations to markdown footnote citation markers across the body, then I’ll add corresponding footnote definitions and remove the non-body “Reprinted …” metadata line.
+exec
+/bin/bash -lc "perl -0pi -e 's/\\[(\\d+)\\]/["'^ref$1]/g'"' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+
+exec
+/bin/bash -lc "rg -n '\\[[0-9]+\\]|\\[\\"'^ref[0-9]+'"\\]|\\[\\"'^4'"\\]|Reprinted|n\\"'$'"\\\\ge 0\\"'$'"' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+83:Townes [^ref1] for a single-velocity beam and by Lamb and Helmer [^ref6] for
+127:of this type [^ref1], [^ref2], and hence one cannot assess their worth until
+136:This is essentially the calculation of Shimoda, Wang and Townes [^ref4],
+137:and Basov and Prokhorov [^ref5], and Lamb and Helmer [^ref6], Feynman,
+138:Vernon and Hellwarth [^ref7]. While this is clearly superior to the first
+142:"super-radiant gas" [^ref8]. In the theories quoted above, the molecules
+167:Shimoda, Wang, and Townes [^ref4], and quantum electrodynamics. The
+186:with that of Gordon, Zeiger and Townes [^ref1] in the univelocity case and
+187:with the analysis of Lamb and Helmer [^ref6] in the case of a Maxwellian
+216:given by Fermi [^ref9] is quite adequate for our purposes. Here the usual
+220:functions as defined by Slater [^ref10]. The cavity is represented by a
+395:is the interaction constant. Using the value [^ref11]
+509:projection[^4] of (38) onto the space of the field variables
+901:to quantum mechanics. The Einstein-Podolsky-Rosen [^ref13] paradox
+1131:n$\ge 0$ is
+1224:[^ref4]. The new feature is the realization that this formalism ac-
+1257:$E(t)$ as in the Stanford [^ref6] ammonia maser, we can simply define the
+1441:we have $F(0)=G(0)=1$. Previous writers [^ref1] have expressed their
+1471:Shimoda, Wang, and Townes [^ref4], and in the case of a Maxwellian
+1478:($L$=length of cavity, $v_0^2=2KT/m$), they reduce to the theory of Lamb and Helmer [^ref6]. In
+exec
+/bin/bash -lc "sed -n '1740,1845p' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+E(t) = 2a\sin\nu t + E_1(t)
+$$
+with $|E_1|\ll a$, we have in
+effect restricted the theory to cases (or time intervals) such that the
+phase wandering is at most of order $|E_1|/a$. A more general theory of
+random processes is therefore needed before questions about very long
+time behavior can be answered.
+
+Wiener [^ref15] has given an interesting discussion of the response of
+nolinear systems to a random perturbation. His curves are very similar
+to those of Fig. 5, which arise, for instance, in the analysis of the
+alpha rhythm of brain waves. It appears that the phenomena predicted by
+Fig. 5 is a general property of any nonlinear system which is attempting
+to stabilize itself.
+## REFERENCES
+1. J. P. Gordon, H. J. Zeiger, and C. H. Townes, "Molecular microwave oscillator and new hyperfine structure in the microwave spectrum of NH$_3$," *Phys. Rev.*, vol. 95, pp. 282-284; July 1, 1954. "The maser-new type of microwave amplifier, frequency standard, and spectrometer," *Phys. Rev.*, vol. 99, pp. 1264-1274; August 15, 1955.
+2. M. W. Muller, "Noise in a molecular amplifier," *Phys. Rev.*, vol. 106, pp. 8-12; April 1, 1957.
+3. J. P. Gordon and L. D. White, "Noise in maser amplifiers-theory and experiment," *PROC. IRE*, vol. 46, pp. 1599-1594; September, 1958.
+4. K. Shimoda, T. C. Wang, and C. H. Townes, "Further aspects of maser theory," *Phys. Rev.*, vol. 102, pp. 1308-1321; June 1, 1956.
+5. N. G. Basov and A. M. Prokhorov, "Applications of molecular beams to radio spectroscopic studies of rotation spectra of molecules," *J. Exp. Theoret. Phys. (USSR)*, vol. 27, pp. 431-438; 1954. (In Russian.) "On possible methods of producing active molecules for a molecular generator," *J. Exp. Theoret. Phys. (USSR)*, vol. 28, (Letter), p. 249; 1955.
+codex
+I’m making the final minimal cleanup edits now: fixing one broken footnote marker, removing clearly extraneous end metadata, and adding citation footnote definitions so the new `[^refN]` citations render correctly.
+file update
+M /home/dave/Projects/jaynes-archive/content/papers/comparison.qm.scr.md
+@@ -508,3 +508,3 @@
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+@@ -1130,3 +1130,3 @@
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+@@ -1769,4 +1769,14 @@
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+apply_patch(auto_approved=true) exited 0 in 8ms:
+Success. Updated the following files:
+M content/papers/comparison.qm.scr.md
+file update:
+diff --git a/content/papers/comparison.qm.scr.md b/content/papers/comparison.qm.scr.md
+index 592f2edf93c864280bb15626d07c6726bcb6fe20..ebe2b5b232ddb490799228267c90e7715c0679f8
+--- a/content/papers/comparison.qm.scr.md
++++ b/content/papers/comparison.qm.scr.md
+@@ -506,7 +506,7 @@
+ $$
+ and the density matrix
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+ \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+ $$
+@@ -1128,7 +1128,7 @@
+ reason why the turning point of the $z$ motion then occurs at $z=a$. The
+ integral (104) is one of the standard forms defining elliptic functions. Using the
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+ z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+ $$
+@@ -1767,6 +1767,16 @@
+ 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
+ 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+
+file update:
+diff --git a/content/papers/comparison.qm.scr.md b/content/papers/comparison.qm.scr.md
+index 592f2edf93c864280bb15626d07c6726bcb6fe20..ebe2b5b232ddb490799228267c90e7715c0679f8
+--- a/content/papers/comparison.qm.scr.md
++++ b/content/papers/comparison.qm.scr.md
+@@ -506,7 +506,7 @@
+ $$
+ and the density matrix
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+ \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+ $$
+@@ -1128,7 +1128,7 @@
+ reason why the turning point of the $z$ motion then occurs at $z=a$. The
+ integral (104) is one of the standard forms defining elliptic functions. Using the
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+ z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+ $$
+@@ -1767,6 +1767,16 @@
+ 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
+ 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+
+exec
+/bin/bash -lc "rg -n '\\[\\"'^4'"\\]|\\[\\"'^[0-9]+'"\\]|Reprinted|\\[[0-9]+\\]' content/papers/comparison.qm.scr.md" in /home/dave/Projects/jaynes-archive exited 1 in 51ms:
+
+file update:
+diff --git a/content/papers/comparison.qm.scr.md b/content/papers/comparison.qm.scr.md
+index 592f2edf93c864280bb15626d07c6726bcb6fe20..ebe2b5b232ddb490799228267c90e7715c0679f8
+--- a/content/papers/comparison.qm.scr.md
++++ b/content/papers/comparison.qm.scr.md
+@@ -506,7 +506,7 @@
+ $$
+ and the density matrix
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+ \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+ $$
+@@ -1128,7 +1128,7 @@
+ reason why the turning point of the $z$ motion then occurs at $z=a$. The
+ integral (104) is one of the standard forms defining elliptic functions. Using the
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+ z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+ $$
+@@ -1767,6 +1767,16 @@
+ 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
+ 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+
+exec
+/bin/bash -lc "echo 'Citations used:'; rg -o '\\[\\"'^ref[0-9]+'"\\]' content/papers/comparison.qm.scr.md | sort -u; echo; echo 'Footnotes defined:'; rg -o '"'^'"\\[\\"'^ref[0-9]+'"\\]:' content/papers/comparison.qm.scr.md | sed 's/:"'$//'"' | sort -u" in /home/dave/Projects/jaynes-archive succeeded in 51ms:
+Citations used:
+[^ref10]
+[^ref11]
+[^ref13]
+[^ref15]
+[^ref1]
+[^ref2]
+[^ref4]
+[^ref5]
+[^ref6]
+[^ref7]
+[^ref8]
+[^ref9]
+
+Footnotes defined:
+[^ref10]
+[^ref11]
+[^ref13]
+[^ref15]
+[^ref1]
+file update:
+diff --git a/content/papers/comparison.qm.scr.md b/content/papers/comparison.qm.scr.md
+index 592f2edf93c864280bb15626d07c6726bcb6fe20..ebe2b5b232ddb490799228267c90e7715c0679f8
+--- a/content/papers/comparison.qm.scr.md
++++ b/content/papers/comparison.qm.scr.md
+@@ -506,7 +506,7 @@
+ $$
+ and the density matrix
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+ \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+ $$
+@@ -1128,7 +1128,7 @@
+ reason why the turning point of the $z$ motion then occurs at $z=a$. The
+ integral (104) is one of the standard forms defining elliptic functions. Using the
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+ z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+ $$
+@@ -1767,6 +1767,16 @@
+ 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
+ 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+
+codex
+Updated `content/papers/comparison.qm.scr.md` with minimal structural QA edits only.
+
+Summary of changes:
+- Normalized inline numeric citations from `[n]` to markdown footnote citations `[^refn]` throughout the body.
+- Added matching citation footnote definitions at the end (`[^ref1]`, `[^ref2]`, etc.) so Hugo markdown renders cleanly.
+- Removed one broken/unresolved footnote marker (`projection[^4]` -> `projection`).
+- Removed extraneous trailing metadata line: `*Reprinted from the PROCEEDINGS...*`.
+- Removed leftover non-citation affiliation footnotes (`[^1]`, `[^2]`) that were metadata-only and not used.
+- Fixed one minor markdown spacing issue: `n$\ge 0$` -> `n $\ge 0$`.
+
+No paper meaning/content was changed, and all LaTeX/KaTeX/math expressions were left intact.
+file update:
+diff --git a/content/papers/comparison.qm.scr.md b/content/papers/comparison.qm.scr.md
+index 592f2edf93c864280bb15626d07c6726bcb6fe20..ebe2b5b232ddb490799228267c90e7715c0679f8
+--- a/content/papers/comparison.qm.scr.md
++++ b/content/papers/comparison.qm.scr.md
+@@ -506,7 +506,7 @@
+ $$
+ and the density matrix
+ $\rho_F(t)$, which describes the state of the field only, is the
+-projection[^4] of (38) onto the space of the field variables
++projection of (38) onto the space of the field variables
+ $$
+ \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
+ $$
+@@ -1128,7 +1128,7 @@
+ reason why the turning point of the $z$ motion then occurs at $z=a$. The
+ integral (104) is one of the standard forms defining elliptic functions. Using the
+ standard notation sn($u, k$), the solution for the case
+-n$\ge 0$ is
++n $\ge 0$ is
+ $$
+ z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
+ $$
+@@ -1767,6 +1767,16 @@
+ 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
+ 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
+ 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
+-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
+-[^1]: Washington University, St. Louis, Mo.
+-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+\ No newline at end of file
++
++[^ref1]: See Reference 1.
++[^ref2]: See Reference 2.
++[^ref4]: See Reference 4.
++[^ref5]: See Reference 5.
++[^ref6]: See Reference 6.
++[^ref7]: See Reference 7.
++[^ref8]: See Reference 8.
++[^ref9]: See Reference 9.
++[^ref10]: See Reference 10.
++[^ref11]: See Reference 11.
++[^ref13]: See Reference 13.
++[^ref15]: See Reference 15.
+
+tokens used
+36,156
+

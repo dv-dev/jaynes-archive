@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:36281/papers/ajp00180/
+clean_html: /tmp/paper-clean-pdf-nr0q8xd0/AJP00180.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/AJP00180.pdf
+duration_sec: 0.812
+
+=== STDOUT ===
+
+
+=== STDERR ===
+153842 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/AJP00180.pdf
+

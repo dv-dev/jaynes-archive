@@ -80,7 +80,7 @@ detailed calculations applying the semiclassical theory to the ammonia
 beam maser. Equilibrium amplitude and frequency of oscillation are
 obtained for an arbitrary velocity distribution of focused molecules,
 generalizing the results obtained previously by Gordon, Zeiger and
-Townes [1] for a single-velocity beam and by Lamb and Helmer [6] for
+Townes [^ref1] for a single-velocity beam and by Lamb and Helmer [^ref6] for
 a Maxwellian beam. A rather surprising result is obtained, namely that
 the measurable properties of the maser, such as starting current,
 effective molecular Q, etc., depend mostly on the slowest 5 to 10 per
@@ -124,7 +124,7 @@ W_{1 \rightarrow 2} = \frac{2\pi}{\hbar^2} |H_{12}|^2 \rho(\omega)
 $$
 may lead to conclusions qualitatively as well as quantitatively wrong.
 Most of the existing noise figure calculations are based on a treatment
-of this type [1], [2], and hence one cannot assess their worth until
+of this type [^ref1], [^ref2], and hence one cannot assess their worth until
 the calculation has been checked by a more rigorous theory.
 2) The second method of treating the maser theoretically is that based
 on solving Schrödinger's time-dependent equation for a molecule as
@@ -133,13 +133,13 @@ expectation value of the dipole moment of the molecule and using the
 time derivative of this expectation value as the current source of the
 classical electromagnetic field.
 
-This is essentially the calculation of Shimoda, Wang and Townes [4],
-and Basov and Prokhorov [5], and Lamb and Helmer [6], Feynman,
-Vernon and Hellwarth [7]. While this is clearly superior to the first
+This is essentially the calculation of Shimoda, Wang and Townes [^ref4],
+and Basov and Prokhorov [^ref5], and Lamb and Helmer [^ref6], Feynman,
+Vernon and Hellwarth [^ref7]. While this is clearly superior to the first
 method outline above, there are still several important approximations
 involved. In principle, the molecular beam should be treated as a single
 quantum-mechanical system, by a formalism like that of Dicke's
-"super-radiant gas" [8]. In the theories quoted above, the molecules
+"super-radiant gas" [^ref8]. In the theories quoted above, the molecules
 were ascribed independent wave functions. Also, the electromagnetic
 field should be quantized and the problem treated as one of quantum
 electrodynamics. Although the theories above lead to definite
@@ -164,7 +164,7 @@ simple problems in which we can talk of transition probabilities with
 all coherence properties retained, within the formalism of quantum
 electrodynamics. Then we will investigate the relationship between the
 "modified" semiclassical ("neoclassical" theory), as employed by
-Shimoda, Wang, and Townes [4], and quantum electrodynamics. The
+Shimoda, Wang, and Townes [^ref4], and quantum electrodynamics. The
 relationship is not at all that which is usually assumed, i.e., that
 quantum electrodynamics goes into semiclassical theory only in the limit
 of high photon occupation numbers per field-normal mode. Rather the
@@ -183,8 +183,8 @@ the assumption of an arbitrary velocity distribution, wall losses and/or
 external energy coupling. The solution is obtained for the frequency
 stability as a function of the mean values of the square and cube of the
 flight time and the $Q$ of the cavity. This solution is found to agree
-with that of Gordon, Zeiger and Townes [1] in the univelocity case and
-with the analysis of Lamb and Helmer [6] in the case of a Maxwellian
+with that of Gordon, Zeiger and Townes [^ref1] in the univelocity case and
+with the analysis of Lamb and Helmer [^ref6] in the case of a Maxwellian
 distribution of velocities. Then this solution is made the basis, or
 unperturbed solution, in a perturbation treatment of fluctuation effects
 to the first order in the small departure from the steady-state
@@ -213,11 +213,11 @@ molecules is interesting in this same regard.
 We first develop the formalism of field quantization in a form suitable
 for microwave applications. There is, of course, no need for elegant
 covariant formulations here; the simple approach to electrodynamics
-given by Fermi [9] is quite adequate for our purposes. Here the usual
+given by Fermi [^ref9] is quite adequate for our purposes. Here the usual
 plane-wave expansion is not appropriate and in its place we need to use
 the expansion of electromagnetic fields in terms of resonant modes of
 the particular cavity under consideration. We use the cavity normal mode
-functions as defined by Slater [10]. The cavity is represented by a
+functions as defined by Slater [^ref10]. The cavity is represented by a
 volume $V$, bounded by a closed surface $S$. Let
 $\mathbf{E}_\alpha(\mathbf{x})$, $k_\alpha^2 = \omega_\alpha^2/c^2$ be the
 eigenfunctions and eigenvalues of the boundary-value problem.
@@ -392,7 +392,7 @@ where
 $$
 \alpha = \frac{\mu}{\hbar}\sqrt{\frac{2\pi\hbar\omega}{J_1^2 V}}
 $$
-is the interaction constant. Using the value [11]
+is the interaction constant. Using the value [^ref11]
 
 $\mu = 1.47 \times 10^{-18}$ esu for ammonia, and a cavity 10 cm long,
 we find $(\alpha/\omega) = 2.08 \times 10^{-10}$ or,
@@ -506,7 +506,7 @@ $$
 $$
 and the density matrix
 $\rho_F(t)$, which describes the state of the field only, is the
-projection[^4] of (38) onto the space of the field variables
+projection of (38) onto the space of the field variables
 $$
 \langle n | \rho_F(t) | n^\prime \rangle = \sum_m \langle mn | \rho(t) | mn^\prime \rangle.
 $$
@@ -898,7 +898,7 @@ allows the possibility of states of the combined system (molecule plus
 field) which are in a definite pure state, but nevertheless one cannot
 ascribe any definite quantum state to the molecule alone, or the field
 alone. This possibility forms the basis of one of Einstein's objections
-to quantum mechanics. The Einstein-Podolsky-Rosen [13] paradox
+to quantum mechanics. The Einstein-Podolsky-Rosen [^ref13] paradox
 consists of the fact that when such correlated states exist, one has the
 possibility of predicting with certainty either one of two noncommuting
 quantities of a system by making measurements which do not involve any
@@ -1128,7 +1128,7 @@ for the molecule to get into its upper state, and this is the physical
 reason why the turning point of the $z$ motion then occurs at $z=a$. The
 integral (104) is one of the standard forms defining elliptic functions. Using the
 standard notation sn($u, k$), the solution for the case
-n$\ge 0$ is
+n $\ge 0$ is
 $$
 z(t) = -1 + 2\text{sn}^2\left(\sqrt{n+1}\alpha t + Q_s, \frac{1}{\sqrt{n+1}}\right)
 $$
@@ -1221,7 +1221,7 @@ mechanics, not on the method of preparation of initial states.
 
 Mathematically, this semiclassical theory as expounded in this section
 is exactly the same as that already used by Shimoda, Wang and Townes
-[4]. The new feature is the realization that this formalism ac-
+[^ref4]. The new feature is the realization that this formalism ac-
 counts for effects which all standard textbooks describe as requiring
 field quantization for their explanation. Because of this success, and
 the fact that the correspondence with quantum electrodynamics continues
@@ -1254,7 +1254,7 @@ $$
 $$
 where now the subscript $i$ refers to the $i$th
 molecule. If now all of the molecules are subjected to the same field
-$E(t)$ as in the Stanford [6] ammonia maser, we can simply define the
+$E(t)$ as in the Stanford [^ref6] ammonia maser, we can simply define the
 total moment and energy 
 $$
 \begin{aligned} M(t) &= \sum_i M_i(t), \ W(t) &= \sum_i W_i(t). \end{aligned}
@@ -1438,7 +1438,7 @@ and
 $$
 G(\lambda) = \frac{2[1-c(\lambda)]}{\lambda^2\overline{\tau^2}},
 $$
-we have $F(0)=G(0)=1$. Previous writers [1] have expressed their
+we have $F(0)=G(0)=1$. Previous writers [^ref1] have expressed their
 results in terms of an "effective $Q$" of the molecular beam. The
 appropriate definition here would be
 $$
@@ -1468,14 +1468,14 @@ $(\Omega-\lambda) < \nu < (\Omega+\lambda)$.
 
 In the case of a single molecular velocity,
 $f(\tau)=\delta(\tau-\bar\tau)$, these relations reduce to those of
-Shimoda, Wang, and Townes [4], and in the case of a Maxwellian
+Shimoda, Wang, and Townes [^ref4], and in the case of a Maxwellian
 velocity distribution, where the fraction of molecules per unit time
 with velocities in the range $dv$ is proportional to
 $v^3\exp(-v^2/v_0^2)dv$, or
 $$
 f(\tau) \sim \exp(-L^2/2v_0^2\tau^2)/\tau^4
 $$
-($L$=length of cavity, $v_0^2=2KT/m$), they reduce to the theory of Lamb and Helmer [6]. In
+($L$=length of cavity, $v_0^2=2KT/m$), they reduce to the theory of Lamb and Helmer [^ref6]. In
 the Maxwellian case our dimensionless parameters $F, G, Q_m$ become
 identical with those defined by Lamb and Helmer.
 
@@ -1745,7 +1745,7 @@ phase wandering is at most of order $|E_1|/a$. A more general theory of
 random processes is therefore needed before questions about very long
 time behavior can be answered.
 
-Wiener [15] has given an interesting discussion of the response of
+Wiener [^ref15] has given an interesting discussion of the response of
 nolinear systems to a random perturbation. His curves are very similar
 to those of Fig. 5, which arise, for instance, in the analysis of the
 alpha rhythm of brain waves. It appears that the phenomena predicted by
@@ -1767,6 +1767,16 @@ to stabilize itself.
 13. A. Einstein, B. Podolsky, and N. Rosen, *Phys. Rev.*, vol. 47, p. 777; 1935.
 14. N. Wiener, "Extrapolation, Interpolation and Smoothing of Stationary Time Series," John Wiley and Sons, Inc., New York, N. Y.; 1950.
 15. N. Wiener, "Nonlinear Problems in Random Theory," John Wiley and Sons, Inc., New York, N. Y.; 1958.
-*Reprinted from the PROCEEDINGS OF THE IEEE, VOL. 51, NO. 1, JANUARY, 1963. PRINTED IN THE U.S.A.*
-[^1]: Washington University, St. Louis, Mo.
-[^2]: Aeronutronic, Division of Ford Motor Co., Newport Beach, Calif.
+
+[^ref1]: See Reference 1.
+[^ref2]: See Reference 2.
+[^ref4]: See Reference 4.
+[^ref5]: See Reference 5.
+[^ref6]: See Reference 6.
+[^ref7]: See Reference 7.
+[^ref8]: See Reference 8.
+[^ref9]: See Reference 9.
+[^ref10]: See Reference 10.
+[^ref11]: See Reference 11.
+[^ref13]: See Reference 13.
+[^ref15]: See Reference 15.

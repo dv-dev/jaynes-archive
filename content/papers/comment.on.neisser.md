@@ -42,5 +42,3 @@ problem, that makes them far safer agents than men for carrying out
 certain tasks. What we have most to fear in the world today is not
 machines which lack these "human" features, but men who, unfortunately,
 have them.
-
-[^100]: Department of Physics, Washington University, St. Louis 30, Missouri
