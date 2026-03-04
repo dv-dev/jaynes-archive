@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/cplanets/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/cplanets.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cplanets.pdf
+duration_sec: 0.686
+
+=== STDOUT ===
+
+
+=== STDERR ===
+237154 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/cplanets.pdf
+

@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/reply.leiter/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/reply.leiter.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.leiter.pdf
+duration_sec: 0.561
+
+=== STDOUT ===
+
+
+=== STDERR ===
+193026 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.leiter.pdf
+

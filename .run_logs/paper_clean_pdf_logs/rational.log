@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/rational/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/rational.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/rational.pdf
+duration_sec: 1.069
+
+=== STDOUT ===
+
+
+=== STDERR ===
+482695 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/rational.pdf
+

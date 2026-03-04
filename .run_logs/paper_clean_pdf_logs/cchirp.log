@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/cchirp/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/cchirp.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cchirp.pdf
+duration_sec: 1.085
+
+=== STDOUT ===
+
+
+=== STDERR ===
+516170 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/cchirp.pdf
+

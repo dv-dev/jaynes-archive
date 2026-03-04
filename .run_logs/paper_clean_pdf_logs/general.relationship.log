@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/general.relationship/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/general.relationship.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.relationship.pdf
+duration_sec: 0.573
+
+=== STDOUT ===
+
+
+=== STDERR ===
+161529 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.relationship.pdf
+

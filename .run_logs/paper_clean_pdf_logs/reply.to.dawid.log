@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/reply.to.dawid/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/reply.to.dawid.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.to.dawid.pdf
+duration_sec: 0.544
+
+=== STDOUT ===
+
+
+=== STDERR ===
+167562 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/reply.to.dawid.pdf
+

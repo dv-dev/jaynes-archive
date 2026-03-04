@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/parallel.batteries/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/parallel.batteries.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/parallel.batteries.pdf
+duration_sec: 0.441
+
+=== STDOUT ===
+
+
+=== STDERR ===
+96677 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/parallel.batteries.pdf
+

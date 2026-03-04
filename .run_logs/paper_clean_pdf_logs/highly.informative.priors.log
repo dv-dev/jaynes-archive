@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/highly.informative.priors/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/highly.informative.priors.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/highly.informative.priors.pdf
+duration_sec: 1.062
+
+=== STDOUT ===
+
+
+=== STDERR ===
+519792 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/highly.informative.priors.pdf
+

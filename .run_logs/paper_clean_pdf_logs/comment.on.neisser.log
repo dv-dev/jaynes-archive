@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/comment.on.neisser/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/comment.on.neisser.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/comment.on.neisser.pdf
+duration_sec: 0.44
+
+=== STDOUT ===
+
+
+=== STDERR ===
+85205 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/comment.on.neisser.pdf
+

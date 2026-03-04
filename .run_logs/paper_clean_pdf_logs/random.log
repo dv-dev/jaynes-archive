@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/random/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/random.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/random.pdf
+duration_sec: 0.611
+
+=== STDOUT ===
+
+
+=== STDERR ===
+322317 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/random.pdf
+

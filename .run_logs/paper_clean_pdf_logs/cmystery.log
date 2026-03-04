@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/cmystery/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/cmystery.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cmystery.pdf
+duration_sec: 0.617
+
+=== STDOUT ===
+
+
+=== STDERR ===
+414456 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/cmystery.pdf
+

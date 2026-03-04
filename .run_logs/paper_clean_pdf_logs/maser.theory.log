@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/maser.theory/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/maser.theory.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/maser.theory.pdf
+duration_sec: 1.364
+
+=== STDOUT ===
+
+
+=== STDERR ===
+433698 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/maser.theory.pdf
+

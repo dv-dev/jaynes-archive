@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/irreversible.stat.mac/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/irreversible.stat.mac.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/irreversible.stat.mac.pdf
+duration_sec: 0.804
+
+=== STDOUT ===
+
+
+=== STDERR ===
+402232 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/irreversible.stat.mac.pdf
+

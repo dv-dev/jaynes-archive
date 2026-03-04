@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/ccarnot/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/ccarnot.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/ccarnot.pdf
+duration_sec: 0.826
+
+=== STDOUT ===
+
+
+=== STDERR ===
+351629 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/ccarnot.pdf
+

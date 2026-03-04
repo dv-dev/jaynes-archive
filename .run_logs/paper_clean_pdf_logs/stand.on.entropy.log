@@ -1,0 +1,12 @@
+source_url: http://127.0.0.1:47399/papers/stand.on.entropy/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/stand.on.entropy.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
+duration_sec: 2.632
+
+=== STDOUT ===
+
+
+=== STDERR ===
+1372778 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
+[204999:205027:0304/155957.993475:ERROR:google_apis/gcm/engine/registration_request.cc:292] Registration response error message: PHONE_REGISTRATION_ERROR
+

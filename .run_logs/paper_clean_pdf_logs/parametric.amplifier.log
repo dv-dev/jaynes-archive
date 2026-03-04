@@ -1,0 +1,11 @@
+source_url: http://127.0.0.1:47399/papers/parametric.amplifier/
+clean_html: /tmp/paper-clean-pdf-12qeikeg/parametric.amplifier.html
+output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/parametric.amplifier.pdf
+duration_sec: 0.609
+
+=== STDOUT ===
+
+
+=== STDERR ===
+156303 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/parametric.amplifier.pdf
+
