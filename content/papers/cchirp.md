@@ -16,6 +16,7 @@ abstract: >
 categories: ["Electrodynamics & Signal Processing"]
 tags: ["spectrum analysis", "chirp analysis", "Bayesian inference", "maximum entropy", "signal processing"]
 ---
+
 # INTRODUCTION
 The Maximum Entropy solution found by Burg (1967, 1975) has been shown
 to give the optimal spectrum estimate -- by a rather basic, inescapable
@@ -159,6 +160,7 @@ all the details that appear in AR analyses. It turned out that so much
 surprising new stuff was in it that we are still exploring the plain
 vanilla Bayesian solution and have not yet reached the entropic phase of
 the theory!
+
 # CHIRP ANALYSIS
 The new stuff reported here includes what we think is the first
 derivation of the Schuster periodogram directly from the principles of
@@ -228,6 +230,7 @@ smarter question than we are.
 Of course, for both the bats and the Canary Islanders it may be that
 chirped signals are not actually easier to detect, only easier to
 recognize and interpret in strong noise.
+
 # SPECTRAL SNAPSHOTS
 After noting the existing \"Spectral Snapshot\" method of chirp analysis
 we return to our general Bayesian solution for a model that represents
@@ -283,15 +286,16 @@ algorithms that (a) protect against phase cancellation; (b) extract more
 information from the data; and (c) make more use of prior information.
 But nobody's intuition has yet revealed the specific algorithm for this
 data analysis, so we turn for guidance to probability theory.
+
 # THE BASIC REASONING FORMAT
 The principle we need is just the product rule of probability theory,
 $p(AB|C) = p(A|C) p(B|AC)$, which we note is symmetric in the
 propositions A and B. Therefore let
 $$I = \text{prior information,}\quad H = \text{any hypothesis to be tested,}\quad D = \text{data.}$$
-
 Then $p(HD|I) = p(D|I)p(H|DI) = p(H|I) p(D|HI)$ or, if $p(D|I) > 0$
 (i.e. the data set is a possible one),
 $$p(H|DI) = p(H|I) \frac{p(D|HI)}{p(D|I)} \tag{0}$$
+
 # A SIMPLE BAYESIAN MODEL
 which is Bayes' theorem, showing how the prior probability $p(H|I)$ of
 $H$ is updated to the posterior probability $p(H|DI)$ as a result of
@@ -341,6 +345,7 @@ multidimensional parameter lies in a certain specified region of the
 parameter space. Deploring, but nevertheless following, the present
 common custom, we use the same symbol $p(x|y)$ for a probability or a
 probability density; the distinction must be read from the context.
+
 In this section, which is possibly the first direct Bayesian analysis of
 the problem, attempts at conceptual innovation are out of order, and we
 wish only to learn the consequences of an absolutely standard kind of
@@ -416,7 +421,9 @@ our best means of finding it in the noise.
 
 Our only seemingly drastic simplification is that for the time being we
 suppose it known in advance that only a single signal can be present, of
-the form $$f(t) = A \cos(\omega t + \alpha t^2 + \theta), \tag{1}$$ and
+the form
+$$f(t) = A \cos(\omega t + \alpha t^2 + \theta), \tag{1}$$
+and
 so the problem reduces to estimating its five parameters
 $(A, \omega, \alpha, \theta, \sigma)$ \[although often we are interested
 only in $(\omega, \alpha)$\]. However, this is about the most realistic
@@ -444,21 +451,26 @@ noise.
 
 But for the present our true signal (1) is contaminated with the
 aforementioned white gaussian noise $e(t)$, so the observable data are
-values of the function $$y(t) = f(t) + e(t). \tag{2}$$ In practice we
+values of the function
+$$y(t) = f(t) + e(t). \tag{2}$$
+In practice we
 shall have these data only at discrete times which we suppose for the
 moment to be equally spaced at integer values of $t$; and over a finite
 interval $2T$. Thus our data consist of $N = (2T + 1)$ values
-$$D = \{y(t), -T \le t \le T\}, \tag{3}$$ and we assign the
+$$D = \{y(t), -T \le t \le T\}, \tag{3}$$
+and we assign the
 aforementioned independent gaussian joint probability distribution for
 the values of the noise $e(t)$ at the corresponding times, taking each
 $e(t) \sim N(0, \sigma)$ where the variance $\sigma^2$ is supposed
 known.
+
 We have gone to some length to explain our basis for choosing this noise
 distribution because it is a matter of much confusion, different schools
 of thought holding diametrically opposite views as to whether this is or
 is not a restrictive assumption. In fact, this confusion is so great
 that the rationale of our choice still requires further discussion,
 continued in Appendix B.
+
 Whatever school of thought one favors, our equations will be just the
 same; only our judgments of their range of validity will differ. Given
 any true signal $f(t)$, the probability (density) that we shall obtain
@@ -468,13 +480,13 @@ $$p(D|A, \omega, \alpha, \theta, \sigma) = \prod_{t=-T}^{T} \frac{1}{\sqrt{2\pi 
 which is our sampling distribution. Conversely, given $\sigma$ and the
 data $D$, the joint likelihood of the unknown parameters is
 $$L(A, \omega, \alpha, \theta) \propto \exp \left\{ -\frac{1}{2\sigma^2} \sum_{t=-T}^{T} [y(t) - A \cos(\omega t + \alpha t^2 + \theta)]^2 \right\} \tag{5}$$
-
 In analysis of discrete time series, the mathematics has tended to get
 cluttered with minute details about \"end effects\" associated with the
 exact limits of summation. But this is only a notational problem; we can
 remove the clutter with no loss of precision if we adopt the convention
 (call it \"infinite padding with zeroes\" if you like):
-$$y_t = y(t) = 0, \quad |t| \ge T. \tag{6}$$ Then all our sums of
+$$y_t = y(t) = 0, \quad |t| \ge T. \tag{6}$$
+Then all our sums of
 functions $K(y_t)$ over time indices can take the form $\sum K_t$,
 understood to run over $(-\infty < t < \infty)$. In this notation, which
 we use henceforth, all those little details are present automatically,
@@ -499,13 +511,13 @@ theory of seasonal adjustment, to be given elsewhere[^2] yields a new
 demonstration of the power of prior information to improve our
 estimates; we invite intuitionists to discover it without Bayesian
 methods.
+
 # THE PHASELESS LIKELIHOOD FUNCTION
 We shall consider the exact relations later when we generalize to many
 signals,[^3] but for the moment we make an approximation which we
 believe to be generally accurate and harmless (although with obvious
 exceptions like $\omega = \alpha = 0$, or $\omega = \pi, \alpha = 0$:
 $$\sum_t \cos^2(\omega t + \alpha t^2 + \theta) \approx (2T + 1)/2 = N/2. \tag{8}$$
-
 Values of $\alpha$ differing by $2\pi$ are indistinguishable in this
 discrete sampled data; i.e. chirp aliasing, like frequency aliasing,
 confines us to the domain $(-\pi < \alpha \le \pi)$.
@@ -521,6 +533,8 @@ phaseless likelihood (or quasi-likelihood) function
 $$L(A, \omega, \alpha) = \exp \left( -\frac{N A^2}{4\sigma^2} \right) I_0 \left( \frac{A \sqrt{N C(\omega, \alpha)}}{\sigma^2} \right) \tag{10}$$
 where $I_0(x) = -i J_0(ix)$ is a Bessel function[^4] and
 $$C(\omega, \alpha) = N^{-1} \sum_{t,s} y_t y_s \cos[\omega(t-s) + \alpha(t^2-s^2)]. \tag{11}$$
+$$L(A, \omega) = \exp \left( -\frac{N A^2}{4\sigma^2} \right) I_0 \left( \frac{A \sqrt{N C(\omega, 0)}}{\sigma^2} \right). \tag{12}$$
+
 # DISCUSSION -- MEANING OF THE CHIRPOGRAM
 The form of (10) already provides some (at least to the writer)
 unexpected insight. Given any sampling distribution, a likelihood or
@@ -556,8 +570,10 @@ The chirpogram appears less strange if we note that when $\alpha = 0$ it
 reduces to
 $$C(\omega, 0) = N^{-1} \sum_{ts} y_t y_s \cos \omega(t-s) = N^{-1} \left| \sum_t y_t e^{i\omega t} \right|^2 = \sum_t R(t) \cos \omega t \tag{13}$$
 where $R(t)$ is the data autocovariance:
-$$R(t) = N^{-1} \sum_s y_s y_{s+t}. \tag{14}$$ Thus $C(\omega, 0)$ is
+$$R(t) = N^{-1} \sum_s y_s y_{s+t}. \tag{14}$$
+Thus $C(\omega, 0)$ is
 just the periodogram of Schuster (1897).
+
 For nearly a Century, therefore, the calculation of $C(\omega, 0)$ has
 seemed, intuitively, the thing to do in analyzing a stationary power
 spectrum. However, the results were never satisfactory. At first one
@@ -565,6 +581,7 @@ tried to interpret $C(\omega, 0)$ as an estimate of the power spectrum
 of the sampled signal. But the periodograms of real data appeared to the
 eye as too wiggly to believe, and in some problems the details of those
 wiggles varied erratically from one data set to another.
+
 Intuition then suggested that some kind of smoothing of the wiggles is
 called for. Blackman and Tukey (1958; hereafter denoted B-T) recognized
 the wiggles as in part spurious side-lobes, in part beating between
@@ -573,7 +590,8 @@ estimated power spectrum with a more pleasing appearance, which one
 therefore feels has more
 truth in it, by introducing a lag window function $W(t)$, which cuts off
 the contributions of large $t$ in (13), giving the B-T spectrum estimate
-$$P(\omega)_{BT} = \sum_{t=-m}^{m} W(t)R(t) \cos \omega t, \tag{15}$$ in
+$$P(\omega)_{BT} = \sum_{t=-m}^{m} W(t)R(t) \cos \omega t, \tag{15}$$
+in
 which we use only autocovariances determined from the data up to some
 lag $m$ which may be a small fraction of the record length $N$.
 
@@ -630,7 +648,6 @@ convert $C(\omega, 0)$ into a power spectrum estimate is a nonlinear
 operation much like exponentiation followed by renormalization, an
 approximation being:[^6]
 $$\hat{P}(\omega) \propto \exp \left[ \frac{C(\omega,0)}{\sigma^2} \right]$$
-
 This will suppress those spurious wiggles at the bottom of the
 periodogram as well as did the B-T linear smoothing; but it will do it
 by attenuation rather than smearing, and will therefore not lose any
@@ -745,27 +762,27 @@ trivial in a Bayesian analysis (although impossible in an AR analysis).
 Therefore, we now reconsider at some length the \"old\" problem of
 conventional pre-entropy spectrum estimation of a signal in noise, from
 this \"new\" viewpoint.
+
 # POWER SPECTRUM ESTIMATES
 The terms \"power spectrum\" and \"power spectrum estimator\" can be
 defined in various ways. Also, we need to distinguish between the quite
 different goals of estimating a power spectral density, estimating the
 power in a spectrum line, and estimating the frequencies present.
 In calling $P(\omega)$ an estimate of the power spectral density we mean
-that $$\int_a^b P(\omega) d\omega \tag{16}$$ is the expectation, over
+that
+$$\int_a^b P(\omega) d\omega \tag{16}$$
+is the expectation, over
 the joint posterior distribution for all the unknown parameters, of the
 energy carried by the signal $f(t)$, (not the noise), in the frequency
 band ($a \le \omega \le b$), in the observation time $N = 2T + 1$. The
 true total energy carried by the signal (1) is $NA^2/2$, and given data
 $D$ we can write its expectation as
 $$(N/2)E(A^2|D, I) = (N/2) \int_0^\infty d\omega \int_0^\infty dA A^2 \int_{-\pi}^\pi d\alpha \, p(A, \omega, \alpha | D,I). \tag{17}$$
-
 For formal reasons it is convenient to define our spectrum as extending
 over both positive and negative frequencies; thus (17) should be equated
 to the integral (16) over $(-\pi, \pi)$. Therefore our power spectrum
 estimate is
-
 $$P(\omega) = (N/2) \int dAA^2 \int_{-\pi}^\pi d\omega \, p(A, \omega, \alpha|D,I), \quad (-\pi < \omega < \pi) \tag{18}$$
-
 To define a power spectrum only over positive frequencies (as would be
 done experimentally), one should take instead
 $P_+(\omega) = 2P(\omega), 0 \le \omega < \pi$.
@@ -813,24 +830,26 @@ Setting $\alpha = 0$ in (10) gives the joint likelihood $L(A, \omega)$.
 Not using prior information (i.e. using flat prior densities for
 $A, \omega$) our spectrum estimator is then
 $$\hat{P}(\omega) = \frac{(N/2) \int_0^\infty dA A^2 L(A,\omega)}{\int_{-\pi}^{\pi} d\omega \int_0^\infty dAL(A,\omega)} \tag{20}$$
-
 Note that this can be factored:
 $$\hat{P}(\omega) = \left\{ \frac{(N/2) \int_0^\infty dA A^2 L(A,\omega)}{\int_0^\infty dAL(A,\omega)} \right\} \left\{ \frac{\int_0^\infty dAL(A,\omega)}{\int_{-\pi}^{\pi} d\omega \int_0^\infty dAL(A,\omega)} \right\} \tag{21}$$
 or,
 $$\hat{P}(\omega) = (N/2)E(A^2|\omega DI) \cdot p(\omega|DI). \tag{22}$$
-
 In words: $P(\omega) =$ (conditional expectation of energy given
 $\omega$) $\times$ (posterior probability density for $\omega$ given the
 data). Both factors may be of special interest so we evaluate them
 separately. In Appendix C we derive
 $$(N/2)E(A^2|\omega DI) = \sigma^2 \left[ 1 + 2q + 2q \frac{I_1(q)}{I_0(q)} \right] \tag{23}$$
-where $$q(\omega) \equiv C(\omega,0)/2\sigma^2. \tag{24}$$ This has two
-limiting forms: $$(N/2)E(A^2|DI) \rightarrow
+where
+$$q(\omega) \equiv C(\omega,0)/2\sigma^2. \tag{24}$$
+This has two
+limiting forms:
+$$(N/2)E(A^2|DI) \rightarrow
 \begin{cases}
 2C(\omega,0), & C(\omega,0) > 2\sigma^2 \\\\
 \sigma^2 + C(\omega,0), & C(\omega,0) \ll \sigma^2
 \end{cases}.
-\tag{25}$$ The second case is unlikely to arise, because it would mean
+\tag{25}$$
+The second case is unlikely to arise, because it would mean
 that the signal and noise have, by chance, nearly cancelled each other
 out. But if this should happen, Bayes' theorem recognizes automatically
 that the reasonable estimate of signal energy is no longer
@@ -840,7 +859,6 @@ extremely unlikely to notice.
 
 From Appendix C the second factor in (21) is
 $$p(\omega|DI) = \frac{\exp(q)I_0(q)}{\int_{-\pi}^{\pi} \exp(q)I_0(q) d\omega} \tag{26}$$
-
 This answers the question: "Conditional on the data, what is the
 probability that the signal frequency lies in the range
 $(\omega, \omega+d\omega)$ irrespective of its amplitude?" In many
@@ -852,14 +870,13 @@ of interest.
 Combining (23) and (26) we have the explicit Bayesian power spectrum
 estimate
 $$P(\omega) = \sigma^2 \frac{[(1+2q)I_0(q) + 2qI_1(q)]\exp(q)}{\int_{-\pi}^{\pi} \exp(q)I_0(q) d\omega} \tag{27}$$
-
 A graph of the nonlinear processing function
-$$f(q) = [(1+2q)I_0(q) + 2qI_1(q)]\exp(q) \tag{28}$$ shows it close to
+$$f(q) = [(1+2q)I_0(q) + 2qI_1(q)]\exp(q) \tag{28}$$
+shows it close to
 the asymptotic form $(8/\pi q)^{1/2} \exp(2q)$ over most of the range
 likely to appear; in most cases we would not make a bad approximation if
 we replaced (27) by
 $$P(\omega) = \sigma^2 \frac{4q\exp(2q)}{\int_{-\pi}^{\pi} \exp(2q)d\omega} \tag{29}$$
-
 Whenever the data give evidence for a signal well above the noise level
 \[i.e. $C(\omega,0)$ reaches a global maximum
 $C_{max} = C(\hat{\omega},0) \gg \sigma^2$\], then
@@ -867,6 +884,7 @@ $q_{max} = C_{max}/\sigma^2 \gg 1$ and most of the contribution to the
 integral in the denominator of (27) will come from the neighborhood of
 this greatest peak. Expanding
 $$q(\omega) = q_{max} - q^{\prime\prime}(\omega-\nu)^2/2 + \cdots \tag{30}$$
+
 # EXTENSION TO CHIRP
 and using saddle-point integration we have then
 $$\int_{-\pi}^{\pi} e^q I_0(q) d\omega \approx 2(q_{max}q^{\prime\prime})^{-1/2} \exp(2q_{max}) \tag{31}$$
@@ -877,25 +895,29 @@ where $\delta\omega = (q^{\prime\prime})^{-1/2}$ is the accuracy with which the
 frequency can be estimated. Comparing with the factorization (22) we see
 that the Gaussian is the posterior distribution for $\omega$, while the
 first factor, the estimated total energy in the line, is:
-$$\int_0^\infty \hat{P}_+(\omega) d\omega = 2C_{max}. \tag{33}$$ in
+$$\int_0^\infty \hat{P}_+(\omega) d\omega = 2C_{max}. \tag{33}$$
+in
 agreement with (25).
 
 As a further check, suppose we have a pure sinusoid with very little
-noise: $$y_t = A \cos \nu t + e_t, \quad A \gg \sigma \tag{34}$$ Then
+noise:
+$$y_t = A \cos \nu t + e_t, \quad A \gg \sigma \tag{34}$$
+Then
 the autocovariance (14) is approximately
-$$R(t) \approx (A^2/2) \cos \nu t \tag{35}$$ and so from (13)
+$$R(t) \approx (A^2/2) \cos \nu t \tag{35}$$
+and so from (13)
 $$C_{max} = C(\nu,0) = (A^2/2) \sum_t \cos^2 \nu t = N A^2/4 \tag{36}$$
 so $2C_{max} = NA^2/2$ is indeed the correct total energy carried by the
 signal in the observation time. Likewise,
 $$\sigma^2 q^{\prime\prime} = \sum_t t^2 R(t) \cos \nu t \approx N^3 A^2 / 48 \tag{37}$$
 which gives the width
 $$\delta\omega \approx \frac{\sigma}{N} \sqrt{\frac{12}{C_{max}}} \tag{38}$$
-
 These relations illustrate what we stressed above; in this problem the
 periodogram $C(\omega,0)$ is not even qualitatively an estimate of the
 power spectral density. Rather, when $C$ reaches a peak above the noise
 level, thus indicating the probable presence of a spectrum line, its
 peak value $2C_{max}$ is an estimate of the total energy in the line.
+
 Let $P(\omega, \alpha)d\omega d\alpha$ be the expectation of energy
 carried by the signal $f(t)$ in an element $d\omega d\alpha$ of the
 frequency-chirp plane. From (14) the frequency-chirp density estimator
@@ -905,7 +927,6 @@ $$P(\omega, \alpha) = \frac{f(q)}{\int d\omega \int d\alpha e^q I_0(q)} \tag{39}
 where $f(q)$ is the same nonlinear processing function (28), except that
 now in place of (24) we have
 $$q \equiv q(\omega, \alpha) = C(\omega, \alpha)/2\sigma^2. \tag{40}$$
-
 As in (27), any peaks of $C(\omega, \alpha)$ that rise above the noise
 level will be strongly emphasized, indicating high probability of a
 signal.
@@ -932,6 +953,7 @@ important contingencies (a target that is approaching is a potential
 collision, one dead ahead approaching at the flight speed is a
 stationary object, a potential landing site, one moving away rapidly is
 uninteresting, one moving away slowly may be a moth, a potential meal).
+
 # MANY SIGNALS
 In the above we made what seems a strong assumption, that only one
 signal $f(t) = A \cos(\omega t + \alpha t^2 + \theta)$ is present, and
@@ -977,6 +999,7 @@ then it is possible for power to be in two different bands
 simultaneously and it is not obvious without calculation whether the
 correlations in energy transport in different bands is positive or
 negative.
+
 If now we suppose that three signals may be present, the answers to
 questions (A) and (B) will not be affected; it makes a difference only
 when we ask a still more complicated question, involving joint
@@ -989,15 +1012,18 @@ and so on! In conventional spectrum estimation one asks only question
 however many signals may be present. Our seemingly unrealistic
 assumption makes a difference only when we ask more complicated
 questions.
+
 In this Section we prove these statements, or at least give the general
 solution from which they can be proved. For the moment we leave out the
 chirp; it is now clear how we can add it easily to the final results.
 The signal to be analyzed is a superposition of $n$ signals like (1):
-$$f(t) = \sum_{m=1}^n A_m \cos(\omega_m t + \theta_m) \tag{41}$$ sampled
+$$f(t) = \sum_{m=1}^n A_m \cos(\omega_m t + \theta_m) \tag{41}$$
+sampled
 at instants $(t_1 \dots t_N)$, which need not be uniformly spaced (our
 previous equally spaced version is recovered if we make the particular
 choice $t_m = -T+m-1$). Using the notation
-$$f_m \equiv f(t_m) \tag{42}$$ the joint likelihood for the parameters
+$$f_m \equiv f(t_m) \tag{42}$$
+the joint likelihood for the parameters
 is now
 $$L(A_i, \omega_i, \theta_i, \sigma) = \sigma^{-N} \exp \left[ -\frac{1}{2\sigma^2} \sum_{m=1}^N (y_m - f_m)^2 \right] = \sigma^{-N} \exp \left[ -\frac{N}{2\sigma^2} (\overline{y^2} + Q) \right] \tag{43}$$
 with the quadratic form
@@ -1006,7 +1032,6 @@ in which, as always, we use overbars to denote averages over the data:
 $$\overline{y^2} = N^{-1} \sum_{m=1}^N y_m^2 \tag{45}$$
 $$\overline{yf} = N^{-1} \sum_m y_m f_m \tag{46}$$
 $$\overline{f^2} = N^{-1} \sum_m f_m^2. \tag{47}$$
-
 To rewrite $Q$ as an explicit function of the parameters, define the
 function
 $$x(\omega) \equiv N^{-1} \sum_{m=1}^N y_m \exp(i\omega t_m) \tag{48}$$
@@ -1015,26 +1040,26 @@ $$d_j \equiv Re [x(\omega_j) e^{i\theta_j}] = N^{-1} \sqrt{NC(\omega_j,0)} \cos(
 where we have used Appendix C to write it in terms of the periodogram;
 and the matrix
 $$M_{jk} \equiv N^{-1} \sum_{m=1}^N \cos(\omega_j t_m + \theta_j) \cos(\omega_k t_m + \theta_k), \quad 1 \le j,k \le n \tag{50}$$
-
-Then $$\overline{yf} = \sum_{j=1}^n d_j A_j \tag{51}$$
-$$\overline{f^2} = \sum_{j,k=1}^n M_{jk} A_j A_k \tag{52}$$ and the
+Then
+$$\overline{yf} = \sum_{j=1}^n d_j A_j \tag{51}$$
+$$\overline{f^2} = \sum_{j,k=1}^n M_{jk} A_j A_k \tag{52}$$
+and the
 quadratic form (44) is
-$$Q = \sum_{jk} M_{jk} A_j A_k - 2 \sum_j d_j A_j \tag{53}$$ The
+$$Q = \sum_{jk} M_{jk} A_j A_k - 2 \sum_j d_j A_j \tag{53}$$
+The
 likelihood (43) will factor in the desired way if we complete the square
 in $Q$. Define the quantities $(\hat{A}_1 \dots \hat{A}_n)$ by
 $$d_j = \sum_{k=1}^n M_{jk} \hat{A}_k, \quad 1 \le j \le n \tag{54}$$
 and note that, if the inverse matrix $M^{-1}$ exists,
 $$\sum_j d_j \hat{A}_j = \sum_{jk} M_{jk} \hat{A}_j \hat{A}_k = \sum_{kj} M_{kj}^{-1} d_k d_j. \tag{55}$$
-
 Then
 $$Q = \sum_{jk} M_{jk} (A_j - \hat{A}_j)(A_k - \hat{A}_k) - \sum_{jk} M_{jk}^{-1} \hat{A}_j \hat{A}_k \tag{56}$$
 and the joint likelihood function splits into three factors:
-$$L = L_1 L_2 L_3 \tag{57}$$ with
-
+$$L = L_1 L_2 L_3 \tag{57}$$
+with
 $$L_1 = \sigma^{-N} \exp(-N\overline{y^2}/2\sigma^2) \tag{58}$$
 $$L_2 = \exp \left\{ -\frac{N}{2\sigma^2} \sum_{jk} M_{jk} (A_j - \hat{A}_j)(A_k - \hat{A}_k) \right\} \tag{59}$$
 $$L_3 = \exp \left\{ +\frac{N}{2\sigma^2} \sum_{jk} M_{jk} \hat{A}_j \hat{A}_k \right\}. \tag{60}$$
-
 If $\sigma$ is known, the factor $L_1$ may be dropped, since it will be
 absorbed into the normalization constant of the joint posterior
 distribution for the other parameters. If $\sigma$ is unknown, then it
@@ -1055,10 +1080,10 @@ automatically in the process of integrating $\sigma$ out of the problem.
 To see this, note that from (43) when we integrate out $\sigma$ the
 quasi-likelihood for the remaining parameters becomes
 $$\int_0^\infty L \, d\sigma/\sigma \propto [1 + (Q/\overline{y^2})]^{-N/2}. \tag{61}$$
-
 But when $N$ is reasonably large (i.e. we have enough data to permit a
 reasonably good estimate of $\sigma$), this is nearly the same as
-$$\exp(-NQ/2\overline{y^2}). \tag{62}$$ In its dependence on
+$$\exp(-NQ/2\overline{y^2}). \tag{62}$$
+In its dependence on
 $\{A_i, \omega_i, \theta_i\}$ this is just (43) with $\sigma^2$ replaced
 by $\overline{y^2}$. Thus, in effect, if we tell Bayes' theorem: "I'm
 sorry, I don't know what $\sigma^2$ is!\" it replies to us, "That's all
@@ -1082,7 +1107,6 @@ frequencies and phases:
 $$p(\{A_j\}|\{\omega_j, \theta_j\}, D, I) \propto \exp \left\{ -\frac{N}{2\sigma^2} \sum_{jk} M_{jk} (A_j - \hat{A}_j)(A_k - \hat{A}_k) \right\} \tag{64}$$
 and the joint marginal posterior density for the frequencies and phases:
 $$p(\{\omega_j, \theta_j\}|DI) \propto \exp \left\{ +\frac{N}{2\sigma^2} \sum_{jk} M_{jk} \hat{A}_j \hat{A}_k \right\}. \tag{65}$$
-
 Eq. (64) says that $\hat{A}_j$ is the estimate of the amplitude $A_j$
 that we should make, given the frequencies and phases
 $\{\omega_j, \theta_j\}$, and (65) says that the most probable values of
@@ -1112,10 +1136,10 @@ Here we shall examine only the opposite limit, that of frequencies
 spaced far enough apart to be resolved, which of course requires that
 the number $n$ of signals is not greater than the number $N$ of
 observations. If our sampling points are equally spaced:
-$$t_m = -(T+1)+m, \quad 1 \le m \le N, \quad 2T+1=N \tag{66}$$ then
+$$t_m = -(T+1)+m, \quad 1 \le m \le N, \quad 2T+1=N \tag{66}$$
+then
 $M_{jk}$ reduces to
 $$M_{jk} = N^{-1} \sum_{t=-T}^T \cos(\omega_j t + \theta_j) \cos(\omega_k t + \theta_k). \tag{67}$$
-
 The diagonal elements are
 $$M_{jj} = \frac{1}{2} + \frac{\sin N\omega_j}{2N \sin\omega_j} \cos 2\theta_j, \quad 1 \le j \le n \tag{68}$$
 in which the second term becomes appreciable only when
@@ -1124,13 +1148,15 @@ our frequencies to be positive, in $(0, \pi)$, then the terms in (67)
 with $(\omega_j + \omega_k)$ will never become large, and the
 off-diagonal elements are
 $$M_{jk} \approx \frac{\sin N u}{2N \sin u} \cos(\theta_j - \theta_k) + O(N^{-1}) \tag{69}$$
-
 where $u \equiv (\omega_j - \omega_k)/2$. This becomes of order unity
 only when the two frequencies are too close to resolve and that merging
 phenomenon begins. Thus as long as the frequencies $\omega_j$ are so
-well separated that $$N|\omega_j - \omega_k| \gg 1 \tag{70}$$ a good
+well separated that
+$$N|\omega_j - \omega_k| \gg 1 \tag{70}$$
+a good
 approximation will be simply
-$$M_{jk} \simeq (1/2) \delta_{jk} \tag{71}$$ and the above relations
+$$M_{jk} \simeq (1/2) \delta_{jk} \tag{71}$$
+and the above relations
 simplify drastically. The amplitude estimates reduce to, from (49),
 $$\hat{A}_j = 2d_j = 2N^{-1} \sqrt{NC(\omega_j, 0)} \cos(\theta_j + \psi_j) \tag{72}$$
 and the joint posterior density for the frequencies and phases is
@@ -1160,7 +1186,6 @@ the same $I_0(q)$ Bessel functions as before; and writing
 $q_j = C(\omega_j,0)/2\sigma^2$, our final results are:
 $$p(\{\omega_j\}|D,I) \propto \prod_{j=1}^n e^{q_j} I_0(q_j) \tag{75}$$
 $$p(\{A_j, \omega_j\}|D,I) \propto \prod_{j=1}^n \exp(-NA_j^2/4\sigma^2) I_0[A_j \sqrt{NC(\omega_j,0)}/\sigma^2]. \tag{76}$$
-
 But these are just products of independent distributions identical with
 our previous single-signal results (10), (26). We leave it as an
 exercise for the reader to show from this that our previous
@@ -1172,6 +1197,7 @@ need only replace $C(\omega_j,0)$ by $C(\omega_j, \alpha_j)$ in these
 results, and we shall get the same answers as before to any question
 about frequency and chirp that involves individual signals, but not
 correlations between different signals.
+
 # CONCLUSION
 Although the theory presented here is only the first step of the
 development that is visualized, we have thought it useful to give an
@@ -1195,6 +1221,7 @@ We could expand the example studied here to many volumes without
 exhausting all the interesting and useful detail contained in the
 general solution - almost none of which was anticipated by sampling
 theory or intuition.
+
 # APPENDIX A: OCEANOGRAPHIC CHIRP {#appendix-a-oceanographic-chirp .unnumbered}
 We illustrate the phase cancellation phenomenon, for the spectral
 snapshot method described in the text, as follows. That method
@@ -1203,13 +1230,13 @@ $\{y_t: -T \le t \le T\}$, or possibly a Blackman-Tukey smoothing of it
 (the difference, affecting only the quantitative details, is not crucial
 for the point to be made here). The periodogram is
 $$X(\omega) = N^{-1} \left| \sum_t y_t e^{i\omega t} \right|^2. \tag{A1}$$
-
 If $y_t$ is a sinusoid of fixed frequency $\nu$:
-$$y_t = A \cos(\nu t + \theta) \tag{A2}$$ then the periodogram reaches
+$$y_t = A \cos(\nu t + \theta) \tag{A2}$$
+then the periodogram reaches
 its peak value at or very near the true frequency:
-$$X(\nu) = NA^2/4. \tag{A3}$$ But if the signal is chirped:
+$$X(\nu) = NA^2/4. \tag{A3}$$
+But if the signal is chirped:
 $$y_t = A \cos(\nu t + \alpha t^2 + \theta) \tag{A4}$$
-
 then the periodogram (A1) is reduced, broadened, and distorted. Its
 value at the center frequency is only about
 $$X(\nu) = (NA^2/4) \left| N^{-1} \sum_t e^{i\alpha t^2} \right|^2 \tag{A5}$$
@@ -1221,7 +1248,6 @@ Fresnel integral, from whose analytic properties we may infer that when
 $\alpha T^2 \ge 1$, $X(\nu)$ will be reduced below (A3) by a factor of
 about
 $$(\pi/4\alpha T^2) [1 - (2/\pi\alpha T^2)^{1/2} \cos(\alpha T^2 + \pi/4) + O(T^{-2})] \tag{A6}$$
-
 It is clear from inspection of (A5) that the reduction is not severe if
 $\alpha T^2 \le 1$, but (A6) shows that it can essentially wipe out the
 signal if $\alpha T^2 \gg 1$.
@@ -1300,6 +1326,7 @@ across the data record, the chirpogram should reach the full maximum
 (A3), without amplitude degradation or broadening, at the true center
 frequency and chirp rate; and should therefore provide a much more
 sensitive and accurate data analysis procedure.
+
 # APPENDIX B: WHY GAUSSIAN NOISE? {#appendix-b-why-gaussian-noise .unnumbered}
 In what L. J. Savage (1954) called the \"objectivist\" school of
 statistical thought (nowadays more often called \"orthodox\" or
@@ -1417,16 +1444,22 @@ methods is now so overwhelming that nobody concerned with data analysis
 methods, far from conflicting with the goals and principles expounded by
 Tukey, represent their explicit quantitative realization, which
 intuition could only approximate in a crude way.
+
 # APPENDIX C: DETAILS OF CALCULATIONS {#appendix-c-details-of-calculations .unnumbered}
 *Derivation of the Chirpogram.* Expanding the cosine in (9) we have
 $$\sum_t y_t \cos(\omega t + \alpha t^2 + \theta) = P \cos\theta - Q \sin\theta = (P^2 + Q^2)^{1/2} \cos[\theta + \tan^{-1}(Q/P)] \tag{C1}$$
-where $$P = \sum_t y_t \cos(\omega t + \alpha t^2) \tag{C2}$$
-$$Q = \sum_t y_t \sin(\omega t + \alpha t^2) \tag{C3}$$ But
-$(P^2 + Q^2)$ can be written as the double sum $$\begin{aligned}
+where
+$$P = \sum_t y_t \cos(\omega t + \alpha t^2) \tag{C2}$$
+$$Q = \sum_t y_t \sin(\omega t + \alpha t^2) \tag{C3}$$
+But
+$(P^2 + Q^2)$ can be written as the double sum
+$$\begin{aligned}
 P^2 + Q^2 &= \sum_{t,s} y_t y_s [\cos(\omega t + \alpha t^2) \cos(\omega s + \alpha s^2) + \sin(\omega t + \alpha t^2) \sin(\omega s + \alpha s^2)] \notag \\\\
 &= \sum_{t,s} y_t y_s [\cos \omega(t-s) + \alpha(t^2-s^2)] \tag{C4}
-\end{aligned}$$ Therefore, defining $C(\omega, \alpha)$ as
-$$C(\omega, \alpha) \equiv N^{-1}(P^2 + Q^2) \tag{C5}$$ and substituting
+\end{aligned}$$
+Therefore, defining $C(\omega, \alpha)$ as
+$$C(\omega, \alpha) \equiv N^{-1}(P^2 + Q^2) \tag{C5}$$
+and substituting
 (C1), (C4) into (9), the integral (7) over $\theta$ is the standard
 integral representation of the Bessel function:
 $$I_0(x) = (2\pi)^{-1} \int_0^{2\pi} \exp(x \cos\theta) d\theta \tag{C6}$$
@@ -1441,6 +1474,7 @@ $q = C(\omega,0)/2\sigma^2$. Thus (C5) and (C6) become
 $$\int_0^\infty dAL(A, \omega) = \sqrt{\frac{\pi\sigma^2}{N}} e^q I_0(q) \tag{C9}$$
 $$\int_0^\infty dA A^2 L(A, \omega) = 2\sigma^3 \sqrt{\frac{\pi}{N^3}} [(1+2q)I_0(q) + 2qI_1(q)] e^q \tag{C10}$$
 from which (18), (20) of the text follow.
+
 # REFERENCES {#references .unnumbered}
 - N. F. Barber & F. Ursell (1948), \"The Generation and Propagation of
 Ocean Waves and Swell\", Phil. Trans. Roy. Soc. London, **A240**, pp

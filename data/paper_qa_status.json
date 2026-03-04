@@ -1,278 +1,281 @@
 {
   "content_dir": "content/papers",
+  "counts": {
+    "pending": 94
+  },
   "files": {
     "content/papers/AJP00180.md": {
-      "attempts": 1,
+      "attempts": 3,
       "error": null,
-      "last_run_utc": "2026-03-04T15:24:05+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "last_run_utc": "2026-03-04T16:47:56+00:00",
+      "return_code": null,
+      "status": "running"
     },
     "content/papers/ambiguity.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:25:21+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/applications.md": {
       "attempts": 2,
       "error": null,
       "last_run_utc": "2026-03-04T15:29:21+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/backward.look.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:33:21+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/bayes.again.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:35:35+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/bayesian.methods.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:37:02+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/brain.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:39:17+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/brandeis.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:40:47+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/ccarnot.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:42:34+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cchirp.md": {
-      "attempts": 1,
+      "attempts": 2,
       "error": null,
-      "last_run_utc": "2026-03-04T15:44:53+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "last_run_utc": "2026-03-04T16:43:33+00:00",
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cgap.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:45:20+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cinfscat.md": {
       "attempts": 2,
       "error": null,
       "last_run_utc": "2026-03-04T15:52:18+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/circuit.analysis.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:53:22+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cmonkeys.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:55:00+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cmystery.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:56:40+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/comment.on.neisser.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:56:56+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/commentary.on.los.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:58:21+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/comparison.qm.scr.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T15:59:50+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/concept.and.measurement.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:00:27+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/confidence.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:01:46+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/cplanets.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:03:58+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/craddis.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:04:35+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/displacement.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:05:04+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/disturbing.memory.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:07:14+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/einstein.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:08:29+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/electrodynamics.today.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:09:57+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/entropy.concentration.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:12:10+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/entropy.in.economics.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:13:16+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/foundations.of.prob.st.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:15:59+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/general.background.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:17:10+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/general.relationship.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:17:53+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/ghost.modes.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:19:29+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/gibbs.paradox.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:21:28+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/gibbs.vs.boltzmann.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:22:40+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/groups.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:23:23+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/gyromagnetic.effects.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:24:29+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/highly.informative.priors.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:26:26+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/history.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:28:32+00:00",
-      "return_code": 0,
-      "status": "completed"
+      "return_code": null,
+      "status": "pending"
     },
     "content/papers/inadequacy.md": {
       "attempts": 1,
       "error": null,
       "last_run_utc": "2026-03-04T16:28:32+00:00",
       "return_code": null,
-      "status": "running"
+      "status": "pending"
     },
     "content/papers/irreversible.stat.mac.md": {
       "attempts": 0,
@@ -660,7 +663,8 @@
       "status": "pending"
     }
   },
-  "last_run_started_utc": "2026-03-04T15:47:40+00:00",
+  "last_run_finished_utc": null,
+  "last_run_started_utc": "2026-03-04T16:47:56+00:00",
   "repo_root": "/home/dave/Projects/jaynes-archive",
   "schema_version": 1,
   "state_file": "data/paper_qa_status.json"

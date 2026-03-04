@@ -6,13 +6,13 @@
   },
   "files": {
     "content/papers/AJP00180.md": {
-      "attempts": 17,
-      "duration_sec": 0.639,
+      "attempts": 18,
+      "duration_sec": 0.686,
       "error": null,
-      "last_run_utc": "2026-03-04T16:31:11+00:00",
+      "last_run_utc": "2026-03-04T16:46:25+00:00",
       "output_pdf": "static/pdfs/clean/AJP00180.pdf",
       "return_code": 0,
-      "source_url": "http://127.0.0.1:59137/papers/ajp00180/",
+      "source_url": "http://127.0.0.1:46543/papers/ajp00180/",
       "status": "completed"
     },
     "content/papers/ambiguity.md": {
@@ -946,8 +946,8 @@
       "status": "pending"
     }
   },
-  "last_run_finished_utc": "2026-03-04T16:31:11+00:00",
-  "last_run_started_utc": "2026-03-04T16:31:09+00:00",
+  "last_run_finished_utc": "2026-03-04T16:46:25+00:00",
+  "last_run_started_utc": "2026-03-04T16:46:24+00:00",
   "log_dir": ".run_logs/paper_clean_pdf_logs",
   "output_dir": "static/pdfs/clean",
   "repo_root": "/home/dave/Projects/jaynes-archive",
