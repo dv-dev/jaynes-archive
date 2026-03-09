@@ -1,13 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/stand.on.entropy/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/stand.on.entropy.html
+source_url: http://127.0.0.1:39285/papers/stand.on.entropy/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/stand.on.entropy.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
-duration_sec: 2.784
+duration_sec: 4.707
 
 === STDOUT ===
 
 
 === STDERR ===
-1372778 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
-[225539:225567:0304/160931.748718:ERROR:google_apis/gcm/engine/registration_request.cc:292] Registration response error message: PHONE_REGISTRATION_ERROR
-[225539:225567:0304/160931.757160:ERROR:google_apis/gcm/engine/registration_request.cc:292] Registration response error message: PHONE_REGISTRATION_ERROR
+1379404 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
 

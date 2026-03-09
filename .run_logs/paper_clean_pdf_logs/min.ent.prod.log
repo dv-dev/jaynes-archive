@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/min.ent.prod/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/min.ent.prod.html
+source_url: http://127.0.0.1:39285/papers/min.ent.prod/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/min.ent.prod.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/min.ent.prod.pdf
-duration_sec: 1.048
+duration_sec: 1.092
 
 === STDOUT ===
 
 
 === STDERR ===
-363440 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/min.ent.prod.pdf
+364429 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/min.ent.prod.pdf
 

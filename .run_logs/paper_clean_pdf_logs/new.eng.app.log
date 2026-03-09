@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/new.eng.app/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/new.eng.app.html
+source_url: http://127.0.0.1:39285/papers/new.eng.app/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/new.eng.app.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/new.eng.app.pdf
-duration_sec: 1.143
+duration_sec: 1.234
 
 === STDOUT ===
 
 
 === STDERR ===
-374906 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/new.eng.app.pdf
+369426 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/new.eng.app.pdf
 

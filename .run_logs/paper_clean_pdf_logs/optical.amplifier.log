@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/optical.amplifier/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/optical.amplifier.html
+source_url: http://127.0.0.1:39285/papers/optical.amplifier/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/optical.amplifier.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/optical.amplifier.pdf
-duration_sec: 0.789
+duration_sec: 0.775
 
 === STDOUT ===
 
 
 === STDERR ===
-251338 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/optical.amplifier.pdf
+252799 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/optical.amplifier.pdf
 

@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/radiative.effects/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/radiative.effects.html
+source_url: http://127.0.0.1:39285/papers/radiative.effects/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/radiative.effects.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/radiative.effects.pdf
-duration_sec: 1.226
+duration_sec: 1.409
 
 === STDOUT ===
 
 
 === STDERR ===
-343096 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/radiative.effects.pdf
+346649 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/radiative.effects.pdf
 

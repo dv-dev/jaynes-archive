@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/brain/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/brain.html
+source_url: http://127.0.0.1:39285/papers/brain/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/brain.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/brain.pdf
-duration_sec: 0.92
+duration_sec: 1.434
 
 === STDOUT ===
 
 
 === STDERR ===
-443178 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/brain.pdf
+440608 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/brain.pdf
 

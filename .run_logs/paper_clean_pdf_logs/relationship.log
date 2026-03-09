@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/relationship/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/relationship.html
+source_url: http://127.0.0.1:39285/papers/relationship/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/relationship.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/relationship.pdf
-duration_sec: 0.521
+duration_sec: 0.676
 
 === STDOUT ===
 
 
 === STDERR ===
-137658 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/relationship.pdf
+138119 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/relationship.pdf
 

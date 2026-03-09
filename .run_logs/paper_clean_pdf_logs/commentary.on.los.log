@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/commentary.on.los/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/commentary.on.los.html
+source_url: http://127.0.0.1:39285/papers/commentary.on.los/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/commentary.on.los.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/commentary.on.los.pdf
-duration_sec: 0.723
+duration_sec: 0.751
 
 === STDOUT ===
 
 
 === STDERR ===
-252787 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/commentary.on.los.pdf
+251582 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/commentary.on.los.pdf
 

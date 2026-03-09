@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/cmonkeys/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/cmonkeys.html
+source_url: http://127.0.0.1:39285/papers/cmonkeys/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/cmonkeys.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/cmonkeys.pdf
-duration_sec: 1.043
+duration_sec: 1.193
 
 === STDOUT ===
 
 
 === STDERR ===
-506090 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/cmonkeys.pdf
+508129 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/cmonkeys.pdf
 

@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/bayes.again/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/bayes.again.html
+source_url: http://127.0.0.1:39285/papers/bayes.again/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/bayes.again.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayes.again.pdf
-duration_sec: 0.598
+duration_sec: 0.635
 
 === STDOUT ===
 
 
 === STDERR ===
-207635 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayes.again.pdf
+207609 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayes.again.pdf
 

@@ -160,7 +160,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
     body {{
       font-family: "Times New Roman", Times, serif;
       color: #111111;
-      font-size: 11pt;
+      font-size: 15pt;
       line-height: 1.52;
       margin: 0;
       background: #fff;
@@ -172,7 +172,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
       margin: 0 auto;
     }}
     .title {{
-      font-size: 18pt;
+      font-size: 1.64em;
       line-height: 1.2;
       font-weight: 700;
       margin: 0 0 0.34rem 0;
@@ -181,13 +181,13 @@ def build_clean_html(source_html: str, slug: str) -> str:
     .year {{
       text-align: center;
       color: #444444;
-      font-size: 10pt;
+      font-size: 0.91em;
       margin: 0 0 0.85rem 0;
     }}
     .authors {{
       text-align: center;
       color: #222222;
-      font-size: 11pt;
+      font-size: 1em;
       margin: 0 0 0.18rem 0;
     }}
     .abstract {{
@@ -198,7 +198,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
       margin-top: 0;
       margin-bottom: 1rem;
       color: #222;
-      font-size: 10.5pt;
+      font-size: 0.95em;
       text-align: justify;
     }}
     .abstract strong {{
@@ -217,11 +217,11 @@ def build_clean_html(source_html: str, slug: str) -> str:
       line-height: 1.2;
     }}
     article h1 {{
-      font-size: 13.2pt;
+      font-size: 1.2em;
       padding-bottom: 0;
     }}
-    article h2 {{ font-size: 12.2pt; }}
-    article h3 {{ font-size: 11.4pt; }}
+    article h2 {{ font-size: 1.11em; }}
+    article h3 {{ font-size: 1.04em; }}
     article p {{
       margin: 0;
       text-indent: 1.15em;
@@ -255,7 +255,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
       border-collapse: collapse;
       width: 100%;
       margin: 0.68em 0;
-      font-size: 10pt;
+      font-size: 0.91em;
       page-break-inside: avoid;
       break-inside: avoid;
     }}
@@ -292,7 +292,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
       margin-top: 0.9em;
       padding-top: 0.2em;
       border-top: 0;
-      font-size: 9.8pt;
+      font-size: 0.89em;
     }}
     .footnotes ol {{
       margin: 0.4em 0 0 1.2em;

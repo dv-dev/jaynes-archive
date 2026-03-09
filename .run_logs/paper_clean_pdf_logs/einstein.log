@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/einstein/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/einstein.html
+source_url: http://127.0.0.1:39285/papers/einstein/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/einstein.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/einstein.pdf
-duration_sec: 0.752
+duration_sec: 0.808
 
 === STDOUT ===
 
 
 === STDERR ===
-217559 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/einstein.pdf
+216440 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/einstein.pdf
 

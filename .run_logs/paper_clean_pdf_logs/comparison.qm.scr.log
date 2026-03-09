@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/comparison.qm.scr/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/comparison.qm.scr.html
+source_url: http://127.0.0.1:39285/papers/comparison.qm.scr/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/comparison.qm.scr.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/comparison.qm.scr.pdf
-duration_sec: 1.565
+duration_sec: 1.99
 
 === STDOUT ===
 
 
 === STDERR ===
-555620 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/comparison.qm.scr.pdf
+554549 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/comparison.qm.scr.pdf
 

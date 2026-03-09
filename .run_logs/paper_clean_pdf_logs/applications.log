@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/applications/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/applications.html
+source_url: http://127.0.0.1:39285/papers/applications/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/applications.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/applications.pdf
-duration_sec: 0.819
+duration_sec: 0.834
 
 === STDOUT ===
 
 
 === STDERR ===
-274160 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/applications.pdf
+274705 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/applications.pdf
 

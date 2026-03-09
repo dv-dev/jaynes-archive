@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/stat.mech.1/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/stat.mech.1.html
+source_url: http://127.0.0.1:39285/papers/stat.mech.1/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/stat.mech.1.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/stat.mech.1.pdf
-duration_sec: 1.087
+duration_sec: 1.191
 
 === STDOUT ===
 
 
 === STDERR ===
-450210 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stat.mech.1.pdf
+450263 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stat.mech.1.pdf
 

@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/gibbs.paradox/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/gibbs.paradox.html
+source_url: http://127.0.0.1:39285/papers/gibbs.paradox/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/gibbs.paradox.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.paradox.pdf
-duration_sec: 0.819
+duration_sec: 0.881
 
 === STDOUT ===
 
 
 === STDERR ===
-426194 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.paradox.pdf
+424796 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.paradox.pdf
 

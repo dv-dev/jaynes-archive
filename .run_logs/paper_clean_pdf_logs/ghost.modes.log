@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/ghost.modes/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/ghost.modes.html
+source_url: http://127.0.0.1:39285/papers/ghost.modes/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/ghost.modes.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/ghost.modes.pdf
-duration_sec: 0.634
+duration_sec: 0.631
 
 === STDOUT ===
 
 
 === STDERR ===
-189645 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/ghost.modes.pdf
+190517 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/ghost.modes.pdf
 

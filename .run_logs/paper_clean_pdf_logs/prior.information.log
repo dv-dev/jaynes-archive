@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/prior.information/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/prior.information.html
+source_url: http://127.0.0.1:39285/papers/prior.information/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/prior.information.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/prior.information.pdf
-duration_sec: 0.913
+duration_sec: 0.898
 
 === STDOUT ===
 
 
 === STDERR ===
-389645 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/prior.information.pdf
+388479 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/prior.information.pdf
 

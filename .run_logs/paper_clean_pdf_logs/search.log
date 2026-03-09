@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/search/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/search.html
+source_url: http://127.0.0.1:39285/papers/search/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/search.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/search.pdf
-duration_sec: 0.893
+duration_sec: 1.109
 
 === STDOUT ===
 
 
 === STDERR ===
-238943 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/search.pdf
+240226 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/search.pdf
 

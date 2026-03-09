@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/survey.nct/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/survey.nct.html
+source_url: http://127.0.0.1:39285/papers/survey.nct/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/survey.nct.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/survey.nct.pdf
-duration_sec: 1.365
+duration_sec: 1.742
 
 === STDOUT ===
 
 
 === STDERR ===
-504230 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/survey.nct.pdf
+504917 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/survey.nct.pdf
 

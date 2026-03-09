@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/general.background/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/general.background.html
+source_url: http://127.0.0.1:39285/papers/general.background/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/general.background.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.background.pdf
-duration_sec: 0.773
+duration_sec: 1.457
 
 === STDOUT ===
 
 
 === STDERR ===
-360269 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.background.pdf
+360362 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/general.background.pdf
 

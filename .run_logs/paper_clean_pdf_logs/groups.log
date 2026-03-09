@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/groups/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/groups.html
+source_url: http://127.0.0.1:39285/papers/groups/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/groups.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/groups.pdf
-duration_sec: 0.647
+duration_sec: 0.625
 
 === STDOUT ===
 
 
 === STDERR ===
-219188 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/groups.pdf
+217857 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/groups.pdf
 

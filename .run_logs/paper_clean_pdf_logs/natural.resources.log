@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:49459/papers/natural.resources/
-clean_html: /tmp/paper-clean-pdf-a2niy_w8/natural.resources.html
+source_url: http://127.0.0.1:39285/papers/natural.resources/
+clean_html: /tmp/paper-clean-pdf-udm1twm9/natural.resources.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/natural.resources.pdf
-duration_sec: 0.587
+duration_sec: 0.73
 
 === STDOUT ===
 
 
 === STDERR ===
-184687 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/natural.resources.pdf
+174176 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/natural.resources.pdf
 
