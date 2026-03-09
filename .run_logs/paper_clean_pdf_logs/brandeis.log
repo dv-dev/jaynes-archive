@@ -1,11 +1,14 @@
-source_url: http://127.0.0.1:59555/papers/brandeis/
-clean_html: /tmp/paper-clean-pdf-h88k031o/brandeis.html
+attempt: 1/3
+source_url: http://127.0.0.1:50121/papers/brandeis/
+clean_html: /tmp/paper-clean-pdf-o4ifolf0/brandeis.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/brandeis.pdf
-duration_sec: 0.555
+duration_sec: 1.773
+verification: ok
 
 === STDOUT ===
 
 
 === STDERR ===
-312621 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/brandeis.pdf
+415250 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/brandeis.pdf
+
 

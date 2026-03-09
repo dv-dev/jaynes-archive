@@ -189,9 +189,8 @@ $\mathcal{H}_1 = -\sum_k \gamma_k S_k \cdot H_k$. For a given angular
 velocity $\omega$, $\psi_t$ and $\psi_r$ are equal only if the fields
 $H_k$ have the values 
 $$
- H_k = (1/\gamma_k)\omega; 
+ H_k = (1/\gamma_k)\omega. 
 \tag{7}
-\tag{7a}
 $$
  or if a uniform field $H_0=H$ is given, the theorem may be
 stated as requiring a different rotation frequency for each particle, so
@@ -284,7 +283,7 @@ fields which vary nonlinearly with the time, the accompanying electric
 field is only approximately given by $E = \dot{H} \times r/2c$. The
 approximation consists of neglecting displacement current. When that
 approximation applies, the theorem (14) and the other time-dependent
-expressions corresponding to (7a) and (9) can be derived.
+expressions corresponding to (7) and (9) can be derived.
 ### A Simple Example of Polarization
 The discussion of Larmor's theorem has shown that the effect of a
 constant magnetic field is transformed away by going to a rotating

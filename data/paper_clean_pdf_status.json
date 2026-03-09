@@ -1,18 +1,19 @@
 {
   "content_dir": "content/papers",
   "counts": {
-    "completed": 94
+    "completed": 3,
+    "skipped_missing_from_repo": 91
   },
   "files": {
     "content/papers/AJP00180.md": {
-      "attempts": 26,
-      "duration_sec": 0.82,
+      "attempts": 30,
+      "duration_sec": 0.691,
       "error": null,
-      "last_run_utc": "2026-03-09T01:50:05+00:00",
+      "last_run_utc": "2026-03-09T15:57:05+00:00",
       "output_pdf": "static/pdfs/clean/AJP00180.pdf",
       "return_code": 0,
-      "source_url": "http://127.0.0.1:59555/papers/ajp00180/",
-      "status": "completed"
+      "source_url": "http://127.0.0.1:35415/papers/ajp00180/",
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/ambiguity.md": {
       "attempts": 4,
@@ -22,7 +23,7 @@
       "output_pdf": "static/pdfs/clean/ambiguity.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/ambiguity/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/applications.md": {
       "attempts": 4,
@@ -32,7 +33,7 @@
       "output_pdf": "static/pdfs/clean/applications.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/applications/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/backward.look.md": {
       "attempts": 4,
@@ -42,7 +43,7 @@
       "output_pdf": "static/pdfs/clean/backward.look.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/backward.look/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/bayes.again.md": {
       "attempts": 4,
@@ -52,7 +53,7 @@
       "output_pdf": "static/pdfs/clean/bayes.again.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/bayes.again/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/bayesian.methods.md": {
       "attempts": 4,
@@ -62,7 +63,7 @@
       "output_pdf": "static/pdfs/clean/bayesian.methods.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/bayesian.methods/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/brain.md": {
       "attempts": 4,
@@ -72,16 +73,16 @@
       "output_pdf": "static/pdfs/clean/brain.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/brain/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/brandeis.md": {
-      "attempts": 4,
-      "duration_sec": 0.555,
+      "attempts": 6,
+      "duration_sec": 1.773,
       "error": null,
-      "last_run_utc": "2026-03-09T01:50:11+00:00",
+      "last_run_utc": "2026-03-09T16:01:19+00:00",
       "output_pdf": "static/pdfs/clean/brandeis.pdf",
       "return_code": 0,
-      "source_url": "http://127.0.0.1:59555/papers/brandeis/",
+      "source_url": "http://127.0.0.1:50121/papers/brandeis/",
       "status": "completed"
     },
     "content/papers/ccarnot.md": {
@@ -92,7 +93,7 @@
       "output_pdf": "static/pdfs/clean/ccarnot.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/ccarnot/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cchirp.md": {
       "attempts": 4,
@@ -102,7 +103,7 @@
       "output_pdf": "static/pdfs/clean/cchirp.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cchirp/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cgap.md": {
       "attempts": 4,
@@ -112,7 +113,7 @@
       "output_pdf": "static/pdfs/clean/cgap.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cgap/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cinfscat.md": {
       "attempts": 4,
@@ -122,7 +123,7 @@
       "output_pdf": "static/pdfs/clean/cinfscat.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cinfscat/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/circuit.analysis.md": {
       "attempts": 4,
@@ -132,7 +133,7 @@
       "output_pdf": "static/pdfs/clean/circuit.analysis.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/circuit.analysis/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cmonkeys.md": {
       "attempts": 4,
@@ -142,7 +143,7 @@
       "output_pdf": "static/pdfs/clean/cmonkeys.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cmonkeys/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cmystery.md": {
       "attempts": 4,
@@ -152,7 +153,7 @@
       "output_pdf": "static/pdfs/clean/cmystery.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cmystery/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/comment.on.neisser.md": {
       "attempts": 4,
@@ -162,7 +163,7 @@
       "output_pdf": "static/pdfs/clean/comment.on.neisser.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/comment.on.neisser/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/commentary.on.los.md": {
       "attempts": 4,
@@ -172,7 +173,7 @@
       "output_pdf": "static/pdfs/clean/commentary.on.los.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/commentary.on.los/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/comparison.qm.scr.md": {
       "attempts": 4,
@@ -182,7 +183,7 @@
       "output_pdf": "static/pdfs/clean/comparison.qm.scr.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/comparison.qm.scr/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/concept.and.measurement.md": {
       "attempts": 4,
@@ -192,7 +193,7 @@
       "output_pdf": "static/pdfs/clean/concept.and.measurement.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/concept.and.measurement/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/confidence.md": {
       "attempts": 4,
@@ -202,7 +203,7 @@
       "output_pdf": "static/pdfs/clean/confidence.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/confidence/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/cplanets.md": {
       "attempts": 4,
@@ -212,7 +213,7 @@
       "output_pdf": "static/pdfs/clean/cplanets.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/cplanets/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/craddis.md": {
       "attempts": 4,
@@ -222,7 +223,7 @@
       "output_pdf": "static/pdfs/clean/craddis.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/craddis/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/displacement.md": {
       "attempts": 4,
@@ -232,7 +233,7 @@
       "output_pdf": "static/pdfs/clean/displacement.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/displacement/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/disturbing.memory.md": {
       "attempts": 4,
@@ -242,7 +243,7 @@
       "output_pdf": "static/pdfs/clean/disturbing.memory.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/disturbing.memory/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/einstein.md": {
       "attempts": 4,
@@ -252,7 +253,7 @@
       "output_pdf": "static/pdfs/clean/einstein.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/einstein/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/electrodynamics.today.md": {
       "attempts": 4,
@@ -262,7 +263,7 @@
       "output_pdf": "static/pdfs/clean/electrodynamics.today.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/electrodynamics.today/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/entropy.concentration.md": {
       "attempts": 4,
@@ -272,7 +273,7 @@
       "output_pdf": "static/pdfs/clean/entropy.concentration.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/entropy.concentration/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/entropy.in.economics.md": {
       "attempts": 4,
@@ -282,7 +283,7 @@
       "output_pdf": "static/pdfs/clean/entropy.in.economics.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/entropy.in.economics/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/foundations.of.prob.st.md": {
       "attempts": 4,
@@ -292,7 +293,7 @@
       "output_pdf": "static/pdfs/clean/foundations.of.prob.st.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/foundations.of.prob.st/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/general.background.md": {
       "attempts": 4,
@@ -302,7 +303,7 @@
       "output_pdf": "static/pdfs/clean/general.background.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/general.background/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/general.relationship.md": {
       "attempts": 4,
@@ -312,7 +313,7 @@
       "output_pdf": "static/pdfs/clean/general.relationship.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/general.relationship/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/ghost.modes.md": {
       "attempts": 4,
@@ -322,16 +323,16 @@
       "output_pdf": "static/pdfs/clean/ghost.modes.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/ghost.modes/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/gibbs.paradox.md": {
-      "attempts": 4,
-      "duration_sec": 0.784,
+      "attempts": 9,
+      "duration_sec": 1.023,
       "error": null,
-      "last_run_utc": "2026-03-09T01:50:33+00:00",
+      "last_run_utc": "2026-03-09T16:01:20+00:00",
       "output_pdf": "static/pdfs/clean/gibbs.paradox.pdf",
       "return_code": 0,
-      "source_url": "http://127.0.0.1:59555/papers/gibbs.paradox/",
+      "source_url": "http://127.0.0.1:50121/papers/gibbs.paradox/",
       "status": "completed"
     },
     "content/papers/gibbs.vs.boltzmann.md": {
@@ -342,7 +343,7 @@
       "output_pdf": "static/pdfs/clean/gibbs.vs.boltzmann.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/gibbs.vs.boltzmann/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/groups.md": {
       "attempts": 4,
@@ -352,16 +353,16 @@
       "output_pdf": "static/pdfs/clean/groups.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/groups/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/gyromagnetic.effects.md": {
-      "attempts": 4,
-      "duration_sec": 2.472,
+      "attempts": 10,
+      "duration_sec": 2.898,
       "error": null,
-      "last_run_utc": "2026-03-09T01:50:37+00:00",
+      "last_run_utc": "2026-03-09T16:01:23+00:00",
       "output_pdf": "static/pdfs/clean/gyromagnetic.effects.pdf",
       "return_code": 0,
-      "source_url": "http://127.0.0.1:59555/papers/gyromagnetic.effects/",
+      "source_url": "http://127.0.0.1:50121/papers/gyromagnetic.effects/",
       "status": "completed"
     },
     "content/papers/highly.informative.priors.md": {
@@ -372,7 +373,7 @@
       "output_pdf": "static/pdfs/clean/highly.informative.priors.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/highly.informative.priors/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/history.md": {
       "attempts": 4,
@@ -382,7 +383,7 @@
       "output_pdf": "static/pdfs/clean/history.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/history/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/inadequacy.md": {
       "attempts": 4,
@@ -392,7 +393,7 @@
       "output_pdf": "static/pdfs/clean/inadequacy.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/inadequacy/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/irreversible.stat.mac.md": {
       "attempts": 4,
@@ -402,7 +403,7 @@
       "output_pdf": "static/pdfs/clean/irreversible.stat.mac.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/irreversible.stat.mac/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/is.qed.necessary.md": {
       "attempts": 4,
@@ -412,7 +413,7 @@
       "output_pdf": "static/pdfs/clean/is.qed.necessary.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/is.qed.necessary/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/kramers-kronig.md": {
       "attempts": 4,
@@ -422,7 +423,7 @@
       "output_pdf": "static/pdfs/clean/kramers-kronig.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/kramers-kronig/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/leapz.md": {
       "attempts": 4,
@@ -432,7 +433,7 @@
       "output_pdf": "static/pdfs/clean/leapz.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/leapz/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/long.term.sol.md": {
       "attempts": 4,
@@ -442,7 +443,7 @@
       "output_pdf": "static/pdfs/clean/long.term.sol.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/long.term.sol/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/macroscopic.prediction.md": {
       "attempts": 4,
@@ -452,7 +453,7 @@
       "output_pdf": "static/pdfs/clean/macroscopic.prediction.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/macroscopic.prediction/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/margin.md": {
       "attempts": 4,
@@ -462,7 +463,7 @@
       "output_pdf": "static/pdfs/clean/margin.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/margin/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/maser.theory.md": {
       "attempts": 4,
@@ -472,7 +473,7 @@
       "output_pdf": "static/pdfs/clean/maser.theory.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/maser.theory/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/matrix.treatment.varian.md": {
       "attempts": 4,
@@ -482,7 +483,7 @@
       "output_pdf": "static/pdfs/clean/matrix.treatment.varian.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/matrix.treatment.varian/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/microwaves.md": {
       "attempts": 4,
@@ -492,7 +493,7 @@
       "output_pdf": "static/pdfs/clean/microwaves.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/microwaves/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/min.ent.prod.md": {
       "attempts": 4,
@@ -502,7 +503,7 @@
       "output_pdf": "static/pdfs/clean/min.ent.prod.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/min.ent.prod/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/mine.detection.md": {
       "attempts": 4,
@@ -512,7 +513,7 @@
       "output_pdf": "static/pdfs/clean/mine.detection.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/mine.detection/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/muscle.md": {
       "attempts": 4,
@@ -522,7 +523,7 @@
       "output_pdf": "static/pdfs/clean/muscle.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/muscle/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/natural.resources.md": {
       "attempts": 4,
@@ -532,7 +533,7 @@
       "output_pdf": "static/pdfs/clean/natural.resources.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/natural.resources/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/new.eng.app.md": {
       "attempts": 4,
@@ -542,7 +543,7 @@
       "output_pdf": "static/pdfs/clean/new.eng.app.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/new.eng.app/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/nonlinear.dielectric.md": {
       "attempts": 4,
@@ -552,7 +553,7 @@
       "output_pdf": "static/pdfs/clean/nonlinear.dielectric.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/nonlinear.dielectric/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/observation.paramagnetic.res.md": {
       "attempts": 4,
@@ -562,7 +563,7 @@
       "output_pdf": "static/pdfs/clean/observation.paramagnetic.res.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/observation.paramagnetic.res/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/optical.amplifier.md": {
       "attempts": 4,
@@ -572,7 +573,7 @@
       "output_pdf": "static/pdfs/clean/optical.amplifier.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/optical.amplifier/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/parallel.batteries.md": {
       "attempts": 4,
@@ -582,7 +583,7 @@
       "output_pdf": "static/pdfs/clean/parallel.batteries.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/parallel.batteries/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/parametric.amplifier.md": {
       "attempts": 4,
@@ -592,7 +593,7 @@
       "output_pdf": "static/pdfs/clean/parametric.amplifier.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/parametric.amplifier/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/poincare.recursion.md": {
       "attempts": 4,
@@ -602,7 +603,7 @@
       "output_pdf": "static/pdfs/clean/poincare.recursion.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/poincare.recursion/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/predictive.md": {
       "attempts": 4,
@@ -612,7 +613,7 @@
       "output_pdf": "static/pdfs/clean/predictive.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/predictive/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/present.status.md": {
       "attempts": 4,
@@ -622,7 +623,7 @@
       "output_pdf": "static/pdfs/clean/present.status.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/present.status/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/prior.information.md": {
       "attempts": 4,
@@ -632,7 +633,7 @@
       "output_pdf": "static/pdfs/clean/prior.information.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/prior.information/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/prior.md": {
       "attempts": 4,
@@ -642,7 +643,7 @@
       "output_pdf": "static/pdfs/clean/prior.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/prior/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/prob.as.logic.md": {
       "attempts": 4,
@@ -652,7 +653,7 @@
       "output_pdf": "static/pdfs/clean/prob.as.logic.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/prob.as.logic/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/prob.in.qm.md": {
       "attempts": 4,
@@ -662,7 +663,7 @@
       "output_pdf": "static/pdfs/clean/prob.in.qm.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/prob.in.qm/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/propagation.in.waveguides.md": {
       "attempts": 4,
@@ -672,7 +673,7 @@
       "output_pdf": "static/pdfs/clean/propagation.in.waveguides.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/propagation.in.waveguides/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/quantum.beats.md": {
       "attempts": 4,
@@ -682,7 +683,7 @@
       "output_pdf": "static/pdfs/clean/quantum.beats.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/quantum.beats/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/radiative.effects.md": {
       "attempts": 4,
@@ -692,7 +693,7 @@
       "output_pdf": "static/pdfs/clean/radiative.effects.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/radiative.effects/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/random.md": {
       "attempts": 4,
@@ -702,7 +703,7 @@
       "output_pdf": "static/pdfs/clean/random.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/random/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/rational.md": {
       "attempts": 4,
@@ -712,7 +713,7 @@
       "output_pdf": "static/pdfs/clean/rational.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/rational/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/realativistic.clock.md": {
       "attempts": 4,
@@ -722,7 +723,7 @@
       "output_pdf": "static/pdfs/clean/realativistic.clock.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/realativistic.clock/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/relationship.md": {
       "attempts": 4,
@@ -732,7 +733,7 @@
       "output_pdf": "static/pdfs/clean/relationship.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/relationship/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/reply.leiter.md": {
       "attempts": 4,
@@ -742,7 +743,7 @@
       "output_pdf": "static/pdfs/clean/reply.leiter.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/reply.leiter/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/reply.to.dawid.md": {
       "attempts": 4,
@@ -752,7 +753,7 @@
       "output_pdf": "static/pdfs/clean/reply.to.dawid.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/reply.to.dawid/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/reproduce_issue.md": {
       "attempts": 4,
@@ -762,7 +763,7 @@
       "output_pdf": "static/pdfs/clean/reproduce_issue.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/reproduce_issue/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/resonant.modes.md": {
       "attempts": 4,
@@ -772,7 +773,7 @@
       "output_pdf": "static/pdfs/clean/resonant.modes.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/resonant.modes/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/review.by.atkins.md": {
       "attempts": 4,
@@ -782,7 +783,7 @@
       "output_pdf": "static/pdfs/clean/review.by.atkins.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/review.by.atkins/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/review.extended.prob.md": {
       "attempts": 4,
@@ -792,7 +793,7 @@
       "output_pdf": "static/pdfs/clean/review.extended.prob.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/review.extended.prob/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/scattering.by.free.md": {
       "attempts": 4,
@@ -802,7 +803,7 @@
       "output_pdf": "static/pdfs/clean/scattering.by.free.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/scattering.by.free/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/search.md": {
       "attempts": 4,
@@ -812,7 +813,7 @@
       "output_pdf": "static/pdfs/clean/search.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/search/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/second.law.md": {
       "attempts": 4,
@@ -822,7 +823,7 @@
       "output_pdf": "static/pdfs/clean/second.law.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/second.law/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/stand.on.entropy.md": {
       "attempts": 4,
@@ -832,7 +833,7 @@
       "output_pdf": "static/pdfs/clean/stand.on.entropy.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/stand.on.entropy/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/stat.mech.1.md": {
       "attempts": 4,
@@ -842,7 +843,7 @@
       "output_pdf": "static/pdfs/clean/stat.mech.1.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/stat.mech.1/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/stat.mech.2.md": {
       "attempts": 4,
@@ -852,7 +853,7 @@
       "output_pdf": "static/pdfs/clean/stat.mech.2.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/stat.mech.2/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/stat.mech.5.md": {
       "attempts": 4,
@@ -862,7 +863,7 @@
       "output_pdf": "static/pdfs/clean/stat.mech.5.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/stat.mech.5/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/survey.nct.md": {
       "attempts": 4,
@@ -872,7 +873,7 @@
       "output_pdf": "static/pdfs/clean/survey.nct.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/survey.nct/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/theory.1.md": {
       "attempts": 4,
@@ -882,7 +883,7 @@
       "output_pdf": "static/pdfs/clean/theory.1.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/theory.1/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/theory.2.md": {
       "attempts": 4,
@@ -892,7 +893,7 @@
       "output_pdf": "static/pdfs/clean/theory.2.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/theory.2/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/thermal.effency.md": {
       "attempts": 4,
@@ -902,7 +903,7 @@
       "output_pdf": "static/pdfs/clean/thermal.effency.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/thermal.effency/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/unique.dicipherability.md": {
       "attempts": 4,
@@ -912,7 +913,7 @@
       "output_pdf": "static/pdfs/clean/unique.dicipherability.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/unique.dicipherability/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/violation.md": {
       "attempts": 4,
@@ -922,7 +923,7 @@
       "output_pdf": "static/pdfs/clean/violation.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/violation/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/well.md": {
       "attempts": 4,
@@ -932,7 +933,7 @@
       "output_pdf": "static/pdfs/clean/well.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/well/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     },
     "content/papers/what.question.md": {
       "attempts": 4,
@@ -942,11 +943,11 @@
       "output_pdf": "static/pdfs/clean/what.question.pdf",
       "return_code": 0,
       "source_url": "http://127.0.0.1:59555/papers/what.question/",
-      "status": "completed"
+      "status": "skipped_missing_from_repo"
     }
   },
-  "last_run_finished_utc": "2026-03-09T01:51:47+00:00",
-  "last_run_started_utc": "2026-03-09T01:50:03+00:00",
+  "last_run_finished_utc": "2026-03-09T16:01:23+00:00",
+  "last_run_started_utc": "2026-03-09T16:01:16+00:00",
   "log_dir": ".run_logs/paper_clean_pdf_logs",
   "output_dir": "static/pdfs/clean",
   "repo_root": "/home/dave/Projects/jaynes-archive",

@@ -426,10 +426,11 @@ $$
 where
 
 $$
-\begin{aligned}
-\Delta S_1 &= -nRf \log f \tag{4a} \\
-\Delta S_2 &= -nR(1-f) \log(1-f) \tag{4b}
-\end{aligned}
+\Delta S_1 = -nRf \log f \tag{4a}
+$$
+
+$$
+\Delta S_2 = -nR(1-f) \log(1-f) \tag{4b}
 $$
 
 But if this entropy increase is more than just a figment

@@ -41,6 +41,14 @@ YEAR_RE = re.compile(r'<p class="text-xl text-gray-600">(.*?)</p>', re.S | re.I)
 ABSTRACT_RE = re.compile(r'<div class="mb-8 abstract-container">\s*(.*?)\s*</div>', re.S | re.I)
 ARTICLE_RE = re.compile(r'<article class="paper-content">\s*(.*?)\s*</article>', re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
+PDF_UNRENDERED_MATH_STRONG_PATTERNS: tuple[re.Pattern[str], ...] = (
+    re.compile(r"\$\$"),
+    re.compile(r"\\begin\{"),
+    re.compile(r"\\end\{"),
+    re.compile(r"\\tag\{"),
+    re.compile(r"\\(?:frac|sum|int|prod|sqrt|left|right|cdot|times|alpha|beta|gamma|delta|Delta|rho|sigma|theta|eta|zeta|mu|nu|pi|lambda)\b"),
+)
+PDF_INLINE_DOLLAR_PATTERN = re.compile(r"\$[A-Za-z\\(]")
 
 
 @dataclass
@@ -130,6 +138,56 @@ def tag_no_indent_after_display_math(article_html: str) -> str:
     # Mark the following paragraph explicitly no-indent so styling is deterministic.
     pattern = re.compile(r"(\$\$[\s\S]*?\$\$)\s*<p>", re.S)
     return pattern.sub(r'\1<p class="no-indent-after-display">', article_html)
+
+def extract_pdf_text(pdf_path: Path, timeout_sec: int = 30) -> str | None:
+    pdftotext_bin = shutil.which("pdftotext")
+    if not pdftotext_bin:
+        return None
+    cp = subprocess.run(
+        [pdftotext_bin, str(pdf_path), "-"],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=timeout_sec,
+    )
+    if cp.returncode != 0:
+        return None
+    return cp.stdout
+
+
+def find_unrendered_math_markers(pdf_text: str) -> list[str]:
+    markers: list[str] = []
+    seen: set[str] = set()
+    for pattern in PDF_UNRENDERED_MATH_STRONG_PATTERNS:
+        for match in pattern.finditer(pdf_text):
+            snippet = pdf_text[max(0, match.start() - 24) : match.end() + 24]
+            snippet = " ".join(snippet.split())
+            if snippet and snippet not in seen:
+                seen.add(snippet)
+                markers.append(snippet)
+            if len(markers) >= 5:
+                return markers
+    inline_dollar_matches = list(PDF_INLINE_DOLLAR_PATTERN.finditer(pdf_text))
+    if len(inline_dollar_matches) >= 3:
+        for match in inline_dollar_matches[:5]:
+            snippet = pdf_text[max(0, match.start() - 24) : match.end() + 24]
+            snippet = " ".join(snippet.split())
+            if snippet and snippet not in seen:
+                seen.add(snippet)
+                markers.append(snippet)
+            if len(markers) >= 5:
+                return markers
+    return markers
+
+
+def detect_unrendered_math(pdf_path: Path) -> str | None:
+    pdf_text = extract_pdf_text(pdf_path)
+    if pdf_text is None:
+        return None
+    markers = find_unrendered_math_markers(pdf_text)
+    if not markers:
+        return None
+    return "unrendered math markers in PDF text: " + " | ".join(markers)
 
 
 def build_clean_html(source_html: str, slug: str) -> str:
@@ -500,6 +558,8 @@ def main() -> int:
     parser.add_argument("--retry-failed", action="store_true", help="Retry files with status=failed")
     parser.add_argument("--force", action="store_true", help="Render all files regardless of current status")
     parser.add_argument("--max-files", type=int, default=0, help="Optional cap on files processed this run (0 = no cap)")
+    parser.add_argument("--slugs", default="", help="Optional comma-separated paper slugs to process")
+    parser.add_argument("--render-retries", type=int, default=2, help="Extra render attempts per file when verification fails")
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
@@ -520,6 +580,13 @@ def main() -> int:
         return 1
 
     files_abs = list_paper_files(content_dir)
+    selected_slugs = {slug.strip().lower() for slug in args.slugs.split(",") if slug.strip()}
+    if selected_slugs:
+        files_abs = [p for p in files_abs if p.stem.lower() in selected_slugs]
+        missing_slugs = sorted(selected_slugs - {p.stem.lower() for p in files_abs})
+        if missing_slugs:
+            print(f"Error: requested slugs not found: {', '.join(missing_slugs)}", file=sys.stderr)
+            return 1
     files_rel = [str(p.relative_to(repo_root)) for p in files_abs]
     if not files_rel:
         print("No markdown files found.")
@@ -600,7 +667,6 @@ def main() -> int:
                     ent = FileStatus("pending", 0, None, None, None, None, None, None).as_dict()
                     file_map[rel] = ent
                 ent["status"] = "running"
-                ent["attempts"] = int(ent.get("attempts", 0)) + 1
                 ent["last_run_utc"] = utc_now()
                 ent["return_code"] = None
                 ent["duration_sec"] = None
@@ -609,53 +675,78 @@ def main() -> int:
                 ent["error"] = None
                 save_state(state_path, state)
 
-                started = time.time()
-                try:
-                    rendered_html = http_get_text(src_url, timeout_sec=35)
-                    clean_html = build_clean_html(rendered_html, slug)
-                    clean_html_path.write_text(clean_html, encoding="utf-8")
-
-                    cp = render_pdf_from_html(
-                        chrome_bin=chrome_bin,
-                        html_path=clean_html_path,
-                        out_pdf=out_pdf,
-                        wait_ms=args.wait_ms,
-                        timeout_sec=args.timeout_sec,
-                    )
-                    duration = round(time.time() - started, 3)
-                    ent["duration_sec"] = duration
+                log_chunks: list[str] = []
+                max_attempts = max(1, args.render_retries + 1)
+                for render_attempt in range(1, max_attempts + 1):
+                    started = time.time()
+                    ent["status"] = "running"
+                    ent["attempts"] = int(ent.get("attempts", 0)) + 1
                     ent["last_run_utc"] = utc_now()
-                    ent["return_code"] = cp.returncode
+                    ent["return_code"] = None
+                    ent["duration_sec"] = None
+                    ent["error"] = None
+                    save_state(state_path, state)
 
-                    log_text = (
-                        f"source_url: {src_url}\n"
-                        f"clean_html: {clean_html_path}\n"
-                        f"output_pdf: {out_pdf}\n"
-                        f"duration_sec: {duration}\n\n"
-                        f"=== STDOUT ===\n{cp.stdout}\n\n"
-                        f"=== STDERR ===\n{cp.stderr}\n"
-                    )
-                    log_path.write_text(log_text, encoding="utf-8")
+                    try:
+                        rendered_html = http_get_text(src_url, timeout_sec=35)
+                        clean_html = build_clean_html(rendered_html, slug)
+                        clean_html_path.write_text(clean_html, encoding="utf-8")
 
-                    if cp.returncode == 0 and out_pdf.exists() and out_pdf.stat().st_size > 0:
-                        ent["status"] = "completed"
-                    else:
+                        cp = render_pdf_from_html(
+                            chrome_bin=chrome_bin,
+                            html_path=clean_html_path,
+                            out_pdf=out_pdf,
+                            wait_ms=args.wait_ms,
+                            timeout_sec=args.timeout_sec,
+                        )
+                        duration = round(time.time() - started, 3)
+                        ent["duration_sec"] = duration
+                        ent["last_run_utc"] = utc_now()
+                        ent["return_code"] = cp.returncode
+
+                        verify_error = None
+                        if cp.returncode == 0 and out_pdf.exists() and out_pdf.stat().st_size > 0:
+                            verify_error = detect_unrendered_math(out_pdf)
+                            if verify_error is None:
+                                ent["status"] = "completed"
+                            else:
+                                ent["status"] = "failed"
+                                ent["error"] = verify_error
+                        else:
+                            ent["status"] = "failed"
+                            err = (cp.stderr or cp.stdout or "").strip()
+                            ent["error"] = err[-1200:] if err else "chrome print failed"
+
+                        log_chunks.append(
+                            f"attempt: {render_attempt}/{max_attempts}\n"
+                            f"source_url: {src_url}\n"
+                            f"clean_html: {clean_html_path}\n"
+                            f"output_pdf: {out_pdf}\n"
+                            f"duration_sec: {duration}\n"
+                            f"verification: {verify_error or 'ok'}\n\n"
+                            f"=== STDOUT ===\n{cp.stdout}\n\n"
+                            f"=== STDERR ===\n{cp.stderr}\n"
+                        )
+                    except Exception as exc:
+                        duration = round(time.time() - started, 3)
+                        ent["duration_sec"] = duration
+                        ent["last_run_utc"] = utc_now()
                         ent["status"] = "failed"
-                        err = (cp.stderr or cp.stdout or "").strip()
-                        ent["error"] = err[-1200:] if err else "chrome print failed"
-                except Exception as exc:
-                    duration = round(time.time() - started, 3)
-                    ent["duration_sec"] = duration
-                    ent["last_run_utc"] = utc_now()
-                    ent["status"] = "failed"
-                    ent["return_code"] = 1
-                    ent["error"] = str(exc)
-                    log_path.write_text(
-                        f"source_url: {src_url}\noutput_pdf: {out_pdf}\nduration_sec: {duration}\n\nERROR: {exc}\n",
-                        encoding="utf-8",
-                    )
+                        ent["return_code"] = 1
+                        ent["error"] = str(exc)
+                        log_chunks.append(
+                            f"attempt: {render_attempt}/{max_attempts}\n"
+                            f"source_url: {src_url}\n"
+                            f"output_pdf: {out_pdf}\n"
+                            f"duration_sec: {duration}\n\n"
+                            f"ERROR: {exc}\n"
+                        )
 
-                save_state(state_path, state)
+                    save_state(state_path, state)
+                    if ent["status"] == "completed":
+                        break
+
+                log_path.write_text("\n\n".join(log_chunks) + "\n", encoding="utf-8")
 
         final_done = sum(
             1 for rel in files_rel if isinstance(file_map.get(rel), dict) and file_map[rel].get("status") == "completed"
