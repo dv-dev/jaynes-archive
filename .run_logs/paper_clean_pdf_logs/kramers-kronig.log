@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/kramers-kronig/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/kramers-kronig.html
+source_url: http://127.0.0.1:59555/papers/kramers-kronig/
+clean_html: /tmp/paper-clean-pdf-h88k031o/kramers-kronig.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/kramers-kronig.pdf
-duration_sec: 0.932
+duration_sec: 0.826
 
 === STDOUT ===
 
 
 === STDERR ===
-278077 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/kramers-kronig.pdf
+275690 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/kramers-kronig.pdf
 

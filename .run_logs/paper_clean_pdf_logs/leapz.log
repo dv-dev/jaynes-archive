@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/leapz/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/leapz.html
+source_url: http://127.0.0.1:59555/papers/leapz/
+clean_html: /tmp/paper-clean-pdf-h88k031o/leapz.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/leapz.pdf
-duration_sec: 1.091
+duration_sec: 0.969
 
 === STDOUT ===
 
 
 === STDERR ===
-289056 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/leapz.pdf
+288332 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/leapz.pdf
 

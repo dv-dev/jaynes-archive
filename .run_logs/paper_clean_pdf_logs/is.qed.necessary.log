@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/is.qed.necessary/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/is.qed.necessary.html
+source_url: http://127.0.0.1:59555/papers/is.qed.necessary/
+clean_html: /tmp/paper-clean-pdf-h88k031o/is.qed.necessary.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/is.qed.necessary.pdf
-duration_sec: 0.474
+duration_sec: 0.479
 
 === STDOUT ===
 
 
 === STDERR ===
-83867 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/is.qed.necessary.pdf
+84435 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/is.qed.necessary.pdf
 

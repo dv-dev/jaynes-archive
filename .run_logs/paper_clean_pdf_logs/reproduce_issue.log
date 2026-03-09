@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/reproduce_issue/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/reproduce_issue.html
+source_url: http://127.0.0.1:59555/papers/reproduce_issue/
+clean_html: /tmp/paper-clean-pdf-h88k031o/reproduce_issue.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/reproduce_issue.pdf
-duration_sec: 0.539
+duration_sec: 0.625
 
 === STDOUT ===
 
 
 === STDERR ===
-47063 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/reproduce_issue.pdf
+60222 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/reproduce_issue.pdf
 

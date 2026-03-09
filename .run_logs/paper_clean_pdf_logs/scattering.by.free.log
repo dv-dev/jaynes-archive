@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/scattering.by.free/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/scattering.by.free.html
+source_url: http://127.0.0.1:59555/papers/scattering.by.free/
+clean_html: /tmp/paper-clean-pdf-h88k031o/scattering.by.free.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/scattering.by.free.pdf
-duration_sec: 1.076
+duration_sec: 2.548
 
 === STDOUT ===
 
 
 === STDERR ===
-370514 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/scattering.by.free.pdf
+365362 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/scattering.by.free.pdf
 

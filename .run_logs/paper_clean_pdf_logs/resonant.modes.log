@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/resonant.modes/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/resonant.modes.html
+source_url: http://127.0.0.1:59555/papers/resonant.modes/
+clean_html: /tmp/paper-clean-pdf-h88k031o/resonant.modes.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/resonant.modes.pdf
-duration_sec: 0.907
+duration_sec: 0.777
 
 === STDOUT ===
 
 
 === STDERR ===
-183990 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/resonant.modes.pdf
+183967 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/resonant.modes.pdf
 

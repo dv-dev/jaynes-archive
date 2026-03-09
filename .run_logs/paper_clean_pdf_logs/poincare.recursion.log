@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/poincare.recursion/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/poincare.recursion.html
+source_url: http://127.0.0.1:59555/papers/poincare.recursion/
+clean_html: /tmp/paper-clean-pdf-h88k031o/poincare.recursion.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/poincare.recursion.pdf
-duration_sec: 0.511
+duration_sec: 0.777
 
 === STDOUT ===
 
 
 === STDERR ===
-238050 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/poincare.recursion.pdf
+270198 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/poincare.recursion.pdf
 

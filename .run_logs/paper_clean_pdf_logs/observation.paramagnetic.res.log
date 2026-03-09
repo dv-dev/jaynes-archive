@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/observation.paramagnetic.res/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/observation.paramagnetic.res.html
+source_url: http://127.0.0.1:59555/papers/observation.paramagnetic.res/
+clean_html: /tmp/paper-clean-pdf-h88k031o/observation.paramagnetic.res.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/observation.paramagnetic.res.pdf
-duration_sec: 0.595
+duration_sec: 0.736
 
 === STDOUT ===
 
 
 === STDERR ===
-107677 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/observation.paramagnetic.res.pdf
+116828 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/observation.paramagnetic.res.pdf
 

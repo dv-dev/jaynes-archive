@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/microwaves/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/microwaves.html
+source_url: http://127.0.0.1:59555/papers/microwaves/
+clean_html: /tmp/paper-clean-pdf-h88k031o/microwaves.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/microwaves.pdf
-duration_sec: 1.752
+duration_sec: 1.856
 
 === STDOUT ===
 
 
 === STDERR ===
-598972 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/microwaves.pdf
+585574 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/microwaves.pdf
 

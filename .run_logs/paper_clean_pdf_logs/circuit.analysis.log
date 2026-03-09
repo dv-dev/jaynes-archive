@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/circuit.analysis/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/circuit.analysis.html
+source_url: http://127.0.0.1:59555/papers/circuit.analysis/
+clean_html: /tmp/paper-clean-pdf-h88k031o/circuit.analysis.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/circuit.analysis.pdf
-duration_sec: 1.451
+duration_sec: 1.398
 
 === STDOUT ===
 
 
 === STDERR ===
-357109 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/circuit.analysis.pdf
+357045 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/circuit.analysis.pdf
 

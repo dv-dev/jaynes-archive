@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/second.law/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/second.law.html
+source_url: http://127.0.0.1:59555/papers/second.law/
+clean_html: /tmp/paper-clean-pdf-h88k031o/second.law.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/second.law.pdf
-duration_sec: 0.832
+duration_sec: 0.871
 
 === STDOUT ===
 
 
 === STDERR ===
-262988 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/second.law.pdf
+260884 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/second.law.pdf
 

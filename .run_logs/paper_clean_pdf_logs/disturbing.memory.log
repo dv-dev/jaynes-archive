@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/disturbing.memory/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/disturbing.memory.html
+source_url: http://127.0.0.1:59555/papers/disturbing.memory/
+clean_html: /tmp/paper-clean-pdf-h88k031o/disturbing.memory.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/disturbing.memory.pdf
-duration_sec: 0.602
+duration_sec: 0.686
 
 === STDOUT ===
 
 
 === STDERR ===
-227534 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/disturbing.memory.pdf
+239516 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/disturbing.memory.pdf
 

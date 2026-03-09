@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/present.status/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/present.status.html
+source_url: http://127.0.0.1:59555/papers/present.status/
+clean_html: /tmp/paper-clean-pdf-h88k031o/present.status.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/present.status.pdf
-duration_sec: 0.535
+duration_sec: 0.796
 
 === STDOUT ===
 
 
 === STDERR ===
-268155 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/present.status.pdf
+293710 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/present.status.pdf
 

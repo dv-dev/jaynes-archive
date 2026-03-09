@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/displacement/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/displacement.html
+source_url: http://127.0.0.1:59555/papers/displacement/
+clean_html: /tmp/paper-clean-pdf-h88k031o/displacement.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/displacement.pdf
-duration_sec: 0.491
+duration_sec: 0.65
 
 === STDOUT ===
 
 
 === STDERR ===
-112875 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/displacement.pdf
+128426 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/displacement.pdf
 

@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/propagation.in.waveguides/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/propagation.in.waveguides.html
+source_url: http://127.0.0.1:59555/papers/propagation.in.waveguides/
+clean_html: /tmp/paper-clean-pdf-h88k031o/propagation.in.waveguides.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/propagation.in.waveguides.pdf
-duration_sec: 0.719
+duration_sec: 0.964
 
 === STDOUT ===
 
 
 === STDERR ===
-200898 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/propagation.in.waveguides.pdf
+201646 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/propagation.in.waveguides.pdf
 

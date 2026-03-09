@@ -160,7 +160,7 @@ def build_clean_html(source_html: str, slug: str) -> str:
     body {{
       font-family: "Times New Roman", Times, serif;
       color: #111111;
-      font-size: 15pt;
+      font-size: 13.5pt;
       line-height: 1.52;
       margin: 0;
       background: #fff;

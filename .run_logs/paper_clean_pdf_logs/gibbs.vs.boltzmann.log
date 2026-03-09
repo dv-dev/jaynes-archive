@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/gibbs.vs.boltzmann/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/gibbs.vs.boltzmann.html
+source_url: http://127.0.0.1:59555/papers/gibbs.vs.boltzmann/
+clean_html: /tmp/paper-clean-pdf-h88k031o/gibbs.vs.boltzmann.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.vs.boltzmann.pdf
-duration_sec: 0.847
+duration_sec: 0.798
 
 === STDOUT ===
 
 
 === STDERR ===
-300306 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.vs.boltzmann.pdf
+298500 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/gibbs.vs.boltzmann.pdf
 

@@ -1,11 +1,12 @@
-source_url: http://127.0.0.1:39285/papers/stand.on.entropy/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/stand.on.entropy.html
+source_url: http://127.0.0.1:59555/papers/stand.on.entropy/
+clean_html: /tmp/paper-clean-pdf-h88k031o/stand.on.entropy.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
-duration_sec: 4.707
+duration_sec: 7.153
 
 === STDOUT ===
 
 
 === STDERR ===
-1379404 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
+[343791:343819:0308/215128.941841:ERROR:google_apis/gcm/engine/registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+1352862 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/stand.on.entropy.pdf
 

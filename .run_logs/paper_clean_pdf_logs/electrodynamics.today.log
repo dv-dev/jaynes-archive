@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/electrodynamics.today/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/electrodynamics.today.html
+source_url: http://127.0.0.1:59555/papers/electrodynamics.today/
+clean_html: /tmp/paper-clean-pdf-h88k031o/electrodynamics.today.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/electrodynamics.today.pdf
-duration_sec: 0.765
+duration_sec: 0.806
 
 === STDOUT ===
 
 
 === STDERR ===
-364458 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/electrodynamics.today.pdf
+361625 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/electrodynamics.today.pdf
 

@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/backward.look/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/backward.look.html
+source_url: http://127.0.0.1:59555/papers/backward.look/
+clean_html: /tmp/paper-clean-pdf-h88k031o/backward.look.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/backward.look.pdf
-duration_sec: 0.609
+duration_sec: 0.848
 
 === STDOUT ===
 
 
 === STDERR ===
-344718 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/backward.look.pdf
+353557 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/backward.look.pdf
 

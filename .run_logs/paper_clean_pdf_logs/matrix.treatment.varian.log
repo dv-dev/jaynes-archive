@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/matrix.treatment.varian/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/matrix.treatment.varian.html
+source_url: http://127.0.0.1:59555/papers/matrix.treatment.varian/
+clean_html: /tmp/paper-clean-pdf-h88k031o/matrix.treatment.varian.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/matrix.treatment.varian.pdf
-duration_sec: 1.891
+duration_sec: 1.909
 
 === STDOUT ===
 
 
 === STDERR ===
-502922 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/matrix.treatment.varian.pdf
+498145 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/matrix.treatment.varian.pdf
 

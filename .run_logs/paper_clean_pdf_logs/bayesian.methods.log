@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/bayesian.methods/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/bayesian.methods.html
+source_url: http://127.0.0.1:59555/papers/bayesian.methods/
+clean_html: /tmp/paper-clean-pdf-h88k031o/bayesian.methods.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayesian.methods.pdf
-duration_sec: 0.497
+duration_sec: 0.67
 
 === STDOUT ===
 
 
 === STDERR ===
-180162 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayesian.methods.pdf
+188681 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/bayesian.methods.pdf
 

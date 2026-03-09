@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/review.extended.prob/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/review.extended.prob.html
+source_url: http://127.0.0.1:59555/papers/review.extended.prob/
+clean_html: /tmp/paper-clean-pdf-h88k031o/review.extended.prob.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/review.extended.prob.pdf
-duration_sec: 2.459
+duration_sec: 2.069
 
 === STDOUT ===
 
 
 === STDERR ===
-809710 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/review.extended.prob.pdf
+801885 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/review.extended.prob.pdf
 

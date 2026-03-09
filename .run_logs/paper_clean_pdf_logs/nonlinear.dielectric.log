@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/nonlinear.dielectric/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/nonlinear.dielectric.html
+source_url: http://127.0.0.1:59555/papers/nonlinear.dielectric/
+clean_html: /tmp/paper-clean-pdf-h88k031o/nonlinear.dielectric.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/nonlinear.dielectric.pdf
-duration_sec: 0.784
+duration_sec: 0.906
 
 === STDOUT ===
 
 
 === STDERR ===
-270284 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/nonlinear.dielectric.pdf
+267437 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/nonlinear.dielectric.pdf
 

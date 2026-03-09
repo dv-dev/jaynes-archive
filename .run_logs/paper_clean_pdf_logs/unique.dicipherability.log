@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/unique.dicipherability/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/unique.dicipherability.html
+source_url: http://127.0.0.1:59555/papers/unique.dicipherability/
+clean_html: /tmp/paper-clean-pdf-h88k031o/unique.dicipherability.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/unique.dicipherability.pdf
-duration_sec: 0.797
+duration_sec: 1.06
 
 === STDOUT ===
 
 
 === STDERR ===
-247523 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/unique.dicipherability.pdf
+247024 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/unique.dicipherability.pdf
 

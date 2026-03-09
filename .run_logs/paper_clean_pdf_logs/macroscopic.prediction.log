@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/macroscopic.prediction/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/macroscopic.prediction.html
+source_url: http://127.0.0.1:59555/papers/macroscopic.prediction/
+clean_html: /tmp/paper-clean-pdf-h88k031o/macroscopic.prediction.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/macroscopic.prediction.pdf
-duration_sec: 0.839
+duration_sec: 0.838
 
 === STDOUT ===
 
 
 === STDERR ===
-373599 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/macroscopic.prediction.pdf
+372156 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/macroscopic.prediction.pdf
 

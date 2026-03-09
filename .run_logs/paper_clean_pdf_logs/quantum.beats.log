@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/quantum.beats/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/quantum.beats.html
+source_url: http://127.0.0.1:59555/papers/quantum.beats/
+clean_html: /tmp/paper-clean-pdf-h88k031o/quantum.beats.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/quantum.beats.pdf
-duration_sec: 0.626
+duration_sec: 0.832
 
 === STDOUT ===
 
 
 === STDERR ===
-198567 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/quantum.beats.pdf
+196138 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/quantum.beats.pdf
 

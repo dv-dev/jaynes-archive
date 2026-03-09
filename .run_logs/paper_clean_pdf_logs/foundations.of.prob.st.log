@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/foundations.of.prob.st/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/foundations.of.prob.st.html
+source_url: http://127.0.0.1:59555/papers/foundations.of.prob.st/
+clean_html: /tmp/paper-clean-pdf-h88k031o/foundations.of.prob.st.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/foundations.of.prob.st.pdf
-duration_sec: 0.804
+duration_sec: 0.697
 
 === STDOUT ===
 
 
 === STDERR ===
-363300 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/foundations.of.prob.st.pdf
+357539 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/foundations.of.prob.st.pdf
 

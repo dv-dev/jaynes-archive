@@ -1,11 +1,11 @@
-source_url: http://127.0.0.1:39285/papers/inadequacy/
-clean_html: /tmp/paper-clean-pdf-udm1twm9/inadequacy.html
+source_url: http://127.0.0.1:59555/papers/inadequacy/
+clean_html: /tmp/paper-clean-pdf-h88k031o/inadequacy.html
 output_pdf: /home/dave/Projects/jaynes-archive/static/pdfs/clean/inadequacy.pdf
-duration_sec: 0.701
+duration_sec: 0.669
 
 === STDOUT ===
 
 
 === STDERR ===
-348387 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/inadequacy.pdf
+343095 bytes written to file /home/dave/Projects/jaynes-archive/static/pdfs/clean/inadequacy.pdf
 
